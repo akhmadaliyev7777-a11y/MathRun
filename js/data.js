@@ -652,10 +652,6 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/6-matematika-oddiy-kasrlar.html", test: null
             },
             {
-              id: "takrorlash-1", title: "Takrorlash", page: "49-bet",
-              lecture: { text: "Ushbu bo'lim «Algebra» va «Oddiy kasrlar» mavzularini mustahkamlash uchun aralash mashqlar to'plamidir.", embedUrl: null }, interactive: "lessons/6-matematika-takrorlash.html", test: null
-            },
-            {
               id: "nisbatlar", title: "3. Nisbatlar", page: "51-bet",
               sections: [
                 secText("Eslang",
@@ -717,10 +713,6 @@ const SITE_DATA = {
                 )
               ],
               lecture: { embedUrl: null }, interactive: null, test: null
-            },
-            {
-              id: "takrorlash-2", title: "Takrorlash", page: "113-bet",
-              lecture: { text: "Ushbu bo'lim «Nisbatlar» va «Foizlar» mavzularini mustahkamlash uchun aralash mashqlar to'plamidir.", embedUrl: null }, interactive: null, test: null
             },
             {
               id: "geometrik-burchaklar", title: "5. Geometrik shakllardagi burchaklar", page: "115-bet",
@@ -792,10 +784,6 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "takrorlash-3", title: "Takrorlash", page: "163-bet",
-              lecture: { text: "Ushbu bo'lim «Geometrik shakllardagi burchaklar» va «Doira va aylana» mavzularini mustahkamlash uchun aralash mashqlar to'plamidir.", embedUrl: null }, interactive: null, test: null
-            },
-            {
               id: "tezlik", title: "7. Tezlik", page: "2-qism, 1-bet",
               sections: [
                 secText("Eslang",
@@ -864,10 +852,6 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "takrorlash-4", title: "Takrorlash", page: "2-qism, 49-bet",
-              lecture: { text: "Ushbu bo'lim «Tezlik» va «Hajm» mavzularini mustahkamlash uchun aralash mashqlar to'plamidir.", embedUrl: null }, interactive: null, test: null
-            },
-            {
               id: "doiraviy-diagrammalar", title: "9. Doiraviy diagrammalar", page: "2-qism, 51-bet",
               sections: [
                 secText("Eslang",
@@ -924,14 +908,6 @@ const SITE_DATA = {
               ],
               lecture: { embedUrl: null }, interactive: "lessons/5-matematika-hajm.html", test: null
             },
-            {
-              id: "takrorlash-5", title: "Takrorlash", page: "2-qism, 91-bet",
-              lecture: { text: "Ushbu bo'lim «Doiraviy diagrammalar» va «Fazoviy jismlar va ularning yoyilmalari» mavzularini mustahkamlash uchun aralash mashqlar to'plamidir.", embedUrl: null }, interactive: null, test: null
-            },
-            {
-              id: "umumiy-takrorlash", title: "Umumiy takrorlash", page: "2-qism, 95-bet",
-              lecture: { text: "6-sinf davomida o'tilgan barcha mavzular bo'yicha yakuniy aralash mashqlar to'plami.", embedUrl: null }, interactive: null, test: null
-            }
           ]
         }
       ]
