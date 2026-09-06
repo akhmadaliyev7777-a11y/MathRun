@@ -944,23 +944,41 @@ const SITE_DATA = {
           id: "algebra",
           name: "Algebra",
           topics: [
-            { id: "algebraik-ifodalar", title: "Algebraik ifodalar", lecture: { text: "O'zgaruvchili ifodalar va ularni soddalashtirish.", embedUrl: null }, interactive: null, test: null },
-            { id: "kophadlar", title: "Bir hadlar va ko'phadlar", lecture: { text: "Bir had va ko'phad ustida amallar.", embedUrl: null }, interactive: null, test: null },
-            { id: "qisqa-kopaytirish", title: "Qisqa ko'paytirish formulalari", lecture: { text: "Kvadratlar ayirmasi, yig'indi va ayirma kvadrati formulalari.", embedUrl: null }, interactive: "lessons/7-algebra-qisqa-kopaytirish.html", test: null },
-            { id: "chiziqli-tenglama", title: "Chiziqli tenglamalar", lecture: { text: "Bir noma'lumli chiziqli tenglamalarni yechish.", embedUrl: null }, interactive: "lessons/7-algebra-chiziqli-tenglama.html", test: null },
-            { id: "tenglamalar-sistemasi", title: "Chiziqli tenglamalar sistemasi", lecture: { text: "Ikki noma'lumli chiziqli tenglamalar sistemasini yechish usullari.", embedUrl: null }, interactive: null, test: null },
-            { id: "funksiya-tushunchasi", title: "Funksiya tushunchasi, y = kx + b", lecture: { text: "Chiziqli funksiya va uning grafigi.", embedUrl: null }, interactive: null, test: null }
+            { id: "tub-sonlar-daraja", title: "1.1 Tub sonlar, tub ko'paytuvchilarga ajratish va daraja", page: "1-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "ekub", title: "1.2 Eng katta umumiy bo'luvchi (EKUB)", page: "1-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "ekuk", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "1-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kvadrat-kub-ildiz", title: "1.4 Sonning kvadrat ildizi va kub ildizi", page: "1-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "manfiy-son-sonlar-oqi", title: "2.1 Manfiy son tushunchasi va sonlar o'qi", page: "27/31-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "butun-sonlar-qoshish-ayirish", title: "2.2 Butun sonlarni qo'shish va ayirish", page: "27/31-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "butun-sonlar-kopaytirish-bolish", title: "2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar", page: "27/31-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "ratsional-irratsional-haqiqiy-sonlar", title: "2.4 Ratsional, irratsional va haqiqiy sonlar", page: "27/31-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "haqiqiy-sonlar-amallar", title: "2.5 Haqiqiy sonlar ustida amallar", page: "27/31-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "xonagacha-yaxlitlash", title: "3.1 Sonlarni belgilangan xonasigacha yaxlitlash", page: "53/65-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "ahamiyatli-raqamgacha-yaxlitlash", title: "3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash", page: "53/65-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "chamalash", title: "3.3 Chamalash", page: "53/65-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "algebraga-kirish", title: "4.1 Algebraga kirish", page: "71/89-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "chiziqli-ifodalarni-soddalashtirish", title: "4.2 Chiziqli ifodalarni soddalashtirish", page: "71/89-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "qavslarni-ochish", title: "4.3 Chiziqli ifodalarda qavslarni ochish", page: "71/89-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kopaytuvchilarga-ajratish", title: "4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish", page: "71/89-bet", lecture: { text: null, embedUrl: null }, interactive: "lessons/7-algebra-kopaytuvchilarga-ajratish.html", test: null },
+            { id: "nazorat-1", title: "Bilimlaringizni sinab ko'ring (1-nazorat ishi)", page: "95/121-bet", lecture: { text: "1-4-boblar (sonlar va algebra asoslari) bo'yicha yakuniy nazorat ishi namunasi.", embedUrl: null }, interactive: null, test: null },
+            { id: "sodda-chiziqli-tenglamalar", title: "5.1 Sodda chiziqli tenglamalar", page: "101/123-bet", lecture: { text: null, embedUrl: null }, interactive: "lessons/7-algebra-sodda-chiziqli-tenglamalar.html", test: null },
+            { id: "qavs-kasr-chiziqli-tenglamalar", title: "5.2 Qavs va kasrlar qatnashgan chiziqli tenglamalar", page: "101/123-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "sodda-kasr-chiziqli-tenglamalar", title: "5.3 Sodda kasr-chiziqli tenglamalar", page: "101/123-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "tenglama-matnli-masalalar", title: "5.4 Chiziqli tenglama tuzib yechiladigan matnli masalalar", page: "101/123-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null }
           ]
         },
         {
           id: "geometriya",
           name: "Geometriya",
           topics: [
-            { id: "kesma-burchak", title: "Kesma, burchak va ularni o'lchash", lecture: { text: "Asosiy geometrik tushunchalar va o'lchash usullari.", embedUrl: null }, interactive: null, test: null },
-            { id: "uchburchak-tengligi", title: "Uchburchaklar va ularning tengligi", lecture: { text: "Uchburchaklar tengligi alomatlari.", embedUrl: null }, interactive: null, test: null },
-            { id: "parallel-chiziqlar", title: "Parallel to'g'ri chiziqlar", lecture: { text: "Parallellik alomatlari va xossalari.", embedUrl: null }, interactive: null, test: null },
-            { id: "uchburchak-burchaklari", title: "Uchburchak burchaklari yig'indisi haqida teorema", lecture: { text: "Uchburchak ichki burchaklari yig'indisi 180 gradus ekanligi.", embedUrl: null }, interactive: null, test: null },
-            { id: "aylana-doira", title: "Aylana va doira", lecture: { text: "Aylana va doiraning asosiy elementlari.", embedUrl: null }, interactive: "lessons/7-geometriya-aylana-doira.html", test: null }
+            { id: "nuqta-togri-chiziq-tekislik", title: "6.1 Nuqta, to'g'ri chiziq va tekislik", page: "127/145-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "burchaklar-tushunchasi", title: "6.2 Burchaklar", page: "127/145-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "parallel-chiziqlar-kesuvchi", title: "6.3 Parallel to'g'ri chiziqlar va kesuvchi", page: "127/145-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "uchburchaklar-7sinf", title: "7.1 Uchburchaklar", page: "153/167-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "tortburchaklar-7sinf", title: "7.2 To'rtburchaklar", page: "153/167-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kopburchaklar", title: "7.3 Ko'pburchaklar", page: "153/167-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "uchburchak-tortburchak-yasash", title: "7.4 Uchburchak va to'rtburchaklarni yasash", page: "153/167-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "yakuniy-nazorat", title: "Yakuniy nazorat ishi namunasi", page: "195/209-bet", lecture: { text: "5-7-boblar (tenglamalar va geometriya) bo'yicha yarim yillik/yakuniy nazorat ishi namunasi.", embedUrl: null }, interactive: null, test: null }
           ]
         }
       ]
