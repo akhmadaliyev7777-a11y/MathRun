@@ -20,9 +20,18 @@ function topicHref(gradeId, subjectId, topicId) {
   return "mavzu.html?sinf=" + gradeId + "&fan=" + subjectId + "&mavzu=" + topicId;
 }
 
+function topicHasLecture(topic) {
+  if (topic.sections && topic.sections.length > 0) {
+    return topic.sections.some(function (s) { return !!s.text; });
+  }
+  return !!(topic.lecture && (topic.lecture.text || topic.lecture.embedUrl));
+}
+
 function topicStatusBadge(topic) {
-  if (topic.interactive) return '<span class="badge badge-interactive">Interaktiv</span>';
-  return '<span class="badge badge-lecture">Ma\'ruza</span>';
+  const badges = [];
+  if (topicHasLecture(topic)) badges.push('<span class="badge badge-lecture">Ma\'ruza</span>');
+  if (topic.interactive) badges.push('<span class="badge badge-interactive">Interaktiv</span>');
+  return badges.join(" ");
 }
 
 // ---------- Bosh sahifa: sinflar to'ri ----------
