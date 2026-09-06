@@ -944,6 +944,7 @@ const SITE_DATA = {
           id: "algebra",
           name: "Algebra",
           topics: [
+            { id: "6sinf-takrorlash", title: "6-sinfda o'tilganlarni takrorlash", page: "6-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "tub-sonlar-daraja", title: "1.1 Tub sonlar, tub ko'paytuvchilarga ajratish va daraja", page: "1-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "ekub", title: "1.2 Eng katta umumiy bo'luvchi (EKUB)", page: "1-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "ekuk", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "1-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
@@ -956,15 +957,66 @@ const SITE_DATA = {
             { id: "xonagacha-yaxlitlash", title: "3.1 Sonlarni belgilangan xonasigacha yaxlitlash", page: "53/65-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "ahamiyatli-raqamgacha-yaxlitlash", title: "3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash", page: "53/65-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "chamalash", title: "3.3 Chamalash", page: "53/65-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
+            { id: "sonli-ifodalar", title: "Sonli ifodalar", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "algebraik-ifodalar-tushunchasi", title: "Algebraik ifodalar", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "algebraik-tengliklar-formulalar", title: "Algebraik tengliklar, formulalar", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "qavs-qoidasi-koeffitsiyent", title: "Qavslarni ochish qoidasi va koeffitsiyent", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "arifmetik-amallar-xossalari", title: "Arifmetik amallarning xossalari", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "natural-korsatkichli-daraja", title: "Natural ko'rsatkichli daraja", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "daraja-xossalari", title: "Natural ko'rsatkichli darajaning xossalari", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "birhad-standart-shakli", title: "Birhad va uning standart shakli", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "birhadlarni-kopaytirish-bolish", title: "Birhadlarni ko'paytirish va bo'lish", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kophadlar-tushunchasi", title: "Ko'phadlar", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "oxshash-hadlar-ixchamlash", title: "O'xshash hadlar va ularni ixchamlash", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kophadlarni-qoshish-ayirish", title: "Ko'phadlarni qo'shish va ayirish", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kophadlarni-kopaytirish", title: "Ko'phadlarni ko'paytirish", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kophadlarni-bolish", title: "Ko'phadlarni bo'lish", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
+            { id: "yigindi-ayirma-kvadrati", title: "Yig'indining kvadrati va ayirmaning kvadrati", page: "57-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kvadratlar-ayirmasi", title: "Kvadratlar ayirmasi", page: "57-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "yigindi-ayirma-kubi", title: "Yig'indining kubi. Ayirmaning kubi", page: "57-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kublar-yigindisi-ayirmasi", title: "Kublar yig'indisi va ayirmasi", page: "57-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kopaytuvchilarga-ajratish-usullari", title: "Ko'paytuvchilarga ajratish usullari", page: "57-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "qisqa-kopaytirish-tatbiqi", title: "Qisqa ko'paytirish formulalarining tatbiqi", page: "57-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
             { id: "algebraga-kirish", title: "4.1 Algebraga kirish", page: "71/89-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "chiziqli-ifodalarni-soddalashtirish", title: "4.2 Chiziqli ifodalarni soddalashtirish", page: "71/89-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "qavslarni-ochish", title: "4.3 Chiziqli ifodalarda qavslarni ochish", page: "71/89-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "kopaytuvchilarga-ajratish", title: "4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish", page: "71/89-bet", lecture: { text: null, embedUrl: null }, interactive: "lessons/7-algebra-kopaytuvchilarga-ajratish.html", test: null },
+
+            { id: "algebraik-kasr-qisqartirish", title: "Algebraik kasr. Kasrlarni qisqartirish", page: "75-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kasrlarni-umumiy-maxrajga-keltirish", title: "Algebraik kasrlarni umumiy maxrajga keltirish", page: "75-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kasrlarni-qoshish-ayirish", title: "Algebraik kasrlarni qo'shish va ayirish", page: "75-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kasrlarni-kopaytirish-bolish", title: "Algebraik kasrlarni ko'paytirish va bo'lish", page: "75-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "loyiha-ishi-1", title: "Loyiha ishi", page: "75-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
             { id: "nazorat-1", title: "Bilimlaringizni sinab ko'ring (1-nazorat ishi)", page: "95/121-bet", lecture: { text: "1-4-boblar (sonlar va algebra asoslari) bo'yicha yakuniy nazorat ishi namunasi.", embedUrl: null }, interactive: null, test: null },
+
+            { id: "tenglama-va-ildizi", title: "Tenglama va uning ildizi", page: "95-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "sodda-chiziqli-tenglamalar", title: "5.1 Sodda chiziqli tenglamalar", page: "101/123-bet", lecture: { text: null, embedUrl: null }, interactive: "lessons/7-algebra-sodda-chiziqli-tenglamalar.html", test: null },
             { id: "qavs-kasr-chiziqli-tenglamalar", title: "5.2 Qavs va kasrlar qatnashgan chiziqli tenglamalar", page: "101/123-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "sodda-kasr-chiziqli-tenglamalar", title: "5.3 Sodda kasr-chiziqli tenglamalar", page: "101/123-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
-            { id: "tenglama-matnli-masalalar", title: "5.4 Chiziqli tenglama tuzib yechiladigan matnli masalalar", page: "101/123-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null }
+            { id: "tenglama-matnli-masalalar", title: "5.4 Chiziqli tenglama tuzib yechiladigan matnli masalalar", page: "101/123-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "al-xorazmiy-usuli", title: "Tenglamalar yechishning al-Xorazmiy usuli", page: "95-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
+            { id: "dekart-koordinatalar-sistemasi", title: "Dekart koordinatalar sistemasi", page: "112-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "funksiya-tushunchasi-7sinf", title: "Funksiya tushunchasi", page: "112-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "chiziqli-funksiya", title: "Chiziqli funksiya", page: "112-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "loyiha-ishi-2", title: "Loyiha ishi", page: "112-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
+            { id: "tenglamalar-sistemasi", title: "Chiziqli tenglamalar sistemasi", page: "131-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "sistema-yechish-usullari", title: "Chiziqli tenglamalar sistemasini yechish usullari", page: "131-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "sistema-masalalar", title: "Chiziqli tenglamalar sistemasi yordamida masalalar yechish", page: "131-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
+            { id: "kombinatorika-qoidalari", title: "Kombinatorikaning asosiy qoidalari", page: "146-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kombinatorik-masalalar-turlari", title: "Kombinatorik masalalar turlari", page: "146-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kombinatorik-masalalar-usullari", title: "Kombinatorik masalalarni yechish usullari", page: "146-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
+            { id: "takrorlash-yakuniy", title: "Takrorlash", page: "160-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "qoshimcha-topshiriqlar", title: "Qo'shimcha topshiriqlar", page: "173-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "xalqaro-baholash-topshiriqlari", title: "Xalqaro baholash dasturiga oid topshiriqlar", page: "183-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "mantiqiy-topshiriqlar", title: "Mantiqiy topshiriqlar", page: "187-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null }
           ]
         },
         {
