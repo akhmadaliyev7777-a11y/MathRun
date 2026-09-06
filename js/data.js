@@ -1021,10 +1021,12 @@ const SITE_DATA = {
           id: "geometriya",
           name: "Geometriya (2022-yil)",
           topics: [
+            { id: "eng-sodda-geometrik-shakllar", title: "Eng sodda geometrik shakllar", page: "8-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "kesma-taqqoslash-olchash", title: "Kesma. Kesmalarni taqqoslash va o'lchash", page: "17-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "burchak-taqqoslash-olchash", title: "Burchak. Burchaklarni taqqoslash va o'lchash", page: "29-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "burchak-turlari", title: "Burchakning turlari", page: "45-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "perpendikulyar-togri-chiziqlar", title: "Perpendikulyar to'g'ri chiziqlar", page: "53-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "uchburchaklar-turlari-elementlari", title: "Uchburchaklar, ularning turlari va elementlari", page: "72-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "uchburchak-tenglik-1", title: "Uchburchaklar tengligining birinchi alomati", page: "79-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "teng-yonli-uchburchak-xossalari", title: "Teng yonli uchburchakning xossalari", page: "82-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "uchburchak-tenglik-2", title: "Uchburchaklar tengligining ikkinchi alomati", page: "85-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
