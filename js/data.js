@@ -1024,12 +1024,40 @@ const SITE_DATA = {
           name: "Geometriya",
           topics: [
             { id: "nuqta-togri-chiziq-tekislik", title: "6.1 Nuqta, to'g'ri chiziq va tekislik", page: "127/145-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kesma-taqqoslash-olchash", title: "Kesma. Kesmalarni taqqoslash va o'lchash", page: "17-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
             { id: "burchaklar-tushunchasi", title: "6.2 Burchaklar", page: "127/145-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
-            { id: "parallel-chiziqlar-kesuvchi", title: "6.3 Parallel to'g'ri chiziqlar va kesuvchi", page: "127/145-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "burchak-taqqoslash-olchash", title: "Burchak. Burchaklarni taqqoslash va o'lchash", page: "29-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "amaliy-mashq-1bob-1", title: "Amaliy mashq va tatbiq — I bob (1)", page: "38-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "burchak-turlari", title: "Burchakning turlari", page: "45-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "perpendikulyar-togri-chiziqlar", title: "Perpendikulyar to'g'ri chiziqlar", page: "53-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "amaliy-mashq-1bob-2", title: "Amaliy mashq va tatbiq — I bob (2)", page: "61-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
             { id: "uchburchaklar-7sinf", title: "7.1 Uchburchaklar", page: "153/167-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "uchburchak-tenglik-1", title: "Uchburchaklar tengligining birinchi alomati", page: "79-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "teng-yonli-uchburchak-xossalari", title: "Teng yonli uchburchakning xossalari", page: "82-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "uchburchak-tenglik-2", title: "Uchburchaklar tengligining ikkinchi alomati", page: "85-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "uchburchak-tenglik-3", title: "Uchburchaklar tengligining uchinchi alomati", page: "87-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "amaliy-mashq-2bob", title: "Amaliy mashq va tatbiq — II bob", page: "91-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
+            { id: "parallel-chiziqlar-kesuvchi", title: "6.3 Parallel to'g'ri chiziqlar va kesuvchi", page: "127/145-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "parallel-togri-chiziqlar-tushunchasi", title: "Parallel to'g'ri chiziqlar", page: "100-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "parallellik-alomatlari", title: "Ikki to'g'ri chiziqning parallellik alomatlari", page: "105-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kesuvchi-hosil-qilgan-burchaklar", title: "Ikki parallel to'g'ri chiziq va kesuvchi hosil qilgan burchaklar", page: "109-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "amaliy-mashq-3bob", title: "Amaliy mashq va tatbiq — III bob", page: "114-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
+            { id: "uchburchak-ichki-burchaklar-yigindisi", title: "Uchburchakning ichki burchaklari yig'indisi", page: "124-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "togri-burchakli-uchburchaklar", title: "To'g'ri burchakli uchburchaklar", page: "131-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "bissektrisa-xossasi", title: "Burchak bissektrisasining xossasi", page: "135-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "tomon-burchak-munosabatlar", title: "Uchburchakning tomonlari va burchaklari orasidagi munosabatlar", page: "138-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "amaliy-mashq-4bob", title: "Amaliy mashq va tatbiq — IV bob", page: "142-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
             { id: "tortburchaklar-7sinf", title: "7.2 To'rtburchaklar", page: "153/167-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "kopburchaklar", title: "7.3 Ko'pburchaklar", page: "153/167-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "uchburchak-tortburchak-yasash", title: "7.4 Uchburchak va to'rtburchaklarni yasash", page: "153/167-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "sirkul-chizgich-yasash", title: "Sirkul va chizg'ich yordamida geometrik yasashga doir masalalar", page: "152-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "amaliy-mashq-5bob", title: "Amaliy mashq va tatbiq — V bob", page: "162-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+
             { id: "yakuniy-nazorat", title: "Yakuniy nazorat ishi namunasi", page: "195/209-bet", lecture: { text: "5-7-boblar (tenglamalar va geometriya) bo'yicha yarim yillik/yakuniy nazorat ishi namunasi.", embedUrl: null }, interactive: null, test: null }
           ]
         }
