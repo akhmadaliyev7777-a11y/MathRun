@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tub ko'paytuvchilarga ajratish</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:24px; min-height:100vh; gap:14px; }
+  .panel { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 16px rgba(31,36,51,.08); max-width:520px; width:100%; text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:14px; min-height:34px; }
+  svg { display:block; margin:0 auto 12px; }
+  .primes { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:12px; }
+  .pbtn { width:44px; height:44px; border:2px solid #4f5bd5; border-radius:10px; background:#fff; color:#4f5bd5; font-weight:800; font-size:1rem; cursor:pointer; }
+  .pbtn:hover { background:#eef0fb; }
+  .pbtn:disabled { opacity:.35; cursor:default; }
+  .result { font-family:ui-monospace,monospace; font-size:1.1rem; font-weight:800; color:#16a394; min-height:26px; margin-bottom:10px; }
+  .btn { padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>Tub ko'paytuvchilarga ajratish</h2>
+  <div class="hint" id="hint"></div>
+  <svg id="tree" width="360" height="230" viewBox="0 0 360 230"></svg>
+  <div class="primes" id="primes"></div>
+  <div class="result" id="result"></div>
+  <button class="btn" id="next">Boshqa son →</button>
+</div>
+
+<script>
+const NUMBERS = [60, 72, 84, 90, 120, 126];
+const PRIMES = [2, 3, 5, 7, 11, 13];
+
+let idx = 0;
+let current = 0;        // hozir ajratilayotgan son
+let factors = [];       // topilgan tub ko'paytuvchilar
+
+function smallestPrime(n) {
+  for (const p of PRIMES) if (n % p === 0) return p;
+  return n;
+}
+
+function drawTree() {
+  const svg = document.getElementById("tree");
+  const start = NUMBERS[idx];
+  let s = "";
+  // chap ustunda tub bo'luvchilar, o'ngda qolgan son — "narvon" ko'rinishi
+  let y = 26, x = 180, running = start;
+  s += '<text x="' + x + '" y="' + y + '" font-size="16" font-weight="700" text-anchor="middle" fill="#1f2433">' + running + '</text>';
+  for (let k = 0; k < factors.length; k++) {
+    const p = factors[k];
+    const ny = y + 34;
+    s += '<line x1="' + (x - 6) + '" y1="' + (y + 6) + '" x2="' + (x - 34) + '" y2="' + (ny - 8) + '" stroke="#4f5bd5" stroke-width="2"/>';
+    s += '<line x1="' + (x + 6) + '" y1="' + (y + 6) + '" x2="' + (x + 34) + '" y2="' + (ny - 8) + '" stroke="#4f5bd5" stroke-width="2"/>';
+    s += '<text x="' + (x - 42) + '" y="' + ny + '" font-size="15" font-weight="800" text-anchor="middle" fill="#16a394">' + p + '</text>';
+    running = running / p;
+    const done = running === 1;
+    s += '<text x="' + (x + 42) + '" y="' + ny + '" font-size="15" font-weight="700" text-anchor="middle" fill="' + (done ? "#16a394" : "#1f2433") + '">' + running + '</text>';
+    y = ny; x = x + 42;
+  }
+  svg.innerHTML = s;
+}
+
+function toPowerString() {
+  const counts = {};
+  factors.forEach(function (p) { counts[p] = (counts[p] || 0) + 1; });
+  return Object.keys(counts).map(function (p) {
+    return counts[p] > 1 ? p + "^" + counts[p] : p;
+  }).join(" · ");
+}
+
+function render() {
+  const primesEl = document.getElementById("primes");
+  primesEl.innerHTML = PRIMES.map(function (p) {
+    return '<button class="pbtn" data-p="' + p + '">' + p + '</button>';
+  }).join("");
+  primesEl.querySelectorAll(".pbtn").forEach(function (btn) {
+    btn.addEventListener("click", function () { choose(Number(btn.dataset.p)); });
+  });
+  update();
+}
+
+function update() {
+  const done = current === 1;
+  document.getElementById("hint").textContent = done
+    ? "Ajratish tugadi! Barcha ko'paytuvchilar tub."
+    : current + " sonining eng kichik tub bo'luvchisini tanlang.";
+  document.querySelectorAll(".pbtn").forEach(function (btn) {
+    btn.disabled = done;
+  });
+  document.getElementById("result").textContent = done
+    ? NUMBERS[idx] + " = " + toPowerString()
+    : "";
+  drawTree();
+}
+
+function choose(p) {
+  if (current % p !== 0) {
+    document.getElementById("hint").textContent = current + " soni " + p + " ga bo'linmaydi. Boshqasini tanlang.";
+    return;
+  }
+  if (p !== smallestPrime(current)) {
+    document.getElementById("hint").textContent = "To'g'ri bo'luvchi, lekin eng kichigi emas. " + smallestPrime(current) + " ni sinab ko'ring.";
+    return;
+  }
+  factors.push(p);
+  current = current / p;
+  update();
+}
+
+document.getElementById("next").addEventListener("click", function () {
+  idx = (idx + 1) % NUMBERS.length;
+  current = NUMBERS[idx];
+  factors = [];
+  update();
+});
+
+current = NUMBERS[0];
+render();
+</script>
+</body>
+</html>

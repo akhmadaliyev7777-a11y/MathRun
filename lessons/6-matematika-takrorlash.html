@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aralash mashqlar — takrorlash</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:24px; min-height:100vh; gap:14px; }
+  .panel { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 16px rgba(31,36,51,.08); max-width:520px; width:100%; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .meta { color:#6b7280; font-size:.82rem; margin-bottom:14px; display:flex; justify-content:space-between; }
+  .q { font-size:1.05rem; font-weight:700; margin-bottom:14px; }
+  .opts { display:flex; flex-direction:column; gap:10px; }
+  .opt { text-align:left; padding:12px 16px; border:2px solid #eef0fb; border-radius:12px; background:#fff; font-family:inherit; font-size:.95rem; font-weight:600; cursor:pointer; transition:.12s; }
+  .opt:hover { border-color:#c9cff5; }
+  .opt.correct { border-color:#16a394; background:#e6f7f4; color:#0f7d70; }
+  .opt.wrong { border-color:#c73754; background:#fdeef1; color:#a3283f; }
+  .opt:disabled { cursor:default; }
+  .explain { margin-top:12px; font-size:.85rem; color:#6b7280; min-height:20px; }
+  .foot { margin-top:16px; display:flex; justify-content:space-between; align-items:center; }
+  .btn { padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+  .btn:disabled { opacity:.4; cursor:default; }
+  .score-big { text-align:center; padding:20px 0; }
+  .score-big .n { font-size:2.2rem; font-weight:800; color:#4f5bd5; }
+</style>
+</head>
+<body>
+
+<div class="panel" id="panel">
+  <h2>Aralash mashqlar</h2>
+  <div class="meta"><span id="progress"></span><span id="score"></span></div>
+  <div id="body"></div>
+  <div class="foot">
+    <span class="explain" id="explain"></span>
+    <button class="btn" id="next" disabled>Keyingi →</button>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [
+  { q: "2/3 : 4 amalining natijasi qanday?", opts: ["1/6", "8/3", "2/12 = 1/6", "6"], correct: 0,
+    explain: "Kasrni songa bo'lish — maxrajni songa ko'paytirish: 2/(3·4) = 2/12 = 1/6." },
+  { q: "3x + 5x − 2x ifodani soddalashtiring.", opts: ["6x", "10x", "6", "8x"], correct: 0,
+    explain: "O'xshash hadlar koeffitsientlari qo'shiladi: (3 + 5 − 2)x = 6x." },
+  { q: "x = 4 bo'lganda 2x + 3 ifodaning qiymati?", opts: ["11", "14", "9", "24"], correct: 0,
+    explain: "2·4 + 3 = 8 + 3 = 11." },
+  { q: "3 : 2/5 amalining natijasi?", opts: ["15/2", "6/5", "2/15", "5/6"], correct: 0,
+    explain: "Sonni kasrga bo'lish — teskarisiga ko'paytirish: 3 · 5/2 = 15/2 = 7½." },
+  { q: "12 va 18 sonlarining nisbati eng sodda ko'rinishda:", opts: ["2 : 3", "12 : 18", "6 : 9", "3 : 2"], correct: 0,
+    explain: "Ikkala sonni EKUB = 6 ga bo'lamiz: 12:6 = 2, 18:6 = 3." },
+  { q: "x + 7 = 15 tenglamaning ildizi?", opts: ["8", "22", "7", "15"], correct: 0,
+    explain: "Ikkala tomondan 7 ni ayiramiz: x = 15 − 7 = 8." },
+  { q: "2/3 : 3/4 amalining natijasi?", opts: ["8/9", "6/12", "9/8", "1/2"], correct: 0,
+    explain: "2/3 · 4/3 = 8/9." },
+  { q: "4a + 3 − a ifoda nechaga teng?", opts: ["3a + 3", "6a", "3a", "4a + 3 − a"], correct: 0,
+    explain: "O'xshash hadlar: (4 − 1)a + 3 = 3a + 3." }
+];
+
+let i = 0, score = 0, answered = false;
+
+function render() {
+  answered = false;
+  const item = QUESTIONS[i];
+  document.getElementById("progress").textContent = "Savol " + (i + 1) + " / " + QUESTIONS.length;
+  document.getElementById("score").textContent = "Ball: " + score;
+  document.getElementById("explain").textContent = "";
+  document.getElementById("next").disabled = true;
+
+  let html = '<div class="q">' + item.q + '</div><div class="opts">';
+  item.opts.forEach(function (o, k) {
+    html += '<button class="opt" data-k="' + k + '">' + o + '</button>';
+  });
+  html += '</div>';
+  document.getElementById("body").innerHTML = html;
+
+  document.querySelectorAll(".opt").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      if (answered) return;
+      answered = true;
+      const k = Number(btn.dataset.k);
+      const opts = document.querySelectorAll(".opt");
+      opts.forEach(function (b) { b.disabled = true; });
+      opts[item.correct].classList.add("correct");
+      if (k === item.correct) { score++; }
+      else { btn.classList.add("wrong"); }
+      document.getElementById("score").textContent = "Ball: " + score;
+      document.getElementById("explain").textContent = item.explain;
+      document.getElementById("next").disabled = false;
+    });
+  });
+}
+
+document.getElementById("next").addEventListener("click", function () {
+  i++;
+  if (i < QUESTIONS.length) { render(); }
+  else { finish(); }
+});
+
+function finish() {
+  document.getElementById("panel").innerHTML =
+    '<h2>Natija</h2>' +
+    '<div class="score-big"><div class="n">' + score + " / " + QUESTIONS.length + '</div>' +
+    '<p>' + (score === QUESTIONS.length ? "A'lo! Hammasi to'g'ri." : score >= QUESTIONS.length * 0.6 ? "Yaxshi natija — davom eting!" : "Mavzularni bir bor takrorlang.") + '</p></div>' +
+    '<div style="text-align:center"><button class="btn" id="restart">Qaytadan boshlash</button></div>';
+  document.getElementById("restart").addEventListener("click", function () {
+    i = 0; score = 0;
+    location.reload();
+  });
+}
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EKUB — umumiy bo'luvchilar</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:24px; min-height:100vh; gap:14px; }
+  .panel { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 16px rgba(31,36,51,.08); max-width:520px; width:100%; text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:16px; min-height:34px; }
+  .row { margin-bottom:14px; }
+  .row .lab { font-size:.8rem; font-weight:700; color:#4f5bd5; margin-bottom:6px; }
+  .chips { display:flex; gap:6px; justify-content:center; flex-wrap:wrap; }
+  .chip { min-width:36px; padding:6px 10px; border-radius:9px; background:#eef0fb; font-weight:700; font-size:.9rem; }
+  .chip.common { background:#4f5bd5; color:#fff; }
+  .chip.pick { cursor:pointer; border:2px solid #16a394; background:#e6f7f4; color:#0f7d70; }
+  .chip.pick:hover { background:#d3f0eb; }
+  .answer { font-size:1.15rem; font-weight:800; color:#16a394; min-height:26px; margin-bottom:10px; }
+  .btn { padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>EKUB — eng katta umumiy bo'luvchi</h2>
+  <div class="hint" id="hint"></div>
+  <div class="row"><div class="lab" id="labA"></div><div class="chips" id="chipsA"></div></div>
+  <div class="row"><div class="lab" id="labB"></div><div class="chips" id="chipsB"></div></div>
+  <div class="row"><div class="lab">Umumiy bo'luvchilar — eng kattasini tanlang:</div><div class="chips" id="chipsC"></div></div>
+  <div class="answer" id="answer"></div>
+  <button class="btn" id="next">Boshqa juftlik →</button>
+</div>
+
+<script>
+const PAIRS = [[24, 36], [18, 30], [40, 60], [48, 72], [16, 24], [45, 75]];
+let idx = 0, solved = false;
+
+function divisors(n) {
+  const d = [];
+  for (let i = 1; i <= n; i++) if (n % i === 0) d.push(i);
+  return d;
+}
+
+function render() {
+  solved = false;
+  const [a, b] = PAIRS[idx];
+  const da = divisors(a), db = divisors(b);
+  const common = da.filter(function (x) { return db.indexOf(x) !== -1; });
+  const ekub = Math.max.apply(null, common);
+
+  document.getElementById("labA").textContent = a + " sonining bo'luvchilari:";
+  document.getElementById("labB").textContent = b + " sonining bo'luvchilari:";
+  document.getElementById("chipsA").innerHTML = da.map(function (x) {
+    return '<span class="chip' + (common.indexOf(x) !== -1 ? " common" : "") + '">' + x + '</span>';
+  }).join("");
+  document.getElementById("chipsB").innerHTML = db.map(function (x) {
+    return '<span class="chip' + (common.indexOf(x) !== -1 ? " common" : "") + '">' + x + '</span>';
+  }).join("");
+  document.getElementById("chipsC").innerHTML = common.map(function (x) {
+    return '<span class="chip pick" data-v="' + x + '">' + x + '</span>';
+  }).join("");
+  document.getElementById("answer").textContent = "";
+  document.getElementById("hint").textContent =
+    "Ko'k rangdagilar — ikkala songa ham bo'linadigan umumiy bo'luvchilar. EKUB — ular ichida eng kattasi.";
+
+  document.querySelectorAll("#chipsC .pick").forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      if (solved) return;
+      const v = Number(chip.dataset.v);
+      if (v === ekub) {
+        solved = true;
+        document.getElementById("answer").textContent = "✓ EKUB(" + a + "; " + b + ") = " + ekub;
+        document.getElementById("hint").textContent = a + " = " + ekub + "·" + (a / ekub) + ",  " + b + " = " + ekub + "·" + (b / ekub) + ". Endi " + a + "/" + b + " kasrni " + ekub + " ga qisqartirish mumkin.";
+      } else {
+        document.getElementById("hint").textContent = v + " ham umumiy bo'luvchi, lekin eng kattasi emas. Kattaroq sonni tanlang.";
+      }
+    });
+  });
+}
+
+document.getElementById("next").addEventListener("click", function () {
+  idx = (idx + 1) % PAIRS.length;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

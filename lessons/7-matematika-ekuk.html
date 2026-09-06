@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EKUK — umumiy karralilar</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:24px; min-height:100vh; gap:14px; }
+  .panel { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 16px rgba(31,36,51,.08); max-width:520px; width:100%; text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:16px; min-height:34px; }
+  .row { margin-bottom:12px; }
+  .row .lab { font-size:.8rem; font-weight:700; margin-bottom:6px; }
+  .row.a .lab { color:#4f5bd5; }
+  .row.b .lab { color:#16a394; }
+  .chips { display:flex; gap:6px; justify-content:center; flex-wrap:wrap; }
+  .chip { min-width:34px; padding:6px 9px; border-radius:9px; background:#eef0fb; font-weight:700; font-size:.88rem; }
+  .row.b .chip { background:#e6f7f4; }
+  .chip.common { outline:3px solid #f0a500; }
+  .chip.pick { cursor:pointer; }
+  .chip.pick:hover { filter:brightness(.95); }
+  .answer { font-size:1.15rem; font-weight:800; color:#16a394; min-height:26px; margin-bottom:10px; }
+  .btn { padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>EKUK — eng kichik umumiy karrali</h2>
+  <div class="hint" id="hint"></div>
+  <div class="row a"><div class="lab" id="labA"></div><div class="chips" id="chipsA"></div></div>
+  <div class="row b"><div class="lab" id="labB"></div><div class="chips" id="chipsB"></div></div>
+  <div class="row"><div class="lab">Umumiy karralilardan eng kichigini tanlang:</div><div class="chips" id="chipsC"></div></div>
+  <div class="answer" id="answer"></div>
+  <button class="btn" id="next">Boshqa juftlik →</button>
+</div>
+
+<script>
+const PAIRS = [[4, 6], [6, 8], [9, 12], [8, 10], [5, 6], [10, 15]];
+let idx = 0, solved = false;
+
+function multiples(n, count) {
+  const m = [];
+  for (let i = 1; i <= count; i++) m.push(n * i);
+  return m;
+}
+
+function render() {
+  solved = false;
+  const [a, b] = PAIRS[idx];
+  const ekuk = (function () {
+    function gcd(x, y) { return y ? gcd(y, x % y) : x; }
+    return a * b / gcd(a, b);
+  })();
+  const listA = multiples(a, 8);
+  const listB = multiples(b, 8);
+  const common = listA.filter(function (x) { return listB.indexOf(x) !== -1; });
+
+  document.getElementById("labA").textContent = a + " ning karralilari:";
+  document.getElementById("labB").textContent = b + " ning karralilari:";
+  document.getElementById("chipsA").innerHTML = listA.map(function (x) {
+    return '<span class="chip' + (common.indexOf(x) !== -1 ? " common" : "") + '">' + x + '</span>';
+  }).join("");
+  document.getElementById("chipsB").innerHTML = listB.map(function (x) {
+    return '<span class="chip' + (common.indexOf(x) !== -1 ? " common" : "") + '">' + x + '</span>';
+  }).join("");
+  document.getElementById("chipsC").innerHTML = common.map(function (x) {
+    return '<span class="chip pick common" data-v="' + x + '">' + x + '</span>';
+  }).join("");
+  document.getElementById("answer").textContent = "";
+  document.getElementById("hint").textContent =
+    "Sariq halqali sonlar — ikkala ro'yxatda ham uchraydigan umumiy karralilar. EKUK — ular ichida eng kichigi.";
+
+  document.querySelectorAll("#chipsC .pick").forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      if (solved) return;
+      const v = Number(chip.dataset.v);
+      if (v === ekuk) {
+        solved = true;
+        document.getElementById("answer").textContent = "✓ EKUK(" + a + "; " + b + ") = " + ekuk;
+        document.getElementById("hint").textContent = "Tekshirish: " + ekuk + " = " + a + "·" + (ekuk / a) + " = " + b + "·" + (ekuk / b) + ". Bu — " + a + " va " + b + " maxrajli kasrlarning umumiy maxraji.";
+      } else {
+        document.getElementById("hint").textContent = v + " ham umumiy karrali, lekin eng kichigi emas. Kichikroq sonni tanlang.";
+      }
+    });
+  });
+}
+
+document.getElementById("next").addEventListener("click", function () {
+  idx = (idx + 1) % PAIRS.length;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

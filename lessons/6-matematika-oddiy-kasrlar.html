@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kasrni kasrga bo'lish</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:24px; min-height:100vh; gap:14px; }
+  .panel { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 16px rgba(31,36,51,.08); max-width:520px; width:100%; text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:16px; }
+  .pickers { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:16px; font-size:1.3rem; font-weight:800; }
+  .frac { display:inline-flex; flex-direction:column; align-items:center; }
+  .frac .n, .frac .d { display:flex; align-items:center; gap:6px; }
+  .frac .bar { width:56px; height:3px; background:#1f2433; margin:3px 0; }
+  .step { width:26px; height:26px; border:none; border-radius:8px; background:#eef0fb; color:#3a44b0; font-weight:800; font-size:1rem; cursor:pointer; line-height:1; }
+  .step:hover { background:#e0e3f9; }
+  .op { color:#4f5bd5; }
+  svg { display:block; margin:6px auto 12px; }
+  .work { font-family:ui-monospace,monospace; font-size:.95rem; color:#6b7280; margin-bottom:6px; min-height:22px; }
+  .result { font-size:1.15rem; font-weight:800; color:#16a394; margin-bottom:10px; min-height:24px; }
+  .btn { padding:10px 18px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+  .btn.primary { background:#4f5bd5; color:#fff; margin-right:8px; }
+  .btn.primary:hover { background:#3f49c0; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>Kasrni kasrga bo'lish</h2>
+  <div class="hint">Kasrlarni tanlang. «Bo'lishni ko'rsat» tugmasi ikkinchi kasrni teskarisiga aylantiradi va ko'paytiradi.</div>
+
+  <div class="pickers">
+    <span class="frac">
+      <span class="n"><button class="step" data-t="a" data-p="n" data-d="-1">−</button><b id="an">2</b><button class="step" data-t="a" data-p="n" data-d="1">+</button></span>
+      <span class="bar"></span>
+      <span class="d"><button class="step" data-t="a" data-p="d" data-d="-1">−</button><b id="ad">3</b><button class="step" data-t="a" data-p="d" data-d="1">+</button></span>
+    </span>
+    <span class="op" id="op">÷</span>
+    <span class="frac">
+      <span class="n"><button class="step" data-t="b" data-p="n" data-d="-1">−</button><b id="bn">3</b><button class="step" data-t="b" data-p="n" data-d="1">+</button></span>
+      <span class="bar"></span>
+      <span class="d"><button class="step" data-t="b" data-p="d" data-d="-1">−</button><b id="bd">4</b><button class="step" data-t="b" data-p="d" data-d="1">+</button></span>
+    </span>
+  </div>
+
+  <svg id="bars" width="380" height="90" viewBox="0 0 380 90"></svg>
+  <div class="work" id="work"></div>
+  <div class="result" id="result"></div>
+
+  <button class="btn primary" id="show">Bo'lishni ko'rsat</button>
+  <button class="btn" id="reset">Tozalash</button>
+</div>
+
+<script>
+let a = { n: 2, d: 3 }, b = { n: 3, d: 4 };
+let revealed = false;
+
+function clamp(v) { return Math.max(1, Math.min(9, v)); }
+
+function gcd(x, y) { return y ? gcd(y, x % y) : x; }
+
+function drawBars() {
+  const svg = document.getElementById("bars");
+  // birinchi kasr: a.d ta bo'lak, a.n tasi bo'yalgan
+  let s = '<text x="8" y="24" font-size="11" fill="#6b7280">' + a.n + "/" + a.d + '</text>';
+  const w1 = 340, seg1 = w1 / a.d;
+  for (let i = 0; i < a.d; i++) {
+    s += '<rect x="' + (30 + i * seg1) + '" y="12" width="' + (seg1 - 2) + '" height="24" rx="3" fill="' + (i < a.n ? "#4f5bd5" : "#eef0fb") + '" stroke="#4f5bd5"/>';
+  }
+  s += '<text x="8" y="72" font-size="11" fill="#6b7280">' + b.n + "/" + b.d + '</text>';
+  const seg2 = w1 / b.d;
+  for (let i = 0; i < b.d; i++) {
+    s += '<rect x="' + (30 + i * seg2) + '" y="60" width="' + (seg2 - 2) + '" height="24" rx="3" fill="' + (i < b.n ? "#16a394" : "#e6f7f4") + '" stroke="#16a394"/>';
+  }
+  svg.innerHTML = s;
+}
+
+function render() {
+  document.getElementById("an").textContent = a.n;
+  document.getElementById("ad").textContent = a.d;
+  document.getElementById("bn").textContent = revealed ? b.d : b.n;
+  document.getElementById("bd").textContent = revealed ? b.n : b.d;
+  document.getElementById("op").textContent = revealed ? "×" : "÷";
+  drawBars();
+
+  const work = document.getElementById("work");
+  const res = document.getElementById("result");
+  if (!revealed) {
+    work.textContent = a.n + "/" + a.d + " ÷ " + b.n + "/" + b.d;
+    res.textContent = "";
+    return;
+  }
+  const rn = a.n * b.d, rd = a.d * b.n;
+  const g = gcd(rn, rd);
+  work.textContent = a.n + "/" + a.d + " × " + b.d + "/" + b.n + " = " + rn + "/" + rd;
+  let out = (rn / g) + "/" + (rd / g);
+  if (rd / g === 1) out = String(rn / g);
+  else if (rn / g > rd / g) {
+    const whole = Math.floor((rn / g) / (rd / g));
+    const rem = (rn / g) % (rd / g);
+    out += "  =  " + (rem ? whole + " " + rem + "/" + (rd / g) : String(whole));
+  }
+  res.textContent = "Javob: " + out;
+}
+
+document.querySelectorAll(".step").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    if (revealed) return;
+    const t = btn.dataset.t === "a" ? a : b;
+    t[btn.dataset.p] = clamp(t[btn.dataset.p] + Number(btn.dataset.d));
+    render();
+  });
+});
+document.getElementById("show").addEventListener("click", function () { revealed = true; render(); });
+document.getElementById("reset").addEventListener("click", function () { revealed = false; render(); });
+
+render();
+</script>
+</body>
+</html>

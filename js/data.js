@@ -612,7 +612,7 @@ const SITE_DATA = {
                   "<p>Algebraik ifoda va tenglama qoidalarini ko'p bosqichli masalalarda qo'llaysiz.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: null }, interactive: "lessons/6-matematika-algebra.html", test: null
             },
             {
               id: "oddiy-kasrlar", title: "2. Oddiy kasrlar", page: "25-bet",
@@ -649,11 +649,11 @@ const SITE_DATA = {
                   "<p>Kasrlarni bo'lish qoidalarini ko'p bosqichli masalalarda qo'llaysiz.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: null }, interactive: "lessons/6-matematika-oddiy-kasrlar.html", test: null
             },
             {
               id: "takrorlash-1", title: "Takrorlash", page: "49-bet",
-              lecture: { text: "Ushbu bo'lim «Algebra» va «Oddiy kasrlar» mavzularini mustahkamlash uchun aralash mashqlar to'plamidir.", embedUrl: null }, interactive: null, test: null
+              lecture: { text: "Ushbu bo'lim «Algebra» va «Oddiy kasrlar» mavzularini mustahkamlash uchun aralash mashqlar to'plamidir.", embedUrl: null }, interactive: "lessons/6-matematika-takrorlash.html", test: null
             },
             {
               id: "nisbatlar", title: "3. Nisbatlar", page: "51-bet",
@@ -987,7 +987,7 @@ const SITE_DATA = {
                   "<p>Ikki xonali eng katta sonni tub ko'paytuvchilarga ajrating. Uning nechta bo'luvchisi bor? (Maslahat: agar son p<sup>a</sup>·q<sup>b</sup> ko'rinishida bo'lsa, bo'luvchilari soni (a+1)(b+1) ga teng.)</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: null }, interactive: "lessons/7-matematika-tub-sonlar.html", test: null
             },
             {
               id: "ekub", title: "1.2 Eng katta umumiy bo'luvchi (EKUB)", page: "1-bet",
@@ -1014,7 +1014,7 @@ const SITE_DATA = {
                   "<p>Bog'da 48 ta olma va 36 ta nok bor. Ularni bir xil sonli, imkon qadar ko'p savatga baravar joylashtirmoqchimiz. Nechta savat kerak va har birida nechtadan meva bo'ladi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: null }, interactive: "lessons/7-matematika-ekub.html", test: null
             },
             {
               id: "ekuk", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "1-bet",
@@ -1041,7 +1041,7 @@ const SITE_DATA = {
                   "<p>Bir bekatdan avtobus har 12 daqiqada, trolleybus har 18 daqiqada jo'naydi. Ular soat 8:00 da birga jo'nadi. Keyingi safar qachon birga jo'naydi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: null }, interactive: "lessons/7-matematika-ekuk.html", test: null
             },
             {
               id: "kvadrat-kub-ildiz", title: "1.4 Sonning kvadrat ildizi va kub ildizi", page: "1-bet",

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algebraik ifoda qiymati</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:24px; min-height:100vh; gap:14px; }
+  .panel { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 16px rgba(31,36,51,.08); max-width:520px; width:100%; text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:16px; }
+  .expr { font-family:ui-monospace,monospace; font-size:1.6rem; font-weight:800; color:#4f5bd5; margin-bottom:10px; }
+  .expr .sub { color:#16a394; }
+  svg { display:block; margin:0 auto 10px; }
+  input[type=range] { width:100%; margin-bottom:14px; }
+  .rows { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:8px; }
+  .readout { background:#eef0fb; border-radius:12px; padding:10px 16px; min-width:110px; }
+  .readout .label { display:block; font-size:.68rem; font-weight:700; color:#4f5bd5; text-transform:uppercase; letter-spacing:.03em; }
+  .readout .value { font-size:1.25rem; font-weight:800; }
+  .readout.goal { background:#e6f7f4; }
+  .readout.goal .label, .readout.goal .value { color:#16a394; }
+  .status { font-weight:700; min-height:22px; margin-bottom:8px; }
+  .status.ok { color:#16a394; }
+  .btn { padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>Ifoda qiymatini toping</h2>
+  <div class="hint" id="hint">Slayderni suring: x ning qiymati o'zgaradi. x ni shunday tanlangki, ifoda qiymati yashil nishonga teng bo'lsin.</div>
+  <div class="expr" id="expr"></div>
+  <svg id="line" width="380" height="70" viewBox="0 0 380 70"></svg>
+  <input type="range" id="x" min="-5" max="10" step="1" value="0">
+  <div class="rows">
+    <div class="readout"><span class="label">x</span><span class="value" id="xv">0</span></div>
+    <div class="readout"><span class="label">ifoda qiymati</span><span class="value" id="val">0</span></div>
+    <div class="readout goal"><span class="label">nishon</span><span class="value" id="goal">0</span></div>
+  </div>
+  <div class="status" id="status"></div>
+  <button class="btn" id="next">Boshqa ifoda →</button>
+</div>
+
+<script>
+const TASKS = [
+  { label: "3x + 4",  f: function (x) { return 3 * x + 4; } },
+  { label: "2x − 5",  f: function (x) { return 2 * x - 5; } },
+  { label: "7 − x",   f: function (x) { return 7 - x; } },
+  { label: "5x",      f: function (x) { return 5 * x; } },
+  { label: "x + 6",   f: function (x) { return x + 6; } },
+  { label: "4x − 1",  f: function (x) { return 4 * x - 1; } }
+];
+
+const MINX = -5, MAXX = 10;
+let idx = 0, goal = 0;
+const slider = document.getElementById("x");
+
+function pickGoal(task) {
+  const k = Math.floor(Math.random() * (MAXX - MINX + 1)) + MINX;
+  return task.f(k);
+}
+
+function bounds(task) {
+  const a = task.f(MINX), b = task.f(MAXX);
+  return { lo: Math.min(a, b), hi: Math.max(a, b) };
+}
+
+function drawLine(task, val) {
+  const { lo, hi } = bounds(task);
+  const span = hi - lo || 1;
+  const x = function (v) { return 20 + (v - lo) / span * 340; };
+  const svg = document.getElementById("line");
+  const gx = x(goal), vx = x(val);
+  svg.innerHTML =
+    '<line x1="20" y1="38" x2="360" y2="38" stroke="#1f2433" stroke-width="2"/>' +
+    '<line x1="' + gx + '" y1="24" x2="' + gx + '" y2="52" stroke="#16a394" stroke-width="3"/>' +
+    '<text x="' + gx + '" y="18" font-size="11" text-anchor="middle" fill="#16a394">' + goal + '</text>' +
+    '<circle cx="' + vx + '" cy="38" r="7" fill="' + (val === goal ? "#16a394" : "#4f5bd5") + '"/>' +
+    '<text x="' + vx + '" y="66" font-size="11" text-anchor="middle" fill="#4f5bd5">' + val + '</text>';
+}
+
+function update() {
+  const task = TASKS[idx];
+  const xVal = Number(slider.value);
+  const val = task.f(xVal);
+  document.getElementById("xv").textContent = xVal;
+  document.getElementById("val").textContent = val;
+  document.getElementById("goal").textContent = goal;
+  document.getElementById("expr").innerHTML =
+    task.label + ' &nbsp;=&nbsp; <span class="sub">' + val + '</span>';
+  drawLine(task, val);
+  const st = document.getElementById("status");
+  if (val === goal) {
+    st.textContent = "✓ Topdingiz! x = " + xVal + " bo'lganda " + task.label + " = " + goal;
+    st.className = "status ok";
+  } else {
+    st.textContent = "";
+    st.className = "status";
+  }
+}
+
+function newTask() {
+  const task = TASKS[idx];
+  do { goal = pickGoal(task); } while (goal === task.f(Number(slider.value)));
+  slider.value = 0;
+  update();
+}
+
+slider.addEventListener("input", update);
+document.getElementById("next").addEventListener("click", function () {
+  idx = (idx + 1) % TASKS.length;
+  newTask();
+});
+
+newTask();
+</script>
+</body>
+</html>
