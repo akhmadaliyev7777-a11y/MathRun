@@ -1,7 +1,7 @@
 const UPLOAD_TYPE_INFO = {
-  lecture: { label: "Ma'ruza", icon: "📖", folder: "presentations/", field: "lecture.embedUrl" },
-  interactive: { label: "Taqdimot / ko'rgazma", icon: "🎮", folder: "lessons/", field: "interactive" },
-  test: { label: "Test", icon: "📝", folder: "lessons/", field: "test" }
+  lecture: { label: "Ma'ruza", folder: "presentations/", field: "lecture.embedUrl" },
+  interactive: { label: "Taqdimot / ko'rgazma", folder: "lessons/", field: "interactive" },
+  test: { label: "Test", folder: "lessons/", field: "test" }
 };
 
 let activeGradeId = null;
@@ -113,7 +113,7 @@ function renderUploadTopicsList() {
         const info = UPLOAD_TYPE_INFO[type];
         return (
           '<button type="button" class="topic-upload-btn" data-grade="' + grade.id + '" data-subject="' + subject.id +
-          '" data-topic="' + topic.id + '" data-type="' + type + '">' + info.icon + " " + info.label + "</button>"
+          '" data-topic="' + topic.id + '" data-type="' + type + '">' + info.label + "</button>"
         );
       }).join("");
 
@@ -148,7 +148,7 @@ function openUploadTarget(gradeId, subjectId, topicId, type) {
 
   activeUploadTarget = { gradeId, subjectId, topicId, type };
 
-  document.getElementById("upload-target-title").textContent = info.icon + " " + info.label + " — " + topic.title;
+  document.getElementById("upload-target-title").textContent = info.label + " — " + topic.title;
   document.getElementById("upload-target-sub").textContent = grade.name + " / " + subject.name;
 
   const input = document.getElementById("upload-target-input");

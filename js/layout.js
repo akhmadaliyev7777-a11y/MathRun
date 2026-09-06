@@ -18,13 +18,13 @@ function renderSiteHeader() {
     '<div id="side-drawer" class="side-drawer">' +
       '<div class="side-drawer-inner">' +
         '<button id="drawer-close-btn" class="drawer-close" aria-label="Yopish">&times;</button>' +
-        '<a href="index.html" class="drawer-link">\u{1F3E0} Bosh sahifa</a>' +
-        '<a href="settings.html" class="drawer-link">⚙️ Sozlamalar</a>' +
-        '<a href="info.html" class="drawer-link">ℹ️ Ma\'lumot</a>' +
+        '<a href="index.html" class="drawer-link">Bosh sahifa</a>' +
+        '<a href="settings.html" class="drawer-link">Sozlamalar</a>' +
+        '<a href="info.html" class="drawer-link">Ma\'lumot</a>' +
         '<div class="drawer-divider"></div>' +
-        '<a href="admin.html" id="drawer-admin-link" class="drawer-link" target="_blank" rel="noopener">\u{1F6E0} Admin panel</a>' +
-        '<a href="login.html" id="drawer-login-link" class="drawer-link">\u{1F511} Kirish</a>' +
-        '<button id="drawer-logout-btn" class="drawer-link drawer-logout" hidden>\u{1F6AA} Chiqish</button>' +
+        '<a href="admin.html" id="drawer-admin-link" class="drawer-link" target="_blank" rel="noopener">Admin panel</a>' +
+        '<a href="login.html" id="drawer-login-link" class="drawer-link">Kirish</a>' +
+        '<button id="drawer-logout-btn" class="drawer-link drawer-logout" hidden>Chiqish</button>' +
       "</div>" +
     "</div>" +
     '<div id="drawer-overlay" class="drawer-overlay" hidden></div>';

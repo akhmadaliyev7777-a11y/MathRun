@@ -21,8 +21,8 @@ function topicHref(gradeId, subjectId, topicId) {
 }
 
 function topicStatusBadge(topic) {
-  if (topic.interactive) return '<span class="badge badge-interactive">🎮 Interaktiv</span>';
-  return '<span class="badge badge-lecture">📄 Ma\'ruza</span>';
+  if (topic.interactive) return '<span class="badge badge-interactive">Interaktiv</span>';
+  return '<span class="badge badge-lecture">Ma\'ruza</span>';
 }
 
 // ---------- Bosh sahifa: sinflar to'ri ----------
