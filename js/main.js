@@ -55,34 +55,64 @@ function renderGradesGrid() {
 }
 
 // ---------- Sinf sahifasi: fanlar va mavzular ----------
+let activeGradeSubjectId = null;
+
 function renderGradePage() {
   const gradeId = getQueryParam("sinf");
   const grade = findGrade(gradeId);
   const titleEl = document.getElementById("grade-title");
-  const container = document.getElementById("subjects-container");
   if (!grade) {
     if (titleEl) titleEl.textContent = "Sinf topilmadi";
     return;
   }
   if (titleEl) titleEl.textContent = grade.name;
 
-  container.innerHTML = grade.subjects.map(function (subject) {
-    const topicsHtml = subject.topics.map(function (topic) {
-      return (
-        '<a class="card topic-card" href="' + topicHref(grade.id, subject.id, topic.id) + '">' +
-          '<div class="topic-card-title">' + topic.title + '</div>' +
-          topicStatusBadge(topic) +
-        '</a>'
-      );
-    }).join("");
+  if (!activeGradeSubjectId || !grade.subjects.some(function (s) { return s.id === activeGradeSubjectId; })) {
+    activeGradeSubjectId = grade.subjects[0].id;
+  }
 
+  renderSubjectTabs(grade);
+  renderActiveSubjectTopics(grade);
+}
+
+function renderSubjectTabs(grade) {
+  const tabsEl = document.getElementById("subject-tabs");
+  if (!tabsEl) return;
+
+  if (grade.subjects.length <= 1) {
+    tabsEl.innerHTML = "";
+    return;
+  }
+
+  tabsEl.innerHTML = grade.subjects.map(function (subject) {
+    const activeCls = subject.id === activeGradeSubjectId ? " active" : "";
+    return '<button type="button" class="subject-tab' + activeCls + '" data-subject="' + subject.id + '">' + subject.name + '</button>';
+  }).join("");
+
+  tabsEl.querySelectorAll(".subject-tab").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      activeGradeSubjectId = btn.dataset.subject;
+      renderSubjectTabs(grade);
+      renderActiveSubjectTopics(grade);
+    });
+  });
+}
+
+function renderActiveSubjectTopics(grade) {
+  const container = document.getElementById("subjects-container");
+  const subject = findSubject(grade, activeGradeSubjectId);
+  if (!container || !subject) return;
+
+  const topicsHtml = subject.topics.map(function (topic) {
     return (
-      '<section class="subject-section">' +
-        '<h2 class="subject-heading">' + subject.name + '</h2>' +
-        '<div class="topics-grid">' + topicsHtml + '</div>' +
-      '</section>'
+      '<a class="card topic-card" href="' + topicHref(grade.id, subject.id, topic.id) + '">' +
+        '<div class="topic-card-title">' + topic.title + '</div>' +
+        topicStatusBadge(topic) +
+      '</a>'
     );
   }).join("");
+
+  container.innerHTML = '<div class="topics-grid">' + topicsHtml + '</div>';
 }
 
 // ---------- Mavzu sahifasi ----------
