@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natural sonlarni qo'shish va ayirish</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:28px; min-height:100vh; gap:18px; }
+  .panel { background:#fff; border-radius:16px; padding:26px; box-shadow:0 4px 16px rgba(31,36,51,.08); max-width:520px; width:100%; text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:20px; }
+  .equations { display:flex; flex-direction:column; gap:14px; margin-bottom:22px; }
+  .equation { font-size:1.3rem; font-weight:700; }
+  .blank { display:inline-flex; align-items:center; justify-content:center; width:48px; height:40px; border:2px dashed #c7cbe0; border-radius:8px; background:#f6f7fb; cursor:pointer; vertical-align:middle; }
+  .blank.filled { border-style:solid; border-color:#4f5bd5; background:#eef0fb; }
+  .blank.correct { border-color:#16a394; background:#e6f7f4; color:#16a394; }
+  .blank.wrong { border-color:#e0546a; background:#fbe9ec; color:#c73754; }
+  .pool { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
+  .card { width:48px; height:48px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; border-radius:10px; background:#4f5bd5; color:#fff; cursor:pointer; }
+  .card.selected { outline:3px solid #16a394; }
+  .card.used { visibility:hidden; }
+  .btn { padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>Sonlar jumbog'i</h2>
+  <div class="hint">Pastdan sonni tanlang, so'ng tenglamadagi bo'sh katakka bosing — tenglamani to'g'ri qiling</div>
+  <div class="equations" id="equations"></div>
+  <div class="pool" id="pool"></div>
+  <button class="btn" id="next-btn">Yangi tenglamalar →</button>
+</div>
+
+<script>
+const SETS = [
+  [
+    { parts: ["5", "+", null, "=", "12"], blankIndex: 2, answer: 7 },
+    { parts: [null, "-", "6", "=", "9"], blankIndex: 0, answer: 15 },
+    { parts: ["20", "-", null, "=", "8"], blankIndex: 2, answer: 12 },
+    { parts: [null, "+", "9", "=", "25"], blankIndex: 0, answer: 16 }
+  ],
+  [
+    { parts: ["8", "+", null, "=", "20"], blankIndex: 2, answer: 12 },
+    { parts: [null, "-", "9", "=", "14"], blankIndex: 0, answer: 23 },
+    { parts: ["30", "-", null, "=", "18"], blankIndex: 2, answer: 12 },
+    { parts: [null, "+", "7", "=", "19"], blankIndex: 0, answer: 12 }
+  ]
+];
+
+let setIdx = 0;
+let pool = [];
+let placements = {};
+let selectedCardIdx = null;
+
+function render() {
+  placements = {};
+  selectedCardIdx = null;
+  const eqs = SETS[setIdx];
+  const answers = eqs.map(function (e) { return e.answer; });
+  const decoys = answers.map(function (a) { return a + (Math.random() < 0.5 ? 5 : -5); });
+  pool = answers.concat(decoys.slice(0, 2));
+  pool = shuffledCopy(pool);
+
+  renderEquations();
+  renderPool();
+}
+
+function shuffledCopy(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+
+function renderEquations() {
+  const eqs = SETS[setIdx];
+  document.getElementById("equations").innerHTML = eqs.map(function (eq, ei) {
+    const placed = placements[ei];
+    let cls = "blank";
+    let content = "";
+    if (placed !== undefined) {
+      content = placed;
+      cls += placed === eq.answer ? " correct" : " wrong";
+    }
+    return '<div class="equation">' + eq.parts.map(function (p, pi) {
+      if (p === null) return '<span class="' + cls + '" data-eq="' + ei + '">' + content + '</span>';
+      return ' ' + p + ' ';
+    }).join("") + '</div>';
+  }).join("");
+
+  document.querySelectorAll(".blank").forEach(function (b) {
+    b.addEventListener("click", function () {
+      const ei = Number(b.dataset.eq);
+      if (placements[ei] !== undefined) {
+        pool.push(placements[ei]);
+        delete placements[ei];
+        renderEquations();
+        renderPool();
+        return;
+      }
+      if (selectedCardIdx === null) return;
+      placements[ei] = pool[selectedCardIdx];
+      pool.splice(selectedCardIdx, 1);
+      selectedCardIdx = null;
+      renderEquations();
+      renderPool();
+    });
+  });
+}
+
+function renderPool() {
+  document.getElementById("pool").innerHTML = pool.map(function (v, i) {
+    return '<div class="card' + (i === selectedCardIdx ? " selected" : "") + '" data-i="' + i + '">' + v + '</div>';
+  }).join("");
+  document.querySelectorAll(".card").forEach(function (c) {
+    c.addEventListener("click", function () {
+      selectedCardIdx = selectedCardIdx === Number(c.dataset.i) ? null : Number(c.dataset.i);
+      renderPool();
+    });
+  });
+}
+
+document.getElementById("next-btn").addEventListener("click", function () {
+  setIdx = (setIdx + 1) % SETS.length;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

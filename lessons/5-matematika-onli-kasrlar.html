@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O'nli kasrlar</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:28px; min-height:100vh; gap:16px; }
+  .panel { background:#fff; border-radius:16px; padding:26px; box-shadow:0 4px 16px rgba(31,36,51,.08); max-width:520px; width:100%; text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:20px; }
+  .row-label { font-size:.78rem; font-weight:700; color:#6b7280; text-transform:uppercase; letter-spacing:.03em; margin:14px 0 8px; }
+  .slots, .pool { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .tile { width:64px; height:52px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.05rem; border-radius:10px; cursor:pointer; }
+  .slot { background:#f6f7fb; border:2px dashed #c7cbe0; color:#c7cbe0; }
+  .slot.filled { border-style:solid; border-color:#4f5bd5; color:#1f2433; background:#eef0fb; }
+  .slot.correct { border-color:#16a394; background:#e6f7f4; color:#16a394; }
+  .slot.wrong { border-color:#e0546a; background:#fbe9ec; color:#c73754; }
+  .pool .tile { background:#4f5bd5; color:#fff; }
+  .actions { margin-top:20px; display:flex; gap:10px; justify-content:center; }
+  .btn { padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+  .status { font-weight:700; margin-top:12px; min-height:22px; }
+  .status.ok { color:#16a394; }
+  .status.bad { color:#c73754; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>Tartibga soling</h2>
+  <div class="hint" id="hint">Sonlarni o'sish tartibida joylashtiring — pastdagi sonni bosing, u navbatdagi bo'sh joyga tushadi</div>
+
+  <div class="row-label">Bo'sh joylar</div>
+  <div class="slots" id="slots"></div>
+
+  <div class="row-label">Sonlar</div>
+  <div class="pool" id="pool"></div>
+
+  <div class="actions">
+    <button class="btn" id="check-btn">Tekshirish</button>
+    <button class="btn" id="next-btn">Yangi sonlar →</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<script>
+const SETS = [
+  { numbers: [3.4, 1.2, 4.05, 2.7], ascending: true },
+  { numbers: [0.8, 1.25, 0.35, 1.5], ascending: true },
+  { numbers: [5.1, 2.9, 5.09, 3.6], ascending: false }
+];
+
+let setIdx = 0;
+let slots = [];
+let pool = [];
+
+function render() {
+  const set = SETS[setIdx];
+  slots = Array(set.numbers.length).fill(null);
+  pool = shuffledCopy(set.numbers);
+  document.getElementById("hint").textContent =
+    "Sonlarni " + (set.ascending ? "o'sish" : "kamayish") + " tartibida joylashtiring";
+  document.getElementById("status").textContent = "";
+  renderSlots();
+  renderPool();
+}
+
+function shuffledCopy(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+
+function renderSlots() {
+  document.getElementById("slots").innerHTML = slots.map(function (v, i) {
+    return '<div class="tile slot' + (v !== null ? " filled" : "") + '" data-i="' + i + '">' + (v !== null ? v : "") + '</div>';
+  }).join("");
+  document.querySelectorAll(".slot").forEach(function (el) {
+    el.addEventListener("click", function () {
+      const i = Number(el.dataset.i);
+      if (slots[i] === null) return;
+      pool.push(slots[i]);
+      slots[i] = null;
+      renderSlots();
+      renderPool();
+    });
+  });
+}
+
+function renderPool() {
+  document.getElementById("pool").innerHTML = pool.map(function (v, i) {
+    return '<div class="tile" data-i="' + i + '">' + v + '</div>';
+  }).join("");
+  document.querySelectorAll(".pool .tile").forEach(function (el) {
+    el.addEventListener("click", function () {
+      const i = Number(el.dataset.i);
+      const emptySlot = slots.indexOf(null);
+      if (emptySlot === -1) return;
+      slots[emptySlot] = pool[i];
+      pool.splice(i, 1);
+      renderSlots();
+      renderPool();
+    });
+  });
+}
+
+document.getElementById("check-btn").addEventListener("click", function () {
+  if (slots.includes(null)) {
+    document.getElementById("status").textContent = "Avval barcha joylarni to'ldiring";
+    document.getElementById("status").className = "status bad";
+    return;
+  }
+  const set = SETS[setIdx];
+  const correctOrder = set.numbers.slice().sort(function (a, b) { return set.ascending ? a - b : b - a; });
+  let allOk = true;
+  document.querySelectorAll(".slot").forEach(function (el, i) {
+    if (slots[i] === correctOrder[i]) el.classList.add("correct");
+    else { el.classList.add("wrong"); allOk = false; }
+  });
+  const statusEl = document.getElementById("status");
+  statusEl.textContent = allOk ? "To'g'ri tartib! \u{1F389}" : "Ba'zi joylar noto'g'ri — qizil joylarni tuzating";
+  statusEl.className = "status " + (allOk ? "ok" : "bad");
+});
+
+document.getElementById("next-btn").addEventListener("click", function () {
+  setIdx = (setIdx + 1) % SETS.length;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

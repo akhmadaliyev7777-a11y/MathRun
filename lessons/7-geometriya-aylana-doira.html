@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aylana va doira</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:28px; min-height:100vh; gap:16px; }
+  .panel { background:#fff; border-radius:16px; padding:26px; box-shadow:0 4px 16px rgba(31,36,51,.08); text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:16px; max-width:320px; }
+  rect.cell { cursor:pointer; }
+  .status { font-weight:700; margin-top:14px; min-height:22px; }
+  .status.ok { color:#16a394; }
+  .btn { margin-top:6px; padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>Simmetriya</h2>
+  <div class="hint">Chapdagi shakl berilgan. O'ng tomonda uning oyna-aksini (o'q simmetriyasini) bosib bo'yang</div>
+  <svg id="grid-svg" width="284" height="240" viewBox="0 0 284 240"></svg>
+  <div class="status" id="status"></div>
+  <button class="btn" id="next-btn">Yangi shakl →</button>
+</div>
+
+<script>
+const gridSize = 6;
+const unit = 44;
+const margin = 10;
+
+const PATTERNS = [
+  [[0,1],[0,2],[0,3],[1,2],[2,2]],
+  [[0,0],[0,1],[0,2],[1,0],[2,0]],
+  [[0,2],[0,3],[1,1],[1,4],[2,2],[2,3]]
+];
+
+let patIdx = 0;
+let painted = new Set();
+
+function reflectX(x) { return gridSize - 1 - x; }
+
+function requiredCells() {
+  return PATTERNS[patIdx].map(function (c) { return reflectX(c[0]) + "," + c[1]; });
+}
+
+function render() {
+  painted = new Set();
+  draw();
+}
+
+function draw() {
+  const given = PATTERNS[patIdx];
+  const required = requiredCells();
+  let rects = "";
+  for (let x = 0; x < gridSize; x++) {
+    for (let y = 0; y < gridSize; y++) {
+      const key = x + "," + y;
+      const isGiven = given.some(function (c) { return c[0] === x && c[1] === y; });
+      const rx = margin + x * unit, ry = margin + y * unit;
+      let fill = "#f6f7fb", stroke = "#e5e7f0";
+      if (isGiven) { fill = "#4f5bd5"; }
+      else if (painted.has(key)) {
+        fill = required.includes(key) ? "#16a394" : "#e0546a";
+      }
+      rects += '<rect class="cell" data-x="' + x + '" data-y="' + y + '" x="' + rx + '" y="' + ry + '" width="' + (unit-4) + '" height="' + (unit-4) + '" fill="' + fill + '" stroke="' + stroke + '" stroke-width="2" rx="6"/>';
+    }
+  }
+  const axisX = margin + gridSize/2 * unit;
+  rects += '<line x1="' + axisX + '" y1="' + margin + '" x2="' + axisX + '" y2="' + (margin + gridSize*unit) + '" stroke="#6b7280" stroke-dasharray="6,4" stroke-width="2"/>';
+
+  const svg = document.getElementById("grid-svg");
+  svg.innerHTML = rects;
+  svg.querySelectorAll(".cell").forEach(function (el) {
+    const x = Number(el.dataset.x), y = Number(el.dataset.y);
+    const isGiven = given.some(function (c) { return c[0] === x && c[1] === y; });
+    if (isGiven || x < gridSize/2) return;
+    el.addEventListener("click", function () {
+      const key = x + "," + y;
+      if (painted.has(key)) painted.delete(key); else painted.add(key);
+      draw();
+      checkDone();
+    });
+  });
+}
+
+function checkDone() {
+  const required = requiredCells();
+  const done = required.length === painted.size && required.every(function (k) { return painted.has(k); });
+  document.getElementById("status").textContent = done ? "Mukammal aks etdi! \u{1F389}" : "";
+  document.getElementById("status").className = "status ok";
+}
+
+document.getElementById("next-btn").addEventListener("click", function () {
+  patIdx = (patIdx + 1) % PATTERNS.length;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

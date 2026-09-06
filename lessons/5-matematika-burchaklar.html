@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Burchaklar</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:28px; padding:24px; min-height:100vh; }
+  .panel { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 16px rgba(31,36,51,.08); }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:14px; max-width:320px; }
+  svg { touch-action:none; }
+  #handle { cursor:grab; }
+  #handle:active { cursor:grabbing; }
+  .readouts { display:flex; flex-direction:column; gap:12px; min-width:220px; }
+  .readout { background:#eef0fb; border-radius:12px; padding:12px 16px; }
+  .readout .label { font-size:.72rem; font-weight:700; color:#4f5bd5; text-transform:uppercase; letter-spacing:.03em; }
+  .readout .value { font-size:1.4rem; font-weight:800; margin-top:2px; }
+  .readout.match { background:#e6f7f4; }
+  .readout.match .label, .readout.match .value { color:#16a394; }
+  .btn { padding:10px 18px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>Burchaklar — transportir bilan o'lchash</h2>
+  <div class="hint">Kulrang chiziq — "sirli" burchak. Ko'k nurni suring va uni sirli burchak ustiga aniq keltiring, gradusini o'qing.</div>
+  <svg id="protractor-svg" width="360" height="220" viewBox="0 0 360 220"></svg>
+</div>
+
+<div class="readouts">
+  <div class="readout"><div class="label">Sizning burchagingiz</div><div class="value" id="angle-value">0°</div></div>
+  <div class="readout" id="target-readout"><div class="label">Sirli burchak</div><div class="value" id="target-value">?</div></div>
+  <button class="btn" id="reveal-btn">Sirli burchakni ko'rsat</button>
+  <button class="btn" id="next-btn">Yangi burchak →</button>
+</div>
+
+<script>
+const cx = 180, cy = 200, r = 150;
+const svg = document.getElementById("protractor-svg");
+const TARGETS = [30, 60, 90, 120, 150, 45];
+let targetIdx = 0;
+let angleDeg = 90;
+let revealed = false;
+
+function polar(deg) {
+  const rad = deg * Math.PI / 180;
+  return { x: cx + r * Math.cos(rad), y: cy - r * Math.sin(rad) };
+}
+
+function drawStatic() {
+  let ticks = "";
+  for (let d = 0; d <= 180; d += 30) {
+    const p1 = polar(d);
+    const inner = { x: cx + (r-12) * Math.cos(d*Math.PI/180), y: cy - (r-12) * Math.sin(d*Math.PI/180) };
+    ticks += '<line x1="'+inner.x+'" y1="'+inner.y+'" x2="'+p1.x+'" y2="'+p1.y+'" stroke="#c7cbe0" stroke-width="2"/>';
+    ticks += '<text x="'+p1.x+'" y="'+(p1.y-8)+'" font-size="11" fill="#6b7280" text-anchor="middle">'+d+'</text>';
+  }
+  return (
+    '<line x1="30" y1="200" x2="330" y2="200" stroke="#1f2433" stroke-width="2"/>' +
+    '<path d="M 30 200 A 150 150 0 0 1 330 200" fill="none" stroke="#e5e7f0" stroke-width="2"/>' +
+    ticks
+  );
+}
+
+function render() {
+  const target = polar(TARGETS[targetIdx]);
+  const handle = polar(angleDeg);
+  const diff = Math.abs(angleDeg - TARGETS[targetIdx]);
+  const matched = diff <= 2;
+
+  svg.innerHTML = drawStatic() +
+    (revealed ? '<line x1="'+cx+'" y1="'+cy+'" x2="'+target.x+'" y2="'+target.y+'" stroke="#6b7280" stroke-width="3" stroke-dasharray="6,4"/>' : "") +
+    '<line id="ray" x1="'+cx+'" y1="'+cy+'" x2="'+handle.x+'" y2="'+handle.y+'" stroke="'+(matched?"#16a394":"#4f5bd5")+'" stroke-width="4"/>' +
+    '<circle id="handle" cx="'+handle.x+'" cy="'+handle.y+'" r="11" fill="'+(matched?"#16a394":"#1f2433")+'"/>';
+
+  document.getElementById("angle-value").textContent = Math.round(angleDeg) + "°";
+  document.getElementById("target-value").textContent = revealed ? TARGETS[targetIdx] + "°" : "?";
+
+  const targetReadout = document.getElementById("target-readout");
+  if (matched) targetReadout.classList.add("match"); else targetReadout.classList.remove("match");
+
+  wireHandle();
+}
+
+function wireHandle() {
+  const handle = document.getElementById("handle");
+  let dragging = false;
+  function angleFromPointer(evt) {
+    const rect = svg.getBoundingClientRect();
+    const px = evt.clientX - rect.left - cx;
+    const py = evt.clientY - rect.top - cy;
+    let deg = Math.atan2(-py, px) * 180 / Math.PI;
+    return Math.max(0, Math.min(180, deg));
+  }
+  handle.addEventListener("pointerdown", function(evt){ dragging = true; handle.setPointerCapture(evt.pointerId); });
+  handle.addEventListener("pointermove", function(evt){
+    if (!dragging) return;
+    angleDeg = angleFromPointer(evt);
+    render();
+  });
+  handle.addEventListener("pointerup", function(){ dragging = false; });
+}
+
+document.getElementById("reveal-btn").addEventListener("click", function(){
+  revealed = !revealed;
+  render();
+});
+document.getElementById("next-btn").addEventListener("click", function(){
+  targetIdx = (targetIdx + 1) % TARGETS.length;
+  revealed = false;
+  angleDeg = 90;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

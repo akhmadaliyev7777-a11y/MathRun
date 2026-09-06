@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin panel — MathRun</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header-root"></div>
+
+<div class="page-container wide">
+  <h1 class="page-title">Admin panel</h1>
+  <p class="muted">Kontent boshqaruvi va statistika. Hozircha hammaga ochiq — keyinchalik login bilan himoyalanadi.</p>
+
+  <div class="stat-grid" id="stat-grid"></div>
+
+  <section class="dashboard-section">
+    <h2 class="subject-heading">Kontent holati</h2>
+    <div id="admin-table"></div>
+  </section>
+
+  <section class="dashboard-section">
+    <h2 class="subject-heading">Yuklash</h2>
+    <p class="muted">Avval sinfni tanlang, so'ng mavzu qatoridagi <strong>Ma'ruza</strong>, <strong>Taqdimot</strong> yoki <strong>Test</strong> tugmasini bosing.</p>
+
+    <div class="grade-picker" id="grade-picker"></div>
+
+    <div id="upload-topics-list" class="upload-topics-list"></div>
+
+    <div id="upload-target-panel" class="upload-target-panel" hidden>
+      <div class="upload-target-header">
+        <div>
+          <div class="upload-target-title" id="upload-target-title"></div>
+          <div class="muted" id="upload-target-sub"></div>
+        </div>
+        <button type="button" class="drawer-close" id="upload-target-close" aria-label="Yopish">&times;</button>
+      </div>
+      <label class="upload-btn">
+        Fayl tanlash
+        <input type="file" hidden id="upload-target-input">
+      </label>
+      <div class="upload-result" id="upload-target-result" hidden></div>
+    </div>
+  </section>
+
+  <section class="dashboard-section">
+    <h2 class="subject-heading">O'quvchilar natijalari</h2>
+    <div class="placeholder">🚧 Tez orada: o'quvchilarning o'zlashtirish grafiklari va test natijalari shu yerda ko'rinadi.</div>
+  </section>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/quizzes.js"></script>
+<script src="js/main.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/admin.js"></script>
+<script>renderSiteHeader(); renderAdminDashboard();</script>
+</body>
+</html>

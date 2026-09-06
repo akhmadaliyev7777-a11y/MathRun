@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oddiy kasrlar</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:28px; min-height:100vh; gap:18px; }
+  .panel { background:#fff; border-radius:16px; padding:26px; box-shadow:0 4px 16px rgba(31,36,51,.08); max-width:560px; width:100%; text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:20px; }
+  .strip { display:flex; gap:4px; justify-content:center; margin-bottom:20px; }
+  .seg { width:52px; height:52px; border:2px solid #4f5bd5; border-radius:8px; cursor:pointer; background:#f6f7fb; transition:background .15s; }
+  .seg.filled { background:#4f5bd5; }
+  .readout { font-size:1.05rem; font-weight:700; margin-bottom:6px; }
+  .readout.match { color:#16a394; }
+  .target { color:#6b7280; font-size:.9rem; margin-bottom:16px; }
+  .btn { padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>Oddiy kasrlar</h2>
+  <div class="hint">Katakchalarga bosib bo'yang — nechta bo'lakni bo'yasangiz, shuncha kasr hosil bo'ladi</div>
+  <div class="strip" id="strip"></div>
+  <div class="readout" id="readout">0 / 4 bo'yaldi</div>
+  <div class="target" id="target">Maqsad: 3/4 qismini bo'yang</div>
+  <button class="btn" id="next-btn">Boshqa misol →</button>
+</div>
+
+<script>
+const EXAMPLES = [
+  { num: 3, den: 4 },
+  { num: 2, den: 5 },
+  { num: 5, den: 8 },
+  { num: 1, den: 3 },
+  { num: 4, den: 6 }
+];
+
+let idx = 0;
+let painted = new Set();
+
+function render() {
+  painted = new Set();
+  const ex = EXAMPLES[idx];
+  const strip = document.getElementById("strip");
+  strip.innerHTML = Array.from({length: ex.den}).map(function(_, i){
+    return '<div class="seg" data-i="' + i + '"></div>';
+  }).join("");
+
+  strip.querySelectorAll(".seg").forEach(function(seg){
+    seg.addEventListener("click", function(){
+      const i = Number(seg.dataset.i);
+      if (painted.has(i)) { painted.delete(i); seg.classList.remove("filled"); }
+      else { painted.add(i); seg.classList.add("filled"); }
+      updateReadout();
+    });
+  });
+
+  document.getElementById("target").textContent = "Maqsad: " + ex.num + "/" + ex.den + " qismini bo'yang";
+  updateReadout();
+}
+
+function updateReadout() {
+  const ex = EXAMPLES[idx];
+  const readout = document.getElementById("readout");
+  const match = painted.size === ex.num;
+  readout.textContent = painted.size + " / " + ex.den + " bo'yaldi" + (match ? "  ✓ Mos keldi!" : "");
+  readout.className = "readout" + (match ? " match" : "");
+}
+
+document.getElementById("next-btn").addEventListener("click", function(){
+  idx = (idx + 1) % EXAMPLES.length;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

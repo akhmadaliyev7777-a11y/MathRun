@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koordinata tekisligi</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:24px; min-height:100vh; gap:14px; }
+  .panel { background:#fff; border-radius:16px; padding:22px; box-shadow:0 4px 16px rgba(31,36,51,.08); text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:14px; }
+  .status { font-weight:700; margin-top:10px; min-height:22px; }
+  .status.ok { color:#16a394; }
+  .status.bad { color:#c73754; }
+  .btn { margin-top:10px; padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+  .pt { cursor:pointer; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>Xazina xaritasi</h2>
+  <div class="hint" id="hint">Ko'rsatilgan (x, y) nuqtani toping va bosing — barcha nuqtalarni ketma-ket bosib, yashirin shaklni oching</div>
+  <svg id="grid-svg" width="320" height="320" viewBox="0 0 320 320"></svg>
+  <div class="status" id="status"></div>
+  <button class="btn" id="next-btn">Yangi xazina →</button>
+</div>
+
+<script>
+const gridSize = 10;
+const unit = 28;
+const margin = 20;
+
+const POINT_SETS = [
+  [[1,1],[1,6],[4,9],[7,6],[7,1],[1,1]],
+  [[2,1],[2,7],[5,1],[8,7],[2,1]]
+];
+
+let setIdx = 0;
+let step = 0;
+
+function toSvg(x, y) {
+  return { sx: margin + x * unit, sy: margin + (gridSize - y) * unit };
+}
+
+function drawGrid() {
+  let lines = "";
+  for (let i = 0; i <= gridSize; i++) {
+    const p = margin + i * unit;
+    lines += '<line x1="'+margin+'" y1="'+p+'" x2="'+(margin+gridSize*unit)+'" y2="'+p+'" stroke="#e5e7f0"/>';
+    lines += '<line x1="'+p+'" y1="'+margin+'" x2="'+p+'" y2="'+(margin+gridSize*unit)+'" stroke="#e5e7f0"/>';
+  }
+  return lines;
+}
+
+function render() {
+  const points = POINT_SETS[setIdx];
+  const svg = document.getElementById("grid-svg");
+  let pathLines = "";
+  for (let i = 1; i <= step; i++) {
+    const a = toSvg(points[i-1][0], points[i-1][1]);
+    const b = toSvg(points[i][0], points[i][1]);
+    pathLines += '<line x1="'+a.sx+'" y1="'+a.sy+'" x2="'+b.sx+'" y2="'+b.sy+'" stroke="#4f5bd5" stroke-width="3"/>';
+  }
+
+  let targetMarker = "";
+  if (step < points.length) {
+    const t = toSvg(points[step][0], points[step][1]);
+    targetMarker = '<circle cx="'+t.sx+'" cy="'+t.sy+'" r="10" fill="none" stroke="#16a394" stroke-width="3"><animate attributeName="r" values="8;13;8" dur="1s" repeatCount="indefinite"/></circle>';
+    document.getElementById("hint").textContent = "Keyingi nuqtani bosing: (" + points[step][0] + ", " + points[step][1] + ")";
+  } else {
+    document.getElementById("hint").textContent = "Xazina topildi! \u{1F389}";
+  }
+
+  svg.innerHTML = drawGrid() + pathLines + targetMarker;
+  svg.onclick = function (evt) {
+    if (step >= points.length) return;
+    const rect = svg.getBoundingClientRect();
+    const scaleX = 320 / rect.width, scaleY = 320 / rect.height;
+    const px = (evt.clientX - rect.left) * scaleX;
+    const py = (evt.clientY - rect.top) * scaleY;
+    const gx = Math.round((px - margin) / unit);
+    const gy = gridSize - Math.round((py - margin) / unit);
+
+    const target = points[step];
+    const statusEl = document.getElementById("status");
+    if (gx === target[0] && gy === target[1]) {
+      step++;
+      statusEl.textContent = step >= points.length ? "Barcha nuqtalar topildi! \u{1F389}" : "To'g'ri! Davom eting.";
+      statusEl.className = "status ok";
+      render();
+    } else {
+      statusEl.textContent = "Bu yerda emas — qayta urinib ko'ring (" + gx + ", " + gy + ")";
+      statusEl.className = "status bad";
+    }
+  };
+}
+
+document.getElementById("next-btn").addEventListener("click", function () {
+  setIdx = (setIdx + 1) % POINT_SETS.length;
+  step = 0;
+  document.getElementById("status").textContent = "";
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

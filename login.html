@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirish — MathRun</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header-root"></div>
+
+<div class="page-container narrow">
+  <h1 class="page-title">Tizimga kirish</h1>
+
+  <div id="login-warning" class="placeholder" hidden>
+    ⚠️ Firebase hali sozlanmagan. <a href="README.md">README.md</a> dagi "Firebase sozlash" bo'limiga qarang.
+  </div>
+
+  <form id="login-form" class="auth-form">
+    <label class="auth-label">Email
+      <input type="email" id="login-email" class="auth-input" required autocomplete="username">
+    </label>
+    <label class="auth-label">Parol
+      <input type="password" id="login-password" class="auth-input" required autocomplete="current-password">
+    </label>
+    <div id="login-error" class="auth-error" hidden></div>
+    <button type="submit" class="quiz-next">Kirish</button>
+  </form>
+</div>
+
+<script src="js/data.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/layout.js"></script>
+<script>
+  renderSiteHeader();
+
+  if (!isFirebaseConfigured()) {
+    document.getElementById("login-warning").hidden = false;
+  } else {
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) window.location.href = currentIsAdmin(user) ? "admin.html" : "index.html";
+    });
+  }
+
+  document.getElementById("login-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+    const errorEl = document.getElementById("login-error");
+    errorEl.hidden = true;
+
+    if (!isFirebaseConfigured()) {
+      errorEl.textContent = "Firebase sozlanmagan — kirish imkonsiz.";
+      errorEl.hidden = false;
+      return;
+    }
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(function (cred) {
+        window.location.href = currentIsAdmin(cred.user) ? "admin.html" : "index.html";
+      })
+      .catch(function () {
+        errorEl.textContent = "Email yoki parol noto'g'ri.";
+        errorEl.hidden = false;
+      });
+  });
+</script>
+</body>
+</html>

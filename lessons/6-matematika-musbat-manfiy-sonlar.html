@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musbat va manfiy sonlar</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:28px; min-height:100vh; gap:16px; }
+  .panel { background:#fff; border-radius:16px; padding:26px; box-shadow:0 4px 16px rgba(31,36,51,.08); max-width:560px; width:100%; text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:18px; }
+  .zones { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
+  .zone { min-height:70px; border:2px dashed #c7cbe0; border-radius:12px; padding:10px; }
+  .zone-label { font-size:.72rem; font-weight:700; color:#6b7280; text-transform:uppercase; margin-bottom:8px; }
+  .zone-cards { display:flex; gap:6px; flex-wrap:wrap; justify-content:center; }
+  .pool { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:16px; }
+  .num { width:44px; height:36px; display:flex; align-items:center; justify-content:center; font-weight:700; border-radius:8px; cursor:pointer; background:#4f5bd5; color:#fff; }
+  .num.selected { outline:3px solid #16a394; }
+  .num.correct { background:#e6f7f4; color:#16a394; outline:2px solid #16a394; }
+  .num.wrong { background:#fbe9ec; color:#c73754; outline:2px solid #e0546a; }
+  .actions { display:flex; gap:10px; justify-content:center; }
+  .btn { padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+  .status { font-weight:700; margin-top:12px; min-height:22px; }
+  .status.ok { color:#16a394; }
+  .status.bad { color:#c73754; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>To'plamlar</h2>
+  <div class="hint">A = musbat sonlar, B = juft sonlar. Har bir sonni tanlang, so'ng mos zonaga bosing</div>
+
+  <div class="zones">
+    <div class="zone" data-zone="onlyA"><div class="zone-label">Faqat A (musbat)</div><div class="zone-cards"></div></div>
+    <div class="zone" data-zone="onlyB"><div class="zone-label">Faqat B (juft)</div><div class="zone-cards"></div></div>
+    <div class="zone" data-zone="both"><div class="zone-label">Ikkalasi ham</div><div class="zone-cards"></div></div>
+    <div class="zone" data-zone="neither"><div class="zone-label">Hech biri emas</div><div class="zone-cards"></div></div>
+  </div>
+
+  <div class="row-label" style="font-size:.78rem;font-weight:700;color:#6b7280;text-transform:uppercase;margin-bottom:8px;">Sonlar</div>
+  <div class="pool" id="pool"></div>
+
+  <div class="actions">
+    <button class="btn" id="check-btn">Tekshirish</button>
+    <button class="btn" id="next-btn">Yangi masala →</button>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+<script>
+function zoneOf(n) {
+  const positive = n > 0;
+  const even = Math.abs(n) % 2 === 0;
+  if (positive && even) return "both";
+  if (positive && !even) return "onlyA";
+  if (!positive && even) return "onlyB";
+  return "neither";
+}
+
+const SETS = [
+  [-4, -3, 2, 5, 6, -8, 7, -5],
+  [3, -6, 8, -1, -9, 4, 9, -2]
+];
+
+let setIdx = 0;
+let placements = {};
+let selected = null;
+
+function render() {
+  placements = {};
+  selected = null;
+  document.getElementById("status").textContent = "";
+  document.querySelectorAll(".num").forEach(function(){});
+  renderPool();
+  renderZones();
+}
+
+function currentNumbers() { return SETS[setIdx]; }
+
+function renderPool() {
+  const nums = currentNumbers().filter(function (n) { return placements[n] === undefined; });
+  document.getElementById("pool").innerHTML = nums.map(function (n) {
+    return '<div class="num' + (n === selected ? " selected" : "") + '" data-n="' + n + '">' + n + '</div>';
+  }).join("");
+  document.querySelectorAll("#pool .num").forEach(function (el) {
+    el.addEventListener("click", function () {
+      const n = Number(el.dataset.n);
+      selected = selected === n ? null : n;
+      renderPool();
+    });
+  });
+}
+
+function renderZones() {
+  document.querySelectorAll(".zone").forEach(function (zoneEl) {
+    const zoneKey = zoneEl.dataset.zone;
+    const nums = Object.keys(placements).filter(function (n) { return placements[n] === zoneKey; }).map(Number);
+    zoneEl.querySelector(".zone-cards").innerHTML = nums.map(function (n) {
+      return '<div class="num" data-n="' + n + '" data-placed="1">' + n + '</div>';
+    }).join("");
+    zoneEl.onclick = function (evt) {
+      if (evt.target.dataset.placed) {
+        delete placements[Number(evt.target.dataset.n)];
+        renderPool();
+        renderZones();
+        return;
+      }
+      if (selected === null) return;
+      placements[selected] = zoneKey;
+      selected = null;
+      renderPool();
+      renderZones();
+    };
+    zoneEl.querySelectorAll(".num[data-placed]").forEach(function (el) {
+      el.addEventListener("click", function (e) { e.stopPropagation(); delete placements[Number(el.dataset.n)]; renderPool(); renderZones(); });
+    });
+  });
+}
+
+document.getElementById("check-btn").addEventListener("click", function () {
+  const nums = currentNumbers();
+  let allPlaced = nums.every(function (n) { return placements[n] !== undefined; });
+  document.querySelectorAll(".zone .num").forEach(function (el) {
+    const n = Number(el.dataset.n);
+    el.classList.remove("correct", "wrong");
+    el.classList.add(placements[n] === zoneOf(n) ? "correct" : "wrong");
+  });
+  const statusEl = document.getElementById("status");
+  if (!allPlaced) {
+    statusEl.textContent = "Avval barcha sonlarni joylashtiring";
+    statusEl.className = "status bad";
+    return;
+  }
+  const allCorrect = nums.every(function (n) { return placements[n] === zoneOf(n); });
+  statusEl.textContent = allCorrect ? "Barchasi to'g'ri joylashtirildi! \u{1F389}" : "Ba'zilari noto'g'ri zonada — qizillarni tuzating";
+  statusEl.className = "status " + (allCorrect ? "ok" : "bad");
+});
+
+document.getElementById("next-btn").addEventListener("click", function () {
+  setIdx = (setIdx + 1) % SETS.length;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

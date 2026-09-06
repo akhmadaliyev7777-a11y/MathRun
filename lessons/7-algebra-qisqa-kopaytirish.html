@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qisqa ko'paytirish formulalari</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f6f7fb; color:#1f2433; display:flex; flex-direction:column; align-items:center; padding:28px; min-height:100vh; gap:16px; }
+  .panel { background:#fff; border-radius:16px; padding:26px; box-shadow:0 4px 16px rgba(31,36,51,.08); text-align:center; }
+  h2 { margin:0 0 4px; font-size:1.1rem; }
+  .hint { color:#6b7280; font-size:.85rem; margin-bottom:18px; }
+  .grid { display:grid; grid-template-columns:repeat(3,120px); gap:12px; }
+  .card { height:80px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; cursor:pointer; background:#4f5bd5; color:#fff; padding:6px; text-align:center; }
+  .card.revealed { background:#eef0fb; color:#1f2433; border:2px solid #4f5bd5; }
+  .card.matched { background:#e6f7f4; color:#16a394; border:2px solid #16a394; cursor:default; }
+  .status { font-weight:700; margin-top:16px; color:#16a394; min-height:22px; }
+  .btn { margin-top:8px; padding:10px 20px; font-weight:700; font-family:inherit; font-size:.85rem; color:#3a44b0; background:#eef0fb; border:none; border-radius:10px; cursor:pointer; }
+  .btn:hover { background:#e0e3f9; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h2>Juftlikni top</h2>
+  <div class="hint">Ikkita kartani oching — agar formula va uning yoyilmasi mos kelsa, ochiq qoladi</div>
+  <div class="grid" id="grid"></div>
+  <div class="status" id="status"></div>
+  <button class="btn" id="restart-btn">Qayta boshlash</button>
+</div>
+
+<script>
+const PAIRS = [
+  { a: "(a + b)²", b: "a² + 2ab + b²" },
+  { a: "(a − b)²", b: "a² − 2ab + b²" },
+  { a: "a² − b²", b: "(a − b)(a + b)" }
+];
+
+let cards = [];
+let firstIdx = null;
+let locked = false;
+let matchedCount = 0;
+
+function buildCards() {
+  cards = [];
+  PAIRS.forEach(function (p, pi) {
+    cards.push({ pairId: pi, text: p.a, revealed: false, matched: false });
+    cards.push({ pairId: pi, text: p.b, revealed: false, matched: false });
+  });
+  cards = shuffledCopy(cards);
+}
+
+function shuffledCopy(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+
+function render() {
+  document.getElementById("grid").innerHTML = cards.map(function (c, i) {
+    let cls = "card";
+    if (c.matched) cls += " matched";
+    else if (c.revealed) cls += " revealed";
+    return '<div class="' + cls + '" data-i="' + i + '">' + (c.revealed || c.matched ? c.text : "?") + '</div>';
+  }).join("");
+
+  document.querySelectorAll(".card").forEach(function (el) {
+    el.addEventListener("click", function () { onCardClick(Number(el.dataset.i)); });
+  });
+}
+
+function onCardClick(i) {
+  if (locked || cards[i].revealed || cards[i].matched) return;
+  cards[i].revealed = true;
+  render();
+
+  if (firstIdx === null) {
+    firstIdx = i;
+    return;
+  }
+
+  locked = true;
+  const j = firstIdx;
+  firstIdx = null;
+
+  if (cards[i].pairId === cards[j].pairId) {
+    cards[i].matched = true;
+    cards[j].matched = true;
+    matchedCount++;
+    locked = false;
+    render();
+    if (matchedCount === PAIRS.length) {
+      document.getElementById("status").textContent = "Barcha juftliklar topildi! \u{1F389}";
+    }
+  } else {
+    setTimeout(function () {
+      cards[i].revealed = false;
+      cards[j].revealed = false;
+      locked = false;
+      render();
+    }, 800);
+  }
+}
+
+document.getElementById("restart-btn").addEventListener("click", function () {
+  matchedCount = 0;
+  firstIdx = null;
+  locked = false;
+  document.getElementById("status").textContent = "";
+  buildCards();
+  render();
+});
+
+buildCards();
+render();
+</script>
+</body>
+</html>
