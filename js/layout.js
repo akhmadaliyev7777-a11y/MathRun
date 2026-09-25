@@ -13,12 +13,14 @@ function renderSiteHeader() {
       '<nav class="site-nav">' +
         '<a href="index.html">Bosh sahifa</a>' +
         '<a href="korgazmalar.html">Interaktiv darslar</a>' +
+        '<a href="mathrunner-web/index.html">Boshlang\'ich sinflar</a>' +
       "</nav>" +
     "</header>" +
     '<div id="side-drawer" class="side-drawer">' +
       '<div class="side-drawer-inner">' +
         '<button id="drawer-close-btn" class="drawer-close" aria-label="Yopish">&times;</button>' +
         '<a href="index.html" class="drawer-link">Bosh sahifa</a>' +
+        '<a href="mathrunner-web/index.html" class="drawer-link">Boshlang\'ich sinflar (1–4)</a>' +
         '<a href="settings.html" class="drawer-link">Sozlamalar</a>' +
         '<a href="info.html" class="drawer-link">Ma\'lumot</a>' +
         '<div class="drawer-divider"></div>' +
