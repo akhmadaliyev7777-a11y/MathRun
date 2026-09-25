@@ -129,6 +129,36 @@ a { color: inherit; text-decoration: none; }
   border-radius: 999px;
 }
 
+.primary-promo-card {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(135deg, #eef0fd, #e6f7f4);
+}
+
+.primary-promo-text p {
+  color: var(--muted);
+  margin: 0;
+  max-width: 560px;
+}
+
+.primary-promo-arrow {
+  font-size: 1.6rem;
+  color: var(--primary);
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.primary-promo-card:hover .primary-promo-arrow { transform: translateX(4px); }
+
+@media (max-width: 640px) {
+  .primary-promo-card { flex-direction: column; align-items: flex-start; text-align: left; }
+}
+
 /* ---------- Bosh sahifa: hero, ko'rgazma, qadriyatlar, footer ---------- */
 
 .hero-section {
