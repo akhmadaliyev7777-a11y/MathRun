@@ -15,6 +15,7 @@ export function nav(active) {
         el('span', { class: 'brand__name' }, 'MathRunner'),
         el('span', { class: 'brand__pill' }, '1–4 sinf')),
       el('div', { class: 'nav__links' },
+        el('a', { href: '../index.html', style: 'opacity:.7' }, '← MathRun'),
         link('#/', 'Mavzular', 'mavzular'),
         link('#/games', 'Fikrlash o\'yinlari', 'games'),
         link('#/about', 'Loyiha haqida', 'about'),
@@ -37,7 +38,7 @@ export function footer() {
             '1–4 sinf matematika darsligining ochiq, bepul interaktiv ko\'rinishi.')),
         el('div', { class: 'foot__cols' },
           col('Sayt', [['Mavzular', '#/'], ['Fikrlash o\'yinlari', '#/games'], ['Loyiha haqida', '#/about']]),
-          col('Boshqa', [['Android ilova', '#/about'], ['GitHub (ochiq manba)', 'https://github.com/akhmadaliyev7777-a11y'], ['Aloqa', '#/about']]))),
+          col('Boshqa', [['← MathRun bosh sahifasi', '../index.html'], ['Android ilova', '#/about'], ['GitHub (ochiq manba)', 'https://github.com/akhmadaliyev7777-a11y'], ['Aloqa', '#/about']]))),
       el('div', { class: 'foot__note' },
         '© 2026 MathRunner · O\'zbekiston 1–4 sinf matematika kurikulumi asosida')));
 }
