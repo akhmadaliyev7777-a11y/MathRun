@@ -25,6 +25,14 @@ lessons/            Claude Code'da yasalgan mustaqil interaktiv HTML darslar
 
 Build qadam (npm, framework) yo'q — `index.html`ni to'g'ridan-to'g'ri brauzerda ochish kifoya.
 
+## Boshlang'ich sinflar (1–4) bo'limi
+
+`mathrunner-web/` papkasi — 1–4 sinf uchun mashqlar, darslar va mini-o'yinlar (arqon tortish va h.k.) joylashgan **mustaqil kichik sayt** (o'zining `index.html`, hash-router (`#/...`), `data/curriculum.json` va `data/banks/*.json` fayllari bilan). Bu — sobiq alohida `mathrunner-web` repo, endi shu repo ichiga ko'chirilgan.
+
+U yuqoridagi `js/data.js`/`SITE_DATA` tuzilmasiga **bog'liq emas** — sinf→chorak→blok→bosqich (574 ta) daraxti va o'z savol banklari bilan butunlay boshqacha, o'zicha ishlaydigan tizim. Shuning uchun uni tahrirlash uchun `mathrunner-web/CLAUDE.md`ga qarang — u yerda o'sha bo'limning o'z qoidalari bor.
+
+Asosiy saytdan unga ikki joydan havola beriladi: bosh sahifa navigatsiyasi (`js/layout.js`, "Boshlang'ich sinflar") va bosh sahifadagi targ'ibot bannerida (`index.html`). Undan qaytish uchun `mathrunner-web`ning o'zida ham "← MathRun" havolasi bor.
+
 ## Yangi mavzu qanday qo'shiladi
 
 1. `js/data.js` faylini oching.
