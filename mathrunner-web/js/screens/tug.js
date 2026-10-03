@@ -361,6 +361,15 @@ export async function render(root, _params) {
     const scoreBlue = el('b', { class: 'tug-score' }, '0');
     const scoreRed = el('b', { class: 'tug-score' }, '0');
 
+    // matn qotirilgan maydonga sig'maguncha shriftni kichraytirish (panel o'lchami o'zgarmasin)
+    function fitText(node) {
+      node.style.fontSize = '';
+      let size = parseFloat(getComputedStyle(node).fontSize);
+      while ((node.scrollHeight > node.clientHeight + 1 || node.scrollWidth > node.clientWidth + 1) && size > 12) {
+        size -= 1;
+        node.style.fontSize = size + 'px';
+      }
+    }
     function panel(team, side) {
       const box = el('div', { class: `tug-panel tug-panel--${side}` });
       redrawPanel(box, team, side);
@@ -369,12 +378,13 @@ export async function render(root, _params) {
     function redrawPanel(box, team, side) {
       const q = state[team].q;
       box.replaceChildren(
-        el('div', { class: 'tug-q', html: questionHTML(q.q) }),
+        el('div', { class: 'tug-q', html: questionHTML(q.q, { compact: true }) }),
         el('div', { class: 'tug-opts' }, ...q.order.map((oi, k) =>
           el('button', {
             class: 'tug-opt', dataset: { team },
             onclick: (e) => answer(team, oi, e.currentTarget, box, side),
           }, el('i', {}, 'ABCD'[k]), el('span', { html: answerHTML(q.options[oi]) })))));
+      requestAnimationFrame(() => box.querySelectorAll('.tug-q, .tug-opt').forEach(fitText));
     }
 
     const bluePanel = panel('blue', 'blue');

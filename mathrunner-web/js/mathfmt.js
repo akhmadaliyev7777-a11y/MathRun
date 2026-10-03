@@ -147,7 +147,8 @@ export function mathHTML(input) {
 }
 
 // javob varianti: butunlay son, belgi (>, <, =) yoki formula bo'lsa — to'liq formula sifatida
-export function answerHTML(input) {
+// compact — o'yin panellari uchun: kasrlar ixcham (qator balandligini oshirmaydi)
+export function answerHTML(input, { compact = false } = {}) {
   const s = String(input).trim();
   if (!window.katex) return esc(s);
   const toks = tokenize(s);
@@ -158,7 +159,7 @@ export function answerHTML(input) {
     // bitta son yoki aralash kasr (4 2/5)
     const onlyNum = t.length >= 1 && t.length <= 2 && t.every(x => x.type === 'num');
     if (onlyOp || onlyNum || isFormula(toks)) {
-      const r = renderTex(tex(toks), true);
+      const r = renderTex(tex(toks), !compact);
       if (r) return r;
     }
   }
@@ -187,7 +188,7 @@ function pureFormula(s) {
   return toks.length > 0 && toks.every(t => MATHY.has(t.type)) && isFormula(toks);
 }
 
-export function questionHTML(input) {
+export function questionHTML(input, { compact = false } = {}) {
   let s = String(input).trim();
   for (const [re, to] of REWRITES) s = s.replace(re, to);
   if (!window.katex) return esc(s);
@@ -201,10 +202,10 @@ export function questionHTML(input) {
     // "Taqqoslang: 3 + 1 __ 5 - 2" → "Taqqoslang:" va misol
     const colon = body.match(/^([^:]+:)\s+(.+)$/);
     const hint = /^\(.*\)$/.test(body.trim()); // qavs ichidagi izoh — matn ichida qoladi
-    if (pureFormula(body) && !hint) lines.push({ kind: 'f', html: renderTex(tex(tokenize(body.trim())), true) });
+    if (pureFormula(body) && !hint) lines.push({ kind: 'f', html: renderTex(tex(tokenize(body.trim())), !compact) });
     else if (colon && !/\d/.test(colon[1]) && pureFormula(colon[2])) {
       lines.push({ kind: 't', html: esc(colon[1]) });
-      lines.push({ kind: 'f', html: renderTex(tex(tokenize(colon[2].trim())), true) });
+      lines.push({ kind: 'f', html: renderTex(tex(tokenize(colon[2].trim())), !compact) });
     } else lines.push({ kind: 't', html: mathHTML(p) });
   }
   // misol qatori bo'lmasa — avvalgidek bitta matn
