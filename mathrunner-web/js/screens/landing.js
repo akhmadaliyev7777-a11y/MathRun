@@ -7,16 +7,26 @@ export function render(root, _params) {
   const cur = curriculum();
   const t = cur.totals;
 
-  const heroCard = el('div', { class: 'hero__card' },
-    el('div', { class: 'qcard' },
-      el('div', { class: 'spread', style: 'font-weight:800;font-size:13px;color:rgba(22,18,64,.55)' },
-        el('span', {}, '1-sinf · I chorak · Blok 7'), el('span', {}, '4 / 10')),
-      el('div', { class: 'bar', style: 'margin:10px 0 22px' }, el('i', { style: 'width:40%' })),
-      el('div', { style: 'font-family:var(--f-head);font-weight:800;font-size:40px;text-align:center;margin:12px 0 24px' }, '7 + 5 = ?'),
-      el('div', { class: 'answers' },
-        el('div', { class: 'answer is-correct' }, '12'),
-        el('div', { class: 'answer' }, '11'),
-        el('div', { class: 'answer' }, '13'))));
+  // o'ng tomondagi ko'rgazma: test kartochkasi + "Dars tugadi" yorlig'i + arqon tortish mini kartochkasi
+  const ans = (v, ok) => el('div', { class: 'sc-ans' + (ok ? ' sc-ans--ok' : '') },
+    el('span', { class: 'sc-math' }, v), ok && el('span', { class: 'sc-ans__check', html: ICON.check }));
+  const heroCard = el('div', { class: 'showcase', 'aria-hidden': 'true' },
+    el('div', { class: 'showcase__blob' }),
+    el('div', { class: 'sc-card' },
+      el('div', { class: 'sc-card__top' },
+        el('span', {}, '1-sinf · 7-mavzu · 1-dars'), el('b', {}, '4 / 10')),
+      el('div', { class: 'sc-bar' }, el('i', {})),
+      el('div', { class: 'sc-q' },
+        el('div', { class: 'sc-q__kicker' }, 'SAVOL'),
+        el('div', { class: 'sc-math sc-q__f' }, '7 + 5 = ?')),
+      el('div', { class: 'sc-answers' }, ans('12', true), ans('11'), ans('13'), ans('10'))),
+    el('div', { class: 'sc-chip sc-chip--stars' },
+      el('span', { class: 'sc-stars' }, ...[0, 1, 2].map(() => el('span', { html: ICON.star }))),
+      el('span', {}, el('b', {}, 'Dars tugadi!'), el('small', {}, '10 dan 10'))),
+    el('div', { class: 'sc-chip sc-chip--tug' },
+      el('div', { class: 'sc-tug__head' }, el('b', {}, 'Arqon tortish'), el('small', {}, '2 jamoa')),
+      el('div', { class: 'sc-rope' }, el('span', { class: 'sc-rope__knot' })),
+      el('div', { class: 'sc-tug__score' }, el('span', { class: 'sc-blue' }, '3'), el('span', { class: 'sc-red' }, '1'))));
 
   const GRADE_BANNER = {
     1: 'assets/grade-1-banner.jpg', 2: 'assets/grade-2-banner.jpg',
