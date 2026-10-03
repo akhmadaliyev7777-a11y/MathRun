@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&amp;family=Nunito:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#171334;font-family:Nunito,system-ui,sans-serif}
+a{color:#3fd0f5}a:hover{color:#ff5cd0}
+@keyframes mrg-run-a{0%{left:-8%}100%{left:106%}}
+@keyframes mrg-run-b{0%{left:106%}100%{left:-8%}}
+@keyframes mrg-hammer{0%,64%{transform:rotate(0deg) translateY(0)}76%{transform:rotate(20deg) translateY(-8px)}88%{transform:rotate(-32deg) translateY(20px)}100%{transform:rotate(0deg) translateY(0)}}
+@keyframes mrg-spark{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+@keyframes mrg-flag{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+</style>
+</helmet>
+
+<section style="padding:44px 48px 40px">
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 26px">
+    <span style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:19px;color:#fff">MathRunner Go — "Sichqonchani ur" mini-o'yini</span>
+    <span style="font:400 12px Nunito,system-ui;color:rgba(255,255,255,.5)">390×844 · vizual maket, avtomatik animatsiyalangan</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start">
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="font:600 11.5px Nunito,system-ui;color:rgba(255,255,255,.55)">Asosiy sahna</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;box-sizing:border-box;position:relative;overflow:hidden;font-family:Nunito,system-ui;color:#fff;background:linear-gradient(180deg,#F8912F 0%,#FFDF6E 100%);display:flex;flex-direction:column">
+
+          <div style="display:flex;justify-content:space-around;padding:8px 8px 0;position:relative;z-index:2">
+            <sc-for list="{{ flags }}" as="f" hint-placeholder-count="9">
+              <div style="width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-top:16px solid {{ f.color }};animation:mrg-flag 2.4s ease-in-out infinite;animation-delay:{{ f.delay }}s;transform-origin:top center"></div>
+            </sc-for>
+          </div>
+
+          <div style="padding:14px 18px 0;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2">
+            <div style="width:38px;height:38px;border-radius:50%;background:rgba(22,18,64,.5);display:flex;align-items:center;justify-content:center;gap:4px">
+              <span style="width:4px;height:14px;background:#fff;border-radius:2px;display:block"></span>
+              <span style="width:4px;height:14px;background:#fff;border-radius:2px;display:block"></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;background:rgba(22,18,64,.5);border-radius:999px;padding:8px 14px">
+              <span style="width:15px;height:15px;border-radius:50%;border:2.5px solid #fff;position:relative;display:block"><span style="position:absolute;left:50%;top:50%;width:4px;height:6px;background:#fff;transform:translate(-50%,-100%)"></span></span>
+              <span style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:15px;color:#fff">0:42</span>
+            </div>
+          </div>
+
+          <div style="padding:12px 18px 0;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2">
+            <div style="display:flex;gap:6px">
+              <sc-for list="{{ hearts }}" as="h" hint-placeholder-count="3">
+                <span style="width:16px;height:16px;background:linear-gradient(#ff7aa8,#FF5C5C);transform:rotate(45deg);border-radius:3px;display:block;box-shadow:0 2px 0 rgba(22,18,64,.3)"></span>
+              </sc-for>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:10px;font-weight:800;letter-spacing:.14em;color:rgba(255,255,255,.75)">OCHKO</div>
+              <div style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:26px;line-height:1.05">1 240</div>
+            </div>
+            <div style="background:rgba(22,18,64,.5);border-radius:999px;padding:7px 13px;font-family:'Baloo 2',system-ui;font-weight:800;font-size:14px;color:#FFDF6E">×2</div>
+          </div>
+
+          <div style="display:flex;justify-content:center;padding:14px 20px 0;position:relative;z-index:2">
+            <div style="background:rgba(22,18,64,.55);border:2px solid rgba(255,255,255,.22);border-radius:26px;padding:12px 26px;text-align:center;box-shadow:0 6px 0 rgba(0,0,0,.22)">
+              <div style="font-size:9.5px;font-weight:800;letter-spacing:.15em;color:rgba(255,255,255,.7)">TO'G'RI JAVOBNI UR</div>
+              <div style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:30px;line-height:1.2">6 × 7 = ?</div>
+            </div>
+          </div>
+
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:20px 34px 0;position:relative">
+            <sc-for list="{{ lanes }}" as="ln" hint-placeholder-count="3">
+              <div style="position:relative;height:118px;background:#FFF6E6;border:3px solid #161240;border-radius:22px;box-shadow:0 6px 0 rgba(22,18,64,.3)">
+                <div style="position:absolute;left:-33px;top:50%;transform:translateY(-50%);width:60px;height:88px;border-radius:50%;background:{{ ln.color }};border:3px solid #161240;z-index:3">
+                  <div style="position:absolute;inset:9px;border-radius:50%;background:#100d2e"></div>
+                </div>
+                <div style="position:absolute;right:-33px;top:50%;transform:translateY(-50%);width:60px;height:88px;border-radius:50%;background:{{ ln.color }};border:3px solid #161240;z-index:3">
+                  <div style="position:absolute;inset:9px;border-radius:50%;background:#100d2e"></div>
+                </div>
+
+                <div style="position:absolute;top:50%;transform:translateY(-50%);left:-6%;opacity:.14;animation:{{ ln.anim }} {{ ln.dur }}s linear infinite;animation-delay:{{ ln.delay1 }}s">
+                  <div style="width:50px;height:30px;border-radius:50% 50% 40% 40%;background:#161240"></div>
+                </div>
+                <div style="position:absolute;top:50%;transform:translateY(-50%);left:-6%;opacity:.26;animation:{{ ln.anim }} {{ ln.dur }}s linear infinite;animation-delay:{{ ln.delay2 }}s">
+                  <div style="width:50px;height:30px;border-radius:50% 50% 40% 40%;background:#161240"></div>
+                </div>
+
+                <div style="position:absolute;top:50%;transform:translateY(-50%);left:-6%;z-index:4;animation:{{ ln.anim }} {{ ln.dur }}s linear infinite">
+                  <div style="position:relative">
+                    <div style="position:absolute;left:50%;bottom:100%;transform:translateX(-50%);margin-bottom:6px;background:{{ ln.color }};border:2.5px solid #161240;border-radius:999px;padding:5px 12px;box-shadow:0 3px 0 rgba(22,18,64,.28);white-space:nowrap">
+                      <span style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:15px;color:#161240">{{ ln.value }}</span>
+                    </div>
+                    <div style="transform:scaleX({{ ln.faceX }});width:92px;height:39px">
+                      <svg width="92" height="39" viewBox="0 0 132 56" style="display:block">
+                        <path d="M8,28 C10,20 16,14 24,12 C20,4 30,2 36,8 C40,4 48,4 50,10 C64,6 86,12 90,28 C86,44 64,50 50,46 C48,52 40,52 36,48 C30,54 20,52 24,44 C16,42 10,36 8,28 Z" fill="#EFE7D8" stroke="#161240" stroke-width="2.6"></path>
+                        <path d="M90,28 C102,26 112,32 124,25" fill="none" stroke="#161240" stroke-width="2.6" stroke-linecap="round"></path>
+                        <circle cx="10" cy="28" r="3.4" fill="#161240"></circle>
+                        <circle cx="20" cy="18" r="2.2" fill="#161240"></circle>
+                        <line x1="12" y1="24" x2="0" y2="19" stroke="#161240" stroke-width="1.2"></line>
+                        <line x1="11" y1="28" x2="-2" y2="28" stroke="#161240" stroke-width="1.2"></line>
+                        <line x1="12" y1="32" x2="0" y2="37" stroke="#161240" stroke-width="1.2"></line>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+
+            <div style="position:absolute;left:50%;top:30%;transform:translateX(-50%);transform-origin:34% 86%;animation:mrg-hammer 2.6s ease-in-out infinite;z-index:6">
+              <div style="width:100px;height:62px;background:linear-gradient(180deg,#FFF6E6,#f0e2c8);border:4px solid #161240;border-radius:20px;box-shadow:inset 0 -8px 0 rgba(22,18,64,.12),0 6px 0 rgba(22,18,64,.3);position:relative">
+                <div style="position:absolute;left:10px;top:8px;right:10px;height:11px;border-radius:7px;background:rgba(255,255,255,.75)"></div>
+              </div>
+              <div style="width:13px;height:52px;background:linear-gradient(180deg,#F8912F,#d9711b);border:2.5px solid #161240;border-radius:6px;margin:-4px auto 0"></div>
+              <span style="position:absolute;left:-9px;bottom:44px;width:10px;height:10px;border-radius:50%;background:#FFDF6E;animation:mrg-spark .9s ease-in-out infinite"></span>
+              <span style="position:absolute;right:-7px;bottom:52px;width:8px;height:8px;border-radius:50%;background:#3fd0f5;animation:mrg-spark .9s ease-in-out infinite;animation-delay:.25s"></span>
+            </div>
+          </div>
+
+          <div style="padding:12px 20px 0;text-align:center;font-size:11px;font-weight:700;color:rgba(22,18,64,.55)">Sichqoncha to'g'ri javob bilan quvurdan quvurga yuguradi — uni to'g'ri paytda uring</div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="font:600 11.5px Nunito,system-ui;color:rgba(255,255,255,.55)">Zarba holatlari</div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+
+        <div style="width:340px;background:radial-gradient(70% 100% at 50% 0%,rgba(74,208,122,.22),#FFF6E6 62%);border:3px solid #161240;border-radius:22px;padding:16px;box-shadow:0 0 0 4px rgba(74,208,122,.4),0 6px 0 rgba(22,18,64,.3)">
+          <div style="font:800 12px 'Baloo 2',system-ui;color:#0b6b3a;margin-bottom:8px">TO'G'RI ZARBA</div>
+          <div style="position:relative;height:76px;display:flex;align-items:center;justify-content:center;gap:16px">
+            <svg width="76" height="32" viewBox="0 0 132 56" style="transform:scaleX(-1)">
+              <path d="M8,28 C10,20 16,14 24,12 C20,4 30,2 36,8 C40,4 48,4 50,10 C64,6 86,12 90,28 C86,44 64,50 50,46 C48,52 40,52 36,48 C30,54 20,52 24,44 C16,42 10,36 8,28 Z" fill="#8CE0AA" stroke="#161240" stroke-width="2.6"></path>
+              <path d="M90,28 C102,26 112,32 124,25" fill="none" stroke="#161240" stroke-width="2.6" stroke-linecap="round"></path>
+              <circle cx="10" cy="28" r="3.4" fill="#161240"></circle>
+              <circle cx="20" cy="18" r="2.2" fill="#161240"></circle>
+            </svg>
+            <span style="position:absolute;left:14px;top:0;font-size:22px;color:#ffdf6e;animation:mrg-spark .9s ease-in-out infinite" aria-hidden="true">✦</span>
+            <span style="position:absolute;right:26px;top:10px;font-size:15px;color:#ffdf6e;animation:mrg-spark .9s ease-in-out infinite;animation-delay:.3s" aria-hidden="true">✦</span>
+            <div style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:26px;color:#0b6b3a">+120</div>
+          </div>
+        </div>
+
+        <div style="width:340px;background:radial-gradient(70% 100% at 50% 0%,rgba(255,92,92,.2),#FFF6E6 62%);border:3px solid #161240;border-radius:22px;padding:16px;box-shadow:0 0 0 4px rgba(255,92,92,.4),0 6px 0 rgba(22,18,64,.3)">
+          <div style="font:800 12px 'Baloo 2',system-ui;color:#a12424;margin-bottom:8px">XATO ZARBA</div>
+          <div style="position:relative;height:76px;display:flex;align-items:center;justify-content:center">
+            <svg width="76" height="32" viewBox="0 0 132 56" style="transform:scaleX(-1) rotate(-11deg)">
+              <path d="M8,28 C10,20 16,14 24,12 C20,4 30,2 36,8 C40,4 48,4 50,10 C64,6 86,12 90,28 C86,44 64,50 50,46 C48,52 40,52 36,48 C30,54 20,52 24,44 C16,42 10,36 8,28 Z" fill="#e8bcbc" stroke="#161240" stroke-width="2.6"></path>
+              <path d="M90,28 C102,26 112,32 124,25" fill="none" stroke="#161240" stroke-width="2.6" stroke-linecap="round"></path>
+              <circle cx="10" cy="28" r="3.4" fill="#161240"></circle>
+              <circle cx="20" cy="18" r="2.2" fill="#161240"></circle>
+            </svg>
+            <div style="position:absolute;width:78px;height:78px;background:repeating-linear-gradient(45deg,rgba(161,36,36,.42) 0 3px,transparent 3px 9px);border-radius:16px"></div>
+            <span style="position:absolute;right:22px;bottom:6px;font-family:'Baloo 2',system-ui;font-weight:800;font-size:15px;color:#a12424">−ochko</span>
+          </div>
+        </div>
+
+        <div style="width:340px;background:#FFF6E6;border:3px solid #161240;border-radius:22px;padding:16px;opacity:.92;filter:grayscale(.4)">
+          <div style="font:800 12px 'Baloo 2',system-ui;color:#5f6368;margin-bottom:8px">O'TKAZIB YUBORILDI</div>
+          <div style="height:76px;display:flex;align-items:center;justify-content:center;gap:14px">
+            <svg width="76" height="32" viewBox="0 0 132 56" style="opacity:.55;transform:scaleX(-1)">
+              <path d="M8,28 C10,20 16,14 24,12 C20,4 30,2 36,8 C40,4 48,4 50,10 C64,6 86,12 90,28 C86,44 64,50 50,46 C48,52 40,52 36,48 C30,54 20,52 24,44 C16,42 10,36 8,28 Z" fill="#c9c9cf" stroke="#161240" stroke-width="2.6"></path>
+              <path d="M90,28 C102,26 112,32 124,25" fill="none" stroke="#161240" stroke-width="2.6" stroke-linecap="round"></path>
+              <circle cx="10" cy="28" r="3.4" fill="#161240"></circle>
+              <circle cx="20" cy="18" r="2.2" fill="#161240"></circle>
+            </svg>
+            <span style="width:20px;height:20px;background:#c9c9cf;transform:rotate(45deg);border-radius:4px;display:block"></span>
+            <span style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:18px;color:#5f6368">−1 jon</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="width:340px;background:rgba(255,255,255,.06);border:2.5px solid rgba(255,255,255,.16);border-radius:20px;padding:16px;margin-top:6px">
+        <div style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:14px;color:#fff;margin-bottom:8px">Tasodifiylik qoidasi</div>
+        <div style="font:400 12px/1.55 Nunito,system-ui;color:rgba(255,255,255,.7)">Har bir yo'lakning yugurish yo'nalishi va tezligi mustaqil tanlanadi — barcha 3 tasi hech qachon bir vaqtda bir xil tomonga yugurmaydi. 3 javobning faqat bittasi to'g'ri, lekin barchasi bir xil ko'rinishda.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--
+  ═══════════════════════════════════════════════════════════════
+  "MOUSE CRUSH" ASOSIY SAHNA — TO'LIQ TEXNIK SPETSIFIKATSIYA (VS Code uchun)
+  Kadr: 402×874px. Fon: linear-gradient(180deg, #F8912F 0%, #FFDF6E 100%)
+  ═══════════════════════════════════════════════════════════════
+
+  1) YO'LAKLAR (3 dona, sc-for orqali chiqadi)
+     har biri: height:118px, background:#FFF6E6, border:3px solid #161240,
+     border-radius:22px, box-shadow:0 6px 0 rgba(22,18,64,.3)
+     konteyner: flex-direction:column, gap:16px, padding:20px 34px 0, vertikal markazda
+
+  2) QUVUR DOIRALARI (har yo'lak chap+o'ng uchida, bittasi 60×88px)
+     border-radius:50%, background: yo'lak rangi ({{ln.color}}), border:3px solid #161240
+     ichida qora teshik: inset:9px, background:#100d2e
+     joylashuvi: chap uchida left:-33px, o'ng uchida right:-33px (yo'lakdan tashqariga chiqib turadi)
+
+  3) SICHQONCHA HARAKATI — ASOSIY DINAMIKA
+     Animatsiya turlari:
+       mrg-run-a: 0%{left:-8%} → 100%{left:106%}   (CHAPDAN O'NGGA)
+       mrg-run-b: 0%{left:106%} → 100%{left:-8%}   (O'NGDAN CHAPGA)
+     timing-function: linear (bir xil tezlik, tezlanish yo'q)
+     iteration-count: infinite, oxiriga yetganda BOSHIGA SAKRAYDI (teleport, aylanma emas)
+     vertikal: top:50%, transform:translateY(-50%) — faqat "left" o'zgaradi
+
+     Har yo'lak parametri (hozirgi qiymatlar):
+       Yo'lak 1: anim=mrg-run-a (→), dur=4.2s, rang=#4FC0F7, javob=39, faceX=-1
+       Yo'lak 2: anim=mrg-run-b (←), dur=5.6s, rang=#FF5CD0, javob=42, faceX=1
+       Yo'lak 3: anim=mrg-run-a (→), dur=4.9s, rang=#8055EE, javob=45, faceX=-1
+     QOIDA: yo'nalish (mrg-run-a/b) va davomiylik (4.0–6.0s oralig'ida) har doim
+     TASODIFIY va MUSTAQIL tanlanadi — 3 yo'lak hech qachon bir vaqtda bir xil
+     yo'nalishda va bir xil tezlikda bo'lmasin.
+
+  4) SICHQONCHA BOSH/DUM YO'NALISHI
+     SVG asl holati: boshi CHAPGA qaragan (viewBox 0 0 132 56, bosh ~x8-24 atrofida)
+     Konteyner: transform:scaleX(faceX)
+       faceX=-1 → asl holat (bosh chapda) — mrg-run-a (chapdan o'ngga yurish) bilan
+                  ishlatilганда bosh HARAKAT YO'NALISHIDA (oldinda) bo'ladi
+       faceX=+1 → oyna aks (bosh o'ngda) — mrg-run-b (o'ngdan chapga) bilan mos
+     QOIDA: bosh doim yurish yo'nalishida OLDINDA, dum ORQADA — dum bilan oldinga yurmaydi.
+     Pilldagi javob raqami (label) sichqoncha ustida bog'langan: position:absolute,
+     bottom:100%, sichqoncha bilan birga harakatlanadi.
+
+  5) "IZ" (TRAIL) EFFEKTI — SOYA O'RNIGA
+     Har sichqoncha ortida xuddi shu animatsiyadan ORTDA QOLGAN 2 dona xira nusxa:
+       nusxa 1: opacity:.14, animation-delay: asosiydan -0.35s/-0.4s/-0.3s (yo'lakka qarab)
+       nusxa 2: opacity:.26, animation-delay: asosiydan -0.18s/-0.2s/-0.15s
+     Bular sichqonchaning soddalashtirilgan shakli (oval, 50px×30px, background:#161240),
+     klassik pastga tushган soya EMAS — harakat qoldirgan "shabaha" effekti.
+
+  6) BOLG'A ANIMATSIYASI
+     @keyframes mrg-hammer:
+       0%–64%   rotate(0deg) translateY(0)         — tinch turish (64% vaqt)
+       76%      rotate(20deg) translateY(-8px)      — orqaga ko'tarilish
+       88%      rotate(-32deg) translateY(20px)     — ZARBA (pastga urish)
+       100%     rotate(0deg) translateY(0)          — asl holatga qaytish
+     davri: 2.6s, ease-in-out, infinite
+     transform-origin: 34% 86% (dastaning pastki uchi — real bolg'a kabi buriladi)
+     joylashuvi: left:50%, top:30% (yo'laklar guruhi ustida), z-index:6
+     zarba chaqnashi (76-88% oralig'ida): 2 nuqta, mrg-spark 0.9s ease-in-out infinite,
+       nuqta 1 (sariq #FFDF6E): delay 0s; nuqta 2 (ko'k #3fd0f5): delay 0.25s
+
+  7) ZARBA NATIJASI HOLATLARI (bolg'a sichqonchaga tegganda ishga tushadi)
+     TO'G'RI: sichqoncha rangi #8CE0AA (yashil), ✦ chaqnash belgilari (mrg-spark),
+       "+120" matni #0b6b3a, karta atrofida yashil halqa box-shadow:0 0 0 4px rgba(74,208,122,.4)
+     XATO: sichqoncha rangi #e8bcbc, -11deg buriladi, ustida qizil diagonal chiziqlar
+       (repeating-linear-gradient 45deg, rgba(161,36,36,.42) 0-3px, shaffof 3-9px),
+       "−ochko" matni #a12424, qizil halqa rgba(255,92,92,.4)
+     O'TKAZIB YUBORILDI (sichqoncha quvurga yetib, urilmagan): butun karta grayscale(.4),
+       sichqoncha opacity:.55, "−1 jon" matni #5f6368
+
+  8) RANGLAR JADVALI
+     Fon gradient:     #F8912F → #FFDF6E (yuqori sariq → past ochroq sariq)
+     Yo'lak fon:        #FFF6E6
+     Kontur (barcha):   #161240 (3-4px qalinlik)
+     Yo'lak 1 (ko'k):   #4FC0F7
+     Yo'lak 2 (pushti): #FF5CD0
+     Yo'lak 3 (binafsha): #8055EE
+     To'g'ri zarba:     #8CE0AA / matn #0b6b3a
+     Xato zarba:        #e8bcbc / matn #a12424
+     O'tkazib yuborish: #c9c9cf / matn #5f6368
+     Sariq urg'u (spark, ×ko'paytiruvchi): #FFDF6E
+
+  9) DASTURGA O'TKAZISH MANTIG'I (Flutter/Flame)
+     - Har yo'lak = alohida PositionComponent, chap/o'ng X chegarasi bilan
+     - Sichqoncha X = lerp(startX, endX, t), t har frame dt/duration ga oshadi,
+       t>=1 bo'lganda t=0 ga qaytadi (teleport)
+     - Yo'nalish flag sichqoncha flipX xususiyatini boshqaradi — bosh harakat bilan sinxron
+     - Trail = oxirgi N pozitsiyani saqlab xira nusxa chizish (yoki delay bilan sync animatsiya)
+     - Bolg'a zarbasi = alohida AnimationController, hit-test 76-88% oralig'ida
+       sichqoncha joyi bilan kesishganda tekshiriladi
+  -->
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals(){
+    const flagColors = ["#4FC0F7","#FF5CD0","#8055EE","#4AD07A","#FFDF6E"];
+    return {
+      flags: Array.from({ length: 9 }, (_, i) => ({ color: flagColors[i % flagColors.length], delay: (i * 0.18).toFixed(2) })),
+      hearts: [0, 1, 2],
+      lanes: [
+        { color: "#4FC0F7", anim: "mrg-run-a", faceX: -1, dur: 4.2, delay1: -0.35, delay2: -0.18, value: 39 },
+        { color: "#FF5CD0", anim: "mrg-run-b", faceX: 1, dur: 5.6, delay1: -0.4, delay2: -0.2, value: 42 },
+        { color: "#8055EE", anim: "mrg-run-a", faceX: -1, dur: 4.9, delay1: -0.3, delay2: -0.15, value: 45 }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

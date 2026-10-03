@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#12102e;font-family:Nunito,system-ui,sans-serif}
+a{color:#4fc0f7}a:hover{color:#ff5cd0}
+@keyframes pv-run{to{background-position:0 220px}}
+@keyframes pv-run2{to{background-position:0 340px}}
+@keyframes pv-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes pv-glow{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes pv-float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-12px) rotate(6deg)}}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<section id="t5" style="padding:44px 48px 46px">
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 8px">
+    <a href="#t5" style="font:700 10px ui-monospace,Menlo,monospace;padding:4px 8px;background:#ffdf6e;color:#2c2470;border-radius:5px;text-decoration:none">5</a>
+    <span style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:19px;color:#fff">Premium 3-yo'lakli sahna — 4 dunyo</span>
+  </div>
+  <p style="margin:0 0 24px;max-width:730px;font:400 12.5px/1.6 Nunito,system-ui;color:rgba(255,255,255,.62)">Struktura to'rt dunyoda bir xil: yorug' chekka ustunlar, ikki ajratuvchi runa chizig'i, uch qatlamli harakatlanuvchi sirt, tepada suzuvchi belgilar. Faqat palitra va mayda detal o'zgaradi. Pastdagi tugmalardan dunyoni almashtiring; yo'lakni bosing yoki suring.</p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start">
+    <div id="5a" style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:baseline;gap:9px;font:600 11.5px Nunito,system-ui;color:rgba(255,255,255,.62)"><a href="#5a" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(255,255,255,.12);color:#fff;border-radius:5px;text-decoration:none">5a</a>Interaktiv sahna</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+        <div style="height:100%;box-sizing:border-box;padding:46px 0 26px;display:flex;flex-direction:column;font-family:Nunito,system-ui;color:#fff;overflow:hidden;position:relative;background:{{ sky }}">
+
+          <div style="position:absolute;left:0;right:0;top:0;height:210px;background:{{ haze }};pointer-events:none"></div>
+
+          <div style="position:relative;z-index:6;padding:2px 20px 0;display:flex;align-items:center;gap:12px">
+            <div style="display:flex;gap:5px">
+              <sc-for list="{{ hearts }}" as="h" hint-placeholder-count="3">
+                <sc-if value="{{ h.on }}" hint-placeholder-val="{{ true }}"><span style="width:15px;height:15px;border-radius:5px;background:linear-gradient(#ff7aa8,#ff2f6b);border:2px solid rgba(22,18,64,.3);box-shadow:0 2px 0 rgba(22,18,64,.3);display:block"></span></sc-if>
+                <sc-if value="{{ h.off }}" hint-placeholder-val="{{ false }}"><span style="width:15px;height:15px;border-radius:5px;background:rgba(22,18,64,.3);border:2px solid rgba(22,18,64,.35);display:block"></span></sc-if>
+              </sc-for>
+            </div>
+            <div style="flex:1"></div>
+            <div style="text-align:right"><div style="font-size:9.5px;font-weight:800;letter-spacing:.14em;color:rgba(255,255,255,.75)">OCHKO</div><div style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:22px;line-height:1;text-shadow:0 2px 0 rgba(22,18,64,.4)">{{ score }}</div></div>
+            <div style="border-radius:999px;padding:5px 12px;font-family:'Baloo 2',system-ui;font-weight:800;font-size:15px;background:rgba(22,18,64,.34);border:2px solid {{ accent }};color:{{ accent }}">×{{ mult }}</div>
+          </div>
+
+          <div style="position:relative;z-index:6;padding:11px 20px 0;display:flex;justify-content:center">
+            <div style="background:rgba(22,18,64,.46);border:3px solid rgba(255,255,255,.34);border-radius:24px;padding:10px 30px;text-align:center;box-shadow:0 6px 0 rgba(22,18,64,.34)">
+              <div style="font-size:10px;font-weight:800;letter-spacing:.16em;color:rgba(255,255,255,.8)">{{ label }}</div>
+              <div style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:38px;line-height:1.15;text-shadow:0 3px 0 rgba(22,18,64,.45)">{{ prompt }}</div>
+            </div>
+          </div>
+
+          <div style="flex:1;position:relative;margin-top:12px;overflow:hidden">
+
+            <div style="position:absolute;left:8%;right:8%;top:0;bottom:0;background:{{ floor }};box-shadow:0 0 60px rgba(22,18,64,.5) inset"></div>
+            <div style="position:absolute;left:8%;right:8%;top:0;bottom:0;background:repeating-linear-gradient(rgba(255,255,255,.11) 0 26px,transparent 26px 110px);animation:pv-run .9s linear infinite"></div>
+            <div style="position:absolute;left:8%;right:8%;top:0;bottom:0;background:repeating-linear-gradient({{ tint }} 0 3px,transparent 3px 170px);animation:pv-run2 .55s linear infinite"></div>
+            <div style="position:absolute;left:8%;right:8%;top:0;bottom:0;background:radial-gradient(90% 55% at 50% 108%,{{ pool }},transparent 70%)"></div>
+
+            <div style="position:absolute;left:8%;top:0;bottom:0;width:9px;background:linear-gradient(90deg,rgba(22,18,64,.5),{{ rail }});border-radius:0 4px 4px 0"></div>
+            <div style="position:absolute;right:8%;top:0;bottom:0;width:9px;background:linear-gradient(270deg,rgba(22,18,64,.5),{{ rail }});border-radius:4px 0 0 4px"></div>
+            <div style="position:absolute;left:6.4%;top:0;bottom:0;width:5px;background:{{ accent }};box-shadow:0 0 16px {{ accent }};animation:pv-glow 1.8s ease-in-out infinite"></div>
+            <div style="position:absolute;right:6.4%;top:0;bottom:0;width:5px;background:{{ accent }};box-shadow:0 0 16px {{ accent }};animation:pv-glow 1.8s ease-in-out infinite"></div>
+            <div style="position:absolute;left:4.2%;top:0;bottom:0;width:14px;background:repeating-linear-gradient({{ rail }} 0 18px,transparent 18px 74px);animation:pv-run .9s linear infinite;border-radius:5px;opacity:.9"></div>
+            <div style="position:absolute;right:4.2%;top:0;bottom:0;width:14px;background:repeating-linear-gradient({{ rail }} 0 18px,transparent 18px 74px);animation:pv-run .9s linear infinite;border-radius:5px;opacity:.9"></div>
+
+            <div style="position:absolute;left:36.66%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.5) 30%,rgba(255,255,255,.75));box-shadow:0 0 12px rgba(255,255,255,.5)"></div>
+            <div style="position:absolute;left:61.66%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.5) 30%,rgba(255,255,255,.75));box-shadow:0 0 12px rgba(255,255,255,.5)"></div>
+            <div style="position:absolute;left:35.9%;top:0;bottom:0;width:5px;background:repeating-linear-gradient({{ accent }} 0 12px,transparent 12px 64px);animation:pv-run .9s linear infinite;opacity:.85"></div>
+            <div style="position:absolute;left:60.9%;top:0;bottom:0;width:5px;background:repeating-linear-gradient({{ accent }} 0 12px,transparent 12px 64px);animation:pv-run .9s linear infinite;opacity:.85"></div>
+
+            <sc-if value="{{ lane0 }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:8%;width:28.66%;top:0;bottom:0;background:linear-gradient(180deg,transparent 35%,{{ wash }})"></div></sc-if>
+            <sc-if value="{{ lane1 }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;left:36.66%;width:25%;top:0;bottom:0;background:linear-gradient(180deg,transparent 35%,{{ wash }})"></div></sc-if>
+            <sc-if value="{{ lane2 }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:61.66%;width:30.34%;top:0;bottom:0;background:linear-gradient(180deg,transparent 35%,{{ wash }})"></div></sc-if>
+
+            <sc-for list="{{ motes }}" as="m" hint-placeholder-count="4">
+              <div style="position:absolute;left:{{ m.left }}%;top:{{ m.top }}%;font-family:'Baloo 2',system-ui;font-weight:800;font-size:{{ m.size }}px;color:{{ m.color }};opacity:.34;animation:pv-float {{ m.dur }}s ease-in-out infinite;text-shadow:0 0 14px {{ m.color }}">{{ m.sym }}</div>
+            </sc-for>
+
+            <sc-for list="{{ answers }}" as="a" hint-placeholder-count="3">
+              <div style="position:absolute;left:{{ a.left }}%;top:{{ a.top }}%;transform:translate(-50%,-50%);z-index:4;width:78px;height:78px">
+                <div style="position:absolute;left:50%;bottom:-12px;transform:translateX(-50%);width:62px;height:14px;border-radius:50%;background:rgba(22,18,64,.4)"></div>
+                <div style="position:absolute;inset:0;border-radius:22px;background:{{ a.glow }};filter:blur(14px);opacity:.85"></div>
+                <div style="position:relative;width:100%;height:100%;border-radius:22px;background:{{ tileFace }};border:3px solid rgba(22,18,64,.4);box-shadow:0 8px 0 rgba(22,18,64,.4);display:flex;align-items:center;justify-content:center;overflow:hidden">
+                  <div style="position:absolute;left:0;right:0;top:0;height:42%;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,0));border-radius:19px 19px 40% 40%"></div>
+                  <div style="position:absolute;left:8px;top:7px;width:16px;height:9px;border-radius:99px;background:rgba(255,255,255,.85);transform:rotate(-18deg)"></div>
+                  <span style="position:relative;font-family:'Baloo 2',system-ui;font-weight:800;font-size:30px;line-height:1;color:#2c2470;text-shadow:0 1px 0 rgba(255,255,255,.75)">{{ a.value }}</span>
+                </div>
+              </div>
+            </sc-for>
+
+            <div onPointerDown="{{ onDown }}" onPointerUp="{{ onUp }}" style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);z-index:6;touch-action:none;cursor:pointer">
+              <sc-for list="{{ lanes }}" as="ln" hint-placeholder-count="3"><div onClick="{{ ln.go }}"></div></sc-for>
+            </div>
+
+            <div style="position:absolute;bottom:18px;left:{{ runnerLeft }}%;transform:translateX(-50%);transition:left .2s cubic-bezier(.3,1.5,.5,1);z-index:5">
+              <div style="position:absolute;left:50%;bottom:38px;transform:translateX(-50%);width:52px;height:190px;background:linear-gradient(0deg,{{ accent }},transparent);filter:blur(13px);border-radius:99px;opacity:.75"></div>
+              <div style="position:absolute;left:50%;bottom:-9px;transform:translateX(-50%);width:60px;height:15px;border-radius:50%;background:rgba(22,18,64,.45)"></div>
+              <div style="position:relative;width:70px;height:70px;border-radius:50%;border:3px solid rgba(255,255,255,.85);overflow:hidden;box-shadow:0 0 30px {{ accent }};animation:pv-bob .5s ease-in-out infinite"><image-slot id="pv-hero" shape="circle" placeholder="qahramon" src="assets/app-icon.png"></image-slot></div>
+            </div>
+          </div>
+
+          <div style="position:relative;z-index:6;padding:10px 16px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:7px">
+            <sc-for list="{{ worlds }}" as="w" hint-placeholder-count="4">
+              <div onClick="{{ w.pick }}" style="text-align:center;cursor:pointer;border-radius:14px;padding:8px 0 7px;font-family:'Baloo 2',system-ui;font-weight:800;font-size:11.5px;background:{{ w.bg }};border:2.5px solid {{ w.border }};color:{{ w.fg }};box-shadow:0 4px 0 rgba(22,18,64,.3)" style-active="transform:translateY(2px);box-shadow:0 2px 0 rgba(22,18,64,.3)">{{ w.name }}</div>
+            </sc-for>
+          </div>
+          <div style="position:relative;z-index:6;text-align:center;font-size:11px;font-weight:700;color:rgba(255,255,255,.6);padding-top:6px">{{ hint }}</div>
+        </div>
+      </x-import>
+    </div>
+
+    <div id="5b" style="width:430px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:baseline;gap:9px;font:600 11.5px Nunito,system-ui;color:rgba(255,255,255,.62)"><a href="#5b" style="font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(255,255,255,.12);color:#fff;border-radius:5px;text-decoration:none">5b</a>Qatlamlar va dunyo palitralari</div>
+      <div style="background:rgba(255,255,255,.06);border:2.5px solid rgba(255,255,255,.16);border-radius:22px;padding:18px;font:400 12px/1.5 Nunito,system-ui;color:rgba(255,255,255,.8)">
+        <div style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:15px;color:#fff;margin-bottom:10px">Sirt — 4 qatlam (pastdan yuqoriga)</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div><b style="color:#fff">1. Asos</b> — dunyo gradienti, ichki soya bilan chekkalari quyuqlashadi</div>
+          <div><b style="color:#fff">2. Sekin naqsh</b> — 26/110 px uzuq chiziqlar, 0,9 s aylanish (masofa hissi)</div>
+          <div><b style="color:#fff">3. Tez chiziq</b> — 3/170 px ingichka nur, 0,55 s (tezlik hissi)</div>
+          <div><b style="color:#fff">4. Pastdagi nur</b> — radial hovuz, personaj atrofini yoritadi</div>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.14);margin:15px 0"></div>
+        <div style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:15px;color:#fff;margin-bottom:10px">Chekka va ajratuvchi</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div><b style="color:#fff">Chekka ustun</b> — 9 px quyuq gradient + 5 px yonuvchi aksent chiziq + 14 px uzuq runa bloklari (rels o'rnida)</div>
+          <div><b style="color:#fff">Ajratuvchi</b> — 3 px oq nur (pastga tomon kuchayadi) + 5 px uzuq aksent, sirt bilan birga siljiydi</div>
+          <div><b style="color:#fff">Faol yo'lakcha</b> — pastdan yuqoriga so'nadigan aksent yuvinishi</div>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.14);margin:15px 0"></div>
+        <div style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:15px;color:#fff;margin-bottom:10px">Javob plitkasi</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div>78×78, radius 22, 3 px kontur <code style="font:400 11px ui-monospace,Menlo">rgba(22,18,64,.4)</code>, qattiq soya <code style="font:400 11px ui-monospace,Menlo">0 8px 0</code></div>
+          <div>Ustida shisha aks ettirish: yuqori 42% oq gradient + kichik burchak yorqinligi</div>
+          <div>Orqasida rangli blur halqa (dunyo aksentida) — plitka "yonib" turadi</div>
+          <div>Ostida ellips soya — bo'shliqda suzayotgandek</div>
+          <div><b style="color:#fff">To'g'ri</b> — yashil chaqnash, plitka 1,15× kattalashib so'nadi; <b style="color:#fff">xato</b> — qizil, 2 px chapga-o'ngga tebranish</div>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.14);margin:15px 0"></div>
+        <div style="font-family:'Baloo 2',system-ui;font-weight:800;font-size:15px;color:#fff;margin-bottom:10px">Dunyo palitralari</div>
+        <sc-for list="{{ palettes }}" as="p" hint-placeholder-count="4">
+          <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid rgba(255,255,255,.1)">
+            <div style="width:74px;font-weight:800;color:#fff;font-size:12px">{{ p.name }}</div>
+            <div style="display:flex;gap:5px">
+              <span style="width:24px;height:24px;border-radius:7px;border:2px solid rgba(22,18,64,.4);background:{{ p.c1 }};display:block"></span>
+              <span style="width:24px;height:24px;border-radius:7px;border:2px solid rgba(22,18,64,.4);background:{{ p.c2 }};display:block"></span>
+              <span style="width:24px;height:24px;border-radius:7px;border:2px solid rgba(22,18,64,.4);background:{{ p.c3 }};display:block"></span>
+            </div>
+            <div style="flex:1;font-size:11px;color:rgba(255,255,255,.7)">{{ p.note }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:4px 0 0;font:400 11.5px/1.55 Nunito,system-ui;color:rgba(255,255,255,.5)">CSS bilan chiqmaydigan qism: yo'lak sirtidagi organik tekstura (tosh yorig'i, o'yilgan runalar, metall g'ijimi) va dunyo fonlari. Ular uchun rastr aktiv kerak — spetsifikatsiya va promptlar <code style="font:400 11px ui-monospace,Menlo">GRAFIKA-SPEC.md</code> da (D bo'limi), sirt tekstura uchun quyida.</p>
+      <div style="background:rgba(22,18,64,.5);border:2px solid rgba(255,255,255,.14);border-radius:18px;padding:15px;font:400 11.5px/1.6 ui-monospace,Menlo,monospace;color:rgba(255,255,255,.72)">
+        <div style="font:800 12px Nunito,system-ui;color:#ffdf6e;margin-bottom:8px">lane_texture_&lt;world&gt;.png — 512×1536, gorizontal va VERTIKAL tutashuvchi, alpha</div>
+        Seamless tileable game path texture, top-down view, modern flat-cartoon vector style, thick #161240 outlines, flat shading, no photorealism, no text. Vertical strip that repeats perfectly top to bottom and left to right. Subtle low-contrast surface detail only — it sits under fast-moving UI. Forest: mossy stone slabs with faint carved runes. City: polished tile plates with thin glowing seams. Space: dark metal panels with soft cyan circuitry lines. Castle: cracked flagstones with faint golden glyphs. Transparent background, no border, no vignette, detail no stronger than 25% opacity.
+      </div>
+    </div>
+  </div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;fallSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:7,&quot;min&quot;:3,&quot;max&quot;:15,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;O'yin&quot;}}">
+const W = {
+  forest: { name:"O'rmon", sky:"linear-gradient(180deg,#7fd6ff 0%,#4fc0f7 34%,#2f8a55 100%)",
+    haze:"linear-gradient(180deg,rgba(191,233,255,.55),transparent)",
+    floor:"linear-gradient(180deg,#2f8a55 0%,#256b45 45%,#1a4a33 100%)",
+    accent:"#4AD07A", rail:"#4AD07A", tint:"rgba(255,246,230,.5)",
+    pool:"rgba(74,208,122,.42)", wash:"rgba(74,208,122,.26)",
+    tileFace:"linear-gradient(180deg,#FFF6E6,#ffe6b8)", glow:"#4AD07A",
+    syms:["+","−","+","÷"], note:"mox, o'yilgan runalar" },
+  city: { name:"Shahar", sky:"linear-gradient(180deg,#5C7FF5 0%,#8055EE 45%,#4a2f9e 100%)",
+    haze:"linear-gradient(180deg,rgba(255,92,208,.3),transparent)",
+    floor:"linear-gradient(180deg,#5b48b8 0%,#432f96 45%,#2c1f6e 100%)",
+    accent:"#FF5CD0", rail:"#FF5CD0", tint:"rgba(255,246,230,.45)",
+    pool:"rgba(255,92,208,.4)", wash:"rgba(255,92,208,.26)",
+    tileFace:"linear-gradient(180deg,#FFF6E6,#ffd9f2)", glow:"#FF5CD0",
+    syms:["×","+","×","−"], note:"sayqal plita, yoruq tikish" },
+  space: { name:"Kosmos", sky:"linear-gradient(180deg,#2b2478 0%,#161240 55%,#0d0a24 100%)",
+    haze:"linear-gradient(180deg,rgba(79,192,247,.28),transparent)",
+    floor:"linear-gradient(180deg,#1e1a52 0%,#161240 50%,#0e0b2c 100%)",
+    accent:"#4FC0F7", rail:"#4FC0F7", tint:"rgba(79,192,247,.6)",
+    pool:"rgba(79,192,247,.45)", wash:"rgba(79,192,247,.28)",
+    tileFace:"linear-gradient(180deg,#FFF6E6,#cfeaff)", glow:"#4FC0F7",
+    syms:["÷","×","÷","+"], note:"metall panel, sxema chiziqlari" },
+  castle: { name:"Qasr", sky:"linear-gradient(180deg,#8055EE 0%,#F8912F 62%,#8a4a1e 100%)",
+    haze:"linear-gradient(180deg,rgba(255,223,110,.4),transparent)",
+    floor:"linear-gradient(180deg,#6b4f8f 0%,#4a3568 48%,#2e2145 100%)",
+    accent:"#FFDF6E", rail:"#F8912F", tint:"rgba(255,223,110,.5)",
+    pool:"rgba(255,223,110,.45)", wash:"rgba(255,223,110,.28)",
+    tileFace:"linear-gradient(180deg,#FFF6E6,#ffe9b0)", glow:"#FFDF6E",
+    syms:["×","÷","−","+"], note:"yorilgan tosh, oltin glif" }
+};
+const KEYS = ["forest","city","space","castle"];
+
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.state = { world:"forest", score:0, streak:0, hearts:3, fall:0, lane:1, over:false, q:this.makeQ() };
+  }
+  makeQ(){
+    const a = 10 + Math.floor(Math.random()*30), b = 5 + Math.floor(Math.random()*20);
+    const ans = a + b, wrongs = new Set();
+    while (wrongs.size < 2){
+      const d = ans + (Math.random() < .5 ? -1 : 1) * (1 + Math.floor(Math.random()*9));
+      if (d !== ans && d > 0) wrongs.add(d);
+    }
+    const vals = [ans, ...wrongs].sort(() => Math.random() - .5);
+    return { text:a + " + " + b, ans, vals, correctIdx:vals.indexOf(ans) };
+  }
+  componentDidMount(){
+    this.timer = setInterval(() => {
+      const secs = this.props.fallSeconds ?? 7;
+      this.setState(s => {
+        if (s.over) return null;
+        const fall = s.fall + 0.1 / secs;
+        if (fall < 1) return { fall };
+        if (s.lane === s.q.correctIdx) return { fall:0, q:this.makeQ(), streak:s.streak + 1,
+          score:s.score + 100 * Math.min(4, 1 + Math.floor(s.streak / 3)) };
+        const hearts = s.hearts - 1;
+        if (hearts <= 0){
+          clearTimeout(this.restart);
+          this.restart = setTimeout(() => this.setState({ over:false, hearts:3, score:0, streak:0, fall:0, lane:1, q:this.makeQ() }), 2400);
+          return { fall:0, hearts:0, streak:0, over:true };
+        }
+        return { fall:0, q:this.makeQ(), streak:0, hearts };
+      });
+    }, 100);
+  }
+  componentWillUnmount(){ clearInterval(this.timer); clearTimeout(this.restart); }
+  go(i){ this.setState({ lane:Math.max(0, Math.min(2, i)) }); }
+  onDown(e){ this.px = e.clientX; }
+  onUp(e){ const dx = e.clientX - (this.px ?? e.clientX); if (Math.abs(dx) > 28) this.go(this.state.lane + (dx > 0 ? 1 : -1)); }
+  renderVals(){
+    const s = this.state, w = W[s.world], lefts = [22, 50, 78];
+    return {
+      sky:w.sky, haze:w.haze, floor:w.floor, accent:w.accent, rail:w.rail,
+      tint:w.tint, pool:w.pool, wash:w.wash, tileFace:w.tileFace,
+      score:s.score.toLocaleString("ru-RU").replace(/,/g, " "),
+      mult:Math.min(4, 1 + Math.floor(s.streak / 3)),
+      prompt:s.q.text + " = ?",
+      label:s.streak >= 3 ? "KOMBO " + s.streak : W[s.world].name.toUpperCase(),
+      hint:s.over ? "Jonlar tugadi" : "Yo'lakni bosing yoki suring",
+      hearts:[0,1,2].map(i => ({ on:i < s.hearts, off:i >= s.hearts })),
+      lanes:[0,1,2].map(i => ({ go:() => this.go(i) })),
+      runnerLeft:lefts[s.lane],
+      lane0:s.lane === 0, lane1:s.lane === 1, lane2:s.lane === 2,
+      answers:s.q.vals.map((v, i) => ({ value:v, left:lefts[i], top:(6 + s.fall * 78).toFixed(1), glow:w.glow })),
+      motes:w.syms.map((sym, i) => ({ sym, left:[14, 74, 30, 62][i], top:[12, 26, 52, 68][i],
+        size:[30, 24, 20, 26][i], color:w.accent, dur:(3.4 + i * 0.7).toFixed(1) })),
+      worlds:KEYS.map(k => ({ name:W[k].name, pick:() => this.setState({ world:k }),
+        bg:k === s.world ? W[k].accent : "rgba(22,18,64,.34)",
+        border:k === s.world ? "rgba(22,18,64,.4)" : "rgba(255,255,255,.24)",
+        fg:k === s.world ? "#2c2470" : "rgba(255,255,255,.8)" })),
+      palettes:KEYS.map(k => ({ name:W[k].name, c1:W[k].accent, c2:W[k].rail, c3:W[k].glow, note:W[k].note }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>
