@@ -1,10 +1,11 @@
 import { el } from '../util.js';
 import { ICON } from '../icons.js';
 import { footer } from '../app.js';
+import { topicTitle, lessonNo } from '../topicTitles.js';
 
 function nextLevel(grade, curLevelId) {
   const flat = [];
-  for (const c of grade.choraks) for (const b of c.blocks) for (const lv of b.levels) flat.push({ b, lv });
+  for (const c of grade.choraks) for (const b of c.blocks) for (const lv of b.levels) flat.push({ c, b, lv });
   const idx = flat.findIndex(x => x.lv.id === curLevelId);
   for (let j = idx + 1; j < flat.length; j++) if (flat[j].lv.webSupported) return flat[j];
   return null;
@@ -25,7 +26,7 @@ export function renderResult(ctx, r) {
 
   root.replaceChildren(el('div', { class: 'result' },
     el('div', { class: 'result__inner' },
-      el('h1', {}, r.stars > 0 ? 'Bosqich tugadi!' : 'Yana urinib ko\'ring!'),
+      el('h1', {}, r.stars > 0 ? 'Dars tugadi!' : 'Yana urinib ko\'ring!'),
       el('div', { class: 'stars' }, star(r.stars >= 1), star(r.stars >= 2), star(r.stars >= 3)),
       el('div', {},
         el('div', { class: 'result__score' }, `Ochko: ${r.score}`),
@@ -41,5 +42,7 @@ export function renderResult(ctx, r) {
         el('button', { class: 'btn btn--ink', onclick: () => location.hash = backHash },
           el('span', { style: 'width:20px;height:20px', html: ICON.map }), 'Mavzularga qaytish')),
       nx && el('div', { class: 'result__next' },
-        el('a', { href: `#/play/${nx.lv.id}` }, `Keyingi: "${nx.b.name}" →`)))));
+        el('a', { href: `#/play/${nx.lv.id}` }, nx.b === block
+          ? `Keyingi: ${lessonNo(nx.b, nx.lv)}-dars →`
+          : `Keyingi mavzu: "${topicTitle(grade, nx.c, nx.b)}" →`)))));
 }

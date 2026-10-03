@@ -318,3 +318,12 @@ export const TOPIC_TITLES = {
     "IV chorak bo'yicha takrorlash. Yakuniy test",
   ],
 };
+
+// mavzuning ro'yxatdagi nomi (bo'lmasa — asl nomi)
+export function topicTitle(grade, chorak, block) {
+  const list = TOPIC_TITLES[`g${grade.grade}_c${chorak.chorak}`];
+  return (list && list[chorak.blocks.indexOf(block)]) || block.name;
+}
+
+// mavzu ichidagi dars tartib raqami (1-dars, 2-dars ...)
+export const lessonNo = (block, level) => block.levels.indexOf(level) + 1;

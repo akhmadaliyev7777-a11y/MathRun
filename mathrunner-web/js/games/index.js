@@ -3,6 +3,7 @@
 import { el, shuffle } from '../util.js';
 import { ICON } from '../icons.js';
 import { nav } from '../app.js';
+import { lessonNo } from '../topicTitles.js';
 
 // ---------- umumiy qobiq ----------
 function shell(ctx, promptText, iconKey) {
@@ -16,7 +17,7 @@ function shell(ctx, promptText, iconKey) {
       el('button', { class: 'linkback', onclick: () => location.hash = ctx.backHash },
         el('span', { style: 'width:18px;height:18px', html: ICON.arrowLeft }), 'Mavzularga qaytish'),
       el('div', { class: 'runbar__mid' },
-        `${ctx.grade.grade}-sinf · ${ctx.chorak.roman} chorak · Blok ${ctx.block.blok}`),
+        `${ctx.grade.grade}-sinf · ${ctx.chorak.roman} chorak · ${ctx.block.blok}-mavzu · ${lessonNo(ctx.block, ctx.level)}-dars`),
       el('div', { class: 'runbar__mid', id: 'gprog' }, '')),
     el('main', { class: 'gwrap' },
       el('div', { class: 'prompt' },

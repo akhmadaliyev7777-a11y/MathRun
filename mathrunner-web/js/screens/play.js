@@ -3,6 +3,8 @@ import { ICON } from '../icons.js';
 import { levelById, applyKingdom, nav, footer } from '../app.js';
 import { renderResult } from './result.js';
 import { GAMES } from '../games/index.js';
+import { questionHTML, answerHTML } from '../mathfmt.js';
+import { lessonNo } from '../topicTitles.js';
 
 export async function render(root, [levelId]) {
   const found = levelById(levelId);
@@ -53,7 +55,7 @@ function runTest(ctx) {
     el('div', { class: 'runbar' },
       el('button', { class: 'linkback', onclick: () => location.hash = ctx.backHash },
         el('span', { style: 'width:18px;height:18px', html: ICON.arrowLeft }), 'Mavzularga qaytish'),
-      el('div', { class: 'runbar__mid' }, `${grade.grade}-sinf · ${chorak.roman} chorak · Blok ${block.blok} · ${level.level}-daraja`),
+      el('div', { class: 'runbar__mid' }, `${grade.grade}-sinf · ${chorak.roman} chorak · ${block.blok}-mavzu · ${lessonNo(block, level)}-dars`),
       el('div', { class: 'score-pill' }, el('span', { style: 'width:16px;height:16px;color:var(--yellow)', html: ICON.star }), el('b', { id: 'sc' }, '0'))),
     el('main', { class: 'player' }, wrap));
 
@@ -70,11 +72,12 @@ function runTest(ctx) {
         streak >= 2 && el('span', { class: 'player__streak' },
           el('span', { style: 'width:15px;height:15px', html: ICON.spark }), `Ketma-ket ${streak}`)),
       el('div', { class: 'bar' }, el('i', { style: `width:${(i / items.length) * 100}%` })),
+      // savol — o'z qutisida, javoblar — uning ostida alohida
       el('div', { class: 'qbox' },
         el('div', { class: 'qbox__kicker' }, 'SAVOL'),
-        el('div', { class: 'qbox__q' }, it.question),
-        el('div', { class: 'answers' }, ...opts.map(o =>
-          el('button', { class: 'answer', onclick: (e) => pick(e.currentTarget, o.ok, opts) }, o.t)))),
+        el('div', { class: 'qbox__q' + (String(it.question).length > 40 ? ' qbox__q--long' : ''), html: questionHTML(it.question) })),
+      el('div', { class: 'answers' }, ...opts.map(o =>
+        el('button', { class: 'answer', onclick: (e) => pick(e.currentTarget, o.ok, opts), html: answerHTML(o.t) }))),
       el('div', { class: 'player__hint' }, 'Javobni bosing — keyingi savolga o\'zi o\'tadi. Vaqt chegarasi yo\'q.'));
   }
 
