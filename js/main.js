@@ -278,25 +278,46 @@ function renderGallery() {
     return;
   }
 
-  el.innerHTML = SITE_DATA.grades.map(function (grade) {
-    const subjectSections = grade.subjects.map(function (subject) {
-      const topics = subject.topics.filter(function (topic) { return !!topic.interactive; });
-      if (topics.length === 0) return "";
-
-      const cards = topics.map(function (topic) {
+  // ro'yxat ko'rinishi: sinf → fan → mavzular (raqam · nomi · beti · Interaktiv / Ma'ruza / Test)
+  let total = 0;
+  const sections = SITE_DATA.grades.map(function (grade) {
+    const subjectBlocks = grade.subjects.map(function (subject) {
+      const rows = subject.topics.map(function (topic, i) {
+        if (!topic.interactive) return "";
+        total++;
+        const href = topicHref(grade.id, subject.id, topic.id);
+        const parts = splitTopicTitle(topic.title, i);
+        const btn = function (label, anchor, primary) {
+          return '<a class="topic-btn' + (primary ? ' topic-btn--primary' : '') + '" href="' + href + anchor + '">' + label + '</a>';
+        };
         return (
-          '<a class="card gallery-card" href="' + topicHref(grade.id, subject.id, topic.id) + '">' +
-            '<div class="gallery-card-tag">' + subject.name + '</div>' +
-            '<div class="gallery-card-title">' + topic.title + '</div>' +
-          '</a>'
+          '<li class="topic-row">' +
+            '<span class="topic-row-num">' + parts.num + '</span>' +
+            '<a class="topic-row-title" href="' + href + '#interaktiv">' + parts.title +
+              (topic.page ? '<span class="topic-row-page">' + topic.page + '</span>' : '') +
+            '</a>' +
+            '<span class="topic-row-actions">' +
+              btn("Interaktiv", "#interaktiv", true) +
+              btn("Ma'ruza", "#maruza", false) +
+              (topic.test ? btn("Test", "#test", false) : "") +
+            '</span>' +
+          '</li>'
         );
       }).join("");
-
-      return '<h3 class="upload-subject-heading">' + subject.name + '</h3><div class="gallery-cards-row">' + cards + '</div>';
+      if (!rows) return "";
+      return (
+        (grade.subjects.length > 1 ? '<div class="gallery-subject">' + subject.name + '</div>' : "") +
+        '<ol class="topic-list gallery-list">' + rows + '</ol>'
+      );
     }).join("");
-
-    if (!subjectSections.trim()) return "";
-
-    return '<section class="gallery-grade-section"><h2 class="subject-heading">' + grade.name + '</h2>' + subjectSections + '</section>';
+    if (!subjectBlocks) return "";
+    return (
+      '<section class="gallery-grade">' +
+        '<h2 class="gallery-grade-title"><a href="sinf.html?sinf=' + grade.id + '">' + grade.name + '</a></h2>' +
+        subjectBlocks +
+      '</section>'
+    );
   }).join("");
+
+  el.innerHTML = sections + '<p class="topic-list-foot">Jami ' + total + ' ta interaktiv dars</p>';
 }
