@@ -271,6 +271,7 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .m { display: inline-block; white-space: nowrap; vertical-align: middle; max-width: 100%; overflow-x: auto; overflow-y: hidden; }
 .m .katex { font-size: 1.12em; }
 .answer .m .katex { font-size: 1.3em; }
+.tug-opt .m .katex { font-size: 1.15em; }
 .answers { display: flex; flex-direction: column; gap: 14px; }
 .answer {
   padding: 14px 18px; border-radius: var(--r-lg); border: 2px solid var(--line);
@@ -451,6 +452,7 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .tug-panel--blue { border-color: color-mix(in srgb, var(--peri) 55%, #fff); }
 .tug-panel--red { border-color: color-mix(in srgb, var(--red) 55%, #fff); }
 .tug-q { font-family: var(--f-head); font-weight: 800; font-size: clamp(26px,3.4vw,48px); line-height: 1.14; flex: 1; }
+.tug-q .q-formula, .tug-q .q-text { font-size: inherit; }
 .tug-panel--blue .tug-q { color: var(--peri); }
 .tug-panel--red .tug-q { color: var(--red); }
 .tug-opts { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }

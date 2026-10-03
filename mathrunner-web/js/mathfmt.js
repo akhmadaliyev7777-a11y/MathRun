@@ -55,7 +55,9 @@ function tokenize(s) {
     if (OP_TEX[rest[0]] != null) { push('op', rest[0], OP_TEX[rest[0]]); i += 1; continue; }
     if (rest[0] === '?') {
       const prev = out.filter(t => t.type !== 'space').pop();
-      if (prev && prev.type === 'op' && prev.raw === '=') { push('q', '?', '?'); i += 1; continue; }
+      // noma'lum son: amal belgisidan keyin (3 + 1 = ?, 2 × ? = 16) yoki boshida, amaldan oldin (? + 3 = 8)
+      const nextCh = s.slice(i + 1).trimStart()[0] || '';
+      if ((prev && prev.type === 'op') || (!prev && OP_TEX[nextCh] != null)) { push('q', '?', '{?}'); i += 1; continue; }
       push('text', '?'); i += 1; continue;
     }
     if (rest[0] === ' ' || rest[0] === '\u00a0') { push('space', rest[0]); i += 1; continue; }
@@ -104,9 +106,10 @@ function tex(toks) {
   return toks.filter(t => t.type !== 'space').map(t => t.tex).join(' ');
 }
 
-function renderTex(t) {
+// display — alohida qatordagi misol yoki javob: kasrlar to'liq o'lchamda (ustma-ust, katta)
+function renderTex(t, display = false) {
   try {
-    const html = window.katex.renderToString(t, { throwOnError: true, output: 'html' });
+    const html = window.katex.renderToString((display ? '\\displaystyle ' : '') + t, { throwOnError: true, output: 'html' });
     return `<span class="m">${html}</span>`;
   } catch (e) {
     return null;
@@ -155,7 +158,7 @@ export function answerHTML(input) {
     // bitta son yoki aralash kasr (4 2/5)
     const onlyNum = t.length >= 1 && t.length <= 2 && t.every(x => x.type === 'num');
     if (onlyOp || onlyNum || isFormula(toks)) {
-      const r = renderTex(tex(toks));
+      const r = renderTex(tex(toks), true);
       if (r) return r;
     }
   }
@@ -198,10 +201,10 @@ export function questionHTML(input) {
     // "Taqqoslang: 3 + 1 __ 5 - 2" → "Taqqoslang:" va misol
     const colon = body.match(/^([^:]+:)\s+(.+)$/);
     const hint = /^\(.*\)$/.test(body.trim()); // qavs ichidagi izoh — matn ichida qoladi
-    if (pureFormula(body) && !hint) lines.push({ kind: 'f', html: renderTex(tex(tokenize(body.trim()))) });
+    if (pureFormula(body) && !hint) lines.push({ kind: 'f', html: renderTex(tex(tokenize(body.trim())), true) });
     else if (colon && !/\d/.test(colon[1]) && pureFormula(colon[2])) {
       lines.push({ kind: 't', html: esc(colon[1]) });
-      lines.push({ kind: 'f', html: renderTex(tex(tokenize(colon[2].trim()))) });
+      lines.push({ kind: 'f', html: renderTex(tex(tokenize(colon[2].trim())), true) });
     } else lines.push({ kind: 't', html: mathHTML(p) });
   }
   // misol qatori bo'lmasa — avvalgidek bitta matn

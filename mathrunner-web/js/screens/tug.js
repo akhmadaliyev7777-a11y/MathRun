@@ -1,4 +1,5 @@
 import { el, shuffle, loadJSON, readCustomTug, saveCustomTug, clearCustomTug } from '../util.js';
+import { questionHTML, answerHTML } from '../mathfmt.js';
 import { ICON } from '../icons.js';
 import { nav, footer, applyKingdom } from '../app.js';
 import { loadXLSXLib, parseQuestionsWorkbook } from '../xlsxImport.js';
@@ -368,12 +369,12 @@ export async function render(root, _params) {
     function redrawPanel(box, team, side) {
       const q = state[team].q;
       box.replaceChildren(
-        el('div', { class: 'tug-q' }, q.q),
+        el('div', { class: 'tug-q', html: questionHTML(q.q) }),
         el('div', { class: 'tug-opts' }, ...q.order.map((oi, k) =>
           el('button', {
             class: 'tug-opt', dataset: { team },
             onclick: (e) => answer(team, oi, e.currentTarget, box, side),
-          }, el('i', {}, 'ABCD'[k]), el('span', {}, q.options[oi])))));
+          }, el('i', {}, 'ABCD'[k]), el('span', { html: answerHTML(q.options[oi]) })))));
     }
 
     const bluePanel = panel('blue', 'blue');
