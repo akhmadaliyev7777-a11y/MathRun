@@ -168,6 +168,11 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .sc-rope::after { right: -6px; background: var(--red); }
 .sc-rope__knot { position: absolute; left: 42%; top: 50%; width: 8px; height: 18px; border-radius: 3px; transform: translate(-50%,-50%); background: var(--red); }
 .sc-tug__score { display: flex; justify-content: space-between; font-weight: 800; font-size: 18px; }
+.sc-frac { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; font-size: 22px; color: var(--ink); }
+.sc-frac b { font-weight: 400; color: #1f9d55; }
+.sc-f { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.05; font-size: 17px; }
+.sc-f i { font-style: normal; }
+.sc-f i:first-child { border-bottom: 1.5px solid currentColor; padding: 0 3px; }
 .sc-blue { color: var(--peri); }
 .sc-red { color: var(--red); }
 @keyframes scFloat { 0%,100% { translate: 0 0; } 50% { translate: 0 -6px; } }

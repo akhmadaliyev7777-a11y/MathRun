@@ -84,7 +84,7 @@ function renderGradesGrid() {
 
   // 1–4 sinflar (Boshlang'ich sinflar bo'limiga)
   const primaryTile = function (n, meta) {
-    return gradeTile("mathrunner-web/index.html#/g/" + n + "/c/1", n, n + "-sinf", ["Testlar", "O'yinlar"], meta, true);
+    return gradeTile("mathrunner-web/index.html#/g/" + n + "/c/1", n, n + "-sinf", ["Mavzular", "Testlar"], meta, true);
   };
   const primary = [1, 2, 3, 4].map(function (n) { return primaryTile(n, "4 chorak"); }).join("");
 
@@ -92,7 +92,7 @@ function renderGradesGrid() {
     '<div class="grade-group">' +
       '<div class="grade-group-head">' +
         '<div><div class="grade-group-title">Boshlang\'ich sinflar</div>' +
-        '<div class="grade-group-sub">1–4 sinf · testlar, darslar va fikrlash o\'yinlari</div></div>' +
+        '<div class="grade-group-sub">1–4 sinf · mavzular, darslar va testlar</div></div>' +
         '<a class="grade-group-link" href="mathrunner-web/index.html">Bo\'limni ochish →</a>' +
       '</div>' +
       '<div class="grade-tiles" id="primary-tiles">' + primary + '</div>' +

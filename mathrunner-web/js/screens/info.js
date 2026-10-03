@@ -56,9 +56,9 @@ function renderAbout(root) {
         el('div', { class: 'stats', style: 'margin-top:8px' },
           el('div', { class: 'stat' }, el('b', {}, String(t.levels)), el('span', {}, 'dars-bosqich')),
           el('div', { class: 'stat' }, el('b', {}, String(t.questions)), el('span', {}, 'test savoli')),
-          el('div', { class: 'stat' }, el('b', {}, String(t.gameLevels)), el('span', {}, 'o\'yin bosqichi'))),
+          el('div', { class: 'stat' }, el('b', {}, String(curriculum().grades.reduce((n, g) => n + g.choraks.reduce((m, c) => m + c.blocks.length, 0), 0))), el('span', {}, 'mavzu'))),
         el('p', { style: 'font-weight:600;color:var(--muted);line-height:1.6;margin-top:20px' },
-          'To\'liq versiya (yugurish o\'yinlari, do\'kon, XP) Android ilovasida. ' +
+          'To\'liq versiya (do\'kon, XP va boshqalar) Android ilovasida. ' +
           'Bu sayt darslikni tez takrorlash uchun — maktabda o\'tilgan mavzuni uyda bir necha marta yechib mustahkamlaysiz.')),
       el('div', { style: 'padding:8px 0 8px' },
         el('a', { href: '#/', class: 'btn' }, 'Mavzularga o\'tish',

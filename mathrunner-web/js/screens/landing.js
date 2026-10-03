@@ -7,7 +7,7 @@ export function render(root, _params) {
   const cur = curriculum();
   const t = cur.totals;
 
-  // o'ng tomondagi ko'rgazma: test kartochkasi + "Dars tugadi" yorlig'i + arqon tortish mini kartochkasi
+  // o'ng tomondagi ko'rgazma: test kartochkasi + "Dars tugadi" yorlig'i + kasrli misol kartochkasi
   const ans = (v, ok) => el('div', { class: 'sc-ans' + (ok ? ' sc-ans--ok' : '') },
     el('span', { class: 'sc-math' }, v), ok && el('span', { class: 'sc-ans__check', html: ICON.check }));
   const heroCard = el('div', { class: 'showcase', 'aria-hidden': 'true' },
@@ -24,9 +24,10 @@ export function render(root, _params) {
       el('span', { class: 'sc-stars' }, ...[0, 1, 2].map(() => el('span', { html: ICON.star }))),
       el('span', {}, el('b', {}, 'Dars tugadi!'), el('small', {}, '10 dan 10'))),
     el('div', { class: 'sc-chip sc-chip--tug' },
-      el('div', { class: 'sc-tug__head' }, el('b', {}, 'Arqon tortish'), el('small', {}, '2 jamoa')),
-      el('div', { class: 'sc-rope' }, el('span', { class: 'sc-rope__knot' })),
-      el('div', { class: 'sc-tug__score' }, el('span', { class: 'sc-blue' }, '3'), el('span', { class: 'sc-red' }, '1'))));
+      el('div', { class: 'sc-tug__head' }, el('b', {}, 'Kasrlar'), el('small', {}, '4-sinf')),
+      el('div', { class: 'sc-frac sc-math' },
+        el('span', { class: 'sc-f' }, el('i', {}, '3'), el('i', {}, '4')), el('span', {}, '+'),
+        el('span', { class: 'sc-f' }, el('i', {}, '1'), el('i', {}, '4')), el('span', {}, '='), el('b', {}, '1'))));
 
   const GRADE_BANNER = {
     1: 'assets/grade-1-banner.jpg', 2: 'assets/grade-2-banner.jpg',
@@ -59,9 +60,9 @@ export function render(root, _params) {
           el('div', { class: 'tag' },
             el('span', { style: 'width:15px;height:15px', html: ICON.check }),
             'Bepul · qulfsiz · ro\'yxatdan o\'tishsiz'),
-          el('h1', { html: 'Butun matematika darsligi —<br>o\'yin bo\'lib brauzerda' }),
+          el('h1', { html: 'Butun matematika darsligi —<br>interaktiv darslar bilan' }),
           el('p', { class: 'hero__sub' },
-            '1–4 sinfning har bir darsi — alohida bosqich. Sinf va chorakni tanlang, mavzu testini yeching, fikrlash jumboqlarini o\'ynang. Hammasi ochiq.'),
+            '1–4 sinfning har bir darsi — alohida bosqich. Sinf va chorakni tanlang, mavzuni oching va darslarni bajaring. Hammasi ochiq.'),
           el('div', { class: 'hero__cta' },
             el('a', { href: '#/g/1/c/1', class: 'btn' }, 'Mavzularni ochish',
               el('span', { style: 'width:20px;height:20px', html: ICON.arrowRight })),
@@ -70,7 +71,7 @@ export function render(root, _params) {
             el('div', { class: 'stat' }, el('b', {}, String(t.levels)), el('span', {}, 'dars-bosqich')),
             el('div', { class: 'stat' }, el('b', {}, `${(t.questions + t.gameTasks).toLocaleString('ru-RU')}+`), el('span', {}, 'savol va topshiriq')),
             el('div', { class: 'stat' }, el('b', {}, '4'), el('span', {}, 'sinf · 16 chorak')),
-            el('div', { class: 'stat' }, el('b', {}, '7'), el('span', {}, 'fikrlash o\'yini')))),
+            el('div', { class: 'stat' }, el('b', {}, String(cur.grades.reduce((n, g) => n + g.choraks.reduce((m, c) => m + c.blocks.length, 0), 0))), el('span', {}, 'mavzu')))),
         heroCard),
       // kingdoms
       el('section', { class: 'section' },
@@ -82,7 +83,7 @@ export function render(root, _params) {
         el('h2', {}, 'Qanday ishlaydi'),
         el('div', { class: 'how' },
           howcard(1, 'var(--tint)', 'var(--violet)', 'Sinf va chorakni tanlang', 'Maktabda o\'tilgan mavzuni toping — sinf → chorak → blok.'),
-          howcard(2, '#e6f7f4', '#16a394', 'Testni yeching yoki o\'ynang', '10 ta savol yoki fikrlash jumboqi. Vaqt bosimi yo\'q, xatoni tuzatib bo\'ladi.'),
+          howcard(2, '#e6f7f4', '#16a394', 'Darsni bajaring', 'Har bir darsda 10 ta savol yoki topshiriq. Vaqt bosimi yo\'q, xatoni tuzatib bo\'ladi.'),
           howcard(3, 'var(--tint)', 'var(--violet)', 'Yulduz va natijani ko\'ring', 'Aniqlikka qarab 1–3 yulduz, eng yaxshi natija saqlanadi (shu brauzerda).')))),
     footer());
 }
