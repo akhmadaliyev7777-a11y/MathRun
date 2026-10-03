@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MathRun — interaktiv matematika</title>
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=18">
+<link rel="stylesheet" href="css/style.css?v=20">
 </head>
 <body>
 
@@ -51,53 +51,84 @@
   </div>
   <div class="showcase-grid">
 
-    <a class="card showcase-card" href="mavzu.html?sinf=7&fan=algebra&mavzu=chiziqli-tenglama">
-      <div class="showcase-icon">
-        <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-          <line x1="17" y1="4" x2="17" y2="12" stroke="#4f5bd5" stroke-width="2.5"/>
-          <line x1="6" y1="12" x2="28" y2="12" stroke="#4f5bd5" stroke-width="2.5"/>
-          <line x1="9" y1="12" x2="9" y2="20" stroke="#c7cbe0" stroke-width="1.5"/>
-          <line x1="25" y1="12" x2="25" y2="20" stroke="#c7cbe0" stroke-width="1.5"/>
-          <ellipse cx="9" cy="24" rx="8" ry="4" fill="none" stroke="#4f5bd5" stroke-width="2"/>
-          <ellipse cx="25" cy="24" rx="8" ry="4" fill="none" stroke="#4f5bd5" stroke-width="2"/>
-          <polygon points="12,4 22,4 17,10" fill="#4f5bd5"/>
+    <!-- 1. Tarozi: o'ng pallaga yuk qo'shib muvozanatga keltiring -->
+    <div class="card demo-card">
+      <div class="demo-stage demo-stage--indigo" id="demo-balance">
+        <span class="demo-hint">Sinab ko'ring</span>
+        <svg viewBox="0 0 280 150" class="demo-svg" aria-label="Tarozi">
+          <polygon points="130,140 150,140 140,40" fill="#c9cef5"/>
+          <rect x="110" y="138" width="60" height="6" rx="3" fill="#aab1ec"/>
+          <g id="bal-beam"><line x1="50" y1="40" x2="230" y2="40" stroke="#3a44b0" stroke-width="5" stroke-linecap="round"/></g>
+          <circle cx="140" cy="40" r="6" fill="#3a44b0"/>
+          <g id="bal-left"></g><g id="bal-right"></g>
         </svg>
+        <div class="demo-controls">
+          <button type="button" class="demo-btn" data-bal="-1" aria-label="Yukni olish">−</button>
+          <span class="demo-readout" id="bal-readout">O'ng: 2 kg</span>
+          <button type="button" class="demo-btn" data-bal="1" aria-label="Yuk qo'shish">+</button>
+        </div>
       </div>
-      <h3>Tarozi</h3>
-      <p>Noma'lum og'irlikni tarozi yordamida — tenglama yozmasdan — toping.</p>
-      <span class="badge badge-interactive">Interaktiv</span>
-      <div class="showcase-meta">7-sinf · Chiziqli tenglamalar</div>
-    </a>
+      <div class="demo-body">
+        <h3>Tarozi</h3>
+        <p>O'ng pallaga yuk qo'shing — tarozi tenglashganda noma'lum og'irlik topiladi.</p>
+        <div class="demo-foot">
+          <span class="showcase-meta">7-sinf · Sodda chiziqli tenglamalar</span>
+          <a class="demo-link" href="mavzu.html?sinf=7&fan=matematika-2026&mavzu=sodda-chiziqli-tenglamalar#interaktiv">To'liq dars →</a>
+        </div>
+      </div>
+    </div>
 
-    <a class="card showcase-card" href="mavzu.html?sinf=5&fan=matematika&mavzu=foizlar">
-      <div class="showcase-icon">
-        <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-          <path d="M 4 26 A 13 13 0 0 1 30 26" stroke="#4f5bd5" stroke-width="2.5" fill="none"/>
-          <line x1="4" y1="26" x2="30" y2="26" stroke="#4f5bd5" stroke-width="2.5"/>
-          <line x1="17" y1="26" x2="26" y2="12" stroke="#16a394" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="26" cy="12" r="2.5" fill="#16a394"/>
+    <!-- 2. Transportir: nurni surib burchakni o'lchang -->
+    <div class="card demo-card">
+      <div class="demo-stage demo-stage--teal" id="demo-protractor">
+        <span class="demo-hint">Nurni suring</span>
+        <svg viewBox="0 0 280 150" class="demo-svg demo-svg--drag" id="prot-svg" tabindex="0" aria-label="Transportir: strelkalar bilan ham boshqarish mumkin">
+          <path d="M 30 132 A 110 110 0 0 1 250 132 Z" fill="#ffffff" fill-opacity=".75" stroke="#16a394" stroke-width="2"/>
+          <g id="prot-ticks"></g>
+          <path id="prot-arc" fill="#16a394" fill-opacity=".18"/>
+          <line x1="140" y1="132" x2="250" y2="132" stroke="#0f6f63" stroke-width="3" stroke-linecap="round"/>
+          <line id="prot-ray" x1="140" y1="132" x2="140" y2="22" stroke="#4f5bd5" stroke-width="3.5" stroke-linecap="round"/>
+          <circle id="prot-knob" cx="140" cy="22" r="8" fill="#4f5bd5" stroke="#fff" stroke-width="3"/>
+          <circle cx="140" cy="132" r="4.5" fill="#0f6f63"/>
         </svg>
+        <div class="demo-controls">
+          <span class="demo-readout demo-readout--big" id="prot-readout">90°</span>
+          <span class="demo-tag" id="prot-type">to'g'ri burchak</span>
+        </div>
       </div>
-      <h3>Transportir</h3>
-      <p>Nurni suring, burchakni sirli chiziq ustiga keltirib gradusini o'qing.</p>
-      <span class="badge badge-interactive">Interaktiv</span>
-      <div class="showcase-meta">5-sinf · Foizlar</div>
-    </a>
+      <div class="demo-body">
+        <h3>Transportir</h3>
+        <p>Nurni sichqoncha yoki barmoq bilan suring — burchak gradusi va turi shu zahoti ko'rinadi.</p>
+        <div class="demo-foot">
+          <span class="showcase-meta">5-sinf · Burchaklar</span>
+          <a class="demo-link" href="mavzu.html?sinf=5&fan=matematika&mavzu=burchaklar#interaktiv">To'liq dars →</a>
+        </div>
+      </div>
+    </div>
 
-    <a class="card showcase-card" href="mavzu.html?sinf=5&fan=matematika&mavzu=oddiy-kasrlar">
-      <div class="showcase-icon">
-        <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-          <rect x="3" y="12" width="7" height="10" rx="1.5" fill="#4f5bd5"/>
-          <rect x="11" y="12" width="7" height="10" rx="1.5" fill="#4f5bd5"/>
-          <rect x="19" y="12" width="7" height="10" rx="1.5" fill="none" stroke="#c7cbe0" stroke-width="1.5"/>
-          <rect x="27" y="12" width="4" height="10" rx="1.5" fill="none" stroke="#c7cbe0" stroke-width="1.5"/>
-        </svg>
+    <!-- 3. Kasrlarni bo'yash: bo'laklarni bosib kasr hosil qiling -->
+    <div class="card demo-card">
+      <div class="demo-stage demo-stage--amber" id="demo-fraction">
+        <span class="demo-hint">Bo'laklarni bosing</span>
+        <div class="frac-wrap">
+          <div class="frac-bar" id="frac-bar"></div>
+          <div class="frac-big"><span id="frac-num">1</span><span id="frac-den">4</span></div>
+        </div>
+        <div class="demo-controls">
+          <button type="button" class="demo-btn" data-den="-1" aria-label="Bo'laklarni kamaytirish">−</button>
+          <span class="demo-readout" id="frac-readout">4 bo'lak</span>
+          <button type="button" class="demo-btn" data-den="1" aria-label="Bo'laklarni ko'paytirish">+</button>
+        </div>
       </div>
-      <h3>Kasrlarni bo'yash</h3>
-      <p>Bo'laklarga bosib bo'yang — nechta bo'lak, shuncha kasr hosil bo'ladi.</p>
-      <span class="badge badge-interactive">Interaktiv</span>
-      <div class="showcase-meta">5-sinf · Oddiy kasrlar</div>
-    </a>
+      <div class="demo-body">
+        <h3>Kasrlarni bo'yash</h3>
+        <p>Bo'laklarni bosib bo'yang — nechta bo'lak bo'yalsa, shuncha kasr hosil bo'ladi.</p>
+        <div class="demo-foot">
+          <span class="showcase-meta">5-sinf · Oddiy kasrlar</span>
+          <a class="demo-link" href="mavzu.html?sinf=5&fan=matematika&mavzu=oddiy-kasrlar#interaktiv">To'liq dars →</a>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
@@ -149,12 +180,12 @@
 </footer>
 
 <script src="js/data.js?v=5"></script>
-<script src="js/main.js?v=11"></script>
+<script src="js/main.js?v=12"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="js/firebase-config.js?v=5"></script>
 <script src="js/auth.js?v=5"></script>
 <script src="js/layout.js?v=7"></script>
-<script>renderSiteHeader("", "home"); renderGradesGrid();</script>
+<script>renderSiteHeader("", "home"); renderGradesGrid(); initShowcaseDemos();</script>
 </body>
 </html>

@@ -119,6 +119,159 @@ function renderGradesGrid() {
     .catch(function () {});
 }
 
+// ---------- Bosh sahifa: jonli mini-ko'rgazmalar ----------
+function initShowcaseDemos() {
+  const NS = "http://www.w3.org/2000/svg";
+  const svgEl = function (tag, attrs) {
+    const n = document.createElementNS(NS, tag);
+    Object.keys(attrs).forEach(function (k) { n.setAttribute(k, attrs[k]); });
+    return n;
+  };
+  // birinchi teginishda "Sinab ko'ring" yorlig'i yo'qoladi
+  const touched = function (stage) { stage.classList.add("is-touched"); };
+
+  // 1) Tarozi: chapda noma'lum yuk (x = 5), o'ngga 1 kg lik yuklar qo'shiladi
+  (function () {
+    const stage = document.getElementById("demo-balance");
+    if (!stage) return;
+    const X = 5;
+    let right = 2;
+    const beam = document.getElementById("bal-beam");
+    const leftG = document.getElementById("bal-left");
+    const rightG = document.getElementById("bal-right");
+    const readout = document.getElementById("bal-readout");
+    function pan(g, cx, cy, items) {
+      g.replaceChildren();
+      g.appendChild(svgEl("line", { x1: cx, y1: cy, x2: cx, y2: cy + 34, stroke: "#8e96d8", "stroke-width": 1.5 }));
+      g.appendChild(svgEl("path", { d: "M" + (cx - 30) + " " + (cy + 34) + " Q " + cx + " " + (cy + 50) + " " + (cx + 30) + " " + (cy + 34) + " Z", fill: "#3a44b0" }));
+      items(g, cx, cy + 34);
+    }
+    function draw() {
+      const diff = X - right;                       // chap og'irroq bo'lsa musbat
+      const ang = Math.max(-14, Math.min(14, diff * 4));
+      beam.setAttribute("transform", "rotate(" + (-ang) + " 140 40)");
+      const r = ang * Math.PI / 180;
+      const lx = 140 - 90 * Math.cos(r), ly = 40 + 90 * Math.sin(r);
+      const rx = 140 + 90 * Math.cos(r), ry = 40 - 90 * Math.sin(r);
+      pan(leftG, lx, ly, function (g, x, y) {
+        g.appendChild(svgEl("rect", { x: x - 15, y: y - 28, width: 30, height: 28, rx: 5, fill: "#4f5bd5" }));
+        const t = svgEl("text", { x: x, y: y - 9, "text-anchor": "middle", "font-size": 16, "font-weight": 800, fill: "#fff" });
+        t.textContent = diff === 0 ? X : "x"; g.appendChild(t);
+      });
+      pan(rightG, rx, ry, function (g, x, y) {
+        for (let i = 0; i < right; i++) {
+          const col = i % 4, row = Math.floor(i / 4);
+          g.appendChild(svgEl("rect", { x: x - 22 + col * 11, y: y - 11 - row * 11, width: 10, height: 10, rx: 2, fill: "#16a394" }));
+        }
+      });
+      stage.classList.toggle("is-solved", diff === 0);
+      readout.textContent = diff === 0 ? "Teng! x = " + X + " kg" : "O'ng: " + right + " kg";
+    }
+    stage.querySelectorAll("[data-bal]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        right = Math.max(0, Math.min(9, right + Number(b.dataset.bal)));
+        touched(stage); draw();
+      });
+    });
+    draw();
+  })();
+
+  // 2) Transportir: nurni sudrab burchakni o'lchash
+  (function () {
+    const stage = document.getElementById("demo-protractor");
+    if (!stage) return;
+    const svg = document.getElementById("prot-svg");
+    const ray = document.getElementById("prot-ray");
+    const knob = document.getElementById("prot-knob");
+    const arc = document.getElementById("prot-arc");
+    const readout = document.getElementById("prot-readout");
+    const type = document.getElementById("prot-type");
+    const ticks = document.getElementById("prot-ticks");
+    const CX = 140, CY = 132, R = 110;
+    for (let d = 0; d <= 180; d += 10) {
+      const a = d * Math.PI / 180, long = d % 30 === 0;
+      ticks.appendChild(svgEl("line", {
+        x1: CX + R * Math.cos(a), y1: CY - R * Math.sin(a),
+        x2: CX + (R - (long ? 12 : 7)) * Math.cos(a), y2: CY - (R - (long ? 12 : 7)) * Math.sin(a),
+        stroke: "#0f6f63", "stroke-width": long ? 2 : 1
+      }));
+      if (long && d > 0 && d < 180) {
+        const t = svgEl("text", { x: CX + (R - 24) * Math.cos(a), y: CY - (R - 24) * Math.sin(a) + 4, "text-anchor": "middle", "font-size": 10, fill: "#0f6f63", "font-weight": 700 });
+        t.textContent = d; ticks.appendChild(t);
+      }
+    }
+    let angle = 90, auto = true;
+    function set(deg) {
+      angle = Math.max(0, Math.min(180, Math.round(deg)));
+      const a = angle * Math.PI / 180;
+      const x = CX + (R - 4) * Math.cos(a), y = CY - (R - 4) * Math.sin(a);
+      ray.setAttribute("x2", x); ray.setAttribute("y2", y);
+      knob.setAttribute("cx", x); knob.setAttribute("cy", y);
+      const ar = 34;
+      arc.setAttribute("d", "M " + CX + " " + CY + " L " + (CX + ar) + " " + CY +
+        " A " + ar + " " + ar + " 0 0 0 " + (CX + ar * Math.cos(a)) + " " + (CY - ar * Math.sin(a)) + " Z");
+      readout.textContent = angle + "°";
+      type.textContent = angle === 0 ? "nol burchak" : angle < 90 ? "o'tkir burchak" : angle === 90 ? "to'g'ri burchak" : angle < 180 ? "o'tmas burchak" : "yoyiq burchak";
+    }
+    function fromEvent(e) {
+      const p = svg.createSVGPoint(); p.x = e.clientX; p.y = e.clientY;
+      const q = p.matrixTransform(svg.getScreenCTM().inverse());
+      set(Math.atan2(CY - q.y, q.x - CX) * 180 / Math.PI);
+    }
+    let dragging = false;
+    svg.addEventListener("pointerdown", function (e) { dragging = true; auto = false; touched(stage); svg.setPointerCapture(e.pointerId); fromEvent(e); });
+    svg.addEventListener("pointermove", function (e) { if (dragging) fromEvent(e); });
+    svg.addEventListener("pointerup", function () { dragging = false; });
+    svg.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") { auto = false; touched(stage); set(angle + 5); e.preventDefault(); }
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") { auto = false; touched(stage); set(angle - 5); e.preventDefault(); }
+    });
+    // foydalanuvchi tegmaguncha nur sekin aylanib turadi (harakatni kamaytirish sozlamasi bo'lsa — yo'q)
+    const still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let t0 = performance.now();
+    function tick(now) {
+      if (!auto) return;
+      set(90 + 55 * Math.sin((now - t0) / 1400));
+      requestAnimationFrame(tick);
+    }
+    set(90);
+    if (!still) requestAnimationFrame(tick);
+  })();
+
+  // 3) Kasrlarni bo'yash: bo'laklarni bosib kasr hosil qilish
+  (function () {
+    const stage = document.getElementById("demo-fraction");
+    if (!stage) return;
+    const bar = document.getElementById("frac-bar");
+    const num = document.getElementById("frac-num");
+    const den = document.getElementById("frac-den");
+    const readout = document.getElementById("frac-readout");
+    let n = 4, on = [true, false, false, false];
+    function draw() {
+      bar.replaceChildren();
+      for (let i = 0; i < n; i++) {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "frac-seg" + (on[i] ? " on" : "");
+        b.setAttribute("aria-label", (i + 1) + "-bo'lak");
+        b.addEventListener("click", function () { on[i] = !on[i]; touched(stage); draw(); });
+        bar.appendChild(b);
+      }
+      const k = on.slice(0, n).filter(Boolean).length;
+      num.textContent = k; den.textContent = n;
+      readout.textContent = k === n ? "butun = 1" : n + " bo'lak";
+    }
+    stage.querySelectorAll("[data-den]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        n = Math.max(2, Math.min(8, n + Number(b.dataset.den)));
+        while (on.length < n) on.push(false);
+        touched(stage); draw();
+      });
+    });
+    draw();
+  })();
+}
+
 // ---------- Sinf sahifasi: fanlar va mavzular ----------
 let activeGradeSubjectId = null;
 
