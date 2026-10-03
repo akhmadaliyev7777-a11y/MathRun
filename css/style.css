@@ -1125,8 +1125,16 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 
 .adm-work { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 24px; align-items: start; }
 .adm-side { position: sticky; top: 84px; }
-.adm-side-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; margin-bottom: 10px; }
+.adm-side-label { display: none; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; margin-bottom: 10px; }
 .adm-grade-list { display: flex; flex-direction: column; gap: 8px; }
+.adm-group-label { font-size: 0.72rem; font-weight: 800; color: #9ca3af; margin: 8px 0 0; }
+.adm-group-label:first-child { margin-top: 0; }
+.adm-grade--primary .adm-grade-num { background: linear-gradient(135deg, #2bbfa9, #12897c); }
+.adm-current { margin-top: 14px; padding: 10px 12px; border-radius: 10px; background: var(--bg); font-size: 0.85rem; }
+.adm-current code { background: #e9ebf3; padding: 1px 5px; border-radius: 5px; }
+.adm-current a { color: var(--primary); font-weight: 700; }
+.adm-tab-sub { font-weight: 600; opacity: 0.75; font-size: 0.75rem; }
+.adm-type-tabs { flex-wrap: wrap; }
 .adm-grade { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 12px; text-align: left; font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 12px; cursor: pointer; transition: border-color 0.12s ease, box-shadow 0.12s ease; }
 .adm-grade:hover { border-color: #c9cef5; }
 .adm-grade.active { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 91, 213, 0.12); }
@@ -1201,10 +1209,22 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
   .adm-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .adm-work { grid-template-columns: 1fr; }
   .adm-side { position: static; }
-  .adm-grade-list { flex-direction: row; overflow-x: auto; padding-bottom: 4px; }
-  .adm-grade { flex: 0 0 180px; }
+  /* tor ekranda: ixcham tugmalar to'ri (faqat raqam va nom) */
+  /* har qatorda 4 tadan: 1–4 | 5–8 | 9–11 */
+  .adm-grade-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .adm-group-label { grid-column: 1 / -1; margin: 6px 0 0; font-size: 0.8rem; }
+  .adm-grade { padding: 13px 15px; gap: 12px; border-radius: 14px; }
+  .adm-grade-num { flex-basis: 46px; height: 46px; font-size: 1.25rem; border-radius: 12px; }
+  .adm-grade-meta, .adm-grade .adm-bar { display: none; }
+  .adm-grade-name { font-size: 1.12rem; white-space: nowrap; }
+}
+@media (max-width: 720px) {
+  .adm-grade { padding: 11px 10px; gap: 9px; }
+  .adm-grade-num { flex-basis: 40px; height: 40px; font-size: 1.1rem; }
+  .adm-grade-name { font-size: 1.02rem; }
 }
 @media (max-width: 560px) {
+  .adm-grade-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .adm-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .adm-stat:last-child { grid-column: 1 / -1; }
   .adm-main { padding: 16px 14px; }

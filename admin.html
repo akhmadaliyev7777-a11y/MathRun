@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin panel — MathRun</title>
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=16">
 </head>
 <body>
 
@@ -27,10 +27,6 @@
     <aside class="adm-side">
       <div class="adm-side-label">Sinflar</div>
       <div class="adm-grade-list" id="adm-grade-list"></div>
-      <div class="adm-side-note">
-        <b>1–4 sinflar</b> — testlar va o'yinlar <code>mathrunner-web/</code> papkasida alohida saqlanadi.
-        <a href="mathrunner-web/index.html">Bo'limni ochish →</a>
-      </div>
     </aside>
 
     <div class="adm-main">
@@ -45,7 +41,7 @@
         <span><i class="adm-dot adm-dot--ok"></i>tayyor</span>
         <span><i class="adm-dot adm-dot--part"></i>qisman</span>
         <span><i class="adm-dot adm-dot--none"></i>yo'q</span>
-        <span class="muted">· Fayl joylash uchun qatordagi <b>Yuklash</b> tugmasini bosing</span>
+        <span class="muted" id="adm-legend-hint"></span>
       </div>
       <div id="adm-topics"></div>
     </div>
@@ -89,7 +85,7 @@
 <script src="js/firebase-config.js?v=5"></script>
 <script src="js/auth.js?v=5"></script>
 <script src="js/layout.js?v=6"></script>
-<script src="js/admin.js?v=7"></script>
+<script src="js/admin.js?v=9"></script>
 <script>renderSiteHeader(); renderAdminDashboard();</script>
 </body>
 </html>

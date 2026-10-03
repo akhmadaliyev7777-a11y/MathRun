@@ -12,9 +12,40 @@ const FILTERS = [
   { id: "no-test", label: "Testi yo'q" }
 ];
 
-let activeGradeId = null;
+let activeGradeId = null;      // 5–11: "5".."11", 1–4: "p1".."p4"
 let activeFilter = "all";
+let activeChorak = 1;          // 1–4 sinflar uchun
 let activeUploadTarget = null;
+
+// 1–4 sinflar ma'lumoti (mathrunner-web bo'limidan yuklanadi)
+let PRIMARY = null;            // curriculum.json
+let PRIMARY_TITLES = {};       // topicTitles.js — ro'yxatdagi standart nomlar
+const GAME_NAMES = {
+  set: "To'plamlar", numberOrder: "Tartiblash", placeValue: "Xona tarkibi", balanceScale: "Tarozi",
+  symmetry: "Simmetriya", netFold: "Yoyilma", equationGrid: "Jadval", algorithmConveyor: "Saralash",
+  fractionStrip: "Ulush", coordinatePath: "Koordinata", motionLine: "Harakat", protractor: "Transportir"
+};
+
+const isPrimary = function (id) { return String(id).charAt(0) === "p"; };
+const primaryGrade = function (id) { return PRIMARY.grades.find(function (g) { return "p" + g.grade === id; }); };
+function primaryTitle(g, c, b) {
+  const list = PRIMARY_TITLES["g" + g.grade + "_c" + c.chorak];
+  return (list && list[c.blocks.indexOf(b)]) || b.name;
+}
+function primarySummary(g) {
+  let topics = 0, lessons = 0, questions = 0, soon = 0;
+  g.choraks.forEach(function (c) {
+    c.blocks.forEach(function (b) {
+      topics++;
+      b.levels.forEach(function (l) {
+        lessons++;
+        if (l.gameKind === "test") questions += l.count || 0;
+        if (!l.webSupported) soon++;
+      });
+    });
+  });
+  return { topics: topics, lessons: lessons, questions: questions, soon: soon };
+}
 
 // ---------- mavzu holati ----------
 
@@ -74,22 +105,40 @@ function renderStats() {
     statCard(test, "Testlar", Math.round(test / topics * 100) + "% mavzuda", "teal");
   el.innerHTML = base + statCard("…", "Boshlang'ich sinflar", "1–4 sinf", "green");
 
-  // 1–4 sinf ma'lumoti bo'lim faylidan olinadi
-  fetch("mathrunner-web/data/curriculum.json")
-    .then(function (r) { return r.json(); })
-    .then(function (cur) {
-      let t = 0, l = 0;
-      cur.grades.forEach(function (g) { l += g.levelCount; g.choraks.forEach(function (c) { t += c.blocks.length; }); });
-      el.innerHTML = base + statCard(t + " / " + l, "Boshlang'ich sinflar", "mavzu / dars (1–4 sinf)", "green");
-    })
-    .catch(function () {});
+  if (PRIMARY) {
+    let t = 0, l = 0, q = 0;
+    PRIMARY.grades.forEach(function (g) { const s = primarySummary(g); t += s.topics; l += s.lessons; q += s.questions; });
+    el.innerHTML = base + statCard(t + " / " + l, "Boshlang'ich sinflar", "mavzu / dars · " + q + " ta test savoli", "green");
+  }
 }
 
 // ---------- sinflar ro'yxati (chap tomonda) ----------
 
+function primaryGradeButtons() {
+  if (!PRIMARY) return '<div class="adm-side-loading muted">Yuklanmoqda…</div>';
+  return PRIMARY.grades.map(function (g) {
+    const s = primarySummary(g);
+    const pct = s.lessons ? Math.round((s.lessons - s.soon) / s.lessons * 100) : 0;
+    const id = "p" + g.grade;
+    return (
+      '<button type="button" class="adm-grade adm-grade--primary' + (id === activeGradeId ? " active" : "") + '" data-grade="' + id + '">' +
+        '<span class="adm-grade-num">' + g.grade + '</span>' +
+        '<span class="adm-grade-body">' +
+          '<span class="adm-grade-name">' + g.grade + '-sinf</span>' +
+          '<span class="adm-grade-meta">' + s.topics + ' mavzu · ' + s.lessons + ' dars</span>' +
+          '<span class="adm-bar"><i style="width:' + pct + '%"></i></span>' +
+        '</span>' +
+      '</button>'
+    );
+  }).join("");
+}
+
 function renderGradeList() {
   const el = document.getElementById("adm-grade-list");
-  el.innerHTML = SITE_DATA.grades.map(function (grade) {
+  el.innerHTML =
+    '<div class="adm-group-label">Boshlang\'ich (1–4)</div>' + primaryGradeButtons() +
+    '<div class="adm-group-label">5–11 sinflar</div>' +
+    SITE_DATA.grades.map(function (grade) {
     const s = gradeSummary(grade);
     const pct = s.topics ? Math.round((s.interactive + s.test) / (s.topics * 2) * 100) : 0;
     return (
@@ -108,6 +157,7 @@ function renderGradeList() {
     btn.addEventListener("click", function () {
       activeGradeId = btn.dataset.grade;
       renderGradeList();
+      renderFilter();
       renderTopics();
     });
   });
@@ -121,6 +171,19 @@ function pill(kind, st) {
 
 function renderFilter() {
   const el = document.getElementById("adm-filter");
+  if (isPrimary(activeGradeId)) {
+    el.innerHTML = ["I", "II", "III", "IV"].map(function (r, i) {
+      return '<button type="button" class="adm-filter-btn' + (i + 1 === activeChorak ? " active" : "") + '" data-chorak="' + (i + 1) + '">' + r + ' chorak</button>';
+    }).join("");
+    el.querySelectorAll(".adm-filter-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        activeChorak = Number(btn.dataset.chorak);
+        renderFilter();
+        renderTopics();
+      });
+    });
+    return;
+  }
   el.innerHTML = FILTERS.map(function (f) {
     return '<button type="button" class="adm-filter-btn' + (f.id === activeFilter ? " active" : "") + '" data-filter="' + f.id + '">' + f.label + '</button>';
   }).join("");
@@ -133,7 +196,53 @@ function renderFilter() {
   });
 }
 
+function renderPrimaryTopics() {
+  const g = primaryGrade(activeGradeId);
+  const c = g.choraks.find(function (x) { return x.chorak === activeChorak; }) || g.choraks[0];
+  const s = primarySummary(g);
+  document.getElementById("adm-main-title").textContent = g.grade + "-sinf · " + c.roman + " chorak";
+  document.getElementById("adm-progress").innerHTML =
+    "Butun sinf: " + s.topics + " mavzu · " + s.lessons + " dars · " + s.questions + " ta test savoli" + (s.soon ? " · " + s.soon + " dars tez orada" : "");
+  document.getElementById("adm-legend-hint").innerHTML = "· Savollar faylini almashtirish uchun <b>Yuklash</b> tugmasini bosing";
+
+  const rows = c.blocks.map(function (b) {
+    const tests = b.levels.filter(function (l) { return l.gameKind === "test"; });
+    const games = b.levels.filter(function (l) { return l.gameKind !== "test"; });
+    const soon = b.levels.filter(function (l) { return !l.webSupported; }).length;
+    const q = tests.reduce(function (sum, l) { return sum + (l.count || 0); }, 0);
+    const first = b.levels.find(function (l) { return l.webSupported; });
+    const pills =
+      pill("Darslar", { state: "ok", text: b.levels.length }) +
+      pill("Test", tests.length ? { state: "ok", text: q + " savol" } : { state: "none", text: "yo'q" }) +
+      (games.length ? pill("O'yin", { state: "ok", text: games.map(function (l) { return GAME_NAMES[l.gameKind] || l.gameKind; }).join(", ") }) : "") +
+      (soon ? pill("Tez orada", { state: "part", text: soon + " dars" }) : "");
+    return (
+      '<li class="adm-row">' +
+        '<span class="adm-row-num">' + b.blok + '.</span>' +
+        '<span class="adm-row-body">' +
+          (first
+            ? '<a class="adm-row-title" href="mathrunner-web/index.html#/play/' + first.id + '" target="_blank" rel="noopener">' + primaryTitle(g, c, b) + '</a>'
+            : '<span class="adm-row-title">' + primaryTitle(g, c, b) + '</span>') +
+          '<span class="adm-row-pills">' + pills + '</span>' +
+        '</span>' +
+        '<button type="button" class="adm-upload-btn" data-blok="' + b.blok + '">⬆ Yuklash</button>' +
+      '</li>'
+    );
+  }).join("");
+
+  const el = document.getElementById("adm-topics");
+  el.innerHTML = '<div class="adm-subject"><ol class="adm-list">' + rows + '</ol></div>';
+  el.querySelectorAll(".adm-upload-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const b = c.blocks.find(function (x) { return x.blok === Number(btn.dataset.blok); });
+      openPrimaryUpload(g, c, b, 0);
+    });
+  });
+}
+
 function renderTopics() {
+  if (isPrimary(activeGradeId)) return renderPrimaryTopics();
+  document.getElementById("adm-legend-hint").innerHTML = "· Fayl joylash uchun qatordagi <b>Yuklash</b> tugmasini bosing";
   const grade = findGrade(activeGradeId);
   const s = gradeSummary(grade);
   document.getElementById("adm-main-title").textContent = grade.name;
@@ -209,6 +318,36 @@ function openUpload(gradeId, subjectId, topicId, type) {
   document.getElementById("adm-modal").hidden = false;
 }
 
+// 1–4 sinf: dars tanlanadi, savollar (yoki o'yin topshiriqlari) fayli almashtiriladi
+function openPrimaryUpload(g, c, b, idx) {
+  const lv = b.levels[idx];
+  const file = lv.bank.split("/").pop();
+  activeUploadTarget = { primary: true, g: g, c: c, b: b, lv: lv, file: file };
+
+  document.getElementById("adm-modal-kicker").textContent = g.grade + "-sinf · " + c.roman + " chorak · " + b.blok + "-mavzu";
+  document.getElementById("adm-modal-title").textContent = primaryTitle(g, c, b);
+
+  const tabs = document.getElementById("adm-type-tabs");
+  tabs.innerHTML = b.levels.map(function (l, i) {
+    const kind = l.gameKind === "test" ? "Test" : (GAME_NAMES[l.gameKind] || "O'yin");
+    return '<button type="button" class="adm-type-tab' + (i === idx ? " active" : "") + '" data-i="' + i + '">' + (i + 1) + '-dars <span class="adm-tab-sub">' + kind + '</span></button>';
+  }).join("");
+  tabs.querySelectorAll(".adm-type-tab").forEach(function (t) {
+    t.addEventListener("click", function () { openPrimaryUpload(g, c, b, Number(t.dataset.i)); });
+  });
+
+  document.getElementById("adm-drop-hint").textContent =
+    (lv.gameKind === "test" ? "Test savollari" : "O'yin topshiriqlari") + " (.json) → mathrunner-web/data/banks/ papkasiga";
+  document.getElementById("adm-file").value = "";
+  const res = document.getElementById("adm-result");
+  res.hidden = false;
+  res.innerHTML =
+    '<div class="adm-current">Hozirgi fayl: <code>' + file + '</code>' +
+    (lv.gameKind === "test" ? ' · ' + (lv.count || 0) + ' ta savol' : '') +
+    ' · <a href="mathrunner-web/data/' + lv.bank + '" target="_blank" rel="noopener">ochib ko\'rish</a></div>';
+  document.getElementById("adm-modal").hidden = false;
+}
+
 function closeUpload() {
   activeUploadTarget = null;
   document.getElementById("adm-modal").hidden = true;
@@ -244,8 +383,26 @@ function uploadSteps(target, filename) {
   return { steps: steps, copy: code, note: note };
 }
 
+function showPrimaryUploadResult(file) {
+  const t = activeUploadTarget;
+  const res = document.getElementById("adm-result");
+  const isTest = t.lv.gameKind === "test";
+  const example = '[ { "id": "...", "question": "3 + 1 = ?", "correctAnswer": 4, "wrongAnswers": [3, 5] } ]';
+  res.hidden = false;
+  res.innerHTML =
+    '<div class="adm-file">📎 ' + file.name + ' <span class="muted">· ' + Math.max(1, Math.round(file.size / 1024)) + ' KB</span></div>' +
+    '<ol class="adm-steps">' +
+      '<li>Faylni <code>' + t.file + '</code> deb nomlang.</li>' +
+      '<li>Uni <code>mathrunner-web/data/banks/</code> papkasiga qo\'yib, eski faylni almashtiring.</li>' +
+      (isTest ? '<li>Fayl tuzilishi:</li>' : '<li>Fayl tuzilishi hozirgi fayl bilan bir xil bo\'lsin — yuqoridagi <b>ochib ko\'rish</b> havolasidan namunaga qarang.</li>') +
+    '</ol>' +
+    (isTest ? '<div class="adm-code"><code>' + example + '</code></div>' : '') +
+    '<p class="adm-note">Savollar soni o\'zgarsa ham sayt o\'zi moslashadi. Misollar (3 + 1 = ?, 1/2, □) saytda avtomatik formula bo\'lib chiqadi.</p>';
+}
+
 function showUploadResult(file) {
   if (!file || !activeUploadTarget) return;
+  if (activeUploadTarget.primary) return showPrimaryUploadResult(file);
   const r = uploadSteps(activeUploadTarget, file.name);
   const res = document.getElementById("adm-result");
   res.hidden = false;
@@ -286,4 +443,17 @@ function renderAdminDashboard() {
   renderFilter();
   renderTopics();
   wireUpload();
+
+  // 1–4 sinflar ma'lumotini yuklab, ro'yxat va statistikani yangilash
+  Promise.all([
+    fetch("mathrunner-web/data/curriculum.json").then(function (r) { return r.json(); }),
+    import("../mathrunner-web/js/topicTitles.js").then(function (m) { return m.TOPIC_TITLES; }).catch(function () { return {}; })
+  ]).then(function (res) {
+    PRIMARY = res[0];
+    PRIMARY_TITLES = res[1];
+    renderStats();
+    renderGradeList();
+  }).catch(function () {
+    document.querySelector(".adm-side-loading") && (document.querySelector(".adm-side-loading").textContent = "1–4 sinf ma'lumotini yuklab bo'lmadi");
+  });
 }
