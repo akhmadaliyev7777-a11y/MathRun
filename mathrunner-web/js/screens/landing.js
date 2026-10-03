@@ -1,5 +1,4 @@
-import { el, shuffle } from '../util.js';
-import { GAME_META, levelsByKind } from '../gameMeta.js';
+import { el } from '../util.js';
 import { ICON } from '../icons.js';
 import { nav, footer, curriculum, applyKingdom } from '../app.js';
 
@@ -46,27 +45,6 @@ export function render(root, _params) {
       el('div', { class: 'kcard__go', style: `color:${g.color.accentDark}` }, 'Kirish',
         el('span', { style: 'width:16px;height:16px', html: ICON.arrowRight }))));
 
-  // fikrlash o'yinlari: katta "Arqon tortish" kartochkasi + har bir o'yin kartochkasi
-  const byKind = levelsByKind();
-  const gcard = (m) => {
-    const pool = byKind[m.kind] || [];
-    return el('button', {
-      class: 'gcard', style: `--gc:${m.dark}`, disabled: pool.length === 0,
-      onclick: () => { const lv = shuffle(pool)[0]; if (lv) location.hash = `#/play/${lv.id}`; },
-    },
-      el('span', { class: 'gcard__icon', html: ICON[m.icon] }),
-      el('span', { class: 'gcard__name' }, m.name),
-      el('span', { class: 'gcard__desc' }, m.desc),
-      el('span', { class: 'gcard__meta' }, `${pool.length} bosqich`,
-        el('span', { class: 'gcard__go', html: ICON.arrowRight })));
-  };
-  const tugCard = el('a', { class: 'gfeature', href: '#/tug' },
-    el('div', { class: 'gfeature__text' },
-      el('span', { class: 'gfeature__tag' }, 'Sinf uchun · 2 jamoa'),
-      el('h3', {}, 'Arqon tortish'),
-      el('p', {}, 'Sinf ikki jamoaga bo\'linadi. To\'g\'ri javob arqonni o\'z tomoningizga tortadi — vaqt tugaguncha kim kuchli?'),
-      el('span', { class: 'gfeature__btn' }, 'O\'ynash', el('span', { class: 'gcard__go', html: ICON.arrowRight }))),
-    el('img', { class: 'gfeature__img', src: 'assets/tug-characters.png', alt: '', loading: 'lazy', decoding: 'async' }));
 
   const howcard = (n, color, dark, title, body) => el('div', { class: 'howcard' },
     el('div', { class: 'hownum', style: `background:${color};color:${dark}` }, String(n)),
@@ -99,14 +77,6 @@ export function render(root, _params) {
         el('h2', {}, 'Sinfingizni tanlang'),
         el('p', { class: 'section__lead' }, 'Har sinf — o\'z olami. Barcha chorak va bloklar boshidanoq ochiq.'),
         el('div', { class: 'kingdoms' }, ...cur.grades.map(kcard))),
-      // games
-      el('section', { class: 'section' },
-        el('div', { class: 'section__head' },
-          el('h2', {}, 'Fikrlash o\'yinlari'),
-          el('a', { class: 'section__more', href: '#/games' }, 'Barchasini ochish',
-            el('span', { style: 'width:16px;height:16px', html: ICON.arrowRight }))),
-        el('p', { class: 'section__lead' }, 'Mavzuni o\'yin orqali mustahkamlang. Kartochkani bosing — tasodifiy bosqich ochiladi.'),
-        el('div', { class: 'gbento' }, tugCard, ...GAME_META.map(gcard))),
       // how
       el('section', { class: 'section' },
         el('h2', {}, 'Qanday ishlaydi'),

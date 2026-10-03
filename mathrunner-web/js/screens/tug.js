@@ -236,7 +236,7 @@ export async function render(root, _params) {
           el('button', { class: 'btn btn--sm', onclick: onRemoveCustom }, "O'chirish")) : null);
     }
 
-    root.replaceChildren(nav(null),
+    root.replaceChildren(
       el('main', { class: 'wrap tug-setup' },
         el('div', { class: 'crumb', style: 'padding-top:18px' },
           el('button', { onclick: () => { location.hash = '#/games'; } },

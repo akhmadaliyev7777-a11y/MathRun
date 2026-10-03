@@ -10,43 +10,37 @@ export function render(root, [which]) {
 }
 
 function renderGames(root) {
+  // katta "Arqon tortish" kartochkasi + har bir o'yin kartochkasi (bosilganda tasodifiy bosqich ochiladi)
   const byKind = levelsByKind();
-
-  const card = (m) => {
+  const gcard = (m) => {
     const pool = byKind[m.kind] || [];
-    return el('div', { class: 'howcard', style: 'display:flex;flex-direction:column;gap:0' },
-      el('div', { class: 'row', style: 'gap:14px' },
-        el('span', { class: 'hownum', style: `background:${m.color};box-shadow:0 4px 0 ${m.dark};width:44px;height:44px;color:#fff`, html: ICON[m.icon] }),
-        el('div', {},
-          el('h3', { style: 'margin:0;font-size:19px' }, m.name),
-          el('div', { style: 'font-weight:700;font-size:12px;color:var(--muted-soft)' }, `${pool.length} ta bosqich`))),
-      el('p', { style: 'margin:12px 0 16px' }, m.desc),
-      el('button', {
-        class: 'btn btn--sm', style: 'align-self:flex-start',
-        disabled: pool.length === 0,
-        onclick: () => { const lv = shuffle(pool)[0]; if (lv) location.hash = `#/play/${lv.id}`; },
-      }, "O'ynash",
-        el('span', { style: 'width:16px;height:16px', html: ICON.arrowRight })));
+    return el('button', {
+      class: 'gcard', style: `--gc:${m.dark}`, disabled: pool.length === 0,
+      onclick: () => { const lv = shuffle(pool)[0]; if (lv) location.hash = `#/play/${lv.id}`; },
+    },
+      el('span', { class: 'gcard__icon', html: ICON[m.icon] }),
+      el('span', { class: 'gcard__name' }, m.name),
+      el('span', { class: 'gcard__desc' }, m.desc),
+      el('span', { class: 'gcard__meta' }, `${pool.length} bosqich`,
+        el('span', { class: 'gcard__go', html: ICON.arrowRight })));
   };
+  const tugCard = el('a', { class: 'gfeature', href: '#/tug' },
+    el('div', { class: 'gfeature__text' },
+      el('span', { class: 'gfeature__tag' }, 'Sinf uchun · 2 jamoa'),
+      el('h3', {}, 'Arqon tortish'),
+      el('p', {}, 'Sinf ikki jamoaga bo\'linadi. To\'g\'ri javob arqonni o\'z tomoningizga tortadi — vaqt tugaguncha kim kuchli?'),
+      el('span', { class: 'gfeature__btn' }, 'O\'ynash', el('span', { class: 'gcard__go', html: ICON.arrowRight }))),
+    el('img', { class: 'gfeature__img', src: 'assets/tug-characters.png', alt: '', decoding: 'async' }));
 
+  // o'yinlar — alohida bo'lim (yuqori menyudan), boshlang'ich sinflar ichki menyusisiz
   root.replaceChildren(
-    nav('games'),
     el('main', { class: 'wrap' },
       el('section', { class: 'section' },
         el('h2', {}, 'Fikrlash o\'yinlari'),
         el('p', { class: 'section__lead' },
-          'Yugurish va zarba o\'yinlari bu yerda yo\'q — faqat brauzerda silliq ishlaydigan jumboqlar. ' +
-          'Har bir o\'yin tasodifiy bosqichdan boshlanadi; aniq mavzuni "Mavzular" bo\'limidan tanlang.'),
-        el('a', { class: 'hero__card', href: '#/tug', style: 'display:block;width:auto;text-decoration:none;color:inherit;margin-bottom:26px;background:linear-gradient(160deg,#5C7FF5,#8055EE 50%,#FF5C5C)' },
-          el('div', { class: 'qcard', style: 'display:flex;align-items:center;gap:18px;justify-content:space-between' },
-            el('div', {},
-              el('div', { style: 'font-family:var(--f-head);font-weight:800;font-size:20px' }, 'Arqon tortish — 2 jamoa'),
-              el('div', { style: 'font-weight:700;color:var(--muted);font-size:14px;margin-top:4px' },
-                'Sinf ikkiga bo\'linadi. To\'g\'ri javob — arqonni o\'z tomoningga tortadi. Vaqtli.')),
-            el('span', { class: 'btn btn--sm btn--ink' }, 'O\'ynash',
-              el('span', { style: 'width:15px;height:15px', html: ICON.arrowRight })))),
-        el('div', { class: 'kingdoms', style: 'grid-template-columns:repeat(4,minmax(0,1fr))' },
-          ...GAME_META.map(card)))),
+          'Mavzuni o\'yin orqali mustahkamlang. Kartochkani bosing — o\'sha o\'yinning tasodifiy bosqichi ochiladi. ' +
+          'Aniq mavzu bo\'yicha o\'ynash uchun "Mavzular" bo\'limidan tanlang.'),
+        el('div', { class: 'gbento' }, tugCard, ...GAME_META.map(gcard)))),
     footer());
 }
 
