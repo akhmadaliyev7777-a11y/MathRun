@@ -25,6 +25,13 @@ function breadcrumbHtml(items) {
   }).join('<span class="crumb-sep">›</span>');
 }
 
+// "1. Natural sonlar" yoki "1.1 Tub sonlar" → { num: "1." / "1.1", title: "Natural sonlar" }
+function splitTopicTitle(title, index) {
+  const m = title.match(/^(\d+(?:\.\d+)*)\.?\s+(.*)$/);
+  if (!m) return { num: (index + 1) + ".", title: title };
+  return { num: m[1] + (m[1].indexOf(".") === -1 ? "." : ""), title: m[2] };
+}
+
 function topicHref(gradeId, subjectId, topicId) {
   return "mavzu.html?sinf=" + gradeId + "&fan=" + subjectId + "&mavzu=" + topicId;
 }
@@ -170,10 +177,9 @@ function renderActiveSubjectTopics(grade) {
   // ro'yxat ko'rinishi: raqam · mavzu nomi · darslik beti · Ma'ruza / Interaktiv / Test tugmalari
   const rowsHtml = subject.topics.map(function (topic, i) {
     const href = topicHref(grade.id, subject.id, topic.id);
-    // "1. Natural sonlar" yoki "1.1 Tub sonlar" — raqamni alohida ustunga ajratish
-    const m = topic.title.match(/^(\d+(?:\.\d+)*)\.?\s+(.*)$/);
-    const num = m ? m[1] + (m[1].indexOf(".") === -1 ? "." : "") : (i + 1) + ".";
-    const title = m ? m[2] : topic.title;
+    const parts = splitTopicTitle(topic.title, i);
+    const num = parts.num;
+    const title = parts.title;
     const btn = function (label, anchor, primary) {
       return '<a class="topic-btn' + (primary ? ' topic-btn--primary' : '') + '" href="' + href + anchor + '">' + label + '</a>';
     };

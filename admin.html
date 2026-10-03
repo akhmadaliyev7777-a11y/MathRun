@@ -4,62 +4,92 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin panel — MathRun</title>
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body>
 
 <div id="site-header-root"></div>
 
 <div class="page-container wide">
-  <h1 class="page-title">Admin panel</h1>
-  <p class="muted">Kontent boshqaruvi va statistika. Hozircha hammaga ochiq — keyinchalik login bilan himoyalanadi.</p>
+  <div class="adm-head">
+    <div>
+      <h1 class="page-title" style="margin-bottom:6px">Admin panel</h1>
+      <p class="muted" style="margin:0">Saytdagi kontent holati va yangi fayllarni joylash. Hozircha hammaga ochiq — keyinchalik login bilan himoyalanadi.</p>
+    </div>
+    <a class="adm-head-link" href="index.html">Saytni ochish ↗</a>
+  </div>
 
-  <div class="stat-grid" id="stat-grid"></div>
+  <!-- umumiy statistika -->
+  <div class="adm-stats" id="adm-stats"></div>
 
-  <section class="dashboard-section">
-    <h2 class="subject-heading">Kontent holati</h2>
-    <div id="admin-table"></div>
-  </section>
-
-  <section class="dashboard-section">
-    <h2 class="subject-heading">Yuklash</h2>
-    <p class="muted">Avval sinfni tanlang, so'ng mavzu qatoridagi <strong>Ma'ruza</strong>, <strong>Taqdimot</strong> yoki <strong>Test</strong> tugmasini bosing.</p>
-
-    <div class="grade-picker" id="grade-picker"></div>
-
-    <div id="upload-topics-list" class="upload-topics-list"></div>
-
-    <div id="upload-target-panel" class="upload-target-panel" hidden>
-      <div class="upload-target-header">
-        <div>
-          <div class="upload-target-title" id="upload-target-title"></div>
-          <div class="muted" id="upload-target-sub"></div>
-        </div>
-        <button type="button" class="drawer-close" id="upload-target-close" aria-label="Yopish">&times;</button>
+  <!-- ish maydoni: chapda sinf, o'ngda mavzular -->
+  <section class="adm-work">
+    <aside class="adm-side">
+      <div class="adm-side-label">Sinflar</div>
+      <div class="adm-grade-list" id="adm-grade-list"></div>
+      <div class="adm-side-note">
+        <b>1–4 sinflar</b> — testlar va o'yinlar <code>mathrunner-web/</code> papkasida alohida saqlanadi.
+        <a href="mathrunner-web/index.html">Bo'limni ochish →</a>
       </div>
-      <label class="upload-btn">
-        Fayl tanlash
-        <input type="file" hidden id="upload-target-input">
-      </label>
-      <div class="upload-result" id="upload-target-result" hidden></div>
+    </aside>
+
+    <div class="adm-main">
+      <div class="adm-main-head">
+        <div>
+          <h2 class="adm-main-title" id="adm-main-title"></h2>
+          <div class="adm-progress" id="adm-progress"></div>
+        </div>
+        <div class="adm-filter" id="adm-filter" role="tablist"></div>
+      </div>
+      <div class="adm-legend">
+        <span><i class="adm-dot adm-dot--ok"></i>tayyor</span>
+        <span><i class="adm-dot adm-dot--part"></i>qisman</span>
+        <span><i class="adm-dot adm-dot--none"></i>yo'q</span>
+        <span class="muted">· Fayl joylash uchun qatordagi <b>Yuklash</b> tugmasini bosing</span>
+      </div>
+      <div id="adm-topics"></div>
     </div>
   </section>
 
-  <section class="dashboard-section">
-    <h2 class="subject-heading">O'quvchilar natijalari</h2>
-    <div class="placeholder">🚧 Tez orada: o'quvchilarning o'zlashtirish grafiklari va test natijalari shu yerda ko'rinadi.</div>
+  <section class="adm-soon">
+    <div class="adm-soon-icon">📊</div>
+    <div>
+      <b>O'quvchilar natijalari</b>
+      <div class="muted">Tez orada: o'quvchilarning o'zlashtirish grafiklari va test natijalari shu yerda ko'rinadi.</div>
+    </div>
   </section>
+</div>
+
+<!-- yuklash oynasi -->
+<div class="adm-modal" id="adm-modal" hidden>
+  <div class="adm-modal-box" role="dialog" aria-modal="true" aria-labelledby="adm-modal-title">
+    <div class="adm-modal-head">
+      <div>
+        <div class="adm-modal-kicker" id="adm-modal-kicker"></div>
+        <div class="adm-modal-title" id="adm-modal-title"></div>
+      </div>
+      <button type="button" class="drawer-close" id="adm-modal-close" aria-label="Yopish">&times;</button>
+    </div>
+    <div class="adm-type-tabs" id="adm-type-tabs"></div>
+    <label class="adm-drop" id="adm-drop">
+      <input type="file" hidden id="adm-file">
+      <span class="adm-drop-icon">⬆</span>
+      <span><b>Faylni tanlang</b> yoki shu yerga tashlang</span>
+      <span class="muted" id="adm-drop-hint"></span>
+    </label>
+    <div id="adm-result" hidden></div>
+  </div>
 </div>
 
 <script src="js/data.js?v=5"></script>
 <script src="js/quizzes.js?v=5"></script>
-<script src="js/main.js?v=8"></script>
+<script src="js/main.js?v=9"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="js/firebase-config.js?v=5"></script>
 <script src="js/auth.js?v=5"></script>
 <script src="js/layout.js?v=6"></script>
-<script src="js/admin.js?v=5"></script>
+<script src="js/admin.js?v=7"></script>
 <script>renderSiteHeader(); renderAdminDashboard();</script>
 </body>
 </html>
