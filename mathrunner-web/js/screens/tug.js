@@ -1,5 +1,5 @@
 import { el, shuffle, loadJSON, readCustomTug, saveCustomTug, clearCustomTug } from '../util.js';
-import { questionHTML, answerHTML } from '../mathfmt.js';
+import { questionHTML, answerHTML, mathReady } from '../mathfmt.js';
 import { ICON } from '../icons.js';
 import { nav, footer, applyKingdom } from '../app.js';
 import { loadXLSXLib, parseQuestionsWorkbook } from '../xlsxImport.js';
@@ -27,7 +27,7 @@ export async function render(root, _params) {
   applyKingdom(null);
   let cats;
   try {
-    const j = await loadJSON('data/tug_questions.json');
+    const [j] = await Promise.all([loadJSON('data/tug_questions.json'), mathReady()]);
     cats = j.categories || [{ id: 'all', name: 'Barcha savollar', questions: j.questions || j }];
   } catch (e) { root.innerHTML = '<div class="boot">Savol bankini yuklab bo\'lmadi.</div>'; return; }
   cats = cats.filter(c => c.questions && c.questions.length);

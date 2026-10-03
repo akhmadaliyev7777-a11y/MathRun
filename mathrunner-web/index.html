@@ -9,21 +9,30 @@
   <!-- MathRun'ning umumiy uslubi (header, menyu, footer) — keyin bo'limning o'z uslubi -->
   <link rel="stylesheet" href="../css/style.css?v=16">
   <link rel="stylesheet" href="css/styles.css?v=11">
-  <!-- KaTeX — misol va ifodalarni formula ko'rinishida chiqarish uchun -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <!-- tez ochilishi uchun: bo'lim kodi va mavzular ma'lumoti bir vaqtda (parallel) yuklanadi -->
+  <link rel="modulepreload" href="js/app.js">
+  <link rel="modulepreload" href="js/util.js">
+  <link rel="modulepreload" href="js/icons.js">
+  <link rel="modulepreload" href="js/screens/landing.js">
+  <link rel="modulepreload" href="js/screens/mavzular.js">
+  <link rel="modulepreload" href="js/topicTitles.js">
+  <link rel="modulepreload" href="js/mathfmt.js">
+  <link rel="preload" href="data/curriculum.json" as="fetch" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <!-- bo'lim kodi birinchi ishga tushadi; KaTeX (formulalar) faqat test/o'yinda yuklanadi — js/mathfmt.js -->
+  <script type="module" src="js/app.js"></script>
 </head>
 <body>
   <div id="site-header-root"></div>
   <div id="app" aria-live="polite">
     <div class="boot">Yuklanmoqda…</div>
   </div>
-  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
-  <script src="../js/firebase-config.js?v=6"></script>
-  <script src="../js/auth.js?v=6"></script>
-  <script src="../js/layout.js?v=6"></script>
-  <script>renderSiteHeader("../", "primary");</script>
-  <script type="module" src="js/app.js"></script>
+  <!-- kirish tizimi (Firebase) sahifani to'xtatib turmaydi -->
+  <script defer src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+  <script defer src="../js/firebase-config.js?v=6"></script>
+  <script defer src="../js/auth.js?v=6"></script>
+  <script defer src="../js/layout.js?v=6"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () { renderSiteHeader("../", "primary"); });</script>
 </body>
 </html>

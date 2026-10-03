@@ -1,4 +1,5 @@
 import { $, el, loadJSON } from './util.js';
+import { mathReady } from './mathfmt.js';
 
 const APP = $('#app');
 let CUR = null; // curriculum.json
@@ -69,6 +70,8 @@ async function route() {
       const mod = await r.load();
       window.scrollTo(0, 0);
       mod.render(APP, m.slice(1));
+      // sahifa ko'ringach, formula kutubxonasini orqa fonda tayyorlab qo'yamiz (testga kirganda kutilmasin)
+      (window.requestIdleCallback || setTimeout)(() => mathReady());
       return;
     }
   }

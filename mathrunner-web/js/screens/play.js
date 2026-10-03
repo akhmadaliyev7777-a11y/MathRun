@@ -3,7 +3,7 @@ import { ICON } from '../icons.js';
 import { levelById, applyKingdom, nav, footer } from '../app.js';
 import { renderResult } from './result.js';
 import { GAMES } from '../games/index.js';
-import { questionHTML, answerHTML } from '../mathfmt.js';
+import { questionHTML, answerHTML, mathReady } from '../mathfmt.js';
 import { lessonNo } from '../topicTitles.js';
 
 export async function render(root, [levelId]) {
@@ -22,7 +22,7 @@ export async function render(root, [levelId]) {
 
   root.innerHTML = '<div class="boot">Yuklanmoqda…</div>';
   let bank;
-  try { bank = await loadJSON(`data/${level.bank}`); }
+  try { [bank] = await Promise.all([loadJSON(`data/${level.bank}`), mathReady()]); }
   catch (e) { root.innerHTML = '<div class="boot">Bankni yuklab bo\'lmadi.</div>'; console.error(e); return; }
 
   const ctx = {

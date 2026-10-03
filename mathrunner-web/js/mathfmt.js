@@ -2,6 +2,27 @@
 // topib, KaTeX (formula yozish kutubxonasi) orqali darslikdagidek formula ko'rinishida chiqaradi.
 // Qolgan oddiy matn o'zgarmaydi. KaTeX yuklanmagan bo'lsa — matn o'z holicha qoladi.
 
+// KaTeX'ni faqat kerak bo'lganda yuklash (test va arqon tortishda). Bosh sahifa uni kutmaydi.
+const KATEX = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min';
+let katexPromise = null;
+export function mathReady() {
+  if (window.katex) return Promise.resolve();
+  if (!katexPromise) {
+    katexPromise = new Promise((resolve) => {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet'; css.href = KATEX + '.css';
+      document.head.append(css);
+      const js = document.createElement('script');
+      js.src = KATEX + '.js';
+      js.onload = () => resolve();
+      js.onerror = () => resolve(); // yuklanmasa — matn oddiy ko'rinishda qoladi
+      document.head.append(js);
+    });
+  }
+  // internet sekin bo'lsa ham 4 soniyadan ortiq kutmaymiz
+  return Promise.race([katexPromise, new Promise(r => setTimeout(r, 4000))]);
+}
+
 const OP_TEX = {
   '+': '+', '-': '-', '−': '-', '*': '\\cdot', '×': '\\cdot', '·': '\\cdot',
   ':': ':', '÷': ':', '=': '=', '<': '<', '>': '>', '≤': '\\le', '≥': '\\ge', '≠': '\\ne',
