@@ -15,7 +15,6 @@ export function nav(active) {
       el('a', { href: '#/', class: 'subnav__title' }, 'Boshlang\'ich sinflar', el('span', { class: 'subnav__pill' }, '1–4 sinf')),
       el('nav', { class: 'subnav__links' },
         link('#/', 'Mavzular', 'mavzular'),
-        link('#/games', 'Fikrlash o\'yinlari', 'games'),
         link('#/about', 'Loyiha haqida', 'about'))));
 }
 
@@ -61,8 +60,17 @@ const routes = [
   { re: /^#\/(games|about)$/, load: () => import('./screens/info.js'), name: 'info' },
 ];
 
+// yuqori menyuda joriy bo'limni ajratish: o'yinlar sahifasida "Fikrlash o'yinlari", qolganida "Boshlang'ich sinflar"
+function markSiteNav(hash) {
+  const games = /^#\/(games|tug)/.test(hash);
+  document.querySelectorAll('.site-nav [data-nav]').forEach(a => {
+    a.classList.toggle('active', a.dataset.nav === (games ? 'games' : 'primary'));
+  });
+}
+
 async function route() {
   const hash = location.hash || '#/';
+  markSiteNav(hash);
   for (const r of routes) {
     const m = hash.match(r.re);
     if (m) {

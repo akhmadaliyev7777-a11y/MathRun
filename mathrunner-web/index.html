@@ -7,8 +7,8 @@
   <meta name="description" content="1–4 sinf matematika darsligining ochiq, bepul interaktiv ko'rinishi. Sinf va chorakni tanlang, mavzu testini yeching, fikrlash jumboqlarini o'ynang.">
   <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
   <!-- MathRun'ning umumiy uslubi (header, menyu, footer) — keyin bo'limning o'z uslubi -->
-  <link rel="stylesheet" href="../css/style.css?v=16">
-  <link rel="stylesheet" href="css/styles.css?v=13">
+  <link rel="stylesheet" href="../css/style.css?v=17">
+  <link rel="stylesheet" href="css/styles.css?v=15">
   <!-- tez ochilishi uchun: bo'lim kodi va mavzular ma'lumoti bir vaqtda (parallel) yuklanadi -->
   <link rel="modulepreload" href="js/app.js">
   <link rel="modulepreload" href="js/util.js">
@@ -17,6 +17,7 @@
   <link rel="modulepreload" href="js/screens/mavzular.js">
   <link rel="modulepreload" href="js/topicTitles.js">
   <link rel="modulepreload" href="js/mathfmt.js">
+  <link rel="modulepreload" href="js/gameMeta.js">
   <link rel="preload" href="data/curriculum.json" as="fetch" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <!-- bo'lim kodi birinchi ishga tushadi; KaTeX (formulalar) faqat test/o'yinda yuklanadi — js/mathfmt.js -->
@@ -32,7 +33,7 @@
   <script defer src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
   <script defer src="../js/firebase-config.js?v=6"></script>
   <script defer src="../js/auth.js?v=6"></script>
-  <script defer src="../js/layout.js?v=6"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () { renderSiteHeader("../", "primary"); });</script>
+  <script defer src="../js/layout.js?v=7"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () { renderSiteHeader("../", /^#\/(games|tug)/.test(location.hash) ? "games" : "primary"); });</script>
 </body>
 </html>

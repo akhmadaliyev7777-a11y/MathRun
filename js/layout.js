@@ -1,5 +1,5 @@
 // base — sahifa ichki papkada bo'lsa (masalan mathrunner-web/) asosiy saytga yo'l, masalan "../"
-// active — menyuda ajratib ko'rsatiladigan bo'lim: "home" | "lessons" | "primary"
+// active — menyuda ajratib ko'rsatiladigan bo'lim: "home" | "lessons" | "games" | "primary"
 function renderSiteHeader(base, active) {
   base = base || "";
   const cls = (key) => (active === key ? ' class="active"' : "");
@@ -17,13 +17,16 @@ function renderSiteHeader(base, active) {
       '<nav class="site-nav">' +
         '<a href="' + base + 'index.html"' + cls("home") + '>Bosh sahifa</a>' +
         '<a href="' + base + 'korgazmalar.html"' + cls("lessons") + '>Interaktiv darslar</a>' +
-        '<a href="' + base + 'mathrunner-web/index.html"' + cls("primary") + '>Boshlang\'ich sinflar</a>' +
+        '<a href="' + base + 'mathrunner-web/index.html#/games" data-nav="games"' + cls("games") + '>Fikrlash o\'yinlari</a>' +
+        '<a href="' + base + 'mathrunner-web/index.html" data-nav="primary"' + cls("primary") + '>Boshlang\'ich sinflar</a>' +
       "</nav>" +
     "</header>" +
     '<div id="side-drawer" class="side-drawer">' +
       '<div class="side-drawer-inner">' +
         '<button id="drawer-close-btn" class="drawer-close" aria-label="Yopish">&times;</button>' +
         '<a href="' + base + 'index.html" class="drawer-link">Bosh sahifa</a>' +
+        '<a href="' + base + 'korgazmalar.html" class="drawer-link">Interaktiv darslar</a>' +
+        '<a href="' + base + 'mathrunner-web/index.html#/games" class="drawer-link">Fikrlash o\'yinlari</a>' +
         '<a href="' + base + 'mathrunner-web/index.html" class="drawer-link">Boshlang\'ich sinflar (1–4)</a>' +
         '<a href="' + base + 'settings.html" class="drawer-link">Sozlamalar</a>' +
         '<a href="' + base + 'info.html" class="drawer-link">Ma\'lumot</a>' +
