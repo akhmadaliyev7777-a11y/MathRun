@@ -35,23 +35,72 @@ function topicStatusBadge(topic) {
 }
 
 // ---------- Bosh sahifa: sinflar to'ri ----------
+// Bosh sahifadagi sinflar: ikki guruh — boshlang'ich (1–4) va 5–11 sinflar
+function gradeTile(href, number, name, chips, meta, primary) {
+  return (
+    '<a class="grade-tile' + (primary ? ' grade-tile--primary' : '') + '" href="' + href + '">' +
+      '<span class="grade-tile-num">' + number + '</span>' +
+      '<span class="grade-tile-body">' +
+        '<span class="grade-tile-name">' + name + '</span>' +
+        (chips.length ? '<span class="grade-tile-subj">' + chips.join(" · ") + '</span>' : "") +
+        '<span class="grade-tile-meta">' + meta + '</span>' +
+      '</span>' +
+    '</a>'
+  );
+}
+
 function renderGradesGrid() {
   const el = document.getElementById("grades-grid");
   if (!el) return;
-  el.innerHTML = SITE_DATA.grades.map(function (grade) {
+
+  // 5–11 sinflar (SITE_DATA dan)
+  const upper = SITE_DATA.grades.map(function (grade) {
     const topicCount = grade.subjects.reduce(function (sum, s) { return sum + s.topics.length; }, 0);
     const interactiveCount = grade.subjects.reduce(function (sum, s) {
       return sum + s.topics.filter(function (t) { return !!t.interactive; }).length;
     }, 0);
-    return (
-      '<a class="card grade-card" href="sinf.html?sinf=' + grade.id + '">' +
-        '<div class="grade-card-number">' + grade.id + '</div>' +
-        '<div class="grade-card-name">' + grade.name + '</div>' +
-        '<div class="grade-card-meta">' + topicCount + " ta mavzu</div>" +
-        (interactiveCount > 0 ? '<div class="grade-card-tag">' + interactiveCount + ' interaktiv</div>' : "") +
-      '</a>'
-    );
+    // fan nomlari qavssiz va takrorlanmasdan: "Matematika (2026-yil)" → "Matematika"
+    const chips = grade.subjects.map(function (s) { return s.name.replace(/\s*\(.*\)\s*$/, ""); })
+      .filter(function (n, i, a) { return a.indexOf(n) === i; });
+    const meta = topicCount + " mavzu" + (interactiveCount > 0 ? ' · <b>' + interactiveCount + " interaktiv</b>" : "");
+    return gradeTile("sinf.html?sinf=" + grade.id, grade.id, grade.name, chips, meta, false);
   }).join("");
+
+  // 1–4 sinflar (Boshlang'ich sinflar bo'limiga)
+  const primaryTile = function (n, meta) {
+    return gradeTile("mathrunner-web/index.html#/g/" + n + "/c/1", n, n + "-sinf", ["Testlar", "O'yinlar"], meta, true);
+  };
+  const primary = [1, 2, 3, 4].map(function (n) { return primaryTile(n, "4 chorak"); }).join("");
+
+  el.innerHTML =
+    '<div class="grade-group">' +
+      '<div class="grade-group-head">' +
+        '<div><div class="grade-group-title">Boshlang\'ich sinflar</div>' +
+        '<div class="grade-group-sub">1–4 sinf · testlar, darslar va fikrlash o\'yinlari</div></div>' +
+        '<a class="grade-group-link" href="mathrunner-web/index.html">Bo\'limni ochish →</a>' +
+      '</div>' +
+      '<div class="grade-tiles" id="primary-tiles">' + primary + '</div>' +
+    '</div>' +
+    '<div class="grade-group">' +
+      '<div class="grade-group-head">' +
+        '<div><div class="grade-group-title">5–11 sinflar</div>' +
+        '<div class="grade-group-sub">Algebra, geometriya va interaktiv ko\'rgazmalar</div></div>' +
+      '</div>' +
+      '<div class="grade-tiles">' + upper + '</div>' +
+    '</div>';
+
+  // boshlang'ich sinflar uchun aniq mavzu va darslar soni (bo'lim ma'lumotidan)
+  fetch("mathrunner-web/data/curriculum.json")
+    .then(function (r) { return r.json(); })
+    .then(function (cur) {
+      const box = document.getElementById("primary-tiles");
+      if (!box) return;
+      box.innerHTML = cur.grades.map(function (g) {
+        const topics = g.choraks.reduce(function (sum, c) { return sum + c.blocks.length; }, 0);
+        return primaryTile(g.grade, topics + " mavzu · <b>" + g.levelCount + " dars</b>");
+      }).join("");
+    })
+    .catch(function () {});
 }
 
 // ---------- Sinf sahifasi: fanlar va mavzular ----------
@@ -103,16 +152,33 @@ function renderActiveSubjectTopics(grade) {
   const subject = findSubject(grade, activeGradeSubjectId);
   if (!container || !subject) return;
 
-  const topicsHtml = subject.topics.map(function (topic) {
+  // ro'yxat ko'rinishi: raqam · mavzu nomi · darslik beti · Ma'ruza / Interaktiv / Test tugmalari
+  const rowsHtml = subject.topics.map(function (topic, i) {
+    const href = topicHref(grade.id, subject.id, topic.id);
+    // "1. Natural sonlar" yoki "1.1 Tub sonlar" — raqamni alohida ustunga ajratish
+    const m = topic.title.match(/^(\d+(?:\.\d+)*)\.?\s+(.*)$/);
+    const num = m ? m[1] + (m[1].indexOf(".") === -1 ? "." : "") : (i + 1) + ".";
+    const title = m ? m[2] : topic.title;
+    const btn = function (label, anchor, primary) {
+      return '<a class="topic-btn' + (primary ? ' topic-btn--primary' : '') + '" href="' + href + anchor + '">' + label + '</a>';
+    };
     return (
-      '<a class="card topic-card" href="' + topicHref(grade.id, subject.id, topic.id) + '">' +
-        '<div class="topic-card-title">' + topic.title + '</div>' +
-        topicStatusBadge(topic) +
-      '</a>'
+      '<li class="topic-row">' +
+        '<span class="topic-row-num">' + num + '</span>' +
+        '<a class="topic-row-title" href="' + href + '">' + title +
+          (topic.page ? '<span class="topic-row-page">' + topic.page + '</span>' : '') +
+        '</a>' +
+        '<span class="topic-row-actions">' +
+          btn("Ma'ruza", "#maruza", true) +
+          (topic.interactive ? btn("Interaktiv", "#interaktiv", false) : "") +
+          (topic.test ? btn("Test", "#test", false) : "") +
+        '</span>' +
+      '</li>'
     );
   }).join("");
 
-  container.innerHTML = '<div class="topics-grid">' + topicsHtml + '</div>';
+  container.innerHTML = '<ol class="topic-list">' + rowsHtml + '</ol>' +
+    '<p class="topic-list-foot">' + subject.topics.length + ' ta mavzu</p>';
 }
 
 // ---------- Mavzu sahifasi ----------
