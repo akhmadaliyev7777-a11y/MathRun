@@ -1,46 +1,34 @@
 import { $, el, loadJSON } from './util.js';
-import { ICON } from './icons.js';
 
 const APP = $('#app');
 let CUR = null; // curriculum.json
 
 // ---------- shared chrome ----------
+// Yuqoridagi asosiy MathRun menyusi index.html'da ../js/layout.js orqali chiziladi.
+// Bu yerda faqat bo'limning ichki menyusi (Mavzular / O'yinlar / Loyiha haqida).
 export function nav(active) {
   const link = (href, label, key) =>
-    el('a', { href, class: active === key ? 'is-active' : '' }, label);
-  return el('div', { class: 'nav' },
-    el('div', { class: 'nav__inner' },
-      el('a', { href: '#/', class: 'brand', style: 'color:inherit' },
-        el('span', { class: 'brand__mark', html: ICON.runner.replace('currentColor', '#FFF6E6') }),
-        el('span', { class: 'brand__name' }, 'MathRunner'),
-        el('span', { class: 'brand__pill' }, '1–4 sinf')),
-      el('div', { class: 'nav__links' },
-        el('a', { href: '../index.html', style: 'opacity:.7' }, '← MathRun'),
+    el('a', { href, class: 'subnav__link' + (active === key ? ' is-active' : '') }, label);
+  return el('div', { class: 'subnav' },
+    el('div', { class: 'subnav__inner' },
+      el('a', { href: '#/', class: 'subnav__title' }, 'Boshlang\'ich sinflar', el('span', { class: 'subnav__pill' }, '1–4 sinf')),
+      el('nav', { class: 'subnav__links' },
         link('#/', 'Mavzular', 'mavzular'),
         link('#/games', 'Fikrlash o\'yinlari', 'games'),
-        link('#/about', 'Loyiha haqida', 'about'),
-        el('div', { class: 'lang' },
-          el('span', { class: 'is-active' }, 'UZ'),
-          el('span', {}, 'RU'), el('span', {}, 'EN')))));
+        link('#/about', 'Loyiha haqida', 'about'))));
 }
 
+// MathRun'ning umumiy footeri (asosiy sahifalardagi bilan bir xil)
 export function footer() {
-  const col = (title, items) => el('div', { class: 'foot__col' },
-    el('b', {}, title), ...items.map(([t, h]) => el('a', { href: h }, t)));
-  return el('div', { class: 'foot' },
-    el('div', { class: 'foot__inner' },
-      el('div', { class: 'foot__top' },
-        el('div', {},
-          el('div', { class: 'brand' },
-            el('span', { class: 'brand__mark', style: 'width:32px;height:32px', html: ICON.runner.replace('currentColor', '#FFF6E6') }),
-            el('span', { class: 'brand__name', style: 'font-size:18px' }, 'MathRunner Web')),
-          el('p', { style: 'font-weight:600;color:rgba(255,246,230,.6);max-width:340px;margin:14px 0 0;line-height:1.5' },
-            '1–4 sinf matematika darsligining ochiq, bepul interaktiv ko\'rinishi.')),
-        el('div', { class: 'foot__cols' },
-          col('Sayt', [['Mavzular', '#/'], ['Fikrlash o\'yinlari', '#/games'], ['Loyiha haqida', '#/about']]),
-          col('Boshqa', [['← MathRun bosh sahifasi', '../index.html'], ['Android ilova', '#/about'], ['GitHub (ochiq manba)', 'https://github.com/akhmadaliyev7777-a11y'], ['Aloqa', '#/about']]))),
-      el('div', { class: 'foot__note' },
-        '© 2026 MathRunner · O\'zbekiston 1–4 sinf matematika kurikulumi asosida')));
+  return el('footer', { class: 'site-footer' },
+    el('div', { class: 'footer-inner' },
+      el('span', { class: 'footer-logo' }, 'MathRun'),
+      el('nav', { class: 'footer-links' },
+        el('a', { href: '../index.html' }, 'Bosh sahifa'),
+        el('a', { href: '../korgazmalar.html' }, 'Interaktiv darslar'),
+        el('a', { href: '#/' }, 'Boshlang\'ich sinflar'),
+        el('a', { href: '../info.html' }, 'Ma\'lumot')),
+      el('span', { class: 'footer-copy' }, '© MathRun')));
 }
 
 export const curriculum = () => CUR;
@@ -57,15 +45,10 @@ export function levelById(id) {
 // kingdom rangini hujjatga qo'llash (grade konteksti)
 export function applyKingdom(g) {
   const r = document.documentElement.style;
-  if (!g) { r.removeProperty('--k-accent'); r.removeProperty('--k-accent-dark'); r.removeProperty('--k-head'); r.removeProperty('--k-tint'); return; }
-  r.setProperty('--k-accent', g.color.accent);
-  r.setProperty('--k-accent-dark', g.color.accentDark);
+  if (!g) { r.removeProperty('--k-head'); return; }
+  // tugma va progress ranglari hamma sinfda MathRun'ning asosiy rangida qoladi (styles.css),
+  // sinfga xos faqat sarlavha foni (banner gradienti)
   r.setProperty('--k-head', g.color.head);
-  r.setProperty('--k-tint', hexToRgba(g.color.accent, 0.12));
-}
-function hexToRgba(hex, a) {
-  const n = parseInt(hex.slice(1), 16);
-  return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${a})`;
 }
 
 // ---------- router ----------

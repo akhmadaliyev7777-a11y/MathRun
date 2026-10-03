@@ -40,7 +40,7 @@ export function render(root, _params) {
     el('div', { html: label }));
 
   const howcard = (n, color, dark, title, body) => el('div', { class: 'howcard' },
-    el('div', { class: 'hownum', style: `background:${color};box-shadow:0 4px 0 ${dark}` }, String(n)),
+    el('div', { class: 'hownum', style: `background:${color};color:${dark}` }, String(n)),
     el('h3', {}, title), el('p', {}, body));
 
   root.replaceChildren(
@@ -89,8 +89,8 @@ export function render(root, _params) {
       el('section', { class: 'section' },
         el('h2', {}, 'Qanday ishlaydi'),
         el('div', { class: 'how' },
-          howcard(1, 'var(--yellow)', '#d9b940', 'Sinf va chorakni tanlang', 'Maktabda o\'tilgan mavzuni toping — sinf → chorak → blok.'),
-          howcard(2, 'var(--green)', '#2f9d57', 'Testni yeching yoki o\'ynang', '10 ta savol yoki fikrlash jumboqi. Vaqt bosimi yo\'q, xatoni tuzatib bo\'ladi.'),
-          howcard(3, 'var(--sky)', '#2f9dcf', 'Yulduz va natijani ko\'ring', 'Aniqlikka qarab 1–3 yulduz, eng yaxshi natija saqlanadi (shu brauzerda).')))),
+          howcard(1, 'var(--tint)', 'var(--violet)', 'Sinf va chorakni tanlang', 'Maktabda o\'tilgan mavzuni toping — sinf → chorak → blok.'),
+          howcard(2, '#e6f7f4', '#16a394', 'Testni yeching yoki o\'ynang', '10 ta savol yoki fikrlash jumboqi. Vaqt bosimi yo\'q, xatoni tuzatib bo\'ladi.'),
+          howcard(3, 'var(--tint)', 'var(--violet)', 'Yulduz va natijani ko\'ring', 'Aniqlikka qarab 1–3 yulduz, eng yaxshi natija saqlanadi (shu brauzerda).')))),
     footer());
 }

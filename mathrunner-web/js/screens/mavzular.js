@@ -22,10 +22,9 @@ export function render(root, [gradeStr, chorakStr]) {
 
   const railBtn = (gg) => el('button', {
     class: 'grade-btn' + (gg.grade === grade ? ' is-active' : ''),
-    style: gg.grade === grade ? `background:${gg.color.head}` : '',
     onclick: () => { location.hash = `#/g/${gg.grade}/c/1`; },
   },
-    el('span', { style: `width:20px;height:20px;color:${gg.grade === grade ? '#06251a' : gg.color.accentDark}`, html: KINGDOM_ICON[gg.kingdom] }),
+    el('span', { style: `width:20px;height:20px;color:${gg.grade === grade ? '#fff' : 'var(--violet)'}`, html: KINGDOM_ICON[gg.kingdom] }),
     `${gg.grade}-sinf`);
 
   const chorakTab = (c) => el('button', {
@@ -33,7 +32,7 @@ export function render(root, [gradeStr, chorakStr]) {
     onclick: () => { location.hash = `#/g/${grade}/c/${c.chorak}`; },
   }, `${c.roman} chorak`);
 
-  const numColors = ['var(--yellow)', 'var(--sky)', 'var(--green)', 'var(--pink)'];
+  const numColors = ['background:var(--tint);color:var(--violet)', 'background:#e6f7f4;color:#16a394'];
 
   const lchip = (lv, idx) => {
     if (!lv.webSupported) {
@@ -54,7 +53,7 @@ export function render(root, [gradeStr, chorakStr]) {
   const chorak = g.choraks.find(c => c.chorak === chorakNo);
   const bcard = (b) => el('div', { class: 'bcard' },
     el('div', { class: 'bcard__top' },
-      el('div', { class: 'bcard__num', style: `background:${numColors[(b.blok - 1) % 4]}` }, String(b.blok)),
+      el('div', { class: 'bcard__num', style: numColors[(b.blok - 1) % 2] }, String(b.blok)),
       b.kind === 'game'
         ? el('span', { class: 'badge badge--game' }, el('span', { style: 'width:11px;height:11px', html: ICON.spark }), 'O\'YIN')
         : el('span', { class: 'badge badge--test' }, 'TEST')),
@@ -69,7 +68,7 @@ export function render(root, [gradeStr, chorakStr]) {
     nav('mavzular'),
     el('main', { class: 'wrap' },
       el('div', { class: 'crumb' },
-        el('button', { onclick: () => location.hash = '#/' }, 'Bosh sahifa'),
+        el('button', { onclick: () => location.hash = '#/' }, 'Boshlang\'ich sinflar'),
         el('span', {}, '/'),
         el('span', { class: 'now' }, `${grade}-sinf`),
         el('span', {}, '/'),
