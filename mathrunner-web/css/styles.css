@@ -211,6 +211,33 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .lchip--ghost:active { transform: translateY(3px); box-shadow: 0 0 0 rgba(22,18,64,.10); }
 .lchip--soon { background: rgba(22,18,64,.05); color: var(--muted-soft); cursor: not-allowed; }
 .lchip:focus-visible { outline: 3px solid var(--k-accent); outline-offset: 2px; }
+/* mavzular ro'yxati (kartochka o'rniga) */
+.tlist { list-style: none; margin: 0; padding: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--r-xl); box-shadow: var(--shadow-card); overflow: hidden; }
+.trow { display: flex; align-items: baseline; gap: 12px; padding: 12px 18px; border-top: 1px solid var(--line); transition: background .1s ease; }
+.trow:first-child { border-top: 0; }
+.trow:hover { background: #fafbff; }
+.trow__num { flex: 0 0 26px; font-weight: 700; color: var(--muted-soft); font-variant-numeric: tabular-nums; }
+.trow__title { flex: 1 1 auto; min-width: 0; color: var(--ink); font-weight: 600; font-size: 1rem; line-height: 1.45; }
+:where(#app) a.trow__title:hover { color: var(--violet); }
+.trow__levels { flex: 0 0 auto; display: flex; gap: 6px; align-self: center; }
+.tbtn {
+  display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px; border-radius: 8px;
+  border: 1px solid var(--line); background: #fff; color: var(--violet);
+  font: inherit; font-weight: 700; font-size: 12.5px; white-space: nowrap; cursor: pointer;
+  transition: background .1s ease, border-color .1s ease, color .1s ease;
+}
+.tbtn:hover { border-color: var(--violet); }
+.tbtn--primary { background: var(--violet); border-color: var(--violet); color: #fff; }
+.tbtn--primary:hover { background: var(--peri); border-color: var(--peri); }
+.tbtn--soon { color: var(--muted-soft); cursor: not-allowed; }
+.tbtn__star { color: #f5b301; font-size: 11px; }
+.tbtn--primary .tbtn__star { color: #ffe08a; }
+@media (max-width: 640px) {
+  .trow { flex-wrap: wrap; padding: 12px 14px; gap: 6px 8px; }
+  .trow__num { flex-basis: 30px; }
+  .trow__title { flex-basis: calc(100% - 38px); }
+  .trow__levels { margin-left: 38px; }
+}
 .blocks__foot { margin-top: 20px; text-align: center; font-weight: 700; font-size: 13px; color: var(--muted-soft); }
 
 /* ===================================================================

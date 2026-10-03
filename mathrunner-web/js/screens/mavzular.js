@@ -2,6 +2,7 @@ import { el } from '../util.js';
 import { ICON, KINGDOM_ICON } from '../icons.js';
 import { nav, footer, curriculum, gradeData, applyKingdom } from '../app.js';
 import { readBest } from '../util.js';
+import { TOPIC_TITLES } from '../topicTitles.js';
 
 const GAME_LABEL = {
   set: 'To\'plamlar o\'yini', numberOrder: 'Tartiblash o\'yini', placeValue: 'Xona tarkibi o\'yini',
@@ -64,6 +65,30 @@ export function render(root, [gradeStr, chorakStr]) {
         : `${b.levels.length} bosqich`),
     el('div', { class: 'bcard__levels' }, ...b.levels.map((lv, i) => lchip(lv, i))));
 
+  // ro'yxat ko'rinishi: shu chorak uchun sodda nomlar bo'lsa
+  const titles = TOPIC_TITLES[`g${grade}_c${chorakNo}`];
+  // ro'yxatdagi dars tugmasi: "1-dars", "2-dars"...
+  const lessonBtn = (lv, i, levels) => {
+    const done = best[lv.id]?.stars || 0;
+    const game = lv.gameKind !== 'test';
+    const attrs = lv.webSupported
+      ? { class: 'tbtn' + (lv === levels.find(l => l.webSupported) ? ' tbtn--primary' : ''), onclick: () => { location.hash = `#/play/${lv.id}`; },
+          title: (game ? (GAME_LABEL[lv.gameKind] || 'O\'yin') : 'Test') + (done ? ` · ${done} yulduz` : '') }
+      : { class: 'tbtn tbtn--soon', disabled: true, title: 'Web versiyada tez orada' };
+    return el('button', attrs,
+      `${i + 1}-dars`, done ? el('span', { class: 'tbtn__star' }, '★'.repeat(done)) : null);
+  };
+  const trow = (b, idx) => {
+    const first = b.levels.find(l => l.webSupported);
+    return el('li', { class: 'trow' },
+      el('span', { class: 'trow__num' }, `${b.blok}.`),
+      el(first ? 'a' : 'span', { class: 'trow__title', href: first ? `#/play/${first.id}` : null }, titles[idx] || b.name),
+      el('div', { class: 'trow__levels' }, ...b.levels.map(lessonBtn)));
+  };
+  const topics = titles
+    ? el('ol', { class: 'tlist' }, ...chorak.blocks.map(trow))
+    : el('div', { class: 'blocks' }, ...chorak.blocks.map(bcard));
+
   root.replaceChildren(
     nav('mavzular'),
     el('main', { class: 'wrap' },
@@ -84,10 +109,14 @@ export function render(root, [gradeStr, chorakStr]) {
             el('span', { style: 'width:15px;height:15px;margin-left:auto', html: ICON.arrowRight }))),
         el('div', { class: 'browser__main' },
           el('h1', {}, `${grade}-sinf · Mavzular`),
-          el('p', { class: 'section__lead' }, 'Chorakni tanlang, so\'ng blok ustidagi bosqichni oching.'),
+          el('p', { class: 'section__lead' }, titles
+            ? 'Chorakni tanlang, so\'ng mavzuning darsini oching.'
+            : 'Chorakni tanlang, so\'ng blok ustidagi bosqichni oching.'),
           el('div', { class: 'chorak-tabs' }, ...g.choraks.map(chorakTab)),
-          el('div', { class: 'blocks' }, ...chorak.blocks.map(bcard)),
+          topics,
           el('div', { class: 'blocks__foot' },
-            `${chorak.roman} chorakda jami ${chorak.blockCount} blok · ${chorak.levelCount} bosqich`)))),
+            titles
+              ? `${chorak.roman} chorakda jami ${chorak.blockCount} mavzu · ${chorak.levelCount} dars`
+              : `${chorak.roman} chorakda jami ${chorak.blockCount} blok · ${chorak.levelCount} bosqich`)))),
     footer());
 }
