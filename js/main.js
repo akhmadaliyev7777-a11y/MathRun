@@ -16,6 +16,15 @@ function findTopic(subject, topicId) {
   return subject.topics.find(function (t) { return t.id === topicId; });
 }
 
+// yo'l ko'rsatkich: har bir qadam — bosiladigan kichik tugma, oxirgisi (joriy sahifa) — oddiy matn
+function breadcrumbHtml(items) {
+  return items.map(function (it) {
+    return it.href
+      ? '<a class="crumb" href="' + it.href + '">' + it.label + '</a>'
+      : '<span class="crumb crumb--current">' + it.label + '</span>';
+  }).join('<span class="crumb-sep">›</span>');
+}
+
 function topicHref(gradeId, subjectId, topicId) {
   return "mavzu.html?sinf=" + gradeId + "&fan=" + subjectId + "&mavzu=" + topicId;
 }
@@ -115,7 +124,11 @@ function renderGradePage() {
     return;
   }
   if (titleEl) titleEl.textContent = grade.name;
+  const crumbEl = document.getElementById("breadcrumb");
+  if (crumbEl) crumbEl.innerHTML = breadcrumbHtml([{ label: "← Bosh sahifa", href: "index.html#grades-section" }, { label: grade.name }]);
 
+  // ?fan=... bo'lsa — o'sha fan tabi ochiladi (mavzu sahifasidan qaytganda)
+  if (!activeGradeSubjectId) activeGradeSubjectId = getQueryParam("fan");
   if (!activeGradeSubjectId || !grade.subjects.some(function (s) { return s.id === activeGradeSubjectId; })) {
     activeGradeSubjectId = grade.subjects[0].id;
   }
@@ -141,6 +154,8 @@ function renderSubjectTabs(grade) {
   tabsEl.querySelectorAll(".subject-tab").forEach(function (btn) {
     btn.addEventListener("click", function () {
       activeGradeSubjectId = btn.dataset.subject;
+      // tanlangan fan manzilda saqlanadi — orqaga qaytganda shu tab ochiladi
+      try { history.replaceState(null, "", "sinf.html?sinf=" + grade.id + "&fan=" + activeGradeSubjectId); } catch (e) {}
       renderSubjectTabs(grade);
       renderActiveSubjectTopics(grade);
     });
@@ -202,10 +217,11 @@ function renderTopicPage() {
     return;
   }
 
-  breadcrumbEl.innerHTML =
-    '<a href="index.html">Bosh sahifa</a> / ' +
-    '<a href="sinf.html?sinf=' + grade.id + '">' + grade.name + '</a> / ' +
-    '<span>' + subject.name + '</span>';
+  breadcrumbEl.innerHTML = breadcrumbHtml([
+    { label: "← Bosh sahifa", href: "index.html#grades-section" },
+    { label: grade.name, href: "sinf.html?sinf=" + grade.id },
+    { label: subject.name, href: "sinf.html?sinf=" + grade.id + "&fan=" + subject.id },
+  ]);
 
   titleEl.textContent = topic.title;
   const pageEl = document.getElementById("topic-page");
