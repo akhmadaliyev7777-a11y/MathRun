@@ -1306,3 +1306,15 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
   .adm-row { flex-wrap: wrap; }
   .adm-upload-btn { margin-left: 40px; }
 }
+
+/* Nishonlar to'plami (sinf sahifasi) */
+.badge-board { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; margin-bottom: 18px; }
+.badge-board-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.badge-board-head span { font-weight: 700; color: var(--primary); font-variant-numeric: tabular-nums; }
+.badge-board-bar { height: 6px; border-radius: 3px; background: #eceef6; overflow: hidden; margin-bottom: 14px; }
+.badge-board-bar span { display: block; height: 100%; background: var(--primary); border-radius: 3px; }
+.badge-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(34px, 1fr)); gap: 6px; }
+.badge-cell { display: flex; align-items: center; justify-content: center; height: 36px; border-radius: 8px; }
+.badge-cell:hover { background: #f3f4fb; }
+.badge-board-foot { margin: 12px 0 0; font-size: .8rem; color: var(--muted); }
+.topic-row-badge { flex: 0 0 auto; align-self: center; line-height: 0; }

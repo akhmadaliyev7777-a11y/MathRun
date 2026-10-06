@@ -322,6 +322,39 @@ function renderSubjectTabs(grade) {
   });
 }
 
+// ---------- Nishonlar to'plami (js/progress.js) ----------
+// faqat simulyatsiya rejasi bor fanlarda ko'rinadi (hozircha 5-sinf matematika)
+function topicDone(grade, subject, topic) {
+  return typeof MR !== "undefined" && MR.get(grade.id + "|" + subject.id + "|" + topic.id).done;
+}
+
+function badgeCollectionHtml(grade, subject) {
+  if (typeof MR === "undefined" || !subject.topics.some(function (t) { return !!t.simPlan; })) return "";
+  let done = 0;
+  const cells = subject.topics.map(function (topic, i) {
+    const ok = topicDone(grade, subject, topic);
+    if (ok) done++;
+    return '<a class="badge-cell" href="' + topicHref(grade.id, subject.id, topic.id) + '#interaktiv" title="' +
+      topic.title.replace(/"/g, "&quot;") + '">' + MR.badgeSvg(i, ok, 28) + '</a>';
+  }).join("");
+  return (
+    '<div class="badge-board">' +
+      '<div class="badge-board-head"><b>Nishonlar to\'plami</b><span>' + done + ' / ' + subject.topics.length + '</span></div>' +
+      '<div class="badge-board-bar"><span style="width:' + Math.round(done / subject.topics.length * 100) + '%"></span></div>' +
+      '<div class="badge-grid">' + cells + '</div>' +
+      '<p class="badge-board-foot">Har bir mavzuning mashqida Qiyin darajadan o\'tsangiz, shu yerga nishon qo\'shiladi. Natijalar faqat shu brauzerda saqlanadi.</p>' +
+    '</div>'
+  );
+}
+
+// ko'rgazma (iframe) o'z balandligini yuborsa — ichki aylantirishsiz to'liq ko'rsatiladi
+window.addEventListener("message", function (e) {
+  if (!e.data || e.data.type !== "mathrun:height") return;
+  document.querySelectorAll("iframe").forEach(function (f) {
+    if (f.contentWindow === e.source) f.style.height = Math.max(200, Math.ceil(e.data.h)) + "px";
+  });
+});
+
 function renderActiveSubjectTopics(grade) {
   const container = document.getElementById("subjects-container");
   const subject = findSubject(grade, activeGradeSubjectId);
@@ -339,19 +372,21 @@ function renderActiveSubjectTopics(grade) {
     return (
       '<li class="topic-row">' +
         '<span class="topic-row-num">' + num + '</span>' +
+        (topicDone(grade, subject, topic) ? '<span class="topic-row-badge" title="Nishon olingan">' + MR.badgeSvg(i, true, 18) + '</span>' : '') +
         '<a class="topic-row-title" href="' + href + '">' + title +
           (topic.page ? '<span class="topic-row-page">' + topic.page + '</span>' : '') +
         '</a>' +
         '<span class="topic-row-actions">' +
-          btn("Ma'ruza", "#maruza", true) +
-          (topic.interactive ? btn("Interaktiv", "#interaktiv", false) : "") +
+          // ma'ruza matni bo'lmasa (5-sinf) — tugma ko'rsatilmaydi, Interaktiv asosiy tugma bo'ladi
+          (topicHasLecture(topic) ? btn("Ma'ruza", "#maruza", true) : "") +
+          (topic.interactive ? btn("Interaktiv", "#interaktiv", !topicHasLecture(topic)) : "") +
           (topic.test ? btn("Test", "#test", false) : "") +
         '</span>' +
       '</li>'
     );
   }).join("");
 
-  container.innerHTML = '<ol class="topic-list">' + rowsHtml + '</ol>' +
+  container.innerHTML = badgeCollectionHtml(grade, subject) + '<ol class="topic-list">' + rowsHtml + '</ol>' +
     '<p class="topic-list-foot">' + subject.topics.length + ' ta mavzu</p>';
 }
 
@@ -401,6 +436,8 @@ function renderTopicPage() {
     lectureEl.innerHTML = "<p>" + topic.lecture.text + "</p>";
   } else {
     lectureEl.innerHTML = '<p class="muted">Ma\'ruza matni hali qo\'shilmagan.</p>';
+    // simulyatsiya rejasi bor mavzularda ma'ruza yozilmaydi — bo'sh blok yashiriladi
+    if (topic.simPlan) document.getElementById("maruza").style.display = "none";
   }
 
   // simPlan — yasaladigan simulyatsiyaning qisqa rejasi (ko'rgazma ostida ko'rsatiladi)
