@@ -9,7 +9,9 @@ function initQuiz() {
   const topic = subject ? findTopic(subject, topicId) : null;
 
   const backLink = document.getElementById("quiz-back-link");
+  // bob testi (masalan 5-sinf) bir nechta mavzuga ulangan — mavzu topilmasa sinf sahifasiga qaytadi
   if (topic) backLink.href = topicHref(gradeId, subjectId, topicId);
+  else if (subject) backLink.href = "sinf.html?sinf=" + gradeId + "&fan=" + subjectId;
 
   const questions = QUIZ_DATA[key];
   const card = document.getElementById("quiz-card");

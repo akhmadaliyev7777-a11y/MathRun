@@ -403,10 +403,14 @@ function renderTopicPage() {
     lectureEl.innerHTML = '<p class="muted">Ma\'ruza matni hali qo\'shilmagan.</p>';
   }
 
+  // simPlan — yasaladigan simulyatsiyaning qisqa rejasi (ko'rgazma ostida ko'rsatiladi)
+  const planHtml = topic.simPlan
+    ? '<div class="sim-plan"><div class="sim-plan-title">Simulyatsiya rejasi</div><p>' + topic.simPlan + '</p></div>'
+    : "";
   if (topic.interactive) {
-    interactiveEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" src="' + topic.interactive + '" allowfullscreen></iframe>';
+    interactiveEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" src="' + topic.interactive + '" allowfullscreen></iframe>' + planHtml;
   } else {
-    interactiveEl.innerHTML = '<div class="placeholder">🚧 Interaktiv ko\'rgazma tez orada qo\'shiladi</div>';
+    interactiveEl.innerHTML = '<div class="placeholder">🚧 Interaktiv ko\'rgazma tez orada qo\'shiladi</div>' + planHtml;
   }
 
   if (topic.test) {

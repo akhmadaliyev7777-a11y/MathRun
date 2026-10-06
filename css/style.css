@@ -601,6 +601,24 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
   border-radius: 16px;
 }
 
+.sim-plan {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 12px;
+}
+.sim-plan-title {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.sim-plan p { margin: 0; line-height: 1.6; }
+
 .muted { color: var(--muted); }
 
 #gallery-grid {
