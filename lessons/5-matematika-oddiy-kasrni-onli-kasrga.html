@@ -1,0 +1,466 @@
+<!doctype html><html lang="uz" data-theme="light"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0;padding:0}[hidden]{display:none!important}</style></head><body>
+<title>Oddiy kasrni o'nli kasrga aylantirish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: bitta ustun; yuqorida rang izohi va tablar, pastda tanlangan rejim paneli.
+   Ko'k = surat, to'q sariq = maxraj va undagi ko'paytuvchilar/nollar, yashil = qo'shiladigan ko'paytuvchi va o'nli kasr */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --ink:#14213D; --muted:#5B6577; --line:#D5DBE5;
+  --c1:#1F5FD6; --c1s:#E3ECFC;
+  --c2:#12805C; --c2s:#DDF3E9;
+  --c3:#D4501B; --c3s:#FCE6DC;
+  --ok:#12805C; --bad:#C62828; --badbg:#FBE3E3; --okbg:#DDF3E9;
+  --f-display:"Bricolage Grotesque",ui-rounded,"Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;padding-inline:16px;padding-block:22px 48px;background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body)}
+.wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font:800 clamp(24px,5.2vw,36px)/1.12 var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font:700 20px/1.25 var(--f-display);margin:0 0 4px;text-wrap:balance}
+p{margin:0}
+.sub{color:var(--muted);margin-top:6px}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;font-weight:700}
+.key span{display:flex;gap:8px;align-items:center}
+.key i{flex:0 0 14px;height:14px;border-radius:3px;display:inline-block}
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid var(--line);scrollbar-width:thin}
+.tab{flex:0 0 auto;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;padding:10px 14px;font:700 15px var(--f-body);color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.hint{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:9px;padding:10px 16px;font:700 15px var(--f-body);cursor:pointer;min-height:42px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sel{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.add2{background:var(--c2s);color:var(--c2);border:1.5px solid var(--c2)}
+.btn:disabled{opacity:.45;cursor:default}
+.chipbtn{min-width:46px;padding:8px 10px;min-height:38px}
+:focus-visible{outline:3px solid var(--c1);outline-offset:2px}
+input[type=text]{font:700 18px var(--f-display);padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);min-width:0;width:min(100%,140px);font-variant-numeric:tabular-nums}
+label{font-weight:700;font-size:14px}
+.ca{color:var(--c1)}.cz{color:var(--c3)}.cg{color:var(--c2)}
+.msg{min-height:1.6em;font-weight:600;font-size:15px}
+.msg.good{color:var(--ok)}.msg.bad{color:var(--bad)}
+.out{display:flex;flex-direction:column;gap:8px;border-top:1px dashed var(--line);padding-top:14px}
+/* kasr (ustma-ust) */
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.05;margin:0 .08em}
+.fr>span:first-child{border-bottom:.09em solid currentColor;padding:0 .14em .04em;color:var(--c1)}
+.fr>span:last-child{padding:.04em .14em 0;color:var(--c3)}
+.eq{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font:800 clamp(26px,7vw,46px)/1.15 var(--f-display);font-variant-numeric:tabular-nums}
+.eq.sm{font-size:clamp(20px,5vw,30px)}
+.eq .op{color:var(--muted)}
+.eq .dec{color:var(--c2)}
+.ex{font-size:16px;font-weight:600;line-height:1.7}
+.ex .fr{font-size:.95em}
+.pop{display:inline-block;animation:pop .6s ease both}
+@keyframes pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:none}}
+/* 1. katak */
+.sim{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.gridsvg{width:300px;max-width:100%;aspect-ratio:1;flex:none}
+.gridsvg rect{transition:x .35s ease,y .35s ease,width .35s ease,height .35s ease,fill .25s}
+.side{flex:1;min-width:230px;display:flex;flex-direction:column;gap:12px}
+.ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ctl b{font-size:14px;margin-right:4px}
+.step{font-weight:700;font-size:15px;line-height:1.6}
+/* 2. ko'paytuvchilar */
+.fac{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font:800 22px var(--f-display)}
+.tile{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;font:800 22px var(--f-display);border:2.5px solid transparent}
+.tile.have{background:var(--c3s);color:var(--c3);border-color:var(--c3)}
+.tile.added{background:var(--c2s);color:var(--c2);border-color:var(--c2)}
+.tile.miss{background:transparent;color:var(--muted);border:2.5px dashed var(--muted)}
+.tile.other{background:var(--badbg);color:var(--bad);border-color:var(--bad)}
+.pairs{display:flex;flex-wrap:wrap;gap:10px}
+.pair{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line)}
+.pair.full{border-color:var(--c2);background:var(--c2s)}
+.pair small{font:800 13px var(--f-body);color:var(--muted)}
+.pair.full small{color:var(--c2)}
+.pairlab{display:flex;flex-direction:column;justify-content:space-around;height:100px;font:800 12px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding-top:8px}
+.box{padding:12px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line);font-weight:700;line-height:1.6}
+.box.good{background:var(--okbg);border-color:var(--ok)}
+.ref{display:flex;flex-wrap:wrap;gap:8px}
+.ref span{padding:6px 10px;border-radius:8px;background:var(--bg);border:1.5px solid var(--line);font-weight:700;font-size:14px}
+/* 3. son o'qi */
+.axis{width:100%;height:auto;display:block}
+input[type=range]{width:min(100%,360px);accent-color:var(--ink)}
+/* savollar */
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:12px;font:800 19px/1.3 var(--f-display);text-align:left;cursor:pointer;min-height:56px;font-variant-numeric:tabular-nums}
+.opt.good{background:var(--okbg);border-color:var(--ok)}
+.opt.bad{background:var(--badbg);border-color:var(--bad)}
+.opt:disabled{cursor:default}
+.q{font:700 clamp(19px,4.4vw,26px)/1.35 var(--f-display);font-variant-numeric:tabular-nums;text-wrap:balance;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.score{display:flex;gap:16px;flex-wrap:wrap;font-weight:700;font-size:14px;color:var(--muted)}
+.score b{color:var(--ink)}
+.bar{height:10px;border-radius:5px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);transition:width 1s linear}
+.big{font:800 40px var(--f-display)}
+.lin{width:100%;max-width:520px;height:auto}
+.why{font-size:14px;font-weight:600;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.pop{animation:none}.bar i,.gridsvg rect{transition:none}}
+@media (max-width:480px){.panel{padding:14px}.opts{grid-template-columns:1fr}.tile{width:38px;height:38px;font-size:19px}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Oddiy kasrni o'nli kasrga aylantirish</h1>
+    <p class="sub">Maxrajni 10, 100 yoki 1000 ga keltiramiz: maxrajda nechta nol bo'lsa, verguldan keyin shuncha raqam yoziladi.</p>
+  </header>
+  <div class="key" aria-label="Ranglar izohi">
+    <span class="ca"><i style="background:var(--c1)"></i>Surat</span>
+    <span class="cz"><i style="background:var(--c3)"></i>Maxraj va uning ko'paytuvchilari</span>
+    <span class="cg"><i style="background:var(--c2)"></i>Qo'shiladigan ko'paytuvchi va o'nli kasr</span>
+  </div>
+
+  <div class="tabs" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-tab="katak" aria-selected="true">100 katak</button>
+    <button class="tab" role="tab" data-tab="maxraj" aria-selected="false">Maxrajni keltirish</button>
+    <button class="tab" role="tab" data-tab="oq" aria-selected="false">Son o'qi</button>
+    <button class="tab" role="tab" data-tab="hayot" aria-selected="false">Hayotiy</button>
+    <button class="tab" role="tab" data-tab="oyin" aria-selected="false">O'yin</button>
+  </div>
+
+  <!-- 1. 100 katak -->
+  <section class="panel" role="tabpanel" id="p-katak">
+    <div><h2>Kasrni 100 katakda ko'ring</h2><p class="hint">Maxraj va suratni tanlang. Kvadrat maxrajcha teng bo'lakka bo'linadi, surat nechta bo'lsa shuncha bo'lak bo'yaladi. «100 katakka bo'lish» tugmasi har bir bo'lakni kataklarga ajratadi.</p></div>
+    <div class="sim">
+      <svg class="gridsvg" id="g1" viewBox="0 0 100 100" aria-label="100 katakli kvadrat"></svg>
+      <div class="side">
+        <div class="ctl"><b>Maxraj:</b><span id="den1"></span></div>
+        <div class="ctl"><b>Surat:</b><button class="btn ghost chipbtn" id="num1m" aria-label="Suratni kamaytirish">−</button><button class="btn ghost chipbtn" id="num1p" aria-label="Suratni oshirish">+</button></div>
+        <div class="row"><button class="btn" id="split1">100 katakka bo'lish</button></div>
+        <div class="eq" id="eq1"></div>
+        <div class="step" id="st1"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Maxrajni keltirish -->
+  <section class="panel" role="tabpanel" id="p-maxraj" hidden>
+    <div><h2>Maxrajni 10, 100, 1000 ga keltirish</h2><p class="hint">10 = 2 × 5. Shuning uchun maxrajni ko'paytuvchilarga ajratamiz va har bir 2 ga bitta 5 juft qilamiz. Yetishmayotgan 2 yoki 5 ni o'zingiz qo'shing — surat ham shu songa ko'paytiriladi.</p></div>
+    <div class="ref"><span>10 = 2 × 5</span><span>100 = 2 × 2 × 5 × 5</span><span>1 000 = 2 × 2 × 2 × 5 × 5 × 5</span></div>
+    <div class="row" id="lv2"><button class="btn ghost" data-lv="1">Oson</button><button class="btn sel" data-lv="2">O'rta</button><button class="btn ghost" data-lv="3">Qiyin</button><button class="btn ghost" id="rn2">Tasodifiy kasr</button></div>
+    <div class="row"><label for="a2">Surat:</label><input type="text" id="a2" inputmode="numeric" autocomplete="off" value="7" style="width:90px"><label for="b2">Maxraj:</label><input type="text" id="b2" inputmode="numeric" autocomplete="off" value="20" style="width:90px"></div>
+    <div class="eq" id="eq2"></div>
+    <div class="ex" id="f2"></div>
+    <div id="pairs2"></div>
+    <div class="row" id="ctl2"><button class="btn add2" id="x2">× 2 qo'shish</button><button class="btn add2" id="x5">× 5 qo'shish</button><button class="btn ghost" id="un2">Bekor qilish</button><button class="btn ghost" id="sh2">Javobni ko'rsatish</button></div>
+    <div class="msg" id="m2" aria-live="polite"></div>
+    <div id="res2"></div>
+  </section>
+
+  <!-- 3. Son o'qi -->
+  <section class="panel" role="tabpanel" id="p-oq" hidden>
+    <div><h2>Kasr va o'nli kasr son o'qida</h2><p class="hint">Yuqorida kasr bo'laklari, pastda o'ndan birlar. Nuqta ikkala shkalada bir joyda turadi. Pastdagi kattalashtirilgan qism yuzdan birlarni ko'rsatadi.</p></div>
+    <div class="ctl"><b>Butun qism:</b><span id="w3"></span></div>
+    <div class="ctl"><b>Maxraj:</b><span id="den3"></span></div>
+    <div><label for="s3">Surat: <span id="sl3"></span></label><div><input type="range" id="s3" min="0" max="4" value="3"></div></div>
+    <svg class="axis" id="ax3" viewBox="0 0 660 240" aria-label="Son o'qi"></svg>
+    <div class="eq sm" id="eq3"></div>
+  </section>
+
+  <!-- 4. Hayotiy -->
+  <section class="panel" role="tabpanel" id="p-hayot" hidden>
+    <div><h2>Hayotiy misollar: o'lchovlar</h2><p class="hint">Kasr ko'rinishidagi o'lchovni o'nli kasrda yozing (vergul yoki nuqta bilan: 0,75 yoki 0.75).</p></div>
+    <div class="score" id="sc4"></div>
+    <div class="q" id="q4"></div>
+    <svg class="lin" id="lin4" viewBox="0 0 520 70" aria-hidden="true"></svg>
+    <div class="row"><input type="text" id="x4" inputmode="decimal" autocomplete="off" aria-label="Javob"><span id="u4" style="font-weight:800"></span><button class="btn" id="ck4">Tekshirish</button><button class="btn ghost" id="sh4">Javobni ko'rish</button><button class="btn" id="nx4" hidden>Keyingi</button></div>
+    <div class="msg" id="fb4" aria-live="polite"></div>
+  </section>
+
+  <!-- 5. O'yin -->
+  <section class="panel" role="tabpanel" id="p-oyin" hidden>
+    <div><h2>60 soniyalik o'yin</h2><p class="hint">Kasrni o'nli kasrga, o'nli kasrni kasrga aylantiring, yetishmayotgan ko'paytuvchini toping. To'g'ri javob 10 ball, ketma-ket to'g'rilar uchun qo'shimcha ball beradi. Sinfda jamoalar navbat bilan o'ynashi mumkin.</p></div>
+    <div id="game"></div>
+  </section>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pickOne=a=>a[rnd(0,a.length-1)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
+const gcd=(a,b)=>b?gcd(b,a%b):a;
+const NB=" ";
+const fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,NB);
+const fr=(a,b)=>`<span class="fr"><span>${a}</span><span>${b}</span></span>`;
+const opx=c=>`<span class="op">${c}</span>`;
+function setMsg(id,t,c){const m=$(id);m.textContent=t;m.className="msg "+(c||"")}
+function pick(groupId,attr,val){document.querySelectorAll(`#${groupId} .btn[data-${attr}]`).forEach(b=>b.className="btn "+(b.dataset[attr]===String(val)?"sel":"ghost"))}
+
+/* maxrajni ko'paytuvchilarga ajratish: nechta 2, nechta 5 va boshqa ko'paytuvchi qoladimi */
+function factor(b){let t=0,f=0,r=b;while(r%2===0){r/=2;t++}while(r%5===0){r/=5;f++}return{t,f,rest:r}}
+/* kasr → o'nli kasr: k — surat va maxrajga ko'paytiriladigan son, n — maxrajdagi nollar soni */
+function convert(a,b){
+  const F=factor(b),n=Math.max(F.t,F.f),k=2**(n-F.t)*5**(n-F.f);
+  return{ok:F.rest===1,t:F.t,f:F.f,n,k,num:a*k,den:b*k};
+}
+/* num / 10^n → "0,35" (vergul bilan) */
+function decStr(num,n){
+  if(n===0)return String(num);
+  const s=String(num).padStart(n+1,"0");
+  return fmt(+s.slice(0,-n))+","+s.slice(-n);
+}
+const trimDec=s=>s.includes(",")?s.replace(/0+$/,"").replace(/,$/,""):s;
+const decOf=(a,b)=>{const c=convert(a,b);return trimDec(decStr(c.num,c.n))};
+const parseDec=s=>{const t=String(s).trim().replace(/\s/g,"").replace(".",",");if(!/^\d*,?\d*$/.test(t)||!/\d/.test(t))return null;
+  let [i,f=""]=t.split(",");i=i.replace(/^0+(?=\d)/,"")||"0";f=f.replace(/0+$/,"");return f?i+","+f:i};
+
+/* tablar */
+function switchTab(name){
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===name));
+  document.querySelectorAll(".panel").forEach(p=>p.hidden=p.id!=="p-"+name);
+  if(G.run)endG(true);
+}
+$("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)switchTab(b.dataset.tab)});
+
+/* ---------- 1. 100 katak ---------- */
+const D1=[2,4,5,10,20,25,50,100];
+const s1={b:4,a:3,split:false};
+$("den1").innerHTML=D1.map(d=>`<button class="btn ghost chipbtn" data-d="${d}">${d}</button>`).join(" ");
+/* kataklar ustunma-ustun (yuqoridan pastga) to'ldiriladi: 1 ustun = 10 katak = 0,1 */
+function render1(){
+  const {a,b,split}=s1,per=100/b;let h="";
+  for(let j=0;j<100;j++){
+    const c=Math.floor(j/10),r=j%10,part=Math.floor(j/per),on=part<a,alt=part%2===1;
+    const fill=on?(alt?"#3F7BE6":"#1F5FD6"):(alt?"#DDE3EE":"#E9EDF4");
+    const g=split?.6:0;
+    h+=`<rect x="${c*10+g}" y="${r*10+g}" width="${10-2*g}" height="${10-2*g}" rx="${split?1.6:0}" fill="${fill}"/>`;
+  }
+  $("g1").innerHTML=h+`<rect x=".5" y=".5" width="99" height="99" fill="none" stroke="#14213D" stroke-width="1"/>`;
+  document.querySelectorAll("#den1 .btn").forEach(x=>x.className="btn chipbtn "+(+x.dataset.d===b?"sel":"ghost"));
+  $("split1").textContent=split?"Bo'laklarga qaytish":"100 katakka bo'lish";
+  const cells=a*per,cols=Math.floor(cells/10),rest=cells%10;
+  $("eq1").innerHTML=fr(a,b)+opx("=")+(b===100?"":fr(cells,100)+opx("="))+`<span class="dec">${decOf(a,b)}</span>`;
+  $("st1").innerHTML=split
+    ?`Har bir bo'lak ${per} ta katakdan iborat. Bo'yalgan: ${a} × ${per} = <span class="ca">${cells}</span> ta katak, jami 100 ta katakdan — ${fr(cells,100)}.<br>`+
+     `${cols?`${cols} ta to'liq ustun = <span class="cg">0,${cols}</span>`:""}${cols&&rest?", ":""}${rest?`yana ${rest} ta katak = <span class="cg">0,0${rest}</span>`:""}.`
+    :`Kvadrat ${b} ta teng bo'lakka bo'lingan, ${a} tasi bo'yalgan. «100 katakka bo'lish» tugmasini bosib, bo'yalgan kataklarni sanang.`;
+}
+$("den1").addEventListener("click",e=>{const x=e.target.closest("[data-d]");if(!x)return;s1.b=+x.dataset.d;s1.a=Math.min(s1.a,s1.b);if(s1.a<1)s1.a=1;render1()});
+$("num1m").onclick=()=>{if(s1.a>0){s1.a--;render1()}};
+$("num1p").onclick=()=>{if(s1.a<s1.b){s1.a++;render1()}};
+$("split1").onclick=()=>{s1.split=!s1.split;render1()};
+
+/* ---------- 2. Maxrajni keltirish ---------- */
+const LV2={1:[10,100,1000],2:[2,4,5,20,25,50],3:[8,40,125,250,16,200]};
+const s2={lv:2,a:7,b:20,add:[]};
+const tileHtml=(v,c)=>`<span class="tile ${c}">${v}</span>`;
+function read2(){
+  const a=+String($("a2").value).replace(/\D/g,""),b=+String($("b2").value).replace(/\D/g,"");
+  return{a,b};
+}
+function render2(){
+  const {a,b}=read2();
+  $("pairs2").innerHTML="";$("res2").innerHTML="";$("f2").innerHTML="";
+  $("ctl2").hidden=true;
+  if(!a||!b){$("eq2").innerHTML="";setMsg("m2","Surat va maxrajni yozing.","bad");return}
+  if(b===1){$("eq2").innerHTML=fr(a,b);setMsg("m2",`Maxraj 1 — bu butun son: ${a}/1 = ${a}.`,"");return}
+  if(b>10000||a>99999){$("eq2").innerHTML="";setMsg("m2","Kichikroq sonlar oling.","bad");return}
+  const F=factor(b);
+  $("eq2").innerHTML=fr(a,b);
+  /* maxrajni tub ko'paytuvchilarga ajratib ko'rsatish */
+  const tiles=[...Array(F.t)].map(()=>tileHtml(2,"have")).concat([...Array(F.f)].map(()=>tileHtml(5,"have")));
+  const restF=[];let r=F.rest;for(let p=3;r>1;p+=2){while(r%p===0){restF.push(p);r/=p}}
+  restF.forEach(p=>tiles.push(tileHtml(p,"other")));
+  $("f2").innerHTML=`<div class="fac"><span>Maxraj: <span class="cz">${fmt(b)}</span> =</span>${tiles.length?tiles.join(`<span class="op">×</span>`):tileHtml(1,"have")}</div>`;
+  if(F.rest!==1){
+    const g=gcd(a,b),rb=b/g;
+    if(g>1&&factor(rb).rest===1){
+      setMsg("m2",`Maxrajda ${restF.join(" va ")} ko'paytuvchisi bor — u 10 da yo'q. Avval kasrni ${g} ga qisqartiramiz: ${a}/${b} = ${a/g}/${rb}.`,"");
+      $("res2").innerHTML=`<div class="row"><button class="btn" id="red2">Qisqartirish: ${a/g}/${rb}</button></div>`;
+      $("red2").onclick=()=>{$("a2").value=a/g;$("b2").value=rb;s2.add=[];render2()};
+    }else setMsg("m2",`Maxrajda ${restF.join(" va ")} ko'paytuvchisi bor. 10 = 2 × 5 bo'lgani uchun bunday maxrajni 10, 100, 1000 ga keltirib bo'lmaydi — 5-sinfda bunday kasrlar o'nli kasrga aylantirilmaydi.`,"bad");
+    return;
+  }
+  $("ctl2").hidden=false;
+  /* juftlar: har bir 2 ga bitta 5. Maxrajdagi — to'q sariq, qo'shilgan — yashil, yetishmayotgan — punktir */
+  const t=F.t+s2.add.filter(x=>x===2).length,f=F.f+s2.add.filter(x=>x===5).length,n=Math.max(t,f,1);
+  let used2=0,used5=0,cols="";
+  for(let i=0;i<n;i++){
+    const top=i<F.t?"have":i<t?"added":"miss",bot=i<F.f?"have":i<f?"added":"miss";
+    const full=top!=="miss"&&bot!=="miss";
+    cols+=`<div class="pair${full?" full":""}">${tileHtml(top==="miss"?"?":2,top)}${tileHtml(bot==="miss"?"?":5,bot)}<small>${full?"= 10":"juft yo'q"}</small></div>`;
+  }
+  $("pairs2").innerHTML=`<div class="row" style="align-items:flex-start;gap:10px"><div class="pairlab"><span>2 lar</span><span>5 lar</span></div><div class="pairs">${cols}</div></div>`;
+  const k=s2.add.reduce((p,x)=>p*x,1);
+  const kText=s2.add.length>1?`${s2.add.join(" × ")} = ${k}`:String(k);
+  const need2=Math.max(0,f-t),need5=Math.max(0,t-f);
+  if(need2||need5){
+    const kStr=s2.add.length?` Hozircha ko'paytuvchi: ${kText}.`:"";
+    setMsg("m2",(need5?`Yana ${need5} ta 5 kerak`:`Yana ${need2} ta 2 kerak`)+` — har bir 2 ga bitta 5 juft bo'lishi kerak.${kStr}`,"");
+    return;
+  }
+  /* juftlar to'ldi: natija */
+  const best=convert(a,b),num=a*k,den=b*k,nz=Math.round(Math.log10(den));
+  const dec=decStr(num,nz),dt=trimDec(dec);
+  setMsg("m2",k===1?"Maxraj allaqachon 10 ning darajasi — ko'paytirish shart emas.":`Barcha juftlar to'ldi! Ko'paytuvchi: ${kText}.`,"good");
+  const missText=s2.add.length?`yetishmayotgan ${s2.add.map(x=>`<span class="cg">${x}</span>`).join(" va ")} ni qo'shdik`:"hech narsa qo'shish kerak emas";
+  $("res2").innerHTML=`<div class="box good"><div class="eq sm" style="margin-bottom:8px">${fr(a,b)}${k>1?opx("=")+fr(`${a}<span class="cg">×${k}</span>`,`${b}<span class="cg">×${k}</span>`):""}${k>1?opx("=")+fr(num,fmt(den)):""}${opx("=")}<span class="dec pop">${dec}</span>${dt!==dec?opx("=")+`<span class="dec">${dt}</span>`:""}</div>`+
+    `<div class="ex">Maxraj ${fmt(b)} = ${[...Array(F.t)].map(()=>2).concat([...Array(F.f)].map(()=>5)).join(" × ")||"1"}: ${missText}. ${k>1?`Surat va maxrajni <span class="cg">${k}</span> ga ko'paytirdik — maxraj <span class="cz">${fmt(den)}</span> bo'ldi.`:`Maxraj <span class="cz">${fmt(den)}</span>.`} Unda <span class="cz">${nz} ta nol</span> bor, shuning uchun verguldan keyin <span class="cg">${nz} ta raqam</span> yoziladi${String(num).length<=nz?" (bo'sh xonalarga 0 yoziladi)":""}.`+
+    `${k!==best.k?`<br><span class="hint">Eng kichik ko'paytuvchi ${best.k} edi — natija bir xil, faqat oxirida ortiqcha nol bor.</span>`:""}</div></div>`;
+}
+function new2(){
+  const b=pickOne(LV2[s2.lv]);let a;do{a=rnd(1,s2.lv===3&&Math.random()<.35?b*2:b-1)}while(a%b===0||(b<=10&&gcd(a,b)>1&&b!==10));
+  if(b>=100)a=rnd(1,b-1);
+  $("a2").value=a;$("b2").value=b;s2.add=[];render2();
+}
+["a2","b2"].forEach(id=>$(id).addEventListener("input",()=>{s2.add=[];render2()}));
+$("x2").onclick=()=>{if(s2.add.length<8){s2.add.push(2);render2()}};
+$("x5").onclick=()=>{if(s2.add.length<8){s2.add.push(5);render2()}};
+$("un2").onclick=()=>{s2.add.pop();render2()};
+$("sh2").onclick=()=>{const {b}=read2();const F=factor(b);if(F.rest!==1)return;const n=Math.max(F.t,F.f);
+  s2.add=[...Array(n-F.t)].map(()=>2).concat([...Array(n-F.f)].map(()=>5));render2()};
+$("rn2").onclick=new2;
+$("lv2").addEventListener("click",e=>{const x=e.target.closest("[data-lv]");if(!x)return;s2.lv=+x.dataset.lv;pick("lv2","lv",s2.lv);new2()});
+
+/* ---------- 3. Son o'qi ---------- */
+const D3=[2,4,5,10,20,25];
+const s3={w:0,b:4,a:3};
+$("w3").innerHTML=[0,1,2].map(w=>`<button class="btn ghost chipbtn" data-w="${w}">${w}</button>`).join(" ");
+$("den3").innerHTML=D3.map(d=>`<button class="btn ghost chipbtn" data-d="${d}">${d}</button>`).join(" ");
+function render3(){
+  const {w,b,a}=s3,X0=40,X1=620,L=X1-X0,v=a/b,px=X0+v*L;let h="";
+  document.querySelectorAll("#w3 .btn").forEach(x=>x.className="btn chipbtn "+(+x.dataset.w===w?"sel":"ghost"));
+  document.querySelectorAll("#den3 .btn").forEach(x=>x.className="btn chipbtn "+(+x.dataset.d===b?"sel":"ghost"));
+  $("s3").max=b;$("s3").value=a;$("sl3").textContent=`${a} / ${b}`;
+  h+=`<line x1="${X0}" y1="90" x2="${X1}" y2="90" stroke="#14213D" stroke-width="3"/>`;
+  // kasr bo'laklari (yuqorida)
+  for(let i=0;i<=b;i++){const x=X0+i/b*L;h+=`<line x1="${x}" y1="78" x2="${x}" y2="90" stroke="#D4501B" stroke-width="2"/>`;
+    if(b<=10||i===0||i===b)h+=`<text x="${x}" y="70" text-anchor="middle" font-size="13" font-weight="800" fill="#D4501B">${i===0?w:i===b?w+1:(w?w+" ":"")+i+"/"+b}</text>`}
+  // o'ndan birlar (pastda)
+  for(let i=0;i<=10;i++){const x=X0+i/10*L;h+=`<line x1="${x}" y1="90" x2="${x}" y2="104" stroke="#12805C" stroke-width="2"/>`;
+    h+=`<text x="${x}" y="122" text-anchor="middle" font-size="13" font-weight="800" fill="#12805C">${i===0?w:i===10?w+1:w+","+i}</text>`}
+  // bo'yalgan yo'l va nuqta
+  h+=`<line x1="${X0}" y1="90" x2="${px}" y2="90" stroke="#1F5FD6" stroke-width="7" stroke-linecap="round"/>`;
+  h+=`<circle cx="${px}" cy="90" r="9" fill="#1F5FD6" stroke="#fff" stroke-width="3"/>`;
+  // kattalashtirilgan qism: yuzdan birlar
+  const t=Math.min(9,Math.floor(v*10+1e-9)),z0=40,z1=620,zx=z0+(v*10-t)*(z1-z0);
+  const zxA=X0+t/10*L,zxB=X0+(t+1)/10*L;
+  h+=`<path d="M${zxA} 108 L${z0} 168 M${zxB} 108 L${z1} 168" stroke="#98A4BA" stroke-dasharray="4 4" fill="none"/>`;
+  h+=`<line x1="${z0}" y1="180" x2="${z1}" y2="180" stroke="#5B6577" stroke-width="2"/>`;
+  for(let i=0;i<=10;i++){const x=z0+i/10*(z1-z0);h+=`<line x1="${x}" y1="${i%5?174:170}" x2="${x}" y2="${i%5?186:190}" stroke="#5B6577" stroke-width="1.5"/>`;
+    if(i%5===0)h+=`<text x="${x}" y="208" text-anchor="middle" font-size="12" font-weight="700" fill="#5B6577">${trimDec(decStr(w*100+t*10+i,2))}</text>`}
+  h+=`<circle cx="${zx}" cy="180" r="7" fill="#1F5FD6" stroke="#fff" stroke-width="2.5"/>`;
+  h+=`<text x="${zx}" y="160" text-anchor="middle" font-size="14" font-weight="800" fill="#12805C">${decOf(w*b+a,b)}</text>`;
+  $("ax3").innerHTML=h;
+  const d=decOf(w*b+a,b);
+  $("eq3").innerHTML=(w?`<span>${w}</span>`:"")+fr(a,b)+opx("=")+`<span class="dec">${d}</span>`+(w?`<span class="why" style="font-size:15px">butun qism vergulgacha, kasr qism verguldan keyin</span>`:"");
+}
+$("w3").addEventListener("click",e=>{const x=e.target.closest("[data-w]");if(!x)return;s3.w=+x.dataset.w;render3()});
+$("den3").addEventListener("click",e=>{const x=e.target.closest("[data-d]");if(!x)return;s3.b=+x.dataset.d;s3.a=Math.min(s3.a,s3.b);render3()});
+$("s3").addEventListener("input",e=>{s3.a=+e.target.value;render3()});
+
+/* ---------- 4. Hayotiy ---------- */
+const U4=[["m","sm",100,"lineyka"],["l","ml",1000,"idish"],["kg","g",1000,"tarozi"],["km","m",1000,"yo'l"]];
+const s4={ok:0,total:0,streak:0,q:null,done:false,tried:false};
+function sc4(){$("sc4").innerHTML=`<span>To'g'ri: <b>${s4.ok}</b> / ${s4.total}</span><span>Ketma-ket: <b>${s4.streak}</b></span>`}
+function new4(){
+  const u=pickOne(U4),b=pickOne([2,4,5,10,20,25,50]);let a;do{a=rnd(1,b-1)}while(gcd(a,b)>1&&b!==10&&b!==100);
+  s4.q={u,a,b,ans:decOf(a,b),small:a*u[2]/b};s4.done=false;s4.tried=false;
+  $("q4").innerHTML=`${fr(a,b)} <span>${u[0]}</span>${opx("=")}<span>? ${u[0]}</span>`;
+  $("u4").textContent=u[0];$("x4").value="";$("x4").disabled=false;setMsg("fb4","");$("nx4").hidden=true;$("ck4").hidden=false;$("sh4").hidden=false;sc4();draw4(false);
+  $("x4").focus({preventScroll:true});
+}
+/* o'lchov tasmasi: butun 1 birlik, b bo'lak, a tasi bo'yalgan; javobdan keyin kichik birlikdagi qiymati */
+function draw4(show){
+  const {u,a,b,small}=s4.q,X0=10,W=500;let h=`<rect x="${X0}" y="14" width="${W}" height="26" rx="6" fill="#E9EDF4" stroke="#D5DBE5"/>`;
+  h+=`<rect x="${X0}" y="14" width="${W*a/b}" height="26" rx="6" fill="#1F5FD6"/>`;
+  for(let i=1;i<b;i++){const x=X0+W*i/b;h+=`<line x1="${x}" y1="14" x2="${x}" y2="40" stroke="#fff" stroke-width="${b>20?1:2}"/>`}
+  h+=`<text x="${X0}" y="60" font-size="13" font-weight="700" fill="#5B6577">0</text><text x="${X0+W}" y="60" text-anchor="end" font-size="13" font-weight="700" fill="#5B6577">1 ${u[0]} = ${fmt(u[2])} ${u[1]}</text>`;
+  if(show)h+=`<text x="${X0+W*a/b}" y="60" text-anchor="middle" font-size="14" font-weight="800" fill="#12805C">${fmt(small)} ${u[1]}</text>`;
+  $("lin4").innerHTML=h;
+}
+function chk4(){
+  if(s4.done)return;const v=parseDec($("x4").value);
+  if(v===null){setMsg("fb4","Avval javobni yozing, masalan 0,75.","bad");return}
+  const ok=v===s4.q.ans;
+  if(!s4.tried){s4.tried=true;s4.total++;if(ok){s4.ok++;s4.streak++}else s4.streak=0}
+  const {u,a,b,small}=s4.q,c=convert(a,b);
+  if(ok){s4.done=true;$("x4").disabled=true;draw4(true);
+    setMsg("fb4",`To'g'ri! ${a}/${b} = ${c.num}/${fmt(c.den)} = ${s4.q.ans} ${u[0]}, ya'ni ${fmt(small)} ${u[1]}.`,"good");$("nx4").hidden=false;$("ck4").hidden=true;$("sh4").hidden=true}
+  else setMsg("fb4",`Hali to'g'ri emas. Maslahat: maxraj ${b} ni ${fmt(c.den)} ga keltiring (×${c.k}).`,"bad");
+  sc4();
+}
+$("ck4").onclick=chk4;
+$("x4").addEventListener("keydown",e=>{if(e.key==="Enter")chk4()});
+$("sh4").onclick=()=>{if(s4.done)return;const {u,a,b,small}=s4.q,c=convert(a,b);s4.done=true;$("x4").value=s4.q.ans;$("x4").disabled=true;draw4(true);
+  setMsg("fb4",`Javob: ${a}/${b} = ${c.num}/${fmt(c.den)} = ${s4.q.ans} ${u[0]} (${fmt(small)} ${u[1]}).`,"");$("nx4").hidden=false;$("ck4").hidden=true;$("sh4").hidden=true};
+$("nx4").onclick=new4;
+
+/* ---------- 5. O'yin ---------- */
+const G={run:false,t:60,score:0,streak:0,ok:0,total:0,best:0,q:null,timer:null,lock:false};
+function miniGrid(cells){let h="";for(let j=0;j<100;j++){const c=Math.floor(j/10),r=j%10;h+=`<rect x="${c*10+.6}" y="${r*10+.6}" width="8.8" height="8.8" rx="1.5" fill="${j<cells?"#1F5FD6":"#E9EDF4"}"/>`}
+  return `<svg viewBox="0 0 100 100" width="110" height="110" aria-hidden="true">${h}</svg>`}
+function nextG(){
+  const type=rnd(0,3);let text,correct,opts,why;
+  const b=pickOne([2,4,5,10,20,25,50,100,8]);let a;do{a=rnd(1,b-1)}while(gcd(a,b)>1&&b!==10&&b!==100);
+  const c=convert(a,b),dec=decOf(a,b);
+  const val=x=>x.includes("/")?(+x.split("/")[0])/(+x.split("/")[1]):parseFloat(x.replace(",","."));
+  /* to'g'ri javob + 3 ta xato variant; qiymati to'g'ri javobga teng bo'lgani (5/10 va 1/2 kabi) olinmaydi */
+  const uniq=(right,list,gen)=>{const s=new Set([right]),rv=val(right);
+    const tryAdd=x=>{if(s.size<4&&x&&!s.has(x)&&isFinite(val(x))&&Math.abs(val(x)-rv)>1e-9)s.add(x)};
+    list.forEach(tryAdd);let t=0;while(s.size<4&&t++<60)tryAdd(gen());return shuffle([...s])};
+  const genDec=()=>trimDec("0,"+String(rnd(1,99)).padStart(2,"0"));
+  const genFr=()=>{const d=pickOne([2,4,5,8,10,20,25]);return rnd(1,d-1)+"/"+d};
+  if(type===0){
+    text=`${fr(a,b)} = ?`;correct=dec;
+    /* odatiy xatolar: 1/4 → 0,4; 3/5 → 0,35; 3/100 → 0,3 */
+    opts=uniq(correct,["0,"+b,"0,"+a+b,"0,"+a,trimDec(decStr(c.num,Math.max(c.n-1,1)))],genDec);
+    why=`${a}/${b} = ${c.num}/${fmt(c.den)} = ${dec}`;
+  }else if(type===1){
+    text=`${dec} = ?`;correct=`${a}/${b}`;
+    const digs=dec.split(",")[1]||"";
+    opts=uniq(correct,[`1/${+digs||2}`,`${a}/${b*10}`,`${digs}/1000`,`${a+1}/${b}`].filter(x=>!/\/0$|\/1$/.test(x)),genFr);
+    why=`${dec} = ${c.num}/${fmt(c.den)} = ${a}/${b}`;
+  }else if(type===2){
+    let bb=pickOne([2,4,5,8,20,25,40,50,125,250]),aa;do{aa=rnd(1,bb-1)}while(gcd(aa,bb)>1);
+    const cc=convert(aa,bb);
+    text=`${fr(aa,bb)} ni o'nli kasrga aylantirish uchun surat va maxrajni nechaga ko'paytiramiz?`;correct=String(cc.k);
+    opts=shuffle([...new Set([correct,"2","4","5","8","25","125","10"].filter(x=>x!==String(bb)))].slice(0,4));
+    if(!opts.includes(correct))opts[0]=correct;opts=shuffle(opts);
+    const Fb=factor(bb),nb=Math.max(Fb.t,Fb.f),miss=[...Array(nb-Fb.t)].map(()=>2).concat([...Array(nb-Fb.f)].map(()=>5));
+    why=`${fmt(bb)} = ${[...Array(Fb.t)].map(()=>2).concat([...Array(Fb.f)].map(()=>5)).join(" × ")}, yetishmaydi: ${miss.join(" × ")} = ${cc.k}. Maxraj ${fmt(cc.den)} bo'ladi`;
+  }else{
+    const bb=pickOne([2,4,5,10,20,25,50]);let aa;do{aa=rnd(1,bb-1)}while(gcd(aa,bb)>1&&bb!==10);
+    const cells=aa*100/bb;
+    text=`<span>Kvadratning qanday qismi bo'yalgan?</span>${miniGrid(cells)}`;correct=decOf(aa,bb);
+    opts=uniq(correct,[trimDec(decStr(100-cells,2)),"0,0"+Math.max(1,Math.round(cells/10)),trimDec(decStr(cells,3))],genDec);
+    why=`${cells} ta katak 100 tadan: ${cells}/100 = ${correct}`;
+  }
+  G.q={text,opts,correct,why};G.lock=false;
+}
+function drawGame(){
+  const g=$("game");
+  if(!G.run){
+    g.innerHTML=`${G.total?`<div class="out" style="border-top:0;padding-top:0"><div class="big">${G.score} ball</div><p>To'g'ri javoblar: <b>${G.ok}</b> / ${G.total}</p></div>`:""}
+      <p class="hint">Eng yaxshi natija: <b>${G.best}</b> ball</p><div class="row"><button class="btn" id="go5">${G.total?"Qayta o'ynash":"Boshlash"}</button></div>`;return}
+  const q=G.q;
+  g.innerHTML=`<div class="bar" aria-hidden="true"><i id="bar5" style="width:${G.t/60*100}%"></i></div>
+    <div class="score"><span>Vaqt: <b id="t5">${G.t}</b> s</span><span>Ball: <b id="s5">${G.score}</b></span><span>Ketma-ket: <b id="k5">${G.streak}</b></span></div>
+    <div class="q">${q.text}</div>
+    <div class="opts">${q.opts.map(o=>`<button class="opt" data-v="${o}">${o.includes("/")?fr(...o.split("/")):o}</button>`).join("")}</div>
+    <div class="why" id="why5"></div>`;
+}
+function startG(){Object.assign(G,{run:true,t:60,score:0,streak:0,ok:0,total:0,lock:false});nextG();drawGame();
+  clearInterval(G.timer);G.timer=setInterval(()=>{G.t--;const t=$("t5"),b=$("bar5");if(t)t.textContent=G.t;if(b)b.style.width=G.t/60*100+"%";if(G.t<=0)endG()},1000)}
+function endG(silent){clearInterval(G.timer);G.run=false;if(G.score>G.best)G.best=G.score;if(silent)G.total=0;drawGame()}
+$("game").addEventListener("click",e=>{
+  if(e.target.id==="go5"){startG();return}
+  const o=e.target.closest(".opt");if(!o||!G.run||G.lock)return;G.lock=true;
+  const ok=o.dataset.v===G.q.correct;G.total++;
+  if(ok){G.ok++;G.streak++;G.score+=10+Math.min(G.streak-1,5)}else G.streak=0;
+  document.querySelectorAll("#game .opt").forEach(b=>{b.disabled=true;if(b.dataset.v===G.q.correct)b.classList.add("good");else if(b===o)b.classList.add("bad")});
+  $("s5").textContent=G.score;$("k5").textContent=G.streak;
+  if(!ok)$("why5").textContent="To'g'ri javob: "+G.q.why+".";
+  setTimeout(()=>{if(!G.run)return;nextG();drawGame()},ok?500:1800);
+});
+
+render1();render2();render3();new4();drawGame();
+
+/* MathRun: mavzu sahifasidagi oyna balandligi ko'rgazmaga moslashadi (ichki aylantirishsiz) */
+(function(){function post(){try{parent.postMessage({type:"mathrun:height",h:document.body.offsetHeight},"*")}catch(e){}}
+new ResizeObserver(post).observe(document.body);post();})();
+</script>
+</body></html>
