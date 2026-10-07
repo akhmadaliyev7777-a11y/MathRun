@@ -177,7 +177,7 @@ function gridSvg(n, color, animate) {
 
 // iframe balandligini ota sahifaga yuborish (mavzu sahifasida ichki aylantirish bo'lmasin)
 function postHeight() {
-  try { parent.postMessage({ type: "mathrun:height", h: document.documentElement.scrollHeight }, "*"); } catch (e) {}
+  try { parent.postMessage({ type: "mathrun:height", h: document.body.offsetHeight }, "*"); } catch (e) {}
 }
 new ResizeObserver(postHeight).observe(document.body);
 

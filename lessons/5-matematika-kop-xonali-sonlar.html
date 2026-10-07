@@ -1,0 +1,436 @@
+<!doctype html><html lang="uz" data-theme="light"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Xonalar simulyatori</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: bitta ustunli ish maydoni; yuqorida sinf ranglari izohi va tablar, pastda tanlangan rejim paneli */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --ink:#14213D; --muted:#5B6577; --line:#D5DBE5;
+  --c1:#1F5FD6; --c1s:#E3ECFC;   /* birlar sinfi */
+  --c2:#12805C; --c2s:#DDF3E9;   /* minglar sinfi */
+  --c3:#D4501B; --c3s:#FCE6DC;   /* millionlar sinfi */
+  --onc:#FFFFFF; --ok:#12805C; --bad:#C62828; --badbg:#FBE3E3; --okbg:#DDF3E9;
+  --f-display:"Bricolage Grotesque",ui-rounded,"Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1626; --surface:#182238; --ink:#E8EDF7; --muted:#98A4BA; --line:#2B3855;
+    --c1:#6EA1FF; --c1s:#1D2E52; --c2:#4CD3A0; --c2s:#14352B; --c3:#FF8F5E; --c3s:#3E2418;
+    --onc:#0F1626; --ok:#4CD3A0; --bad:#FF7A7A; --badbg:#3F1D22; --okbg:#14352B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1626; --surface:#182238; --ink:#E8EDF7; --muted:#98A4BA; --line:#2B3855;
+  --c1:#6EA1FF; --c1s:#1D2E52; --c2:#4CD3A0; --c2s:#14352B; --c3:#FF8F5E; --c3s:#3E2418;
+  --onc:#0F1626; --ok:#4CD3A0; --bad:#FF7A7A; --badbg:#3F1D22; --okbg:#14352B; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;padding-inline:16px;padding-block:22px 48px;background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body)}
+.wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font:800 clamp(26px,5.5vw,38px)/1.1 var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font:700 20px/1.25 var(--f-display);margin:0 0 4px;text-wrap:balance}
+p{margin:0}
+.sub{color:var(--muted);margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;font-weight:700}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid var(--line);scrollbar-width:thin}
+.tab{flex:0 0 auto;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;padding:10px 14px;font:700 15px var(--f-body);color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.hint{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:9px;padding:10px 16px;font:700 15px var(--f-body);cursor:pointer;min-height:42px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sel{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:default}
+:focus-visible{outline:3px solid var(--c1);outline-offset:2px}
+input[type=text]{font:700 18px var(--f-display);padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);min-width:0;width:min(100%,260px);font-variant-numeric:tabular-nums}
+label{font-weight:700;font-size:14px}
+.k0{color:var(--c1)}.k1{color:var(--c2)}.k2{color:var(--c3)}
+.num{font:800 clamp(30px,8vw,52px)/1.1 var(--f-display);font-variant-numeric:tabular-nums;display:flex;flex-wrap:wrap;gap:0 .28em}
+.words{font-size:clamp(17px,3.6vw,21px);font-weight:700;line-height:1.5}
+.words span+span{margin-left:.3em}
+.out{display:flex;flex-direction:column;gap:6px;padding-top:4px;border-top:1px dashed var(--line);padding-top:14px}
+.msg{min-height:1.6em;font-weight:600;font-size:15px}
+.msg.good{color:var(--ok)}.msg.bad{color:var(--bad)}
+/* xona jadvali */
+.board{display:flex;gap:8px}
+.grp{flex:var(--n) 1 0;min-width:0;border-radius:12px;padding:8px 6px 10px}
+.grp.g0{background:var(--c1s)}.grp.g1{background:var(--c2s)}.grp.g2{background:var(--c3s)}
+.grp h3{font:800 10.5px/1.2 var(--f-body);text-transform:uppercase;letter-spacing:.07em;margin:0 0 8px;text-align:center}
+.cols{display:flex;gap:4px}
+.col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:5px;border-radius:8px}
+.col .lbl{font-size:11px;font-weight:700;color:var(--muted)}
+.col .dg{font:800 clamp(26px,7vw,46px)/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.col button{width:100%;height:34px;border-radius:8px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:700 19px var(--f-body);cursor:pointer;padding:0}
+.col button:active{transform:scale(.95)}
+.flash{animation:fl .9s ease}
+@keyframes fl{0%{background:var(--ink);color:var(--bg)}100%{background:transparent}}
+/* bloklar */
+.stack{display:flex;flex-direction:column-reverse;gap:2px;width:100%;min-height:262px;justify-content:flex-start}
+.chip{width:100%;height:23px;border:0;border-radius:5px;background:var(--cc);color:var(--onc);font:800 9.5px/23px var(--f-body);cursor:pointer;padding:0;white-space:nowrap;overflow:hidden}
+.chip.static{cursor:default}
+.banner{padding:10px 14px;border-radius:10px;background:var(--okbg);color:var(--ok);font-weight:800}
+.task{padding:10px 14px;border-radius:10px;background:var(--bg);border:1.5px solid var(--line);font-weight:700}
+/* o'qish */
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opts.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.opt{background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:12px;font:700 16px/1.35 var(--f-body);text-align:left;cursor:pointer;min-height:56px;text-wrap:balance}
+.opt.good{background:var(--okbg);border-color:var(--ok)}
+.opt.bad{background:var(--badbg);border-color:var(--bad)}
+.opt:disabled{cursor:default}
+.dig{font:800 24px var(--f-display);font-variant-numeric:tabular-nums}
+.dig b{font-weight:800}.dig b.x{color:var(--bad);text-decoration:underline;text-decoration-thickness:3px}
+.dig i{display:inline-block;width:.32em}
+.dig mark{background:var(--ink);color:var(--bg);border-radius:4px;padding:0 3px}
+.score{display:flex;gap:16px;flex-wrap:wrap;font-weight:700;font-size:14px;color:var(--muted)}
+.score b{color:var(--ink)}
+/* yoyish */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:430px;font-variant-numeric:tabular-nums}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:2px solid var(--line)}
+td{padding:7px 8px;border-bottom:1px solid var(--line);font-weight:700}
+td.zero{color:var(--muted);font-weight:600}
+.sum{display:flex;flex-wrap:wrap;gap:6px 6px;align-items:center;font:800 clamp(16px,3.8vw,22px) var(--f-display);font-variant-numeric:tabular-nums}
+.sum .t{padding:4px 9px;border-radius:7px;background:var(--cc);color:var(--onc)}
+.sum .t.off{opacity:.25}
+.sum .pl{color:var(--muted)}
+input[type=range]{width:min(100%,360px);accent-color:var(--ink)}
+/* o'yin */
+.bar{height:10px;border-radius:5px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);transition:width 1s linear}
+.q{font:700 clamp(18px,4vw,22px)/1.3 var(--f-display);text-wrap:balance}
+.big{font:800 40px var(--f-display)}
+@media (prefers-reduced-motion:reduce){.flash{animation:none}.bar i{transition:none}.col button:active{transform:none}}
+@media (max-width:480px){.panel{padding:14px}.opts.three{grid-template-columns:1fr}.chip{font-size:8.5px}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Ko'p xonali sonlar</h1>
+    <p class="sub">10 000 000 gacha: xonalar, sinflar, o'qish va yozish. Rejimni tanlang va sinab ko'ring.</p>
+  </header>
+  <div class="legend" aria-label="Sinflar ranglari">
+    <span class="k0"><i style="background:var(--c1)"></i>Birlar sinfi</span>
+    <span class="k1"><i style="background:var(--c2)"></i>Minglar sinfi</span>
+    <span class="k2"><i style="background:var(--c3)"></i>Millionlar sinfi</span>
+  </div>
+
+  <div class="tabs" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-tab="jadval" aria-selected="true">Xona jadvali</button>
+    <button class="tab" role="tab" data-tab="blok" aria-selected="false">Bloklar</button>
+    <button class="tab" role="tab" data-tab="oqish" aria-selected="false">O'qish va yozish</button>
+    <button class="tab" role="tab" data-tab="yoyish" aria-selected="false">Yoyish</button>
+    <button class="tab" role="tab" data-tab="oyin" aria-selected="false">O'yin</button>
+  </div>
+
+  <!-- 1. Xona jadvali -->
+  <section class="panel" role="tabpanel" id="p-jadval">
+    <div><h2>Sonni xonalarda tuzing</h2><p class="hint">Har bir xonada + va − tugmasini bosing. Raqam 9 dan oshsa, keyingi xonaga o'tadi.</p></div>
+    <div class="board" id="board"></div>
+    <div class="msg" id="msg1" aria-live="polite"></div>
+    <div class="row">
+      <label for="in1">Sonni yozing:</label>
+      <input type="text" id="in1" inputmode="numeric" autocomplete="off" placeholder="masalan, 4305827">
+      <button class="btn ghost" id="rnd1">Tasodifiy son</button>
+      <button class="btn ghost" id="clr1">Tozalash</button>
+    </div>
+    <div class="out"><div class="num" id="num1"></div><div class="words" id="words1"></div></div>
+  </section>
+
+  <!-- 2. Bloklar -->
+  <section class="panel" role="tabpanel" id="p-blok" hidden>
+    <div><h2>Bloklar bilan sanash</h2><p class="hint">+ bilan blok qo'shing: 10 ta bir xil blok keyingi xonaning bitta blokiga birlashadi. Blokni bossangiz, u pastdagi xonaning 10 ta blokiga ajraladi (pastki xona bo'sh bo'lsa). Minglar va millionlar uchun bloklar shartli.</p></div>
+    <div class="board" id="board2"></div>
+    <div class="msg" id="msg2" aria-live="polite"></div>
+    <div class="row">
+      <button class="btn" id="tgt2">Yangi topshiriq</button>
+      <button class="btn ghost" id="clr2">Tozalash</button>
+    </div>
+    <div id="task2"></div>
+    <div class="out"><div class="num" id="num2"></div><div class="words" id="words2"></div></div>
+  </section>
+
+  <!-- 3. O'qish va yozish -->
+  <section class="panel" role="tabpanel" id="p-oqish" hidden>
+    <div><h2>Sonni o'qing va yozing</h2></div>
+    <div class="row" id="dir3">
+      <button class="btn sel" data-dir="read">Son berilgan, so'zni toping</button>
+      <button class="btn ghost" data-dir="write">So'z berilgan, sonni yozing</button>
+    </div>
+    <div class="row" id="lvl3">
+      <button class="btn ghost" data-lvl="1">4-5 xonali</button>
+      <button class="btn sel" data-lvl="2">6 xonali</button>
+      <button class="btn ghost" data-lvl="3">7 xonali</button>
+      <button class="btn ghost" data-lvl="4">Nolli sonlar</button>
+    </div>
+    <div class="score" id="score3"></div>
+    <div id="q3"></div>
+    <div class="msg" id="fb3" aria-live="polite"></div>
+    <div id="detail3"></div>
+    <div class="row"><button class="btn" id="next3" hidden>Keyingi son</button></div>
+  </section>
+
+  <!-- 4. Yoyish -->
+  <section class="panel" role="tabpanel" id="p-yoyish" hidden>
+    <div><h2>Sonni xona birliklari yig'indisiga yoying</h2><p class="hint">Sonni yozing, jadvalda har bir raqamning qiymati chiqadi. Slayder bilan yig'indini qadamma-qadam yig'ing.</p></div>
+    <div class="row">
+      <label for="in4">Son:</label>
+      <input type="text" id="in4" inputmode="numeric" autocomplete="off" value="4305827">
+      <button class="btn ghost" id="rnd4">Tasodifiy son</button>
+    </div>
+    <div class="num" id="num4"></div>
+    <div class="tbl"><table><thead><tr><th>Xona</th><th>Raqam</th><th>Xona birligi</th><th>Qiymati</th></tr></thead><tbody id="tb4"></tbody></table></div>
+    <div class="msg" id="zmsg4"></div>
+    <div><label for="st4">Qadamlab yig'ish: <span id="stl4"></span></label><div><input type="range" id="st4" min="0" max="1" value="1"></div></div>
+    <div class="sum" id="sum4"></div>
+  </section>
+
+  <!-- 5. O'yin -->
+  <section class="panel" role="tabpanel" id="p-oyin" hidden>
+    <div><h2>60 soniyalik o'yin</h2><p class="hint">Xona, xona birligi va sinf haqidagi savollarga tez javob bering. To'g'ri javob 10 ball, ketma-ket to'g'rilar uchun qo'shimcha ball beradi. Sinfda jamoalar navbat bilan o'ynashi mumkin.</p></div>
+    <div id="game"></div>
+  </section>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
+const NB=" ";
+const fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,NB);
+const PV=[1,10,100,1e3,1e4,1e5,1e6,1e7];
+const PN=["birlar","o'nlar","yuzlar","ming birlar","ming o'nlar","ming yuzlar","million birlar","million o'nlar"];
+const UN=["birlik","o'nlik","yuzlik","minglik","o'n minglik","yuz minglik","millionlik","o'n millionlik"];
+const CL=["Birlar sinfi","Minglar sinfi","Millionlar sinfi"];
+const clsOf=i=>i<3?0:i<6?1:2;
+const digit=(n,i)=>Math.floor(n/PV[i])%10;
+
+/* son -> so'z */
+const ONES=["","bir","ikki","uch","to'rt","besh","olti","yetti","sakkiz","to'qqiz"];
+const TENS=["","o'n","yigirma","o'ttiz","qirq","ellik","oltmish","yetmish","sakson","to'qson"];
+function g3(n){const h=Math.floor(n/100),t=Math.floor(n%100/10),o=n%10,p=[];
+  if(h)p.push(n===100?"yuz":ONES[h]+" yuz"); if(t)p.push(TENS[t]); if(o)p.push(ONES[o]); return p.join(" ");}
+function parts(n){
+  if(n===0)return[{c:0,t:"nol"}];
+  const mi=Math.floor(n/1e6),th=Math.floor(n/1e3)%1000,un=n%1000,r=[];
+  if(mi)r.push({c:2,t:g3(mi)+" million"});
+  if(th)r.push({c:1,t:n===1000?"ming":g3(th)+" ming"});
+  if(un)r.push({c:0,t:g3(un)});
+  return r;
+}
+const wordsText=n=>parts(n).map(p=>p.t).join(" ");
+const wordsHTML=n=>parts(n).map(p=>`<span class="k${p.c}">${p.t}</span>`).join("");
+function numHTML(n){
+  const mi=Math.floor(n/1e6),th=Math.floor(n/1e3)%1000,un=n%1000,pad=x=>String(x).padStart(3,"0");let h="";
+  if(mi)h+=`<span class="k2">${mi}</span>`;
+  if(n>=1000)h+=`<span class="k1">${mi?pad(th):th}</span>`;
+  h+=`<span class="k0">${n>=1000?pad(un):un}</span>`;return h;
+}
+function digitsHTML(s,ref,mark){
+  s=String(+s);ref=String(ref);const L=s.length;let h="";
+  for(let k=0;k<L;k++){const r=L-1-k,bad=ref&&ref[ref.length-1-r]!==s[k];
+    const d=mark!==undefined?(r===mark?`<mark>${s[k]}</mark>`:s[k]):`<b class="${bad?"x":""}">${s[k]}</b>`;
+    h+=(k>0&&r%3===2?"<i></i>":"")+d;}
+  return `<span class="dig">${h}</span>`;
+}
+function groupBoard(cols,k,inner){return `<div class="grp g${k}" style="--n:${cols.length}"><h3>${CL[k]}</h3><div class="cols">${inner}</div></div>`}
+const parseNum=(s,max)=>{const d=String(s).replace(/\D/g,"");if(!d)return null;return Math.min(+d,max)};
+
+/* tablar */
+function switchTab(name){
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===name));
+  document.querySelectorAll(".panel").forEach(p=>p.hidden=p.id!=="p-"+name);
+  if(G.run)endG(true);
+}
+$("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)switchTab(b.dataset.tab)});
+
+/* ---------- 1. Xona jadvali ---------- */
+let v1=4305827;
+function render1(flash=[]){
+  const spec=[[[7,6],["o'n","bir"],2],[[5,4,3],["yuz","o'n","bir"],1],[[2,1,0],["yuz","o'n","bir"],0]];
+  $("board").innerHTML=spec.map(([idx,names,k])=>groupBoard(idx,k,idx.map((i,j)=>
+    `<div class="col${flash.includes(i)?" flash":""}"><span class="lbl">${names[j]}</span>
+     <button data-i="${i}" data-d="1" aria-label="${PN[i]}: qo'shish" title="${PN[i]}">+</button>
+     <div class="dg k${k}">${digit(v1,i)}</div>
+     <button data-i="${i}" data-d="-1" aria-label="${PN[i]}: ayirish" title="${PN[i]}">−</button></div>`).join(""))).join("");
+  $("num1").innerHTML=numHTML(v1);$("words1").innerHTML=wordsHTML(v1);
+}
+function msg1(t,c){const m=$("msg1");m.textContent=t;m.className="msg "+(c||"")}
+$("board").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-i]");if(!b)return;
+  const i=+b.dataset.i,d=+b.dataset.d,old=v1,nv=old+d*PV[i];
+  if(nv<0||nv>1e7){msg1("Son 0 dan 10 000 000 gacha bo'ladi.","bad");return}
+  const flash=[];for(let k=0;k<8;k++)if(digit(nv,k)!==digit(old,k))flash.push(k);
+  if(d>0&&digit(old,i)===9)msg1(`10 ta ${UN[i]} = 1 ${UN[i+1]}. Keyingi xonaga o'tdi.`,"good");
+  else if(d<0&&digit(old,i)===0){let j=i+1;while(digit(old,j)===0)j++;msg1(`1 ${UN[j]} = 10 ta ${UN[j-1]}. Yuqori xonadan olindi.`,"good")}
+  else msg1("");
+  v1=nv;render1(flash);
+});
+$("in1").addEventListener("input",e=>{const n=parseNum(e.target.value,1e7);if(n===null)return;v1=n;msg1("");render1()});
+$("rnd1").onclick=()=>{v1=rnd(1000,9999999);$("in1").value=v1;msg1("");render1()};
+$("clr1").onclick=()=>{v1=0;$("in1").value="";msg1("");render1()};
+
+/* ---------- 2. Bloklar ---------- */
+const c2=[0,0,0,0,0,0,0];let target2=null;
+const CHIP=["1","10","100","1 000","10 000","100 000","1 mln"].map(s=>s.replace(" ",NB));
+const val2=()=>c2.reduce((s,c,i)=>s+c*PV[i],0);
+function msg2(t,c){const m=$("msg2");m.textContent=t;m.className="msg "+(c||"")}
+function render2(){
+  const spec=[[[6],["million"],2],[[5,4,3],["yuz ming","o'n ming","ming"],1],[[2,1,0],["yuz","o'n","bir"],0]];
+  $("board2").innerHTML=spec.map(([idx,names,k])=>groupBoard(idx,k,idx.map((i,j)=>{
+    const chips=Array.from({length:c2[i]},()=>`<button class="chip${i===0?" static":""}" data-split="${i}" style="--cc:var(--c${k===0?1:k===1?2:3})" aria-label="${CHIP[i]} blok">${CHIP[i]}</button>`).join("");
+    return `<div class="col"><span class="lbl">${names[j]}</span><div class="stack">${chips}</div>
+      <button data-add="${i}" aria-label="${PN[i]}: blok qo'shish">+</button>
+      <button data-rem="${i}" aria-label="${PN[i]}: blok olib tashlash">−</button></div>`}).join(""))).join("");
+  const v=val2();$("num2").innerHTML=numHTML(v);$("words2").innerHTML=v?wordsHTML(v):"";
+  if(target2!==null){
+    $("task2").innerHTML=v===target2?`<div class="banner">Barakalla! ${fmt(target2)} soni to'g'ri yig'ildi.</div>`
+      :`<div class="task">Topshiriq: bloklar bilan <span class="dig">${fmt(target2)}</span> sonini yig'ing.<br><span class="hint">${wordsText(target2)}</span></div>`;
+  }else $("task2").innerHTML="";
+}
+$("board2").addEventListener("click",e=>{
+  const a=e.target.closest("[data-add]"),r=e.target.closest("[data-rem]"),s=e.target.closest("[data-split]");
+  if(a){const i=+a.dataset.add;
+    if(val2()+PV[i]>9999999){msg2("Bu rejimda son 9 999 999 dan oshmaydi.","bad");return}
+    c2[i]++;let k=i,merged=false;
+    while(c2[k]>=10&&k<6){c2[k]-=10;c2[k+1]++;k++;merged=true}
+    msg2(merged?`10 ta ${UN[i]} birlashib 1 ${UN[k]} bo'ldi.`:"","good");
+  }else if(r){const i=+r.dataset.rem;if(c2[i]>0){c2[i]--;msg2("")}}
+  else if(s){const i=+s.dataset.split;
+    if(i===0){msg2("Birlik blokini ajratib bo'lmaydi.","bad");return}
+    if(c2[i-1]!==0){msg2("Ajratish uchun pastdagi xona bo'sh bo'lishi kerak.","bad");return}
+    c2[i]--;c2[i-1]=10;msg2(`1 ${UN[i]} = 10 ta ${UN[i-1]}.`,"good");
+  }else return;
+  render2();
+});
+$("tgt2").onclick=()=>{const L=rnd(3,6);target2=rnd(Math.pow(10,L-1),Math.pow(10,L)-1);msg2("");render2()};
+$("clr2").onclick=()=>{c2.fill(0);msg2("");render2()};
+
+/* ---------- 3. O'qish va yozish ---------- */
+let dir3="read",lvl3=2,cur3=0,done3=false,sc3={ok:0,total:0,streak:0};
+function genNum(l){
+  if(l===1)return rnd(1000,99999);if(l===2)return rnd(100000,999999);if(l===3)return rnd(1e6,9999999);
+  const len=rnd(6,7),a=[];for(let k=0;k<len;k++)a.push(rnd(1,9));
+  shuffle([...Array(len-1).keys()].map(x=>x+1)).slice(0,rnd(2,3)).forEach(p=>a[p]=0);return +a.join("");
+}
+function distract(n,k){
+  const out=new Set(),s=String(n).split("");let t=0;
+  while(out.size<k&&t++<300){const a=s.slice();
+    if(Math.random()<.45){const j=rnd(0,a.length-2);[a[j],a[j+1]]=[a[j+1],a[j]]}
+    else{const j=rnd(0,a.length-1);a[j]=String((+a[j]+rnd(1,9))%10)}
+    if(a[0]==="0")continue;const m=+a.join("");if(m!==n&&m>=1000&&m<=1e7)out.add(m)}
+  return [...out];
+}
+function score3(){$("score3").innerHTML=`<span>To'g'ri: <b>${sc3.ok}</b> / ${sc3.total}</span><span>Ketma-ket: <b>${sc3.streak}</b></span>`}
+function newQ3(){
+  cur3=genNum(lvl3);done3=false;$("fb3").textContent="";$("fb3").className="msg";$("detail3").innerHTML="";$("next3").hidden=true;score3();
+  if(dir3==="read"){
+    const nums=shuffle([cur3,...distract(cur3,3)]);
+    $("q3").innerHTML=`<p class="hint">Bu son qanday o'qiladi?</p><div class="num">${numHTML(cur3)}</div>
+      <div class="opts" style="margin-top:12px">${nums.map(n=>`<button class="opt" data-n="${n}">${wordsText(n)}</button>`).join("")}</div>`;
+  }else{
+    $("q3").innerHTML=`<p class="hint">Bu son raqamlar bilan qanday yoziladi?</p><div class="words">${wordsHTML(cur3)}</div>
+      <div class="row" style="margin-top:12px"><label for="ans3">Javob:</label><input type="text" id="ans3" inputmode="numeric" autocomplete="off"><button class="btn" id="chk3">Tekshirish</button></div>`;
+    $("ans3").focus({preventScroll:true});
+  }
+}
+function finish3(ok,chosen){
+  if(done3)return;done3=true;sc3.total++;
+  if(ok){sc3.ok++;sc3.streak++}else sc3.streak=0;
+  const fb=$("fb3");fb.className="msg "+(ok?"good":"bad");
+  fb.textContent=ok?"To'g'ri!":"Noto'g'ri.";
+  let d=`<div class="out"><p class="hint">To'g'ri javob</p><div class="num" style="font-size:30px">${numHTML(cur3)}</div><div class="words">${wordsHTML(cur3)}</div>`;
+  if(!ok&&chosen!==null)d+=`<p class="hint" style="margin-top:8px">Sizning javobingiz (xato raqamlar qizil):</p>${digitsHTML(chosen,cur3)}`;
+  $("detail3").innerHTML=d+"</div>";$("next3").hidden=false;score3();
+}
+$("q3").addEventListener("click",e=>{
+  const o=e.target.closest(".opt");
+  if(o&&!done3){const n=+o.dataset.n;
+    document.querySelectorAll("#q3 .opt").forEach(b=>{b.disabled=true;if(+b.dataset.n===cur3)b.classList.add("good");else if(b===o)b.classList.add("bad")});
+    finish3(n===cur3,n);return}
+  if(e.target.id==="chk3")chk3();
+});
+$("q3").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="ans3")chk3()});
+function chk3(){if(done3)return;const n=parseNum($("ans3").value,Number.MAX_SAFE_INTEGER);if(n===null){$("fb3").textContent="Avval sonni yozing.";$("fb3").className="msg bad";return}
+  $("ans3").disabled=true;finish3(n===cur3,n)}
+$("next3").onclick=newQ3;
+$("dir3").addEventListener("click",e=>{const b=e.target.closest("[data-dir]");if(!b)return;dir3=b.dataset.dir;
+  document.querySelectorAll("#dir3 .btn").forEach(x=>x.className="btn "+(x===b?"sel":"ghost"));newQ3()});
+$("lvl3").addEventListener("click",e=>{const b=e.target.closest("[data-lvl]");if(!b)return;lvl3=+b.dataset.lvl;
+  document.querySelectorAll("#lvl3 .btn").forEach(x=>x.className="btn "+(x===b?"sel":"ghost"));newQ3()});
+
+/* ---------- 4. Yoyish ---------- */
+let v4=4305827,nz4=[];
+function render4(keepStep){
+  const L=String(v4).length;let rows="";nz4=[];const zeros=[];
+  for(let i=L-1;i>=0;i--){const d=digit(v4,i),k=clsOf(i);
+    if(d)nz4.push({i,k,val:d*PV[i]});else zeros.push(PN[i]);
+    rows+=`<tr><td class="k${k}">${PN[i]}</td><td class="${d?"":"zero"}">${d}</td><td>${fmt(PV[i])}</td><td class="${d?"":"zero"}">${d?`${d} · ${fmt(PV[i])} = ${fmt(d*PV[i])}`:"0, bu xonada birlik yo'q"}</td></tr>`}
+  $("tb4").innerHTML=rows;$("num4").innerHTML=numHTML(v4);
+  $("zmsg4").textContent=zeros.length?`Nol turgan xonalar: ${zeros.join(", ")}. Ular yig'indiga kirmaydi, lekin sonni yozishda 0 bilan to'ldirilishi shart.`:"";
+  const st=$("st4");st.max=nz4.length;if(!keepStep)st.value=nz4.length;drawSum();
+}
+function drawSum(){
+  const s=+$("st4").value;let acc=0;
+  $("stl4").textContent=`${s} / ${nz4.length}`;
+  const tags=nz4.map((t,j)=>`<span class="t${j<s?"":" off"}" style="--cc:var(--c${t.k===0?1:t.k===1?2:3})">${fmt(t.val)}</span>`).join('<span class="pl">+</span>');
+  for(let j=0;j<s;j++)acc+=nz4[j].val;
+  $("sum4").innerHTML=tags+`<span class="pl">=</span><span>${fmt(acc)}</span>`;
+}
+$("in4").addEventListener("input",e=>{const n=parseNum(e.target.value,1e7);if(n===null)return;v4=n;render4()});
+$("rnd4").onclick=()=>{v4=rnd(1000,9999999);$("in4").value=v4;render4()};
+$("st4").addEventListener("input",drawSum);
+
+/* ---------- 5. O'yin ---------- */
+const G={run:false,t:60,score:0,streak:0,ok:0,total:0,best:0,q:null,timer:null,lock:false};
+function drawGame(){
+  const g=$("game");
+  if(!G.run){
+    g.innerHTML=`${G.total?`<div class="out" style="border-top:0;padding-top:0"><div class="big">${G.score} ball</div><p>To'g'ri javoblar: <b>${G.ok}</b> / ${G.total}</p></div>`:""}
+      <p class="hint">Eng yaxshi natija: <b>${G.best}</b> ball</p><div class="row"><button class="btn" id="go5">${G.total?"Qayta o'ynash":"Boshlash"}</button></div>`;
+    return;
+  }
+  const q=G.q;
+  g.innerHTML=`<div class="bar" aria-hidden="true"><i id="bar5" style="width:${G.t/60*100}%"></i></div>
+    <div class="score"><span>Vaqt: <b id="t5">${G.t}</b> s</span><span>Ball: <b id="s5">${G.score}</b></span><span>Ketma-ket: <b id="k5">${G.streak}</b></span></div>
+    <div class="q">${q.text}</div>${q.num?`<div>${q.num}</div>`:""}
+    <div class="opts${q.opts.length===3?" three":""}">${q.opts.map(o=>`<button class="opt" data-v="${o}">${o}</button>`).join("")}</div>`;
+}
+function nextG(){
+  const len=rnd(5,7),a=[rnd(1,9)];for(let k=1;k<len;k++)a.push(Math.random()<.15?0:rnd(1,9));
+  const n=+a.join(""),nzI=[];for(let i=0;i<len;i++)if(digit(n,i))nzI.push(i);
+  const i=nzI[rnd(0,nzI.length-1)],d=digit(n,i),type=rnd(0,2),num=digitsHTML(n,"",i);let text,correct,opts;
+  if(type===0){text="Belgilangan raqam qaysi xonada turibdi?";correct=PN[i];
+    opts=shuffle([correct,...shuffle(PN.slice(0,len).filter(x=>x!==correct)).slice(0,3)]);}
+  else if(type===1){text="Belgilangan raqamning xona birligi bo'yicha qiymati qancha?";correct=fmt(d*PV[i]);
+    const s=new Set([correct]);[d*PV[i+1],d*PV[Math.max(i-1,0)],(d%9+1)*PV[i]].forEach(x=>{if(x<=1e7)s.add(fmt(x))});
+    let t=0;while(s.size<4&&t++<50){const j=rnd(0,len-1),x=rnd(1,9)*PV[j];if(x<=1e7)s.add(fmt(x))}
+    opts=shuffle([...s].slice(0,4));if(!opts.includes(correct))opts[0]=correct;}
+  else{text="Belgilangan raqam qaysi sinfda turibdi?";correct=CL[clsOf(i)];opts=CL.slice();}
+  G.q={text,num,opts,correct};G.lock=false;
+}
+function startG(){Object.assign(G,{run:true,t:60,score:0,streak:0,ok:0,total:0,lock:false});nextG();drawGame();
+  clearInterval(G.timer);G.timer=setInterval(()=>{G.t--;const t=$("t5"),b=$("bar5");if(t)t.textContent=G.t;if(b)b.style.width=G.t/60*100+"%";if(G.t<=0)endG()},1000)}
+function endG(silent){clearInterval(G.timer);G.run=false;if(G.score>G.best)G.best=G.score;if(silent)G.total=0;drawGame()}
+$("game").addEventListener("click",e=>{
+  if(e.target.id==="go5"){startG();return}
+  const o=e.target.closest(".opt");if(!o||!G.run||G.lock)return;G.lock=true;
+  const ok=o.dataset.v===G.q.correct;G.total++;
+  if(ok){G.ok++;G.streak++;G.score+=10+Math.min(G.streak-1,5)}else G.streak=0;
+  document.querySelectorAll("#game .opt").forEach(b=>{b.disabled=true;if(b.dataset.v===G.q.correct)b.classList.add("good");else if(b===o)b.classList.add("bad")});
+  $("s5").textContent=G.score;$("k5").textContent=G.streak;
+  setTimeout(()=>{if(!G.run)return;nextG();drawGame()},ok?450:1100);
+});
+
+render1();render2();newQ3();render4();drawGame();
+</script>
+
+<script>
+/* MathRun: mavzu sahifasidagi oyna balandligi ko'rgazmaga moslashadi (ichki aylantirishsiz) */
+(function(){function post(){try{parent.postMessage({type:"mathrun:height",h:document.body.offsetHeight},"*")}catch(e){}}
+new ResizeObserver(post).observe(document.body);post();})();
+</script>
+</body></html>
