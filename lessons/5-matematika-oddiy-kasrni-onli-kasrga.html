@@ -122,13 +122,13 @@ input[type=range]{width:min(100%,360px);accent-color:var(--ink)}
 
   <!-- 1. 100 katak -->
   <section class="panel" role="tabpanel" id="p-katak">
-    <div><h2>Kasrni 100 katakda ko'ring</h2><p class="hint">Maxraj va suratni tanlang. Kvadrat maxrajcha teng bo'lakka bo'linadi, surat nechta bo'lsa shuncha bo'lak bo'yaladi. «100 katakka bo'lish» tugmasi har bir bo'lakni kataklarga ajratadi.</p></div>
+    <div><h2>Kasrni 100 katakda ko'ring</h2><p class="hint">Maxraj va suratni tanlang. 100 katakli kvadrat maxrajcha teng bo'lakka bo'linadi (qora chiziqlar), surat nechta bo'lsa shuncha bo'lak bo'yaladi. «Kataklarni sanash» tugmasi bo'yalgan kataklarni raqamlab chiqadi.</p></div>
     <div class="sim">
       <svg class="gridsvg" id="g1" viewBox="0 0 100 100" aria-label="100 katakli kvadrat"></svg>
       <div class="side">
         <div class="ctl"><b>Maxraj:</b><span id="den1"></span></div>
         <div class="ctl"><b>Surat:</b><button class="btn ghost chipbtn" id="num1m" aria-label="Suratni kamaytirish">−</button><button class="btn ghost chipbtn" id="num1p" aria-label="Suratni oshirish">+</button></div>
-        <div class="row"><button class="btn" id="split1">100 katakka bo'lish</button></div>
+        <div class="row"><button class="btn" id="split1">Kataklarni sanash</button></div>
         <div class="eq" id="eq1"></div>
         <div class="step" id="st1"></div>
       </div>
@@ -219,24 +219,30 @@ $("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)swi
 const D1=[2,4,5,10,20,25,50,100];
 const s1={b:4,a:3,split:false};
 $("den1").innerHTML=D1.map(d=>`<button class="btn ghost chipbtn" data-d="${d}">${d}</button>`).join(" ");
-/* kataklar ustunma-ustun (yuqoridan pastga) to'ldiriladi: 1 ustun = 10 katak = 0,1 */
+/* kataklar ustunma-ustun (yuqoridan pastga) to'ldiriladi: 1 ustun = 10 katak = 0,1.
+   Bo'laklar ham 100 katak asosida: har bir bo'lak o'z rangida, chegaralari qora chiziq */
 function render1(){
-  const {a,b,split}=s1,per=100/b;let h="";
+  const {a,b,split}=s1,per=100/b;let h="",nums="";
   for(let j=0;j<100;j++){
     const c=Math.floor(j/10),r=j%10,part=Math.floor(j/per),on=part<a,alt=part%2===1;
-    const fill=on?(alt?"#3F7BE6":"#1F5FD6"):(alt?"#DDE3EE":"#E9EDF4");
-    const g=split?.6:0;
-    h+=`<rect x="${c*10+g}" y="${r*10+g}" width="${10-2*g}" height="${10-2*g}" rx="${split?1.6:0}" fill="${fill}"/>`;
+    const fill=on?(alt?"#5B8DEB":"#1F5FD6"):(alt?"#D3DBE8":"#EEF1F6");
+    h+=`<rect x="${c*10+.6}" y="${r*10+.6}" width="8.8" height="8.8" rx="1.6" fill="${fill}"/>`;
+    if(split&&on)nums+=`<text x="${c*10+5}" y="${r*10+6.6}" text-anchor="middle" font-size="${j<99?4.2:3.4}" font-weight="800" fill="#fff">${j+1}</text>`;
   }
-  $("g1").innerHTML=h+`<rect x=".5" y=".5" width="99" height="99" fill="none" stroke="#14213D" stroke-width="1"/>`;
+  /* bo'laklar chegarasi: qo'shni kataklar boshqa-boshqa bo'lakka tegishli bo'lsa, oralariga qora chiziq */
+  const partOf=(c,r)=>Math.floor((c*10+r)/per);let border="";
+  for(let c=0;c<10;c++)for(let r=0;r<10;r++){
+    if(c<9&&partOf(c,r)!==partOf(c+1,r))border+=`M${c*10+10} ${r*10}V${r*10+10}`;
+    if(r<9&&partOf(c,r)!==partOf(c,r+1))border+=`M${c*10} ${r*10+10}H${c*10+10}`;
+  }
+  $("g1").innerHTML=h+(border?`<path d="${border}" fill="none" stroke="#14213D" stroke-width="1.4" stroke-linecap="square"/>`:"")+
+    `<rect x=".7" y=".7" width="98.6" height="98.6" fill="none" stroke="#14213D" stroke-width="1.4"/>`+nums;
   document.querySelectorAll("#den1 .btn").forEach(x=>x.className="btn chipbtn "+(+x.dataset.d===b?"sel":"ghost"));
-  $("split1").textContent=split?"Bo'laklarga qaytish":"100 katakka bo'lish";
+  $("split1").textContent=split?"Raqamlarni yashirish":"Kataklarni sanash";
   const cells=a*per,cols=Math.floor(cells/10),rest=cells%10;
   $("eq1").innerHTML=fr(a,b)+opx("=")+(b===100?"":fr(cells,100)+opx("="))+`<span class="dec">${decOf(a,b)}</span>`;
-  $("st1").innerHTML=split
-    ?`Har bir bo'lak ${per} ta katakdan iborat. Bo'yalgan: ${a} × ${per} = <span class="ca">${cells}</span> ta katak, jami 100 ta katakdan — ${fr(cells,100)}.<br>`+
-     `${cols?`${cols} ta to'liq ustun = <span class="cg">0,${cols}</span>`:""}${cols&&rest?", ":""}${rest?`yana ${rest} ta katak = <span class="cg">0,0${rest}</span>`:""}.`
-    :`Kvadrat ${b} ta teng bo'lakka bo'lingan, ${a} tasi bo'yalgan. «100 katakka bo'lish» tugmasini bosib, bo'yalgan kataklarni sanang.`;
+  $("st1").innerHTML=`Kvadrat ${b} ta teng bo'lakka bo'lingan, har bir bo'lakda ${per} ta katak. ${a} ta bo'lak bo'yalgan: ${a} × ${per} = <span class="ca">${cells}</span> ta katak, jami 100 tadan — ${fr(cells,100)}.`+
+    (cells?`<br>${cols?`${cols} ta to'liq ustun = <span class="cg">0,${cols}</span>`:""}${cols&&rest?", ":""}${rest?`yana ${rest} ta katak = <span class="cg">0,0${rest}</span>`:""}.`:"");
 }
 $("den1").addEventListener("click",e=>{const x=e.target.closest("[data-d]");if(!x)return;s1.b=+x.dataset.d;s1.a=Math.min(s1.a,s1.b);if(s1.a<1)s1.a=1;render1()});
 $("num1m").onclick=()=>{if(s1.a>0){s1.a--;render1()}};
