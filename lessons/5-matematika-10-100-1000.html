@@ -1,0 +1,429 @@
+<!doctype html><html lang="uz" data-theme="light"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>10, 100, 1000 ga ko'paytirish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: bitta ustun; yuqorida rang izohi va tablar, pastda tanlangan rejim paneli. Ko'k = ko'paytiriladigan son, to'q sariq = nollar */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --ink:#14213D; --muted:#5B6577; --line:#D5DBE5;
+  --c1:#1F5FD6; --c1s:#E3ECFC;
+  --c3:#D4501B; --c3s:#FCE6DC;
+  --ok:#12805C; --bad:#C62828; --badbg:#FBE3E3; --okbg:#DDF3E9;
+  --f-display:"Bricolage Grotesque",ui-rounded,"Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1626; --surface:#182238; --ink:#E8EDF7; --muted:#98A4BA; --line:#2B3855;
+    --c1:#6EA1FF; --c1s:#1D2E52; --c3:#FF8F5E; --c3s:#3E2418;
+    --ok:#4CD3A0; --bad:#FF7A7A; --badbg:#3F1D22; --okbg:#14352B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1626; --surface:#182238; --ink:#E8EDF7; --muted:#98A4BA; --line:#2B3855;
+  --c1:#6EA1FF; --c1s:#1D2E52; --c3:#FF8F5E; --c3s:#3E2418;
+  --ok:#4CD3A0; --bad:#FF7A7A; --badbg:#3F1D22; --okbg:#14352B; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;padding-inline:16px;padding-block:22px 48px;background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body)}
+.wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font:800 clamp(24px,5.2vw,36px)/1.12 var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font:700 20px/1.25 var(--f-display);margin:0 0 4px;text-wrap:balance}
+p{margin:0}
+.sub{color:var(--muted);margin-top:6px}
+.key{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:700}
+.key span{display:flex;gap:8px;align-items:flex-start}
+.key i{flex:0 0 14px;height:14px;margin-top:4px;border-radius:3px;display:inline-block}
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid var(--line);scrollbar-width:thin}
+.tab{flex:0 0 auto;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;padding:10px 14px;font:700 15px var(--f-body);color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.hint{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:9px;padding:10px 16px;font:700 15px var(--f-body);cursor:pointer;min-height:42px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sel{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+:focus-visible{outline:3px solid var(--c1);outline-offset:2px}
+input[type=text]{font:700 18px var(--f-display);padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);min-width:0;width:min(100%,160px);font-variant-numeric:tabular-nums}
+label{font-weight:700;font-size:14px}
+.ca{color:var(--c1)}.cz{color:var(--c3)}.cn{color:var(--ink)}
+.sg{display:inline}
+.words{font-size:clamp(16px,3.4vw,20px);font-weight:700;line-height:1.5;color:var(--muted)}
+.out{display:flex;flex-direction:column;gap:8px;border-top:1px dashed var(--line);padding-top:14px}
+.msg{min-height:1.6em;font-weight:600;font-size:15px}
+.msg.good{color:var(--ok)}.msg.bad{color:var(--bad)}
+.eq{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;font:800 clamp(26px,7vw,50px)/1.2 var(--f-display);font-variant-numeric:tabular-nums;padding:6px 0}
+.eq .op{color:var(--muted)}
+.ex{font-size:16px;font-weight:600;line-height:1.7}
+.pop{display:inline-block;animation:pop .8s ease both}
+.eq input.bx{width:5.6ch;max-width:100%;font:inherit;color:var(--ink);text-align:center;background:var(--bg);border:3px dashed var(--muted);border-radius:10px;padding:0 4px;font-variant-numeric:tabular-nums}
+.un{font:700 .55em var(--f-body);color:var(--muted)}
+.eqrow{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 14px}
+.eqrow .op{font:800 clamp(26px,7vw,46px)/1.25 var(--f-display);padding-bottom:5px;color:var(--muted)}
+.ec{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0}
+.lab{font:800 11px/1.2 var(--f-body);text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.fld{position:relative;display:inline-block;min-width:3.4ch;max-width:100%;border:3px solid var(--line);border-radius:12px;background:var(--bg);font:800 clamp(26px,7vw,46px)/1.25 var(--f-display);font-variant-numeric:tabular-nums}
+.fld:focus-within{border-color:var(--c1)}
+.mir{display:block;padding:2px 12px;white-space:pre;min-height:1.25em;pointer-events:none}
+.fld input[type=text]{position:absolute;inset:0;width:100%;height:100%;min-width:0;margin:0;padding:2px 12px;border:0;border-radius:9px;background:transparent;color:transparent;caret-color:var(--ink);font:inherit;outline:none}
+.res{display:block;font:800 clamp(26px,7vw,46px)/1.25 var(--f-display);font-variant-numeric:tabular-nums;padding:5px 0 5px}
+.res .un{font-size:.4em}
+.eq.sm{font-size:clamp(20px,5vw,34px);padding:0}
+.strike{position:relative;display:inline-block}
+.strike::after{content:"";position:absolute;left:0;right:0;bottom:.05em;height:.1em;border-radius:2px;background:var(--c3)}
+.strike.draw::after{transform-origin:left;animation:draw .7s ease both}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+/* bo'lish */
+.cutwrap{display:flex;align-items:stretch;font:800 clamp(30px,8vw,52px)/1.1 var(--f-display);font-variant-numeric:tabular-nums;flex-wrap:wrap;gap:0}
+.cutwrap .ql{color:var(--c1)}.cutwrap .rr{color:var(--c3)}
+.cutl{width:4px;background:var(--ink);margin:0 .12em;border-radius:2px;min-height:1em}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.stat{border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--bg)}
+.stat small{display:block;font:800 11px var(--f-body);text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.stat b{font:800 24px var(--f-display);font-variant-numeric:tabular-nums}
+/* savollar */
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opts.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.opt{background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:12px;font:700 17px/1.35 var(--f-body);text-align:left;cursor:pointer;min-height:54px;font-variant-numeric:tabular-nums}
+.opt.good{background:var(--okbg);border-color:var(--ok)}
+.opt.bad{background:var(--badbg);border-color:var(--bad)}
+.opt:disabled{cursor:default}
+.q{font:700 clamp(19px,4.4vw,26px)/1.3 var(--f-display);font-variant-numeric:tabular-nums;text-wrap:balance}
+.score{display:flex;gap:16px;flex-wrap:wrap;font-weight:700;font-size:14px;color:var(--muted)}
+.score b{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:5px 10px;border-radius:7px;background:var(--bg);border:1.5px solid var(--line);font-weight:700;font-size:14px}
+.bar{height:10px;border-radius:5px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);transition:width 1s linear}
+.big{font:800 40px var(--f-display)}
+@media (prefers-reduced-motion:reduce){.pop,.strike.draw::after{animation:none}.bar i{transition:none}}
+@media (max-width:480px){.panel{padding:14px}.opts.three{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Sonni 10, 100, 1000 ga ko'paytirish va bo'lish</h1>
+    <p class="sub">Ko'paytirganda natijaning oxiriga nol yoziladi, bo'lganda oxiridagi nollar tashlanadi.</p>
+  </header>
+  <div class="key" aria-label="Ranglar izohi">
+    <span class="ca"><i style="background:var(--c1)"></i>Ko'paytiriladigan (yoki bo'linadigan) son</span>
+    <span class="cz"><i style="background:var(--c3)"></i>Nollar: ko'paytuvchidagi nollar va natijaga qo'shiladigan (yoki tashlanadigan) nollar</span>
+  </div>
+
+  <div class="tabs" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-tab="kopaytirish" aria-selected="true">Ko'paytirish</button>
+    <button class="tab" role="tab" data-tab="bolish" aria-selected="false">Bo'lish</button>
+    <button class="tab" role="tab" data-tab="teskari" aria-selected="false">Teskari masalalar</button>
+    <button class="tab" role="tab" data-tab="hayot" aria-selected="false">Hayotiy</button>
+    <button class="tab" role="tab" data-tab="oyin" aria-selected="false">O'yin</button>
+  </div>
+
+  <!-- 1. Ko'paytirish -->
+  <section class="panel" role="tabpanel" id="p-kopaytirish">
+    <div><h2>Ko'paytirish</h2><p class="hint">Katakchalarga sonlarni yozing. Ko'paytuvchi 10, 100, 1 000 yoki 200, 3 000 kabi oxirida nol bor yaxlit son bo'lsin. Sondan keyingi nollar avtomatik to'q sariq bo'ladi.</p></div>
+    <div class="eqrow">
+      <label class="ec"><span class="lab">Ko'paytiriluvchi</span><span class="fld"><span class="mir" id="a1m" aria-hidden="true"></span><input type="text" id="a1" inputmode="numeric" autocomplete="off" maxlength="9" value="234"></span></label>
+      <span class="op">×</span>
+      <label class="ec"><span class="lab">Ko'paytuvchi</span><span class="fld"><span class="mir" id="b1m" aria-hidden="true"></span><input type="text" id="b1" inputmode="numeric" autocomplete="off" maxlength="9" value="200"></span></label>
+      <span class="op">=</span>
+      <div class="ec"><span class="lab">Ko'paytma</span><span class="res" id="res1"></span></div>
+    </div>
+    <div class="row" id="q1"><button class="btn ghost" data-b="10">10</button><button class="btn ghost" data-b="100">100</button><button class="btn ghost" data-b="1000">1 000</button><button class="btn" id="go1">Ko'paytirish</button><button class="btn ghost" id="rn1">Tasodifiy misol</button></div>
+    <div class="msg" id="msg1" aria-live="polite"></div>
+    <div class="out"><div class="ex" id="ex1"></div><div class="words" id="w1"></div></div>
+  </section>
+
+  <!-- 2. Bo'lish -->
+  <section class="panel" role="tabpanel" id="p-bolish" hidden>
+    <div><h2>Bo'lish</h2><p class="hint">Katakchalarga sonlarni yozing. Bo'luvchi 10, 100, 1 000 yoki 200, 3 000 kabi oxirida nol bor yaxlit son bo'lsin. Ikkala sondagi teng miqdordagi oxirgi nollarning tagiga chiziladi.</p></div>
+    <div class="eqrow">
+      <label class="ec"><span class="lab">Bo'linuvchi</span><span class="fld"><span class="mir" id="a4m" aria-hidden="true"></span><input type="text" id="a4" inputmode="numeric" autocomplete="off" maxlength="9" value="46800"></span></label>
+      <span class="op">:</span>
+      <label class="ec"><span class="lab">Bo'luvchi</span><span class="fld"><span class="mir" id="b4m" aria-hidden="true"></span><input type="text" id="b4" inputmode="numeric" autocomplete="off" maxlength="9" value="200"></span></label>
+      <span class="op">=</span>
+      <div class="ec"><span class="lab">Bo'linma</span><span class="res" id="res4"></span></div>
+    </div>
+    <div class="row" id="q4"><button class="btn ghost" data-b="10">10</button><button class="btn ghost" data-b="100">100</button><button class="btn ghost" data-b="1000">1 000</button><button class="btn" id="go4">Bo'lish</button><button class="btn ghost" id="rn4">Tasodifiy misol</button></div>
+    <div class="msg" id="msg4" aria-live="polite"></div>
+    <div class="out" style="border-top:0;padding-top:0"><div class="eq sm" id="eq4b"></div><div class="ex" id="ex4"></div></div>
+    <div class="out">
+      <div class="row"><h2 style="margin:0">Mashq</h2><button class="btn ghost" id="rem4">Qoldiqli holatlar: o'chiq</button><button class="btn ghost" id="new4">Yangi misol</button></div>
+      <div class="q" id="pq4"></div>
+      <div class="row"><label for="pa4">Bo'linma:</label><input type="text" id="pa4" inputmode="numeric" autocomplete="off" style="width:120px"><span id="prw4" hidden><label for="pb4">Qoldiq:</label> <input type="text" id="pb4" inputmode="numeric" autocomplete="off" style="width:120px"></span><button class="btn" id="pc4">Tekshirish</button></div>
+      <div class="msg" id="pm4" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- 3. Teskari masalalar -->
+  <section class="panel" role="tabpanel" id="p-teskari" hidden>
+    <div><h2>Teskari masalalar</h2><p class="hint">Katakka noma'lum sonni yozing. Pastda natija yozganingizga qarab o'zgarib boradi.</p></div>
+    <div class="row" id="md5"><button class="btn sel" data-md="mix">Aralash</button><button class="btn ghost" data-md="mul">Ko'paytirish</button><button class="btn ghost" data-md="div">Bo'lish</button></div>
+    <div class="score" id="sc5"></div>
+    <div class="eq" id="q5"></div>
+    <div class="row"><button class="btn" id="ck5">Tekshirish</button><button class="btn ghost" id="sh5">Javobni ko'rish</button><button class="btn" id="nx5" hidden>Keyingi</button></div>
+    <div class="msg" id="fb5" aria-live="polite"></div>
+    <div class="out"><p class="hint">Sizning natijangiz (yozganingiz bo'yicha o'zgarib boradi)</p><div class="eq sm" id="live5"></div></div>
+  </section>
+
+  <!-- 4. Hayotiy -->
+  <section class="panel" role="tabpanel" id="p-hayot" hidden>
+    <div><h2>Hayotiy misollar: o'lchov birliklari</h2><p class="hint">Birliklarni almashtirish ham 10, 100, 1000 ga ko'paytirish va bo'lishdir. Javobni katakka yozing.</p></div>
+    <div class="chips" id="ref6"></div>
+    <div class="score" id="sc6"></div>
+    <div class="eq" id="q6"></div>
+    <div class="row"><button class="btn" id="ck6">Tekshirish</button><button class="btn ghost" id="sh6">Javobni ko'rish</button><button class="btn" id="nx6" hidden>Keyingi</button></div>
+    <div class="msg" id="fb6" aria-live="polite"></div>
+    <div class="out"><p class="hint">Sizning natijangiz (yozganingiz bo'yicha o'zgarib boradi)</p><div class="eq sm" id="live6"></div></div>
+  </section>
+
+  <!-- 5. O'yin -->
+  <section class="panel" role="tabpanel" id="p-oyin" hidden>
+    <div><h2>60 soniyalik o'yin</h2><p class="hint">Natijani toping, ko'paytuvchini toping, nollar sonini ayting. To'g'ri javob 10 ball, ketma-ket to'g'rilar uchun qo'shimcha ball beradi. Sinfda jamoalar navbat bilan o'ynashi mumkin.</p></div>
+    <div id="game"></div>
+  </section>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
+const NB=" ";
+const fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,NB);
+const MAXN=999999999;
+const K={10:1,100:2,1000:3};
+const MLAB={10:"10",100:"100",1000:"1"+NB+"000"};
+const parseNum=s=>{const d=String(s).replace(/\D/g,"");return d?+d.slice(0,9):null};
+const sp=(c,t)=>`<span class="${c}">${t}</span>`;
+const zs=k=>"0".repeat(k);
+function setMsg(id,t,c){const m=$(id);m.textContent=t;m.className="msg "+(c||"")}
+/* rangli son: [[matn,sinf],...] ro'yxatidan uchtalab bo'shliq qo'yib yig'iladi */
+function seg(list){
+  const ch=[];list.forEach(([s,c])=>[...String(s)].forEach(x=>ch.push([x,c])));
+  const L=ch.length;let h="";
+  ch.forEach(([x,c],i)=>{if(i>0&&(L-i)%3===0)h+=NB;h+=`<span class="${c}">${x}</span>`});
+  return `<span class="sg">${h}</span>`}
+
+/* son -> so'z */
+const ONES=["","bir","ikki","uch","to'rt","besh","olti","yetti","sakkiz","to'qqiz"];
+const TENS=["","o'n","yigirma","o'ttiz","qirq","ellik","oltmish","yetmish","sakson","to'qson"];
+function g3(n){const h=Math.floor(n/100),t=Math.floor(n%100/10),o=n%10,p=[];
+  if(h)p.push(n===100?"yuz":ONES[h]+" yuz");if(t)p.push(TENS[t]);if(o)p.push(ONES[o]);return p.join(" ")}
+function wordsText(n){
+  if(n===0)return"nol";
+  const mi=Math.floor(n/1e6),th=Math.floor(n/1e3)%1000,un=n%1000,r=[];
+  if(mi)r.push(g3(mi)+" million");
+  if(th)r.push(n===1000?"ming":g3(th)+" ming");
+  if(un)r.push(g3(un));return r.join(" ")}
+
+/* tablar */
+function switchTab(name){
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===name));
+  document.querySelectorAll(".panel").forEach(p=>p.hidden=p.id!=="p-"+name);
+  if(G.run)endG(true);
+}
+$("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)switchTab(b.dataset.tab)});
+function pick(groupId,attr,val){document.querySelectorAll(`#${groupId} .btn[data-${attr}]`).forEach(b=>b.className="btn "+(b.dataset[attr]===String(val)?"sel":"ghost"))}
+
+/* ---------- 1. Ko'paytirish: [ko'paytiriluvchi] × [ko'paytuvchi] = ko'paytma ---------- */
+const dg=t=>String(t).replace(/\D/g,"").replace(/^0+(?=\d)/,"");
+const UNK=`<span style="color:var(--muted)">?</span>`;
+/* katakcha ichidagi rangli ko'rinish: sondan keyingi nollar to'q sariq, u ta nolning tagiga chiziladi */
+function mir(str,main,u,anim){
+  if(!str)return UNK;
+  const m=str.match(/^(\d*?[1-9])(0*)$/),head=m?m[1]:str,z=m?[...m[2]]:[];
+  let h=[...head].map(c=>`<span class="${main}">${c}</span>`).join("");
+  z.forEach((c,i)=>{h+=`<span class="cz${u&&i>=z.length-u?" strike"+(anim?" draw":""):""}">${c}</span>`});
+  return h}
+const setMir=(id,str,main,u,anim)=>{$(id).innerHTML=mir(str,main,u,anim)};
+function wire(id,fn){const el=$(id);el.addEventListener("input",()=>{const c=dg(el.value).slice(0,9);if(c!==el.value)el.value=c;fn()})}
+function render1(anim){
+  const as=$("a1").value,bs=$("b1").value,res=$("res1");
+  setMir("a1m",as,"ca");setMir("b1m",bs,"cn");$("ex1").innerHTML="";$("w1").textContent="";
+  if(!as||+as===0){res.innerHTML=UNK;setMsg("msg1","Ko'paytiriladigan sonni yozing.","bad");return}
+  if(!/^[1-9]0+$/.test(bs)){res.innerHTML=UNK;setMsg("msg1",bs?"Ko'paytuvchi oxirida nol bor yaxlit son bo'lsin: 10, 100, 1 000, 200, 3 000 kabi.":"Ko'paytuvchini yozing.","bad");return}
+  const a=+as,d=+bs[0],k=bs.length-1,p=a*d,r=p*10**k;
+  if(r>MAXN){res.innerHTML=UNK;setMsg("msg1","Natija 999 999 999 dan oshib ketadi. Kichikroq son oling.","bad");return}
+  setMsg("msg1","");
+  const mm=String(r).match(/^(\d*?[1-9])(0*)$/),zz=mm[2];
+  res.innerHTML=seg([[mm[1],"ca"],[zz.slice(0,zz.length-k),"cz"],[zz.slice(zz.length-k),anim?"cz pop":"cz"]]);
+  $("ex1").innerHTML=d===1
+    ?`${sp("ca",fmt(a))} ning oxiriga ${sp("cz",k+" ta nol")} yozamiz: ko'paytuvchidagi nollar soni qancha bo'lsa, natijaning oxiriga shuncha nol yoziladi.`
+    :`Avval ${sp("ca",fmt(a))} · ${d} = ${sp("ca",fmt(p))}. Keyin oxiriga ${sp("cz",k+" ta nol")} yozamiz: ko'paytuvchidagi nollar soni qancha bo'lsa, natijaning oxiriga shuncha nol yoziladi.`;
+  $("w1").textContent=wordsText(r);
+}
+wire("a1",()=>render1(false));wire("b1",()=>render1(false));
+$("q1").addEventListener("click",e=>{const b=e.target.closest("[data-b]");if(!b)return;$("b1").value=b.dataset.b;render1(true)});
+$("go1").onclick=()=>render1(true);
+$("rn1").onclick=()=>{const k=rnd(1,3),d=Math.random()<.5?1:rnd(2,9);$("a1").value=rnd(2,999);$("b1").value=d*10**k;render1(true)};
+
+/* ---------- 2. Bo'lish ---------- */
+const s4={rem:false,p:null};
+function render4(anim){
+  const as=$("a4").value,bs=$("b4").value,res=$("res4"),op=c=>`<span class="op">${c}</span>`;
+  $("eq4b").innerHTML="";$("ex4").innerHTML="";
+  const plain=()=>{setMir("a4m",as,"ca");setMir("b4m",bs,"cn");res.innerHTML=UNK};
+  if(!as||+as===0){plain();setMsg("msg4","Bo'linadigan sonni yozing.","bad");return}
+  if(!/^[1-9]0+$/.test(bs)){plain();setMsg("msg4",bs?"Bo'luvchi oxirida nol bor yaxlit son bo'lsin: 10, 100, 1 000, 200, 3 000 kabi.":"Bo'luvchini yozing.","bad");return}
+  setMsg("msg4","");
+  const a=+as,d=+bs[0],k=bs.length-1,b=d*10**k,q=Math.floor(a/b),r=a%b;
+  /* ikkala sondan teng miqdorda nol chiziladi: bo'linuvchining oxirgi nollari va bo'luvchidagi nollardan qaysi biri kam bo'lsa, shuncha */
+  const za=as.match(/0*$/)[0].length,n=Math.min(za,k),a1=a/10**n,b1=b/10**n,r1=a1%b1;
+  setMir("a4m",as,"ca",n,anim);setMir("b4m",bs,"cn",n,anim);
+  res.innerHTML=r===0?tz(q):`${tz(q)} <span class="un">qoldiq</span> ${seg([[r,"cz"]])}`;
+  if(n>0&&b1>1)$("eq4b").innerHTML=`${seg([[a1,"ca"]])}${op(":")}${seg([[b1,"cn"]])}${op("=")}${seg([[q,"ca"]])}${r1?`${op("qoldiq")}${seg([[r1,"cz"]])}`:""}`;
+  const Z=sp("cz",n+" tadan nol");
+  if(r===0){
+    $("ex4").innerHTML=d===1
+      ?`Bo'luvchida ${sp("cz",k+" ta nol")} bor, shuning uchun ${sp("ca",fmt(a))} ning oxiridagi ${sp("cz",k+" ta nol")} (tagiga chizilgan) tushib qoladi. Qolgani ${sp("ca",fmt(q))} bo'linma bo'ladi.`
+      :`Ikkala sonning oxiridagi ${Z} (tagiga chizilgan) tushib qoladi. Keyin ${sp("ca",fmt(a1))} : ${b1} = ${sp("ca",fmt(q))}.`;
+  }else if(n>0){
+    $("ex4").innerHTML=`Ikkala sonning oxiridagi ${Z} (tagiga chizilgan) tushib qoladi: ${fmt(a1)} : ${fmt(b1)} = ${sp("ca",fmt(q))}, qoldiq ${fmt(r1)}. Tushib qolgan ${n} ta nolni qoldiqning oxiriga qaytarib yozamiz: qoldiq ${sp("cz",fmt(r))}.`;
+  }else{
+    $("ex4").innerHTML=d===1
+      ?`Oxirgi ${k} ta raqam nollardan iborat emas, shuning uchun nollar tushib qolmaydi, qoldiq bo'ladi: bo'linma ${sp("ca",fmt(q))}, qoldiq ${sp("cz",fmt(r))}.`
+      :`${sp("ca",fmt(a))} soni ${fmt(b)} ga qoldiqsiz bo'linmaydi: bo'linma ${sp("ca",fmt(q))}, qoldiq ${sp("cz",fmt(r))}.`;
+  }
+}
+wire("a4",()=>render4(false));wire("b4",()=>render4(false));
+$("q4").addEventListener("click",e=>{const b=e.target.closest("[data-b]");if(!b)return;$("b4").value=b.dataset.b;render4(true)});
+$("go4").onclick=()=>render4(true);
+$("rn4").onclick=()=>{const k=rnd(1,3),d=Math.random()<.5?1:rnd(2,9);$("b4").value=d*10**k;$("a4").value=rnd(2,999)*d*10**k;render4(true)};
+function new4(){
+  const m=[10,100,1000][rnd(0,2)];let n;
+  if(s4.rem){do{n=rnd(m+1,99999)}while(n%m===0)}else{n=rnd(2,999)*m;if(Math.random()<.4)n*=10}
+  s4.p={n,m,q:Math.floor(n/m),r:n%m};
+  $("pq4").textContent=`${fmt(n)} : ${MLAB[m]} = ?`;$("pa4").value="";$("pb4").value="";$("prw4").hidden=!s4.rem;setMsg("pm4","");
+}
+$("rem4").onclick=()=>{s4.rem=!s4.rem;$("rem4").textContent="Qoldiqli holatlar: "+(s4.rem?"yoniq":"o'chiq");$("rem4").className="btn "+(s4.rem?"sel":"ghost");new4()};
+$("new4").onclick=new4;
+$("pc4").onclick=()=>{
+  const p=s4.p,q=parseNum($("pa4").value),r=parseNum($("pb4").value);
+  if(q===null){setMsg("pm4","Bo'linmani yozing.","bad");return}
+  if(s4.rem){
+    if(r===null){setMsg("pm4","Qoldiqni ham yozing.","bad");return}
+    if(q===p.q&&r===p.r)setMsg("pm4","To'g'ri!","good");
+    else setMsg("pm4",`Noto'g'ri. Oxirgi ${K[p.m]} ta raqam qoldiq, qolgani bo'linma: bo'linma ${fmt(p.q)}, qoldiq ${fmt(p.r)}.`,"bad");
+  }else setMsg("pm4",q===p.q?"To'g'ri!":`Noto'g'ri. Oxirgi ${K[p.m]} ta nolni tashlang: ${fmt(p.q)}.`,q===p.q?"good":"bad");
+};
+
+/* ---------- 3. Teskari masalalar ---------- */
+const s5={ok:0,total:0,streak:0,q:null,done:false,tried:false,md:"mix"};
+const tz=(n,main="ca")=>{const t=String(n),m=t.match(/^(\d*?[1-9])(0*)$/);return m&&m[2]?seg([[m[1],main],[m[2],"cz"]]):seg([[t,main]])};
+const opx=c=>`<span class="op">${c}</span>`;
+function sc5(){$("sc5").innerHTML=`<span>To'g'ri: <b>${s5.ok}</b> / ${s5.total}</span><span>Ketma-ket: <b>${s5.streak}</b></span>`}
+function new5(){
+  const m=[10,100,1000][rnd(0,2)],k=K[m],t=s5.md==="mul"?rnd(0,1):s5.md==="div"?rnd(2,3):rnd(0,3);let a;do{a=rnd(2,999)}while(a%10===0);
+  const N=a*m,bx=`<input type="text" id="x5" class="bx" inputmode="numeric" autocomplete="off" aria-label="Noma'lum son">`;
+  const rest=(q,r)=>r?`${opx("qoldiq")}${tz(r)}`:"";let eq,q;
+  if(t===0){eq=`${tz(a)}${opx("×")}${bx}${opx("=")}${tz(N)}`;
+    q={ans:m,hint:`${fmt(a)} ning oxiriga ${k} ta nol yozilgan, demak ko'paytuvchi ${fmt(m)}.`,calc:x=>x>0?`${tz(a)}${opx("×")}${tz(x,"cn")}${opx("=")}${tz(a*x)}`:null};}
+  else if(t===1){eq=`${bx}${opx("×")}${tz(m,"cn")}${opx("=")}${tz(N)}`;
+    q={ans:a,hint:`${fmt(N)} ning oxiridagi ${k} ta nolni tashlaymiz: ${fmt(a)}.`,calc:x=>x>0?`${tz(x)}${opx("×")}${tz(m,"cn")}${opx("=")}${tz(x*m)}`:null};}
+  else if(t===2){eq=`${tz(N)}${opx(":")}${bx}${opx("=")}${tz(a)}`;
+    q={ans:m,hint:`${fmt(N)} ning oxiridan ${k} ta nol tushib qolgan, demak bo'luvchi ${fmt(m)}.`,calc:x=>x>0?`${tz(N)}${opx(":")}${tz(x,"cn")}${opx("=")}${tz(Math.floor(N/x))}${rest(0,N%x)}`:null};}
+  else{eq=`${bx}${opx(":")}${tz(m,"cn")}${opx("=")}${tz(a)}`;
+    q={ans:N,hint:`${fmt(a)} ning oxiriga ${k} ta nol yozamiz: ${fmt(N)}.`,calc:x=>x>0?`${tz(x)}${opx(":")}${tz(m,"cn")}${opx("=")}${tz(Math.floor(x/m))}${rest(0,x%m)}`:null};}
+  s5.q=q;s5.done=false;s5.tried=false;$("q5").innerHTML=eq;setMsg("fb5","");$("nx5").hidden=true;$("ck5").hidden=false;$("sh5").hidden=false;sc5();live5();
+  $("x5").focus({preventScroll:true});
+}
+function live5(){
+  const x=parseNum($("x5").value),h=x===null?null:s5.q.calc(x);
+  $("live5").innerHTML=h||`<span class="op" style="font-size:.7em">Katakka sonni yozing</span>`;
+}
+function chk5(){
+  if(s5.done)return;const v=parseNum($("x5").value);
+  if(v===null){setMsg("fb5","Avval katakka sonni yozing.","bad");return}
+  const ok=v===s5.q.ans;
+  if(!s5.tried){s5.tried=true;s5.total++;if(ok){s5.ok++;s5.streak++}else s5.streak=0}
+  if(ok){s5.done=true;$("x5").disabled=true;setMsg("fb5","To'g'ri! "+s5.q.hint,"good");$("nx5").hidden=false;$("ck5").hidden=true;$("sh5").hidden=true}
+  else setMsg("fb5","Hali to'g'ri emas. Pastdagi natijaga qarang va yana urinib ko'ring.","bad");
+  sc5();
+}
+$("q5").addEventListener("input",e=>{if(e.target.id==="x5")live5()});
+$("q5").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="x5")chk5()});
+$("ck5").onclick=chk5;
+$("sh5").onclick=()=>{if(s5.done)return;$("x5").value=s5.q.ans;$("x5").disabled=true;s5.done=true;live5();setMsg("fb5",`Javob: ${fmt(s5.q.ans)}. ${s5.q.hint}`,"");$("nx5").hidden=false;$("ck5").hidden=true;$("sh5").hidden=true};
+$("nx5").onclick=new5;
+$("md5").addEventListener("click",e=>{const b=e.target.closest("[data-md]");if(!b)return;s5.md=b.dataset.md;pick("md5","md",s5.md);new5()});
+
+/* ---------- 4. Hayotiy ---------- */
+const UNITS=[["km","m",1000],["m","sm",100],["sm","mm",10],["m","mm",1000],["t","kg",1000],["kg","g",1000]];
+const s6={ok:0,total:0,streak:0,q:null,done:false,tried:false};
+$("ref6").innerHTML=UNITS.map(u=>`<span class="chip">1 ${u[0]} = ${fmt(u[2])} ${u[1]}</span>`).join("");
+const nu=(h,u)=>`<span>${h}<span class="un">${NB}${u}</span></span>`;
+function sc6(){$("sc6").innerHTML=`<span>To'g'ri: <b>${s6.ok}</b> / ${s6.total}</span><span>Ketma-ket: <b>${s6.streak}</b></span>`}
+function new6(){
+  const u=UNITS[rnd(0,UNITS.length-1)],f=u[2],k=String(f).length-1,down=Math.random()<.5;let a;do{a=rnd(2,99)}while(a%10===0);
+  const bx=`<input type="text" id="x6" class="bx" inputmode="numeric" autocomplete="off" aria-label="Javob">`;let eq,q;
+  if(down){eq=`${nu(tz(a),u[0])}${opx("=")}${nu(bx,u[1])}`;
+    q={ans:a*f,hint:`${fmt(a)} ning oxiriga ${k} ta nol yozamiz (${fmt(f)} ga ko'paytiramiz).`,calc:x=>`${nu(tz(a),u[0])}${opx("=")}${nu(tz(x),u[1])}`};}
+  else{eq=`${nu(tz(a*f),u[1])}${opx("=")}${nu(bx,u[0])}`;
+    q={ans:a,hint:`${fmt(a*f)} ning oxiridan ${k} ta nolni tashlaymiz (${fmt(f)} ga bo'lamiz).`,calc:x=>`${nu(tz(a*f),u[1])}${opx("=")}${nu(tz(x),u[0])}`};}
+  s6.q=q;s6.done=false;s6.tried=false;$("q6").innerHTML=eq;setMsg("fb6","");$("nx6").hidden=true;$("ck6").hidden=false;$("sh6").hidden=false;sc6();live6();
+  $("x6").focus({preventScroll:true});
+}
+function live6(){
+  const x=parseNum($("x6").value);
+  $("live6").innerHTML=x===null?`<span class="op" style="font-size:.7em">Katakka sonni yozing</span>`:s6.q.calc(x);
+}
+function end6(){$("nx6").hidden=false;$("ck6").hidden=true;$("sh6").hidden=true}
+function chk6(){
+  if(s6.done)return;const v=parseNum($("x6").value);
+  if(v===null){setMsg("fb6","Avval katakka sonni yozing.","bad");return}
+  const ok=v===s6.q.ans;
+  if(!s6.tried){s6.tried=true;s6.total++;if(ok){s6.ok++;s6.streak++}else s6.streak=0}
+  if(ok){s6.done=true;$("x6").disabled=true;setMsg("fb6","To'g'ri! "+s6.q.hint,"good");end6()}
+  else setMsg("fb6","Hali to'g'ri emas. Pastdagi natijaga qarang va yana urinib ko'ring.","bad");
+  sc6();
+}
+$("q6").addEventListener("input",e=>{if(e.target.id==="x6")live6()});
+$("q6").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="x6")chk6()});
+$("ck6").onclick=chk6;
+$("sh6").onclick=()=>{if(s6.done)return;$("x6").value=s6.q.ans;$("x6").disabled=true;s6.done=true;live6();setMsg("fb6",`Javob: ${fmt(s6.q.ans)}. ${s6.q.hint}`,"");end6()};
+$("nx6").onclick=new6;
+
+/* ---------- 5. O'yin ---------- */
+const G={run:false,t:60,score:0,streak:0,ok:0,total:0,best:0,q:null,timer:null,lock:false};
+function drawGame(){
+  const g=$("game");
+  if(!G.run){
+    g.innerHTML=`${G.total?`<div class="out" style="border-top:0;padding-top:0"><div class="big">${G.score} ball</div><p>To'g'ri javoblar: <b>${G.ok}</b> / ${G.total}</p></div>`:""}
+      <p class="hint">Eng yaxshi natija: <b>${G.best}</b> ball</p><div class="row"><button class="btn" id="go7">${G.total?"Qayta o'ynash":"Boshlash"}</button></div>`;return}
+  const q=G.q;
+  g.innerHTML=`<div class="bar" aria-hidden="true"><i id="bar7" style="width:${G.t/60*100}%"></i></div>
+    <div class="score"><span>Vaqt: <b id="t7">${G.t}</b> s</span><span>Ball: <b id="s7">${G.score}</b></span><span>Ketma-ket: <b id="k7">${G.streak}</b></span></div>
+    <div class="q">${q.text}</div>
+    <div class="opts${q.opts.length===3?" three":""}">${q.opts.map(o=>`<button class="opt" data-v="${o}">${o}</button>`).join("")}</div>`;
+}
+function nextG(){
+  const m=[10,100,1000][rnd(0,2)],k=K[m],a=rnd(2,999),type=rnd(0,3);let text,correct,opts;
+  const four=(c,w)=>{const s=new Set(w.filter(x=>x>0&&x<=MAXN&&x!==c));for(let j=1;s.size<3&&j<7;j++){const x=c*10**j;if(x<=MAXN)s.add(x)}const arr=[...s].slice(0,3);arr.push(c);return shuffle(arr).map(fmt)};
+  if(type===0){text=`${a} · ${MLAB[m]} = ?`;correct=fmt(a*m);opts=four(a*m,[a*m*10,a*m/10,a*m*100,a*(m/10)]);}
+  else if(type===1){text=`${fmt(a*m)} : ${MLAB[m]} = ?`;correct=fmt(a);opts=four(a,[a*10,a*100,a*1000,Math.max(Math.floor(a/10),1)]);}
+  else if(type===2){text=`${a} · ☐ = ${fmt(a*m)}`;correct=MLAB[m];opts=[MLAB[10],MLAB[100],MLAB[1000]];}
+  else{text=`${a} ni ${MLAB[m]} ga ko'paytirsak, natijaning oxiriga nechta nol yoziladi?`;correct=`${k} ta`;opts=["1 ta","2 ta","3 ta"];}
+  G.q={text,opts,correct};G.lock=false;
+}
+function startG(){Object.assign(G,{run:true,t:60,score:0,streak:0,ok:0,total:0,lock:false});nextG();drawGame();
+  clearInterval(G.timer);G.timer=setInterval(()=>{G.t--;const t=$("t7"),b=$("bar7");if(t)t.textContent=G.t;if(b)b.style.width=G.t/60*100+"%";if(G.t<=0)endG()},1000)}
+function endG(silent){clearInterval(G.timer);G.run=false;if(G.score>G.best)G.best=G.score;if(silent)G.total=0;drawGame()}
+$("game").addEventListener("click",e=>{
+  if(e.target.id==="go7"){startG();return}
+  const o=e.target.closest(".opt");if(!o||!G.run||G.lock)return;G.lock=true;
+  const ok=o.dataset.v===G.q.correct;G.total++;
+  if(ok){G.ok++;G.streak++;G.score+=10+Math.min(G.streak-1,5)}else G.streak=0;
+  document.querySelectorAll("#game .opt").forEach(b=>{b.disabled=true;if(b.dataset.v===G.q.correct)b.classList.add("good");else if(b===o)b.classList.add("bad")});
+  $("s7").textContent=G.score;$("k7").textContent=G.streak;
+  setTimeout(()=>{if(!G.run)return;nextG();drawGame()},ok?450:1100);
+});
+
+render1(false);render4(false);new4();new5();new6();drawGame();
+</script>
+
+<script>
+/* MathRun: mavzu sahifasidagi oyna balandligi ko'rgazmaga moslashadi (ichki aylantirishsiz) */
+(function(){function post(){try{parent.postMessage({type:"mathrun:height",h:document.body.offsetHeight},"*")}catch(e){}}
+new ResizeObserver(post).observe(document.body);post();})();
+</script>
+</body></html>

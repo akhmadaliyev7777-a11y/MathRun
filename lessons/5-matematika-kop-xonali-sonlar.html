@@ -202,7 +202,9 @@ const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[
 const NB=" ";
 const fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,NB);
 const PV=[1,10,100,1e3,1e4,1e5,1e6,1e7];
-const PN=["birlar","o'nlar","yuzlar","ming birlar","ming o'nlar","ming yuzlar","million birlar","million o'nlar"];
+// xona nomlari darslikdagidek: birlar, o'nlar, yuzlar, minglar, o'n minglar ... xonasi
+const PN=["birlar","o'nlar","yuzlar","minglar","o'n minglar","yuz minglar","millionlar","o'n millionlar"];
+const XN=i=>PN[i]+" xonasi";
 const UN=["birlik","o'nlik","yuzlik","minglik","o'n minglik","yuz minglik","millionlik","o'n millionlik"];
 const CL=["Birlar sinfi","Minglar sinfi","Millionlar sinfi"];
 const clsOf=i=>i<3?0:i<6?1:2;
@@ -403,8 +405,8 @@ function nextG(){
   const len=rnd(5,7),a=[rnd(1,9)];for(let k=1;k<len;k++)a.push(Math.random()<.15?0:rnd(1,9));
   const n=+a.join(""),nzI=[];for(let i=0;i<len;i++)if(digit(n,i))nzI.push(i);
   const i=nzI[rnd(0,nzI.length-1)],d=digit(n,i),type=rnd(0,2),num=digitsHTML(n,"",i);let text,correct,opts;
-  if(type===0){text="Belgilangan raqam qaysi xonada turibdi?";correct=PN[i];
-    opts=shuffle([correct,...shuffle(PN.slice(0,len).filter(x=>x!==correct)).slice(0,3)]);}
+  if(type===0){text="Belgilangan raqam qaysi xonada turibdi?";correct=XN(i);
+    opts=shuffle([correct,...shuffle([...Array(len).keys()].filter(k=>k!==i)).slice(0,3).map(XN)]);}
   else if(type===1){text="Belgilangan raqamning xona birligi bo'yicha qiymati qancha?";correct=fmt(d*PV[i]);
     const s=new Set([correct]);[d*PV[i+1],d*PV[Math.max(i-1,0)],(d%9+1)*PV[i]].forEach(x=>{if(x<=1e7)s.add(fmt(x))});
     let t=0;while(s.size<4&&t++<50){const j=rnd(0,len-1),x=rnd(1,9)*PV[j];if(x<=1e7)s.add(fmt(x))}
