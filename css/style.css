@@ -1318,3 +1318,88 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 .badge-cell:hover { background: #f3f4fb; }
 .badge-board-foot { margin: 12px 0 0; font-size: .8rem; color: var(--muted); }
 .topic-row-badge { flex: 0 0 auto; align-self: center; line-height: 0; }
+
+/* ---------- Mavzu qidirish (yuqoridagi lupa) ---------- */
+.site-nav { margin-left: auto; }
+.search-open {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; margin-left: 18px; padding: 0;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--surface); color: var(--muted); cursor: pointer;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.search-open:hover { color: var(--primary); border-color: var(--primary); background: #f3f4fd; }
+@media (max-width: 640px) { .search-open { margin-left: auto; } }
+
+.site-search {
+  position: fixed; inset: 0; z-index: 120;
+  background: rgba(15, 18, 30, 0.35);
+  display: flex; justify-content: center; align-items: flex-start;
+  padding: 72px 16px 16px;
+}
+.search-open-body { overflow: hidden; }
+.site-search-box {
+  width: 100%; max-width: 620px; background: var(--surface);
+  border-radius: 16px; box-shadow: 0 20px 50px rgba(15, 18, 30, 0.25); overflow: hidden;
+}
+.site-search-field {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--muted);
+}
+.site-search-field input {
+  flex: 1; min-width: 0; border: none; outline: none; background: none;
+  font: inherit; font-size: 1.05rem; color: var(--text);
+}
+.site-search-field input::-webkit-search-cancel-button { display: none; }
+.site-search-close {
+  border: 1px solid var(--border); background: var(--bg); color: var(--muted);
+  border-radius: 6px; padding: 2px 8px; font: inherit; font-size: .75rem; cursor: pointer;
+}
+.site-search-list { list-style: none; margin: 0; padding: 6px; max-height: min(60vh, 460px); overflow-y: auto; }
+.site-search-item { display: block; padding: 10px 12px; border-radius: 10px; }
+.site-search-item.active, .site-search-item:hover { background: #f1f2fc; }
+.site-search-title { display: block; font-weight: 600; line-height: 1.4; }
+.site-search-title mark { background: none; color: var(--primary); font-weight: 800; }
+.site-search-meta { display: block; font-size: .8rem; color: var(--muted); margin-top: 2px; }
+.site-search-meta b { color: var(--accent-geometriya); font-weight: 700; }
+.site-search-empty { padding: 14px 12px; color: var(--muted); font-size: .92rem; }
+.site-search-group {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 12px 12px 4px; font-size: .72rem; font-weight: 700; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--primary);
+}
+.site-search-group span { color: var(--muted); font-weight: 600; letter-spacing: 0; text-transform: none; }
+.site-search-group--similar { color: var(--muted); border-top: 1px solid var(--border); margin-top: 6px; }
+
+/* qidiruv: "Barcha natijalar" tugmasi va katta oyna */
+.site-search-more {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px;
+  margin-top: 4px; border-top: 1px solid var(--border); border-radius: 0 0 10px 10px;
+  color: var(--primary); font-weight: 600;
+}
+.site-search-more span { font-size: .8rem; color: var(--muted); font-weight: 500; }
+.site-search-box { transition: max-width .2s ease; }
+.site-search-box--wide { max-width: 980px; }
+.site-search-box--wide .site-search-list {
+  max-height: calc(100vh - 230px);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 8px; align-content: start;
+}
+.site-search-box--wide .site-search-group,
+.site-search-box--wide .site-search-empty { grid-column: 1 / -1; }
+.site-search-chips {
+  display: flex; gap: 6px; padding: 10px 14px; overflow-x: auto;
+  border-bottom: 1px solid var(--border); scrollbar-width: thin;
+}
+.site-search-chip {
+  flex: none; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--surface); font: inherit; font-size: .85rem; font-weight: 600; color: var(--text); cursor: pointer;
+}
+.site-search-chip span { color: var(--muted); font-weight: 500; margin-left: 2px; }
+.site-search-chip:hover { border-color: var(--primary); }
+.site-search-chip.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+.site-search-chip.active span { color: rgba(255, 255, 255, .8); }
+@media (max-width: 720px) {
+  .site-search { padding-top: 16px; }
+  .site-search-box--wide .site-search-list { grid-template-columns: 1fr; max-height: calc(100vh - 150px); }
+}
+.site-search-more em { font-style: normal; }
