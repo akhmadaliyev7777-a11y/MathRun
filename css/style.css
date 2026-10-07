@@ -1403,3 +1403,11 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
   .site-search-box--wide .site-search-list { grid-template-columns: 1fr; max-height: calc(100vh - 150px); }
 }
 .site-search-more em { font-style: normal; }
+
+/* Yangi simulyatorli interaktiv darslar — yashil (eskilari ko'k qoladi) */
+.topic-btn--new { color: #12805C; border-color: #BFE5D3; }
+.topic-btn--new:hover { border-color: #12805C; }
+.topic-btn--primary.topic-btn--new { background: #12805C; border-color: #12805C; color: #fff; }
+.topic-btn--primary.topic-btn--new:hover { background: #0E6B4C; border-color: #0E6B4C; }
+.site-search-meta b.is-old { color: var(--primary); }
+.site-search-meta b.is-new { color: #12805C; }

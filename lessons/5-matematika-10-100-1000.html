@@ -99,6 +99,63 @@ label{font-weight:700;font-size:14px}
 .big{font:800 40px var(--f-display)}
 @media (prefers-reduced-motion:reduce){.pop,.strike.draw::after{animation:none}.bar i{transition:none}}
 @media (max-width:480px){.panel{padding:14px}.opts.three{grid-template-columns:1fr}}
+
+/* ===== O'yin (yangi ko'rinish — 4-mavzu bilan bir xil) ===== */
+.gstart{border-radius:16px;background:linear-gradient(140deg,#14213D 0%,#1F3A7A 60%,#2B4FA8 100%);color:#fff;padding:24px 22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.gstart::after{content:attr(data-bg);position:absolute;right:-6px;bottom:-18px;font:800 86px/1 var(--f-display);color:rgba(255,255,255,.07);letter-spacing:.05em;pointer-events:none;white-space:nowrap}
+.gstart h3{margin:0;font:800 clamp(26px,6vw,38px)/1.1 var(--f-display)}
+.gstart p{color:rgba(255,255,255,.82);font-weight:600;max-width:520px}
+.gtypes{display:flex;flex-wrap:wrap;gap:8px}
+.gtypes span{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font-weight:700;font-size:14px}
+.gbtn{align-self:flex-start;background:#fff;color:#14213D;border:0;border-radius:12px;padding:13px 26px;font:800 17px var(--f-body);cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25);transition:transform .12s}
+.gbtn:hover{transform:translateY(-2px)}
+.gbest{font-weight:700;font-size:14px;color:rgba(255,255,255,.75)}
+.gbest b{color:#FFD15C}
+.ghud{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ring{position:relative;width:58px;height:58px;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 19px var(--f-display)}
+.ring.low b{color:var(--bad)}
+.pill{display:flex;flex-direction:column;padding:6px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line);min-width:84px}
+.pill small{font:800 11px var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.pill b{font:800 22px/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.pill.hot{background:#FFF4E5;border-color:#F4B860}
+.pill.hot b{color:#C2410C}
+.gplus{position:absolute;font:800 22px var(--f-display);color:var(--ok);animation:gup 1s ease forwards;pointer-events:none}
+@keyframes gup{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-34px)}}
+.gcard{position:relative;border-radius:16px;border:1.5px solid var(--line);background:linear-gradient(180deg,#FBFCFE,#F3F6FB);padding:18px;display:flex;flex-direction:column;gap:14px}
+.gtag{align-self:flex-start;padding:4px 10px;border-radius:999px;font:800 12px var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:#fff}
+.gq{font:700 clamp(17px,3.8vw,21px)/1.35 var(--f-display);text-wrap:balance}
+.gexpr{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 .2em;font:800 clamp(30px,7.5vw,48px)/1.25 var(--f-display);font-variant-numeric:tabular-nums;padding:6px 0;color:var(--ink)}
+.gexpr .dig{font:inherit}
+.gexpr .qm,.gexpr .gop{color:var(--muted)}
+.gopts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.gopt{position:relative;display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:12px 14px;min-height:62px;cursor:pointer;text-align:left;font:800 clamp(17px,4vw,21px)/1.25 var(--f-display);font-variant-numeric:tabular-nums;transition:transform .12s,border-color .12s,box-shadow .12s}
+.gopt:not(:disabled):hover{transform:translateY(-2px);border-color:var(--ink);box-shadow:0 6px 14px rgba(20,33,61,.1)}
+.gopt .lt{flex:none;width:30px;height:30px;border-radius:9px;background:var(--bg);color:var(--muted);display:flex;align-items:center;justify-content:center;font:800 14px var(--f-body)}
+.gopt.good{border-color:var(--ok);background:var(--okbg)}
+.gopt.good .lt{background:var(--ok);color:#fff}
+.gopt.bad{border-color:var(--bad);background:var(--badbg);animation:gshake .35s}
+.gopt.bad .lt{background:var(--bad);color:#fff}
+.gopt:disabled{cursor:default}
+@keyframes gshake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.gwhy{min-height:1.5em;font-weight:700;font-size:15px;color:var(--bad)}
+.gend{border-radius:16px;border:1.5px solid var(--line);background:linear-gradient(180deg,#FFFFFF,#F3F6FB);padding:22px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.stars{display:flex;gap:6px}
+.stars svg{width:44px;height:44px}
+.gscore{font:800 54px/1 var(--f-display)}
+.gscore small{font-size:20px;color:var(--muted)}
+.gstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%;max-width:560px}
+.gstats div{border-radius:12px;background:var(--bg);padding:8px}
+.gstats small{display:block;font:800 11px var(--f-body);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.gstats b{font:800 22px var(--f-display)}
+.gend .gbtn{align-self:center;background:var(--ink);color:#fff;box-shadow:none}
+.newbest{padding:4px 12px;border-radius:999px;background:#FFF4E5;color:#C2410C;font-weight:800;font-size:14px}
+@media (max-width:480px){.gopts{grid-template-columns:1fr}.gstats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ghud{gap:6px;flex-wrap:nowrap}.ring{width:50px;height:50px}.ring svg{width:50px;height:50px}.ring b{font-size:17px}
+  .pill{min-width:0;flex:1;padding:5px 8px}.pill small{font-size:9.5px}.pill b{font-size:18px}
+  .gexpr{flex-wrap:nowrap;white-space:nowrap;font-size:clamp(22px,7vw,32px)}.gcard{padding:14px}}
+@media (prefers-reduced-motion:reduce){.gopt.bad,.gplus{animation:none}}
 </style>
 
 <div class="wrap">
@@ -179,8 +236,8 @@ label{font-weight:700;font-size:14px}
 
   <!-- 5. O'yin -->
   <section class="panel" role="tabpanel" id="p-oyin" hidden>
-    <div><h2>60 soniyalik o'yin</h2><p class="hint">Natijani toping, ko'paytuvchini toping, nollar sonini ayting. To'g'ri javob 10 ball, ketma-ket to'g'rilar uchun qo'shimcha ball beradi. Sinfda jamoalar navbat bilan o'ynashi mumkin.</p></div>
-    <div id="game"></div>
+    <div><h2>60 soniyalik o'yin</h2></div>
+    <div id="game" style="position:relative;display:flex;flex-direction:column;gap:14px"></div>
   </section>
 </div>
 
@@ -383,41 +440,70 @@ $("ck6").onclick=chk6;
 $("sh6").onclick=()=>{if(s6.done)return;$("x6").value=s6.q.ans;$("x6").disabled=true;s6.done=true;live6();setMsg("fb6",`Javob: ${fmt(s6.q.ans)}. ${s6.q.hint}`,"");end6()};
 $("nx6").onclick=new6;
 
-/* ---------- 5. O'yin ---------- */
-const G={run:false,t:60,score:0,streak:0,ok:0,total:0,best:0,q:null,timer:null,lock:false};
-function drawGame(){
+/* ---------- 5. O'yin (ko'rinish 4-mavzu o'yini bilan bir xil) ---------- */
+const GT={mul:{t:"Ko'paytirish",c:"var(--c1)"},div:{t:"Bo'lish",c:"var(--c3)"},unk:{t:"Noma'lumni toping",c:"#7C3AED"},zero:{t:"Nollar soni",c:"var(--ok)"}};
+const GSTART={bg:"× 10 : 100",text:"10, 100, 1000 ga ko'paytiring va bo'ling, noma'lumni va nollar sonini toping."};
+const G={run:false,t:60,score:0,streak:0,maxStreak:0,ok:0,total:0,best:0,q:null,timer:null,lock:false};
+const RING=2*Math.PI*24;
+function hud(){
+  return `<div class="ghud"><div class="ring${G.t<=10?" low":""}"><svg width="58" height="58" viewBox="0 0 58 58"><circle cx="29" cy="29" r="24" fill="none" stroke="#E3E8F0" stroke-width="6"/><circle id="ring5" cx="29" cy="29" r="24" fill="none" stroke="${G.t<=10?"#C62828":"#14213D"}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${RING}" stroke-dashoffset="${RING*(1-G.t/60)}" style="transition:stroke-dashoffset 1s linear"/></svg><b id="t5">${G.t}</b></div>
+    <div class="pill"><small>Ball</small><b id="s5">${G.score}</b></div>
+    <div class="pill${G.streak>=3?" hot":""}" id="kp5"><small>Ketma-ket</small><b id="k5">${G.streak}</b></div>
+    <div class="pill"><small>To'g'ri</small><b id="o5">${G.ok}/${G.total}</b></div></div>`;
+}
+function starSvg(on){return `<svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z" fill="${on?"#FFC233":"#E3E8F0"}" stroke="${on?"#E0A100":"#D5DBE5"}" stroke-width="1.2" stroke-linejoin="round"/></svg>`}
+function drawGame(newBest){
   const g=$("game");
+  if(!G.run&&!G.total){
+    g.innerHTML=`<div class="gstart" data-bg="${GSTART.bg}"><h3>60 soniya — qancha ko'p, shuncha yaxshi</h3>
+      <p>${GSTART.text} To'g'ri javob — 10 ball, ketma-ket to'g'ri javoblar uchun qo'shimcha ball. Sinfda jamoalar navbat bilan o'ynashi mumkin.</p>
+      <div class="gtypes">${Object.values(GT).map(x=>`<span>${x.t}</span>`).join("")}</div>
+      <button class="gbtn" id="go5">Boshlash ▶</button>${G.best?`<div class="gbest">Eng yaxshi natija: <b>${G.best} ball</b></div>`:""}</div>`;return}
   if(!G.run){
-    g.innerHTML=`${G.total?`<div class="out" style="border-top:0;padding-top:0"><div class="big">${G.score} ball</div><p>To'g'ri javoblar: <b>${G.ok}</b> / ${G.total}</p></div>`:""}
-      <p class="hint">Eng yaxshi natija: <b>${G.best}</b> ball</p><div class="row"><button class="btn" id="go7">${G.total?"Qayta o'ynash":"Boshlash"}</button></div>`;return}
-  const q=G.q;
-  g.innerHTML=`<div class="bar" aria-hidden="true"><i id="bar7" style="width:${G.t/60*100}%"></i></div>
-    <div class="score"><span>Vaqt: <b id="t7">${G.t}</b> s</span><span>Ball: <b id="s7">${G.score}</b></span><span>Ketma-ket: <b id="k7">${G.streak}</b></span></div>
-    <div class="q">${q.text}</div>
-    <div class="opts${q.opts.length===3?" three":""}">${q.opts.map(o=>`<button class="opt" data-v="${o}">${o}</button>`).join("")}</div>`;
+    const acc=G.total?Math.round(G.ok/G.total*100):0,st=G.ok>=12&&acc>=85?3:G.ok>=7&&acc>=70?2:G.ok>=3?1:0;
+    g.innerHTML=`<div class="gend"><div class="stars">${[0,1,2].map(i=>starSvg(i<st)).join("")}</div>
+      <div class="gscore">${G.score} <small>ball</small></div>${newBest?`<span class="newbest">Yangi rekord!</span>`:""}
+      <div class="gstats"><div><small>To'g'ri</small><b>${G.ok}/${G.total}</b></div><div><small>Aniqlik</small><b>${acc}%</b></div><div><small>Eng uzun seriya</small><b>${G.maxStreak}</b></div><div><small>Rekord</small><b>${G.best}</b></div></div>
+      <button class="gbtn" id="go5">Qayta o'ynash ↻</button></div>`;return}
+  const q=G.q,tag=GT[q.kind];
+  g.innerHTML=hud()+`<div class="gcard"><span class="gtag" style="background:${tag.c}">${tag.t}</span><div class="gq">${q.ask}</div>${q.show?`<div class="gexpr">${q.show}</div>`:""}
+    <div class="gopts">${q.opts.map((o,i)=>`<button class="gopt" data-v="${o}"><span class="lt">${"ABCD"[i]}</span><span>${o}</span></button>`).join("")}</div>
+    <div class="gwhy" id="why5"></div></div>`;
+  // uzun son tor ekranga sig'masa — shrift sig'guncha kichrayadi
+  g.querySelectorAll(".gexpr").forEach(e=>{let f=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>e.clientWidth+1&&f>14){f-=1;e.style.fontSize=f+"px"}});
 }
-function nextG(){
-  const m=[10,100,1000][rnd(0,2)],k=K[m],a=rnd(2,999),type=rnd(0,3);let text,correct,opts;
-  const four=(c,w)=>{const s=new Set(w.filter(x=>x>0&&x<=MAXN&&x!==c));for(let j=1;s.size<3&&j<7;j++){const x=c*10**j;if(x<=MAXN)s.add(x)}const arr=[...s].slice(0,3);arr.push(c);return shuffle(arr).map(fmt)};
-  if(type===0){text=`${a} · ${MLAB[m]} = ?`;correct=fmt(a*m);opts=four(a*m,[a*m*10,a*m/10,a*m*100,a*(m/10)]);}
-  else if(type===1){text=`${fmt(a*m)} : ${MLAB[m]} = ?`;correct=fmt(a);opts=four(a,[a*10,a*100,a*1000,Math.max(Math.floor(a/10),1)]);}
-  else if(type===2){text=`${a} · ☐ = ${fmt(a*m)}`;correct=MLAB[m];opts=[MLAB[10],MLAB[100],MLAB[1000]];}
-  else{text=`${a} ni ${MLAB[m]} ga ko'paytirsak, natijaning oxiriga nechta nol yoziladi?`;correct=`${k} ta`;opts=["1 ta","2 ta","3 ta"];}
-  G.q={text,opts,correct};G.lock=false;
-}
-function startG(){Object.assign(G,{run:true,t:60,score:0,streak:0,ok:0,total:0,lock:false});nextG();drawGame();
-  clearInterval(G.timer);G.timer=setInterval(()=>{G.t--;const t=$("t7"),b=$("bar7");if(t)t.textContent=G.t;if(b)b.style.width=G.t/60*100+"%";if(G.t<=0)endG()},1000)}
-function endG(silent){clearInterval(G.timer);G.run=false;if(G.score>G.best)G.best=G.score;if(silent)G.total=0;drawGame()}
+function startG(){Object.assign(G,{run:true,t:60,score:0,streak:0,maxStreak:0,ok:0,total:0,lock:false});nextG();drawGame();
+  clearInterval(G.timer);G.timer=setInterval(()=>{G.t--;const t=$("t5"),r=$("ring5");
+    if(t){t.textContent=G.t;t.parentElement.classList.toggle("low",G.t<=10)}
+    if(r){r.setAttribute("stroke-dashoffset",RING*(1-G.t/60));if(G.t<=10)r.setAttribute("stroke","#C62828")}
+    if(G.t<=0)endG()},1000)}
+function endG(silent){clearInterval(G.timer);G.run=false;const nb=!silent&&G.score>G.best&&G.score>0;if(G.score>G.best)G.best=G.score;if(silent)G.total=0;drawGame(nb)}
 $("game").addEventListener("click",e=>{
-  if(e.target.id==="go7"){startG();return}
-  const o=e.target.closest(".opt");if(!o||!G.run||G.lock)return;G.lock=true;
-  const ok=o.dataset.v===G.q.correct;G.total++;
-  if(ok){G.ok++;G.streak++;G.score+=10+Math.min(G.streak-1,5)}else G.streak=0;
-  document.querySelectorAll("#game .opt").forEach(b=>{b.disabled=true;if(b.dataset.v===G.q.correct)b.classList.add("good");else if(b===o)b.classList.add("bad")});
-  $("s7").textContent=G.score;$("k7").textContent=G.streak;
-  setTimeout(()=>{if(!G.run)return;nextG();drawGame()},ok?450:1100);
+  if(e.target.closest("#go5")){startG();return}
+  const o=e.target.closest(".gopt");if(!o||!G.run||G.lock)return;G.lock=true;
+  const ok=o.dataset.v===G.q.correct;G.total++;let gain=0;
+  if(ok){G.ok++;G.streak++;G.maxStreak=Math.max(G.maxStreak,G.streak);gain=10+Math.min(G.streak-1,5);G.score+=gain}else G.streak=0;
+  document.querySelectorAll("#game .gopt").forEach(b=>{b.disabled=true;if(b.dataset.v===G.q.correct)b.classList.add("good");else if(b===o)b.classList.add("bad")});
+  $("s5").textContent=G.score;$("k5").textContent=G.streak;$("o5").textContent=G.ok+"/"+G.total;$("kp5").classList.toggle("hot",G.streak>=3);
+  if(ok){const r=o.getBoundingClientRect(),c=$("game").getBoundingClientRect(),pl=document.createElement("span");
+    pl.className="gplus";pl.textContent="+"+gain;pl.style.left=(r.right-c.left-56)+"px";pl.style.top=(r.top-c.top+8)+"px";$("game").appendChild(pl)}
+  else $("why5").textContent="To'g'ri javob: "+G.q.correct+(G.q.why?" — "+G.q.why:"")+".";
+  setTimeout(()=>{if(!G.run)return;nextG();drawGame()},ok?650:2300);
 });
-
+function nextG(){
+  const m=[10,100,1000][rnd(0,2)],k=K[m],a=rnd(2,999),type=rnd(0,3);let ask,show,correct,opts,why,kind;
+  const four=(c,w)=>{const s=new Set(w.filter(x=>x>0&&x<=MAXN&&x!==c));for(let j=1;s.size<3&&j<7;j++){const x=c*10**j;if(x<=MAXN)s.add(x)}const arr=[...s].slice(0,3);arr.push(c);return shuffle(arr).map(fmt)};
+  const X=`<span class="gop">×</span>`,D=`<span class="gop">:</span>`,E=`<span class="gop">=</span>`,Q=`<span class="qm">?</span>`;
+  if(type===0){kind="mul";ask="Ko'paytmani toping";show=`${tz(a)}${X}${tz(m,"cn")}${E}${Q}`;correct=fmt(a*m);opts=four(a*m,[a*m*10,a*m/10,a*m*100,a*(m/10)]);
+    why=`${a} ning oxiriga ${k} ta nol yoziladi`;}
+  else if(type===1){kind="div";ask="Bo'linmani toping";show=`${tz(a*m)}${D}${tz(m,"cn")}${E}${Q}`;correct=fmt(a);opts=four(a,[a*10,a*100,a*1000,Math.max(Math.floor(a/10),1)]);
+    why=`oxiridan ${k} ta nol tashlanadi`;}
+  else if(type===2){kind="unk";ask="Noma'lum ko'paytuvchini toping";show=`${tz(a)}${X}<span class="qm">☐</span>${E}${tz(a*m)}`;correct=MLAB[m];opts=[MLAB[10],MLAB[100],MLAB[1000]];
+    why=`oxiriga ${k} ta nol qo'shilgan`;}
+  else{kind="zero";ask="Natijaning oxiriga nechta nol yoziladi?";show=`${tz(a)}${X}${tz(m,"cn")}`;correct=`${k} ta`;opts=["1 ta","2 ta","3 ta"];
+    why=`${MLAB[m]} da ${k} ta nol bor`;}
+  G.q={kind,ask,show,opts,correct,why};G.lock=false;
+}
 render1(false);render4(false);new4();new5();new6();drawGame();
 </script>
 

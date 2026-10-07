@@ -366,8 +366,8 @@ function renderActiveSubjectTopics(grade) {
     const parts = splitTopicTitle(topic.title, i);
     const num = parts.num;
     const title = parts.title;
-    const btn = function (label, anchor, primary) {
-      return '<a class="topic-btn' + (primary ? ' topic-btn--primary' : '') + '" href="' + href + anchor + '">' + label + '</a>';
+    const btn = function (label, anchor, primary, extra) {
+      return '<a class="topic-btn' + (primary ? ' topic-btn--primary' : '') + (extra || '') + '" href="' + href + anchor + '">' + label + '</a>';
     };
     return (
       '<li class="topic-row">' +
@@ -379,7 +379,8 @@ function renderActiveSubjectTopics(grade) {
         '<span class="topic-row-actions">' +
           // ma'ruza matni bo'lmasa (5-sinf) — tugma ko'rsatilmaydi, Interaktiv asosiy tugma bo'ladi
           (topicHasLecture(topic) ? btn("Ma'ruza", "#maruza", true) : "") +
-          (topic.interactive ? btn("Interaktiv", "#interaktiv", !topicHasLecture(topic)) : "") +
+          // yangi simulyatorli darslar (newSim) — yashil, qolganlari ko'k
+          (topic.interactive ? btn("Interaktiv", "#interaktiv", !topicHasLecture(topic), topic.newSim ? " topic-btn--new" : "") : "") +
           (topic.test ? btn("Test", "#test", false) : "") +
         '</span>' +
       '</li>'
@@ -481,8 +482,8 @@ function renderGallery() {
         total++;
         const href = topicHref(grade.id, subject.id, topic.id);
         const parts = splitTopicTitle(topic.title, i);
-        const btn = function (label, anchor, primary) {
-          return '<a class="topic-btn' + (primary ? ' topic-btn--primary' : '') + '" href="' + href + anchor + '">' + label + '</a>';
+        const btn = function (label, anchor, primary, extra) {
+          return '<a class="topic-btn' + (primary ? ' topic-btn--primary' : '') + (extra || '') + '" href="' + href + anchor + '">' + label + '</a>';
         };
         return (
           '<li class="topic-row">' +
@@ -491,8 +492,8 @@ function renderGallery() {
               (topic.page ? '<span class="topic-row-page">' + topic.page + '</span>' : '') +
             '</a>' +
             '<span class="topic-row-actions">' +
-              btn("Interaktiv", "#interaktiv", true) +
-              btn("Ma'ruza", "#maruza", false) +
+              btn("Interaktiv", "#interaktiv", true, topic.newSim ? " topic-btn--new" : "") +
+              (topicHasLecture(topic) ? btn("Ma'ruza", "#maruza", false) : "") +
               (topic.test ? btn("Test", "#test", false) : "") +
             '</span>' +
           '</li>'

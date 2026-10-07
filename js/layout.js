@@ -127,7 +127,7 @@ function initSiteSearch(base) {
           sub.topics.forEach(function (t) {
             const title = t.title.replace(/^\d+(\.\d+)*\.?\s+/, "");
             items.push({
-              grade: Number(g.id), title: title, meta: g.name + " · " + sub.name.replace(/\s*\(.*\)\s*$/, ""), interactive: !!t.interactive,
+              grade: Number(g.id), title: title, meta: g.name + " · " + sub.name.replace(/\s*\(.*\)\s*$/, ""), interactive: !!t.interactive, newSim: !!t.newSim,
               href: base + "mavzu.html?sinf=" + g.id + "&fan=" + sub.id + "&mavzu=" + t.id + (t.interactive ? "#interaktiv" : "")
             });
           });
@@ -208,7 +208,7 @@ function initSiteSearch(base) {
   function itemHtml(it, i, stems) {
     return '<li role="option"><a class="site-search-item' + (i === active ? " active" : "") + '" href="' + it.href + '" data-i="' + i + '">' +
       '<span class="site-search-title">' + highlight(it.title, stems) + "</span>" +
-      '<span class="site-search-meta">' + escapeHtml(it.meta) + (it.interactive ? ' · <b>Interaktiv</b>' : "") + "</span></a></li>";
+      '<span class="site-search-meta">' + escapeHtml(it.meta) + (it.interactive ? ' · <b class="' + (it.newSim ? "is-new" : "is-old") + '">Interaktiv</b>' : "") + "</span></a></li>";
   }
 
   function render() {
