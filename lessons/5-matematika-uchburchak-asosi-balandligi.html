@@ -1,0 +1,505 @@
+<!doctype html><html lang="uz" data-theme="light"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0;padding:0}[hidden]{display:none!important}</style></head><body>
+<title>Uchburchakning asosi va balandligi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: bitta ustun; yuqorida rang izohi va tablar, pastda tanlangan rejim paneli (katakli chizma + izoh).
+   To'q sariq = asos, ko'k = balandlik, yashil = to'g'ri burchak belgisi */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --ink:#14213D; --muted:#5B6577; --line:#D5DBE5;
+  --c1:#1F5FD6; --c1s:#E3ECFC;
+  --c2:#12805C; --c2s:#DDF3E9;
+  --c3:#D4501B; --c3s:#FCE6DC;
+  --ok:#12805C; --bad:#C62828; --badbg:#FBE3E3; --okbg:#DDF3E9;
+  --f-display:"Bricolage Grotesque",ui-rounded,"Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;padding-inline:16px;padding-block:22px 48px;background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body)}
+.wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font:800 clamp(24px,5.2vw,36px)/1.12 var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font:700 20px/1.25 var(--f-display);margin:0 0 4px;text-wrap:balance}
+p{margin:0}
+.sub{color:var(--muted);margin-top:6px}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;font-weight:700}
+.key span{display:flex;gap:8px;align-items:center}
+.key i{flex:0 0 14px;height:14px;border-radius:3px;display:inline-block}
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid var(--line);scrollbar-width:thin}
+.tab{flex:0 0 auto;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;padding:10px 14px;font:700 15px var(--f-body);color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.hint{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:9px;padding:10px 16px;font:700 15px var(--f-body);cursor:pointer;min-height:42px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sel{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:default}
+:focus-visible{outline:3px solid var(--c1);outline-offset:2px}
+.ca{color:var(--c1)}.cz{color:var(--c3)}.cg{color:var(--c2)}
+.msg{min-height:1.6em;font-weight:600;font-size:15px}
+.msg.good{color:var(--ok)}.msg.bad{color:var(--bad)}
+.box{padding:12px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line);font-weight:600;line-height:1.65}
+.box b{font-weight:800}
+.out{display:flex;flex-direction:column;gap:8px;border-top:1px dashed var(--line);padding-top:14px}
+/* chizma */
+.board{width:100%;max-width:680px;height:auto;display:block;touch-action:none;user-select:none;-webkit-user-select:none;border-radius:10px;background:#FBFCFE;border:1.5px solid var(--line)}
+.board .gl{stroke:#E3E8F0;stroke-width:.035}
+.board .side{stroke:var(--ink);stroke-width:.07;stroke-linecap:round}
+.board .base{stroke:var(--c3);stroke-width:.14;stroke-linecap:round}
+.board .ext{stroke:var(--c3);stroke-width:.06;stroke-dasharray:.18 .14}
+.board .hgt{stroke-width:.09;stroke-linecap:round}
+.board .ra{fill:none;stroke:var(--c2);stroke-width:.06}
+.board text{font-family:var(--f-body);font-weight:800;paint-order:stroke;stroke:#FBFCFE;stroke-width:.14px}
+.board .vlab{font-size:.62px;fill:var(--ink)}
+.board .len{font-size:.48px}
+.board .hit{stroke:transparent;stroke-width:.8;cursor:pointer}
+.board .vhit{fill:transparent;cursor:grab}
+.board .cand{stroke:#98A4BA;stroke-width:.08;stroke-dasharray:.22 .14;stroke-linecap:round}
+.board .cand.good{stroke:var(--c2);stroke-dasharray:none;stroke-width:.1}
+.board .cand.bad{stroke:var(--bad)}
+.board .num{font-size:.52px;fill:var(--ink)}
+.board .apex{fill:none;stroke:var(--c1);stroke-width:.07;animation:pulse 1.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{50%{opacity:.25;transform:scale(1.5)}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-weight:700;font-size:14px}
+.legend label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.legend input{width:18px;height:18px}
+/* savollar */
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.opt{background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:12px;font:700 16px/1.3 var(--f-body);text-align:left;cursor:pointer;min-height:52px}
+.opt.good{background:var(--okbg);border-color:var(--ok)}
+.opt.bad{background:var(--badbg);border-color:var(--bad)}
+.opt:disabled{cursor:default}
+.q{font:700 clamp(18px,4vw,23px)/1.3 var(--f-display);text-wrap:balance}
+.score{display:flex;gap:16px;flex-wrap:wrap;font-weight:700;font-size:14px;color:var(--muted)}
+.score b{color:var(--ink)}
+.bar{height:10px;border-radius:5px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);transition:width 1s linear}
+.big{font:800 40px var(--f-display)}
+.mini{max-width:440px}
+.why{font-size:14px;font-weight:600;color:var(--muted);min-height:1.4em}
+@media (prefers-reduced-motion:reduce){.board .apex{animation:none}.bar i{transition:none}}
+@media (max-width:480px){.panel{padding:14px}.opts{grid-template-columns:1fr}}
+/* telefonda chizma kichrayadi: yozuvlar kattaroq, uchlarni barmoq bilan ushlash joyi kengroq */
+@media (max-width:560px){.board .vlab{font-size:.95px}.board .len{font-size:.78px}.board .num{font-size:.62px}.board .vhit{r:1.05px}.board .hit{stroke-width:1.1}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Uchburchakning asosi va balandligi</h1>
+    <p class="sub">Uchburchakning istalgan tomoni asos bo'la oladi. Balandlik — qarama-qarshi uchdan asosga (yoki uning davomiga) tushirilgan perpendikulyar.</p>
+  </header>
+  <div class="key" aria-label="Ranglar izohi">
+    <span class="cz"><i style="background:var(--c3)"></i>Asos</span>
+    <span class="ca"><i style="background:var(--c1)"></i>Balandlik</span>
+    <span class="cg"><i style="background:var(--c2)"></i>To'g'ri burchak (90°)</span>
+  </div>
+
+  <div class="tabs" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-tab="asos" aria-selected="true">Asos va balandlik</button>
+    <button class="tab" role="tab" data-tab="uchta" aria-selected="false">Uchta balandlik</button>
+    <button class="tab" role="tab" data-tab="chiz" aria-selected="false">Balandlikni chizing</button>
+    <button class="tab" role="tab" data-tab="qaysi" aria-selected="false">Qaysi biri balandlik?</button>
+    <button class="tab" role="tab" data-tab="oyin" aria-selected="false">O'yin</button>
+  </div>
+
+  <!-- 1. Asos va balandlik -->
+  <section class="panel" role="tabpanel" id="p-asos">
+    <div><h2>Asosni tanlang — balandlik o'zi chiziladi</h2><p class="hint">Uchlarni sudrab uchburchak shaklini o'zgartiring. Istalgan tomonni bossangiz, u asos bo'ladi. «Aylantirish» uchburchakni buradi — balandlik tik bo'lishi shart emasligini ko'rasiz.</p></div>
+    <div class="row" id="pr1"><button class="btn ghost" data-pr="acute">O'tkir burchakli</button><button class="btn ghost" data-pr="right">To'g'ri burchakli</button><button class="btn ghost" data-pr="obtuse">O'tmas burchakli</button><button class="btn ghost" id="rot1">↻ Aylantirish</button><button class="btn ghost" id="nxt1">Asosni almashtirish</button></div>
+    <svg class="board" id="sv1" viewBox="0 0 16 11" aria-label="Katakli maydonda uchburchak"></svg>
+    <div class="box" id="ex1"></div>
+  </section>
+
+  <!-- 2. Uchta balandlik -->
+  <section class="panel" role="tabpanel" id="p-uchta" hidden>
+    <div><h2>Har bir tomonga — o'z balandligi</h2><p class="hint">Uchburchakning uchta tomoni bor, demak uchta balandligi bor. Har birini alohida yoqib ko'ring. Uchlarni sudrash ham mumkin.</p></div>
+    <div class="row" id="pr2"><button class="btn ghost" data-pr="acute">O'tkir burchakli</button><button class="btn ghost" data-pr="right">To'g'ri burchakli</button><button class="btn ghost" data-pr="obtuse">O'tmas burchakli</button></div>
+    <div class="legend" id="lg2"></div>
+    <svg class="board" id="sv2" viewBox="0 0 16 11" aria-label="Uchburchak va uning uchta balandligi"></svg>
+    <div class="box" id="ex2"></div>
+  </section>
+
+  <!-- 3. Balandlikni chizing -->
+  <section class="panel" role="tabpanel" id="p-chiz" hidden>
+    <div><h2>Balandlikni o'zingiz chizing</h2><p class="hint">Miltillayotgan uchdan to'q sariq asos tomon chiziq torting (bosib turib suring). Chiziq asos bilan 90° hosil qilsa — bu balandlik. Kerak bo'lsa, asosning punktir davomigacha torting.</p></div>
+    <div class="row" id="lv3"><button class="btn sel" data-lv="1">Oson</button><button class="btn ghost" data-lv="2">O'rta</button><button class="btn ghost" data-lv="3">Qiyin</button><button class="btn ghost" id="new3">Yangi uchburchak</button><button class="btn ghost" id="sh3">Ko'rsatish</button></div>
+    <div class="score" id="sc3"></div>
+    <svg class="board" id="sv3" viewBox="0 0 16 11" aria-label="Balandlikni chizish maydoni"></svg>
+    <div class="msg" id="m3" aria-live="polite"></div>
+  </section>
+
+  <!-- 4. Qaysi biri balandlik -->
+  <section class="panel" role="tabpanel" id="p-qaysi" hidden>
+    <div><h2>Qaysi kesma balandlik?</h2><p class="hint">To'q sariq tomon — asos. Punktir kesmalardan qaysi biri shu asosga tushirilgan balandlik? Kesmani yoki uning raqamini bosing.</p></div>
+    <div class="row" id="lv4"><button class="btn ghost" data-lv="1">Oson</button><button class="btn sel" data-lv="2">O'rta</button><button class="btn ghost" data-lv="3">Qiyin</button><button class="btn" id="nx4" hidden>Keyingi</button></div>
+    <div class="score" id="sc4"></div>
+    <svg class="board" id="sv4" viewBox="0 0 16 11" aria-label="Uchburchak va bir nechta kesma"></svg>
+    <div class="msg" id="m4" aria-live="polite"></div>
+  </section>
+
+  <!-- 5. O'yin -->
+  <section class="panel" role="tabpanel" id="p-oyin" hidden>
+    <div><h2>60 soniyalik o'yin</h2><p class="hint">Balandlikni toping, u qayerda yotishini va qaysi tomonga tushirilganini ayting, kataklarni sanang. To'g'ri javob 10 ball, ketma-ket to'g'rilar uchun qo'shimcha ball beradi. Sinfda jamoalar navbat bilan o'ynashi mumkin.</p></div>
+    <div id="game"></div>
+  </section>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pickOne=a=>a[rnd(0,a.length-1)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
+function setMsg(id,t,c){const m=$(id);m.innerHTML=t;m.className="msg "+(c||"")}
+function pick(groupId,attr,val){document.querySelectorAll(`#${groupId} .btn[data-${attr}]`).forEach(b=>b.className="btn "+(b.dataset[attr]===String(val)?"sel":"ghost"))}
+const COL={base:"#D4501B",h:"#1F5FD6",ok:"#12805C"};
+const HCOL=["#1F5FD6","#8B5CF6","#0E8F87"];
+const L=["A","B","C"];
+const sideName=i=>L[i]+L[(i+1)%3];
+
+/* ---------- geometriya ---------- */
+const sub=(p,q)=>[p[0]-q[0],p[1]-q[1]],add=(p,q)=>[p[0]+q[0],p[1]+q[1]],mul=(p,k)=>[p[0]*k,p[1]*k];
+const dot=(p,q)=>p[0]*q[0]+p[1]*q[1],cross=(p,q)=>p[0]*q[1]-p[1]*q[0],len=p=>Math.hypot(p[0],p[1]);
+const unit=p=>{const l=len(p)||1;return[p[0]/l,p[1]/l]};
+/* i-tomon: V[i]–V[i+1], qarama-qarshi uch: V[i+2]. Balandlik asosi F, joylashuvi: in / out / A / B (yon tomon bilan ustma-ust) */
+function footInfo(V,i){
+  const A=V[i],B=V[(i+1)%3],P=V[(i+2)%3],AB=sub(B,A),tn=dot(sub(P,A),AB),td=dot(AB,AB),t=tn/td;
+  const F=add(A,mul(AB,t)),pos=tn===0?"A":tn===td?"B":(t<0||t>1)?"out":"in";
+  return{A,B,P,F,t,pos,base:Math.sqrt(td),h:Math.abs(cross(AB,sub(P,A)))/Math.sqrt(td)};
+}
+function angles(V){return V.map((P,k)=>{const a=sub(V[(k+1)%3],P),b=sub(V[(k+2)%3],P);return Math.acos(Math.max(-1,Math.min(1,dot(a,b)/len(a)/len(b))))*180/Math.PI})}
+function triType(V){
+  const d=V.map((P,k)=>dot(sub(V[(k+1)%3],P),sub(V[(k+2)%3],P)));
+  if(d.some(x=>x===0))return"right";if(d.some(x=>x<0))return"obtuse";return"acute";
+}
+const TYPE={acute:"o'tkir burchakli",right:"to'g'ri burchakli",obtuse:"o'tmas burchakli"};
+const okTri=V=>cross(sub(V[1],V[0]),sub(V[2],V[0]))!==0;
+function fmtLen(x){const r=Math.round(x);return Math.abs(x-r)<.04?String(r):"≈ "+x.toFixed(1).replace(".",",")}
+
+/* ---------- chizma: katakli maydon, uchburchak, asos, balandliklar ---------- */
+function gridSvg(W,H){let g="";for(let x=0;x<=W;x++)g+=`<line class="gl" x1="${x}" y1="0" x2="${x}" y2="${H}"/>`;for(let y=0;y<=H;y++)g+=`<line class="gl" x1="0" y1="${y}" x2="${W}" y2="${y}"/>`;return g}
+const ln=(p,q,cls,extra="")=>`<line class="${cls}" x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" ${extra}/>`;
+/* to'g'ri burchak belgisi: F nuqtada, asos bo'ylab (kesma ichiga qarab) va uchga qarab */
+function raMark(fi,s=.4){
+  const {A,B,P,F,t}=fi,u=unit(t<=.5?sub(B,A):sub(A,B)),v=unit(sub(P,F));
+  const p1=add(F,mul(u,s)),p2=add(p1,mul(v,s)),p3=add(F,mul(v,s));
+  return `<path class="ra" d="M${p1[0]} ${p1[1]}L${p2[0]} ${p2[1]}L${p3[0]} ${p3[1]}"/>`;
+}
+function extSvg(fi,col){ // asos davomi (punktir) — balandlik tashqariga tushganda
+  if(fi.pos!=="out")return"";
+  const from=fi.t<0?fi.A:fi.B,to=add(fi.F,mul(unit(sub(fi.F,from)),.6));
+  return ln(from,to,"ext",col?`style="stroke:${col}"`:"");
+}
+function heightSvg(fi,col){
+  let g=ln(fi.P,fi.F,"hgt",`stroke="${col}"`)+raMark(fi);
+  g+=`<circle cx="${fi.F[0]}" cy="${fi.F[1]}" r=".11" fill="${col}"/>`;
+  return g;
+}
+function vLabels(V){const c=[(V[0][0]+V[1][0]+V[2][0])/3,(V[0][1]+V[1][1]+V[2][1])/3];
+  return V.map((P,k)=>{const d=unit(sub(P,c)),q=add(P,mul(d,.62));return `<text class="vlab" x="${q[0]}" y="${q[1]+.22}" text-anchor="middle">${L[k]}</text>`}).join("")}
+function triBody(V,baseI){
+  let g=`<polygon points="${V.map(p=>p.join(",")).join(" ")}" fill="#E3ECFC" fill-opacity=".55"/>`;
+  for(let i=0;i<3;i++)g+=ln(V[i],V[(i+1)%3],i===baseI?"base":"side");
+  return g;
+}
+const dots=V=>V.map(P=>`<circle cx="${P[0]}" cy="${P[1]}" r=".16" fill="#14213D"/>`).join("");
+function lenLabels(fi,hcol){
+  const mid=mul(add(fi.A,fi.B),.5),out=unit(sub(mid,fi.P)),q=add(mid,mul(out,.55));
+  const hm=mul(add(fi.P,fi.F),.5),side=unit([-(fi.F[1]-fi.P[1]),fi.F[0]-fi.P[0]]),r=add(hm,mul(side,.55));
+  return `<text class="len" x="${q[0]}" y="${q[1]+.18}" text-anchor="middle" fill="${COL.base}">${fmtLen(fi.base)}</text>`+
+    `<text class="len" x="${r[0]}" y="${r[1]+.18}" text-anchor="middle" fill="${hcol}">${fmtLen(fi.h)}</text>`;
+}
+function svgPt(svg,e){const p=svg.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(svg.getScreenCTM().inverse())}
+/* uchlarni sudrash: katak tugunlariga yopishadi, uchburchak yassilanib qolmaydi */
+function attachDrag(svg,st,W,H,render,onSide){
+  let drag=null;
+  svg.addEventListener("pointerdown",e=>{
+    const v=e.target.closest("[data-v]");
+    if(v){drag=+v.dataset.v;svg.setPointerCapture(e.pointerId);e.preventDefault();return}
+    const s=e.target.closest("[data-side]");if(s&&onSide)onSide(+s.dataset.side);
+  });
+  svg.addEventListener("pointermove",e=>{
+    if(drag===null)return;const p=svgPt(svg,e);
+    const q=[Math.max(0,Math.min(W,Math.round(p.x))),Math.max(0,Math.min(H,Math.round(p.y)))];
+    const V=st.V.slice();V[drag]=q;
+    if(okTri(V)&&(q[0]!==st.V[drag][0]||q[1]!==st.V[drag][1])){st.V=V;render()}
+  });
+  const end=()=>{drag=null};svg.addEventListener("pointerup",end);svg.addEventListener("pointercancel",end);
+}
+const hitLayer=(V,sides)=>(sides?[0,1,2].map(i=>ln(V[i],V[(i+1)%3],"hit",`data-side="${i}"`)).join(""):"")+
+  V.map((P,k)=>`<circle class="vhit" data-v="${k}" cx="${P[0]}" cy="${P[1]}" r=".65"/>`).join("");
+
+/* tayyor uchburchaklar */
+const PRESET={acute:[[3,9],[12,9],[7,2]],right:[[4,9],[12,9],[4,3]],obtuse:[[4,9],[8,9],[11,2]]};
+
+/* ---------- tablar ---------- */
+function switchTab(name){
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===name));
+  document.querySelectorAll(".panel").forEach(p=>p.hidden=p.id!=="p-"+name);
+  if(G.run)endG(true);
+}
+$("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)switchTab(b.dataset.tab)});
+
+/* ---------- 1. Asos va balandlik ---------- */
+const s1={V:PRESET.acute.map(p=>p.slice()),base:0};
+function posText(fi,i){
+  const apex=L[(i+2)%3],bn=sideName(i);
+  if(fi.pos==="in")return`Balandlik uchburchak <b>ichida</b> yotadi.`;
+  if(fi.pos==="out")return`Balandlik uchburchakdan <b>tashqarida</b>: perpendikulyar ${bn} ning o'ziga emas, uning <b>davomiga</b> tushadi (punktir chiziq). O'tmas burchakli uchburchakda shunday bo'ladi.`;
+  const other=fi.pos==="A"?i:(i+1)%3,pair=[(i+2)%3,other].sort();
+  const side=pair[0]===0&&pair[1]===2?"CA":L[pair[0]]+L[pair[1]];
+  return`Balandlik <b>${side}</b> tomon bilan <b>ustma-ust</b> tushadi: to'g'ri burchakli uchburchakda katetlar bir-biriga balandlik bo'ladi.`;
+}
+function render1(){
+  const V=s1.V,i=s1.base,fi=footInfo(V,i);
+  $("sv1").innerHTML=gridSvg(16,11)+extSvg(fi)+triBody(V,i)+heightSvg(fi,COL.h)+lenLabels(fi,COL.h)+dots(V)+vLabels(V)+hitLayer(V,true);
+  const apex=L[(i+2)%3];
+  $("ex1").innerHTML=`Uchburchak: <b>${TYPE[triType(V)]}</b>.<br>`+
+    `Asos: <b class="cz">${sideName(i)}</b> — ${fmtLen(fi.base)} katak. Balandlik: <b class="ca">${apex}</b> uchidan ${sideName(i)} ga tushirilgan perpendikulyar — ${fmtLen(fi.h)} katak.<br>`+posText(fi,i);
+}
+attachDrag($("sv1"),s1,16,11,render1,i=>{s1.base=i;render1()});
+$("pr1").addEventListener("click",e=>{const b=e.target.closest("[data-pr]");if(!b)return;s1.V=PRESET[b.dataset.pr].map(p=>p.slice());s1.base=0;render1()});
+$("nxt1").onclick=()=>{s1.base=(s1.base+1)%3;render1()};
+/* 90° ga burish: katak tugunlari tugunlarga o'tadi; maydondan chiqsa, siljitiladi */
+function rotate(V,W,H){
+  const c=[Math.round((V[0][0]+V[1][0]+V[2][0])/3),Math.round((V[0][1]+V[1][1]+V[2][1])/3)];
+  let R=V.map(p=>[c[0]-(p[1]-c[1]),c[1]+(p[0]-c[0])]);
+  const xs=R.map(p=>p[0]),ys=R.map(p=>p[1]);
+  const dx=Math.min(0,W-Math.max(...xs))-Math.min(0,Math.min(...xs)),dy=Math.min(0,H-Math.max(...ys))-Math.min(0,Math.min(...ys));
+  R=R.map(p=>[p[0]+dx,p[1]+dy]);
+  return R.every(p=>p[0]>=0&&p[0]<=W&&p[1]>=0&&p[1]<=H)?R:V;
+}
+$("rot1").onclick=()=>{s1.V=rotate(s1.V,16,11);render1()};
+
+/* ---------- 2. Uchta balandlik ---------- */
+const s2={V:PRESET.obtuse.map(p=>p.slice()),on:[true,true,true]};
+$("lg2").innerHTML=[0,1,2].map(i=>`<label style="color:${HCOL[i]}"><input type="checkbox" data-h="${i}" checked> ${sideName(i)} ga balandlik (${L[(i+2)%3]} dan)</label>`).join("");
+function render2(){
+  const V=s2.V;let g=gridSvg(16,11),hs="",txt=[];
+  [0,1,2].forEach(i=>{const fi=footInfo(V,i);if(!s2.on[i])return;g+=extSvg(fi,HCOL[i]);hs+=heightSvg(fi,HCOL[i]);
+    const where=fi.pos==="in"?"ichida":fi.pos==="out"?"tashqarida (tomon davomiga tushadi)":"yon tomon bilan ustma-ust";
+    txt.push(`<span style="color:${HCOL[i]}">■</span> ${sideName(i)} ga balandlik — ${where}, ${fmtLen(fi.h)} katak`)});
+  $("sv2").innerHTML=g+triBody(V,-1)+hs+dots(V)+vLabels(V)+hitLayer(V,false);
+  const t=triType(V);
+  $("ex2").innerHTML=`Uchburchak: <b>${TYPE[t]}</b>. `+(t==="acute"?"Uchala balandlik ham ichida.":t==="right"?"Ikki katet bir-biriga balandlik — ular yon tomonlar bilan ustma-ust.":"Ikkita balandlik tashqarida, faqat eng uzun tomonga tushirilgani ichida.")+
+    (txt.length?"<br>"+txt.join("<br>"):"");
+}
+attachDrag($("sv2"),s2,16,11,render2);
+$("lg2").addEventListener("change",e=>{const c=e.target.closest("[data-h]");if(c){s2.on[+c.dataset.h]=c.checked;render2()}});
+$("pr2").addEventListener("click",e=>{const b=e.target.closest("[data-pr]");if(!b)return;s2.V=PRESET[b.dataset.pr].map(p=>p.slice());render2()});
+
+/* ---------- tasodifiy uchburchaklar (daraja bo'yicha) ----------
+   1 — asos pastda gorizontal; 2 — burilgan, o'tkir burchakli; 3 — o'tmas, balandlik tashqarida */
+const inBoard=(q,W,H)=>q[0]>=.6&&q[0]<=W-.6&&q[1]>=.6&&q[1]<=H-.6;
+function genTri(lv,W,H){
+  for(let tries=0;tries<800;tries++){
+    if(lv===1){
+      const w=rnd(4,Math.min(9,W-3)),h=rnd(3,H-3),x0=rnd(1,W-1-w),y0=rnd(h+1,H-1),s=rnd(1,w-1);
+      return{V:[[x0,y0],[x0+w,y0],[x0+s,y0-h]],base:0};
+    }
+    const V=[0,1,2].map(()=>[rnd(1,W-1),rnd(1,H-1)]);
+    if(!okTri(V))continue;
+    const area=Math.abs(cross(sub(V[1],V[0]),sub(V[2],V[0])))/2,ang=angles(V),sides=[0,1,2].map(i=>len(sub(V[(i+1)%3],V[i])));
+    if(area<(lv===3?10:7)||Math.min(...sides)<2.5)continue;
+    if(lv===2){
+      if(Math.max(...ang)>82||Math.min(...ang)<32)continue;
+      const cand=[0,1,2].filter(i=>V[i][1]!==V[(i+1)%3][1]&&V[i][0]!==V[(i+1)%3][0]);
+      if(!cand.length)continue;
+      return{V,base:pickOne(cand)};
+    }
+    const o=ang.findIndex(a=>a>105&&a<145);if(o<0||Math.min(...ang)<14)continue;
+    // asos: o'tmas uchdan chiqqan tomon; qarama-qarshi uch o'tkir — balandlik tashqariga tushadi
+    const i=Math.random()<.5?o:(o+2)%3;
+    const F=footInfo(V,i);if(F.pos!=="out"||!inBoard(F.F,W,H))continue;
+    return{V,base:i};
+  }
+  return{V:PRESET.acute.map(p=>p.slice()),base:0};
+}
+
+/* ---------- 3. Balandlikni chizing ---------- */
+const s3={lv:1,V:null,base:0,E:null,drawing:false,done:false,ok:0,total:0,streak:0,tried:false};
+function sc3(){$("sc3").innerHTML=`<span>To'g'ri: <b>${s3.ok}</b> / ${s3.total}</span><span>Ketma-ket: <b>${s3.streak}</b></span>`}
+function new3(){const t=genTri(s3.lv,16,11);s3.V=t.V;s3.base=t.base;s3.E=null;s3.done=false;s3.tried=false;
+  setMsg("m3",`Asos — <b class="cz">${sideName(s3.base)}</b>. <b class="ca">${L[(s3.base+2)%3]}</b> uchidan unga balandlik tushiring.`);render3();sc3()}
+function lineInfo(){
+  const fi=footInfo(s3.V,s3.base),d=sub(fi.B,fi.A),w=sub(s3.E,fi.P);
+  const ang=Math.acos(Math.min(1,Math.abs(dot(d,w))/len(d)/(len(w)||1)))*180/Math.PI;
+  const dist=Math.abs(cross(d,sub(s3.E,fi.A)))/len(d);
+  return{fi,ang,dist};
+}
+function render3(){
+  const V=s3.V,i=s3.base,fi=footInfo(V,i),P=fi.P;
+  let g=gridSvg(16,11)+(s3.lv===3||s3.done?extSvg(fi):"")+triBody(V,i)+dots(V)+vLabels(V);
+  if(!s3.done)g+=`<circle class="apex" cx="${P[0]}" cy="${P[1]}" r=".38"/>`;
+  if(s3.E){
+    const {ang,dist}=lineInfo(),good=Math.abs(ang-90)<=4&&dist<.5;
+    const end=s3.done?fi.F:s3.E,col=s3.done||good?COL.ok:COL.h;
+    g+=ln(P,end,"hgt",`stroke="${col}"`);
+    if(s3.done)g+=raMark(fi)+`<circle cx="${fi.F[0]}" cy="${fi.F[1]}" r=".11" fill="${COL.ok}"/>`;
+    const lp=add(end,mul(unit(sub(end,P)),.6));
+    g+=`<text class="len" x="${lp[0]}" y="${lp[1]+.18}" text-anchor="middle" fill="${col}">${s3.done?"90°":Math.round(ang)+"°"}</text>`;
+  }
+  $("sv3").innerHTML=g;
+}
+(function(){
+  const svg=$("sv3");
+  svg.addEventListener("pointerdown",e=>{if(s3.done)return;s3.drawing=true;svg.setPointerCapture(e.pointerId);const p=svgPt(svg,e);s3.E=[p.x,p.y];render3();e.preventDefault()});
+  svg.addEventListener("pointermove",e=>{if(!s3.drawing)return;const p=svgPt(svg,e);s3.E=[p.x,p.y];render3()});
+  const up=()=>{
+    if(!s3.drawing)return;s3.drawing=false;if(!s3.E)return;
+    const {fi,ang,dist}=lineInfo();
+    if(len(sub(s3.E,fi.P))<.6){s3.E=null;render3();return}
+    const ok=Math.abs(ang-90)<=4&&dist<.5;
+    if(!s3.tried){s3.tried=true;s3.total++;if(ok){s3.ok++;s3.streak++}else s3.streak=0}
+    if(ok){s3.done=true;setMsg("m3",`Zo'r! Chiziq asos bilan 90° hosil qildi — bu <b>balandlik</b>${fi.pos==="out"?" (asosning davomiga tushdi)":""}. Uzunligi ${fmtLen(fi.h)} katak.`,"good")}
+    else if(Math.abs(ang-90)>4)setMsg("m3",`Chiziq asos bilan ${Math.round(ang)}° hosil qilyapti — 90° bo'lishi kerak. Yana urinib ko'ring.`,"bad");
+    else setMsg("m3",`Burchak to'g'ri, lekin chiziq ${fi.pos==="out"?"asosning punktir davomigacha":"asosgacha"} yetmadi. Yana urinib ko'ring.`,"bad");
+    render3();sc3();
+  };
+  svg.addEventListener("pointerup",up);svg.addEventListener("pointercancel",up);
+})();
+$("new3").onclick=new3;
+$("sh3").onclick=()=>{if(s3.done)return;const fi=footInfo(s3.V,s3.base);s3.E=fi.F;s3.done=true;if(!s3.tried){s3.tried=true;s3.total++;s3.streak=0}
+  setMsg("m3",`Balandlik ${L[(s3.base+2)%3]} uchidan ${sideName(s3.base)} ${fi.pos==="out"?"ning davomiga":"ga"} 90° burchak ostida tushadi.`,"");render3();sc3()};
+$("lv3").addEventListener("click",e=>{const b=e.target.closest("[data-lv]");if(!b)return;s3.lv=+b.dataset.lv;pick("lv3","lv",s3.lv);new3()});
+
+/* ---------- 4. Qaysi biri balandlik ---------- */
+const s4={lv:2,V:null,base:0,c:[],done:false,ok:0,total:0,streak:0};
+function sc4(){$("sc4").innerHTML=`<span>To'g'ri: <b>${s4.ok}</b> / ${s4.total}</span><span>Ketma-ket: <b>${s4.streak}</b></span>`}
+/* nomzod kesmalar: h — balandlik, m — asos o'rtasiga, s — qiyshiq, o — boshqa tomonga tushirilgan balandlik.
+   Kesmalar bir-biriga va uchburchak tomonlariga yaqin bo'lmasligi kerak (raqamlari aniq ko'rinsin) */
+const angDeg=(p,q)=>Math.acos(Math.max(-1,Math.min(1,dot(unit(p),unit(q)))))*180/Math.PI;
+function makeCands(V,i,lv){
+  const W=V.W||16,H=V.H||11,fi=footInfo(V,i),mid=mul(add(fi.A,fi.B),.5),P=fi.P;
+  if(len(sub(mid,fi.F))<1)return null;
+  const sidesDir=[sub(fi.A,P),sub(fi.B,P)],hDir=sub(fi.F,P),mDir=sub(mid,P);
+  if(angDeg(hDir,mDir)<11||sidesDir.some(d=>angDeg(mDir,d)<8)||(fi.pos==="in"&&sidesDir.some(d=>angDeg(hDir,d)<8)))return null;
+  // qiyshiq kesma: asosdagi eng "bo'sh" nuqta — boshqa chiziqlardan eng uzoq burchak
+  let sp=null,best=0;
+  for(let t=.08;t<=.92;t+=.02){const q=add(fi.A,mul(sub(fi.B,fi.A),t)),d=sub(q,P);
+    const m=Math.min(angDeg(d,hDir),angDeg(d,mDir),...sidesDir.map(x=>angDeg(d,x)));
+    if(m>best&&len(sub(q,fi.F))>.9&&len(sub(q,mid))>.9){best=m;sp=q}}
+  if(!sp||best<9)return null;
+  const c=[{k:"h",P,Q:fi.F},{k:"m",P,Q:mid},{k:"s",P,Q:sp}];
+  if(lv>1){const j=(i+1)%3,fo=footInfo(V,j);if(fo.pos==="in"&&fo.h>1.5)c.push({k:"o",P:fo.P,Q:fo.F,fi:fo})}
+  if(c.some(x=>x.Q[0]<.4||x.Q[1]<.4||x.Q[0]>W-.4||x.Q[1]>H-.4))return null;
+  return shuffle(c);
+}
+/* raqam doirachalari: har biri o'z kesmasi bo'ylab, boshqa raqamlardan uzoq joyga qo'yiladi */
+function candLabs(cs){
+  const placed=[],FR=[.62,.48,.76,.38,.86,.3];
+  return cs.map(c=>{
+    const n=unit([-(c.Q[1]-c.P[1]),c.Q[0]-c.P[0]]);let best=null,bd=-1;
+    for(const f of FR)for(const sg of [1,-1]){const q=add(add(c.P,mul(sub(c.Q,c.P),f)),mul(n,.42*sg));
+      const d=placed.length?Math.min(...placed.map(p=>len(sub(p,q)))):9;if(d>bd+.01){bd=d;best=q}if(d>1.1)break}
+    placed.push(best);return best;
+  });
+}
+function new4(){
+  let found=false;
+  for(let t=0;t<600&&!found;t++){const T=genTri(s4.lv,16,11),c=makeCands(T.V,T.base,s4.lv);if(c){s4.V=T.V;s4.base=T.base;s4.c=c;found=true}}
+  if(!found){const F4={1:[[[3,9],[13,9],[6,2]],0],2:[[[2,7],[11,10],[9,2]],0],3:[[[5,8],[8,4],[14,7]],0]}[s4.lv];
+    s4.V=F4[0].map(p=>p.slice());s4.base=F4[1];s4.c=makeCands(s4.V,s4.base,1)||[{k:"h",P:s4.V[2],Q:footInfo(s4.V,0).F}]}
+  s4.done=false;setMsg("m4","");$("nx4").hidden=true;render4();sc4();
+}
+function render4(pickIdx){
+  const V=s4.V,i=s4.base,fi=footInfo(V,i);
+  let g=gridSvg(16,11)+extSvg(fi)+triBody(V,i);
+  const labs=candLabs(s4.c);s4.labs=labs;
+  s4.c.forEach((c,n)=>{
+    const cls=s4.done?(c.k==="h"?" good":n===pickIdx?" bad":""):"";
+    g+=ln(c.P,c.Q,"cand"+cls);
+    const off=labs[n];
+    g+=`<circle cx="${off[0]}" cy="${off[1]}" r=".36" fill="#fff" stroke="${s4.done&&c.k==="h"?COL.ok:"#98A4BA"}" stroke-width=".05"/><text class="num" x="${off[0]}" y="${off[1]+.19}" text-anchor="middle">${n+1}</text>`;
+  });
+  if(s4.done){g+=raMark(fi);const pc=s4.c[pickIdx];if(pc&&pc.k==="o")g+=raMark(pc.fi)}
+  g+=dots(V)+vLabels(V);
+  if(!s4.done)s4.c.forEach((c,n)=>{g+=ln(c.P,c.Q,"hit",`data-c="${n}"`);const off=labs[n];g+=`<circle cx="${off[0]}" cy="${off[1]}" r=".5" fill="transparent" data-c="${n}" style="cursor:pointer"/>`});
+  $("sv4").innerHTML=g;
+}
+$("sv4").addEventListener("click",e=>{
+  const t=e.target.closest("[data-c]");if(!t||s4.done)return;const n=+t.dataset.c,c=s4.c[n],fi=footInfo(s4.V,s4.base);
+  s4.done=true;s4.total++;const ok=c.k==="h";if(ok){s4.ok++;s4.streak++}else s4.streak=0;
+  const right=s4.c.findIndex(x=>x.k==="h")+1;
+  const why={h:"",m:"bu kesma asosning o'rtasiga boradi, lekin asos bilan 90° hosil qilmaydi.",
+    s:`bu kesma asos bilan ${Math.round(Math.acos(Math.abs(dot(sub(fi.B,fi.A),sub(c.Q,c.P)))/len(sub(fi.B,fi.A))/len(sub(c.Q,c.P)))*180/Math.PI)}° hosil qiladi — 90° emas.`,
+    o:"bu ham balandlik, lekin boshqa tomonga tushirilgan — belgilangan to'q sariq asosga emas."}[c.k];
+  setMsg("m4",ok?`To'g'ri! ${right}-kesma asos bilan 90° hosil qiladi${fi.pos==="out"?" (asos davomiga tushadi)":""}.`:`Noto'g'ri: ${why} To'g'ri javob — ${right}-kesma (yashil).`,ok?"good":"bad");
+  $("nx4").hidden=false;render4(n);sc4();
+});
+$("nx4").onclick=new4;
+$("lv4").addEventListener("click",e=>{const b=e.target.closest("[data-lv]");if(!b)return;s4.lv=+b.dataset.lv;pick("lv4","lv",s4.lv);new4()});
+
+/* ---------- 5. O'yin ---------- */
+const G={run:false,t:60,score:0,streak:0,ok:0,total:0,best:0,q:null,timer:null,lock:false};
+const MW=12,MH=8;
+function miniSvg(inner){return `<svg class="board mini" viewBox="0 0 ${MW} ${MH}" aria-hidden="true">${gridSvg(MW,MH)}${inner}</svg>`}
+function nextG(){
+  const type=rnd(0,3);let text,pic,correct,opts,why;
+  if(type===0){
+    let T,c=null;for(let t=0;t<300&&!c;t++){T=genTri(rnd(1,3),MW,MH);T.V.W=MW;T.V.H=MH;c=makeCands(T.V,T.base,1)}
+    if(!c)return nextG();
+    const fi=footInfo(T.V,T.base);
+    const labs=candLabs(c);
+    pic=miniSvg(extSvg(fi)+triBody(T.V,T.base)+c.map((x,n)=>{const off=labs[n];
+      return ln(x.P,x.Q,"cand")+`<circle cx="${off[0]}" cy="${off[1]}" r=".36" fill="#fff" stroke="#98A4BA" stroke-width=".05"/><text class="num" x="${off[0]}" y="${off[1]+.19}" text-anchor="middle">${n+1}</text>`}).join("")+dots(T.V)+vLabels(T.V));
+    text="Qaysi kesma to'q sariq asosga tushirilgan balandlik?";correct=String(c.findIndex(x=>x.k==="h")+1);opts=["1","2","3"];
+    why=`balandlik asos bilan 90° hosil qiladi — ${correct}-kesma`;
+  }else if(type===1){
+    const kind=pickOne(["in","out","side"]);let V,i;
+    if(kind==="in"){const T=genTri(pickOne([1,2]),MW,MH);V=T.V;i=T.base}
+    else if(kind==="out"){const T=genTri(3,MW,MH);V=T.V;i=T.base}
+    else{const w=rnd(4,8),h=rnd(3,5),x0=rnd(1,MW-1-w),y0=rnd(h+1,MH-1);V=Math.random()<.5?[[x0,y0],[x0+w,y0],[x0,y0-h]]:[[x0,y0],[x0+w,y0],[x0+w,y0-h]];i=0}
+    const fi=footInfo(V,i);
+    pic=miniSvg(triBody(V,i)+dots(V)+vLabels(V));
+    text=`To'q sariq asos ${sideName(i)} ga ${L[(i+2)%3]} uchidan tushirilgan balandlik qayerda yotadi?`;
+    const A=["Uchburchak ichida","Uchburchakdan tashqarida","Yon tomon bilan ustma-ust"];
+    correct=fi.pos==="in"?A[0]:fi.pos==="out"?A[1]:A[2];opts=A;
+    why=fi.pos==="in"?"uchburchak o'tkir burchakli — balandlik ichida":fi.pos==="out"?"o'tmas burchak tomonidan — balandlik asos davomiga tushadi":"to'g'ri burchakli uchburchakda katet balandlik bo'ladi";
+  }else if(type===2){
+    const T=genTri(rnd(1,3),MW,MH),i=rnd(0,2),fi=footInfo(T.V,i);
+    if(fi.pos==="A"||fi.pos==="B")return nextG();
+    pic=miniSvg(extSvg(fi)+triBody(T.V,-1)+heightSvg(fi,COL.h)+dots(T.V)+vLabels(T.V));
+    text="Ko'k balandlik qaysi tomonga tushirilgan?";correct=sideName(i);opts=["AB","BC","CA"];
+    why=`ko'k chiziq ${sideName(i)} ${fi.pos==="out"?"ning davomi":""} bilan 90° hosil qiladi`;
+  }else{
+    const T=genTri(1,MW,MH),fi=footInfo(T.V,0),askH=Math.random()<.6,ans=Math.round(askH?fi.h:fi.base);
+    pic=miniSvg(triBody(T.V,0)+(askH?heightSvg(fi,COL.h):"")+dots(T.V)+vLabels(T.V));
+    text=askH?"Ko'k balandlik necha katak?":"To'q sariq asos necha katak?";correct=String(ans);
+    const s=new Set([ans]);[ans+1,ans-1,ans+2,Math.round(askH?fi.base:fi.h)].forEach(x=>{if(x>0&&s.size<3)s.add(x)});
+    opts=shuffle([...s].map(String));why=`kataklarni sanaymiz: ${ans} ta`;
+  }
+  G.q={text,pic,correct,opts,why};G.lock=false;
+}
+function drawGame(){
+  const g=$("game");
+  if(!G.run){
+    g.innerHTML=`${G.total?`<div class="out" style="border-top:0;padding-top:0"><div class="big">${G.score} ball</div><p>To'g'ri javoblar: <b>${G.ok}</b> / ${G.total}</p></div>`:""}
+      <p class="hint">Eng yaxshi natija: <b>${G.best}</b> ball</p><div class="row"><button class="btn" id="go5">${G.total?"Qayta o'ynash":"Boshlash"}</button></div>`;return}
+  const q=G.q;
+  g.innerHTML=`<div class="bar" aria-hidden="true"><i id="bar5" style="width:${G.t/60*100}%"></i></div>
+    <div class="score"><span>Vaqt: <b id="t5">${G.t}</b> s</span><span>Ball: <b id="s5">${G.score}</b></span><span>Ketma-ket: <b id="k5">${G.streak}</b></span></div>
+    <div class="q">${q.text}</div>${q.pic}
+    <div class="opts">${q.opts.map(o=>`<button class="opt" data-v="${o}">${o}</button>`).join("")}</div>
+    <div class="why" id="why5"></div>`;
+}
+function startG(){Object.assign(G,{run:true,t:60,score:0,streak:0,ok:0,total:0,lock:false});nextG();drawGame();
+  clearInterval(G.timer);G.timer=setInterval(()=>{G.t--;const t=$("t5"),b=$("bar5");if(t)t.textContent=G.t;if(b)b.style.width=G.t/60*100+"%";if(G.t<=0)endG()},1000)}
+function endG(silent){clearInterval(G.timer);G.run=false;if(G.score>G.best)G.best=G.score;if(silent)G.total=0;drawGame()}
+$("game").addEventListener("click",e=>{
+  if(e.target.id==="go5"){startG();return}
+  const o=e.target.closest(".opt");if(!o||!G.run||G.lock)return;G.lock=true;
+  const ok=o.dataset.v===G.q.correct;G.total++;
+  if(ok){G.ok++;G.streak++;G.score+=10+Math.min(G.streak-1,5)}else G.streak=0;
+  document.querySelectorAll("#game .opt").forEach(b=>{b.disabled=true;if(b.dataset.v===G.q.correct)b.classList.add("good");else if(b===o)b.classList.add("bad")});
+  $("s5").textContent=G.score;$("k5").textContent=G.streak;
+  if(!ok)$("why5").textContent="To'g'ri javob: "+G.q.correct+" — "+G.q.why+".";
+  setTimeout(()=>{if(!G.run)return;nextG();drawGame()},ok?500:1900);
+});
+
+render1();render2();new3();new4();drawGame();
+
+/* MathRun: mavzu sahifasidagi oyna balandligi ko'rgazmaga moslashadi (ichki aylantirishsiz) */
+(function(){function post(){try{parent.postMessage({type:"mathrun:height",h:document.body.offsetHeight},"*")}catch(e){}}
+new ResizeObserver(post).observe(document.body);post();})();
+</script>
+</body></html>
