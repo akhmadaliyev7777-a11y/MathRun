@@ -446,7 +446,8 @@ function renderTopicPage() {
     ? '<div class="sim-plan"><div class="sim-plan-title">Simulyatsiya rejasi</div><p>' + topic.simPlan + '</p></div>'
     : "";
   if (topic.interactive) {
-    interactiveEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" src="' + topic.interactive + '" allowfullscreen></iframe>' + planHtml;
+    const lv = typeof LESSON_VER !== "undefined" ? (topic.interactive.indexOf("?") < 0 ? "?v=" : "&v=") + LESSON_VER : "";
+    interactiveEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" src="' + topic.interactive + lv + '" allowfullscreen></iframe>' + planHtml;
   } else {
     interactiveEl.innerHTML = '<div class="placeholder">🚧 Interaktiv ko\'rgazma tez orada qo\'shiladi</div>' + planHtml;
   }
