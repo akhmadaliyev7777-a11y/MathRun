@@ -437,14 +437,14 @@ function new3(){
   $("q3").innerHTML=`${o.T} ning ${fr(o.a,o.b)} qismi olindi. Keyin <b class="${which==="butun"?"ca":"cg"}">${which==="butun"?"butunning":"qolganining"}</b> ${fr(o.c,o.d)} qismi olindi. Ikkinchi marta qancha olindi?`;
   const opts=[...new Set([ans,which==="butun"?o.P2:W1,o.P1,o.R1-o.P2,o.R1])].slice(0,4);
   $("w3").innerHTML=shuffle(opts).map(v=>`<button class="chipC" data-v="${v}" style="font-size:20px;padding:8px 18px">${v}</button>`).join("");
-  $("sv3").hidden=true;$("nx3").hidden=true;setMsg("m3","");sc3()}
+  $("sv3").setAttribute("hidden","");$("nx3").hidden=true;setMsg("m3","");sc3()}
 function bars3(){const o=s3,W=stageW("sv3"),X0=16,BW=W-32,BH=44;let g="";
   const bar=(y,lab,parts,mk,col,txt)=>{let h=`<text x="${X0}" y="${y-8}" class="slab">${lab}</text>`;const pw=BW/parts;
     for(let i=0;i<parts;i++)h+=`<rect x="${X0+i*pw}" y="${y}" width="${pw}" height="${BH}" fill="${i<mk?col[1]:"#F1F4F9"}" stroke="${col[0]}" stroke-width="1.5"/>`;
     return h+`<rect x="${X0}" y="${y}" width="${BW}" height="${BH}" fill="none" stroke="#14213D" stroke-width="2.5"/><text x="${X0+mk*pw/2}" y="${y+BH/2+6}" text-anchor="middle" font-size="16" font-weight="800" fill="${col[0]}">${txt}</text>`};
   g+=bar(28,`Butunning ${o.c}/${o.d} qismi: butun ${o.T} ni ${o.d} ga bo'lamiz`,o.d,o.c,CBL,o.W1);
   g+=bar(28+BH+40,`Qolganining ${o.c}/${o.d} qismi: qolgan ${o.R1} ni ${o.d} ga bo'lamiz`,o.d,o.c,CGR,o.P2);
-  $("sv3").setAttribute("viewBox",`0 0 ${W} ${28+2*BH+52}`);$("sv3").innerHTML=g;$("sv3").hidden=false}
+  $("sv3").setAttribute("viewBox",`0 0 ${W} ${28+2*BH+52}`);$("sv3").innerHTML=g;$("sv3").removeAttribute("hidden")}
 $("w3").addEventListener("click",e=>{const b=e.target.closest("[data-v]");if(!b||s3.done)return;const o=s3,v=+b.dataset.v,ok=v===o.ans;
   s3.done=true;s3.total++;if(ok){s3.ok++;s3.streak++}else s3.streak=0;
   $("w3").querySelectorAll("button").forEach(x=>{x.disabled=true;if(+x.dataset.v===o.ans)x.classList.add("on")});
@@ -483,7 +483,7 @@ function switchTab(name){
   document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===name));
   document.querySelectorAll(".panel").forEach(p=>p.hidden=p.id!=="p-"+name);
   if(G.run)endG(true);
-  if(name==="tas")render1();if(name==="kas")render2();if(name==="farq"&&!$("sv3").hidden)bars3();
+  if(name==="tas")render1();if(name==="kas")render2();if(name==="farq"&&!$("sv3").hasAttribute("hidden"))bars3();
 }
 $("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)switchTab(b.dataset.tab)});
 
