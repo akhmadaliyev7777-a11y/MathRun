@@ -373,7 +373,7 @@ function renderActiveSubjectTopics(grade) {
       '<li class="topic-row">' +
         '<span class="topic-row-num">' + num + '</span>' +
         (topicDone(grade, subject, topic) ? '<span class="topic-row-badge" title="Nishon olingan">' + MR.badgeSvg(i, true, 18) + '</span>' : '') +
-        '<a class="topic-row-title" href="' + href + '">' + title +
+        '<a class="topic-row-title" href="' + href + '">' + title + reviewDot(topic) +
           (topic.page ? '<span class="topic-row-page">' + topic.page + '</span>' : '') +
         '</a>' +
         '<span class="topic-row-actions">' +
@@ -419,6 +419,7 @@ function renderTopicPage() {
   ]);
 
   titleEl.textContent = topic.title;
+  if (topic.review) titleEl.insertAdjacentHTML("beforeend", reviewDot(topic));
   const pageEl = document.getElementById("topic-page");
   if (pageEl) pageEl.textContent = topic.page || "";
 
@@ -460,6 +461,11 @@ function renderTopicPage() {
 }
 
 // ---------- Ko'rgazmalar galereyasi ----------
+// qizil nuqta — simulyatorni tekshirish kerak: hali tekshirilmagan yoki kamchiligi bor (data.js da review: true; foydalanuvchi «tayyor» desa o'chiriladi)
+function reviewDot(topic) {
+  return topic.review ? '<span class="review-dot" title="Tekshirish kerak — kamchiligi bor yoki hali tekshirilmagan" aria-label="tekshirish kerak"></span>' : "";
+}
+
 function renderGallery() {
   const el = document.getElementById("gallery-grid");
   if (!el) return;
@@ -489,7 +495,7 @@ function renderGallery() {
         return (
           '<li class="topic-row">' +
             '<span class="topic-row-num">' + parts.num + '</span>' +
-            '<a class="topic-row-title" href="' + href + '#interaktiv">' + parts.title +
+            '<a class="topic-row-title" href="' + href + '#interaktiv">' + parts.title + reviewDot(topic) +
               (topic.page ? '<span class="topic-row-page">' + topic.page + '</span>' : '') +
             '</a>' +
             '<span class="topic-row-actions">' +

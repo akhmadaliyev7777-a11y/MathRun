@@ -1,0 +1,557 @@
+<!doctype html><html lang="uz" data-theme="light"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0;padding:0}[hidden]{display:none!important}</style></head><body>
+<title>Qolgan qismning qismi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: bitta ustun; yuqorida qoida, tablar, pastda tanlangan bo'lim.
+   Tasma: butun — kulrang, 1-qism — ko'k, qolganining qismi — yashil, oxirida qolgani — oq */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --ink:#14213D; --muted:#5B6577; --line:#D5DBE5;
+  --c1:#1F5FD6; --c2:#12805C; --c3:#D4501B; --c4:#8B5CF6;
+  --ok:#12805C; --bad:#C62828; --badbg:#FBE3E3; --okbg:#DDF3E9;
+  --f-display:"Bricolage Grotesque",ui-rounded,"Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;padding-inline:16px;padding-block:22px 48px;background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body)}
+.wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+h1{font:800 clamp(24px,5.2vw,36px)/1.12 var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font:700 20px/1.25 var(--f-display);margin:0 0 4px}
+p{margin:0}
+.sub{color:var(--muted);margin-top:6px}
+.hint{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{background:var(--ink);color:#fff;border:0;border-radius:9px;padding:10px 16px;font:700 15px var(--f-body);cursor:pointer;min-height:42px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.green{background:var(--c2)}.btn.violet{background:var(--c4)}
+.btn.sm{min-height:36px;padding:6px 12px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn .fr>span{color:inherit!important}
+:focus-visible{outline:3px solid var(--c1);outline-offset:2px}
+.ca{color:var(--c1)}.cb{color:var(--c3)}.cg{color:var(--c2)}.cn{color:var(--c4)}.bad{color:var(--bad)}
+/* kasr va aralash son */
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.05;margin:0 .08em}
+.fr>span:first-child{border-bottom:.09em solid currentColor;padding:0 .14em .04em;color:var(--c1)}
+.fr>span:last-child{padding:.04em .14em 0;color:var(--c3)}
+.mx{display:inline-flex;align-items:center;gap:.06em;vertical-align:middle}
+.wn{font-weight:800;color:var(--c2)}
+.op{color:var(--muted);margin:0 .22em;font-weight:700}
+.qm{color:var(--muted)}
+/* yuqoridagi qoida */
+.formula{display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:14px;background:var(--surface);border:1.5px solid var(--line)}
+.fl{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font:800 clamp(22px,5vw,32px)/1.25 var(--f-display);font-variant-numeric:tabular-nums}
+.fnote{font:700 15px/1.5 var(--f-body);color:var(--muted)}
+.fnote b{color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px}
+.lg{display:inline-flex;align-items:center;gap:6px;font:800 14px var(--f-body)}
+.lg::before{content:"";width:12px;height:12px;border-radius:4px;background:currentColor}
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid var(--line);scrollbar-width:thin}
+.tab{flex:0 0 auto;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;padding:10px 14px;font:700 15px var(--f-body);color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.stepper{display:inline-flex;align-items:center;gap:6px;font-weight:800}
+.stepper button{width:36px;height:36px;border-radius:10px;border:1.5px solid var(--line);background:#fff;font:800 20px var(--f-body);cursor:pointer;color:var(--ink)}
+.stepper output{min-width:1.6em;text-align:center;font:800 21px var(--f-display)}
+.stepper.a output{color:var(--c1)}.stepper.b output{color:var(--c3)}.stepper.n output{color:var(--c4)}
+.task{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font:800 clamp(26px,6vw,36px)/1.2 var(--f-display);font-variant-numeric:tabular-nums}
+.stage{width:100%;height:auto;display:block;border-radius:14px;background:#FBFCFE;border:1.5px solid var(--line)}
+.slab{font:800 14px var(--f-body);fill:var(--muted)}.slab.g{fill:var(--c2)}.slab.r{fill:var(--bad)}
+.tools{gap:6px}
+.story{font-weight:700;font-size:16px;line-height:1.6;min-height:1.6em}
+.story.good{color:var(--ok)}.story.bad{color:var(--bad)}
+/* 2/5 + 2/5 + 2/5 — qo'shiluvchilar ostida qavs */
+.chain{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 6px;font:800 clamp(22px,5vw,30px)/1.25 var(--f-display);padding:6px 2px;font-variant-numeric:tabular-nums}
+.chain>*{align-self:flex-start}
+.chain>.op,.chain>.fr,.chain>.mx,.chain>.qm,.chain>b,.chain>.cn{margin-top:.15em}
+.brace{display:inline-flex;flex-direction:column;align-items:stretch}
+.bterms{display:flex;flex-wrap:wrap;align-items:center;gap:2px 2px;justify-content:center;padding:0 10px 6px;border:3px solid var(--c4);border-top:0;border-radius:0 0 14px 14px}
+.blab{font:800 14px/1.2 var(--f-body);color:var(--c4);text-align:center;margin-top:5px;white-space:nowrap}
+.term{border-radius:8px;padding:0 3px;box-shadow:inset 0 -4px 0 var(--tc)}
+.term.ghost{opacity:.28;box-shadow:none;outline:2px dashed #98A4BA;outline-offset:-2px}
+/* javob kiritish */
+.ans{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font:800 24px var(--f-display);padding:12px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line)}
+.ans input{width:70px;font:800 21px var(--f-display);padding:4px 6px;border:2px solid var(--line);border-radius:9px;text-align:center;background:#fff;color:var(--ink)}
+.ans input:disabled{opacity:.75}
+.frin{display:inline-flex;flex-direction:column;align-items:center;gap:4px}
+.frin input:first-child{border-color:var(--c1);color:var(--c1)}
+.frin input:last-child,.frin .fixd{border-color:var(--c3);color:var(--c3)}
+.frin .fixd{font:800 22px var(--f-display);border-top:3px solid var(--ink);padding-top:2px;min-width:70px;text-align:center}
+.win{border-color:var(--c2)!important;color:var(--c2)!important}
+.alab{font:700 14px var(--f-body);color:var(--muted);flex-basis:100%}
+/* natija va qoida */
+.eqbox{display:flex;flex-direction:column;gap:6px;padding:12px 16px;border-radius:12px;background:#F4FBF7;border:1.5px solid #BFE5D3}
+.eqline{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font:800 clamp(20px,4.6vw,28px)/1.3 var(--f-display);font-variant-numeric:tabular-nums}
+.eqlab{font:700 13px var(--f-body);color:var(--muted)}
+.kind{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font:800 14px var(--f-body)}
+.kind.to{background:#E3ECFC;color:var(--c1)}.kind.no{background:#FCE6DC;color:var(--c3)}.kind.one{background:var(--okbg);color:var(--c2)}
+/* jarayon */
+.proc{border-radius:12px;border:1.5px solid var(--line);background:#FBFCFE;padding:10px 14px}
+.proc h3{margin:0 0 6px;font:800 13px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.proc ol{margin:0;padding-left:26px;display:flex;flex-direction:column;gap:3px;font:700 15px/1.6 var(--f-body)}
+.proc li::marker{color:var(--muted);font-weight:800}
+.proc li:last-child{background:#FFF6D6;border-radius:6px;padding:0 6px;margin-left:-6px}
+.proc .fr{font-size:.95em}
+/* taxmin */
+.pred{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:#FFF8E6;border:1.5px solid #F4D58A}
+.pred .lbl{font-weight:800;flex-basis:100%}
+.chipC{border:2px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;min-width:40px;padding:6px 12px;font:800 15px var(--f-body);cursor:pointer}
+.chipC:hover{border-color:var(--ink)}
+.chipC.on{background:var(--c4);border-color:var(--c4);color:#fff}
+/* qisqartirish: o'chirilgan son ustiga yangisi */
+.bigex{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font:800 clamp(26px,6vw,38px)/1.2 var(--f-display);font-variant-numeric:tabular-nums}
+.bfr{display:inline-flex;flex-direction:column;align-items:center}
+.bfr>.nm{display:flex;align-items:flex-end;gap:6px;padding:0 8px 4px;border-bottom:4px solid var(--ink)}
+.bfr>.dn{display:flex;align-items:flex-start;gap:6px;padding:4px 8px 0}
+.stk{display:inline-flex;flex-direction:column-reverse;align-items:center;line-height:1}
+.stk s{font-size:.62em;color:#98A4BA;text-decoration-thickness:3px;text-decoration-color:var(--bad)}
+.stk b{font-weight:800}
+.cutq{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:10px 12px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line)}
+.cutq .lbl{font-weight:800;flex-basis:100%}
+.cutq input{width:60px;height:38px;font:800 18px var(--f-display);text-align:center;border:2px solid var(--c4);border-radius:10px;color:var(--c4)}
+.cmp{font:600 15px/1.6 var(--f-body);padding:10px 14px;border-radius:12px;background:#F6F8FC;border:1.5px dashed var(--line)}
+/* masalalar */
+.score{display:flex;gap:16px;flex-wrap:wrap;font-weight:700;font-size:14px;color:var(--muted)}
+.score b{color:var(--ink)}
+.wq{font:700 clamp(18px,4vw,22px)/1.5 var(--f-display)}
+.unit{font:700 16px var(--f-body);color:var(--muted)}
+.vrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.vq{font:800 16px var(--f-body)}
+.pies{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end}
+.pies figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px;font:800 20px var(--f-display)}
+.pies figcaption{font:700 13px var(--f-body);color:var(--muted)}
+.ctx{font:700 clamp(17px,3.8vw,20px)/1.5 var(--f-display)}
+.hitc{cursor:pointer}.hitc:hover{fill:rgba(20,33,61,.07)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font:800 clamp(20px,4.6vw,26px)/1.3 var(--f-display);padding:10px 12px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line)}
+.flow .st{display:inline-flex;flex-direction:column;align-items:center}
+.flow .st small{font:700 12px var(--f-body);color:var(--muted)}
+.flow .ar{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mgrp{display:inline-flex;flex-wrap:wrap;align-items:center}
+.seg{border:1.5px solid var(--line);background:#fff;color:var(--ink);padding:8px 14px;font:700 14px var(--f-body);cursor:pointer;margin-left:-1.5px}
+.mgrp .seg:first-of-type{border-radius:10px 0 0 10px;margin-left:0}.mgrp .seg:last-of-type{border-radius:0 10px 10px 0}
+.seg.sel{background:var(--ink);border-color:var(--ink);color:#fff}
+.wide input{width:96px}
+@media (max-width:560px){.panel{padding:14px}}
+/* ===== O'yin (4-mavzu o'yini bilan bir xil ko'rinish) ===== */
+.gstart{border-radius:16px;background:linear-gradient(140deg,#14213D 0%,#1F3A7A 60%,#2B4FA8 100%);color:#fff;padding:24px 22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.gstart::after{content:"120 → 80 → 60";position:absolute;right:-6px;bottom:-18px;font:800 80px/1 var(--f-display);color:rgba(255,255,255,.07);pointer-events:none;white-space:nowrap}
+.gstart h3{margin:0;font:800 clamp(26px,6vw,38px)/1.1 var(--f-display)}
+.gstart p{color:rgba(255,255,255,.82);font-weight:600;max-width:520px}
+.gtypes{display:flex;flex-wrap:wrap;gap:8px}
+.gtypes span{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font-weight:700;font-size:14px}
+.gbtn{align-self:flex-start;background:#fff;color:#14213D;border:0;border-radius:12px;padding:13px 26px;font:800 17px var(--f-body);cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25);transition:transform .12s}
+.gbtn:hover{transform:translateY(-2px)}
+.gbest{font-weight:700;font-size:14px;color:rgba(255,255,255,.75)}
+.gbest b{color:#FFD15C}
+.ghud{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ring{position:relative;width:58px;height:58px;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 19px var(--f-display)}
+.ring.low b{color:var(--bad)}
+.pill{display:flex;flex-direction:column;padding:6px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line);min-width:84px}
+.pill small{font:800 11px var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.pill b{font:800 22px/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.pill.hot{background:#FFF4E5;border-color:#F4B860}
+.pill.hot b{color:#C2410C}
+.gplus{position:absolute;font:800 22px var(--f-display);color:var(--ok);animation:gup 1s ease forwards;pointer-events:none}
+@keyframes gup{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-34px)}}
+.gcard{position:relative;border-radius:16px;border:1.5px solid var(--line);background:linear-gradient(180deg,#FBFCFE,#F3F6FB);padding:18px;display:flex;flex-direction:column;gap:14px}
+.gtag{align-self:flex-start;padding:4px 10px;border-radius:999px;font:800 12px var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:#fff}
+.gq{font:700 clamp(17px,3.8vw,21px)/1.4 var(--f-display);text-wrap:balance}
+.gshow{display:flex;justify-content:center;align-items:center;gap:12px;font:800 clamp(30px,7.5vw,46px)/1.2 var(--f-display);font-variant-numeric:tabular-nums}
+.gshow svg{max-width:300px;width:100%;height:auto}
+.gopts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.gopt{position:relative;display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:10px 14px;min-height:66px;cursor:pointer;text-align:left;font:800 clamp(19px,4.4vw,24px)/1.2 var(--f-display);font-variant-numeric:tabular-nums;transition:transform .12s,border-color .12s,box-shadow .12s}
+.gopt:not(:disabled):hover{transform:translateY(-2px);border-color:var(--ink);box-shadow:0 6px 14px rgba(20,33,61,.1)}
+.gopt .lt{flex:none;width:30px;height:30px;border-radius:9px;background:var(--bg);color:var(--muted);display:flex;align-items:center;justify-content:center;font:800 14px var(--f-body)}
+.gopt.good{border-color:var(--ok);background:var(--okbg)}
+.gopt.good .lt{background:var(--ok);color:#fff}
+.gopt.bad{border-color:var(--bad);background:var(--badbg);animation:gshake .35s}
+.gopt.bad .lt{background:var(--bad);color:#fff}
+.gopt:disabled{cursor:default}
+@keyframes gshake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.gwhy{min-height:1.5em;font-weight:700;font-size:15px;color:var(--bad)}
+.gend{border-radius:16px;border:1.5px solid var(--line);background:linear-gradient(180deg,#FFFFFF,#F3F6FB);padding:22px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.stars{display:flex;gap:6px}
+.stars svg{width:44px;height:44px}
+.gscore{font:800 54px/1 var(--f-display)}
+.gscore small{font-size:20px;color:var(--muted)}
+.gstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%;max-width:560px}
+.gstats div{border-radius:12px;background:var(--bg);padding:8px}
+.gstats small{display:block;font:800 11px var(--f-body);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.gstats b{font:800 22px var(--f-display)}
+.gend .gbtn{align-self:center;background:var(--ink);color:#fff;box-shadow:none}
+.newbest{padding:4px 12px;border-radius:999px;background:#FFF4E5;color:#C2410C;font-weight:800;font-size:14px}
+@media (max-width:480px){.gopts{grid-template-columns:1fr}.gstats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ghud{gap:6px;flex-wrap:nowrap}.ring{width:50px;height:50px}.ring svg{width:50px;height:50px}.ring b{font-size:17px}
+  .pill{min-width:0;flex:1;padding:5px 8px}.pill small{font-size:9.5px}.pill b{font-size:18px}.gcard{padding:14px}}
+@media (prefers-reduced-motion:reduce){.gopt.bad,.gplus{animation:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Qolgan qismning qismi</h1>
+    <p class="sub">Avval butunning bir qismi olinadi. Keyin <b>qolgan</b> qismning qismi olinadi — endi «butun» qolgan qism bo'ladi. Shuning uchun har qadamda: <b>hozir butun nima?</b></p>
+  </header>
+  <div class="formula">
+    <div class="fl"><b>120</b><span class="op">→</span><span class="ca">−40</span><span class="op">→</span><b>80</b><span class="op">→</span><span class="cg">−20</span><span class="op">→</span><b>60</b></div>
+    <p class="fnote"><b>Misol:</b> 120 ning <span class="fr"><span>1</span><span>3</span></span> qismi = 40, qoldi 80. <b>Qolganining</b> <span class="fr"><span>1</span><span>4</span></span> qismi = 80 : 4 = 20 (butunning <span class="fr"><span>1</span><span>4</span></span> qismi 30 bo'lardi!). Kasr bilan: <span class="fr"><span>1</span><span>4</span></span> × <span class="fr"><span>2</span><span>3</span></span> = <span class="fr"><span>1</span><span>6</span></span>, 120 ning <span class="fr"><span>1</span><span>6</span></span> qismi = 20.</p>
+    <div class="legend"><span class="lg ca">1-qism (butunning)</span><span class="lg cg">qolganining qismi</span><span class="lg" style="color:#98A4BA">oxirida qolgani</span></div>
+  </div>
+
+  <div class="tabs" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-tab="tas" aria-selected="true">Tasmada qadamma-qadam</button>
+    <button class="tab" role="tab" data-tab="kas" aria-selected="false">Kasr bilan</button>
+    <button class="tab" role="tab" data-tab="farq" aria-selected="false">Butunning yoki qolganining?</button>
+    <button class="tab" role="tab" data-tab="mas" aria-selected="false">Masalalar</button>
+    <button class="tab" role="tab" data-tab="oyin" aria-selected="false">O'yin</button>
+  </div>
+
+  <!-- 1. Tasmada qadamma-qadam -->
+  <section class="panel" role="tabpanel" id="p-tas">
+    <div class="row" style="justify-content:space-between"><div class="ctx" id="q1"></div><button class="btn ghost" id="new1">Yangi masala</button></div>
+    <div class="ctx" id="t1"></div>
+    <svg class="stage" id="sv1"></svg>
+    <div class="row tools"><button class="btn violet" id="nx1">Keyingi ▶</button><button class="btn ghost sm" id="un1">← Orqaga</button><button class="btn ghost sm" id="cl1">Tozalash</button></div>
+    <div id="w1"></div>
+    <div id="fl1"></div>
+    <div class="story" id="m1" aria-live="polite"></div>
+    <div class="proc" id="pr1" hidden></div>
+  </section>
+
+  <!-- 2. Kasr bilan -->
+  <section class="panel" role="tabpanel" id="p-kas" hidden>
+    <div class="row" style="justify-content:space-between"><div class="ctx" id="q2"></div><button class="btn ghost" id="new2">Yangi masala</button></div>
+    <p class="hint">Butun tasma — 1. Uni ham maxrajlar bo'yicha kataklarga bo'ldik: shunda har bir qism necha katak ekanini sanash mumkin.</p>
+    <svg class="stage" id="sv2"></svg>
+    <div id="w2"></div>
+    <div class="story" id="m2" aria-live="polite"></div>
+    <div class="eqbox" id="eq2" hidden></div>
+    <div class="row tools"><button class="btn ghost sm" id="un2">← Orqaga</button><button class="btn ghost sm" id="cl2">Tozalash</button></div>
+    <div class="proc" id="pr2" hidden></div>
+  </section>
+
+  <!-- 3. Butunning yoki qolganining? -->
+  <section class="panel" role="tabpanel" id="p-farq" hidden>
+    <div class="score" id="sc3"></div>
+    <div class="ctx" id="q3"></div>
+    <div class="chips" id="w3"></div>
+    <svg class="stage" id="sv3" hidden></svg>
+    <div class="story" id="m3" aria-live="polite"></div>
+    <div class="row"><button class="btn" id="nx3" hidden>Keyingi ▶</button></div>
+  </section>
+
+  <!-- 4. Masalalar -->
+  <section class="panel" role="tabpanel" id="p-mas" hidden>
+    <div class="row" style="justify-content:space-between"><div class="score" id="sc4"></div><div class="mgrp" id="lv4"><button class="seg sel" data-l="2">2 bosqich</button><button class="seg" data-l="3">3 bosqich</button></div></div>
+    <div class="ctx" id="q4"></div>
+    <div id="w4"></div>
+    <div class="story" id="m4" aria-live="polite"></div>
+    <div id="fl4"></div>
+    <div class="row"><button class="btn" id="nx4" hidden>Keyingi ▶</button></div>
+  </section>
+
+  <!-- 5. O'yin -->
+  <section class="panel" role="tabpanel" id="p-oyin" hidden>
+    <div><h2>60 soniyalik o'yin</h2></div>
+    <div id="game" style="position:relative;display:flex;flex-direction:column;gap:14px"></div>
+  </section>
+</div>
+
+<script>
+const G={run:false,t:60,score:0,streak:0,maxStreak:0,ok:0,total:0,best:0,q:null,timer:null,lock:false,last:null};
+const $=id=>document.getElementById(id);
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pickOne=a=>a[rnd(0,a.length-1)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
+const gcd=(a,b)=>b?gcd(b,a%b):a;
+const fr=(a,b)=>`<span class="fr"><span>${a}</span><span>${b}</span></span>`;
+/* aralash son: w butun + n/d */
+function mixH(w,n,d){if(!w&&!n)return `<b>0</b>`;if(!n)return `<b class="wn">${w}</b>`;if(!w)return fr(n,d);return `<span class="mx"><b class="wn">${w}</b>${fr(n,d)}</span>`}
+const mixP=(p,d)=>mixH(Math.floor(p/d),p%d,d);          // p/d → aralash son
+const op=c=>`<span class="op">${c}</span>`;
+const cN=v=>`<b class="cn">${v}</b>`;
+const resFr=(p,d)=>`<span class="fr"><span class="cg">${p}</span><span>${d}</span></span>`;
+/* qo'shiluvchilar ranglari: [asosiy, och] */
+const CP=[["#1F5FD6","#BFD5FA"],["#12805C","#BDE8D4"],["#D4501B","#F8CDB8"],["#8B5CF6","#DDD0FD"],["#D9506A","#F6C9D3"],["#0E8F87","#BCE6E3"],["#B7791F","#F0DDB5"],["#2B4FA8","#C9D4F0"],["#5B6577","#DCE0E7"],["#C2410C","#F6CDB6"]];
+function sector(cx,cy,r,a0,a1){
+  if(a1-a0>=Math.PI*2-1e-6)return `M${cx-r} ${cy}A${r} ${r} 0 1 1 ${cx+r} ${cy}A${r} ${r} 0 1 1 ${cx-r} ${cy}Z`;
+  const x0=cx+r*Math.sin(a0),y0=cy-r*Math.cos(a0),x1=cx+r*Math.sin(a1),y1=cy-r*Math.cos(a1);
+  return `M${cx} ${cy}L${x0.toFixed(2)} ${y0.toFixed(2)}A${r} ${r} 0 ${a1-a0>Math.PI?1:0} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}Z`;
+}
+/* d bo'lakli doira; fills[k] — bo'lak rangi yoki null (bo'sh) */
+function circ(cx,cy,r,d,fills){
+  let g="";
+  if(d===1)g+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fills[0]?fills[0][0]:"#F1F4F9"}"/>`;
+  else for(let k=0;k<d;k++){const f=fills[k];g+=`<path d="${sector(cx,cy,r,k/d*Math.PI*2,(k+1)/d*Math.PI*2)}" fill="${f?f[0]:"#F1F4F9"}" stroke="#fff" stroke-width="2"/>`}
+  return g+`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#14213D" stroke-width="2.2"/>`;
+}
+function setMsg(id,t,c){const m=$(id);m.innerHTML=t;m.className="story "+(c||"")}
+/* bo'lim tagidagi «Jarayon» ro'yxati */
+function drawLog(id,arr){const el=$(id);el.hidden=!arr.length;el.innerHTML=`<h3>Jarayon</h3><ol>${arr.map(x=>`<li>${x}</li>`).join("")}</ol>`}
+const stageW=id=>Math.max(300,Math.round($(id).getBoundingClientRect().width)||660);
+const val=id=>{const e=$(id);return e?e.value.trim():""};
+/* ================= masalalar: butun T, avval a/b qismi, keyin qolganining c/d qismi ================= */
+const CTX=[
+  {u:"ming so'm",n1:"kitob",n2:"qalam",txt:(T,f1,f2)=>`Alida <b>${T} ming so'm</b> bor edi. Uning ${f1} qismini kitobga, qolganining ${f2} qismini qalamga sarfladi.`,q2:"Qalamga qancha pul ketdi?",qr:"Qancha pul qoldi?"},
+  {u:"km",n1:"1-kun",n2:"2-kun",txt:(T,f1,f2)=>`Sayyohlar <b>${T} km</b> yo'l yurishi kerak. Birinchi kuni yo'lning ${f1} qismini, ikkinchi kuni qolgan yo'lning ${f2} qismini yurdi.`,q2:"Ikkinchi kuni necha km yurdi?",qr:"Yana necha km qoldi?"},
+  {u:"bet",n1:"1-hafta",n2:"2-hafta",txt:(T,f1,f2)=>`Kitob <b>${T} betdan</b> iborat. Malika birinchi hafta kitobning ${f1} qismini, ikkinchi hafta qolganining ${f2} qismini o'qidi.`,q2:"Ikkinchi hafta necha bet o'qidi?",qr:"Necha bet o'qilmay qoldi?"},
+  {u:"sotix",n1:"olma",n2:"uzum",txt:(T,f1,f2)=>`Bog' <b>${T} sotix</b>. Uning ${f1} qismiga olma, qolganining ${f2} qismiga uzum ekildi.`,q2:"Uzum necha sotixga ekildi?",qr:"Necha sotix bo'sh qoldi?"},
+  {u:"kg",n1:"1-kun",n2:"2-kun",txt:(T,f1,f2)=>`Do'konga <b>${T} kg</b> olma keltirildi. Birinchi kuni olmaning ${f1} qismi, ikkinchi kuni qolganining ${f2} qismi sotildi.`,q2:"Ikkinchi kuni necha kg sotildi?",qr:"Necha kg olma qoldi?"}];
+const irr=(lo,hi)=>{const d=rnd(lo,hi);let n;do n=rnd(1,d-1);while(gcd(n,d)>1);return[n,d]};
+/* T = b·d·m — har bir qadamda bo'lish qoldiqsiz chiqadi */
+function genP(maxT=240){for(let t=0;t<500;t++){const [a,b]=irr(2,6),[c,d]=irr(2,6),m=rnd(1,Math.max(1,Math.floor(maxT/(b*d))));const T=b*d*m;if(T<12)continue;
+  const P1=T/b*a,R1=T-P1,P2=R1/d*c;return{T,a,b,c,d,P1,R1,P2,R2:R1-P2,ctx:rnd(0,CTX.length-1)}}return{T:120,a:1,b:3,c:1,d:4,P1:40,R1:80,P2:20,R2:60,ctx:0}}
+const flowH=(o,upto=9)=>{const C=CTX[o.ctx],st=(v,s,cl)=>`<span class="st"><b class="${cl||""}">${v}</b><small>${s}</small></span>`,ar=`<span class="ar">→</span>`;
+  let h=st(o.T,"butun");if(upto>=1)h+=ar+st("−"+o.P1,C.n1,"ca");if(upto>=2)h+=ar+st(o.R1,"qolgan = yangi butun");if(upto>=3)h+=ar+st("−"+o.P2,C.n2,"cg");if(upto>=4)h+=ar+st(o.R2,"qoldi");
+  return `<div class="flow">${h}</div>`};
+const CBL=["#1F5FD6","#CFE0FB"],CGR=["#12805C","#BDE8D4"];
+const inN=(id,ph)=>`<input id="${id}" inputmode="numeric" placeholder="${ph||"?"}" aria-label="Javob">`;
+
+/* ================= 1. Tasmada qadamma-qadam ================= */
+/* phase: cut1 → mark1 → calc1 → cut2 → mark2 → calc2 → rest → done */
+const s1={h:[],log:[]};const ORD1=["cut1","mark1","calc1","cut2","mark2","calc2","rest","done"];
+const after1=ph=>ORD1.indexOf(s1.phase)>ORD1.indexOf(ph);
+function start1(o){Object.assign(s1,o,{phase:"cut1",cut1:null,mark1:[],cut2:null,mark2:[],h:[],log:[]});setMsg("m1","");render1()}
+function render1(focus){
+  const o=s1,{T,a,b,c,d,P1,R1,P2,R2,phase}=o,C=CTX[o.ctx],W=stageW("sv1"),X0=16,BW=W-32,Y1=46,BH=54,Y2=Y1+BH+86;
+  $("q1").innerHTML=C.txt(T,fr(a,b),fr(c,d))+` <b>${C.q2}</b> <b>${C.qr}</b>`;
+  $("t1").innerHTML={cut1:`<b>1-qadam.</b> Hozir butun — <b>${T} ${C.u}</b>. ${fr(a,b)} qismini olish uchun butunni nechta teng bo'lakka bo'lamiz?`,
+    mark1:`<b>2-qadam.</b> ${fr(a,b)} qismini belgilang: <b class="ca">${a} ta bo'lakni</b> bosing (${C.n1}).`,
+    calc1:`<b>3-qadam.</b> Bitta bo'lak va belgilangan qism nechaga teng?`,
+    cut2:`<b>4-qadam.</b> Endi butun — <b>qolgan ${R1} ${C.u}</b>. Uning ${fr(c,d)} qismi uchun nechta teng bo'lakka bo'lamiz?`,
+    mark2:`<b>5-qadam.</b> Qolgan qismning ${fr(c,d)} qismini belgilang: <b class="cg">${c} ta bo'lakni</b> bosing (${C.n2}).`,
+    calc2:`<b>6-qadam.</b> Qolgan qismning bitta bo'lagi va belgilangan qism nechaga teng?`,
+    rest:`<b>7-qadam.</b> Oxirida qancha qoldi?`,done:`Masala yechildi.`}[phase];
+  let g=`<text x="${X0}" y="${Y1-12}" class="slab">Butun: ${T} ${C.u}</text>`;
+  // 1-tasma
+  const n1=o.cut1||1,pw=BW/n1;
+  for(let i=0;i<n1;i++){const on=o.mark1.includes(i);
+    g+=`<rect x="${X0+i*pw}" y="${Y1}" width="${pw}" height="${BH}" fill="${on?CBL[1]:"#EEF1F5"}" stroke="${o.cut1?CBL[0]:"#14213D"}" stroke-width="${o.cut1?2:0}"/>`;
+    if(after1("calc1"))g+=`<text x="${X0+(i+.5)*pw}" y="${Y1+BH/2+6}" text-anchor="middle" font-size="16" font-weight="800" fill="${on?CBL[0]:"#5B6577"}">${T/b}</text>`}
+  if(!o.cut1)g+=`<text x="${X0+BW/2}" y="${Y1+BH/2+7}" text-anchor="middle" font-size="20" font-weight="800" fill="#14213D">${T}</text>`;
+  g+=`<rect x="${X0}" y="${Y1}" width="${BW}" height="${BH}" fill="none" stroke="#14213D" stroke-width="3" rx="4"/>`;
+  if(phase==="mark1")for(let i=0;i<n1;i++)g+=`<rect class="hitc" data-p1="${i}" x="${X0+i*pw}" y="${Y1}" width="${pw}" height="${BH}" fill="transparent"/>`;
+  // 2-tasma: qolgan qism — yangi butun
+  let H=Y1+BH+24;
+  if(after1("calc1")){const rest1=[...Array(n1).keys()].filter(i=>!o.mark1.includes(i));
+    rest1.forEach(i=>{g+=`<line x1="${X0+(i+.5)*pw}" y1="${Y1+BH+4}" x2="${X0+BW/2}" y2="${Y2-26}" stroke="#98A4BA" stroke-width="1.5" stroke-dasharray="4 4"/>`});
+    g+=`<text x="${X0}" y="${Y2-12}" class="slab">Qolgan qism = yangi butun: ${R1} ${C.u}</text>`;
+    const n2=o.cut2||1,qw=BW/n2;
+    for(let j=0;j<n2;j++){const on=o.mark2.includes(j),left=after1("calc2")&&!on;
+      g+=`<rect x="${X0+j*qw}" y="${Y2}" width="${qw}" height="${BH}" fill="${on?CGR[1]:left&&after1("rest")?"#fff":"#EEF1F5"}" stroke="${o.cut2?CGR[0]:"#14213D"}" stroke-width="${o.cut2?2:0}"/>`;
+      if(after1("calc2"))g+=`<text x="${X0+(j+.5)*qw}" y="${Y2+BH/2+6}" text-anchor="middle" font-size="16" font-weight="800" fill="${on?CGR[0]:"#5B6577"}">${R1/d}</text>`}
+    if(!o.cut2)g+=`<text x="${X0+BW/2}" y="${Y2+BH/2+7}" text-anchor="middle" font-size="20" font-weight="800" fill="#14213D">${R1}</text>`;
+    g+=`<rect x="${X0}" y="${Y2}" width="${BW}" height="${BH}" fill="none" stroke="#14213D" stroke-width="3" rx="4"/>`;
+    if(phase==="mark2")for(let j=0;j<n2;j++)g+=`<rect class="hitc" data-p2="${j}" x="${X0+j*qw}" y="${Y2}" width="${qw}" height="${BH}" fill="transparent"/>`;
+    if(after1("rest"))g+=`<text x="${X0+BW}" y="${Y2+BH+22}" text-anchor="end" class="slab">qoldi: ${R2} ${C.u}</text>`;
+    H=Y2+BH+30}
+  $("sv1").setAttribute("viewBox",`0 0 ${W} ${H}`);$("sv1").innerHTML=g;
+  // savollar
+  let w="";const chips=k=>`<div class="cutq"><span class="lbl">Nechta teng bo'lakka bo'lamiz?</span>${[2,3,4,5,6,7,8].map(n=>`<button class="chipC" data-cut="${n}">${n}</button>`).join("")}</div>`;
+  if(phase==="cut1"||phase==="cut2")w=chips();
+  if(phase==="calc1")w=`<div class="ans wide"><span class="alab">Butunni (${T}) ${b} ga bo'ling, keyin ${a} ta bo'lakni oling:</span>Bitta bo'lak: ${T} : ${b} =${inN("o1")}<span class="op">;</span>${C.n1}: ${inN("p1")}<button class="btn" data-k="calc1">Tekshirish</button></div>`;
+  if(phase==="calc2")w=`<div class="ans wide"><span class="alab">Endi <b>qolgan ${R1}</b> ni ${d} ga bo'ling (butunni emas!), keyin ${c} ta bo'lakni oling:</span>Bitta bo'lak: ${R1} : ${d} =${inN("o2")}<span class="op">;</span>${C.n2}: ${inN("p2")}<button class="btn" data-k="calc2">Tekshirish</button></div>`;
+  if(phase==="rest")w=`<div class="ans wide">${R1} − ${P2} =${inN("r1")}<span class="unit">${C.u}</span><button class="btn" data-k="rest">Tekshirish</button></div>`;
+  $("w1").innerHTML=w;
+  $("nx1").hidden=!(phase==="mark1"||phase==="mark2");$("un1").disabled=$("cl1").disabled=!s1.h.length;
+  $("fl1").innerHTML=after1("calc1")?flowH(o,phase==="done"?4:after1("calc2")?3:2):"";
+  drawLog("pr1",s1.log);
+  if(focus){const f=$("w1").querySelector("input");if(f)f.focus({preventScroll:true})}
+}
+const snap1=()=>({phase:s1.phase,cut1:s1.cut1,mark1:s1.mark1.slice(),cut2:s1.cut2,mark2:s1.mark2.slice(),L:s1.log.length,m:$("m1").innerHTML,mc:$("m1").className});
+$("w1").addEventListener("click",e=>{const o=s1,C=CTX[o.ctx];
+  const cb=e.target.closest("[data-cut]");
+  if(cb){const n=+cb.dataset.cut,need=o.phase==="cut1"?o.b:o.d,f=o.phase==="cut1"?fr(o.a,o.b):fr(o.c,o.d);
+    if(n!==need){setMsg("m1",`${f} qismini olish uchun maxrajga qarang: ${need} ta teng bo'lak kerak.`,"bad");return}
+    s1.h.push(snap1());if(o.phase==="cut1"){o.cut1=n;o.phase="mark1"}else{o.cut2=n;o.phase="mark2"}
+    s1.log.push(o.phase==="mark1"?`Butun (${o.T}) ${n} ta teng bo'lakka bo'lindi.`:`Qolgan qism (${o.R1}) ${n} ta teng bo'lakka bo'lindi.`);setMsg("m1","");render1();return}
+  const kb=e.target.closest("[data-k]");if(!kb)return;const k=kb.dataset.k;let ok=false,msg="";
+  if(k==="calc1"){const x=+val("o1"),y=+val("p1");if(!x||!y)return;ok=x===o.T/o.b&&y===o.P1;
+    msg=ok?`${o.T} : ${o.b} = ${o.T/o.b}, ${C.n1}: ${o.T/o.b} · ${o.a} = ${o.P1}. Qoldi: ${o.T} − ${o.P1} = ${o.R1} — bu endi yangi butun.`:x!==o.T/o.b?`${o.T} ni ${o.b} ga bo'ling.`:`Bitta bo'lak ${o.T/o.b}, ${o.a} ta bo'lak — ${o.T/o.b} · ${o.a}.`}
+  if(k==="calc2"){const x=+val("o2"),y=+val("p2");if(!x||!y)return;ok=x===o.R1/o.d&&y===o.P2;
+    msg=ok?`${o.R1} : ${o.d} = ${o.R1/o.d}, ${C.n2}: ${o.R1/o.d} · ${o.c} = ${o.P2}.`:x===o.T/o.d?`Diqqat! Siz butunni (${o.T}) bo'ldingiz. «Qolganining» qismi — qolgan ${o.R1} ni ${o.d} ga bo'lish kerak.`:x!==o.R1/o.d?`${o.R1} ni ${o.d} ga bo'ling.`:`${o.R1/o.d} · ${o.c} ni hisoblang.`}
+  if(k==="rest"){const x=+val("r1");if(!x&&val("r1")!=="0")return;ok=x===o.R2;msg=ok?`To'g'ri! Qoldi: ${o.R1} − ${o.P2} = ${o.R2} ${C.u}.`:`${o.R1} − ${o.P2} ni hisoblang.`}
+  if(!ok){setMsg("m1",msg,"bad");return}
+  s1.h.push(snap1());s1.log.push(msg);o.phase=ORD1[ORD1.indexOf(k)+1];
+  setMsg("m1",msg+(o.phase==="done"?` Javob: ${C.n2} — <b class="cg">${o.P2} ${C.u}</b>, qoldi — <b>${o.R2} ${C.u}</b>.`:""),"good");render1(true)});
+$("w1").addEventListener("keydown",e=>{if(e.key!=="Enter")return;const b=$("w1").querySelector("[data-k]");if(b)b.click()});
+$("sv1").addEventListener("click",e=>{const r=e.target.closest(".hitc");if(!r)return;const key=r.dataset.p1!=null?"mark1":"mark2",v=+(r.dataset.p1??r.dataset.p2),arr=s1[key];
+  s1.h.push(snap1());const i=arr.indexOf(v);if(i>=0)arr.splice(i,1);else arr.push(v);render1()});
+$("nx1").onclick=()=>{const o=s1;
+  if(o.phase==="mark1"){if(o.mark1.length!==o.a){setMsg("m1",`${fr(o.a,o.b)} uchun ${o.a} ta bo'lak belgilanishi kerak — hozir ${o.mark1.length} ta.`,"bad");return}s1.h.push(snap1());o.phase="calc1";s1.log.push(`${fr(o.a,o.b)} qismi belgilandi.`)}
+  else if(o.phase==="mark2"){if(o.mark2.length!==o.c){setMsg("m1",`${fr(o.c,o.d)} uchun ${o.c} ta bo'lak belgilanishi kerak — hozir ${o.mark2.length} ta.`,"bad");return}s1.h.push(snap1());o.phase="calc2";s1.log.push(`Qolgan qismning ${fr(o.c,o.d)} qismi belgilandi.`)}
+  setMsg("m1","");render1(true)};
+$("un1").onclick=()=>{const h=s1.h.pop();if(!h)return;Object.assign(s1,{phase:h.phase,cut1:h.cut1,mark1:h.mark1,cut2:h.cut2,mark2:h.mark2});s1.log.length=h.L;render1();$("m1").innerHTML=h.m;$("m1").className=h.mc};
+$("cl1").onclick=()=>start1({T:s1.T,a:s1.a,b:s1.b,c:s1.c,d:s1.d,P1:s1.P1,R1:s1.R1,P2:s1.P2,R2:s1.R2,ctx:s1.ctx});
+$("new1").onclick=()=>start1(genP());
+
+/* ================= 2. Kasr bilan ================= */
+/* tasma b·d katakka bo'linadi: 1-qism a·d katak (ko'k), qolgan (b−a)·d katak d ta guruhga (har biri b−a katak), c tasi yashil.
+   phase: q1 (qolgan qism kasrda) → q2 (qolganining c/d qismi — butunning qanday qismi) → q3 (sonini topish) → done */
+const s2={h:[],log:[]};const ORD2=["q1","q2","q3","done"];
+const after2=ph=>ORD2.indexOf(s2.phase)>ORD2.indexOf(ph);
+function start2(o){Object.assign(s2,o,{phase:"q1",h:[],log:[]});setMsg("m2","");render2()}
+function render2(focus){
+  const o=s2,{T,a,b,c,d,P2,phase}=o,C=CTX[o.ctx],W=stageW("sv2"),X0=16,BW=W-32,Y=40,BH=56,N=b*d,cw=BW/N,ra=b-a;
+  $("q2").innerHTML=C.txt(T,fr(a,b),fr(c,d))+` <b>${C.q2}</b>`;
+  let g=`<text x="${X0}" y="${Y-12}" class="slab">Butun = 1 (${T} ${C.u}) — ${N} ta katak</text>`;
+  for(let i=0;i<N;i++){const first=i<a*d,k=i-a*d,grp=Math.floor(k/ra),green=!first&&after2("q1")&&grp<c;
+    g+=`<rect x="${X0+i*cw}" y="${Y}" width="${cw}" height="${BH}" fill="${first?CBL[1]:green?CGR[1]:"#fff"}" stroke="#D5DBE5" stroke-width="1"/>`}
+  for(let i=1;i<b;i++)g+=`<line x1="${X0+i*d*cw}" y1="${Y-4}" x2="${X0+i*d*cw}" y2="${Y+BH+4}" stroke="${CBL[0]}" stroke-width="2.5"/>`;
+  if(after2("q1"))for(let k=1;k<d;k++){const x=X0+(a*d+k*ra)*cw;g+=`<line x1="${x}" y1="${Y-8}" x2="${x}" y2="${Y+BH+8}" stroke="${CGR[0]}" stroke-width="2.5" stroke-dasharray="5 3"/>`}
+  g+=`<rect x="${X0}" y="${Y}" width="${BW}" height="${BH}" fill="none" stroke="#14213D" stroke-width="3"/>`;
+  g+=`<text x="${X0+a*d*cw/2}" y="${Y+BH+22}" text-anchor="middle" class="slab" style="fill:${CBL[0]}">${C.n1}: ${a}/${b}</text>`;
+  if(after2("q1"))g+=`<text x="${X0+(a*d+ (c*ra)/2)*cw}" y="${Y+BH+40}" text-anchor="middle" class="slab g">${C.n2}: ${c*ra} katak</text>`;
+  $("sv2").setAttribute("viewBox",`0 0 ${W} ${Y+BH+50}`);$("sv2").innerHTML=g;
+  const R=fr(ra,b),p=c*ra,q=b*d,gg=gcd(p,q);
+  let w=`<div class="ans"><span class="alab">1) Qolgan qism butunning qanday qismi?</span>1${op("−")}${fr(a,b)}${op("=")}${after2("q1")?fr(ra,b):`<span class="frin"><input id="a2" inputmode="numeric" placeholder="?" aria-label="Surat"><input id="b2" inputmode="numeric" placeholder="?" aria-label="Maxraj"></span><button class="btn" data-k="q1">Tekshirish</button>`}</div>`;
+  if(after2("q1"))w+=`<div class="ans"><span class="alab">2) Qolganining ${fr(c,d)} qismi — butunning qanday qismi? (qismning qismi = ko'paytirish)</span>${fr(c,d)}${op("×")}${R}${op("=")}${after2("q2")?resFr(p/gg,q/gg):`<span class="frin"><input id="c2" inputmode="numeric" placeholder="?" aria-label="Surat"><input id="d2" inputmode="numeric" placeholder="?" aria-label="Maxraj"></span><button class="btn" data-k="q2">Tekshirish</button>`}</div>`;
+  if(after2("q2"))w+=`<div class="ans wide"><span class="alab">3) ${T} ning ${fr(p/gg,q/gg)} qismini toping:</span>${T}${op(":")}${q/gg}${op("·")}${p/gg}${op("=")}${after2("q3")?`<b class="cg">${P2}</b>`:inN("e2")+`<button class="btn" data-k="q3">Tekshirish</button>`}<span class="unit">${C.u}</span></div>`;
+  $("w2").innerHTML=w;$("un2").disabled=$("cl2").disabled=!s2.h.length;
+  $("eq2").hidden=phase!=="done";
+  if(phase==="done")$("eq2").innerHTML=`<span class="eqlab">Ikki yo'l — bir javob:</span><div class="eqline">son bilan: ${T}${op(":")}${b}${op("·")}${a}${op("=")}${o.P1};${op("")}${o.R1}${op(":")}${d}${op("·")}${c}${op("=")}<b class="cg">${P2}</b></div><div class="eqline">kasr bilan: ${fr(c,d)}${op("×")}${R}${op("=")}${resFr(p/gg,q/gg)};${op("")}${T}${op(":")}${q/gg}${op("·")}${p/gg}${op("=")}<b class="cg">${P2}</b></div>`;
+  drawLog("pr2",s2.log);
+  if(focus){const f=$("w2").querySelector("input");if(f)f.focus({preventScroll:true})}
+}
+const snap2=()=>({phase:s2.phase,L:s2.log.length,m:$("m2").innerHTML,mc:$("m2").className});
+$("w2").addEventListener("click",e=>{const kb=e.target.closest("[data-k]");if(!kb)return;const o=s2,k=kb.dataset.k,ra=o.b-o.a,p=o.c*ra,q=o.b*o.d,gg=gcd(p,q);let ok=false,msg="";
+  if(k==="q1"){const x=+val("a2"),y=+val("b2");if(!x||!y)return;ok=x*o.b===y*ra;msg=ok?`Qolgan qism: 1 − ${fr(o.a,o.b)} = ${fr(ra,o.b)}. Uni ${o.d} ta guruhga bo'ldik — har birida ${ra} ta katak.`:`Butun — ${fr(o.b,o.b)}. ${fr(o.b,o.b)} − ${fr(o.a,o.b)} = ?`}
+  if(k==="q2"){const x=+val("c2"),y=+val("d2");if(!x||!y)return;ok=x*q===y*p;
+    msg=ok?`${fr(o.c,o.d)} × ${fr(ra,o.b)} = ${fr(p,q)}${gg>1?` = ${fr(p/gg,q/gg)}`:""} — tasmada yashil ${p} ta katak, jami ${q} ta.`:x*o.d===y*o.c?`Bu — butunning ${fr(o.c,o.d)} qismi. Bizga esa <b>qolganining</b> ${fr(o.c,o.d)} qismi kerak: ${fr(o.c,o.d)} × ${fr(ra,o.b)}.`:`Yashil kataklarni sanang: ${p} ta, jami ${q} ta.`}
+  if(k==="q3"){const x=+val("e2");if(!x)return;ok=x===o.P2;msg=ok?`${o.T} : ${q/gg} · ${p/gg} = ${o.P2}. Son bilan yechganda ham ${o.P2} chiqadi!`:`${o.T} ni ${q/gg} ga bo'lib, ${p/gg} ga ko'paytiring.`}
+  if(!ok){setMsg("m2",msg,"bad");return}
+  s2.h.push(snap2());s2.log.push(msg);o.phase=ORD2[ORD2.indexOf(k)+1];setMsg("m2",msg,"good");render2(true)});
+$("w2").addEventListener("keydown",e=>{if(e.key!=="Enter")return;const b=$("w2").querySelector("[data-k]");if(b)b.click()});
+$("un2").onclick=()=>{const h=s2.h.pop();if(!h)return;s2.phase=h.phase;s2.log.length=h.L;render2();$("m2").innerHTML=h.m;$("m2").className=h.mc};
+$("cl2").onclick=()=>start2({T:s2.T,a:s2.a,b:s2.b,c:s2.c,d:s2.d,P1:s2.P1,R1:s2.R1,P2:s2.P2,R2:s2.R2,ctx:s2.ctx});
+$("new2").onclick=()=>start2(genP());
+
+/* ================= 3. Butunning yoki qolganining? ================= */
+const s3={ok:0,total:0,streak:0};
+function sc3(){$("sc3").innerHTML=`<span>To'g'ri: <b>${s3.ok}</b> / ${s3.total}</span><span>Ketma-ket: <b>${s3.streak}</b></span>`}
+function new3(){
+  let o;do o=genP(180);while(o.T*o.c/o.d===o.P2);     // ikkala javob farq qilsin
+  const which=Math.random()<.5?"butun":"qolgan",W1=o.T*o.c/o.d,ans=which==="butun"?W1:o.P2;
+  Object.assign(s3,o,{which,W1,ans,done:false});
+  $("q3").innerHTML=`${o.T} ning ${fr(o.a,o.b)} qismi olindi. Keyin <b class="${which==="butun"?"ca":"cg"}">${which==="butun"?"butunning":"qolganining"}</b> ${fr(o.c,o.d)} qismi olindi. Ikkinchi marta qancha olindi?`;
+  const opts=[...new Set([ans,which==="butun"?o.P2:W1,o.P1,o.R1-o.P2,o.R1])].slice(0,4);
+  $("w3").innerHTML=shuffle(opts).map(v=>`<button class="chipC" data-v="${v}" style="font-size:20px;padding:8px 18px">${v}</button>`).join("");
+  $("sv3").hidden=true;$("nx3").hidden=true;setMsg("m3","");sc3()}
+function bars3(){const o=s3,W=stageW("sv3"),X0=16,BW=W-32,BH=44;let g="";
+  const bar=(y,lab,parts,mk,col,txt)=>{let h=`<text x="${X0}" y="${y-8}" class="slab">${lab}</text>`;const pw=BW/parts;
+    for(let i=0;i<parts;i++)h+=`<rect x="${X0+i*pw}" y="${y}" width="${pw}" height="${BH}" fill="${i<mk?col[1]:"#F1F4F9"}" stroke="${col[0]}" stroke-width="1.5"/>`;
+    return h+`<rect x="${X0}" y="${y}" width="${BW}" height="${BH}" fill="none" stroke="#14213D" stroke-width="2.5"/><text x="${X0+mk*pw/2}" y="${y+BH/2+6}" text-anchor="middle" font-size="16" font-weight="800" fill="${col[0]}">${txt}</text>`};
+  g+=bar(28,`Butunning ${o.c}/${o.d} qismi: butun ${o.T} ni ${o.d} ga bo'lamiz`,o.d,o.c,CBL,o.W1);
+  g+=bar(28+BH+40,`Qolganining ${o.c}/${o.d} qismi: qolgan ${o.R1} ni ${o.d} ga bo'lamiz`,o.d,o.c,CGR,o.P2);
+  $("sv3").setAttribute("viewBox",`0 0 ${W} ${28+2*BH+52}`);$("sv3").innerHTML=g;$("sv3").hidden=false}
+$("w3").addEventListener("click",e=>{const b=e.target.closest("[data-v]");if(!b||s3.done)return;const o=s3,v=+b.dataset.v,ok=v===o.ans;
+  s3.done=true;s3.total++;if(ok){s3.ok++;s3.streak++}else s3.streak=0;
+  $("w3").querySelectorAll("button").forEach(x=>{x.disabled=true;if(+x.dataset.v===o.ans)x.classList.add("on")});
+  setMsg("m3",`${ok?"To'g'ri!":"Noto'g'ri."} ${o.which==="butun"?`«Butunning» ${fr(o.c,o.d)} qismi — ${o.T} : ${o.d} · ${o.c} = ${o.W1}.`:`«Qolganining» ${fr(o.c,o.d)} qismi — avval qolganini topamiz: ${o.T} − ${o.P1} = ${o.R1}, keyin ${o.R1} : ${o.d} · ${o.c} = ${o.P2}.`}${!ok&&v===(o.which==="butun"?o.P2:o.W1)?` Siz ${o.which==="butun"?"qolganining":"butunning"} qismini topdingiz — so'zga e'tibor bering!`:""}`,ok?"good":"bad");
+  bars3();$("nx3").hidden=false;sc3()});
+$("nx3").onclick=new3;
+
+/* ================= 4. Masalalar (2 yoki 3 bosqich) ================= */
+const s4={ok:0,total:0,streak:0,lv:2};
+function sc4(){$("sc4").innerHTML=`<span>To'g'ri: <b>${s4.ok}</b> / ${s4.total}</span><span>Ketma-ket: <b>${s4.streak}</b></span>`}
+function new4(){
+  let o=genP(s4.lv===3?360:240),C=CTX[o.ctx],extra=null;
+  if(s4.lv===3){for(let t=0;t<200;t++){const [e,f]=irr(2,5);const base=o.b*o.d*f,m=rnd(1,Math.max(1,Math.floor(360/base)));const T=base*m;
+      const P1=T/o.b*o.a,R1=T-P1,P2=R1/o.d*o.c,R2=R1-P2,P3=R2/f*e;if(R2%f)continue;o=Object.assign(o,{T,P1,R1,P2,R2});extra={e,f,P3,R3:R2-P3};break}}
+  const ask=extra?pickOne(["p3","r3"]):pickOne(["p2","r2"]);
+  Object.assign(s4,{o,extra,ask,done:false});
+  let txt=C.txt(o.T,fr(o.a,o.b),fr(o.c,o.d));
+  if(extra)txt=txt.replace(/\.$/,`, keyin yana qolganining ${fr(extra.e,extra.f)} qismi.`);
+  const q={p2:C.q2,r2:C.qr,p3:"Uchinchi marta qancha olindi?",r3:"Oxirida qancha qoldi?"}[ask];
+  $("q4").innerHTML=txt+` <b>${q}</b>`;
+  $("w4").innerHTML=`<div class="ans wide">Javob: ${inN("x4")}<span class="unit">${C.u}</span><button class="btn" id="ck4">Tekshirish</button></div>`;
+  $("fl4").innerHTML="";$("nx4").hidden=true;setMsg("m4","");sc4()}
+$("w4").addEventListener("click",e=>{if(!e.target.closest("#ck4")||s4.done)return;const v=val("x4");if(v==="")return;const x=+v,{o,extra,ask}=s4;
+  const right={p2:o.P2,r2:o.R2,p3:extra&&extra.P3,r3:extra&&extra.R3}[ask],ok=x===right;
+  s4.done=true;s4.total++;if(ok){s4.ok++;s4.streak++}else s4.streak=0;
+  let why="";if(!ok){if(x===o.T*o.c/o.d)why=` Siz butunning ${fr(o.c,o.d)} qismini topdingiz — «qolganining» deyilgan.`;else if(x===o.P1)why=` Bu — birinchi qism.`;else if(ask[0]==="r"&&x===(extra?extra.P3:o.P2))why=` Bu olingan qism — savol qolgani haqida.`}
+  setMsg("m4",`${ok?"To'g'ri!":"Noto'g'ri."} Javob: <b>${right} ${CTX[o.ctx].u}</b>.${why}`,ok?"good":"bad");
+  let f=flowH(o,4);if(extra)f=f.replace(/<\/div>$/,`<span class="ar">→</span><span class="st"><b class="cn">−${extra.P3}</b><small>3-qism</small></span><span class="ar">→</span><span class="st"><b>${extra.R3}</b><small>qoldi</small></span></div>`);
+  $("fl4").innerHTML=f;$("x4").disabled=$("ck4").disabled=true;$("nx4").hidden=false;sc4()});
+$("w4").addEventListener("keydown",e=>{if(e.key==="Enter"&&$("ck4"))$("ck4").click()});
+$("nx4").onclick=new4;
+$("lv4").addEventListener("click",e=>{const b=e.target.closest("[data-l]");if(!b)return;s4.lv=+b.dataset.l;$("lv4").querySelectorAll(".seg").forEach(x=>x.classList.toggle("sel",x===b));new4()});
+
+/* ================= tablar ================= */
+function switchTab(name){
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===name));
+  document.querySelectorAll(".panel").forEach(p=>p.hidden=p.id!=="p-"+name);
+  if(G.run)endG(true);
+  if(name==="tas")render1();if(name==="kas")render2();if(name==="farq"&&!$("sv3").hidden)bars3();
+}
+$("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)switchTab(b.dataset.tab)});
+
+/* ================= 5. O'yin ================= */
+const GT={rest:{t:"Qancha qoldi?",c:"var(--c1)"},part:{t:"Qolganining qismi",c:"var(--c2)"},which:{t:"Butunning yoki qolganining?",c:"var(--c3)"},frac:{t:"Qolgan qism kasrda",c:"#8B5CF6"}};
+function nextG(){
+  const kinds=Object.keys(GT).filter(k=>k!==(G.last&&G.last.kind)||Math.random()<.25),kind=pickOne(kinds);let q;
+  const o=genP(180);const num=(vals,ok)=>{const M=new Map();[ok,...vals].forEach(v=>{if(v>0&&M.size<4&&!M.has(String(v)))M.set(String(v),String(v))});return M};
+  if(kind==="rest")q={kind,ask:`${o.T} ning ${fr(o.a,o.b)} qismi olindi. Qancha qoldi?`,show:"",M:num([o.P1,o.T/o.b,o.R1+o.T/o.b],o.R1),correct:String(o.R1),why:`${o.T} − ${o.P1} = ${o.R1}`};
+  else if(kind==="part")q={kind,ask:`${o.T} ning ${fr(o.a,o.b)} qismi olindi, keyin qolganining ${fr(o.c,o.d)} qismi. Ikkinchi marta qancha olindi?`,show:"",M:num([o.T*o.c/o.d,o.P1,o.R2],o.P2),correct:String(o.P2),why:`${o.R1} : ${o.d} · ${o.c} = ${o.P2}`};
+  else if(kind==="which"){const W1=o.T*o.c/o.d;if(W1===o.P2)return nextG();const w=Math.random()<.5;
+    q={kind,ask:`${o.T} ning ${fr(o.a,o.b)} qismi olindi. So'ng ${w?"<b>butunning</b>":"<b>qolganining</b>"} ${fr(o.c,o.d)} qismi olindi. Qancha?`,show:"",M:num([w?o.P2:W1,o.P1],w?W1:o.P2),correct:String(w?W1:o.P2),why:w?`${o.T} : ${o.d} · ${o.c} = ${W1}`:`${o.R1} : ${o.d} · ${o.c} = ${o.P2}`}}
+  else{const key=(n,d)=>n+"/"+d,ra=o.b-o.a,M=new Map([[key(ra,o.b),fr(ra,o.b)]]);
+    [[o.a,o.b],[ra,o.b+1],[1,o.b],[o.b,ra]].forEach(([n,d])=>{if(n>0&&d>0&&n!==d&&M.size<4&&!M.has(key(n,d))&&n*o.b!==d*ra)M.set(key(n,d),fr(n,d))});
+    q={kind,ask:`Butunning ${fr(o.a,o.b)} qismi olindi. Butunning qanday qismi qoldi?`,show:"",M,correct:key(ra,o.b),why:`1 − ${fr(o.a,o.b)} = ${fr(ra,o.b)}`}}
+  q.opts=shuffle([...q.M.keys()]);G.q=q;G.last=q;G.lock=false;
+}
+
+const RING=2*Math.PI*24;
+function hud(){
+  return `<div class="ghud"><div class="ring${G.t<=10?" low":""}"><svg width="58" height="58" viewBox="0 0 58 58"><circle cx="29" cy="29" r="24" fill="none" stroke="#E3E8F0" stroke-width="6"/><circle id="ring5" cx="29" cy="29" r="24" fill="none" stroke="${G.t<=10?"#C62828":"#14213D"}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${RING}" stroke-dashoffset="${RING*(1-G.t/60)}" style="transition:stroke-dashoffset 1s linear"/></svg><b id="t5">${G.t}</b></div>
+    <div class="pill"><small>Ball</small><b id="s5">${G.score}</b></div>
+    <div class="pill${G.streak>=3?" hot":""}" id="kp5"><small>Ketma-ket</small><b id="k5">${G.streak}</b></div>
+    <div class="pill"><small>To'g'ri</small><b id="o5">${G.ok}/${G.total}</b></div></div>`;
+}
+function starSvg(on){return `<svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z" fill="${on?"#FFC233":"#E3E8F0"}" stroke="${on?"#E0A100":"#D5DBE5"}" stroke-width="1.2" stroke-linejoin="round"/></svg>`}
+function drawGame(newBest){
+  const g=$("game");
+  if(!G.run&&!G.total){
+    g.innerHTML=`<div class="gstart"><h3>60 soniya — qancha ko'p, shuncha yaxshi</h3>
+      <p>Qancha qolganini toping, qolganining qismini hisoblang, «butunning» va «qolganining» farqini ajrating, qolgan qismni kasrda yozing. To'g'ri javob — 10 ball, ketma-ket to'g'ri javoblar uchun qo'shimcha ball. Sinfda jamoalar navbat bilan o'ynashi mumkin.</p>
+      <div class="gtypes">${Object.values(GT).map(x=>`<span>${x.t}</span>`).join("")}</div>
+      <button class="gbtn" id="go5">Boshlash ▶</button>${G.best?`<div class="gbest">Eng yaxshi natija: <b>${G.best} ball</b></div>`:""}</div>`;return}
+  if(!G.run){
+    const acc=G.total?Math.round(G.ok/G.total*100):0,st=G.ok>=12&&acc>=85?3:G.ok>=7&&acc>=70?2:G.ok>=3?1:0;
+    g.innerHTML=`<div class="gend"><div class="stars">${[0,1,2].map(i=>starSvg(i<st)).join("")}</div>
+      <div class="gscore">${G.score} <small>ball</small></div>${newBest?`<span class="newbest">Yangi rekord!</span>`:""}
+      <div class="gstats"><div><small>To'g'ri</small><b>${G.ok}/${G.total}</b></div><div><small>Aniqlik</small><b>${acc}%</b></div><div><small>Eng uzun seriya</small><b>${G.maxStreak}</b></div><div><small>Rekord</small><b>${G.best}</b></div></div>
+      <button class="gbtn" id="go5">Qayta o'ynash ↻</button></div>`;return}
+  const q=G.q,tag=GT[q.kind];
+  g.innerHTML=hud()+`<div class="gcard"><span class="gtag" style="background:${tag.c}">${tag.t}</span><div class="gq">${q.ask}</div>${q.show?`<div class="gshow">${q.show}</div>`:""}
+    <div class="gopts">${q.opts.map((o,i)=>`<button class="gopt" data-v="${o}"><span class="lt">${"ABCD"[i]}</span><span>${q.M.get(o)}</span></button>`).join("")}</div>
+    <div class="gwhy" id="why5"></div></div>`;
+}
+function startG(){Object.assign(G,{run:true,t:60,score:0,streak:0,maxStreak:0,ok:0,total:0,lock:false,last:null});nextG();drawGame();
+  clearInterval(G.timer);G.timer=setInterval(()=>{G.t--;const t=$("t5"),r=$("ring5");
+    if(t){t.textContent=G.t;t.parentElement.classList.toggle("low",G.t<=10)}
+    if(r){r.setAttribute("stroke-dashoffset",RING*(1-G.t/60));if(G.t<=10)r.setAttribute("stroke","#C62828")}
+    if(G.t<=0)endG()},1000)}
+function endG(silent){clearInterval(G.timer);G.run=false;const nb=!silent&&G.score>G.best&&G.score>0;if(G.score>G.best)G.best=G.score;if(silent)G.total=0;drawGame(nb)}
+$("game").addEventListener("click",e=>{
+  if(e.target.closest("#go5")){startG();return}
+  const o=e.target.closest(".gopt");if(!o||!G.run||G.lock)return;G.lock=true;
+  const ok=o.dataset.v===G.q.correct;G.total++;let gain=0;
+  if(ok){G.ok++;G.streak++;G.maxStreak=Math.max(G.maxStreak,G.streak);gain=10+Math.min(G.streak-1,5);G.score+=gain}else G.streak=0;
+  document.querySelectorAll("#game .gopt").forEach(b=>{b.disabled=true;if(b.dataset.v===G.q.correct)b.classList.add("good");else if(b===o)b.classList.add("bad")});
+  $("s5").textContent=G.score;$("k5").textContent=G.streak;$("o5").textContent=G.ok+"/"+G.total;$("kp5").classList.toggle("hot",G.streak>=3);
+  if(ok){const r=o.getBoundingClientRect(),c=$("game").getBoundingClientRect(),pl=document.createElement("span");
+    pl.className="gplus";pl.textContent="+"+gain;pl.style.left=(r.right-c.left-56)+"px";pl.style.top=(r.top-c.top+8)+"px";$("game").appendChild(pl)}
+  else $("why5").innerHTML="To'g'ri javob: "+G.q.why+".";
+  setTimeout(()=>{if(!G.run)return;nextG();drawGame()},ok?650:2400);
+});
+
+
+
+start1({T:120,a:1,b:3,c:1,d:4,P1:40,R1:80,P2:20,R2:60,ctx:0});start2(genP());new3();new4();drawGame();
+
+/* MathRun: mavzu sahifasidagi oyna balandligi ko'rgazmaga moslashadi (ichki aylantirishsiz) */
+(function(){function post(){try{parent.postMessage({type:"mathrun:height",h:document.body.offsetHeight},"*")}catch(e){}}
+new ResizeObserver(post).observe(document.body);post();})();
+</script>
