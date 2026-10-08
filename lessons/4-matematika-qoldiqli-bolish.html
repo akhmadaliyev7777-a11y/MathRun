@@ -85,9 +85,18 @@ p{margin:0}
 .ldl{display:grid;grid-auto-rows:var(--ch)}
 .lc{display:flex;align-items:center;justify-content:center;font:800 26px var(--f-display);color:var(--ink)}
 .lc.ul{box-shadow:inset 0 -3px 0 var(--ink)}
-.lc.hl{background:rgba(31,95,214,.13)}
+.lc.hl{background:#FFE08A}.lc.hlS{border-radius:9px 0 0 9px}.lc.hlE{border-radius:0 9px 9px 0}.lc.hlS.hlE{border-radius:9px}
+.mark{background:#FFE08A;border-radius:6px;padding:0 5px;font-weight:800;color:var(--ink)}
+.ldl .dg.pre,.ldl .dg.pre:hover{background:#FFE08A}
+.lin{display:flex;justify-content:flex-end;margin:2px 0;border:2px dashed var(--ink);border-radius:8px;background:#fff;--ls:calc(var(--cw) - .62em)}
+.lin:focus-within{border-style:solid;box-shadow:0 0 0 3px #FFC233}
+.lin input{flex:none;border:0;background:transparent;padding:0;font:800 26px var(--f-display);font-variant-numeric:tabular-nums;color:var(--ink);text-align:right;
+  letter-spacing:var(--ls);width:calc(100% + var(--ls)/2);margin-right:calc(var(--ls)/-2 + 2px)}
+.lin input:focus{outline:none}
+.lq.ask input{width:100%;height:100%;border:0;background:transparent;font:800 26px var(--f-display);color:var(--c2);text-align:center;padding:0}
+.lq.ask input:focus{outline:none}.lq.ask:focus-within{outline:3px solid var(--c2)}
 .lc.cz{color:var(--c4)}
-.lc.ask,.lq.ask{color:var(--c2);background:var(--okbg);border-radius:8px;outline:2px dashed var(--c2);outline-offset:-3px}
+.lq.ask{color:var(--c2);background:var(--okbg);border-radius:8px;outline:2px dashed var(--c2);outline-offset:-3px}
 .dg{all:unset;cursor:pointer;width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-radius:8px;background:rgba(31,95,214,.06)}
 .dg:hover{background:rgba(31,95,214,.18)}.dg:focus-visible{outline:3px solid var(--c1)}
 .ldr{border-left:3px solid var(--ink);height:calc(var(--ch)*2);margin-left:2px}
@@ -96,14 +105,15 @@ p{margin:0}
 .lq{width:var(--cw);height:var(--ch);display:flex;align-items:center;justify-content:center;font:800 26px var(--f-display);color:var(--c2)}
 .lq.z{box-shadow:inset 0 0 0 2px var(--c2);border-radius:8px}
 .lq.emp::after{content:"";width:14px;height:3px;background:#B9C3D3;border-radius:2px}
+.proc{border-radius:12px;border:1.5px solid var(--line);background:#FBFCFE;padding:10px 14px}
+.proc h3{margin:0 0 6px;font:800 13px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.proc ol{margin:0;padding-left:26px;display:flex;flex-direction:column;gap:3px;font:700 15px/1.45 var(--f-body)}
+.proc li::marker{color:var(--muted);font-weight:800}
+.proc li:last-child{background:#FFF6D6;border-radius:6px;padding:0 6px;margin-left:-6px}
 .tools{gap:6px}.tools .btn:disabled{opacity:.4;cursor:default}
 .ask{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:12px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line)}
 .ask:empty{display:none}
 .aq{font:700 17px/1.5 var(--f-body)}
-.aeq{font:800 26px var(--f-display);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.aeq input{width:90px;font:800 24px var(--f-display);padding:5px 8px;border:2px solid var(--ink);border-radius:9px;text-align:center;background:#fff;color:var(--ink)}
-.aeq input.g{border-color:var(--c2);color:var(--c2)}
-.anote{font:700 14px var(--f-body);color:var(--muted);flex-basis:100%}
 .mult{display:flex;flex-wrap:wrap;gap:5px;flex-basis:100%;font:700 13px var(--f-body);color:var(--muted);align-items:center}
 .mult span{padding:1px 8px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink)}
 /* tekshirish */
@@ -124,7 +134,7 @@ p{margin:0}
 @media (max-width:560px){.panel{padding:14px}
   .groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}.pcard,.box{min-width:0}
   #md1{width:100%}#md1 .seg{flex:1;padding:9px 6px;font-size:13.5px}
-  .ldwrap{--cw:29px;--ch:32px;padding:10px;background-position:10px 10px}.lc,.lq,.ldd{font-size:21px}.ldd{padding:0 6px}.own input{width:70px}}
+  .ldwrap{--cw:29px;--ch:32px;padding:10px;background-position:10px 10px}.lc,.lq,.ldd,.lin input,.lq.ask input,.lin{font-size:21px}.ldd{padding:0 6px}.own input{width:70px}}
 /* ===== O'yin (4-mavzu o'yini bilan bir xil ko'rinish) ===== */
 .gstart{border-radius:16px;background:linear-gradient(140deg,#14213D 0%,#1F3A7A 60%,#2B4FA8 100%);color:#fff;padding:24px 22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
 .gstart::after{content:"29 : 6";position:absolute;right:-6px;bottom:-18px;font:800 80px/1 var(--f-display);color:rgba(255,255,255,.07);pointer-events:none;white-space:nowrap}
@@ -223,6 +233,7 @@ p{margin:0}
       <button class="btn" id="ck1">Tekshirish</button>
     </div>
     <div class="eqbox" id="eq1" hidden></div>
+    <div class="proc" id="pr1" hidden></div>
   </section>
 
   <!-- 2. Xonalab bo'lish -->
@@ -237,6 +248,7 @@ p{margin:0}
     <div class="row tools"><button class="btn ghost sm" id="un2">← Orqaga</button><button class="btn ghost sm" id="cl2">Tozalash</button></div>
     <div class="story" id="m2" aria-live="polite"></div>
     <div class="eqbox" id="eq2" hidden></div>
+    <div class="proc" id="pr2" hidden></div>
   </section>
 
   <!-- 3. Ustun usulida -->
@@ -248,10 +260,11 @@ p{margin:0}
     <div class="row own"><span class="qlab">O'z misolingiz:</span><input id="oa4" inputmode="numeric" aria-label="Bo'linuvchi" placeholder="624"><b>:</b><input id="ob4" inputmode="numeric" aria-label="Bo'luvchi" placeholder="3"><button class="btn ghost sm" id="go4">Bo'lish</button></div>
     <div class="task" id="q4"></div>
     <div class="ldwrap"><div class="ld" id="ld4"></div></div>
-    <div class="row tools"><button class="btn ghost sm" id="un4">← Orqaga</button><button class="btn ghost sm" id="cl4">Tozalash</button></div>
+    <div class="row tools"><button class="btn ghost sm" id="un4">← Orqaga</button><button class="btn ghost sm" id="cl4">Tozalash</button><button class="btn green sm" id="nx4">Keyingi qadam ▶</button></div>
     <div class="ask" id="ask4"></div>
     <div class="story" id="m4" aria-live="polite"></div>
     <div class="eqbox" id="eq4" hidden></div>
+    <div class="proc" id="pr4" hidden></div>
   </section>
 
   <!-- 4. Tekshirish -->
@@ -294,6 +307,8 @@ function itemsSvg(n,kind,W,s,col){
   return {g,H,w:Math.min(n,per)*(s+6)+4};
 }
 function setMsg(id,t,c){const m=$(id);m.innerHTML=t;m.className="story "+(c||"")}
+/* bo'lim tagidagi «Jarayon» ro'yxati */
+function drawLog(id,arr){const el=$(id);el.hidden=!arr.length;el.innerHTML=`<h3>Jarayon</h3><ol>${arr.map(x=>`<li>${x}</li>`).join("")}</ol>`}
 /* rangli yozuv: ko'k — bo'linuvchi, to'q sariq — bo'luvchi, yashil — bo'linma, binafsha — qoldiq */
 const cN=(v,c)=>`<span class="${c}">${v}</span>`;
 const divH=(a,b,q,r)=>`${cN(a,"ca")} : ${cN(b,"cb")} = ${cN(q,"cg")}${r?` <span class="qtag">(qoldiq ${cN(r,"cz")})</span>`:""}`;
@@ -328,7 +343,7 @@ function render1(){
     if(rem>=b)ac=dost?`<button class="btn" data-a="deal">Har kimga bittadan ▶</button>`:`<button class="btn" data-a="box">Qutini to'ldirish (${b} ta) ▶</button>`;
     else if(!dost&&rem&&!s1.extra)ac=`<button class="btn ghost" data-a="extra">Yana bitta quti ▶</button>`;
   }
-  $("ac1").innerHTML=ac;$("un1").disabled=!s1.h.length;$("cl1").disabled=!s1.h.length;
+  $("ac1").innerHTML=ac;$("un1").disabled=!s1.h.length;drawLog("pr1",s1.log);$("cl1").disabled=!s1.h.length;
   $("ans1").hidden=!(rem<b)||s1.done&&false;$("qa1").innerHTML=`<span class="ca">${a}</span> : <span class="cb">${b}</span>`;
   if(rem<b&&!s1.done){
     if(dost)setMsg("m1",rem?`Konfet yetmay qoldi: har kimga <b>${g}</b> tadan tegdi, <b class="cz">${rem}</b> ta ortib qoldi — bu <b>qoldiq</b>. ${rem} ta konfetni ${b} kishiga bittadan berib bo'lmaydi. Endi javobni yozing.`:`Hammaga teng tegdi: har kimga <b>${g}</b> tadan, hech narsa ortmadi — <b>qoldiqsiz</b> bo'lindi. Javobni yozing.`);
@@ -336,21 +351,22 @@ function render1(){
     else setMsg("m1",rem?`${g} ta quti to'ldi, ${rem} ta olma qoldi. Yana quti to'ldirsa bo'ladimi? Sinab ko'ring yoki javobni yozing.`:`Barcha olma qutilarga joylandi: ${g} ta quti, hech narsa ortmadi — <b>qoldiqsiz</b>. Javobni yozing.`);
   }
 }
-function reset1(){$("eq1").hidden=true;s1.h=[];s1.g=0;s1.extra=false;s1.done=false;$("w1").value="";$("r1").value="";$("w1").disabled=$("r1").disabled=false;setMsg("m1",s1.m==="dost"?"«Har kimga bittadan» tugmasini bosib, aylana bo'yicha tarqating.":"«Qutini to'ldirish» tugmasi bilan olmalarni qutilarga joylang.");render1()}
-const snap1=()=>({g:s1.g,extra:s1.extra,done:s1.done,m:$("m1").innerHTML,mc:$("m1").className});
+function reset1(){$("eq1").hidden=true;s1.h=[];s1.log=[];s1.g=0;s1.extra=false;s1.done=false;$("w1").value="";$("r1").value="";$("w1").disabled=$("r1").disabled=false;setMsg("m1",s1.m==="dost"?"«Har kimga bittadan» tugmasini bosib, aylana bo'yicha tarqating.":"«Qutini to'ldirish» tugmasi bilan olmalarni qutilarga joylang.");render1()}
+const snap1=()=>({L:s1.log.length,g:s1.g,extra:s1.extra,done:s1.done,m:$("m1").innerHTML,mc:$("m1").className});
 $("ac1").addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;const k=b.dataset.a,rem=s1.a-s1.g*s1.b;s1.h.push(snap1());
-  if((k==="deal"||k==="box")&&rem>=s1.b){s1.g++;const r2=s1.a-s1.g*s1.b;if(r2>=s1.b)setMsg("m1",s1.m==="dost"?`Har kimga <b>${s1.g}</b> tadan berildi, ${r2} ta qoldi.`:`<b>${s1.g}</b> ta quti to'ldi, ${r2} ta olma qoldi.`)}
-  if(k==="extra")s1.extra=true;
+  if((k==="deal"||k==="box")&&rem>=s1.b){s1.g++;const r2=s1.a-s1.g*s1.b;
+    s1.log.push(s1.m==="dost"?`${s1.g}-aylana: har kimga bittadan berildi — har kimda <b class="cg">${s1.g}</b> ta, <b>${r2}</b> ta qoldi.`:`${s1.g}-quti to'ldi (<b class="cb">${s1.b}</b> ta) — <b>${r2}</b> ta olma qoldi.`);if(r2>=s1.b)setMsg("m1",s1.m==="dost"?`Har kimga <b>${s1.g}</b> tadan berildi, ${r2} ta qoldi.`:`<b>${s1.g}</b> ta quti to'ldi, ${r2} ta olma qoldi.`)}
+  if(k==="extra"){s1.extra=true;s1.log.push(`Yana bitta quti: faqat <b class="cz">${rem}</b> ta olma — quti to'lmadi, bu qoldiq.`)}
   render1()});
 $("ck1").onclick=()=>{
   const {a,b}=s1,q=Math.floor(a/b),r=a%b,w=+($("w1").value||-1),rr=$("r1").value===""?0:+$("r1").value;
-  if(w===q&&rr===r){s1.h.push(snap1());s1.done=true;$("w1").disabled=$("r1").disabled=true;
+  if(w===q&&rr===r){s1.h.push(snap1());s1.done=true;s1.log.push(`Javob: ${divH(a,b,q,r)}, ya'ni ${sumH(a,b,q,r)}`);$("w1").disabled=$("r1").disabled=true;
     setMsg("m1",`To'g'ri! ${s1.m==="dost"?`Har kimga ${q} tadan tegdi`:`${q} ta quti to'ldi`}${r?`, ${r} ta ortdi`:", hech narsa ortmadi"}.`,"good");$("eq1").innerHTML=eqBox(a,b,q,r);$("eq1").hidden=false;render1();return}
   setMsg("m1",rr>=b?`Qoldiq bo'luvchidan kichik bo'lishi kerak: ${rr} ≥ ${b}. Demak yana bir marta ${s1.m==="dost"?"har kimga bittadan berish":"quti to'ldirish"} mumkin edi.`
     :w!==q?`Bo'linma — ${s1.m==="dost"?"har bir do'stga tekkan konfetlar":"to'lgan qutilar"} soni. Rasmga qarab sanang.`:`Qoldiq — ${s1.m==="dost"?"tarqatilmay qolgan konfetlar":"joylanmagan olmalar"} soni.`,"bad");
 };
 [["w1"],["r1"]].forEach(([i])=>$(i).addEventListener("keydown",e=>{if(e.key==="Enter")$("ck1").click()}));
-$("un1").onclick=()=>{const h=s1.h.pop();if(!h)return;Object.assign(s1,{g:h.g,extra:h.extra,done:h.done});
+$("un1").onclick=()=>{const h=s1.h.pop();if(!h)return;s1.log.length=h.L;Object.assign(s1,{g:h.g,extra:h.extra,done:h.done});
   $("w1").disabled=$("r1").disabled=h.done;$("eq1").hidden=!h.done;render1();$("m1").innerHTML=h.m;$("m1").className=h.mc};
 $("cl1").onclick=reset1;
 $("md1").addEventListener("click",e=>{const b=e.target.closest("[data-m]");if(!b)return;s1.m=b.dataset.m;$("md1").querySelectorAll(".seg").forEach(x=>x.classList.toggle("sel",x===b));reset1()});
@@ -379,7 +395,7 @@ function gen2(l){
 }
 function new2(){const {N,b,q}=gen2(s2.lv);init2(N,b,q)}
 function init2(N,b,q){const d=String(N).padStart(3,"0").split("").map(Number);
-  $("eq2").hidden=true;Object.assign(s2,{h:[],N,b,q,pool:d.slice(),grp:Array.from({length:b},()=>[0,0,0]),p:N>=100?0:1,dealt:false,qd:[null,null,null],done:false});
+  $("eq2").hidden=true;Object.assign(s2,{h:[],log:[],N,b,q,pool:d.slice(),grp:Array.from({length:b},()=>[0,0,0]),p:N>=100?0:1,dealt:false,qd:[null,null,null],done:false});
   setMsg("m2",`${N>=100?"Yuzliklardan":"O'nliklardan"} boshlang: «tarqatish» tugmasini bosing.`);render2()}
 /* bloklar: yuzlik — 10×10 kvadrat, o'nlik — tayoqcha, birlik — kubik */
 function blocksSvg(cnt,sc=1){
@@ -410,10 +426,10 @@ function render2(){
     if(!s2.dealt)ac+=`<button class="btn" data-a="deal">${PNk[p][0].toUpperCase()+PNk[p].slice(1)}ni ${b} guruhga tarqatish ▶</button>`;
     else if(pool[p]>0&&p<2)ac+=`<button class="btn green" data-a="break">1 ta ${PN[p]}ni 10 ta ${PN[p+1]}ka maydalash</button>`;
   }
-  $("ac2").innerHTML=ac;$("un2").disabled=!s2.h.length;$("cl2").disabled=!s2.h.length;
+  $("ac2").innerHTML=ac;$("un2").disabled=!s2.h.length;drawLog("pr2",s2.log);$("cl2").disabled=!s2.h.length;
 }
 $("ac2").addEventListener("click",e=>{const bt=e.target.closest("[data-a]");if(!bt)return;
-  s2.h.push({st:JSON.stringify({pool:s2.pool,grp:s2.grp,p:s2.p,dealt:s2.dealt,qd:s2.qd,done:s2.done}),m:$("m2").innerHTML,mc:$("m2").className});const k=bt.dataset.a,{b}=s2,p=s2.p;
+  s2.h.push({L:s2.log.length,st:JSON.stringify({pool:s2.pool,grp:s2.grp,p:s2.p,dealt:s2.dealt,qd:s2.qd,done:s2.done}),m:$("m2").innerHTML,mc:$("m2").className});const k=bt.dataset.a,{b}=s2,p=s2.p;
   if(k==="deal"){const each=Math.floor(s2.pool[p]/b),had=s2.pool[p];s2.grp.forEach(c=>c[p]+=each);s2.pool[p]-=each*b;s2.dealt=true;
     const lead=p===0||(p===1&&s2.N<100)||(s2.qd.slice(0,p).every(x=>x===null||x===0)&&p<2&&each===0);
     s2.qd[p]=each===0&&(p===0||(p===1&&s2.N<100))?null:each;
@@ -422,9 +438,10 @@ $("ac2").addEventListener("click",e=>{const bt=e.target.closest("[data-a]");if(!
     if(each===0&&s2.qd[p]===null)t+=` Bo'linma ${PN[p]}lardan boshlanmaydi.`;
     if(s2.pool[p]>0&&p<2)t+=` <b>${s2.pool[p]}</b> ta ${PN[p]} ortdi — uni maydalang.`;
     setMsg("m2",t);
+    s2.log.push(`${PNk[p][0].toUpperCase()+PNk[p].slice(1)}: ${had} ta → ${b} guruhga <b class="cg">${each}</b> tadan${s2.qd[p]===null?" (bo'linma bu xonadan boshlanmaydi)":""}${s2.pool[p]?`, <b>${s2.pool[p]}</b> ta ortdi`:""}.`);
     if(s2.pool[p]===0)advance2();
   }
-  if(k==="break"){s2.pool[p]--;s2.pool[p+1]+=10;
+  if(k==="break"){s2.pool[p]--;s2.pool[p+1]+=10;s2.log.push(`1 ta ${PN[p]}ni maydaladik → 10 ta ${PN[p+1]} (endi ${s2.pool[p+1]} ta ${PN[p+1]}).`);
     setMsg("m2",`1 ta ${PN[p]} = 10 ta ${PN[p+1]}. ${s2.pool[p]?`Yana ${s2.pool[p]} ta ${PN[p]} bor — uni ham maydalang.`:`Endi ${PNk[p+1]}ni tarqatamiz.`}`);
     if(s2.pool[p]===0)advance2();}
   render2();
@@ -433,10 +450,10 @@ function advance2(){
   if(s2.p<2){s2.p++;s2.dealt=false;return}
   s2.done=true;const {N,b,q}=s2;
   setMsg("m2",`Har bir guruhda <b class="cg">${q}</b>.${String(q).includes("0")?` Bo'linmadagi <b class="cg">0</b> — o'sha xonada guruhlarga hech narsa tegmagani.`:""}`,"good");
-  $("eq2").innerHTML=eqBox(N,b,q,0);$("eq2").hidden=false;
+  $("eq2").innerHTML=eqBox(N,b,q,0);$("eq2").hidden=false;s2.log.push(`Javob: ${divH(N,b,q,0)}, ya'ni ${sumH(N,b,q,0)}`);
 }
 $("new2").onclick=new2;
-$("un2").onclick=()=>{const h=s2.h.pop();if(!h)return;Object.assign(s2,JSON.parse(h.st));$("eq2").hidden=!s2.done;render2();$("m2").innerHTML=h.m;$("m2").className=h.mc};
+$("un2").onclick=()=>{const h=s2.h.pop();if(!h)return;s2.log.length=h.L;Object.assign(s2,JSON.parse(h.st));$("eq2").hidden=!s2.done;render2();$("m2").innerHTML=h.m;$("m2").className=h.mc};
 $("cl2").onclick=()=>init2(s2.N,s2.b,s2.q);
 $("lv2").addEventListener("click",e=>{const x=e.target.closest("[data-l]");if(!x)return;s2.lv=+x.dataset.l;$("lv2").querySelectorAll(".seg").forEach(y=>y.classList.toggle("sel",y===x));new2()});
 
@@ -459,77 +476,92 @@ function start4(N,b){
   while(cur<b&&e<d.length-1){e++;cur=cur*10+d[e]}
   const st=[];
   for(let i=e;i<d.length;i++){if(i>e)cur=st[st.length-1].diff*10+d[i];const qd=Math.floor(cur/b);st.push({cur,end:i,qd,prod:qd*b,diff:cur-qd*b})}
-  Object.assign(s4,{N,b,d,e,st,k:0,ph:"first",h:[]});
+  Object.assign(s4,{N,b,d,e,st,k:0,ph:"first",h:[],log:[]});
   $("eq4").hidden=true;setMsg("m4","");render4();
 }
 function new4(){const {N,b}=gen4(s4.lv,s4.rem);start4(N,b)}
 function render4(focus){
-  const {N,b,d,st,k,ph}=s4,n=d.length,last=st.length-1;
+  const {N,b,d,st,k,ph}=s4,n=d.length;
   $("q4").innerHTML=`<span class="ca">${N}</span> : <span class="cb">${b}</span> = <span class="qm">?</span>`;
-  /* qatorlar: 0 — bo'linuvchi; keyin har bir qadamda ko'paytma (−) va ayirma (+ tushirilgan raqam) */
+  /* qatorlar: 0 — bo'linuvchi; keyin har bir qadamda ko'paytma (−) va ayirma (+ tushirilgan raqam).
+     Javob yoziladigan joyda — katak ichida kiritish maydoni (ask) */
   const rows=[{div:true}];let cr=0;
   if(ph!=="first")for(let j=0;j<=k;j++){
     const s=st[j],act=j===k&&ph!=="done",cl=String(s.cur).length;
     if(j>0)rows[cr].num={v:String(s.cur),end:s.end,bd:true};
-    if(act&&(ph==="q"||ph==="p"))rows[cr].hl=[s.end-cl+1,s.end];
+    if(act&&ph!=="d")rows[cr].hl=[s.end-cl+1,s.end];
     if(s.qd>0&&!(act&&ph==="q")){
-      rows.push({num:{v:act&&ph==="p"?"?":String(s.prod),end:s.end,ask:act&&ph==="p"},minus:s.end-cl+1,line:[s.end-cl+1,s.end]});
-      if(!(act&&ph==="p")){rows.push({num:{v:act&&ph==="s"?"?":String(s.diff),end:s.end,ask:act&&ph==="s"}});cr=rows.length-1}
+      rows.push({num:act&&ph==="p"?{ask:cl,end:s.end}:{v:String(s.prod),end:s.end},minus:s.end-cl+1,line:[s.end-cl+1,s.end]});
+      if(!(act&&ph==="p")){rows.push({num:act&&ph==="s"?{ask:cl,end:s.end}:{v:String(s.diff),end:s.end}});cr=rows.length-1}
     }
   }
   if(ph==="done")rows[cr].num.rem=true;
   let h="";
   rows.forEach((R,ri)=>{const cells=Array.from({length:n+1},()=>({t:"",c:[]}));
     if(R.div)d.forEach((x,i)=>{cells[i+1].t=ph==="first"?`<button class="dg" data-i="${i}" aria-label="${d.slice(0,i+1).join("")}">${x}</button>`:x;cells[i+1].c.push("ca")});
-    if(R.num){const v=R.num.v,L=v.length;
-      for(let t=0;t<L;t++){const c=cells[R.num.end-L+2+t];c.t=v[t];if(R.num.ask)c.c.push("ask");if(R.num.rem)c.c.push("cz")}
+    if(R.num&&R.num.v!=null){const v=R.num.v,L=v.length;
+      for(let t=0;t<L;t++){const c=cells[R.num.end-L+2+t];c.t=v[t];if(R.num.rem)c.c.push("cz")}
       if(R.num.bd&&!R.num.rem)cells[R.num.end+1].c.push("ca")}
     if(R.minus!=null)cells[R.minus].t="−";
     if(R.line)for(let i=R.line[0];i<=R.line[1];i++)cells[i+1].c.push("ul");
-    if(R.hl)for(let i=R.hl[0];i<=R.hl[1];i++)cells[i+1].c.push("hl");
-    cells.forEach((x,ci)=>h+=`<div class="lc ${x.c.join(" ")}" style="grid-row:${ri+1};grid-column:${ci+1}">${x.t}</div>`)});
-  const qc=ph==="first"?"":st.map((s,j)=>j<k||j===k&&ph!=="q"?`<span class="lq${s.qd===0?" z":""}">${s.qd}</span>`:j===k?`<span class="lq ask">?</span>`:`<span class="lq emp"></span>`).join("");
+    if(R.hl)for(let i=R.hl[0];i<=R.hl[1];i++){const c=cells[i+1].c;c.push("hl");if(i===R.hl[0])c.push("hlS");if(i===R.hl[1])c.push("hlE")}
+    cells.forEach((x,ci)=>h+=`<div class="lc ${x.c.join(" ")}" style="grid-row:${ri+1};grid-column:${ci+1}">${x.t}</div>`);
+    if(R.num&&R.num.ask)h+=`<div class="lin" style="grid-row:${ri+1};grid-column:${R.num.end-R.num.ask+3} / span ${R.num.ask}"><input id="in4" inputmode="numeric" autocomplete="off" maxlength="${R.num.ask}" aria-label="${ph==="p"?"Ko'paytma":"Ayirma"}"></div>`});
+  const qc=ph==="first"?"":st.map((s,j)=>j<k||j===k&&ph!=="q"?`<span class="lq${s.qd===0?" z":""}">${s.qd}</span>`
+    :j===k?`<span class="lq ask"><input id="in4" inputmode="numeric" autocomplete="off" maxlength="1" aria-label="Bo'linmaning raqami"></span>`:`<span class="lq emp"></span>`).join("");
   $("ld4").innerHTML=`<div class="ldl" style="grid-template-columns:repeat(${n+1},var(--cw))">${h}</div><div class="ldr"><div class="ldd cb">${b}</div><div class="ldq">${qc}</div></div>`;
-  // savol
-  const s=st[k],inp=(cls)=>`<input id="in4" inputmode="numeric" class="${cls||""}" autocomplete="off"><button class="btn sm" id="ok4">OK</button>`;
+  // savol va izoh
+  const s=st[k],no=s4.h.length+1,ok=`<button class="btn sm" id="ok4">Tekshirish</button>`;
   let a="";
-  if(ph==="first")a=`<p class="aq"><b>1-qadam.</b> Birinchi to'liqsiz bo'linuvchini tanlang: chapdan boshlab shunday son oling — u <b class="cb">${b}</b> dan kichik bo'lmasin. Bu sonning oxirgi raqami ustiga bosing.</p>`;
-  else if(ph==="q")a=`<div class="aeq"><span class="ca">${s.cur}</span> : <span class="cb">${b}</span> =${inp("g")}</div><span class="anote">${s.cur} ning ichida ${b} necha marta bor? Bu — bo'linmaning keyingi raqami.</span><div class="mult">${b} ning karralari:${Array.from({length:9},(_,i)=>`<span>${b*(i+1)}</span>`).join("")}</div>`;
-  else if(ph==="p")a=`<div class="aeq"><span class="cg">${s.qd}</span> · <span class="cb">${b}</span> =${inp()}</div><span class="anote">Bo'linma raqamini bo'luvchiga ko'paytiramiz va <b>${s.cur}</b> ning ostiga yozamiz.</span>`;
-  else if(ph==="s")a=`<div class="aeq">${s.cur} − ${s.prod} =${inp()}</div><span class="anote">Ayiramiz. Ayirma ${b} dan kichik chiqishi kerak.</span>`;
-  else if(ph==="d")a=`<button class="btn" id="dn4">Keyingi raqamni tushirish ↓ <b>${d[s.end+1]}</b></button><span class="anote">Bo'linuvchining navbatdagi raqamini ayirma yoniga tushiramiz.</span>`;
-  $("ask4").innerHTML=a;$("un4").disabled=!s4.h.length;$("cl4").disabled=!s4.h.length;
-  if(focus){const f=$("in4")||$("dn4");if(f)f.focus({preventScroll:true})}
+  if(ph==="first")a=`<p class="aq"><b>${no}-qadam.</b> Birinchi to'liqsiz bo'linuvchini ajrating: chapdan boshlab shunday son oling — u <b class="cb">${b}</b> dan kichik bo'lmasin. Bu sonning oxirgi raqami ustiga bosing.</p>`;
+  else if(ph==="q")a=`<p class="aq"><b>${no}-qadam.</b> Ajratilgan son <span class="mark">${s.cur}</span> ning ichida <b class="cb">${b}</b> necha marta bor? Javobni bo'linmaning <b class="cg">yashil katakchasiga</b> yozing.</p>${ok}<div class="mult">${b} ning karralari:${Array.from({length:9},(_,i)=>`<span>${b*(i+1)}</span>`).join("")}</div>`;
+  else if(ph==="p")a=`<p class="aq"><b>${no}-qadam.</b> Ko'paytiramiz: <b class="cg">${s.qd}</b> · <b class="cb">${b}</b> = ? Natijani <span class="mark">${s.cur}</span> ning ostidagi katakchaga yozing.</p>${ok}`;
+  else if(ph==="s")a=`<p class="aq"><b>${no}-qadam.</b> Ayiramiz: ${s.cur} − ${s.prod} = ? Ayirmani chiziq ostidagi katakchaga yozing. U <b class="cb">${b}</b> dan kichik chiqishi kerak.</p>${ok}`;
+  else if(ph==="d")a=`<p class="aq"><b>${no}-qadam.</b> Bo'linuvchining navbatdagi raqami <b class="ca">${d[s.end+1]}</b> ni ayirma yoniga tushiramiz — «Keyingi qadam» tugmasini bosing.</p>`;
+  $("ask4").innerHTML=a;
+  $("un4").disabled=$("cl4").disabled=!s4.h.length;drawLog("pr4",s4.log);$("nx4").disabled=ph==="done";
+  $("nx4").innerHTML=ph==="d"?`Raqamni tushirish ↓ ${d[s.end+1]}`:"Keyingi qadam ▶";
+  if(focus){const f=$("in4")||$("nx4");if(f&&!f.disabled)f.focus({preventScroll:true})}
 }
 function finish4(){const {N,b}=s4,q=Math.floor(N/b),r=N%b;
   setMsg("m4",r?`Bo'lish tugadi. Oxirgi ayirma <b class="cz">${r}</b> — bu qoldiq, u bo'luvchidan kichik.`:`Bo'lish tugadi. Oxirgi ayirma 0 — qoldiqsiz bo'lindi.`,"good");
-  $("eq4").innerHTML=eqBox(N,b,q,r);$("eq4").hidden=false}
-const snap4=()=>({k:s4.k,ph:s4.ph,m:$("m4").innerHTML,mc:$("m4").className});
-function submit4(){const el=$("in4");if(!el)return;const v=el.value.trim();if(!/^\d+$/.test(v))return;const sn=snap4();
-  const x=+v,{b,st,k,ph}=s4,s=st[k],last=st.length-1;let ok=false;
+  $("eq4").innerHTML=eqBox(N,b,q,r);$("eq4").hidden=false;s4.log.push(`Natija: ${divH(N,b,q,r)}, ya'ni ${sumH(N,b,q,r)}`);drawLog("pr4",s4.log)}
+const snap4=()=>({L:s4.log.length,k:s4.k,ph:s4.ph,m:$("m4").innerHTML,mc:$("m4").className});
+/* javobni tekshirish; show=true — «Keyingi qadam»: to'g'ri javob o'zi yoziladi */
+function submit4(show){const el=$("in4");if(!el)return;const v=el.value.trim();if(!show&&!/^\d+$/.test(v))return;const sn=snap4();
+  const {b,st,k,ph}=s4,s=st[k],last=st.length-1,x=show?{q:s.qd,p:s.prod,s:s.diff}[ph]:+v;let ok=false;
   if(ph==="q"){
     if(x===s.qd){ok=true;
       if(x===0){setMsg("m4",`${s.cur} < ${b} — ${b} sig'maydi. Bo'linmaga <b class="cg">0</b> yozamiz, uni tushirib qoldirmang!`,"good");s4.ph=k<last?"d":"done"}
-      else{setMsg("m4",`To'g'ri: ${x} · ${b} = ${s.prod} ≤ ${s.cur}, ${x+1} · ${b} = ${(x+1)*b} > ${s.cur}. Bo'linmaga <b class="cg">${x}</b> yozildi.`,"good");s4.ph="p"}}
+      else{setMsg("m4",`${show?"":"To'g'ri: "}${x} · ${b} = ${s.prod} ≤ ${s.cur}, ${x+1} · ${b} = ${(x+1)*b} > ${s.cur}. Bo'linmaga <b class="cg">${x}</b> yozildi.`,"good");s4.ph="p"}}
     else if(x*b>s.cur)setMsg("m4",`${x} · ${b} = ${x*b} — bu ${s.cur} dan katta. Kichikroq son oling.`,"bad");
     else setMsg("m4",`${x} · ${b} = ${x*b}, ${s.cur} − ${x*b} = ${s.cur-x*b} — bu ${b} dan kichik emas, ${b} yana sig'adi. Kattaroq son oling.`,"bad")}
   else if(ph==="p"){if(x===s.prod){ok=true;s4.ph="s";setMsg("m4",`${s.qd} · ${b} = ${s.prod}. Uni ${s.cur} ostiga yozdik. Endi ayiramiz.`,"good")}else setMsg("m4",`${s.qd} · ${b} ni qayta hisoblang.`,"bad")}
   else if(ph==="s"){if(x===s.diff){ok=true;s4.ph=k<last?"d":"done";setMsg("m4",`${s.cur} − ${s.prod} = ${s.diff}, ${s.diff} < ${b} ✓${k<last?" Endi keyingi raqamni tushiramiz.":""}`,"good")}else setMsg("m4",`${s.cur} − ${s.prod} ni qayta hisoblang.`,"bad")}
   if(!ok){el.select();return}
+  s4.log.push(ph==="q"?(s.qd?`<span class="mark">${s.cur}</span> : ${cN(b,"cb")} → bo'linmaga ${cN(s.qd,"cg")} yozildi.`:`${s.cur} &lt; ${cN(b,"cb")} → bo'linmaga ${cN(0,"cg")} yozildi.`)
+    :ph==="p"?`${cN(s.qd,"cg")} · ${cN(b,"cb")} = <b>${s.prod}</b> — ${s.cur} ostiga yozildi.`
+    :`${s.cur} − ${s.prod} = <b${k===last?' class="cz"':""}>${s.diff}</b>${k===last?" — bu qoldiq.":""}`);
   s4.h.push(sn);render4(true);if(s4.ph==="done")finish4();
 }
-$("ask4").addEventListener("click",e=>{
-  if(e.target.closest("#ok4")){submit4();return}
-  if(e.target.closest("#dn4")&&s4.ph==="d"){s4.h.push(snap4());s4.k++;s4.ph="q";const s=s4.st[s4.k];
-    setMsg("m4",`${s4.d[s.end]} raqamini tushirdik — endi <b class="ca">${s.cur}</b> ni bo'lamiz.`);render4(true)}});
-$("ask4").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="in4"){e.preventDefault();submit4()}});
-$("ld4").addEventListener("click",e=>{const g=e.target.closest(".dg");if(!g||s4.ph!=="first")return;
-  const i=+g.dataset.i,v=+s4.d.slice(0,i+1).join(""),{b,e:e0,st}=s4;
+/* birinchi to'liqsiz bo'linuvchini ajratish (i — oxirgi raqam o'rni) */
+function pick4(i){const v=+s4.d.slice(0,i+1).join(""),{b,e:e0,st}=s4;
   if(v<b){setMsg("m4",`${v} < ${b} — ${v} ning ichida ${b} sig'maydi. Yana bitta raqam qo'shing.`,"bad");return}
   if(i>e0){setMsg("m4",`${v} ham ${b} dan katta, lekin kichikroq son yetadi: ${st[0].cur} ≥ ${b}. Eng kichigini oling.`,"bad");return}
-  s4.h.push(snap4());s4.ph="q";setMsg("m4",`Birinchi to'liqsiz bo'linuvchi — <b class="ca">${v}</b>. Undan keyin yana ${s4.d.length-1-i} ta raqam bor, demak bo'linma <b class="cg">${st.length}</b> xonali bo'ladi.`,"good");render4(true)});
+  s4.h.push(snap4());s4.log.push(`Birinchi to'liqsiz bo'linuvchi ajratildi: <span class="mark">${v}</span>.`);s4.ph="q";setMsg("m4",`Birinchi to'liqsiz bo'linuvchi — <span class="mark">${v}</span>. Undan keyin yana ${s4.d.length-1-i} ta raqam bor, demak bo'linma <b class="cg">${st.length}</b> xonali bo'ladi.`,"good");render4(true)}
+function down4(){if(s4.ph!=="d")return;s4.h.push(snap4());s4.k++;s4.ph="q";const s=s4.st[s4.k];
+  s4.log.push(`${cN(s4.d[s.end],"ca")} raqamini tushirdik → <span class="mark">${s.cur}</span>.`);
+  setMsg("m4",`${s4.d[s.end]} raqamini tushirdik — endi <span class="mark">${s.cur}</span> ni bo'lamiz.`);render4(true)}
+function next4(){const ph=s4.ph;if(ph==="first")pick4(s4.e);else if(ph==="d")down4();else if(ph!=="done")submit4(true)}
+$("ask4").addEventListener("click",e=>{if(e.target.closest("#ok4"))submit4()});
+$("ld4").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="in4"){e.preventDefault();submit4()}});
+$("ld4").addEventListener("click",e=>{const g=e.target.closest(".dg");if(g&&s4.ph==="first")pick4(+g.dataset.i)});
+/* tanlashda sichqoncha turgan raqamgacha bo'lgan qism bo'yaladi */
+$("ld4").addEventListener("mouseover",e=>{const g=e.target.closest(".dg");if(!g)return;const i=+g.dataset.i;$("ld4").querySelectorAll(".dg").forEach(x=>x.classList.toggle("pre",+x.dataset.i<=i))});
+$("ld4").addEventListener("mouseleave",()=>$("ld4").querySelectorAll(".dg").forEach(x=>x.classList.remove("pre")));
+$("nx4").onclick=next4;
 $("new4").onclick=new4;
-$("un4").onclick=()=>{const h=s4.h.pop();if(!h)return;s4.k=h.k;s4.ph=h.ph;$("eq4").hidden=true;render4(true);$("m4").innerHTML=h.m;$("m4").className=h.mc};
+$("un4").onclick=()=>{const h=s4.h.pop();if(!h)return;s4.log.length=h.L;s4.k=h.k;s4.ph=h.ph;$("eq4").hidden=true;render4(true);$("m4").innerHTML=h.m;$("m4").className=h.mc};
 $("cl4").onclick=()=>start4(s4.N,s4.b);
 $("lv4").addEventListener("click",e=>{const x=e.target.closest("[data-l]");if(!x)return;s4.lv=+x.dataset.l;$("lv4").querySelectorAll(".seg").forEach(y=>y.classList.toggle("sel",y===x));new4()});
 $("md4").addEventListener("click",e=>{const x=e.target.closest("[data-r]");if(!x)return;s4.rem=+x.dataset.r;$("md4").querySelectorAll(".seg").forEach(y=>y.classList.toggle("sel",y===x));new4()});
