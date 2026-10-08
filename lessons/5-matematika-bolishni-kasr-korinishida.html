@@ -119,6 +119,13 @@ p{margin:0}
 .chipP.on{background:var(--pc);color:#fff}
 .chipC{border:2px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;min-width:40px;padding:6px 10px;font:800 15px var(--f-body);cursor:pointer}
 .chipC.on{background:var(--c3);border-color:var(--c3);color:#fff}
+.cutin{display:inline-flex;align-items:center;gap:6px}
+.cutin input{width:58px;height:38px;font:800 18px var(--f-display);text-align:center;border:2px solid var(--c3);border-radius:10px;color:var(--c3);background:#fff}
+.cutin input::placeholder{color:#C9B3A8}
+.cutq{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:10px 12px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line);width:100%}
+.cutq .lbl{font-weight:800;color:var(--ink)}
+.cutq .opts{display:flex;flex-wrap:wrap;gap:6px;align-items:center;flex-basis:100%}
+.cutq .opts .lbl{font-size:14px;color:var(--muted)}
 .scene.pz .slice{cursor:pointer}
 .scene.pz .slice:hover{filter:brightness(.95)}
 .person.eq{box-shadow:0 0 0 3px var(--okbg)}
@@ -212,7 +219,7 @@ p{margin:0}
 
   <!-- 1. Kasr nimaga kerak -->
   <section class="panel" role="tabpanel" id="p-nega">
-    <div><h2 id="t1h">3 ta pitsa, 4 ta do'st — o'zingiz bo'lib bering</h2><p class="hint">Do'stni tanlang, keyin pitsani bosing — pitsa unga beriladi. Teng bo'la olmasangiz, pitsani bo'laklarga kesing: «Kesish» qatoridan son tanlab, pitsani bosing. Pitsa va do'stlar sonini o'zgartirib, boshqa misollarni ham bo'lib ko'ring.</p></div>
+    <div><h2 id="t1h">3 ta pitsa, 4 ta do'st — o'zingiz bo'lib bering</h2><p class="hint">Do'stni tanlang, keyin pitsani bosing — pitsa unga beriladi. Teng bo'la olmasangiz, pitsani teng bo'laklarga bo'ling: «Bo'laklash» qatoridan son tanlang yoki katakchaga yozing (12 tagacha), keyin pitsani bosing. Pitsa va do'stlar sonini o'zgartirib, boshqa misollarni ham bo'lib ko'ring.</p></div>
     <div class="ctl">
       <span class="stepper a"><b>Pitsa:</b><button data-d="a-">−</button><output id="a1">3</output><button data-d="a+">+</button></span>
       <span class="stepper b"><b>Do'stlar:</b><button data-d="b-">−</button><output id="b1">4</output><button data-d="b+">+</button></span>
@@ -243,13 +250,13 @@ p{margin:0}
 
   <!-- 4. Qoldiqli bo'lish -->
   <section class="panel" role="tabpanel" id="p-qoldiq" hidden>
-    <div><h2>Nonlarni o'zingiz tarqating</h2><p class="hint">«Har kimga bittadan» tugmasi bilan nonlarni aylana bo'yicha tarqating. Butun non yetmay qolsa — qolganini bo'laklarga kesib, bo'laklarni ham tarqating. Oxirida javobni yozing.</p></div>
+    <div><h2>Doirachalarni o'zingiz tarqating</h2><p class="hint">«Har kimga bittadan» tugmasi bilan doirachalarni aylana bo'yicha tarqating. Butun doiracha yetmay qolsa — qolganini teng bo'laklarga bo'lib, bo'laklarni ham tarqating. Oxirida javobni yozing.</p></div>
     <div class="ctl">
-      <span class="stepper a"><b>Non:</b><button data-d="a-">−</button><output id="a4">17</output><button data-d="a+">+</button></span>
+      <span class="stepper a"><b>Doiracha:</b><button data-d="a-">−</button><output id="a4">17</output><button data-d="a+">+</button></span>
       <span class="stepper b"><b>Do'stlar:</b><button data-d="b-">−</button><output id="b4">5</output><button data-d="b+">+</button></span>
       <button class="btn ghost" id="rn4">Tasodifiy</button>
     </div>
-    <div class="dastur"><div class="dlab" id="dl4"></div><svg class="cookies" id="sv4" viewBox="0 0 660 120" aria-label="Dasturxondagi nonlar"></svg></div>
+    <div class="dastur"><div class="dlab" id="dl4"></div><svg class="cookies" id="sv4" viewBox="0 0 660 120" aria-label="Tarqatilmagan doirachalar"></svg></div>
     <div class="people" id="pp4"></div>
     <div class="row" id="act4"></div>
     <div class="story" id="m4" aria-live="polite"></div>
@@ -310,15 +317,13 @@ function plate(cx,cy,col,label){
     `<text x="${cx}" y="${cy+66}" text-anchor="middle" font-size="15" fill="${col}">${label}</text>`;
 }
 
-/* ================= o'zbek noni: dumaloq, chetlari qalin, o'rtasida naqsh; n bo'lakka kesiladi ================= */
-const NON="#EBC27A",NONCRUST="#B7791F";
-function nonSvg(cx,cy,r,n,fills,marks,ring,noPattern){
-  let g=`<circle cx="${cx}" cy="${cy}" r="${r+r*.12}" fill="${ring||NONCRUST}"/>`;
-  for(let k=0;k<n;k++){const a0=k/n*Math.PI*2,a1=(k+1)/n*Math.PI*2;
-    g+=`<path d="${sector(cx,cy,r,a0,a1)}" fill="${fills[k]||NON}" stroke="${n>1?"#fff":"none"}" stroke-width="${n>1?Math.max(1,r*.07):0}"/>`;
-    if(marks&&marks[k]){const m=(a0+a1)/2;g+=`<circle cx="${cx+r*.6*Math.sin(m)}" cy="${cy-r*.6*Math.cos(m)}" r="${Math.max(2,r*.12)}" fill="${marks[k]}"/>`}}
-  if(!noPattern&&n===1){g+=`<circle cx="${cx}" cy="${cy}" r="${r*.45}" fill="none" stroke="${ring?"rgba(255,255,255,.7)":"#C99A4E"}" stroke-width="${Math.max(1,r*.07)}" stroke-dasharray="${r*.12} ${r*.12}"/>`;
-    for(let k=0;k<6;k++){const m=k/6*Math.PI*2;g+=`<circle cx="${cx+r*.72*Math.sin(m)}" cy="${cy-r*.72*Math.cos(m)}" r="${Math.max(1,r*.06)}" fill="${ring?"rgba(255,255,255,.75)":"#C99A4E"}"/>`}}
+/* ================= doiracha: oddiy doira, n ta teng bo'lakka bo'linadi (fills — bo'laklar rangi, marks — egasining belgisi) ================= */
+const DOI="#CFE0FB",DOIS="#1F5FD6";
+function doiraSvg(cx,cy,r,n,fills,marks,ring){
+  const sw=Math.max(1.5,r*.08);let g=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fills[0]||DOI}" stroke="${ring||DOIS}" stroke-width="${sw}"/>`;
+  if(n>1)for(let k=0;k<n;k++){const a0=k/n*Math.PI*2,a1=(k+1)/n*Math.PI*2;
+    g+=`<path d="${sector(cx,cy,r,a0,a1)}" fill="${fills[k]||DOI}" stroke="${ring||DOIS}" stroke-width="${Math.max(1,sw*.7)}" stroke-linejoin="round"/>`}
+  if(marks)for(let k=0;k<n;k++)if(marks[k]){const m=(k+.5)/n*Math.PI*2,d=n>1?r*.6:0;g+=`<circle cx="${cx+d*Math.sin(m)}" cy="${cy-d*Math.cos(m)}" r="${Math.max(2,r*.12)}" fill="${marks[k]}"/>`}
   return g;
 }
 
@@ -378,7 +383,8 @@ function regroup(boxId,a,b,forceOpen){
 
 /* ================= Pitsa stoli (1 va 2-tab uchun umumiy) =================
    Har bir pitsa: n — bo'laklar soni (1 = butun), own — har bir bo'lak kimniki (-1 — hech kimniki).
-   O'quvchi: do'stni tanlaydi va bo'lakni bosadi (beradi/qaytarib oladi) yoki kesish sonini tanlab, pitsani bosadi (kesadi). */
+   O'quvchi: do'stni tanlaydi va bo'lakni bosadi (beradi/qaytarib oladi) yoki bo'laklar sonini tanlab (yoki yozib, 12 tagacha), pitsani bosadi. */
+const MAXCUT=12;
 function makeTable(pre,opt){
   const T={a:opt.a,b:opt.b,P:[],sel:0,cut:null,cuts:opt.cuts,done:false};
   T.reset=()=>{T.P=Array.from({length:T.a},()=>({n:1,own:[-1]}));T.sel=0;T.cut=null;T.done=false;T.render()};
@@ -388,7 +394,8 @@ function makeTable(pre,opt){
     const {a,b}=T;
     // asboblar paneli
     $(pre+"tool").innerHTML=`<div class="grp"><span class="lbl">Kimga:</span>${Array.from({length:b},(_,j)=>`<button class="chipP${T.cut===null&&T.sel===j?" on":""}" style="--pc:${PC[j]}" data-sel="${j}">${NAMES[j]}</button>`).join("")}</div>`+
-      `<div class="grp"><span class="lbl">Kesish:</span>${T.cuts.map(n=>`<button class="chipC${T.cut===n?" on":""}" data-cut="${n}">${n===1?"butun":n}</button>`).join("")}</div>`;
+      `<div class="grp"><span class="lbl">Bo'laklash:</span>${T.cuts.map(n=>`<button class="chipC${T.cut===n?" on":""}" data-cut="${n}">${n===1?"butun":n}</button>`).join("")}`+
+      `<span class="cutin"><input id="${pre}cn" inputmode="numeric" maxlength="2" placeholder="?" aria-label="Nechta teng bo'lakka (12 tagacha)" value="${T.cut&&!T.cuts.includes(T.cut)?T.cut:""}"><button class="chipC${T.cut&&!T.cuts.includes(T.cut)?" on":""}" data-cutok="1">OK</button></span></div>`;
     // pitsalar: o'lchami pitsalar soniga emas, ekran kengligiga bog'liq — 1 birlik = 1 piksel,
     // shuning uchun 3 ta pitsa ham, 7 ta pitsa ham bir xil kattalikda chiziladi va o'rtaga joylanadi
     const Wbox=Math.max(280,Math.round($(pre+"svg").getBoundingClientRect().width||$(pre+"svg").parentElement.clientWidth||640));
@@ -421,7 +428,13 @@ function makeTable(pre,opt){
     const s=e.target.closest("[data-sel]"),c=e.target.closest("[data-cut]");
     if(s){T.sel=+s.dataset.sel;T.cut=null;T.render()}
     if(c){T.cut=+c.dataset.cut;T.render()}
+    if(e.target.closest("[data-cutok]"))T.cutIn();
   });
+  // katakchaga yozilgan bo'laklar soni: 1..12 (chegara)
+  T.cutIn=()=>{const v=$(pre+"cn").value.trim();if(v==="")return;const n=+v;
+    if(!(n>=1&&n<=MAXCUT)){$(pre+"msg").innerHTML=`Pitsani 1 dan ${MAXCUT} tagacha teng bo'lakka bo'lish mumkin.`;$(pre+"msg").className="story bad";return}
+    T.cut=n;T.render()};
+  $(pre+"tool").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id===pre+"cn"){e.preventDefault();T.cutIn()}});
   $(pre+"svg").addEventListener("click",e=>{
     const sl=e.target.closest("[data-p]");if(!sl)return;const p=T.P[+sl.dataset.p],k=+sl.dataset.s;
     if(T.cut!==null){if(p.n===T.cut&&p.own.every(o=>o<0))return;p.n=T.cut;p.own=Array(T.cut).fill(-1);T.lastCut=T.cut;}
@@ -445,20 +458,20 @@ const s1={a:3,b:4};
 function storyMsg(T,left,allEq){
   const whole=T.P.every(p=>p.n===1),given=T.P.filter(p=>p.n===1&&p.own[0]>=0).length,any=T.P.some(p=>p.own.some(o=>o>=0));
   if(T.done)return[successText(3,4)+" <b class='cg'>Kasr yordam berdi!</b>","good"];
-  if(whole&&given===3)return[`<span class="sad">Adolatsiz!</span> 3 ta pitsa 4 kishiga yetmadi — kimdir pitsasiz qoldi. Butun sonlarda <b>3 : 4 = 0 (qoldiq 3)</b> — butun pitsa bilan teng bo'lib bo'lmaydi. Endi pitsalarni <b>kesib</b> ko'ring: «Kesish» qatoridan son tanlang va pitsani bosing.`,"bad"];
+  if(whole&&given===3)return[`<span class="sad">Adolatsiz!</span> 3 ta pitsa 4 kishiga yetmadi — kimdir pitsasiz qoldi. Butun sonlarda <b>3 : 4 = 0 (qoldiq 3)</b> — butun pitsa bilan teng bo'lib bo'lmaydi. Endi pitsalarni <b>teng bo'laklarga bo'lib</b> ko'ring: «Bo'laklash» qatoridan son tanlang (yoki yozing) va pitsani bosing.`,"bad"];
   if(whole&&!any)return[`Avval butun pitsalarni berib ko'ring: do'stni tanlang va pitsani bosing.`,""];
   if(whole)return[`Yana bering… Hamma 4 do'stga butun pitsa yetadimi?`,""];
   const ns=[...new Set(T.P.map(p=>p.n))],tot=T.P.reduce((x,p)=>x+p.n,0);
-  if(tot%4!==0&&T.P.every(p=>p.n>1))return[`Jami ${tot} ta bo'lak chiqdi — uni 4 kishiga teng bo'lib bo'lmaydi (${tot} : 4 qoldiqli). Boshqa son bilan kesib ko'ring.`,"bad"];
+  if(tot%4!==0&&T.P.every(p=>p.n>1))return[`Jami ${tot} ta bo'lak chiqdi — uni 4 kishiga teng bo'lib bo'lmaydi (${tot} : 4 qoldiqli). Boshqa songa bo'laklab ko'ring.`,"bad"];
   if(left===0&&!allEq)return[`Hamma bo'laklar tarqatildi, lekin ulushlar teng emas — kimdadir ko'proq. Bo'laklarni qayta taqsimlang.`,"bad"];
   return[`Bo'laklarni tarqating: do'stni tanlang va bo'lakni bosing. Qolgan bo'laklar: <b>${left}</b>.${ns.length===1&&ns[0]>1?` Har bir bo'lak — pitsaning ${fr(1,ns[0])} qismi.`:""}`,""];
 }
 function freeMsg(T,sh,left,allEq){
   if(T.done){const q=Math.floor(T.a/T.b),usedWhole=T.P.some(p=>p.n===1);
-    return[successText(T.a,T.b)+(usedWhole&&T.a%T.b?`<br>Siz avval butun pitsalarni berdingiz, keyin qolganini kesdingiz — bu ham to'g'ri: ${q} butun + ${fr(T.a%T.b,T.b)}.`:""),"good"]}
+    return[successText(T.a,T.b)+(usedWhole&&T.a%T.b?`<br>Siz avval butun pitsalarni berdingiz, keyin qolganini teng bo'laklarga bo'ldingiz — bu ham to'g'ri: ${q} butun + ${fr(T.a%T.b,T.b)}.`:""),"good"]}
   if(left===0&&!allEq){const v=sh.map(x=>x.n/x.d),mx=Math.max(...v),mn=Math.min(...v);
     return[`Hamma narsa tarqatildi, lekin teng emas: <b>${NAMES[v.indexOf(mx)]}</b> ko'proq, <b>${NAMES[v.indexOf(mn)]}</b> kamroq oldi. Qayta taqsimlang.`,"bad"]}
-  return[`${T.a} ta pitsani ${T.b} kishiga teng bo'ling. Qolgan: <b>${left}</b> ta ${T.P.some(p=>p.n>1)?"bo'lak/pitsa":"pitsa"}.${T.a<T.b&&T.P.every(p=>p.n===1)?" Pitsa odamdan kam — butun berib bo'lmaydi, kesish kerak.":""}`,""];
+  return[`${T.a} ta pitsani ${T.b} kishiga teng bo'ling. Qolgan: <b>${left}</b> ta ${T.P.some(p=>p.n>1)?"bo'lak/pitsa":"pitsa"}.${T.a<T.b&&T.P.every(p=>p.n===1)?" Pitsa odamdan kam — butun berib bo'lmaydi, teng bo'laklarga bo'lish kerak.":""}`,""];
 }
 const T1=makeTable("t1",{a:3,b:4,cuts:[1,2,3,4,5,6,7,8],message(T,sh,left,allEq){
   const [t,c]=T.a===3&&T.b===4?storyMsg(T,left,allEq):freeMsg(T,sh,left,allEq);
@@ -549,30 +562,35 @@ $("p-tasma").querySelector(".ctl").addEventListener("click",e=>{const d=e.target
   const lim={a:[1,20],b:[2,8]};s3[k]=Math.max(lim[k][0],Math.min(lim[k][1],s3[k]+(sg==="+"?1:-1)));new3()});
 
 /* ================= 4. Qoldiqli bo'lish: o'zingiz tarqating ================= */
-const s4={a:17,b:5,given:0,cutN:null,pieces:0,done:false};
-/* given — har kimga berilgan butun nonlar; cutN — qolgan nonlar necha bo'lakka kesilgan; pieces — har kimga berilgan bo'laklar */
+const s4={a:17,b:5,given:0,cutN:null,pieces:0,done:false,opts:null,showOpts:false};
+/* qolgan doirachalarni nechaga bo'lish: mos javob — b; qolgan 3 tasi mos kelmaydigan (bo'laklar teng tarqalmaydigan) sonlar */
+function opts4(left,b){const fit=n=>(left*n)%b===0,out=[b];
+  for(const n of shuffle([left,b-1,b+1,2*b-1,left+b,left+1,2,3,4,6,7,9,10,11]))if(n>=2&&n<=MAXCUT&&!fit(n)&&!out.includes(n)&&out.length<4)out.push(n);
+  return out.sort((x,y)=>x-y)}
+/* given — har kimga berilgan butun doirachalar; cutN — qolgan doirachalar nechta teng bo'lakka bo'lingan; pieces — har kimga berilgan bo'laklar;
+   opts — «Variantlar» (4 ta javob, faqat bittasi mos); showOpts — variantlar ochiqmi */
 function render4(){
   const {a,b,given,cutN,pieces}=s4,left=a-given*b,sz=22,gp=6;
   $("a4").textContent=a;$("b4").textContent=b;
-  // ---- dasturxon: hali tarqatilmagan butun nonlar va kesilgan nonlar (berilgan bo'lak — egasining rangida) ----
+  // ---- hali tarqatilmagan butun doirachalar va bo'lingan doirachalar (berilgan bo'lak — egasining rangida) ----
   const restWhole=cutN?0:left,restPieces=cutN?left*cutN-pieces*b:0,cz=cutN||1;
-  // non ko'p bo'lsa — kichikroq (dasturxon cho'zilib ketmasin); telefonda kattaroq
+  // doiracha ko'p bo'lsa — kichikroq (maydon cho'zilib ketmasin); telefonda kattaroq
   const items=cutN?left:restWhole,ph=window.innerWidth<560,R0=ph?(items>24?30:items>12?40:62):(items>28?22:34),per=Math.max(1,Math.floor(640/(2*R0+18))),rowsN=Math.max(1,Math.ceil(items/per));let g="";
   for(let i=0;i<items;i++){const cx=14+R0+(i%per)*(2*R0+18),cy=R0+8+Math.floor(i/per)*(2*R0+16);
-    if(!cutN)g+=nonSvg(cx,cy,R0,1,[NON]);
-    else{const fills=Array.from({length:cutN},(_,t)=>{const idx=i*cutN+t;return idx<pieces*b?PCL[idx%b]:NON});
-      const marks=Array.from({length:cutN},(_,t)=>{const idx=i*cutN+t;return idx<pieces*b?PC[idx%b]:null});g+=nonSvg(cx,cy,R0,cutN,fills,marks)}}
+    if(!cutN)g+=doiraSvg(cx,cy,R0,1,[DOI]);
+    else{const fills=Array.from({length:cutN},(_,t)=>{const idx=i*cutN+t;return idx<pieces*b?PCL[idx%b]:DOI});
+      const marks=Array.from({length:cutN},(_,t)=>{const idx=i*cutN+t;return idx<pieces*b?PC[idx%b]:null});g+=doiraSvg(cx,cy,R0,cutN,fills,marks)}}
   $("sv4").setAttribute("viewBox",`0 0 660 ${items?rowsN*(2*R0+16)+8:40}`);
-  $("sv4").innerHTML=items?g:`<text x="20" y="26" font-size="15" font-weight="700" fill="#9A6A1F">Dasturxon bo'sh — hamma non tarqatildi.</text>`;
-  $("dl4").textContent=!cutN?(given?`Dasturxonda qoldi: ${left} ta butun non`:`Dasturxonda: ${a} ta non`):`${left} ta non ${cutN} bo'lakdan kesildi — tarqatilmagan bo'lak: ${restPieces} ta`;
-  // ---- do'stlar kartalari: butun nonlar va bo'laklar — har birining o'z rangida ----
+  $("sv4").innerHTML=items?g:`<text x="20" y="26" font-size="15" font-weight="700" fill="#9A6A1F">Hamma doiracha tarqatildi.</text>`;
+  $("dl4").textContent=!cutN?(given?`Qoldi: ${left} ta butun doiracha`:`Jami: ${a} ta doiracha`):`${left} ta doiracha ${cutN} ta teng bo'lakka bo'lindi — tarqatilmagan bo'lak: ${restPieces} ta`;
+  // ---- do'stlar kartalari: butun doirachalar va bo'laklar — har birining o'z rangida ----
   $("pp4").innerHTML=Array.from({length:b},(_,j)=>{
     const col=PC[j%8],lt=PCL[j%8];let bag="";
     const shown=given>6?1:given;
-    for(let w=0;w<shown;w++)bag+=`<svg viewBox="0 0 30 30">${nonSvg(15,15,12,1,[lt],null,col)}</svg>`;
+    for(let w=0;w<shown;w++)bag+=`<svg viewBox="0 0 30 30">${doiraSvg(15,15,12,1,[lt],null,col)}</svg>`;
     if(given>6)bag+=`<b style="color:${col};font:800 16px var(--f-display)">× ${given}</b>`;
     if(pieces){const fills=Array.from({length:cutN},(_,t)=>t<pieces?lt:"#F3F4F6"),strokes=Array.from({length:cutN},(_,t)=>t<pieces?col:null);
-      bag+=`<svg viewBox="0 0 30 30">${nonSvg(15,15,12,cutN,fills,strokes,col,true)}</svg>`}
+      bag+=`<svg viewBox="0 0 30 30">${doiraSvg(15,15,12,cutN,fills,strokes,col)}</svg>`}
     const val=rHtml(R(given*cz+pieces,cz));
     return `<div class="person" style="--pc:${col}"><span class="who">${NAMES[j%8]}</span><div class="bag">${bag||'<span class="cnt">hali hech narsa</span>'}</div><span class="got">${val}</span><span class="cnt">${[given?given+" butun":"",pieces?pieces+" bo'lak":""].filter(Boolean).join(" + ")||"—"}</span></div>`;
   }).join("");
@@ -580,37 +598,46 @@ function render4(){
   // harakat tugmalari va izoh
   const m=$("m4");let acts="",t;
   if(!cutN){
-    if(left>=b){acts=`<button class="btn" data-act="deal">Har kimga bittadan butun non ▶</button>`;
-      t=given?`Har kimga <b>${given}</b> tadan non berildi, qoldi <b>${left}</b> ta. Yana tarqating.`:`<b>${a}</b> ta non, <b>${b}</b> ta do'st. Nonlarni aylana bo'yicha tarqating — har bosishda har kimga bittadan.`}
-    else if(left>0){acts=`<span class="lbl" style="font-weight:800;color:var(--muted)">Qolgan ${left} ta nonni nechaga kesamiz?</span>`+[2,3,4,5,6,7,8].map(n=>`<button class="chipC" data-cutn="${n}">${n}</button>`).join("");
-      t=`Butun non yetmay qoldi: har kimga <b>${given}</b> tadan berdik, <b class="cz">${left}</b> ta ortdi — bu <b>qoldiq</b> (${a} : ${b} = ${given}, qoldiq ${left}). Uni ham teng bo'lish uchun kesish kerak.`}
-    else{t=`Nonlar qoldiqsiz bo'lindi: har kimga <b>${given}</b> tadan. ${a} : ${b} = ${fr(a,b)} = <b class="cg">${given}</b>. Javobni yozing.`;}
+    if(left>=b){acts=`<button class="btn" data-act="deal">Har kimga bittadan butun doiracha ▶</button>`;
+      t=given?`Har kimga <b>${given}</b> tadan doiracha berildi, qoldi <b>${left}</b> ta. Yana tarqating.`:`<b>${a}</b> ta doiracha, <b>${b}</b> ta do'st. Doirachalarni aylana bo'yicha tarqating — har bosishda har kimga bittadan.`}
+    else if(left>0){if(!s4.opts)s4.opts=opts4(left,b);
+      acts=`<div class="cutq"><span class="lbl">Qolgan ${left} ta doirachaning har birini nechta teng bo'lakka bo'lamiz?</span>`+
+        `<span class="cutin"><input id="cn4" inputmode="numeric" maxlength="2" placeholder="?" aria-label="Nechta teng bo'lakka (2–${MAXCUT})"><button class="btn sm" data-act="cutin">Bo'lish</button></span>`+
+        (s4.showOpts?`<div class="opts"><span class="lbl">Variantlar:</span>${s4.opts.map(n=>`<button class="chipC" data-cutn="${n}">${n} ta bo'lak</button>`).join("")}</div>`:`<button class="btn ghost sm" data-act="opts">Bilmayman — variantlar</button>`)+`</div>`;
+      t=`Butun doiracha yetmay qoldi: har kimga <b>${given}</b> tadan berdik, <b class="cz">${left}</b> ta ortdi — bu <b>qoldiq</b> (${a} : ${b} = ${given}, qoldiq ${left}). Uni ham teng bo'lish uchun har bir doirachani teng bo'laklarga bo'lish kerak. Nechta bo'lakka bo'lsak, ${b} kishiga teng yetadi?`}
+    else{t=`Doirachalar qoldiqsiz bo'lindi: har kimga <b>${given}</b> tadan. ${a} : ${b} = ${fr(a,b)} = <b class="cg">${given}</b>. Javobni yozing.`;}
   }else{
-    const fits=(left*cutN)%b===0,again=pieces===0||!fits?`<button class="btn ghost" data-act="uncut">Boshqacha kesish</button>`:"";
+    const fits=(left*cutN)%b===0,again=pieces===0||!fits?`<button class="btn ghost" data-act="uncut">Boshqa songa bo'lish</button>`:"";
     if(restPieces>=b){acts=`<button class="btn" data-act="deal2">Har kimga bittadan bo'lak ▶</button>`+again;
-      t=fits?`${left} ta nonning har biri <b>${cutN}</b> bo'lakka kesildi — ${left*cutN} ta bo'lak. Bo'laklarni tarqating.`
-        :`${left} ta nonni <b>${cutN}</b> bo'lakdan kesdingiz — ${left*cutN} ta bo'lak. Lekin ${left*cutN} ni ${b} kishiga teng bo'lib bo'lmaydi: oxirida bo'lak ortib qoladi. Boshqacha kesib ko'ring.`}
-    else if(restPieces>0){acts=`<button class="btn ghost" data-act="uncut">Boshqacha kesish</button>`;
-      t=`${restPieces} ta bo'lak ortib qoldi — ${b} kishiga teng bo'lib bo'lmaydi. ${left} ta nonni boshqacha kesib ko'ring (har bir non nechta bo'lakka bo'linsa, ${b} kishiga teng tegadi?).`}
-    else t=`Hamma narsa teng tarqatildi! Har kimga <b>${given}</b> ta butun non va <b>${pieces}</b> ta bo'lak (har biri ${fr(1,cutN)}). Endi javobni yozing.`;
+      t=fits?`${left} ta doirachaning har biri <b>${cutN}</b> ta teng bo'lakka bo'lindi — ${left*cutN} ta bo'lak. Bo'laklarni tarqating.`
+        :`${left} ta doirachani <b>${cutN}</b> ta teng bo'lakka bo'ldingiz — ${left*cutN} ta bo'lak. Lekin ${left*cutN} ni ${b} kishiga teng bo'lib bo'lmaydi: oxirida bo'lak ortib qoladi. Boshqa songa bo'lib ko'ring.`}
+    else if(restPieces>0){acts=`<button class="btn ghost" data-act="uncut">Boshqa songa bo'lish</button>`;
+      t=`${restPieces} ta bo'lak ortib qoldi — ${b} kishiga teng bo'lib bo'lmaydi. ${left} ta doirachani boshqa songa bo'lib ko'ring (har bir doiracha nechta bo'lakka bo'linsa, ${b} kishiga teng tegadi?).`}
+    else t=`Hamma narsa teng tarqatildi! Har kimga <b>${given}</b> ta butun doiracha va <b>${pieces}</b> ta bo'lak (har biri ${fr(1,cutN)}). Endi javobni yozing.`;
   }
   $("act4").innerHTML=acts;m.innerHTML=t;m.className="story";
   const ready=(!cutN&&left===0)||(cutN&&restPieces===0);
   $("ans4").hidden=!ready;$("qa4").textContent=a;$("qb4").textContent=b;
   regroup("rg4",a,b);
 }
-function reset4(){Object.assign(s4,{given:0,cutN:null,pieces:0,done:false});delete RG.rg4;["w4","n4","d4"].forEach(i=>$(i).value="");render4()}
+function reset4(){Object.assign(s4,{given:0,cutN:null,pieces:0,done:false,opts:null,showOpts:false});delete RG.rg4;["w4","n4","d4"].forEach(i=>$(i).value="");render4()}
 $("act4").addEventListener("click",e=>{
   const ac=e.target.closest("[data-act]"),cn=e.target.closest("[data-cutn]");
-  if(ac){const k=ac.dataset.act;if(k==="deal")s4.given++;if(k==="deal2")s4.pieces++;if(k==="uncut"){s4.cutN=null;s4.pieces=0}}
+  if(ac){const k=ac.dataset.act;if(k==="deal")s4.given++;if(k==="deal2")s4.pieces++;if(k==="uncut"){s4.cutN=null;s4.pieces=0}if(k==="opts")s4.showOpts=true;
+    if(k==="cutin"){cutIn4();return}}
   if(cn){s4.cutN=+cn.dataset.cutn;s4.pieces=0}
   render4();
 });
+/* katakchaga yozilgan bo'laklar soni: 2..12 (chegara) */
+function cutIn4(){const v=$("cn4").value.trim();if(v==="")return;const n=+v;
+  if(!(n>=2&&n<=MAXCUT)){$("m4").innerHTML=`Har bir doirachani 2 dan ${MAXCUT} tagacha teng bo'lakka bo'lish mumkin.`;$("m4").className="story bad";return}
+  s4.cutN=n;s4.pieces=0;render4()}
+$("act4").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="cn4"){e.preventDefault();cutIn4()}});
 $("ck4").onclick=()=>{
   const {a,b}=s4,q=Math.floor(a/b),r=a%b,w=+($("w4").value||0),n=+($("n4").value||0),d=+($("d4").value||0),m=$("m4");
   const val=d?w+n/d:w,ok=Math.abs(val-a/b)<1e-9&&(r===0||(d>0&&n<d));
   if(ok){m.innerHTML=`To'g'ri! <b class="ca">${a}</b> : <b class="cz">${b}</b> = ${fr(a,b)} = ${rHtml(R(a,b))}. Tekshiramiz: ${q} × ${b} + ${r} = ${a} ✓. <b>Bo'linma</b> — butun qism, <b>qoldiq</b> — surat, <b>bo'luvchi</b> — maxraj.`;m.className="story good";regroup("rg4",a,b,true)}
-  else{m.innerHTML=d&&n>=d?`Kasr qismida surat maxrajdan kichik bo'lishi kerak — butunlarini ajrating.`:`Hali emas. Har kimga nechta butun non tegdi (butun qism)? Qoldiq nechta va nechta kishiga bo'lindi (kasr)?`;m.className="story bad"}
+  else{m.innerHTML=d&&n>=d?`Kasr qismida surat maxrajdan kichik bo'lishi kerak — butunlarini ajrating.`:`Hali emas. Har kimga nechta butun doiracha tegdi (butun qism)? Qoldiq nechta va nechta kishiga bo'lindi (kasr)?`;m.className="story bad"}
 };
 $("rn4").onclick=()=>{s4.b=rnd(2,8);do{s4.a=rnd(s4.b+1,Math.min(50,s4.b*7))}while(s4.a%s4.b===0);reset4()};
 $("p-qoldiq").querySelector(".ctl").addEventListener("click",e=>{const d=e.target.closest("[data-d]");if(!d)return;const k=d.dataset.d[0],sg=d.dataset.d[1];
