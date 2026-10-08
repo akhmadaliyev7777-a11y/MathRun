@@ -78,7 +78,7 @@ p{margin:0}
 .qcell.zero{border-width:3px;background:var(--okbg)}
 /* ustun usulida — katak daftar */
 .own{gap:6px}.own input{width:84px;font:800 18px var(--f-display);padding:5px 8px;border:2px solid var(--line);border-radius:9px;text-align:center;background:#fff}
-#oa4{border-color:var(--c1);color:var(--c1)}#ob4{width:64px;border-color:var(--c3);color:var(--c3)}
+#oa4{border-color:var(--c1);color:var(--c1)}.own input::placeholder{color:#9AA5B8;letter-spacing:.05em;opacity:1}#ob4{width:64px;border-color:var(--c3);color:var(--c3)}
 .ldwrap{--cw:36px;--ch:36px;overflow-x:auto;padding:14px;border-radius:14px;border:1.5px solid var(--line);background-color:#FBFCFE;
   background-image:linear-gradient(#E4EAF3 1px,transparent 1px),linear-gradient(90deg,#E4EAF3 1px,transparent 1px);background-size:var(--cw) var(--ch);background-position:14px 14px}
 .ld{display:flex;align-items:flex-start;width:max-content}
@@ -93,7 +93,7 @@ p{margin:0}
 .lin input{flex:none;border:0;background:transparent;padding:0;font:800 26px var(--f-display);font-variant-numeric:tabular-nums;color:var(--ink);text-align:right;
   letter-spacing:var(--ls);width:calc(100% + var(--ls)/2);margin-right:calc(var(--ls)/-2 + 2px)}
 .lin input:focus{outline:none}
-.lq.ask input{width:100%;height:100%;border:0;background:transparent;font:800 26px var(--f-display);color:var(--c2);text-align:center;padding:0}
+.lq.ask{position:relative}.lq.ask input{position:absolute;inset:0;width:100%;height:100%;margin:0;line-height:1;-webkit-appearance:none;appearance:none;border:0;background:transparent;font:800 26px var(--f-display);color:var(--c2);text-align:center;padding:0}
 .lq.ask input:focus{outline:none}.lq.ask:focus-within{outline:3px solid var(--c2)}
 .lc.cz{color:var(--c4)}
 .lq.ask{color:var(--c2);background:var(--okbg);border-radius:8px;outline:2px dashed var(--c2);outline-offset:-3px}
@@ -257,7 +257,7 @@ p{margin:0}
       <div class="mgrp" id="md4"><button class="seg sel" data-r="0">Qoldiqsiz</button><button class="seg" data-r="1">Qoldiqli</button></div>
       <div class="row"><div class="mgrp" id="lv4"><button class="seg" data-l="1">Oson</button><button class="seg sel" data-l="2">O'rta</button><button class="seg" data-l="3">Qiyin</button></div><button class="btn ghost" id="new4">Yangi misol</button></div>
     </div>
-    <div class="row own"><span class="qlab">O'z misolingiz:</span><input id="oa4" inputmode="numeric" aria-label="Bo'linuvchi" placeholder="624"><b>:</b><input id="ob4" inputmode="numeric" aria-label="Bo'luvchi" placeholder="3"><button class="btn ghost sm" id="go4">Bo'lish</button></div>
+    <div class="row own"><span class="qlab">O'z misolingiz:</span><input id="oa4" inputmode="numeric" aria-label="Bo'linuvchi" placeholder="_ _ _ _"><b>:</b><input id="ob4" inputmode="numeric" aria-label="Bo'luvchi" placeholder="_ _"><button class="btn ghost sm" id="go4">Bo'lish</button></div>
     <div class="task" id="q4"></div>
     <div class="ldwrap"><div class="ld" id="ld4"></div></div>
     <div class="row tools"><button class="btn ghost sm" id="un4">← Orqaga</button><button class="btn ghost sm" id="cl4">Tozalash</button><button class="btn green sm" id="nx4">Keyingi qadam ▶</button></div>
@@ -568,7 +568,8 @@ $("md4").addEventListener("click",e=>{const x=e.target.closest("[data-r]");if(!x
 function own4(){const a=+$("oa4").value,b=+$("ob4").value;
   if(!(a>=2&&a<=9999&&b>=2&&b<=99)){setMsg("m4","Bo'linuvchi 2 dan 9999 gacha, bo'luvchi 2 dan 99 gacha bo'lsin.","bad");return}
   if(a<b){setMsg("m4",`${a} < ${b}: bo'linma 0, qoldiq ${a}. Bo'linuvchi bo'luvchidan katta bo'lsin.`,"bad");return}
-  start4(a,b)}
+  start4(a,b);
+  const w=document.querySelector("#p-ustun .ldwrap");try{w.scrollIntoView({behavior:"smooth",block:"center"})}catch(e){w.scrollIntoView()}}
 $("go4").onclick=own4;
 ["oa4","ob4"].forEach(i=>$(i).addEventListener("keydown",e=>{if(e.key==="Enter")own4()}));
 
