@@ -516,4 +516,43 @@ function renderGallery() {
   }).join("");
 
   el.innerHTML = sections + '<p class="topic-list-foot">Jami ' + total + ' ta interaktiv dars</p>';
+
+  // 1–4 sinflar: simulyatorlar ro'yxati mathrunner-web/js/sims.js dan olinadi va eng yuqoriga qo'yiladi
+  const ver = typeof LESSON_VER !== "undefined" ? LESSON_VER : 1;
+  import(new URL("mathrunner-web/js/sims.js?v=" + ver, location.href).href).then(function (mod) {
+    const byGrade = {};
+    Object.keys(mod.SIMS).forEach(function (key) {
+      const m = key.match(/^(\d)-(\d)-(\d+)$/);
+      if (m) (byGrade[m[1]] = byGrade[m[1]] || []).push({ g: m[1], c: m[2], b: Number(m[3]), sim: mod.SIMS[key] });
+    });
+    const grades = Object.keys(byGrade).sort();
+    if (!grades.length) return;
+    let n = 0;
+    const html = grades.map(function (g) {
+      const rows = byGrade[g].sort(function (x, y) { return x.c - y.c || x.b - y.b; }).map(function (t) {
+        n++;
+        const href = "mathrunner-web/index.html#/sim/" + t.g + "/" + t.c + "/" + t.b;
+        return (
+          '<li class="topic-row">' +
+            '<span class="topic-row-num">' + t.b + '.</span>' +
+            '<a class="topic-row-title" href="' + href + '">' + (t.sim.name || t.sim.title) +
+              '<span class="topic-row-page">' + t.c + '-chorak</span>' +
+            '</a>' +
+            '<span class="topic-row-actions">' +
+              '<a class="topic-btn topic-btn--primary topic-btn--new" href="' + href + '">Interaktiv</a>' +
+            '</span>' +
+          '</li>'
+        );
+      }).join("");
+      return (
+        '<section class="gallery-grade">' +
+          '<h2 class="gallery-grade-title"><a href="mathrunner-web/index.html#/g/' + g + '">' + g + '-sinf</a></h2>' +
+          '<ol class="topic-list gallery-list">' + rows + '</ol>' +
+        '</section>'
+      );
+    }).join("");
+    el.insertAdjacentHTML("afterbegin", html);
+    const foot = el.querySelector(".topic-list-foot");
+    if (foot) foot.textContent = "Jami " + (total + n) + " ta interaktiv dars";
+  }).catch(function () {});
 }
