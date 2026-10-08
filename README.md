@@ -1,4 +1,4 @@
-# MathRun — interaktiv matematika sayti
+# MathRun Simulyator — interaktiv matematika sayti
 
 Brilliant.org uslubida, matematikani interaktiv illyustratsiya va o'yinlar orqali o'rgatuvchi sayt.
 

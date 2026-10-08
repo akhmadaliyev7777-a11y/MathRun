@@ -3,6 +3,7 @@ import { ICON, KINGDOM_ICON } from '../icons.js';
 import { nav, footer, curriculum, gradeData, applyKingdom } from '../app.js';
 import { readBest } from '../util.js';
 import { TOPIC_TITLES } from '../topicTitles.js';
+import { simFor } from '../sims.js';
 
 const GAME_LABEL = {
   set: 'To\'plamlar o\'yini', numberOrder: 'Tartiblash o\'yini', placeValue: 'Xona tarkibi o\'yini',
@@ -78,12 +79,17 @@ export function render(root, [gradeStr, chorakStr]) {
     return el('button', attrs,
       `${i + 1}-dars`, done ? el('span', { class: 'tbtn__star' }, '★'.repeat(done)) : null);
   };
+  // simulyatori bor mavzu: nomi bosilsa — avval simulyator ochiladi (testlar uning ostida)
   const trow = (b, idx) => {
     const first = b.levels.find(l => l.webSupported);
-    return el('li', { class: 'trow' },
+    const sim = simFor(grade, chorakNo, b.blok);
+    const href = sim ? `#/sim/${grade}/${chorakNo}/${b.blok}` : first ? `#/play/${first.id}` : null;
+    return el('li', { class: 'trow' + (sim ? ' trow--sim' : '') },
       el('span', { class: 'trow__num' }, `${b.blok}.`),
-      el(first ? 'a' : 'span', { class: 'trow__title', href: first ? `#/play/${first.id}` : null }, titles[idx] || b.name),
-      el('div', { class: 'trow__levels' }, ...b.levels.map(lessonBtn)));
+      el(href ? 'a' : 'span', { class: 'trow__title', href }, titles[idx] || b.name),
+      el('div', { class: 'trow__levels' },
+        sim ? el('a', { class: 'tbtn tbtn--sim', href, title: 'Interaktiv simulyator' }, 'Simulyator') : null,
+        ...b.levels.map(lessonBtn)));
   };
   const topics = titles
     ? el('ol', { class: 'tlist' }, ...chorak.blocks.map(trow))

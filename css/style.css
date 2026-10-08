@@ -1411,3 +1411,7 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 .topic-btn--primary.topic-btn--new:hover { background: #0E6B4C; border-color: #0E6B4C; }
 .site-search-meta b.is-old { color: var(--primary); }
 .site-search-meta b.is-new { color: #12805C; }
+
+/* logotip: "MathRun" — asosiy, "Simulyator" — yengilroq */
+.site-logo-sub { font-weight: 700; color: var(--accent-geometriya); margin-left: 2px; }
+@media (max-width: 380px) { .site-logo { font-size: 1.05rem; } }

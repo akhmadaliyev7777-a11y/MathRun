@@ -22,13 +22,13 @@ export function nav(active) {
 export function footer() {
   return el('footer', { class: 'site-footer' },
     el('div', { class: 'footer-inner' },
-      el('span', { class: 'footer-logo' }, 'MathRun'),
+      el('span', { class: 'footer-logo' }, 'MathRun Simulyator'),
       el('nav', { class: 'footer-links' },
         el('a', { href: '../index.html' }, 'Bosh sahifa'),
         el('a', { href: '../korgazmalar.html' }, 'Interaktiv darslar'),
         el('a', { href: '#/' }, 'Boshlang\'ich sinflar'),
         el('a', { href: '../info.html' }, 'Ma\'lumot')),
-      el('span', { class: 'footer-copy' }, '© MathRun')));
+      el('span', { class: 'footer-copy' }, '© MathRun Simulyator')));
 }
 
 export const curriculum = () => CUR;
@@ -56,6 +56,7 @@ const routes = [
   { re: /^#\/?$/, load: () => import('./screens/landing.js'), name: 'landing' },
   { re: /^#\/g\/(\d)(?:\/c\/(\d))?$/, load: () => import('./screens/mavzular.js'), name: 'mavzular' },
   { re: /^#\/play\/([\w-]+)$/, load: () => import('./screens/play.js'), name: 'play' },
+  { re: /^#\/sim\/(\d)\/(\d)\/(\d+)$/, load: () => import('./screens/sim.js'), name: 'sim' },
   { re: /^#\/tug$/, load: () => import('./screens/tug.js'), name: 'tug' },
   { re: /^#\/(games|about)$/, load: () => import('./screens/info.js'), name: 'info' },
 ];
