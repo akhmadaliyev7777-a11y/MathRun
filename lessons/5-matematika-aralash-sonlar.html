@@ -25,6 +25,7 @@ p{margin:0}
 .btn{background:var(--ink);color:#fff;border:0;border-radius:9px;padding:10px 16px;font:700 15px var(--f-body);cursor:pointer;min-height:42px}
 .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
 .btn.green{background:var(--c2)}
+.btn:disabled{opacity:.45;cursor:default}
 .btn.sm{min-height:34px;padding:6px 12px}
 :focus-visible{outline:3px solid var(--c1);outline-offset:2px}
 .cg{color:var(--c2)}
@@ -183,6 +184,7 @@ p{margin:0}
       <button class="btn" id="go1">Boshlash</button></div>
     <div class="board" id="bd1"></div>
     <div class="acts" id="ac1"></div>
+    <div class="row"><button class="btn ghost sm" id="un1" disabled>← Orqaga</button></div>
     <div class="story" id="m1" aria-live="polite"></div>
     <div class="chain" id="ch1"></div>
     <div id="alt1"></div>
@@ -198,6 +200,7 @@ p{margin:0}
       <button class="btn" id="go2">Boshlash</button></div>
     <div class="board" id="bd2"></div>
     <div class="acts" id="ac2"></div>
+    <div class="row"><button class="btn ghost sm" id="un2" disabled>← Orqaga</button></div>
     <div class="story" id="m2" aria-live="polite"></div>
     <div class="chain" id="ch2"></div>
     <div id="alt2"></div>
@@ -427,6 +430,20 @@ $("ac2").addEventListener("click",e=>{
   render2();
 });
 $("new2").onclick=new2;
+
+/* ================= «← Orqaga»: qo'shish va ayirish qadamlarini bekor qilish ================= */
+/* har bir bosishdan oldin holat eslab qolinadi; holat o'zgargan bo'lsa — tarixga qo'shiladi. Yangi misolda eski tarix ishlatilmaydi */
+function undoable(t,st,keys,render){const H=[],ac=$("ac"+t),un=$("un"+t);let pre=null;
+  const snap=()=>({A:st.A,B:st.B,v:keys.map(k=>st[k]),m:$("m"+t).innerHTML,mc:$("m"+t).className,alt:$("alt"+t).innerHTML});
+  const upd=()=>{while(H.length&&(H[H.length-1].A!==st.A||H[H.length-1].B!==st.B))H.pop();un.disabled=!H.length};
+  ac.addEventListener("click",()=>{pre=snap()},true);                               // bosishdan oldin (capture)
+  ac.addEventListener("click",()=>{if(pre&&keys.some((k,i)=>pre.v[i]!==st[k]))H.push(pre);pre=null;upd()});   // bosishdan keyin
+  un.onclick=()=>{upd();const h=H.pop();if(!h)return;keys.forEach((k,i)=>st[k]=h.v[i]);render();
+    $("m"+t).innerHTML=h.m;$("m"+t).className=h.mc;$("alt"+t).innerHTML=h.alt;upd()};
+  document.addEventListener("click",e=>{if(e.target.closest("#new"+t+",#go"+t))setTimeout(upd)});
+  return upd}
+undoable(1,s1,["D","wDone","pDone","reg"],render1);
+undoable(2,s2,["D","borrow","pDone","wDone"],render2);
 
 /* ================= 3. Son o'qida sakrash ================= */
 const s3={o:"+"};
