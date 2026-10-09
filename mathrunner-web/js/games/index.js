@@ -189,11 +189,12 @@ function gamePlaceValue(ctx) {
 /* yangi tarozi misoli — bosqich bankidagi chegaralarda (shakllar soni, jami og'irlik, tosh og'irligi) */
 const BAL_SHAPES = [['triangle', 'uchburchak'], ['circle', 'doira'], ['square', 'kvadrat']];
 const rndI = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
-function genBalance(bank) {
-  const maxN = Math.max(...bank.map(t => t.shapeCount)), maxT = Math.max(...bank.map(t => t.total)),
-    maxK = Math.max(...bank.map(t => t.knownWeight)), unit = bank[0].unit || 'kg';
+function genBalance(bank, hard) {
+  // qiyin rejim: 2–5 ta shakl, bitta shakl 3–15, tosh 5–40
+  const maxN = hard ? 5 : Math.max(...bank.map(t => t.shapeCount)), maxT = hard ? 115 : Math.max(...bank.map(t => t.total)),
+    maxK = hard ? 40 : Math.max(...bank.map(t => t.knownWeight)), unit = bank[0].unit || 'kg';
   for (let i = 0; i < 300; i++) {
-    const n = rndI(1, maxN), x = rndI(1, Math.max(2, Math.floor(maxT / n))), k = rndI(0, maxK), total = n * x + k;
+    const n = rndI(hard ? 2 : 1, maxN), x = hard ? rndI(3, 15) : rndI(1, Math.max(2, Math.floor(maxT / n))), k = rndI(hard ? 5 : 0, maxK), total = n * x + k;
     if (total > maxT || total < 2 || (n === 1 && k === 0)) continue;   // «□ = 6» kabi yechimsiz-oson misol bo'lmasin
     const opts = new Set([x]);
     for (const v of shuffle([x - 1, x + 1, x + 2, x - 2, total - k, k, x + 3])) if (v > 0 && opts.size < 4) opts.add(v);
@@ -204,9 +205,12 @@ function genBalance(bank) {
   }
   return { ...bank[0] };
 }
+let balHard = false;   // tanlangan rejim (Oson / Qiyin) — sahifa ochiq turganda eslab qolinadi
 function gameBalance(ctx) {
-  // bankdagi misollar + yana shuncha yangi misol (har o'yinda boshqacha)
-  const tasks = [...ctx.bank, ...Array.from({ length: ctx.bank.length }, () => genBalance(ctx.bank))];
+  // oson: bankdagi misollar + yana shuncha yangi misol; qiyin: hammasi yangi, katta sonlar bilan
+  const N = ctx.bank.length * 2;
+  const make = () => balHard ? Array.from({ length: N }, () => genBalance(ctx.bank, true)) : [...ctx.bank, ...Array.from({ length: ctx.bank.length }, () => genBalance(ctx.bank))];
+  let tasks = make();
   let idx = 0, correct = 0, streak = 0, longest = 0, locked = false;
   const s = shell(ctx, 'Tarozi muvozanatda. Noma\'lumni toping.', 'scale');
 
@@ -243,13 +247,16 @@ function gameBalance(ctx) {
 
     // tenglama ko'rinishi: 2 · □ + 3 = 11
     const eq = `${t.shapeCount > 1 ? t.shapeCount + ' · ' : ''}□${t.knownWeight ? ' + ' + t.knownWeight : ''} = ${t.total}`;
+    const modeBtn = (hard, label) => el('button', { class: 'btn' + (balHard === hard ? ' btn--accent' : ''), style: 'padding:6px 16px;min-height:36px',
+      onclick: () => { if (balHard === hard) return; balHard = hard; tasks = make(); idx = 0; correct = 0; streak = 0; longest = 0; render(); } }, label);
     s.area.replaceChildren(
+      el('div', { style: 'display:flex;gap:8px;justify-content:center;margin-bottom:10px' }, modeBtn(false, 'Oson'), modeBtn(true, 'Qiyin')),
       el('div', { style: 'text-align:center;font-family:var(--f-head);font-weight:800;font-size:18px;margin-bottom:4px' }, t.prompt),
       el('div', { class: 'scale' }, leftPan, el('span', { style: 'font-family:var(--f-head);font-size:28px;align-self:center' }, '='), rightPan),
       el('div', { style: 'text-align:center;font-family:var(--f-head);font-weight:800;font-size:24px;margin:6px 0 2px;color:var(--peri, #3f56c4)' }, 'Tenglama: ' + eq),
       opts);
     // «Yangi tenglama» — joriy misolni yangisiga almashtiradi
-    s.foot.replaceChildren(el('button', { class: 'btn', onclick: () => { if (locked) return; tasks[idx] = genBalance(ctx.bank); render(); } }, 'Yangi tenglama ↻'));
+    s.foot.replaceChildren(el('button', { class: 'btn', onclick: () => { if (locked) return; tasks[idx] = genBalance(ctx.bank, balHard); render(); } }, 'Yangi tenglama ↻'));
   }
   render();
 }
