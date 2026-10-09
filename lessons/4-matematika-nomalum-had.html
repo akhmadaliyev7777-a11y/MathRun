@@ -242,7 +242,7 @@ p{margin:0}
   <!-- 1. Tenglamani yech -->
   <section class="panel" role="tabpanel" id="p-yech">
     <div class="row" style="justify-content:space-between">
-      <div class="mgrp" id="lv1"><button class="seg sel" data-l="1">Oson (1 amal)</button><button class="seg" data-l="2">O'rta</button><button class="seg" data-l="3">Qiyin (2 amal)</button></div>
+      <div class="mgrp" id="lv1"><button class="seg sel" data-l="1">Oson (1 amal)</button><button class="seg" data-l="2">O'rta</button><button class="seg" data-l="3">2 amal (karra jadvali)</button></div>
       <div class="row"><select id="op1" class="btn ghost sm" aria-label="Amal turi"><option value="">Barcha amallar</option><option value="+">Qo'shish</option><option value="-">Ayirish</option><option value="*">Ko'paytirish</option><option value=":">Bo'lish</option></select><button class="btn ghost sm" id="nw1">Yangi tenglama</button></div>
     </div>
     <svg class="scale" id="sc1" viewBox="0 0 640 260" aria-label="Tarozi"></svg>
@@ -344,10 +344,24 @@ function stepsOf(E,T){const out=[];let e=E,t=T;
   while(e!=="x"){const side=hasX(e.l)?0:1,k=ev(side?e.l:e.r),role=ROLE(e.op,side),nt=RULE[role][1](t,k);
     out.push({node:e,side,role,k,t,nt,unk:side?e.r:e.l,expr:role==="ayriluvchi"||role==="bo'luvchi"?`${k} ${RULE[role][2]} ${t}`:`${t} ${RULE[role][2]} ${k}`});e=side?e.r:e.l;t=nt}
   return out}
+/* 2 amalli tenglama — faqat karra jadvali asosida: x va ko'paytuvchilar 2..9, ko'paytirish/bo'lish jadvaldan, qo'shiladigan/ayiriladigan sonlar 20 gacha.
+   opf berilsa — shu amal qatnashgan turlar */
+function gen2step(opf,x){
+  const a=rnd(2,9),b=rnd(1,20),F=[
+    ["*+",()=>({op:"+",l:{op:"*",l:a,r:"x"},r:b})],
+    ["*-",()=>a*x>b?{op:"-",l:{op:"*",l:a,r:"x"},r:b}:null],
+    ["*+",()=>({op:"+",l:{op:"*",l:"x",r:a},r:b})],
+    [":+",()=>({op:"+",l:{op:":",l:a*x,r:"x"},r:b})],
+    [":-",()=>a>b?{op:"-",l:{op:":",l:a*x,r:"x"},r:b}:null],
+    ["+*",()=>{const c=rnd(1,9-x);return c>=1&&x+c<=9?{op:"*",l:{op:"+",l:"x",r:c},r:a}:null}],
+    ["-*",()=>{const c=rnd(1,x-1);return x-c>=1?{op:"*",l:{op:"-",l:"x",r:c},r:a}:null}],
+    ["+:",()=>{const c=rnd(1,9),v=x+c;return v%a===0&&v/a<=9&&v/a>=1?{op:":",l:{op:"+",l:"x",r:c},r:a}:null}]];
+  const pool=opf?F.filter(f=>f[0].includes(opf==="*"?"*":opf)):F;
+  const f=pickOne(pool.length?pool:F)[1]();return f}
 /* misol yaratish: lv 1 — 1 amal, kichik sonlar; 2 — 1 amal, katta sonlar; 3 — 2 amal */
 function genEq(lv,opf){
   for(let tries=0;tries<500;tries++){
-    const op=opf||pickOne(["+","-","*",":"]),x=lv===1?(op==="*"||op===":"?rnd(2,9):rnd(2,15)):lv===2?(op==="*"||op===":"?rnd(11,99):rnd(25,600)):rnd(2,12);
+    const op=opf||pickOne(["+","-","*",":"]),x=lv===1?(op==="*"||op===":"?rnd(2,9):rnd(2,15)):lv===2?(op==="*"||op===":"?rnd(11,99):rnd(25,600)):rnd(2,9);
     const one=(op,x,big)=>{let a,form=rnd(0,1);
       if(op==="+"){a=big?rnd(20,500):rnd(1,12);return form?{op,l:"x",r:a}:{op,l:a,r:"x"}}
       if(op==="-"){if(form){a=big?rnd(10,x-1>10?x-1:10):rnd(1,Math.max(1,x-1));if(a>=x)return null;return{op,l:"x",r:a}}a=x+(big?rnd(10,400):rnd(1,10));return{op,l:a,r:"x"}}
@@ -355,10 +369,7 @@ function genEq(lv,opf){
       if(form){a=rnd(2,9);return{op,l:"x",r:a}}a=x*rnd(2,9);return{op,l:a,r:"x"}};
     let E;
     if(lv<3){E=one(op,x,lv===2);if(!E)continue;if(op===":"&&E.l==="x"&&false)continue}
-    else{const inner=pickOne(["*",":","+","-"]),outer=pickOne(inner==="*"||inner===":"?["+","-"]:["*",":"]),I=one(inner,x,false);if(!I)continue;const v=ev(I,x);
-      if(!Number.isInteger(v)||v<=0)continue;
-      if(outer==="+")E={op:"+",l:I,r:rnd(2,20)};else if(outer==="-"){const b=rnd(1,Math.max(1,v-1));if(b>=v)continue;E={op:"-",l:I,r:b}}
-      else if(outer==="*")E={op:"*",l:I,r:rnd(2,5)};else{if(v%2&&v%3)continue;const d=v%2===0?2:3;E={op:":",l:I,r:d}}}
+    else{E=gen2step(opf,x);if(!E)continue}   // 2 amal — faqat karra jadvali (ko'paytuvchilar 2..9) asosida
     const T=ev(E,x);if(!Number.isInteger(T)||T<=0||T>9999)continue;
     if(stepsOf(E,T).some(s=>!Number.isInteger(s.nt)||s.nt<=0))continue;
     return{E,T,x}}

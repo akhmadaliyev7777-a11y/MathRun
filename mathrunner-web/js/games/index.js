@@ -186,8 +186,27 @@ function gamePlaceValue(ctx) {
 }
 
 // ================= balanceScale =================
+/* yangi tarozi misoli — bosqich bankidagi chegaralarda (shakllar soni, jami og'irlik, tosh og'irligi) */
+const BAL_SHAPES = [['triangle', 'uchburchak'], ['circle', 'doira'], ['square', 'kvadrat']];
+const rndI = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+function genBalance(bank) {
+  const maxN = Math.max(...bank.map(t => t.shapeCount)), maxT = Math.max(...bank.map(t => t.total)),
+    maxK = Math.max(...bank.map(t => t.knownWeight)), unit = bank[0].unit || 'kg';
+  for (let i = 0; i < 300; i++) {
+    const n = rndI(1, maxN), x = rndI(1, Math.max(2, Math.floor(maxT / n))), k = rndI(0, maxK), total = n * x + k;
+    if (total > maxT || total < 2 || (n === 1 && k === 0)) continue;   // «□ = 6» kabi yechimsiz-oson misol bo'lmasin
+    const opts = new Set([x]);
+    for (const v of shuffle([x - 1, x + 1, x + 2, x - 2, total - k, k, x + 3])) if (v > 0 && opts.size < 4) opts.add(v);
+    if (opts.size < 4) continue;
+    const [shape, nm] = BAL_SHAPES[rndI(0, BAL_SHAPES.length - 1)];
+    return { id: 'gen_' + Math.random().toString(36).slice(2), prompt: `Bitta ${nm} necha ${unit}?`, shape, shapeCount: n, knownWeight: k, total, unit,
+      options: [...opts].sort((a, b) => a - b) };
+  }
+  return { ...bank[0] };
+}
 function gameBalance(ctx) {
-  const tasks = ctx.bank;
+  // bankdagi misollar + yana shuncha yangi misol (har o'yinda boshqacha)
+  const tasks = [...ctx.bank, ...Array.from({ length: ctx.bank.length }, () => genBalance(ctx.bank))];
   let idx = 0, correct = 0, streak = 0, longest = 0, locked = false;
   const s = shell(ctx, 'Tarozi muvozanatda. Noma\'lumni toping.', 'scale');
 
@@ -222,11 +241,15 @@ function gameBalance(ctx) {
       }, ok ? 520 : 900);
     }
 
+    // tenglama ko'rinishi: 2 · □ + 3 = 11
+    const eq = `${t.shapeCount > 1 ? t.shapeCount + ' · ' : ''}□${t.knownWeight ? ' + ' + t.knownWeight : ''} = ${t.total}`;
     s.area.replaceChildren(
       el('div', { style: 'text-align:center;font-family:var(--f-head);font-weight:800;font-size:18px;margin-bottom:4px' }, t.prompt),
       el('div', { class: 'scale' }, leftPan, el('span', { style: 'font-family:var(--f-head);font-size:28px;align-self:center' }, '='), rightPan),
+      el('div', { style: 'text-align:center;font-family:var(--f-head);font-weight:800;font-size:24px;margin:6px 0 2px;color:var(--peri, #3f56c4)' }, 'Tenglama: ' + eq),
       opts);
-    s.foot.replaceChildren();
+    // «Yangi tenglama» — joriy misolni yangisiga almashtiradi
+    s.foot.replaceChildren(el('button', { class: 'btn', onclick: () => { if (locked) return; tasks[idx] = genBalance(ctx.bank); render(); } }, 'Yangi tenglama ↻'));
   }
   render();
 }
