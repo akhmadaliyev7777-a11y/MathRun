@@ -144,7 +144,7 @@
   <section class="panel">
     <div class="kicker">O'zingizni sinang</div>
     <h2>Mashq</h2>
-    <p class="hint">Har darajada 5 ta savol. 4 tasiga to'g'ri javob bersangiz, keyingi daraja ochiladi. Qiyin darajadan o'tsangiz — nishon olasiz.</p>
+    <p class="hint">Har darajada 5 ta savol. 4 tasiga to'g'ri javob bersangiz, keyingi daraja ochiladi.</p>
     <div class="levels" id="levels"></div>
     <div id="quiz"></div>
   </section>
@@ -386,10 +386,10 @@ function finishLevel() {
     if (level === 3 && !state.done) { state = MR.set(TOPIC_KEY, { done: true }); newBadge = true; }
   }
   if (passed && level === 3) {
-    html = '<div class="award">' + MR.badgeSvg(BADGE_INDEX, true, 72) + '<b>' + (newBadge ? "Yangi nishon!" : "Nishon allaqachon sizda") + '</b></div>';
+    html = "";   // nishonlar hozircha ko'rsatilmaydi
   }
   const msg = !passed ? "4 ta to'g'ri javob kerak. Xato qilgan savollaringiz rasmini eslab, yana urinib ko'ring."
-    : level < 3 ? LEVELS[level].name + " daraja ochildi." : "Mavzu to'liq o'zlashtirildi — nishon sinf sahifasidagi to'plamga qo'shildi.";
+    : level < 3 ? LEVELS[level].name + " daraja ochildi." : "Barakalla! Mavzu to'liq o'zlashtirildi.";
   document.getElementById("quiz").innerHTML = '<div class="result">' + html +
     '<div class="score" style="color:' + (passed ? C.teal : "#d9506a") + '">' + score + ' / 5</div><p>' + msg + '</p>' +
     '<div class="row" style="justify-content:center">' +

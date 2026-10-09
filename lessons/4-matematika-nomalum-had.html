@@ -1,0 +1,583 @@
+<!doctype html><html lang="uz" data-theme="light"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0;padding:0}[hidden]{display:none!important}</style></head><body>
+<title>Noma'lum hadni topish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: bitta ustun; yuqorida qoida, tablar, pastda tanlangan bo'lim.
+   Ma'lum sonlar — ko'k, noma'lum (x) — binafsha, natija — yashil */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --ink:#14213D; --muted:#5B6577; --line:#D5DBE5;
+  --c1:#1F5FD6; --c2:#12805C; --c3:#D4501B; --c4:#8B5CF6;
+  --ok:#12805C; --bad:#C62828; --badbg:#FBE3E3; --okbg:#DDF3E9;
+  --f-display:"Bricolage Grotesque",ui-rounded,"Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;padding-inline:16px;padding-block:22px 48px;background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body)}
+.wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+h1{font:800 clamp(24px,5.2vw,36px)/1.12 var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font:700 20px/1.25 var(--f-display);margin:0 0 4px}
+p{margin:0}
+.sub{color:var(--muted);margin-top:6px}
+.hint{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{background:var(--ink);color:#fff;border:0;border-radius:9px;padding:10px 16px;font:700 15px var(--f-body);cursor:pointer;min-height:42px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.green{background:var(--c2)}.btn.violet{background:var(--c4)}
+.btn.sm{min-height:36px;padding:6px 12px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn .fr>span{color:inherit!important}
+:focus-visible{outline:3px solid var(--c1);outline-offset:2px}
+.ca{color:var(--c1)}.cb{color:var(--c3)}.cg{color:var(--c2)}.cn{color:var(--c4)}.bad{color:var(--bad)}
+/* kasr va aralash son */
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.05;margin:0 .08em}
+.fr>span:first-child{border-bottom:.09em solid currentColor;padding:0 .14em .04em;color:var(--c1)}
+.fr>span:last-child{padding:.04em .14em 0;color:var(--c3)}
+.mx{display:inline-flex;align-items:center;gap:.06em;vertical-align:middle}
+.wn{font-weight:800;color:var(--c2)}
+.op{color:var(--muted);margin:0 .22em;font-weight:700}
+.qm{color:var(--muted)}
+/* yuqoridagi qoida */
+.formula{display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:14px;background:var(--surface);border:1.5px solid var(--line)}
+.fl{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font:800 clamp(22px,5vw,32px)/1.25 var(--f-display);font-variant-numeric:tabular-nums}
+.fnote{font:700 15px/1.5 var(--f-body);color:var(--muted)}
+.fnote b{color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px}
+.lg{display:inline-flex;align-items:center;gap:6px;font:800 14px var(--f-body)}
+.lg::before{content:"";width:12px;height:12px;border-radius:4px;background:currentColor}
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid var(--line);scrollbar-width:thin}
+.tab{flex:0 0 auto;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;padding:10px 14px;font:700 15px var(--f-body);color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.stepper{display:inline-flex;align-items:center;gap:6px;font-weight:800}
+.stepper button{width:36px;height:36px;border-radius:10px;border:1.5px solid var(--line);background:#fff;font:800 20px var(--f-body);cursor:pointer;color:var(--ink)}
+.stepper output{min-width:1.6em;text-align:center;font:800 21px var(--f-display)}
+.stepper.a output{color:var(--c1)}.stepper.b output{color:var(--c3)}.stepper.n output{color:var(--c4)}
+.task{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font:800 clamp(26px,6vw,36px)/1.2 var(--f-display);font-variant-numeric:tabular-nums}
+.stage{width:100%;height:auto;display:block;border-radius:14px;background:#FBFCFE;border:1.5px solid var(--line)}
+.slab{font:800 14px var(--f-body);fill:var(--muted)}.slab.g{fill:var(--c2)}.slab.r{fill:var(--bad)}
+.tools{gap:6px}
+.story{font-weight:700;font-size:16px;line-height:1.6;min-height:1.6em}
+.story.good{color:var(--ok)}.story.bad{color:var(--bad)}
+/* 2/5 + 2/5 + 2/5 — qo'shiluvchilar ostida qavs */
+.chain{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 6px;font:800 clamp(22px,5vw,30px)/1.25 var(--f-display);padding:6px 2px;font-variant-numeric:tabular-nums}
+.chain>*{align-self:flex-start}
+.chain>.op,.chain>.fr,.chain>.mx,.chain>.qm,.chain>b,.chain>.cn{margin-top:.15em}
+.brace{display:inline-flex;flex-direction:column;align-items:stretch}
+.bterms{display:flex;flex-wrap:wrap;align-items:center;gap:2px 2px;justify-content:center;padding:0 10px 6px;border:3px solid var(--c4);border-top:0;border-radius:0 0 14px 14px}
+.blab{font:800 14px/1.2 var(--f-body);color:var(--c4);text-align:center;margin-top:5px;white-space:nowrap}
+.term{border-radius:8px;padding:0 3px;box-shadow:inset 0 -4px 0 var(--tc)}
+.term.ghost{opacity:.28;box-shadow:none;outline:2px dashed #98A4BA;outline-offset:-2px}
+/* javob kiritish */
+.ans{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font:800 24px var(--f-display);padding:12px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line)}
+.ans input{width:70px;font:800 21px var(--f-display);padding:4px 6px;border:2px solid var(--line);border-radius:9px;text-align:center;background:#fff;color:var(--ink)}
+.ans input:disabled{opacity:.75}
+.frin{display:inline-flex;flex-direction:column;align-items:center;gap:4px}
+.frin input:first-child{border-color:var(--c1);color:var(--c1)}
+.frin input:last-child,.frin .fixd{border-color:var(--c3);color:var(--c3)}
+.frin .fixd{font:800 22px var(--f-display);border-top:3px solid var(--ink);padding-top:2px;min-width:70px;text-align:center}
+.win{border-color:var(--c2)!important;color:var(--c2)!important}
+.alab{font:700 14px var(--f-body);color:var(--muted);flex-basis:100%}
+/* natija va qoida */
+.eqbox{display:flex;flex-direction:column;gap:6px;padding:12px 16px;border-radius:12px;background:#F4FBF7;border:1.5px solid #BFE5D3}
+.eqline{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font:800 clamp(20px,4.6vw,28px)/1.3 var(--f-display);font-variant-numeric:tabular-nums}
+.eqlab{font:700 13px var(--f-body);color:var(--muted)}
+.kind{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font:800 14px var(--f-body)}
+.kind.to{background:#E3ECFC;color:var(--c1)}.kind.no{background:#FCE6DC;color:var(--c3)}.kind.one{background:var(--okbg);color:var(--c2)}
+/* jarayon */
+.proc{border-radius:12px;border:1.5px solid var(--line);background:#FBFCFE;padding:10px 14px}
+.proc h3{margin:0 0 6px;font:800 13px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.proc ol{margin:0;padding-left:26px;display:flex;flex-direction:column;gap:3px;font:700 15px/1.6 var(--f-body)}
+.proc li::marker{color:var(--muted);font-weight:800}
+.proc li:last-child{background:#FFF6D6;border-radius:6px;padding:0 6px;margin-left:-6px}
+.proc .fr{font-size:.95em}
+/* taxmin */
+.pred{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:#FFF8E6;border:1.5px solid #F4D58A}
+.pred .lbl{font-weight:800;flex-basis:100%}
+.chipC{border:2px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;min-width:40px;padding:6px 12px;font:800 15px var(--f-body);cursor:pointer}
+.chipC:hover{border-color:var(--ink)}
+.chipC.on{background:var(--c4);border-color:var(--c4);color:#fff}
+/* qisqartirish: o'chirilgan son ustiga yangisi */
+.bigex{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font:800 clamp(26px,6vw,38px)/1.2 var(--f-display);font-variant-numeric:tabular-nums}
+.bfr{display:inline-flex;flex-direction:column;align-items:center}
+.bfr>.nm{display:flex;align-items:flex-end;gap:6px;padding:0 8px 4px;border-bottom:4px solid var(--ink)}
+.bfr>.dn{display:flex;align-items:flex-start;gap:6px;padding:4px 8px 0}
+.stk{display:inline-flex;flex-direction:column-reverse;align-items:center;line-height:1}
+.stk s{font-size:.62em;color:#98A4BA;text-decoration-thickness:3px;text-decoration-color:var(--bad)}
+.stk b{font-weight:800}
+.cutq{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:10px 12px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line)}
+.cutq .lbl{font-weight:800;flex-basis:100%}
+.cutq input{width:60px;height:38px;font:800 18px var(--f-display);text-align:center;border:2px solid var(--c4);border-radius:10px;color:var(--c4)}
+.cmp{font:600 15px/1.6 var(--f-body);padding:10px 14px;border-radius:12px;background:#F6F8FC;border:1.5px dashed var(--line)}
+/* masalalar */
+.score{display:flex;gap:16px;flex-wrap:wrap;font-weight:700;font-size:14px;color:var(--muted)}
+.score b{color:var(--ink)}
+.wq{font:700 clamp(18px,4vw,22px)/1.5 var(--f-display)}
+.unit{font:700 16px var(--f-body);color:var(--muted)}
+.vrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.vq{font:800 16px var(--f-body)}
+.pies{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end}
+.pies figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px;font:800 20px var(--f-display)}
+.pies figcaption{font:700 13px var(--f-body);color:var(--muted)}
+.ctx{font:700 clamp(17px,3.8vw,20px)/1.5 var(--f-display)}
+.hitc{cursor:pointer}.hitc:hover{fill:rgba(20,33,61,.07)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font:800 clamp(20px,4.6vw,26px)/1.3 var(--f-display);padding:10px 12px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line)}
+.flow .st{display:inline-flex;flex-direction:column;align-items:center}
+.flow .st small{font:700 12px var(--f-body);color:var(--muted)}
+.flow .ar{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mgrp{display:inline-flex;flex-wrap:wrap;align-items:center}
+.seg{border:1.5px solid var(--line);background:#fff;color:var(--ink);padding:8px 14px;font:700 14px var(--f-body);cursor:pointer;margin-left:-1.5px}
+.mgrp .seg:first-of-type{border-radius:10px 0 0 10px;margin-left:0}.mgrp .seg:last-of-type{border-radius:0 10px 10px 0}
+.seg.sel{background:var(--ink);border-color:var(--ink);color:#fff}
+.wide input{width:96px}
+.eqn{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 10px;font:800 clamp(30px,7vw,44px)/1.2 var(--f-display);padding:14px;border-radius:16px;background:#FBFCFF;border:1.5px solid #E0E7FF;font-variant-numeric:tabular-nums}
+.eqn .x{color:var(--c4)}.eqn .k{color:var(--c1)}.eqn .t{color:var(--c2)}
+.eqn .blk{border:3px dashed var(--c4);border-radius:12px;padding:0 8px;background:#F5F0FF}
+.hb{display:inline-flex;flex-direction:column;align-items:center;gap:4px}
+.hb button{all:unset;cursor:pointer;min-width:56px;text-align:center;padding:2px 10px;border-radius:12px;border:2.5px solid #E0E7FF;background:#fff}
+.hb button.on{border-color:#F59E0B;background:#FFF7E6}
+.hb small{font:800 13px var(--f-body);min-height:18px;color:var(--c2)}
+.names{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.names .chipC{font-size:15px}
+.step{display:flex;flex-direction:column;gap:8px;padding:12px 14px;border-radius:14px;background:var(--bg);border:1.5px solid var(--line)}
+.step .q{font:800 17px var(--f-body)}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rules button{all:unset;cursor:pointer;padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:#fff;font:700 15px/1.4 var(--f-body)}
+.rules button:hover{border-color:var(--ink)}
+.calc{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:800 26px var(--f-display)}
+.calc input{width:96px;font:800 24px var(--f-display);padding:4px 8px;border:2.5px solid var(--c4);border-radius:10px;text-align:center;color:var(--c4)}
+.done-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;background:var(--okbg);color:var(--ok);font:800 14px var(--f-body)}
+.tasma{width:100%;height:auto;display:block}
+/* tarozi: asos qimirlamaydi, shayin va pallalar silliq harakatlanadi */
+.scale{width:100%;height:auto;max-height:280px;display:block;border-radius:16px;background:linear-gradient(180deg,#FBFCFF,#F1F5FF);border:1.5px solid #E0E7FF}
+.scale #beam,.scale .pan{transition:transform .6s cubic-bezier(.3,.9,.3,1.1)}
+@media (prefers-reduced-motion:reduce){.scale #beam,.scale .pan{transition:none}}
+.trial{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 8px;padding:8px 10px;border-radius:12px;background:#F5F0FF;border:1.5px solid #DDD6FE}
+.trial .tl{font:800 16px var(--f-body);color:var(--c4)}
+.trial input{width:84px;font:800 22px var(--f-display);text-align:center;padding:3px 6px;border:2.5px solid var(--c4);border-radius:10px;color:var(--c4)}
+.trial .tst{flex-basis:100%;text-align:center;font:700 15px var(--f-body)}
+/* misoldagi o'zgartiriladigan katakchalar */
+.nc{all:unset;cursor:pointer;padding:0 6px;border-radius:10px;border:2.5px dashed #93C5FD;background:#fff}
+.nc:hover{background:#E8F0FE}.nc.t{border-color:#86EFAC}
+.nci{width:3.2em;font:inherit;text-align:center;border:2.5px solid var(--c1);border-radius:10px;padding:0 4px;color:var(--c1)}
+@media (max-width:560px){.panel{padding:14px}.rules{grid-template-columns:1fr}}
+/* ===== O'yin (4-mavzu o'yini bilan bir xil ko'rinish) ===== */
+.gstart{border-radius:16px;background:linear-gradient(140deg,#14213D 0%,#1F3A7A 60%,#2B4FA8 100%);color:#fff;padding:24px 22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.gstart::after{content:"x + 5 = 12";position:absolute;right:-6px;bottom:-18px;font:800 80px/1 var(--f-display);color:rgba(255,255,255,.07);pointer-events:none;white-space:nowrap}
+.gstart h3{margin:0;font:800 clamp(26px,6vw,38px)/1.1 var(--f-display)}
+.gstart p{color:rgba(255,255,255,.82);font-weight:600;max-width:520px}
+.gtypes{display:flex;flex-wrap:wrap;gap:8px}
+.gtypes span{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font-weight:700;font-size:14px}
+.gbtn{align-self:flex-start;background:#fff;color:#14213D;border:0;border-radius:12px;padding:13px 26px;font:800 17px var(--f-body);cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25);transition:transform .12s}
+.gbtn:hover{transform:translateY(-2px)}
+.gbest{font-weight:700;font-size:14px;color:rgba(255,255,255,.75)}
+.gbest b{color:#FFD15C}
+.ghud{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ring{position:relative;width:58px;height:58px;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 19px var(--f-display)}
+.ring.low b{color:var(--bad)}
+.pill{display:flex;flex-direction:column;padding:6px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line);min-width:84px}
+.pill small{font:800 11px var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.pill b{font:800 22px/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.pill.hot{background:#FFF4E5;border-color:#F4B860}
+.pill.hot b{color:#C2410C}
+.gplus{position:absolute;font:800 22px var(--f-display);color:var(--ok);animation:gup 1s ease forwards;pointer-events:none}
+@keyframes gup{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-34px)}}
+.gcard{position:relative;border-radius:16px;border:1.5px solid var(--line);background:linear-gradient(180deg,#FBFCFE,#F3F6FB);padding:18px;display:flex;flex-direction:column;gap:14px}
+.gtag{align-self:flex-start;padding:4px 10px;border-radius:999px;font:800 12px var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:#fff}
+.gq{font:700 clamp(17px,3.8vw,21px)/1.4 var(--f-display);text-wrap:balance}
+.gshow{display:flex;justify-content:center;align-items:center;gap:12px;font:800 clamp(30px,7.5vw,46px)/1.2 var(--f-display);font-variant-numeric:tabular-nums}
+.gshow svg{max-width:300px;width:100%;height:auto}
+.gopts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.gopt{position:relative;display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:10px 14px;min-height:66px;cursor:pointer;text-align:left;font:800 clamp(19px,4.4vw,24px)/1.2 var(--f-display);font-variant-numeric:tabular-nums;transition:transform .12s,border-color .12s,box-shadow .12s}
+.gopt:not(:disabled):hover{transform:translateY(-2px);border-color:var(--ink);box-shadow:0 6px 14px rgba(20,33,61,.1)}
+.gopt .lt{flex:none;width:30px;height:30px;border-radius:9px;background:var(--bg);color:var(--muted);display:flex;align-items:center;justify-content:center;font:800 14px var(--f-body)}
+.gopt.good{border-color:var(--ok);background:var(--okbg)}
+.gopt.good .lt{background:var(--ok);color:#fff}
+.gopt.bad{border-color:var(--bad);background:var(--badbg);animation:gshake .35s}
+.gopt.bad .lt{background:var(--bad);color:#fff}
+.gopt:disabled{cursor:default}
+@keyframes gshake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.gwhy{min-height:1.5em;font-weight:700;font-size:15px;color:var(--bad)}
+.gend{border-radius:16px;border:1.5px solid var(--line);background:linear-gradient(180deg,#FFFFFF,#F3F6FB);padding:22px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.stars{display:flex;gap:6px}
+.stars svg{width:44px;height:44px}
+.gscore{font:800 54px/1 var(--f-display)}
+.gscore small{font-size:20px;color:var(--muted)}
+.gstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%;max-width:560px}
+.gstats div{border-radius:12px;background:var(--bg);padding:8px}
+.gstats small{display:block;font:800 11px var(--f-body);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.gstats b{font:800 22px var(--f-display)}
+.gend .gbtn{align-self:center;background:var(--ink);color:#fff;box-shadow:none}
+.newbest{padding:4px 12px;border-radius:999px;background:#FFF4E5;color:#C2410C;font-weight:800;font-size:14px}
+@media (max-width:480px){.gopts{grid-template-columns:1fr}.gstats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ghud{gap:6px;flex-wrap:nowrap}.ring{width:50px;height:50px}.ring svg{width:50px;height:50px}.ring b{font-size:17px}
+  .pill{min-width:0;flex:1;padding:5px 8px}.pill small{font-size:9.5px}.pill b{font-size:18px}.gcard{padding:14px}}
+@media (prefers-reduced-motion:reduce){.gopt.bad,.gplus{animation:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Amallarning hadlari. Noma'lum hadni topish</h1>
+    <p class="sub">Har bir amalning hadlari o'z nomiga ega. Tenglamada noma'lum had — <b class="cn">x</b>. Uni topish uchun avval <b>qaysi had</b> ekanini aniqlaymiz, keyin shu hadni topish <b>qoidasini</b> qo'llaymiz.</p>
+  </header>
+  <div class="formula">
+    <div class="fl" style="font-size:clamp(17px,3.6vw,22px);gap:6px 18px">
+      <span><span class="ca">qo'shiluvchi</span> + <span class="ca">qo'shiluvchi</span> = <span class="cg">yig'indi</span></span>
+      <span><span class="ca">kamayuvchi</span> − <span class="ca">ayriluvchi</span> = <span class="cg">ayirma</span></span>
+      <span><span class="ca">ko'paytuvchi</span> · <span class="ca">ko'paytuvchi</span> = <span class="cg">ko'paytma</span></span>
+      <span><span class="ca">bo'linuvchi</span> : <span class="ca">bo'luvchi</span> = <span class="cg">bo'linma</span></span>
+    </div>
+  </div>
+
+  <div class="tabs" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-tab="yech" aria-selected="true">Tenglamani yech</button>
+    <button class="tab" role="tab" data-tab="nom" aria-selected="false">Hadlar nomi</button>
+    <button class="tab" role="tab" data-tab="tek" aria-selected="false">Tekshir</button>
+    <button class="tab" role="tab" data-tab="oyin" aria-selected="false">O'yin</button>
+  </div>
+
+  <!-- 1. Tenglamani yech -->
+  <section class="panel" role="tabpanel" id="p-yech">
+    <div class="row" style="justify-content:space-between">
+      <div class="mgrp" id="lv1"><button class="seg sel" data-l="1">Oson (1 amal)</button><button class="seg" data-l="2">O'rta</button><button class="seg" data-l="3">Qiyin (2 amal)</button></div>
+      <div class="row"><select id="op1" class="btn ghost sm" aria-label="Amal turi"><option value="">Barcha amallar</option><option value="+">Qo'shish</option><option value="-">Ayirish</option><option value="*">Ko'paytirish</option><option value=":">Bo'lish</option></select><button class="btn ghost sm" id="nw1">Yangi tenglama</button></div>
+    </div>
+    <svg class="scale" id="sc1" viewBox="0 0 640 260" aria-label="Tarozi"></svg>
+    <div class="eqn" id="eq1"></div>
+    <div class="trial" id="tr1"><span class="tl">x ni sinab ko'ring:</span><button class="btn ghost sm" data-t="-10">−10</button><button class="btn ghost sm" data-t="-1">−1</button><input id="tx1" inputmode="numeric" aria-label="x qiymati"><button class="btn ghost sm" data-t="1">+1</button><button class="btn ghost sm" data-t="10">+10</button><span class="tst" id="ts1"></span></div>
+    <div id="w1"></div>
+    <div class="row tools"><button class="btn ghost sm" id="un1">← Orqaga</button><button class="btn ghost sm" id="cl1">Tozalash</button></div>
+    <div class="story" id="m1" aria-live="polite"></div>
+    <div class="proc" id="pr1" hidden></div>
+  </section>
+
+  <!-- 2. Hadlar nomi -->
+  <section class="panel" role="tabpanel" id="p-nom" hidden>
+    <div class="score" id="sc2"></div>
+    <div class="ctx">Sonni bosing, keyin uning nomini tanlang.</div>
+    <div class="eqn" id="eq2"></div>
+    <div class="names" id="nm2"></div>
+    <div class="story" id="m2" aria-live="polite"></div>
+    <div class="row"><button class="btn" id="nx2" hidden>Keyingi ▶</button></div>
+  </section>
+
+  <!-- 3. Tekshir -->
+  <section class="panel" role="tabpanel" id="p-tek" hidden>
+    <div class="score" id="sc3"></div>
+    <div class="ctx" id="q3"></div>
+    <div id="w3"></div>
+    <div class="story" id="m3" aria-live="polite"></div>
+    <div class="row"><button class="btn" id="nx3" hidden>Keyingi ▶</button></div>
+  </section>
+
+  <!-- 4. O'yin -->
+  <section class="panel" role="tabpanel" id="p-oyin" hidden>
+    <div><h2>60 soniyalik o'yin</h2></div>
+    <div id="game" style="position:relative;display:flex;flex-direction:column;gap:14px"></div>
+  </section>
+</div>
+
+<script>
+const G={run:false,t:60,score:0,streak:0,maxStreak:0,ok:0,total:0,best:0,q:null,timer:null,lock:false,last:null};
+const $=id=>document.getElementById(id);
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pickOne=a=>a[rnd(0,a.length-1)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
+const gcd=(a,b)=>b?gcd(b,a%b):a;
+const fr=(a,b)=>`<span class="fr"><span>${a}</span><span>${b}</span></span>`;
+/* aralash son: w butun + n/d */
+function mixH(w,n,d){if(!w&&!n)return `<b>0</b>`;if(!n)return `<b class="wn">${w}</b>`;if(!w)return fr(n,d);return `<span class="mx"><b class="wn">${w}</b>${fr(n,d)}</span>`}
+const mixP=(p,d)=>mixH(Math.floor(p/d),p%d,d);          // p/d → aralash son
+const op=c=>`<span class="op">${c}</span>`;
+const cN=v=>`<b class="cn">${v}</b>`;
+const resFr=(p,d)=>`<span class="fr"><span class="cg">${p}</span><span>${d}</span></span>`;
+/* qo'shiluvchilar ranglari: [asosiy, och] */
+const CP=[["#1F5FD6","#BFD5FA"],["#12805C","#BDE8D4"],["#D4501B","#F8CDB8"],["#8B5CF6","#DDD0FD"],["#D9506A","#F6C9D3"],["#0E8F87","#BCE6E3"],["#B7791F","#F0DDB5"],["#2B4FA8","#C9D4F0"],["#5B6577","#DCE0E7"],["#C2410C","#F6CDB6"]];
+function sector(cx,cy,r,a0,a1){
+  if(a1-a0>=Math.PI*2-1e-6)return `M${cx-r} ${cy}A${r} ${r} 0 1 1 ${cx+r} ${cy}A${r} ${r} 0 1 1 ${cx-r} ${cy}Z`;
+  const x0=cx+r*Math.sin(a0),y0=cy-r*Math.cos(a0),x1=cx+r*Math.sin(a1),y1=cy-r*Math.cos(a1);
+  return `M${cx} ${cy}L${x0.toFixed(2)} ${y0.toFixed(2)}A${r} ${r} 0 ${a1-a0>Math.PI?1:0} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}Z`;
+}
+/* d bo'lakli doira; fills[k] — bo'lak rangi yoki null (bo'sh) */
+function circ(cx,cy,r,d,fills){
+  let g="";
+  if(d===1)g+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fills[0]?fills[0][0]:"#F1F4F9"}"/>`;
+  else for(let k=0;k<d;k++){const f=fills[k];g+=`<path d="${sector(cx,cy,r,k/d*Math.PI*2,(k+1)/d*Math.PI*2)}" fill="${f?f[0]:"#F1F4F9"}" stroke="#fff" stroke-width="2"/>`}
+  return g+`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#14213D" stroke-width="2.2"/>`;
+}
+function setMsg(id,t,c){const m=$(id);m.innerHTML=t;m.className="story "+(c||"")}
+/* bo'lim tagidagi «Jarayon» ro'yxati */
+function drawLog(id,arr){const el=$(id);el.hidden=!arr.length;el.innerHTML=`<h3>Jarayon</h3><ol>${arr.map(x=>`<li>${x}</li>`).join("")}</ol>`}
+const stageW=id=>Math.max(300,Math.round($(id).getBoundingClientRect().width)||660);
+const val=id=>{const e=$(id);return e?e.value.trim():""};
+/* ================= tenglama: ifoda daraxti {op,l,r}; barg — son yoki "x" ================= */
+const OPS={"+":"+","-":"−","*":"·",":":":"};
+const hasX=e=>e==="x"||(typeof e==="object"&&(hasX(e.l)||hasX(e.r)));
+const ev=(e,x)=>e==="x"?x:typeof e==="number"?e:{"+":(a,b)=>a+b,"-":(a,b)=>a-b,"*":(a,b)=>a*b,":":(a,b)=>a/b}[e.op](ev(e.l,x),ev(e.r,x));
+/* ifodani yozish; hl — ajratib ko'rsatiladigan (noma'lum blok) tugun */
+function exH(e,hl,par){if(e==="x")return `<span class="x">x</span>`;if(typeof e==="number")return `<span class="k">${e}</span>`;
+  const p=(c)=>typeof c==="object"&&("+-".includes(c.op))&&("*:".includes(e.op));
+  let s=`${exH(e.l,hl,p(e.l))} <span class="op">${OPS[e.op]}</span> ${exH(e.r,hl,p(e.r))}`;if(par)s=`(${s})`;
+  return e===hl?`<span class="blk">${s}</span>`:s}
+const exT=(e,par)=>e==="x"?"x":typeof e==="number"?String(e):(()=>{const p=c=>typeof c==="object"&&"+-".includes(c.op)&&"*:".includes(e.op);let s=`${exT(e.l,p(e.l))} ${OPS[e.op]} ${exT(e.r,p(e.r))}`;return par?`(${s})`:s})();
+/* tahrirlanadigan yozuv: sonlar — bosiladigan katakcha (p — daraxtdagi yo'l: l/r) */
+function exE(e,hl,par,p=""){if(e==="x")return `<span class="x">x</span>`;if(typeof e==="number")return `<button class="nc" data-p="${p}" title="Bosib o'zgartiring">${e}</button>`;
+  const q=c=>typeof c==="object"&&"+-".includes(c.op)&&"*:".includes(e.op);
+  let s=`${exE(e.l,hl,q(e.l),p+"l")} <span class="op">${OPS[e.op]}</span> ${exE(e.r,hl,q(e.r),p+"r")}`;if(par)s=`(${s})`;return e===hl?`<span class="blk">${s}</span>`:s}
+const cloneE=e=>typeof e==="object"?{op:e.op,l:cloneE(e.l),r:cloneE(e.r)}:e;
+function setAt(e,p,v){if(!p)return v;const c=cloneE(e);let n=c;for(let i=0;i<p.length-1;i++)n=n[p[i]];n[p[p.length-1]]=v;return c}
+/* had nomi va topish qoidasi */
+const ROLE=(op,side)=>({"+":["qo'shiluvchi","qo'shiluvchi"],"-":["kamayuvchi","ayriluvchi"],"*":["ko'paytuvchi","ko'paytuvchi"],":":["bo'linuvchi","bo'luvchi"]})[op][side];
+const RES={"+":"yig'indi","-":"ayirma","*":"ko'paytma",":":"bo'linma"};
+const RULE={"qo'shiluvchi":["Noma'lum qo'shiluvchi = yig'indi − ma'lum qo'shiluvchi",(T,k)=>T-k,"−"],
+  "kamayuvchi":["Noma'lum kamayuvchi = ayirma + ayriluvchi",(T,k)=>T+k,"+"],
+  "ayriluvchi":["Noma'lum ayriluvchi = kamayuvchi − ayirma",(T,k)=>k-T,"−"],
+  "ko'paytuvchi":["Noma'lum ko'paytuvchi = ko'paytma : ma'lum ko'paytuvchi",(T,k)=>T/k,":"],
+  "bo'linuvchi":["Noma'lum bo'linuvchi = bo'linma · bo'luvchi",(T,k)=>T*k,"·"],
+  "bo'luvchi":["Noma'lum bo'luvchi = bo'linuvchi : bo'linma",(T,k)=>k/T,":"]};
+const NAMES6=["qo'shiluvchi","kamayuvchi","ayriluvchi","ko'paytuvchi","bo'linuvchi","bo'luvchi"];
+/* yechish qadamlari: har qadamda — tugun, noma'lum tomon, had nomi, ma'lum son, eski va yangi qiymat */
+function stepsOf(E,T){const out=[];let e=E,t=T;
+  while(e!=="x"){const side=hasX(e.l)?0:1,k=ev(side?e.l:e.r),role=ROLE(e.op,side),nt=RULE[role][1](t,k);
+    out.push({node:e,side,role,k,t,nt,unk:side?e.r:e.l,expr:role==="ayriluvchi"||role==="bo'luvchi"?`${k} ${RULE[role][2]} ${t}`:`${t} ${RULE[role][2]} ${k}`});e=side?e.r:e.l;t=nt}
+  return out}
+/* misol yaratish: lv 1 — 1 amal, kichik sonlar; 2 — 1 amal, katta sonlar; 3 — 2 amal */
+function genEq(lv,opf){
+  for(let tries=0;tries<500;tries++){
+    const op=opf||pickOne(["+","-","*",":"]),x=lv===1?(op==="*"||op===":"?rnd(2,9):rnd(2,15)):lv===2?(op==="*"||op===":"?rnd(11,99):rnd(25,600)):rnd(2,12);
+    const one=(op,x,big)=>{let a,form=rnd(0,1);
+      if(op==="+"){a=big?rnd(20,500):rnd(1,12);return form?{op,l:"x",r:a}:{op,l:a,r:"x"}}
+      if(op==="-"){if(form){a=big?rnd(10,x-1>10?x-1:10):rnd(1,Math.max(1,x-1));if(a>=x)return null;return{op,l:"x",r:a}}a=x+(big?rnd(10,400):rnd(1,10));return{op,l:a,r:"x"}}
+      if(op==="*"){a=rnd(2,9);return form?{op,l:"x",r:a}:{op,l:a,r:"x"}}
+      if(form){a=rnd(2,9);return{op,l:"x",r:a}}a=x*rnd(2,9);return{op,l:a,r:"x"}};
+    let E;
+    if(lv<3){E=one(op,x,lv===2);if(!E)continue;if(op===":"&&E.l==="x"&&false)continue}
+    else{const inner=pickOne(["*",":","+","-"]),outer=pickOne(inner==="*"||inner===":"?["+","-"]:["*",":"]),I=one(inner,x,false);if(!I)continue;const v=ev(I,x);
+      if(!Number.isInteger(v)||v<=0)continue;
+      if(outer==="+")E={op:"+",l:I,r:rnd(2,20)};else if(outer==="-"){const b=rnd(1,Math.max(1,v-1));if(b>=v)continue;E={op:"-",l:I,r:b}}
+      else if(outer==="*")E={op:"*",l:I,r:rnd(2,5)};else{if(v%2&&v%3)continue;const d=v%2===0?2:3;E={op:":",l:I,r:d}}}
+    const T=ev(E,x);if(!Number.isInteger(T)||T<=0||T>9999)continue;
+    if(stepsOf(E,T).some(s=>!Number.isInteger(s.nt)||s.nt<=0))continue;
+    return{E,T,x}}
+  return{E:{op:"+",l:"x",r:5},T:12,x:7}}
+/* tasma modeli (joriy qadam): qo'shish/ayirish — qism + qism = butun; ko'paytirish/bo'lish — butun teng bo'laklarga bo'lingan */
+function tasma(st,W){
+  const {node,side,k,t,nt,unk}=st,op=node.op,X=20,BW=W-40,Y=48,BH=46,U=unk==="x"?"x":"?",XC="#8B5CF6",KC="#1F5FD6",TC="#12805C";let g="";
+  const box=(x,w,lab,col,fill,dash)=>`<rect x="${x}" y="${Y}" width="${w}" height="${BH}" rx="6" fill="${fill}" stroke="${col}" stroke-width="2.5"${dash?' stroke-dasharray="6 4"':""}/><text x="${x+w/2}" y="${Y+BH/2+7}" text-anchor="middle" font-size="${w<40?14:19}" font-weight="800" fill="${col}">${lab}</text>`;
+  const brace=(x1,x2,lab,col,up)=>{const y=up?Y-6:Y+BH+6;return `<path d="M${x1} ${y}v${up?-8:8}H${x2}v${up?8:-8}" fill="none" stroke="${col}" stroke-width="2"/><text x="${(x1+x2)/2}" y="${y+(up?-14:24)}" text-anchor="middle" font-size="15" font-weight="800" fill="${col}">${lab}</text>`};
+  const K=(v,u)=>u?[U,XC,"#F5F0FF",true]:[v,KC,"#E8F0FE",false];
+  if(op==="+"){const L=side?k:nt,R=side?nt:k,w1=BW*L/t;
+    g+=brace(X,X+BW,`${t} (yig'indi)`,TC,true)+box(X,w1,...K(L,side===0))+box(X+w1,BW-w1,...K(R,side===1))}
+  else if(op==="-"){const L=side?k:nt,R=side?nt:k,w1=BW*R/L;     // kamayuvchi = ayriluvchi + ayirma
+    g+=brace(X,X+BW,side===0?`${U} (kamayuvchi)`:`${L} (kamayuvchi)`,side===0?XC:KC,true)+box(X,w1,...K(R,side===1))+box(X+w1,BW-w1,t,TC,"#E7F6EF",false)+brace(X+w1,X+BW,"ayirma",TC,false)}
+  else if(op==="*"){const n=Math.min(k,12),pw=BW/n;g+=brace(X,X+BW,`${t} (ko'paytma)`,TC,true);for(let i=0;i<n;i++)g+=box(X+i*pw,pw,U,XC,"#F5F0FF",true);
+    g+=`<text x="${X+BW/2}" y="${Y+BH+24}" text-anchor="middle" font-size="15" font-weight="800" fill="${KC}">${k} ta teng bo'lak — har biri ${U}</text>`}
+  else{const parts=side?nt:k,n=Math.min(parts,12),pw=BW/n;
+    g+=brace(X,X+BW,side===0?`${U} (bo'linuvchi)`:`${k} (bo'linuvchi)`,side===0?XC:KC,true);for(let i=0;i<n;i++)g+=box(X+i*pw,pw,t,TC,"#E7F6EF",false);
+    g+=`<text x="${X+BW/2}" y="${Y+BH+24}" text-anchor="middle" font-size="15" font-weight="800" fill="${side?XC:KC}">${side?`${U} ta teng bo'lak (bo'luvchi) — har biri ${t}`:`${k} ta teng bo'lak — har biri ${t} (bo'linma)`}</text>`}
+  return{g,H:Y+BH+40}}
+
+/* ================= tarozi: asos qo'zg'almaydi; shayin og'adi, pallalar gorizontal holda yuqoriga/pastga siljiydi ================= */
+const CX=320,PY=70,ARM=200;
+function scaleInit(){$("sc1").innerHTML=`
+  <polygon points="${CX-70},248 ${CX+70},248 ${CX+26},226 ${CX-26},226" fill="#64748B"/><rect x="${CX-7}" y="${PY}" width="14" height="158" rx="5" fill="#94A3B8"/>
+  <g id="beam" style="transform-origin:${CX}px ${PY}px"><rect x="${CX-ARM-6}" y="${PY-6}" width="${2*ARM+12}" height="12" rx="6" fill="#475569"/><polygon points="${CX-8},${PY-20} ${CX+8},${PY-20} ${CX},${PY-6}" fill="#E11D48"/></g>
+  <circle cx="${CX}" cy="${PY}" r="9" fill="#334155"/>
+  ${[-1,1].map(sd=>`<g class="pan" id="pan${sd<0?"L":"R"}"><line x1="${CX+sd*ARM}" y1="${PY}" x2="${CX+sd*ARM-62}" y2="${PY+86}" stroke="#94A3B8" stroke-width="2"/><line x1="${CX+sd*ARM}" y1="${PY}" x2="${CX+sd*ARM+62}" y2="${PY+86}" stroke="#94A3B8" stroke-width="2"/>
+    <path d="M${CX+sd*ARM-78} ${PY+86}h156l-16 16h-124z" fill="${sd<0?"#C4B5FD":"#86EFAC"}" stroke="${sd<0?"#7C3AED":"#16A34A"}" stroke-width="2"/><g id="ct${sd<0?"L":"R"}"></g><circle cx="${CX+sd*ARM}" cy="${PY}" r="5" fill="#334155"/></g>`).join("")}`}
+function scaleSet(lv,rv,lt,rt,lab=lv){
+  const d=lv-rv,th=Math.max(-13,Math.min(13,-d/Math.max(Math.abs(lv),Math.abs(rv),1)*26)),r=th*Math.PI/180;
+  $("beam").style.transform=`rotate(${th}deg)`;
+  $("panL").style.transform=`translate(${ARM*(1-Math.cos(r))}px,${-ARM*Math.sin(r)}px)`;$("panR").style.transform=`translate(${-ARM*(1-Math.cos(r))}px,${ARM*Math.sin(r)}px)`;
+  const card=(x,t,v,col)=>`<rect x="${x-74}" y="${PY+40}" width="148" height="44" rx="10" fill="#fff" stroke="${col}" stroke-width="2.5"/><text x="${x}" y="${PY+68}" text-anchor="middle" font-size="${t.length>9?16:21}" font-weight="800" fill="${col}">${t}</text>${v!=null?`<text x="${x}" y="${PY+32}" text-anchor="middle" font-size="15" font-weight="800" fill="${col}">= ${v}</text>`:""}`;
+  $("ctL").innerHTML=card(CX-ARM,lt,lab,"#7C3AED");$("ctR").innerHTML=card(CX+ARM,rt,null,"#16A34A")}
+
+/* ================= 1. Tenglamani yech ================= */
+/* har qadam: name (had nomi) → rule (qoida) → calc (hisoblash); oxirida check (o'rniga qo'yib tekshirish) → done */
+const s1={lv:1,op:"",h:[],log:[]};
+/* tarozi va sinash qatori: chap — ifoda (x = sinov qiymati), o'ng — natija */
+/* boshlang'ich sinov qiymati: chap tomon manfiy yoki 0 ga bo'lish chiqmaydigan eng kichik son */
+const okTry=(E,x)=>{const v=ev(E,x);return Number.isFinite(v)&&v>=0};
+const firstTry=E=>{for(let x=1;x<20000;x++)if(okTry(E,x))return x;return 1};
+function upd1(){$("tx1").value=s1.tx;
+  if(!okTry(s1.E,s1.tx)){scaleSet(0,s1.T,exT(s1.E),String(s1.T),"?");$("ts1").innerHTML=`x = ${s1.tx} bo'lsa, hisoblab bo'lmaydi (${ev(s1.E,s1.tx)<0?"kichik sondan katta son ayrilmaydi":"0 ga bo'lib bo'lmaydi"}). Kattaroq son sinang.`;return}
+  const lv=ev(s1.E,s1.tx),L=Number.isInteger(lv)?lv:+lv.toFixed(2);
+  scaleSet(lv,s1.T,exT(s1.E),String(s1.T));
+  $("ts1").innerHTML=lv===s1.T?`<b class="cg">Muvozanat! x = ${s1.tx} bo'lsa, ${exT(s1.E).replace(/x/g,s1.tx)} = ${s1.T}.</b>`:`${exT(s1.E).replace(/x/g,s1.tx)} = <b>${L}</b> ${lv>s1.T?">":"<"} ${s1.T} — <b>${lv>s1.T?"chap palla og'ir":"chap palla yengil"}</b>`}
+function new1(){Object.assign(s1,genEq(s1.lv,s1.op),{i:0,ph:"name",h:[],log:[],rules:null});s1.tx=firstTry(s1.E);s1.S=stepsOf(s1.E,s1.T);setMsg("m1","");render1()}
+function render1(){
+  const {E,T,S,i,ph}=s1,st=S[Math.min(i,S.length-1)],done=ph==="check"||ph==="done";
+  // joriy tenglama: oldingi qadamlar natijasi bilan
+  const cur=done?null:st,lhs=cur?cur.node:"x",rhs=cur?cur.t:s1.x;
+  $("eq1").innerHTML=`${exE(E,cur&&cur.unk!=="x"?cur.unk:null)} = <button class="nc t" data-p="T" title="Bosib o'zgartiring">${T}</button>`+(i>0&&!done?`<span style="flex-basis:100%;height:0"></span><span style="font-size:.75em">${exH(lhs,cur.unk!=="x"?cur.unk:null)} = <span class="t">${rhs}</span></span>`:"");
+  if(done)s1.tx=s1.x;
+  upd1();
+  let w="";
+  if(cur){const unkTxt=cur.unk==="x"?`<b class="cn">x</b>`:`<b class="cn">${exT(cur.unk)}</b> (binafsha ramkada)`;
+    w+=`<div class="step"><span class="q">${S.length>1?`${i+1}-qadam. `:""}${unkTxt} — qaysi had?</span>`+(ph==="name"?`<div class="names">${NAMES6.map(n=>`<button class="chipC" data-n="${n}">${n}</button>`).join("")}</div>`:`<span class="done-chip">✓ ${cur.role}</span>`)+`</div>`;
+    if(ph!=="name"){if(!s1.rules){const ok=RULE[cur.role][0],others=shuffle(NAMES6.filter(n=>n!==cur.role)).slice(0,3).map(n=>RULE[n][0]);s1.rules=shuffle([ok,...others])}
+      w+=`<div class="step"><span class="q">Uni qanday topamiz?</span>`+(ph==="rule"?`<div class="rules">${s1.rules.map(r=>`<button data-r="${r}">${r}</button>`).join("")}</div>`:`<span class="done-chip">✓ ${RULE[cur.role][0]}</span>`)+`</div>`}
+    if(ph==="calc")w+=`<div class="step"><span class="q">Hisoblang:</span><div class="calc"><span class="cn">${exT(cur.unk)}</span> = ${cur.expr} = <input id="c1" inputmode="numeric" aria-label="Javob"><button class="btn" data-k="calc">Tekshirish</button></div></div>`}
+  if(ph==="check")w+=`<div class="step"><span class="q">Tekshiring: x o'rniga <b class="cn">${s1.x}</b> ni qo'ying.</span><div class="calc">${exT(E).replace(/x/g,`<span class="cn">${s1.x}</span>`)} = <input id="k1" inputmode="numeric" aria-label="Natija"><button class="btn" data-k="check">Tekshirish</button></div></div>`;
+  if(ph==="done")w+=`<div class="eqbox"><span class="eqlab">Javob:</span><div class="eqline"><span class="cn">x = ${s1.x}</span></div><span class="eqlab">Tekshirish: ${exT(E).replace(/x/g,s1.x)} = ${T} ✓</span></div>`;
+  $("w1").innerHTML=w;$("un1").disabled=$("cl1").disabled=!s1.h.length;drawLog("pr1",s1.log);
+  const f=$("w1").querySelector("input");if(f)f.focus({preventScroll:true})}
+const snap1=()=>({i:s1.i,ph:s1.ph,rules:s1.rules,L:s1.log.length,m:$("m1").innerHTML,mc:$("m1").className});
+$("w1").addEventListener("click",e=>{const {S,i}=s1,st=S[i];
+  const nb=e.target.closest("[data-n]");
+  if(nb&&s1.ph==="name"){const n=nb.dataset.n;
+    if(n!==st.role){const R=ROLES3[st.node.op];setMsg("m1",`Yo'q, ${n} emas. Jadvalga qarang: <b>${R[0]} ${OPS[st.node.op]} ${R[1]} = ${R[2]}</b>. Tenglamada noma'lum qaysi o'rinda turibdi?`,"bad");return}
+    s1.h.push(snap1());s1.ph="rule";s1.rules=null;s1.log.push(`${exT(st.unk)} — noma'lum ${st.role}.`);setMsg("m1",`To'g'ri: noma'lum — ${st.role}.`,"good");render1();return}
+  const rb=e.target.closest("[data-r]");
+  if(rb&&s1.ph==="rule"){if(rb.dataset.r!==RULE[st.role][0]){setMsg("m1",`Bu boshqa hadning qoidasi. Noma'lum ${st.role} qanday topiladi?`,"bad");return}
+    s1.h.push(snap1());s1.ph="calc";s1.log.push(RULE[st.role][0]+".");setMsg("m1","To'g'ri qoida. Endi hisoblang.","good");render1();return}
+  const kb=e.target.closest("[data-k]");if(!kb)return;
+  if(kb.dataset.k==="calc"){const v=+val("c1");if(!val("c1"))return;
+    if(v!==st.nt){setMsg("m1",`${st.expr} ni qayta hisoblang.`,"bad");return}
+    s1.h.push(snap1());s1.log.push(`${exT(st.unk)} = ${st.expr} = ${st.nt}.`);
+    if(i+1<S.length){s1.i++;s1.ph="name";s1.rules=null;setMsg("m1",`${exT(st.unk)} = ${st.nt}. Endi yangi tenglama: ${exT(S[i+1].node)} = ${st.nt}.`,"good")}
+    else{s1.ph="check";setMsg("m1",`x = ${st.nt}. Endi tekshiring.`,"good")}
+    render1();return}
+  if(kb.dataset.k==="check"){const v=+val("k1");if(!val("k1"))return;
+    if(v!==s1.T){setMsg("m1",`${exT(s1.E).replace(/x/g,s1.x)} ni qayta hisoblang.`,"bad");return}
+    s1.h.push(snap1());s1.ph="done";s1.log.push(`Tekshirish: ${exT(s1.E).replace(/x/g,s1.x)} = ${s1.T} ✓`);setMsg("m1",`Barakalla! x = ${s1.x}. Tekshirish to'g'ri chiqdi.`,"good");render1()}});
+$("w1").addEventListener("keydown",e=>{if(e.key!=="Enter")return;const b=$("w1").querySelector("[data-k]");if(b)b.click()});
+$("un1").onclick=()=>{const h=s1.h.pop();if(!h)return;Object.assign(s1,{i:h.i,ph:h.ph,rules:h.rules});s1.log.length=h.L;render1();$("m1").innerHTML=h.m;$("m1").className=h.mc};
+$("cl1").onclick=()=>{Object.assign(s1,{i:0,ph:"name",h:[],log:[],rules:null});setMsg("m1","");render1()};
+$("nw1").onclick=new1;
+$("tr1").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;s1.tx=Math.max(0,s1.tx+ +b.dataset.t);upd1()});
+$("tx1").addEventListener("input",()=>{const v=+$("tx1").value;if(Number.isFinite(v)&&v>=0&&v<=99999){s1.tx=v;upd1()}});
+$("eq1").addEventListener("click",e=>{const b=e.target.closest(".nc");if(!b)return;const p=b.dataset.p,old=b.textContent;
+  const inp=document.createElement("input");inp.className="nci";inp.inputMode="numeric";inp.value=old;b.replaceWith(inp);inp.focus();inp.select();
+  const apply=()=>{const v=+inp.value;if(!Number.isInteger(v)||v<1||v>9999){render1();return}
+    const E2=p==="T"?s1.E:setAt(s1.E,p,v),T2=p==="T"?v:s1.T,S2=stepsOf(E2,T2),x2=S2[S2.length-1].nt;
+    if(S2.some(q=>!Number.isInteger(q.nt)||q.nt<0)){setMsg("m1",`Bunday misolda x butun son chiqmaydi (yoki manfiy) — boshqa son kiriting.`,"bad");render1();return}
+    Object.assign(s1,{E:E2,T:T2,x:x2,S:S2,i:0,ph:"name",h:[],log:[],rules:null,tx:firstTry(E2)});setMsg("m1","Misol o'zgardi. Tarozida x ni sinab ko'ring yoki pastda qadamma-qadam yeching.");render1()};
+  inp.addEventListener("keydown",k=>{if(k.key==="Enter")inp.blur();if(k.key==="Escape"){inp.value=old;inp.blur()}});inp.addEventListener("blur",apply,{once:true})});
+$("lv1").addEventListener("click",e=>{const b=e.target.closest("[data-l]");if(!b)return;s1.lv=+b.dataset.l;$("lv1").querySelectorAll(".seg").forEach(x=>x.classList.toggle("sel",x===b));new1()});
+$("op1").addEventListener("change",()=>{s1.op=$("op1").value;new1()});
+
+/* ================= 2. Hadlar nomi ================= */
+const s2={ok:0,total:0,streak:0};
+const NAMES10=["qo'shiluvchi","yig'indi","kamayuvchi","ayriluvchi","ayirma","ko'paytuvchi","ko'paytma","bo'linuvchi","bo'luvchi","bo'linma"];
+const ROLES3={"+":["qo'shiluvchi","qo'shiluvchi","yig'indi"],"-":["kamayuvchi","ayriluvchi","ayirma"],"*":["ko'paytuvchi","ko'paytuvchi","ko'paytma"],":":["bo'linuvchi","bo'luvchi","bo'linma"]};
+function sc2(){$("sc2").innerHTML=`<span>To'g'ri: <b>${s2.ok}</b> / ${s2.total}</span><span>Ketma-ket: <b>${s2.streak}</b></span>`}
+function new2(){const op=pickOne(["+","-","*",":"]);let a,b,c;
+  if(op==="+"){a=rnd(5,90);b=rnd(5,90);c=a+b}else if(op==="-"){c=rnd(5,60);b=rnd(5,60);a=b+c}else if(op==="*"){a=rnd(2,9);b=rnd(2,9);c=a*b}else{b=rnd(2,9);c=rnd(2,9);a=b*c}
+  Object.assign(s2,{op,v:[a,b,c],got:[null,null,null],sel:null,miss:false,done:false});$("nx2").hidden=true;setMsg("m2","");render2();sc2()}
+function render2(){const {op,v,got,sel}=s2,R=ROLES3[op];
+  const hb=i=>`<span class="hb"><button class="${sel===i?"on":""}" data-i="${i}">${v[i]}</button><small>${got[i]||""}</small></span>`;
+  $("eq2").innerHTML=`${hb(0)}<span class="op">${OPS[op]}</span>${hb(1)}<span class="op">=</span>${hb(2)}`;
+  $("nm2").innerHTML=NAMES10.map(n=>`<button class="chipC" data-n="${n}">${n}</button>`).join("")}
+$("eq2").addEventListener("click",e=>{const b=e.target.closest("[data-i]");if(!b||s2.done)return;const i=+b.dataset.i;if(s2.got[i])return;s2.sel=i;render2();setMsg("m2","Endi pastdan uning nomini tanlang.")});
+$("nm2").addEventListener("click",e=>{const b=e.target.closest("[data-n]");if(!b||s2.done)return;
+  if(s2.sel==null){setMsg("m2","Avval tenglamadagi sonni bosing.","bad");return}
+  const R=ROLES3[s2.op],n=b.dataset.n,i=s2.sel;
+  if(n!==R[i]){s2.miss=true;setMsg("m2",`${s2.v[i]} — ${n} emas. ${OPS[s2.op]} amalida: ${R[0]} ${OPS[s2.op]} ${R[1]} = ${R[2]}.`,"bad");return}
+  s2.got[i]=n;s2.sel=null;
+  if(s2.got.every(Boolean)){s2.done=true;s2.total++;if(!s2.miss){s2.ok++;s2.streak++}else s2.streak=0;setMsg("m2",`To'g'ri! ${R[0]} ${OPS[s2.op]} ${R[1]} = ${R[2]}.`,"good");$("nx2").hidden=false;sc2()}
+  else setMsg("m2","To'g'ri! Keyingi sonni bosing.","good");
+  render2()});
+$("nx2").onclick=new2;
+
+/* ================= 3. Tekshir ================= */
+/* boshqa o'quvchining javobi: o'rniga qo'yib tekshiradi, keyin baholaydi */
+const s3={ok:0,total:0,streak:0};
+function sc3(){$("sc3").innerHTML=`<span>To'g'ri: <b>${s3.ok}</b> / ${s3.total}</span><span>Ketma-ket: <b>${s3.streak}</b></span>`}
+function new3(){const q=genEq(Math.random()<.7?1:2,"");const st=stepsOf(q.E,q.T)[0];let shown=q.x,err="ok";
+  if(Math.random()<.6){err="op";const k=st.k,t=st.t,wrongOp={"qo'shiluvchi":t+k,"kamayuvchi":t-k,"ayriluvchi":k+t,"ko'paytuvchi":t*k,"bo'linuvchi":t/k,"bo'luvchi":k*t}[st.role];
+    if(Number.isInteger(wrongOp)&&wrongOp>0&&wrongOp!==q.x)shown=wrongOp;else err="ok"}
+  Object.assign(s3,q,{shown,right:shown===q.x,ph:"sub",role:st.role,done:false});
+  $("q3").innerHTML=`<b>${pickOne(["Aziz","Malika","Sardor","Laylo"])}</b> tenglamani yechdi: <span class="eqb" style="font-size:1.2em">${exT(q.E)} = ${q.T}</span>, javobi <b class="cn">x = ${shown}</b>. To'g'rimi? O'rniga qo'yib tekshiring.`;
+  $("w3").innerHTML=`<div class="calc">${exT(q.E).replace(/x/g,`<span class="cn">${shown}</span>`)} = <input id="v3" inputmode="numeric" aria-label="Natija"><button class="btn" data-k="sub">Hisoblash</button></div>`;
+  $("nx3").hidden=true;setMsg("m3","");sc3()}
+$("w3").addEventListener("click",e=>{const b=e.target.closest("[data-k],[data-v]");if(!b||s3.done)return;
+  if(b.dataset.k==="sub"){const v=+val("v3"),real=ev(s3.E,s3.shown);if(!val("v3"))return;
+    if(v!==real){setMsg("m3",`${exT(s3.E).replace(/x/g,s3.shown)} ni qayta hisoblang.`,"bad");return}
+    $("w3").innerHTML=`<div class="calc">${exT(s3.E).replace(/x/g,`<span class="cn">${s3.shown}</span>`)} = <b>${real}</b> ${real===s3.T?"=":"≠"} <span class="cg">${s3.T}</span></div><div class="vrow"><span class="vq">Xulosa:</span><button class="btn green" data-v="1">Javob to'g'ri</button><button class="btn" style="background:#C62828" data-v="0">Javob xato</button></div>`;
+    setMsg("m3",`${real} va ${s3.T} ni solishtiring.`);return}
+  const ok=(b.dataset.v==="1")===s3.right;s3.done=true;s3.total++;if(ok){s3.ok++;s3.streak++}else s3.streak=0;
+  setMsg("m3",`${ok?"To'g'ri baho!":"Bahoyingiz noto'g'ri."} ${s3.right?"Javob to'g'ri: tenglik bajarildi.":`Javob xato. Noma'lum — ${s3.role}: ${RULE[s3.role][0]}. To'g'risi x = ${s3.x}.`}`,ok?"good":"bad");
+  $("w3").querySelectorAll("button").forEach(x=>x.disabled=true);$("nx3").hidden=false;sc3()});
+$("w3").addEventListener("keydown",e=>{if(e.key==="Enter"){const b=$("w3").querySelector("[data-k]");if(b)b.click()}});
+$("nx3").onclick=new3;
+
+/* ================= tablar ================= */
+function switchTab(name){
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===name));
+  document.querySelectorAll(".panel").forEach(p=>p.hidden=p.id!=="p-"+name);
+  if(G.run)endG(true);
+  if(name==="yech")render1();
+}
+$("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)switchTab(b.dataset.tab)});
+
+/* ================= 4. O'yin ================= */
+const GT={solve:{t:"x ni toping",c:"var(--c1)"},name:{t:"Qaysi had?",c:"var(--c2)"},rule:{t:"Qaysi qoida?",c:"var(--c3)"}};
+function nextG(){
+  const kinds=Object.keys(GT).filter(k=>k!==(G.last&&G.last.kind)||Math.random()<.25),kind=pickOne(kinds);let q;
+  const e=genEq(1,""),st=stepsOf(e.E,e.T)[0],show=`${exT(e.E).replace("x","<span style='color:#8B5CF6'>x</span>")} = ${e.T}`;
+  if(kind==="solve"){const M=new Map();[e.x,...[st.t+st.k,Math.abs(st.t-st.k),st.t*st.k,e.x+1,e.x-1].filter(v=>Number.isInteger(v)&&v>0)].forEach(v=>{if(M.size<4&&!M.has(String(v)))M.set(String(v),"x = "+v)});
+    q={kind,ask:"Tenglamani yeching",show,M,correct:String(e.x),why:`${st.expr} = ${e.x}`}}
+  else if(kind==="name"){const M=new Map();[st.role,...shuffle(NAMES6.filter(n=>n!==st.role))].slice(0,4).forEach(n=>M.set(n,n));
+    q={kind,ask:"x — qaysi had?",show,M,correct:st.role,why:st.role}}
+  else{const M=new Map();[st.role,...shuffle(NAMES6.filter(n=>n!==st.role))].slice(0,4).forEach(n=>M.set(n,`<span style="font-size:.7em">${RULE[n][0]}</span>`));
+    q={kind,ask:"x ni qaysi qoida bilan topamiz?",show,M,correct:st.role,why:RULE[st.role][0]}}
+  q.opts=shuffle([...q.M.keys()]);G.q=q;G.last=q;G.lock=false;
+}
+
+const RING=2*Math.PI*24;
+function hud(){
+  return `<div class="ghud"><div class="ring${G.t<=10?" low":""}"><svg width="58" height="58" viewBox="0 0 58 58"><circle cx="29" cy="29" r="24" fill="none" stroke="#E3E8F0" stroke-width="6"/><circle id="ring5" cx="29" cy="29" r="24" fill="none" stroke="${G.t<=10?"#C62828":"#14213D"}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${RING}" stroke-dashoffset="${RING*(1-G.t/60)}" style="transition:stroke-dashoffset 1s linear"/></svg><b id="t5">${G.t}</b></div>
+    <div class="pill"><small>Ball</small><b id="s5">${G.score}</b></div>
+    <div class="pill${G.streak>=3?" hot":""}" id="kp5"><small>Ketma-ket</small><b id="k5">${G.streak}</b></div>
+    <div class="pill"><small>To'g'ri</small><b id="o5">${G.ok}/${G.total}</b></div></div>`;
+}
+function starSvg(on){return `<svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z" fill="${on?"#FFC233":"#E3E8F0"}" stroke="${on?"#E0A100":"#D5DBE5"}" stroke-width="1.2" stroke-linejoin="round"/></svg>`}
+function drawGame(newBest){
+  const g=$("game");
+  if(!G.run&&!G.total){
+    g.innerHTML=`<div class="gstart"><h3>60 soniya — qancha ko'p, shuncha yaxshi</h3>
+      <p>Tenglamalarni yeching, noma'lum had nomini va uni topish qoidasini aniqlang. To'g'ri javob — 10 ball, ketma-ket to'g'ri javoblar uchun qo'shimcha ball. Sinfda jamoalar navbat bilan o'ynashi mumkin.</p>
+      <div class="gtypes">${Object.values(GT).map(x=>`<span>${x.t}</span>`).join("")}</div>
+      <button class="gbtn" id="go5">Boshlash ▶</button>${G.best?`<div class="gbest">Eng yaxshi natija: <b>${G.best} ball</b></div>`:""}</div>`;return}
+  if(!G.run){
+    const acc=G.total?Math.round(G.ok/G.total*100):0,st=G.ok>=12&&acc>=85?3:G.ok>=7&&acc>=70?2:G.ok>=3?1:0;
+    g.innerHTML=`<div class="gend"><div class="stars">${[0,1,2].map(i=>starSvg(i<st)).join("")}</div>
+      <div class="gscore">${G.score} <small>ball</small></div>${newBest?`<span class="newbest">Yangi rekord!</span>`:""}
+      <div class="gstats"><div><small>To'g'ri</small><b>${G.ok}/${G.total}</b></div><div><small>Aniqlik</small><b>${acc}%</b></div><div><small>Eng uzun seriya</small><b>${G.maxStreak}</b></div><div><small>Rekord</small><b>${G.best}</b></div></div>
+      <button class="gbtn" id="go5">Qayta o'ynash ↻</button></div>`;return}
+  const q=G.q,tag=GT[q.kind];
+  g.innerHTML=hud()+`<div class="gcard"><span class="gtag" style="background:${tag.c}">${tag.t}</span><div class="gq">${q.ask}</div>${q.show?`<div class="gshow">${q.show}</div>`:""}
+    <div class="gopts">${q.opts.map((o,i)=>`<button class="gopt" data-v="${o}"><span class="lt">${"ABCD"[i]}</span><span>${q.M.get(o)}</span></button>`).join("")}</div>
+    <div class="gwhy" id="why5"></div></div>`;
+}
+function startG(){Object.assign(G,{run:true,t:60,score:0,streak:0,maxStreak:0,ok:0,total:0,lock:false,last:null});nextG();drawGame();
+  clearInterval(G.timer);G.timer=setInterval(()=>{G.t--;const t=$("t5"),r=$("ring5");
+    if(t){t.textContent=G.t;t.parentElement.classList.toggle("low",G.t<=10)}
+    if(r){r.setAttribute("stroke-dashoffset",RING*(1-G.t/60));if(G.t<=10)r.setAttribute("stroke","#C62828")}
+    if(G.t<=0)endG()},1000)}
+function endG(silent){clearInterval(G.timer);G.run=false;const nb=!silent&&G.score>G.best&&G.score>0;if(G.score>G.best)G.best=G.score;if(silent)G.total=0;drawGame(nb)}
+$("game").addEventListener("click",e=>{
+  if(e.target.closest("#go5")){startG();return}
+  const o=e.target.closest(".gopt");if(!o||!G.run||G.lock)return;G.lock=true;
+  const ok=o.dataset.v===G.q.correct;G.total++;let gain=0;
+  if(ok){G.ok++;G.streak++;G.maxStreak=Math.max(G.maxStreak,G.streak);gain=10+Math.min(G.streak-1,5);G.score+=gain}else G.streak=0;
+  document.querySelectorAll("#game .gopt").forEach(b=>{b.disabled=true;if(b.dataset.v===G.q.correct)b.classList.add("good");else if(b===o)b.classList.add("bad")});
+  $("s5").textContent=G.score;$("k5").textContent=G.streak;$("o5").textContent=G.ok+"/"+G.total;$("kp5").classList.toggle("hot",G.streak>=3);
+  if(ok){const r=o.getBoundingClientRect(),c=$("game").getBoundingClientRect(),pl=document.createElement("span");
+    pl.className="gplus";pl.textContent="+"+gain;pl.style.left=(r.right-c.left-56)+"px";pl.style.top=(r.top-c.top+8)+"px";$("game").appendChild(pl)}
+  else $("why5").innerHTML="To'g'ri javob: "+G.q.why+".";
+  setTimeout(()=>{if(!G.run)return;nextG();drawGame()},ok?650:2400);
+});
+
+
+
+scaleInit();new1();new2();new3();drawGame();
+
+/* MathRun: sahifadagi oyna balandligi ko'rgazmaga moslashadi (ichki aylantirishsiz) */
+(function(){function post(){try{parent.postMessage({type:"mathrun:height",h:document.body.offsetHeight},"*")}catch(e){}}
+new ResizeObserver(post).observe(document.body);post();})();
+</script>

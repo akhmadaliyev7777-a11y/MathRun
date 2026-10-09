@@ -323,7 +323,7 @@ function renderSubjectTabs(grade) {
 }
 
 // ---------- Nishonlar to'plami (js/progress.js) ----------
-// faqat simulyatsiya rejasi bor fanlarda ko'rinadi (hozircha 5-sinf matematika)
+// hozircha ko'rsatilmaydi (foydalanuvchi talabi, 2026-10-09) — kerak bo'lsa renderActiveSubjectTopics ga badgeCollectionHtml qaytariladi
 function topicDone(grade, subject, topic) {
   return typeof MR !== "undefined" && MR.get(grade.id + "|" + subject.id + "|" + topic.id).done;
 }
@@ -372,7 +372,6 @@ function renderActiveSubjectTopics(grade) {
     return (
       '<li class="topic-row">' +
         '<span class="topic-row-num">' + num + '</span>' +
-        (topicDone(grade, subject, topic) ? '<span class="topic-row-badge" title="Nishon olingan">' + MR.badgeSvg(i, true, 18) + '</span>' : '') +
         '<a class="topic-row-title" href="' + href + '">' + title + reviewDot(topic) +
           (topic.page ? '<span class="topic-row-page">' + topic.page + '</span>' : '') +
         '</a>' +
@@ -387,7 +386,7 @@ function renderActiveSubjectTopics(grade) {
     );
   }).join("");
 
-  container.innerHTML = badgeCollectionHtml(grade, subject) + '<ol class="topic-list">' + rowsHtml + '</ol>' +
+  container.innerHTML = '<ol class="topic-list">' + rowsHtml + '</ol>' +
     '<p class="topic-list-foot">' + subject.topics.length + ' ta mavzu</p>';
 }
 
@@ -541,7 +540,7 @@ function renderGallery() {
         return (
           '<li class="topic-row">' +
             '<span class="topic-row-num">' + t.b + '.</span>' +
-            '<a class="topic-row-title" href="' + href + '">' + (t.sim.name || t.sim.title) +
+            '<a class="topic-row-title" href="' + href + '">' + (t.sim.name || t.sim.title) + (t.sim.review ? '<span class="review-dot" title="Tekshirish kerak — kamchiligi bor yoki hali tekshirilmagan"></span>' : '') +
               '<span class="topic-row-page">' + t.c + '-chorak</span>' +
             '</a>' +
             '<span class="topic-row-actions">' +

@@ -134,7 +134,7 @@ p{margin:0}
 .iso{width:100%;height:auto;display:block;border-radius:16px;background:#FBFCFF;border:1.5px solid #E0E7FF;touch-action:manipulation}
 .iso .tile{cursor:pointer}.iso .tile:hover{fill:#C7D2FE}
 .iso .top{cursor:pointer}.iso .top:hover{filter:brightness(1.08)}
-.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:12px;align-items:stretch}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:12px;align-items:stretch}
 .two .iso{max-height:360px}
 .dots{width:100%;height:auto;max-height:440px;display:block;border-radius:16px;background:#fff;border:1.5px solid #E0E7FF;touch-action:manipulation}
 .dots .dt{cursor:pointer}
@@ -142,6 +142,20 @@ p{margin:0}
 .opts3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .opts3 button{border:2.5px solid var(--line);border-radius:14px;background:#fff;padding:6px;cursor:pointer}
 .opts3 button:hover{border-color:var(--ink)}.opts3 button.good{border-color:var(--ok);background:var(--okbg)}.opts3 button.bad{border-color:var(--bad);background:var(--badbg)}
+/* 3D model: tepada — Y, yonida — X, tagida — Z o'qi atrofida aylantirish chiziqlari */
+.r3{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto auto;gap:6px 8px;padding:10px;border-radius:16px;background:#FBFCFF;border:1.5px solid #E0E7FF}
+.r3 .rs{display:flex;align-items:center;gap:8px;font:800 13px var(--f-body)}
+.r3 .rs input{flex:1;accent-color:var(--ac)}
+.r3 .rs output{min-width:44px;text-align:right;font:800 13px var(--f-display);color:var(--ac)}
+.r3 .ax{display:inline-flex;align-items:center;gap:4px;color:var(--ac);white-space:nowrap}
+.r3 .ax::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--ac)}
+.r3 .top{grid-column:1/3}.r3 .bot{grid-column:1/3}
+.r3 svg{width:100%;height:auto;max-height:340px;display:block;touch-action:none;cursor:grab}
+.r3 .side{flex-direction:column;justify-content:center;gap:4px}
+.r3 .side input{writing-mode:vertical-lr;direction:rtl;width:26px;height:220px;flex:none}
+.r3 .side .ax{writing-mode:vertical-lr;transform:rotate(180deg)}
+.r3 .rst{grid-column:1/3;justify-self:end}
+
 @media (max-width:640px){.two{grid-template-columns:1fr}.opts3{grid-template-columns:1fr 1fr}}
 .big{font:800 clamp(24px,5vw,32px)/1.2 var(--f-display)}
 .big b{color:var(--c1)}
@@ -224,7 +238,7 @@ p{margin:0}
   <!-- 1. Kub va kuboid -->
   <section class="panel" role="tabpanel" id="p-kub">
     <div class="row" style="justify-content:space-between"><div class="mgrp" id="fg1"></div><button class="btn ghost sm" id="hl1">Yordamni yashirish</button></div>
-    <div class="two"><svg class="iso" id="md1"></svg><svg class="dots" id="sv1"></svg></div>
+    <div class="two"><div id="md1"></div><svg class="dots" id="sv1"></svg></div>
     <div class="bar"><i id="br1" style="width:0"></i></div>
     <div class="row tools"><button class="btn ghost sm" id="un1">← Orqaga</button><button class="btn ghost sm" id="cl1">Tozalash</button></div>
     <div class="story" id="m1" aria-live="polite"></div>
@@ -233,7 +247,7 @@ p{margin:0}
   <!-- 2. Kubiklardan jism -->
   <section class="panel" role="tabpanel" id="p-jism" hidden>
     <div class="row" style="justify-content:space-between"><div class="mgrp" id="fg2"></div><button class="btn ghost sm" id="hl2">Yordam: ko'rsatish</button></div>
-    <div class="two"><svg class="iso" id="md2"></svg><svg class="dots" id="sv2"></svg></div>
+    <div class="two"><div id="md2"></div><svg class="dots" id="sv2"></svg></div>
     <div class="bar"><i id="br2" style="width:0"></i></div>
     <div class="row tools"><button class="btn ghost sm" id="un2">← Orqaga</button><button class="btn ghost sm" id="cl2">Tozalash</button></div>
     <div class="story" id="m2" aria-live="polite"></div>
@@ -243,7 +257,7 @@ p{margin:0}
   <section class="panel" role="tabpanel" id="p-top" hidden>
     <div class="score" id="sc3"></div>
     <div class="ctx">Chapdagi jismning izometrik panjaradagi to'g'ri chizmasini toping.</div>
-    <div class="two"><svg class="iso" id="md3"></svg><div class="opts3" id="op3"></div></div>
+    <div class="two"><div id="md3"></div><div class="opts3" id="op3"></div></div>
     <div class="story" id="m3" aria-live="polite"></div>
     <div class="row"><button class="btn" id="nx3" hidden>Keyingi ▶</button></div>
   </section>
@@ -327,6 +341,58 @@ function lineDraw(E,s=18){let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;const P=k=>{const [u
   let g="";E.forEach(e=>{const [a,b]=e.split("|").map(P);g+=`<line x1="${a[0]-x0+10}" y1="${a[1]-y0+10}" x2="${b[0]-x0+10}" y2="${b[1]-y0+10}" stroke="#14213D" stroke-width="2.2" stroke-linecap="round"/>`});
   return `<svg viewBox="0 0 ${x1-x0+20} ${y1-y0+20}" style="width:100%;height:auto;max-height:150px">${g}</svg>`}
 
+/* ================= 3D model: x, y, z o'qlari va uchta aylantirish chizig'i ================= */
+/* H[x][y] — ustun balandligi. Panjaradagi (gx,gy,gz) → dunyo (y=gx, x=gy, z=gz): izometrik chizmadagidek x chap-pastga, y o'ng-pastga, z yuqoriga.
+   Kamera: ekran o'ngga = X, yuqoriga = Z, chuqurlik = Y (ko'ruvchi −Y tomonda). Boshlang'ich burchaklar — izometrik ko'rinish (barcha chiziqlar 0° da). */
+const AXC={x:"#DC2626",y:"#16A34A",z:"#2563EB"};
+const V3={};
+function view3(id,H){if(!V3[id])V3[id]=make3D(id);V3[id].set(H)}
+function make3D(id){
+  const root=$(id),A={x:0,y:0,z:0};let H=[[0]];
+  const sl=(a,cls,lab)=>`<label class="rs ${cls}" style="--ac:${AXC[a]}"><span class="ax">${lab}</span><input type="range" min="-180" max="180" step="1" value="0" data-a="${a}" aria-label="${lab}"><output>0°</output></label>`;
+  root.innerHTML=`<div class="r3">${sl("y","top","Y o'qi atrofida")}<svg viewBox="-200 -200 400 400"></svg>${sl("x","side","X o'qi")}${sl("z","bot","Z o'qi atrofida")}<button class="btn ghost sm rst">↺ Asl holat</button></div>`;
+  const svg=root.querySelector("svg");
+  const rot=p=>{const d=Math.PI/180,az=(-135+A.z)*d,ax=(35.26+A.x)*d,ay=A.y*d;let [x,y,z]=p;
+    [x,y]=[x*Math.cos(az)-y*Math.sin(az),x*Math.sin(az)+y*Math.cos(az)];           // Z atrofida
+    [y,z]=[y*Math.cos(ax)-z*Math.sin(ax),y*Math.sin(ax)+z*Math.cos(ax)];           // X atrofida
+    [x,z]=[x*Math.cos(ay)+z*Math.sin(ay),-x*Math.sin(ay)+z*Math.cos(ay)];          // Y atrofida
+    return[x,y,z]};
+  function draw(){
+    const n=H.length,m=H[0].length,hm=Math.max(1,...H.flat()),cx=m/2,cy=n/2,cz=hm/2,L=Math.max(n,m,hm)+1.6;
+    const W=(gx,gy,gz)=>[gy-cx,gx-cy,gz-cz];      // panjara → dunyo (markazga nisbatan)
+    // masshtab: markazdan eng uzoq nuqta (jism uchlari va o'q uchlari) — aylantirganda o'zgarmaydi
+    const far=[[0,0,0],[n,m,hm],[n,0,0],[0,m,0],[0,0,hm],[n,m,0],[n+1.4,0,0],[0,m+1.4,0],[0,0,hm+1.4]].map(([a,b,c])=>Math.hypot(...W(a,b,c))),R=Math.max(...far)+0.6,s=172/R;
+    const P=w=>{const [x,y,z]=rot(w);return[x*s,-z*s,y]};
+    const has=(x,y,z)=>x>=0&&y>=0&&x<n&&y<m&&z>=0&&z<H[x][y];
+    const faces=[];
+    // yuzlar: [qo'shni yo'nalishi, 4 uch]; ichki (qo'shni kubikka tegib turgan) yuzlar chizilmaydi
+    const F=[[[0,0,1],[[0,0,1],[1,0,1],[1,1,1],[0,1,1]]],[[0,0,-1],[[0,0,0],[0,1,0],[1,1,0],[1,0,0]]],[[1,0,0],[[1,0,0],[1,1,0],[1,1,1],[1,0,1]]],[[-1,0,0],[[0,0,0],[0,0,1],[0,1,1],[0,1,0]]],[[0,1,0],[[0,1,0],[0,1,1],[1,1,1],[1,1,0]]],[[0,-1,0],[[0,0,0],[1,0,0],[1,0,1],[0,0,1]]]];
+    for(let x=0;x<n;x++)for(let y=0;y<m;y++)for(let z=0;z<H[x][y];z++)F.forEach(([d,q])=>{if(has(x+d[0],y+d[1],z+d[2]))return;
+      const nw=rot(W(d[0],d[1],d[2]).map((v,i)=>v+[cx,cy,cz][i])),pts=q.map(([a,b,c])=>P(W(x+a,y+b,z+c)));
+      if(nw[1]>=0)return;                                                        // orqa tomon — ko'rinmaydi
+      const lit=Math.max(0,-nw[1]*0.55+nw[2]*0.45),dep=pts.reduce((t,p)=>t+p[2],0)/4;faces.push({pts,lit,dep})});
+    faces.sort((a,b)=>b.dep-a.dep);
+    let g="";
+    // pol to'ri (z = 0)
+    for(let i=0;i<=n;i++){const a=P(W(i,0,0)),b=P(W(i,m,0));g+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="#C7D2FE" stroke-width="1"/>`}
+    for(let j=0;j<=m;j++){const a=P(W(0,j,0)),b=P(W(n,j,0));g+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="#C7D2FE" stroke-width="1"/>`}
+    const ax=(dir,c,lab)=>{const o=P(W(0,0,0)),e=P(W(dir[0]*(n+1.4),dir[1]*(m+1.4),dir[2]*(hm+1.4))),dx=e[0]-o[0],dy=e[1]-o[1],d=Math.hypot(dx,dy)||1,ux=dx/d,uy=dy/d;
+      return `<line x1="${o[0]}" y1="${o[1]}" x2="${e[0]}" y2="${e[1]}" stroke="${c}" stroke-width="2.6" stroke-linecap="round"/><polygon points="${e[0]+ux*10},${e[1]+uy*10} ${e[0]-uy*5},${e[1]+ux*5} ${e[0]+uy*5},${e[1]-ux*5}" fill="${c}"/><text x="${e[0]+ux*22}" y="${e[1]+uy*22+6}" text-anchor="middle" font-size="18" font-weight="800" font-style="italic" fill="${c}">${lab}</text>`};
+    const axes=ax([0,1,0],AXC.x,"x")+ax([1,0,0],AXC.y,"y")+ax([0,0,1],AXC.z,"z");
+    g+=`<g opacity=".35">${axes}</g>`;                                           // jism ortidagi qismi xira
+    faces.forEach(f=>{const k=0.45+0.55*f.lit,c=[59,130,246].map(v=>Math.round(v*k+255*(1-k)*0.35));
+      g+=`<polygon points="${f.pts.map(p=>p[0].toFixed(1)+","+p[1].toFixed(1)).join(" ")}" fill="rgb(${c})" stroke="#1E3A8A" stroke-width="1.4" stroke-linejoin="round"/>`});
+    g+=axes;
+    svg.innerHTML=g}
+  root.addEventListener("input",e=>{const r=e.target.closest("[data-a]");if(!r)return;A[r.dataset.a]=+r.value;r.nextElementSibling.textContent=r.value+"°";draw()});
+  root.querySelector(".rst").onclick=()=>{["x","y","z"].forEach(a=>{A[a]=0;const r=root.querySelector(`[data-a="${a}"]`);r.value=0;r.nextElementSibling.textContent="0°"});draw()};
+  // sichqoncha/barmoq bilan sudrab ham aylantirish: gorizontal — Z, vertikal — X
+  let dr=null;svg.addEventListener("pointerdown",e=>{dr={x:e.clientX,y:e.clientY,z0:A.z,x0:A.x};svg.setPointerCapture(e.pointerId)});
+  svg.addEventListener("pointermove",e=>{if(!dr)return;const cl=v=>Math.max(-180,Math.min(180,Math.round(v)));A.z=cl(dr.z0+(e.clientX-dr.x)*0.6);A.x=cl(dr.x0+(e.clientY-dr.y)*0.6);
+    ["x","z"].forEach(a=>{const r=root.querySelector(`[data-a="${a}"]`);r.value=A[a];r.nextElementSibling.textContent=A[a]+"°"});draw()});
+  const up=()=>dr=null;svg.addEventListener("pointerup",up);svg.addEventListener("pointercancel",up);
+  return{set(h){H=h&&h.length?h:[[0]];draw()}}}
+
 /* ================= chizish dvigateli (1 va 2-bo'lim uchun umumiy) ================= */
 function makeDraw(pre,figs,hintOn){
   const D={k:Object.keys(figs)[0],hint:hintOn,good:new Set(),bad:new Set(),hist:[],sel:null};
@@ -335,7 +401,7 @@ function makeDraw(pre,figs,hintOn){
     D.T=visEdges(H,D.u0,D.v0).E;D.st=pk(D.u0+n-m,D.v0+n+m);D.good=new Set();D.bad=new Set();D.hist=[];D.sel=null;D.render();
     setMsg(pre==="1"?"m1":"m2",`Ko'k nuqtadan boshlang. Qirralar soni: ${D.T.size} ta (birlik qirralar).`)};
   D.render=()=>{const svg=$("sv"+pre),L=gridLay("sv"+pre,D.U,D.V),H=figs[D.k].H,M=model(H);
-    $("md"+pre).setAttribute("viewBox",`0 0 ${M.W} ${M.H}`);$("md"+pre).innerHTML=M.g;
+    view3("md"+pre,H);
     $("fg"+pre).innerHTML=Object.keys(figs).map(k=>`<button class="seg${k===D.k?" sel":""}" data-f="${k}">${figs[k].n}</button>`).join("");
     let g="";
     if(D.hint)D.T.forEach(e=>{if(!D.good.has(e))g+=edgeLine(L,e,"#A5B4FC",2.5,"4 5")});
@@ -380,7 +446,7 @@ function variantsOf(H){const n=H.length,m=H[0].length,T=visEdges(H,0,0).E,arr=[.
   for(let t=0;t<200&&!other;t++){const H2=H.map(c=>c.slice()),x=rnd(0,n-1),y=rnd(0,m-1);if(Math.random()<.5&&H2[x][y]>1)H2[x][y]--;else H2[x][y]=Math.min(4,H2[x][y]+1);
     const E2=visEdges(H2,0,0).E;if(key(E2)!==key(T))other=E2}
   if(!other){const H2=H.map(c=>c.concat([1]));other=visEdges(H2,0,0).E}return[{k:"ok",E:T},{k:"miss",E:miss},{k:"other",E:other}]}
-function new3(){const H=pickOne(ALLF);const M=model(H);$("md3").setAttribute("viewBox",`0 0 ${M.W} ${M.H}`);$("md3").innerHTML=M.g;
+function new3(){const H=pickOne(ALLF);view3("md3",H);
   const V=shuffle(variantsOf(H));Object.assign(s3,{H,V,done:false});
   $("op3").innerHTML=V.map((v,i)=>`<button data-i="${i}" aria-label="${i+1}-chizma">${lineDraw(v.E)}<b style="font:800 15px var(--f-body)">${"ABC"[i]}</b></button>`).join("");
   $("nx3").hidden=true;setMsg("m3","");sc3()}
