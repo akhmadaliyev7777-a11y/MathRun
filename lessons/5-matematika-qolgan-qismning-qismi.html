@@ -291,13 +291,25 @@ function setMsg(id,t,c){const m=$(id);m.innerHTML=t;m.className="story "+(c||"")
 function drawLog(id,arr){const el=$(id);el.hidden=!arr.length;el.innerHTML=`<h3>Jarayon</h3><ol>${arr.map(x=>`<li>${x}</li>`).join("")}</ol>`}
 const stageW=id=>Math.max(300,Math.round($(id).getBoundingClientRect().width)||660);
 const val=id=>{const e=$(id);return e?e.value.trim():""};
+const isNum=v=>/^\d+$/.test(v);
+/* butun son javoblar: bo'sh yoki harf bo'lsa — xabar matni, aks holda null */
+const badN=(...vs)=>vs.every(v=>v==="")?"Avval javobni yozing.":vs.some(v=>v==="")?"Ikkala katakni ham to'ldiring.":vs.some(v=>!isNum(v))?"Kataklarga faqat son yozing.":null;
+/* kasr javobini tekshirish: bo'sh, harf yoki 0 maxraj bo'lsa — xabar matni, aks holda null */
+const badFr=(a,b)=>a===""&&b===""?"Avval javobni yozing: tepaga surat, pastga maxraj.":a===""?"Suratni ham yozing (tepadagi katak).":b===""?"Maxrajni ham yozing (pastdagi katak).":!isNum(a)||!isNum(b)?"Kataklarga faqat son yozing.":+b===0?"Maxraj 0 bo'lmaydi.":null;
+/* qisqaradigan kasr bo'lsa — ogohlantirish */
+const redNote=(x,y)=>{const g=gcd(x,y);return g>1?` Diqqat: ${fr(x,y)} qisqaradi — ${fr(x,y)} = ${fr(x/g,y/g)}.`:""};
+/* SVG yozuvi rasm chetidan chiqib ketmasin: markazi cx, taxminiy kengligi matn uzunligidan */
+const svgLab=(cx,y,txt,X0,BW,attr)=>{const w=txt.length*8;let x=cx,an="middle";if(cx-w/2<X0){x=X0;an="start"}else if(cx+w/2>X0+BW){x=X0+BW;an="end"}return `<text x="${x}" y="${y}" text-anchor="${an}" ${attr}>${txt}</text>`};
+/* son variantlari: to'g'ri javob + chalg'ituvchilar, qiymati bo'yicha takrorlanmaydi, har doim 4 ta */
+function opts4(ok,cands){const S=[ok];cands.forEach(v=>{if(S.length<4&&Number.isInteger(v)&&v>0&&!S.includes(v))S.push(v)});
+  const s=Math.max(1,Math.round(ok/5));for(let k=1;S.length<4&&k<50;k++)[ok+k*s,ok-k*s].forEach(v=>{if(S.length<4&&v>0&&!S.includes(v))S.push(v)});return S}
 /* ================= masalalar: butun T, avval a/b qismi, keyin qolganining c/d qismi ================= */
 const CTX=[
-  {u:"ming so'm",n1:"kitob",n2:"qalam",txt:(T,f1,f2)=>`Alida <b>${T} ming so'm</b> bor edi. Uning ${f1} qismini kitobga, qolganining ${f2} qismini qalamga sarfladi.`,q2:"Qalamga qancha pul ketdi?",qr:"Qancha pul qoldi?"},
-  {u:"km",n1:"1-kun",n2:"2-kun",txt:(T,f1,f2)=>`Sayyohlar <b>${T} km</b> yo'l yurishi kerak. Birinchi kuni yo'lning ${f1} qismini, ikkinchi kuni qolgan yo'lning ${f2} qismini yurdi.`,q2:"Ikkinchi kuni necha km yurdi?",qr:"Yana necha km qoldi?"},
-  {u:"bet",n1:"1-hafta",n2:"2-hafta",txt:(T,f1,f2)=>`Kitob <b>${T} betdan</b> iborat. Malika birinchi hafta kitobning ${f1} qismini, ikkinchi hafta qolganining ${f2} qismini o'qidi.`,q2:"Ikkinchi hafta necha bet o'qidi?",qr:"Necha bet o'qilmay qoldi?"},
-  {u:"sotix",n1:"olma",n2:"uzum",txt:(T,f1,f2)=>`Bog' <b>${T} sotix</b>. Uning ${f1} qismiga olma, qolganining ${f2} qismiga uzum ekildi.`,q2:"Uzum necha sotixga ekildi?",qr:"Necha sotix bo'sh qoldi?"},
-  {u:"kg",n1:"1-kun",n2:"2-kun",txt:(T,f1,f2)=>`Do'konga <b>${T} kg</b> olma keltirildi. Birinchi kuni olmaning ${f1} qismi, ikkinchi kuni qolganining ${f2} qismi sotildi.`,q2:"Ikkinchi kuni necha kg sotildi?",qr:"Necha kg olma qoldi?"}];
+  {u:"ming so'm",n1:"kitob",n2:"qalam",txt:(T,f1,f2)=>`Alida <b>${T} ming so'm</b> bor edi. Uning ${f1} qismini kitobga, qolganining ${f2} qismini qalamga sarfladi.`,q2:"Qalamga qancha pul ketdi?",qr:"Qancha pul qoldi?",t3:f=>` Keyin qolgan pulning ${f} qismiga daftar oldi.`,q3:"Daftarga qancha pul ketdi?"},
+  {u:"km",n1:"1-kun",n2:"2-kun",txt:(T,f1,f2)=>`Sayyohlar avtobusda <b>${T} km</b> yo'l bosishi kerak. Birinchi kuni yo'lning ${f1} qismini, ikkinchi kuni qolgan yo'lning ${f2} qismini bosib o'tdi.`,q2:"Ikkinchi kuni necha km yo'l bosdi?",qr:"Yana necha km qoldi?",t3:f=>` Uchinchi kuni qolgan yo'lning ${f} qismini bosib o'tdi.`,q3:"Uchinchi kuni necha km yo'l bosdi?"},
+  {u:"bet",n1:"1-hafta",n2:"2-hafta",txt:(T,f1,f2)=>`Kitob <b>${T} betdan</b> iborat. Malika birinchi hafta kitobning ${f1} qismini, ikkinchi hafta qolganining ${f2} qismini o'qidi.`,q2:"Ikkinchi hafta necha bet o'qidi?",qr:"Necha bet o'qilmay qoldi?",t3:f=>` Uchinchi hafta qolganining ${f} qismini o'qidi.`,q3:"Uchinchi hafta necha bet o'qidi?"},
+  {u:"sotix",n1:"olma",n2:"uzum",txt:(T,f1,f2)=>`Bog' <b>${T} sotix</b>. Uning ${f1} qismiga olma, qolganining ${f2} qismiga uzum ekildi.`,q2:"Uzum necha sotixga ekildi?",qr:"Necha sotix bo'sh qoldi?",t3:f=>` Qolgan yerning ${f} qismiga pomidor ekildi.`,q3:"Pomidor necha sotixga ekildi?"},
+  {u:"kg",n1:"1-kun",n2:"2-kun",txt:(T,f1,f2)=>`Do'konga <b>${T} kg</b> olma keltirildi. Birinchi kuni olmaning ${f1} qismi, ikkinchi kuni qolganining ${f2} qismi sotildi.`,q2:"Ikkinchi kuni necha kg sotildi?",qr:"Necha kg olma qoldi?",t3:f=>` Uchinchi kuni qolganining ${f} qismi sotildi.`,q3:"Uchinchi kuni necha kg sotildi?"}];
 const irr=(lo,hi)=>{const d=rnd(lo,hi);let n;do n=rnd(1,d-1);while(gcd(n,d)>1);return[n,d]};
 /* T = b·d·m — har bir qadamda bo'lish qoldiqsiz chiqadi */
 function genP(maxT=240){for(let t=0;t<500;t++){const [a,b]=irr(2,6),[c,d]=irr(2,6),m=rnd(1,Math.max(1,Math.floor(maxT/(b*d))));const T=b*d*m;if(T<12)continue;
@@ -317,10 +329,10 @@ function render1(focus){
   const o=s1,{T,a,b,c,d,P1,R1,P2,R2,phase}=o,C=CTX[o.ctx],W=stageW("sv1"),X0=16,BW=W-32,Y1=46,BH=54,Y2=Y1+BH+86;
   $("q1").innerHTML=C.txt(T,fr(a,b),fr(c,d))+` <b>${C.q2}</b> <b>${C.qr}</b>`;
   $("t1").innerHTML={cut1:`<b>1-qadam.</b> Hozir butun — <b>${T} ${C.u}</b>. ${fr(a,b)} qismini olish uchun butunni nechta teng bo'lakka bo'lamiz?`,
-    mark1:`<b>2-qadam.</b> ${fr(a,b)} qismini belgilang: <b class="ca">${a} ta bo'lakni</b> bosing (${C.n1}).`,
+    mark1:`<b>2-qadam.</b> ${fr(a,b)} qismini belgilang: <b class="ca">${a} ta bo'lakni</b> bosing (${C.n1}), keyin «Keyingi ▶» tugmasini bosing.`,
     calc1:`<b>3-qadam.</b> Bitta bo'lak va belgilangan qism nechaga teng?`,
     cut2:`<b>4-qadam.</b> Endi butun — <b>qolgan ${R1} ${C.u}</b>. Uning ${fr(c,d)} qismi uchun nechta teng bo'lakka bo'lamiz?`,
-    mark2:`<b>5-qadam.</b> Qolgan qismning ${fr(c,d)} qismini belgilang: <b class="cg">${c} ta bo'lakni</b> bosing (${C.n2}).`,
+    mark2:`<b>5-qadam.</b> Qolgan qismning ${fr(c,d)} qismini belgilang: <b class="cg">${c} ta bo'lakni</b> bosing (${C.n2}), keyin «Keyingi ▶» tugmasini bosing.`,
     calc2:`<b>6-qadam.</b> Qolgan qismning bitta bo'lagi va belgilangan qism nechaga teng?`,
     rest:`<b>7-qadam.</b> Oxirida qancha qoldi?`,done:`Masala yechildi.`}[phase];
   let g=`<text x="${X0}" y="${Y1-12}" class="slab">Butun: ${T} ${C.u}</text>`;
@@ -336,7 +348,7 @@ function render1(focus){
   let H=Y1+BH+24;
   if(after1("calc1")){const rest1=[...Array(n1).keys()].filter(i=>!o.mark1.includes(i));
     rest1.forEach(i=>{g+=`<line x1="${X0+(i+.5)*pw}" y1="${Y1+BH+4}" x2="${X0+BW/2}" y2="${Y2-26}" stroke="#98A4BA" stroke-width="1.5" stroke-dasharray="4 4"/>`});
-    g+=`<text x="${X0}" y="${Y2-12}" class="slab">Qolgan qism = yangi butun: ${R1} ${C.u}</text>`;
+    g+=`<text x="${X0}" y="${Y2-12}" class="slab">${W<420?"Qolgan = yangi butun":"Qolgan qism = yangi butun"}: ${R1} ${C.u}</text>`;
     const n2=o.cut2||1,qw=BW/n2;
     for(let j=0;j<n2;j++){const on=o.mark2.includes(j),left=after1("calc2")&&!on;
       g+=`<rect x="${X0+j*qw}" y="${Y2}" width="${qw}" height="${BH}" fill="${on?CGR[1]:left&&after1("rest")?"#fff":"#EEF1F5"}" stroke="${o.cut2?CGR[0]:"#14213D"}" stroke-width="${o.cut2?2:0}"/>`;
@@ -367,17 +379,20 @@ $("w1").addEventListener("click",e=>{const o=s1,C=CTX[o.ctx];
     s1.h.push(snap1());if(o.phase==="cut1"){o.cut1=n;o.phase="mark1"}else{o.cut2=n;o.phase="mark2"}
     s1.log.push(o.phase==="mark1"?`Butun (${o.T}) ${n} ta teng bo'lakka bo'lindi.`:`Qolgan qism (${o.R1}) ${n} ta teng bo'lakka bo'lindi.`);setMsg("m1","");render1();return}
   const kb=e.target.closest("[data-k]");if(!kb)return;const k=kb.dataset.k;let ok=false,msg="";
-  if(k==="calc1"){const x=+val("o1"),y=+val("p1");if(!x||!y)return;ok=x===o.T/o.b&&y===o.P1;
+  const bad=k==="rest"?badN(val("r1")):k==="calc1"?badN(val("o1"),val("p1")):badN(val("o2"),val("p2"));if(bad){setMsg("m1",bad,"bad");return}
+  if(k==="calc1"){const x=+val("o1"),y=+val("p1");ok=x===o.T/o.b&&y===o.P1;
     msg=ok?`${o.T} : ${o.b} = ${o.T/o.b}, ${C.n1}: ${o.T/o.b} · ${o.a} = ${o.P1}. Qoldi: ${o.T} − ${o.P1} = ${o.R1} — bu endi yangi butun.`:x!==o.T/o.b?`${o.T} ni ${o.b} ga bo'ling.`:`Bitta bo'lak ${o.T/o.b}, ${o.a} ta bo'lak — ${o.T/o.b} · ${o.a}.`}
-  if(k==="calc2"){const x=+val("o2"),y=+val("p2");if(!x||!y)return;ok=x===o.R1/o.d&&y===o.P2;
+  if(k==="calc2"){const x=+val("o2"),y=+val("p2");ok=x===o.R1/o.d&&y===o.P2;
     msg=ok?`${o.R1} : ${o.d} = ${o.R1/o.d}, ${C.n2}: ${o.R1/o.d} · ${o.c} = ${o.P2}.`:x===o.T/o.d?`Diqqat! Siz butunni (${o.T}) bo'ldingiz. «Qolganining» qismi — qolgan ${o.R1} ni ${o.d} ga bo'lish kerak.`:x!==o.R1/o.d?`${o.R1} ni ${o.d} ga bo'ling.`:`${o.R1/o.d} · ${o.c} ni hisoblang.`}
-  if(k==="rest"){const x=+val("r1");if(!x&&val("r1")!=="0")return;ok=x===o.R2;msg=ok?`To'g'ri! Qoldi: ${o.R1} − ${o.P2} = ${o.R2} ${C.u}.`:`${o.R1} − ${o.P2} ni hisoblang.`}
+  if(k==="rest"){const x=+val("r1");ok=x===o.R2;msg=ok?`To'g'ri! Qoldi: ${o.R1} − ${o.P2} = ${o.R2} ${C.u}.`:`${o.R1} − ${o.P2} ni hisoblang.`}
   if(!ok){setMsg("m1",msg,"bad");return}
   s1.h.push(snap1());s1.log.push(msg);o.phase=ORD1[ORD1.indexOf(k)+1];
   setMsg("m1",msg+(o.phase==="done"?` Javob: ${C.n2} — <b class="cg">${o.P2} ${C.u}</b>, qoldi — <b>${o.R2} ${C.u}</b>.`:""),"good");render1(true)});
 $("w1").addEventListener("keydown",e=>{if(e.key!=="Enter")return;const b=$("w1").querySelector("[data-k]");if(b)b.click()});
 $("sv1").addEventListener("click",e=>{const r=e.target.closest(".hitc");if(!r)return;const key=r.dataset.p1!=null?"mark1":"mark2",v=+(r.dataset.p1??r.dataset.p2),arr=s1[key];
-  s1.h.push(snap1());const i=arr.indexOf(v);if(i>=0)arr.splice(i,1);else arr.push(v);render1()});
+  const i=arr.indexOf(v),need=key==="mark1"?s1.a:s1.c;
+  if(i<0&&arr.length>=need){setMsg("m1",`${key==="mark1"?fr(s1.a,s1.b):fr(s1.c,s1.d)} uchun ${need} ta bo'lak yetarli. Boshqa bo'lakni tanlash uchun avval belgilanganini qayta bosib o'chiring.`,"bad");return}
+  s1.h.push(snap1());if(i>=0)arr.splice(i,1);else arr.push(v);setMsg("m1","");render1()});
 $("nx1").onclick=()=>{const o=s1;
   if(o.phase==="mark1"){if(o.mark1.length!==o.a){setMsg("m1",`${fr(o.a,o.b)} uchun ${o.a} ta bo'lak belgilanishi kerak — hozir ${o.mark1.length} ta.`,"bad");return}s1.h.push(snap1());o.phase="calc1";s1.log.push(`${fr(o.a,o.b)} qismi belgilandi.`)}
   else if(o.phase==="mark2"){if(o.mark2.length!==o.c){setMsg("m1",`${fr(o.c,o.d)} uchun ${o.c} ta bo'lak belgilanishi kerak — hozir ${o.mark2.length} ta.`,"bad");return}s1.h.push(snap1());o.phase="calc2";s1.log.push(`Qolgan qismning ${fr(o.c,o.d)} qismi belgilandi.`)}
@@ -401,9 +416,9 @@ function render2(focus){
   for(let i=1;i<b;i++)g+=`<line x1="${X0+i*d*cw}" y1="${Y-4}" x2="${X0+i*d*cw}" y2="${Y+BH+4}" stroke="${CBL[0]}" stroke-width="2.5"/>`;
   if(after2("q1"))for(let k=1;k<d;k++){const x=X0+(a*d+k*ra)*cw;g+=`<line x1="${x}" y1="${Y-8}" x2="${x}" y2="${Y+BH+8}" stroke="${CGR[0]}" stroke-width="2.5" stroke-dasharray="5 3"/>`}
   g+=`<rect x="${X0}" y="${Y}" width="${BW}" height="${BH}" fill="none" stroke="#14213D" stroke-width="3"/>`;
-  g+=`<text x="${X0+a*d*cw/2}" y="${Y+BH+22}" text-anchor="middle" class="slab" style="fill:${CBL[0]}">${C.n1}: ${a}/${b}</text>`;
-  if(after2("q1"))g+=`<text x="${X0+(a*d+ (c*ra)/2)*cw}" y="${Y+BH+40}" text-anchor="middle" class="slab g">${C.n2}: ${c*ra} katak</text>`;
-  $("sv2").setAttribute("viewBox",`0 0 ${W} ${Y+BH+50}`);$("sv2").innerHTML=g;
+  g+=svgLab(X0+a*d*cw/2,Y+BH+22,`${C.n1}: ${a}/${b}`,X0,BW,`class="slab" style="fill:${CBL[0]}"`);
+  if(after2("q1"))g+=svgLab(X0+(a*d+(c*ra)/2)*cw,Y+BH+44,`${C.n2}: ${c*ra} katak`,X0,BW,`class="slab g"`);
+  $("sv2").setAttribute("viewBox",`0 0 ${W} ${Y+BH+54}`);$("sv2").innerHTML=g;
   const R=fr(ra,b),p=c*ra,q=b*d,gg=gcd(p,q);
   let w=`<div class="ans"><span class="alab">1) Qolgan qism butunning qanday qismi?</span>1${op("−")}${fr(a,b)}${op("=")}${after2("q1")?fr(ra,b):`<span class="frin"><input id="a2" inputmode="numeric" placeholder="?" aria-label="Surat"><input id="b2" inputmode="numeric" placeholder="?" aria-label="Maxraj"></span><button class="btn" data-k="q1">Tekshirish</button>`}</div>`;
   if(after2("q1"))w+=`<div class="ans"><span class="alab">2) Qolganining ${fr(c,d)} qismi — butunning qanday qismi? (qismning qismi = ko'paytirish)</span>${fr(c,d)}${op("×")}${R}${op("=")}${after2("q2")?resFr(p/gg,q/gg):`<span class="frin"><input id="c2" inputmode="numeric" placeholder="?" aria-label="Surat"><input id="d2" inputmode="numeric" placeholder="?" aria-label="Maxraj"></span><button class="btn" data-k="q2">Tekshirish</button>`}</div>`;
@@ -416,10 +431,11 @@ function render2(focus){
 }
 const snap2=()=>({phase:s2.phase,L:s2.log.length,m:$("m2").innerHTML,mc:$("m2").className});
 $("w2").addEventListener("click",e=>{const kb=e.target.closest("[data-k]");if(!kb)return;const o=s2,k=kb.dataset.k,ra=o.b-o.a,p=o.c*ra,q=o.b*o.d,gg=gcd(p,q);let ok=false,msg="";
-  if(k==="q1"){const x=+val("a2"),y=+val("b2");if(!x||!y)return;ok=x*o.b===y*ra;msg=ok?`Qolgan qism: 1 − ${fr(o.a,o.b)} = ${fr(ra,o.b)}. Uni ${o.d} ta guruhga bo'ldik — har birida ${ra} ta katak.`:`Butun — ${fr(o.b,o.b)}. ${fr(o.b,o.b)} − ${fr(o.a,o.b)} = ?`}
-  if(k==="q2"){const x=+val("c2"),y=+val("d2");if(!x||!y)return;ok=x*q===y*p;
-    msg=ok?`${fr(o.c,o.d)} × ${fr(ra,o.b)} = ${fr(p,q)}${gg>1?` = ${fr(p/gg,q/gg)}`:""} — tasmada yashil ${p} ta katak, jami ${q} ta.`:x*o.d===y*o.c?`Bu — butunning ${fr(o.c,o.d)} qismi. Bizga esa <b>qolganining</b> ${fr(o.c,o.d)} qismi kerak: ${fr(o.c,o.d)} × ${fr(ra,o.b)}.`:`Yashil kataklarni sanang: ${p} ta, jami ${q} ta.`}
-  if(k==="q3"){const x=+val("e2");if(!x)return;ok=x===o.P2;msg=ok?`${o.T} : ${q/gg} · ${p/gg} = ${o.P2}. Son bilan yechganda ham ${o.P2} chiqadi!`:`${o.T} ni ${q/gg} ga bo'lib, ${p/gg} ga ko'paytiring.`}
+  const bad=k==="q3"?badN(val("e2")):k==="q1"?badFr(val("a2"),val("b2")):badFr(val("c2"),val("d2"));if(bad){setMsg("m2",bad,"bad");return}
+  if(k==="q1"){const x=+val("a2"),y=+val("b2");ok=x>0&&x*o.b===y*ra;msg=ok?`Qolgan qism: 1 − ${fr(o.a,o.b)} = ${fr(ra,o.b)}. Uni ${o.d} ta guruhga bo'ldik — har birida ${ra} ta katak.${redNote(x,y)}`:x>0&&x*o.b===y*o.a?`Bu — olingan qism (${CTX[o.ctx].n1}). Bizga <b>qolgan</b> qism kerak: butun — ${fr(o.b,o.b)}, ${fr(o.b,o.b)} − ${fr(o.a,o.b)} = ?`:`Butun — ${fr(o.b,o.b)}. ${fr(o.b,o.b)} − ${fr(o.a,o.b)} = ?`}
+  if(k==="q2"){const x=+val("c2"),y=+val("d2");ok=x>0&&x*q===y*p;
+    msg=ok?`${fr(o.c,o.d)} × ${fr(ra,o.b)} = ${fr(p,q)}${gg>1?` = ${fr(p/gg,q/gg)}`:""} — tasmada yashil ${p} ta katak, jami ${q} ta.${x!==p||y!==q?redNote(x,y):""}`:x>0&&x*o.d===y*o.c?`Bu — butunning ${fr(o.c,o.d)} qismi. Bizga esa <b>qolganining</b> ${fr(o.c,o.d)} qismi kerak: ${fr(o.c,o.d)} × ${fr(ra,o.b)}.`:`Suratlarni suratga, maxrajlarni maxrajga ko'paytiring. Tekshirish: yashil kataklar soni — surat, butun tasmadagi barcha kataklar soni — maxraj.`}
+  if(k==="q3"){const x=+val("e2");ok=x===o.P2;msg=ok?`${o.T} : ${q/gg} · ${p/gg} = ${o.P2}. Son bilan yechganda ham ${o.P2} chiqadi!`:`${o.T} ni ${q/gg} ga bo'lib, ${p/gg} ga ko'paytiring.`}
   if(!ok){setMsg("m2",msg,"bad");return}
   s2.h.push(snap2());s2.log.push(msg);o.phase=ORD2[ORD2.indexOf(k)+1];setMsg("m2",msg,"good");render2(true)});
 $("w2").addEventListener("keydown",e=>{if(e.key!=="Enter")return;const b=$("w2").querySelector("[data-k]");if(b)b.click()});
@@ -435,19 +451,20 @@ function new3(){
   const which=Math.random()<.5?"butun":"qolgan",W1=o.T*o.c/o.d,ans=which==="butun"?W1:o.P2;
   Object.assign(s3,o,{which,W1,ans,done:false});
   $("q3").innerHTML=`${o.T} ning ${fr(o.a,o.b)} qismi olindi. Keyin <b class="${which==="butun"?"ca":"cg"}">${which==="butun"?"butunning":"qolganining"}</b> ${fr(o.c,o.d)} qismi olindi. Ikkinchi marta qancha olindi?`;
-  const opts=[...new Set([ans,which==="butun"?o.P2:W1,o.P1,o.R1-o.P2,o.R1])].slice(0,4);
+  const opts=opts4(ans,[which==="butun"?o.P2:W1,o.P1,o.R1-o.P2,o.R1,o.T/o.b,o.R1/o.d,o.T/o.d]);
   $("w3").innerHTML=shuffle(opts).map(v=>`<button class="chipC" data-v="${v}" style="font-size:20px;padding:8px 18px">${v}</button>`).join("");
   $("sv3").setAttribute("hidden","");$("nx3").hidden=true;setMsg("m3","");sc3()}
 function bars3(){const o=s3,W=stageW("sv3"),X0=16,BW=W-32,BH=44;let g="";
   const bar=(y,lab,parts,mk,col,txt)=>{let h=`<text x="${X0}" y="${y-8}" class="slab">${lab}</text>`;const pw=BW/parts;
     for(let i=0;i<parts;i++)h+=`<rect x="${X0+i*pw}" y="${y}" width="${pw}" height="${BH}" fill="${i<mk?col[1]:"#F1F4F9"}" stroke="${col[0]}" stroke-width="1.5"/>`;
     return h+`<rect x="${X0}" y="${y}" width="${BW}" height="${BH}" fill="none" stroke="#14213D" stroke-width="2.5"/><text x="${X0+mk*pw/2}" y="${y+BH/2+6}" text-anchor="middle" font-size="16" font-weight="800" fill="${col[0]}">${txt}</text>`};
-  g+=bar(28,`Butunning ${o.c}/${o.d} qismi: butun ${o.T} ni ${o.d} ga bo'lamiz`,o.d,o.c,CBL,o.W1);
-  g+=bar(28+BH+40,`Qolganining ${o.c}/${o.d} qismi: qolgan ${o.R1} ni ${o.d} ga bo'lamiz`,o.d,o.c,CGR,o.P2);
+  const nar=W<440;
+  g+=bar(28,nar?`Butunning ${o.c}/${o.d} qismi: ${o.T} : ${o.d} · ${o.c}`:`Butunning ${o.c}/${o.d} qismi: butun ${o.T} ni ${o.d} ga bo'lamiz`,o.d,o.c,CBL,o.W1);
+  g+=bar(28+BH+40,nar?`Qolganining ${o.c}/${o.d} qismi: ${o.R1} : ${o.d} · ${o.c}`:`Qolganining ${o.c}/${o.d} qismi: qolgan ${o.R1} ni ${o.d} ga bo'lamiz`,o.d,o.c,CGR,o.P2);
   $("sv3").setAttribute("viewBox",`0 0 ${W} ${28+2*BH+52}`);$("sv3").innerHTML=g;$("sv3").removeAttribute("hidden")}
 $("w3").addEventListener("click",e=>{const b=e.target.closest("[data-v]");if(!b||s3.done)return;const o=s3,v=+b.dataset.v,ok=v===o.ans;
   s3.done=true;s3.total++;if(ok){s3.ok++;s3.streak++}else s3.streak=0;
-  $("w3").querySelectorAll("button").forEach(x=>{x.disabled=true;if(+x.dataset.v===o.ans)x.classList.add("on")});
+  $("w3").querySelectorAll("button").forEach(x=>{x.disabled=true;if(+x.dataset.v===o.ans)x.classList.add("on");else if(x===b){x.style.borderColor="var(--bad)";x.style.color="var(--bad)";x.style.background="var(--badbg)"}});
   setMsg("m3",`${ok?"To'g'ri!":"Noto'g'ri."} ${o.which==="butun"?`«Butunning» ${fr(o.c,o.d)} qismi — ${o.T} : ${o.d} · ${o.c} = ${o.W1}.`:`«Qolganining» ${fr(o.c,o.d)} qismi — avval qolganini topamiz: ${o.T} − ${o.P1} = ${o.R1}, keyin ${o.R1} : ${o.d} · ${o.c} = ${o.P2}.`}${!ok&&v===(o.which==="butun"?o.P2:o.W1)?` Siz ${o.which==="butun"?"qolganining":"butunning"} qismini topdingiz — so'zga e'tibor bering!`:""}`,ok?"good":"bad");
   bars3();$("nx3").hidden=false;sc3()});
 $("nx3").onclick=new3;
@@ -460,18 +477,23 @@ function new4(){
   if(s4.lv===3){for(let t=0;t<200;t++){const [e,f]=irr(2,5);const base=o.b*o.d*f,m=rnd(1,Math.max(1,Math.floor(360/base)));const T=base*m;
       const P1=T/o.b*o.a,R1=T-P1,P2=R1/o.d*o.c,R2=R1-P2,P3=R2/f*e;if(R2%f)continue;o=Object.assign(o,{T,P1,R1,P2,R2});extra={e,f,P3,R3:R2-P3};break}}
   const ask=extra?pickOne(["p3","r3"]):pickOne(["p2","r2"]);
-  Object.assign(s4,{o,extra,ask,done:false});
+  Object.assign(s4,{o,extra,ask,done:false,tries:0});
   let txt=C.txt(o.T,fr(o.a,o.b),fr(o.c,o.d));
-  if(extra)txt=txt.replace(/\.$/,`, keyin yana qolganining ${fr(extra.e,extra.f)} qismi.`);
-  const q={p2:C.q2,r2:C.qr,p3:"Uchinchi marta qancha olindi?",r3:"Oxirida qancha qoldi?"}[ask];
+  if(extra)txt+=C.t3(fr(extra.e,extra.f));
+  const q={p2:C.q2,r2:C.qr,p3:C.q3,r3:C.qr}[ask];
   $("q4").innerHTML=txt+` <b>${q}</b>`;
   $("w4").innerHTML=`<div class="ans wide">Javob: ${inN("x4")}<span class="unit">${C.u}</span><button class="btn" id="ck4">Tekshirish</button></div>`;
   $("fl4").innerHTML="";$("nx4").hidden=true;setMsg("m4","");sc4()}
-$("w4").addEventListener("click",e=>{if(!e.target.closest("#ck4")||s4.done)return;const v=val("x4");if(v==="")return;const x=+v,{o,extra,ask}=s4;
-  const right={p2:o.P2,r2:o.R2,p3:extra&&extra.P3,r3:extra&&extra.R3}[ask],ok=x===right;
+$("w4").addEventListener("click",e=>{if(!e.target.closest("#ck4")||s4.done)return;const v=val("x4"),bad=badN(v);if(bad){setMsg("m4",bad,"bad");return}const x=+v,{o,extra,ask}=s4,U=CTX[o.ctx].u;
+  const right={p2:o.P2,r2:o.R2,p3:extra&&extra.P3,r3:extra&&extra.R3}[ask],ok=x===right;s4.tries++;
+  let why="";if(!ok){if(x===o.T*o.c/o.d)why=` Siz butunning ${fr(o.c,o.d)} qismini topdingiz — «qolganining» deyilgan.`;else if(extra&&ask==="p3"&&(x===o.T*extra.e/extra.f||x===o.R1*extra.e/extra.f))why=` Siz noto'g'ri «butun»ning ${fr(extra.e,extra.f)} qismini oldingiz — ikki marta olingandan keyin qolganining qismi kerak.`;else if(x===o.P1)why=` Bu — birinchi qism.`;else if(ask[0]==="r"&&x===(extra?extra.P3:o.P2))why=` Bu olingan qism — savol qolgani haqida.`;else if(ask[0]==="p"&&x===(extra?extra.R3:o.R2))why=` Bu oxirida qolgan qism — savol olingan qism haqida.`}
+  if(!ok&&s4.tries<2){const hint={p2:`Avval birinchi qismdan keyin qancha qolganini toping. Keyin <b>qolganining</b> ${fr(o.c,o.d)} qismini oling.`,
+      r2:`Avval birinchi qismdan keyin qolganini, so'ng undan ikkinchi qismni toping. Oxirida qolgani = qolgan − ikkinchi qism.`,
+      p3:`Har safar «butun» — oldingi qadamdan qolgan qism. Ikki qismni ketma-ket ayirib, qolganining ${fr(extra&&extra.e,extra&&extra.f)} qismini oling.`,
+      r3:`Uchta qismni ketma-ket toping va ayiring: har safar <b>qolganining</b> qismi olinadi.`}[ask];
+    setMsg("m4",`Hali emas.${why} ${hint} <b>Yana bir urinib ko'ring.</b>`,"bad");return}
   s4.done=true;s4.total++;if(ok){s4.ok++;s4.streak++}else s4.streak=0;
-  let why="";if(!ok){if(x===o.T*o.c/o.d)why=` Siz butunning ${fr(o.c,o.d)} qismini topdingiz — «qolganining» deyilgan.`;else if(x===o.P1)why=` Bu — birinchi qism.`;else if(ask[0]==="r"&&x===(extra?extra.P3:o.P2))why=` Bu olingan qism — savol qolgani haqida.`}
-  setMsg("m4",`${ok?"To'g'ri!":"Noto'g'ri."} Javob: <b>${right} ${CTX[o.ctx].u}</b>.${why}`,ok?"good":"bad");
+  setMsg("m4",`${ok?"To'g'ri!":"Noto'g'ri."} Javob: <b>${right} ${U}</b>.${ok?"":why} Yechim pastda.`,ok?"good":"bad");
   let f=flowH(o,4);if(extra)f=f.replace(/<\/div>$/,`<span class="ar">→</span><span class="st"><b class="cn">−${extra.P3}</b><small>3-qism</small></span><span class="ar">→</span><span class="st"><b>${extra.R3}</b><small>qoldi</small></span></div>`);
   $("fl4").innerHTML=f;$("x4").disabled=$("ck4").disabled=true;$("nx4").hidden=false;sc4()});
 $("w4").addEventListener("keydown",e=>{if(e.key==="Enter"&&$("ck4"))$("ck4").click()});
@@ -491,13 +513,14 @@ $("tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(b)swi
 const GT={rest:{t:"Qancha qoldi?",c:"var(--c1)"},part:{t:"Qolganining qismi",c:"var(--c2)"},which:{t:"Butunning yoki qolganining?",c:"var(--c3)"},frac:{t:"Qolgan qism kasrda",c:"#8B5CF6"}};
 function nextG(){
   const kinds=Object.keys(GT).filter(k=>k!==(G.last&&G.last.kind)||Math.random()<.25),kind=pickOne(kinds);let q;
-  const o=genP(180);const num=(vals,ok)=>{const M=new Map();[ok,...vals].forEach(v=>{if(v>0&&M.size<4&&!M.has(String(v)))M.set(String(v),String(v))});return M};
-  if(kind==="rest")q={kind,ask:`${o.T} ning ${fr(o.a,o.b)} qismi olindi. Qancha qoldi?`,show:"",M:num([o.P1,o.T/o.b,o.R1+o.T/o.b],o.R1),correct:String(o.R1),why:`${o.T} − ${o.P1} = ${o.R1}`};
-  else if(kind==="part")q={kind,ask:`${o.T} ning ${fr(o.a,o.b)} qismi olindi, keyin qolganining ${fr(o.c,o.d)} qismi. Ikkinchi marta qancha olindi?`,show:"",M:num([o.T*o.c/o.d,o.P1,o.R2],o.P2),correct:String(o.P2),why:`${o.R1} : ${o.d} · ${o.c} = ${o.P2}`};
+  const o=genP(180);const num=(vals,ok)=>{const M=new Map();opts4(ok,vals).forEach(v=>M.set(String(v),String(v)));return M};
+  if(kind==="rest")q={kind,ask:`${o.T} ning ${fr(o.a,o.b)} qismi olindi. Qancha qoldi?`,show:"",M:num([o.P1,o.R1+o.T/o.b,o.R1-o.T/o.b,o.T/o.b,o.T],o.R1),correct:String(o.R1),why:`${o.T} − ${o.P1} = ${o.R1}`};
+  else if(kind==="part")q={kind,ask:`${o.T} ning ${fr(o.a,o.b)} qismi olindi, keyin qolganining ${fr(o.c,o.d)} qismi. Ikkinchi marta qancha olindi?`,show:"",M:num([o.T*o.c/o.d,o.P1,o.R2,o.R1/o.d,o.P2+o.R1/o.d,o.P2-o.R1/o.d],o.P2),correct:String(o.P2),why:`${o.R1} : ${o.d} · ${o.c} = ${o.P2}`};
   else if(kind==="which"){const W1=o.T*o.c/o.d;if(W1===o.P2)return nextG();const w=Math.random()<.5;
-    q={kind,ask:`${o.T} ning ${fr(o.a,o.b)} qismi olindi. So'ng ${w?"<b>butunning</b>":"<b>qolganining</b>"} ${fr(o.c,o.d)} qismi olindi. Qancha?`,show:"",M:num([w?o.P2:W1,o.P1],w?W1:o.P2),correct:String(w?W1:o.P2),why:w?`${o.T} : ${o.d} · ${o.c} = ${W1}`:`${o.R1} : ${o.d} · ${o.c} = ${o.P2}`}}
-  else{const key=(n,d)=>n+"/"+d,ra=o.b-o.a,M=new Map([[key(ra,o.b),fr(ra,o.b)]]);
-    [[o.a,o.b],[ra,o.b+1],[1,o.b],[o.b,ra]].forEach(([n,d])=>{if(n>0&&d>0&&n!==d&&M.size<4&&!M.has(key(n,d))&&n*o.b!==d*ra)M.set(key(n,d),fr(n,d))});
+    q={kind,ask:`${o.T} ning ${fr(o.a,o.b)} qismi olindi. So'ng ${w?"<b>butunning</b>":"<b>qolganining</b>"} ${fr(o.c,o.d)} qismi olindi. Qancha?`,show:"",M:num([w?o.P2:W1,o.P1,o.R1,w?o.T-W1:o.R2,o.T/o.d,o.R1/o.d],w?W1:o.P2),correct:String(w?W1:o.P2),why:w?`${o.T} : ${o.d} · ${o.c} = ${W1}`:`${o.R1} : ${o.d} · ${o.c} = ${o.P2}`}}
+  else{const key=(n,d)=>n+"/"+d,ra=o.b-o.a,M=new Map([[key(ra,o.b),fr(ra,o.b)]]),vals=[ra/o.b];
+    /* chalg'ituvchilar qiymati bo'yicha ham takrorlanmaydi (2/4 va 1/2 — bitta qiymat) */
+    [[o.a,o.b],[ra,o.b+1],[1,o.b],[o.b,ra],[ra+1,o.b],[ra,o.b-1],[o.a,ra],[ra,o.a+o.b],[ra,2*o.b],[o.b-1,o.b+1],[1,o.b+1]].forEach(([n,d])=>{if(n>0&&d>0&&n!==d&&gcd(n,d)===1&&M.size<4&&!vals.some(v=>Math.abs(v-n/d)<1e-9)){vals.push(n/d);M.set(key(n,d),fr(n,d))}});
     q={kind,ask:`Butunning ${fr(o.a,o.b)} qismi olindi. Butunning qanday qismi qoldi?`,show:"",M,correct:key(ra,o.b),why:`1 − ${fr(o.a,o.b)} = ${fr(ra,o.b)}`}}
   q.opts=shuffle([...q.M.keys()]);G.q=q;G.last=q;G.lock=false;
 }
