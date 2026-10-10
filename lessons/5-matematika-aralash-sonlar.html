@@ -26,6 +26,7 @@ p{margin:0}
 .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
 .btn.green{background:var(--c2)}
 .btn:disabled{opacity:.45;cursor:default}
+.btn .fr>span{color:inherit!important}.btn .fr>span:first-child{border-bottom-color:currentColor}
 .btn.sm{min-height:34px;padding:6px 12px}
 :focus-visible{outline:3px solid var(--c1);outline-offset:2px}
 .cg{color:var(--c2)}
@@ -274,6 +275,7 @@ function gen(o,mode=MODE.m,l=MODE.l){
     const W=l===3?6:3;
     let A={w:rnd(o==="-"?1:0,W),n:rnd(1,d1-1),d:d1},B={w:rnd(0,W-1),n:rnd(1,d2-1),d:d2};
     if(o==="-"&&l===3&&Math.random()<.35)A={w:rnd(2,W),n:0,d:d2};
+    if((A.n&&gcd(A.n,A.d)>1)||(B.n&&gcd(B.n,B.d)>1))continue;          // kasrlar qisqarmaydigan bo'lsin (2/8 emas, 1/4)
     const D=lcm(A.d,B.d),a=A.n*D/A.d,b=B.n*D/B.d;
     if(o==="+"){const carry=a+b>=D;if(l===1&&carry)continue;if(l>=2&&!carry&&Math.random()<.85)continue;if(A.w+B.w===0)continue}
     else{const vA=A.w*D+a,vB=B.w*D+b;if(vA<=vB||B.w>A.w)continue;const borrow=a<b;if(l===1&&borrow)continue;if(l===2&&!borrow&&Math.random()<.85)continue}
@@ -327,16 +329,17 @@ function altBlock(boxId,A,B,o){
   draw();
 }
 /* umumiy maxrajni tanlash tugmalari */
-function cutChips(A,B){const c=[];for(let n=2;n<=12;n++)c.push(n);return `<span class="lbl">Ikkala kasrni nechta teng bo'lakka keltiramiz?</span>`+c.map(n=>`<button class="chipC" data-cut="${n}">${n}</button>`).join("")}
+function cutChips(A,B){const L=lcm(A.d,B.d),c=new Set([A.d,B.d,L,A.d+B.d,L*2>24?L+1:L*2]);for(const n of [2,3,4,5,6,8,9,10,12])if(c.size<7)c.add(n);
+  return `<span class="lbl">Maxrajlar ${A.d} va ${B.d}. Ikkala kasrni ham bir xil bo'lakka keltiramiz — nechta teng bo'lakka? (son ikkala maxrajga ham bo'linsin)</span>`+[...c].sort((x,y)=>x-y).map(n=>`<button class="chipC" data-cut="${n}">${n}</button>`).join("")}
 function cutCheck(n,A,B){
   if(n%A.d===0&&n%B.d===0)return null;
   const bad=n%A.d!==0?A:B;
-  return `${fr(1,bad.d)} li bo'lakni ${n} talik bo'laklarga teng kesib bo'lmaydi: ${n} soni ${bad.d} ga bo'linmaydi. Ikkala maxrajga (${A.d} va ${B.d}) bo'linadigan son tanlang.`;
+  return `${n} ta bo'lak to'g'ri kelmaydi: ${n} soni ${bad.d} ga bo'linmaydi, shuning uchun ${fr(bad.n||1,bad.d)} ni ${n} ta bo'lakli kasrga aylantirib bo'lmaydi. Ham ${A.d} ga, ham ${B.d} ga bo'linadigan son kerak.`;
 }
 
 /* ================= 1. Qo'shish ================= */
 const s1={};
-function new1(){Object.assign(s1,gen("+"),{D:null,wDone:false,pDone:false,reg:false});fillOwn(1,s1.A,s1.B);$("m1").innerHTML="Qadamlarni ketma-ket bajaring: avval butunlarni, keyin kasr qismlarni qo'shing.";$("m1").className="story";$("alt1").innerHTML="";render1()}
+function new1(){Object.assign(s1,gen("+"),{D:null,wDone:false,pDone:false,reg:false,simp:false});fillOwn(1,s1.A,s1.B);$("m1").innerHTML="Qadamlarni ketma-ket bajaring: avval butunlarni, keyin kasr qismlarni qo'shing.";$("m1").className="story";$("alt1").innerHTML="";render1()}
 function render1(){
   const {A,B}=s1,same=A.d===B.d,D=s1.D||(same?A.d:null);
   const a=D?A.n*D/A.d:A.n,b=D?B.n*D/B.d:B.n,S=a+b,W=A.w+B.w+(s1.reg?1:0);
@@ -367,11 +370,14 @@ function render1(){
   ch.push(`(${A.w}${op("+")}${B.w})${op("+")}(${fr(A.n,A.d)}${op("+")}${fr(B.n,B.d)})`);
   if(!same&&D)ch.push(`${A.w+B.w}${op("+")}(${fr(a,D)}${op("+")}${fr(b,D)})`);
   if(s1.pDone){ch.push(`${A.w+B.w}${op("+")}${fr(S,D)}`);if(S>=D&&s1.reg){ch.push(`${A.w+B.w}${op("+")}1${S-D?op("+")+fr(S-D,D):""}`)}}
-  const done=s1.wDone&&s1.pDone&&(S<D||s1.reg);
-  if(done)ch.push(`<b class="res">${mixH(W,S>=D?S-D:S,D)}</b>`);
+  const N1=S>=D?S-D:S,g1=gcd(N1,D)||1,needS=N1&&g1>1,ready=s1.wDone&&s1.pDone&&(S<D||s1.reg),done=ready&&(!needS||s1.simp);
+  if(ready&&needS&&!s1.simp)ac+=`<button class="btn green" data-a="s">Javobni qisqartirish: ${fr2h(N1,D)}</button>`;
+  if(ready)ch.push(`${s1.simp?"":"<b class='res'>"}${mixH(W,N1,D)}${s1.simp?"":"</b>"}`);
+  if(done&&needS)ch.push(`<b class="res">${mixH(W,N1/g1,D/g1)}</b>`);
+  $("ac1").innerHTML=ac;
   $("ch1").innerHTML=ch.join(op("="));
   if(done){const m=$("m1");m.className="story good";
-    m.innerHTML=`Tayyor! ${M(A)} + ${M(B)} = ${mixH(W,S>=D?S-D:S,D)}.`+(S>=D?` Kasr qismlar yig'indisi ${fr(S,D)} — 1 dan katta edi, shuning uchun undan <b>1 butun</b> ajratdik.`:"")+(!same?` Avval ikkala kasrni bir xil bo'lakka — ${fr(1,D)} larga keltirdik.`:"");
+    m.innerHTML=`Tayyor! ${M(A)} + ${M(B)} = ${mixH(W,N1/g1,D/g1)}.`+(needS?` Kasr qismni qisqartirdik: ${fr(N1,D)} = ${fr(N1/g1,D/g1)} (surat ham, maxraj ham ${g1} ga bo'lindi).`:"")+(S>=D?` Kasr qismlar yig'indisi ${fr(S,D)} — 1 dan katta edi, shuning uchun undan <b>1 butun</b> ajratdik.`:"")+(!same?` Avval ikkala kasrni bir xil bo'lakka — ${fr(1,D)} larga keltirdik.`:"");
     if(!$("alt1").innerHTML)altBlock("alt1",A,B,"+")}
 }
 const fr2=(n,d)=>n+"/"+d;const fr2h=(n,d)=>fr(n,d);
@@ -381,7 +387,8 @@ $("ac1").addEventListener("click",e=>{
     s1.D=+c.dataset.cut;m.innerHTML=`Endi ikkala kasr ham ${fr(1,s1.D)} li bo'laklarda: ${fr(s1.A.n,s1.A.d)} = ${fr(s1.A.n*s1.D/s1.A.d,s1.D)}, ${fr(s1.B.n,s1.B.d)} = ${fr(s1.B.n*s1.D/s1.B.d,s1.D)}. Bo'laklar bir xil kattalikda — qo'shsa bo'ladi.`+(s1.D!==lcm(s1.A.d,s1.B.d)?` (Eng kichigi ${lcm(s1.A.d,s1.B.d)} edi — bu ham to'g'ri.)`:"");m.className="story";render1();return}
   if(!b)return;const k=b.dataset.a,{A,B}=s1,D=s1.D||A.d,S=A.n*D/A.d+B.n*D/B.d;
   if(k==="w"){s1.wDone=true;m.innerHTML=`Butunlar: ${A.w} + ${B.w} = <b>${A.w+B.w}</b>.`;m.className="story"}
-  if(k==="p"){s1.pDone=true;m.innerHTML=`Kasr qismlar: ${fr(S,D)}.`+(S>=D?` <b>Doira to'lib, yana ${S-D} ta bo'lak ortdi</b> — ${fr(S,D)} 1 dan katta. Butunni ajrating!`:"");m.className="story"+(S>=D?" bad":"")}
+  if(k==="p"){s1.pDone=true;m.innerHTML=`Kasr qismlar: ${fr(S,D)}.`+(S>D?` <b>Doira to'lib, yana ${S-D} ta bo'lak ortdi</b> — ${fr(S,D)} 1 dan katta. Butunni ajrating!`:S===D?` <b>Bo'laklar aynan bitta to'liq doira bo'ldi</b> — ${fr(S,D)} = 1. Uni butunga aylantiring!`:"");m.className="story"}
+  if(k==="s"){s1.simp=true;m.innerHTML="Qisqartirildi.";m.className="story"}
   if(k==="r"){s1.reg=true;m.innerHTML=`${fr(S,D)} = ${fr(D,D)} + ${fr(S-D,D)} = 1${S-D?" + "+fr(S-D,D):""}. To'lgan doira — <b>1 butun</b>, u butunlarga qo'shildi.`;m.className="story"}
   render1();
 });
@@ -389,7 +396,7 @@ $("new1").onclick=new1;
 
 /* ================= 2. Ayirish ================= */
 const s2={};
-function new2(){Object.assign(s2,gen("-"),{D:null,borrow:false,pDone:false,wDone:false});fillOwn(2,s2.A,s2.B);$("m2").innerHTML="Kamayuvchidan avval kasr qismni, keyin butunlarni ayiring. Bo'lak yetmasa — bitta butunni maydalang.";$("m2").className="story";$("alt2").innerHTML="";render2()}
+function new2(){Object.assign(s2,gen("-"),{D:null,borrow:false,pDone:false,wDone:false,simp:false});fillOwn(2,s2.A,s2.B);$("m2").innerHTML="Avval kasr qismni ayiring (bo'lak yetmasa — bitta butunni maydalang), keyin butunlarni.";$("m2").className="story";$("alt2").innerHTML="";render2()}
 function render2(){
   const {A,B}=s2,same=A.d===B.d||A.n===0,D=s2.D||(same?(A.n===0?B.d:A.d):null);
   const a0=D?A.n*D/A.d:A.n,a=a0+(s2.borrow?D:0),b=D?B.n*D/B.d:B.n,wA=A.w-(s2.borrow?1:0);
@@ -400,22 +407,24 @@ function render2(){
   if(a0||(!s2.borrow&&D))cs.push({d:D||A.d,f:a0,col:COL.A,rm:s2.pDone&&s2.borrow?Math.max(0,b-D):s2.pDone?b:0,lab:a0?fr2(a0,D||A.d):""});
   let h=rowHtml(`Kamayuvchi: ${M(A)}`,cs);
   h+=rowHtml(`Ayriluvchi: ${M(B)}`,[...wholes(B.w,COL.B),{d:D||B.d,f:b,col:COL.B,lab:fr2(b,D||B.d)}],`<span class="tag">olib tashlanadi</span>`);
-  const done=s2.pDone&&s2.wDone,R={w:wA-B.w,n:a-b,d:D};
+  const R={w:wA-B.w,n:a-b,d:D},g2=gcd(R.n,D)||1,needS2=R.n&&g2>1,ready2=s2.pDone&&s2.wDone,done=ready2&&(!needS2||s2.simp);
   if(done)h+=rowHtml(`<b class="cg">Qoldi</b>`,[...wholes(R.w,COL.R),...(R.n?[{d:D,f:R.n,col:COL.R,lab:fr2(R.n,D)}]:[])]);
   $("bd2").innerHTML=h;
   let ac="";
   if(!same&&!s2.D)ac+=`<div class="cutrow">${cutChips(A,B)}</div>`;
   if(D&&!s2.pDone){if(a<b&&!s2.borrow&&wA>0)ac+=`<button class="btn green" data-a="br">Bitta butunni maydalash (1 = ${fr2h(D,D)})</button>`;
     ac+=`<button class="btn" data-a="p">Kasr qismni ayirish: ${fr2h(a,D)} − ${fr2h(b,D)}</button>`}
-  if(!s2.wDone)ac+=`<button class="btn" data-a="w">Butunlarni ayirish: ${wA} − ${B.w}</button>`;
+  if(!s2.wDone&&s2.pDone)ac+=`<button class="btn" data-a="w">Butunlarni ayirish: ${wA} − ${B.w}</button>`;   // avval kasr qism (kerak bo'lsa — maydalash), keyin butunlar
   $("ac2").innerHTML=ac;
   const ch=[`${M(A)}${op("−")}${M(B)}`];
   if(!same&&D)ch.push(`${mixH(A.w,a0,D)}${op("−")}${mixH(B.w,b,D)}`);
   if(s2.borrow)ch.push(`${mixH(wA,a,D)}${op("−")}${mixH(B.w,b,D)}`);
-  if(done){ch.push(`(${wA}${op("−")}${B.w})${op("+")}(${fr(a,D)}${op("−")}${fr(b,D)})`);ch.push(`<b class="res">${mixH(R.w,R.n,D)}</b>`)}
+  if(ready2){ch.push(`(${wA}${op("−")}${B.w})${op("+")}(${fr(a,D)}${op("−")}${fr(b,D)})`);ch.push(mixH(R.w,R.n,D))}
+  if(ready2&&needS2&&!s2.simp)$("ac2").innerHTML=`<button class="btn green" data-a="s">Javobni qisqartirish: ${fr2h(R.n,D)}</button>`;
+  if(done)ch.push(`<b class="res">${mixH(R.w,R.n/g2,D/g2)}</b>`);
   $("ch2").innerHTML=ch.join(op("="));
   if(done){const m=$("m2");m.className="story good";
-    m.innerHTML=`Tayyor! ${M(A)} − ${M(B)} = ${mixH(R.w,R.n,D)}.`+(s2.borrow?` Kasr qism yetmagani uchun bitta butunni ${D} bo'lakka maydaladik: ${mixH(A.w,a0,D)} = ${mixH(wA,a,D)}.`:"");
+    m.innerHTML=`Tayyor! ${M(A)} − ${M(B)} = ${mixH(R.w,R.n/g2,D/g2)}.`+(needS2?` Kasr qismni qisqartirdik: ${fr(R.n,D)} = ${fr(R.n/g2,D/g2)}.`:"")+(s2.borrow?` Kasr qism yetmagani uchun bitta butunni ${D} bo'lakka maydaladik: ${mixH(A.w,a0,D)} = ${mixH(wA,a,D)}.`:"");
     if(!$("alt2").innerHTML)altBlock("alt2",A,B,"-")}
 }
 $("ac2").addEventListener("click",e=>{
@@ -426,6 +435,7 @@ $("ac2").addEventListener("click",e=>{
   if(k==="p"){if(a<bb){m.innerHTML=`<b>Bo'lak yetmayapti!</b> ${fr(a,D)} dan ${fr(bb,D)} ni ayirib bo'lmaydi. Kattadan kichikni ayirib qo'ymang — bitta butunni ${D} ta bo'lakka maydalang.`;m.className="story bad";return}
     s2.pDone=true;m.innerHTML=`Kasr qism: ${fr(a,D)} − ${fr(bb,D)} = ${fr(a-bb,D)}.`;m.className="story"}
   if(k==="br"){s2.borrow=true;m.innerHTML=`Bitta butun = ${fr(D,D)}. Endi kamayuvchi: ${mixH(A.w-1,a+D,D)} — ${fr(a+D,D)} dan ${fr(bb,D)} ni ayirsa bo'ladi.`;m.className="story"}
+  if(k==="s"){s2.simp=true;m.innerHTML="Qisqartirildi.";m.className="story"}
   if(k==="w"){s2.wDone=true;const wA=A.w-(s2.borrow?1:0);m.innerHTML=`Butunlar: ${wA} − ${B.w} = <b>${wA-B.w}</b>.`;m.className="story"}
   render2();
 });
@@ -442,12 +452,12 @@ function undoable(t,st,keys,render){const H=[],ac=$("ac"+t),un=$("un"+t);let pre
     $("m"+t).innerHTML=h.m;$("m"+t).className=h.mc;$("alt"+t).innerHTML=h.alt;upd()};
   document.addEventListener("click",e=>{if(e.target.closest("#new"+t+",#go"+t))setTimeout(upd)});
   return upd}
-undoable(1,s1,["D","wDone","pDone","reg"],render1);
-undoable(2,s2,["D","borrow","pDone","wDone"],render2);
+undoable(1,s1,["D","wDone","pDone","reg","simp"],render1);
+undoable(2,s2,["D","borrow","pDone","wDone","simp"],render2);
 
 /* ================= 3. Son o'qida sakrash ================= */
 const s3={o:"+"};
-function new3(){Object.assign(s3,gen(s3.o),{jw:0,jf:false});fillOwn(3,s3.A,s3.B);$("sg3").textContent=s3.o==="+"?"+":"−";$("m3").innerHTML="";$("m3").className="story";render3()}
+function new3(){Object.assign(s3,gen(s3.o),{jw:0,jf:false,pred:null});fillOwn(3,s3.A,s3.B);$("sg3").textContent=s3.o==="+"?"+":"−";$("m3").innerHTML="";$("m3").className="story";render3()}
 function render3(){
   const {A,B,o}=s3,D=lcm(A.d,B.d),vA=val(A),vB=val(B),res=o==="+"?vA+vB:vA-vB,sign=o==="+"?1:-1;
   // telefonda chizma kattaroq masshtabda (tor viewBox) — yozuvlar o'qiladigan bo'lsin
@@ -501,14 +511,16 @@ function render3(){
   $("sv3").innerHTML=`<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>`+g;
   // bosib o'tilgan joylar zanjiri
   $("pos3").innerHTML=`<span class="plbl">Yo'l:</span>`+pos.join(`<span class="arrow">→</span>`)+(jumpsDone<B.w+(B.n?1:0)?`<span class="arrow">→</span><span class="qm">…</span>`:"");
-  let ac="";
+  let ac="";const lo0=Math.floor(res+1e-9);
+  if(s3.pred==null){ac=`<div class="cutrow"><span class="lbl">Avval taxmin qiling: natija qaysi ikki butun son orasida bo'ladi?</span>${[lo0-1,lo0,lo0+1].filter(v=>v>=0).map(v=>`<button class="chipC" data-pr="${v}">${v} va ${v+1}</button>`).join("")}</div>`;$("ac3").innerHTML=ac;return}
   if(s3.jw<B.w)ac+=`<button class="btn" data-j="w">Butun sakrash (${o==="+"?"+":"−"}1) — ${s3.jw}/${B.w}</button>`;
   if(!s3.jf&&s3.jw===B.w&&B.n)ac+=`<button class="btn" style="background:#8B5CF6" data-j="f">Kasr sakrash (${o==="+"?"+":"−"}${B.n}/${B.d})</button>`;
   $("ac3").innerHTML=ac;
   if(s3.jw===B.w&&(s3.jf||!B.n)){const RR=norm(Math.round(res*D),D),lo=Math.floor(res+1e-9);
-    $("m3").innerHTML=`Natija: ${M(A)} ${o==="+"?"+":"−"} ${M(B)} = ${mixH(RR.w,RR.n,D)}. U son o'qida ${RR.n?`<b>${lo}</b> bilan <b>${lo+1}</b> orasida turibdi`:"aynan butun sonda turibdi"}. ${o==="+"?"Ko'k va to'q sariq tasma birga":"Ko'k tasmadan to'q sariq qism olib tashlangach qolgani"} — natija uzunligi. Taxmin: ${M(A)} ≈ ${Math.round(vA)}, ${M(B)} ≈ ${Math.round(vB)}, demak natija ≈ ${o==="+"?Math.round(vA)+Math.round(vB):Math.round(vA)-Math.round(vB)}.`;$("m3").className="story good"}
+    const okP=RR.n?s3.pred===lo:(s3.pred===lo||s3.pred===lo-1);   // natija butun son bo'lsa — ikkala qo'shni oraliq ham to'g'ri$("m3").innerHTML=`${okP?"<b>Taxminingiz to'g'ri!</b> ":`<b>Taxmin to'g'ri chiqmadi</b> (siz: ${s3.pred} va ${s3.pred+1}). `}Natija: ${M(A)} ${o==="+"?"+":"−"} ${M(B)} = ${mixH(RR.w,RR.n,D)}. U son o'qida ${RR.n?`<b>${lo}</b> bilan <b>${lo+1}</b> orasida turibdi`:"aynan butun sonda turibdi"}. ${o==="+"?"Ko'k va to'q sariq tasma birga":"Ko'k tasmadan to'q sariq qism olib tashlangach qolgani"} — natija uzunligi. Taxmin: ${M(A)} ≈ ${Math.round(vA)}, ${M(B)} ≈ ${Math.round(vB)}, demak natija ≈ ${o==="+"?Math.round(vA)+Math.round(vB):Math.round(vA)-Math.round(vB)}.`;$("m3").className="story good"}
 }
-$("ac3").addEventListener("click",e=>{const b=e.target.closest("[data-j]");if(!b)return;if(b.dataset.j==="w")s3.jw++;else s3.jf=true;render3()});
+$("ac3").addEventListener("click",e=>{const pr=e.target.closest("[data-pr]");if(pr){s3.pred=+pr.dataset.pr;$("m3").innerHTML=`Taxmin: ${s3.pred} va ${s3.pred+1} orasida. Endi sakrab tekshiring.`;$("m3").className="story";render3();return}
+  const b=e.target.closest("[data-j]");if(!b)return;if(b.dataset.j==="w")s3.jw++;else s3.jf=true;render3()});
 $("op3").addEventListener("click",e=>{const b=e.target.closest("[data-o]");if(!b)return;s3.o=b.dataset.o;$("op3").querySelectorAll(".seg").forEach(x=>x.classList.toggle("sel",x===b));new3()});
 $("new3").onclick=new3;
 
@@ -543,7 +555,11 @@ function check4(){
   if(!s4.tried){s4.tried=true;s4.total++;if(ok){s4.ok++;s4.streak++}else s4.streak=0}
   if(ok){s4.done=true;m.innerHTML=`To'g'ri! Javob: ${M(R)} ${s4.u}.`;m.className="story good";$("ch4").innerHTML=ch.join(op("="));end4();sc4();return}
   // xato turini aniqlash
-  let why="Hali emas. Avval butunlarni, keyin kasr qismlarni alohida hisoblang.";
+  const R2=solveChain(A,B,o).R,Rw=R2.w,Rf=R2.n/R2.d,uw=Math.floor(u+1e-9),uf=u-uw;
+  let why=Math.abs(uf-Rf)<1e-9&&uw!==Rw?`Kasr qism to'g'ri, lekin butun qismni qayta hisoblang${o==="-"&&lcm(A.d,B.d)&&A.n*lcm(A.d,B.d)/A.d<B.n*lcm(A.d,B.d)/B.d?" (maydalangan butunni unutmang — kamayuvchida bitta butun kamaydi)":o==="+"?" (kasrlardan to'lgan 1 butunni qo'shishni unutmang)":""}.`
+    :uw===Rw&&Math.abs(uf-Rf)>1e-9?`Butun qism to'g'ri, kasr qismni qayta hisoblang.`
+    :o==="-"&&A.n*lcm(A.d,B.d)/A.d<B.n*lcm(A.d,B.d)/B.d?`Diqqat: kamayuvchining kasr qismi (${fr(A.n,A.d)}) ayriluvchinikidan (${fr(B.n,B.d)}) kichik. Bitta butunni maydalang, keyin ayiring.`
+    :"Hali emas. Avval butunlarni, keyin kasr qismlarni alohida hisoblang.";
   const naive=(A.w+(o==="+"?B.w:-B.w))+(o==="+"?(A.n+B.n)/(A.d+B.d):0);
   const D=lcm(A.d,B.d),a=A.n*D/A.d,b=B.n*D/B.d;
   if(d&&n>=d&&n)why=`Kasr qismda surat maxrajdan katta (${fr(n,d)}) — undan butun ajrating: ${fr(n,d)} = ${mixH(Math.floor(n/d),n%d,d)}.`;
