@@ -50,7 +50,7 @@ p{margin:0}
 .tab{flex:0 0 auto;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;padding:10px 14px;font:700 15px var(--f-body);color:var(--muted);cursor:pointer}
 .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
-.stepper{display:inline-flex;align-items:center;gap:6px;font-weight:800}
+.stepper{display:inline-flex;align-items:center;gap:6px;font-weight:800}.stepper b{white-space:nowrap}
 .stepper button{width:36px;height:36px;border-radius:10px;border:1.5px solid var(--line);background:#fff;font:800 20px var(--f-body);cursor:pointer;color:var(--ink)}
 .stepper output{min-width:1.6em;text-align:center;font:800 21px var(--f-display)}
 .stepper.a output{color:var(--c1)}.stepper.b output{color:var(--c3)}.stepper.n output{color:var(--c4)}
@@ -128,7 +128,7 @@ p{margin:0}
 .ctx{font:700 clamp(17px,3.8vw,20px)/1.5 var(--f-display)}
 .pairs{display:flex;flex-wrap:wrap;gap:6px}
 .chipC.dim{opacity:.45}
-@media (max-width:560px){.panel{padding:14px}}
+@media (max-width:560px){.panel{padding:14px}.stepper{gap:3px}.stepper b{font-size:13px}.stepper button{width:30px;height:30px;font-size:17px;border-radius:8px}.stepper output{font-size:18px;min-width:1.2em}#st1{gap:6px 10px}}
 /* ===== O'yin (4-mavzu o'yini bilan bir xil ko'rinish) ===== */
 .gstart{border-radius:16px;background:linear-gradient(140deg,#14213D 0%,#1F3A7A 60%,#2B4FA8 100%);color:#fff;padding:24px 22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
 .gstart::after{content:"⅔ × ¾";position:absolute;right:-6px;bottom:-18px;font:800 80px/1 var(--f-display);color:rgba(255,255,255,.07);pointer-events:none;white-space:nowrap}
@@ -271,6 +271,9 @@ const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
 const pickOne=a=>a[rnd(0,a.length-1)];
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
 const gcd=(a,b)=>b?gcd(b,a%b):a;
+const isNum=v=>/^\d+$/.test(v);
+/* kasr javobini tekshirish: bo'sh, harf yoki 0 maxraj bo'lsa — xabar matni, aks holda null */
+const badFr=(a,b)=>a===""&&b===""?"Avval javobni yozing: tepaga surat, pastga maxraj.":a===""?"Suratni ham yozing (tepadagi katak).":b===""?"Maxrajni ham yozing (pastdagi katak).":!isNum(a)||!isNum(b)?"Kataklarga faqat son yozing.":+b===0?"Maxraj 0 bo'lmaydi.":null;
 const fr=(a,b)=>`<span class="fr"><span>${a}</span><span>${b}</span></span>`;
 /* aralash son: w butun + n/d */
 function mixH(w,n,d){if(!w&&!n)return `<b>0</b>`;if(!n)return `<b class="wn">${w}</b>`;if(!w)return fr(n,d);return `<span class="mx"><b class="wn">${w}</b>${fr(n,d)}</span>`}
@@ -356,17 +359,28 @@ $("nx1").onclick=next1;
 $("sh1").onclick=()=>{const {a,c,phase}=s1;s1.h.push(snap1());if(phase==="cols")s1.cols=Array.from({length:a},(_,i)=>i);if(phase==="rows")s1.rows=Array.from({length:c},(_,i)=>i);render1();next1();s1.h.splice(-2,1)};
 $("w1").addEventListener("click",e=>{
   const {a,b,c,d}=s1,p=a*c,q=b*d,g=gcd(p,q);
-  if(e.target.closest("#ck1")){const x=$("gc1").value.trim(),y=$("tc1").value.trim();if(x===""||y==="")return;
+  if(e.target.closest("#ck1")){const x=$("gc1").value.trim(),y=$("tc1").value.trim();
+    if(x===""||y===""){setMsg("m1",x===""&&y===""?"Avval kataklarni sanab, ikkala sonni yozing.":x===""?"Yashil kataklar sonini ham yozing.":"Jami kataklar sonini ham yozing.","bad");return}
+    if(!isNum(x)||!isNum(y)){setMsg("m1","Kataklarga faqat son yozing.","bad");return}
     if(+x===p&&+y===q){s1.h.push(snap1());s1.log.push(`Yashil: ${a} · ${c} = ${p} ta, jami: ${b} · ${d} = ${q} ta → ${fr(p,q)}.`);s1.phase=g>1?"simp":"done";
       setMsg("m1",`To'g'ri! Yashil kataklar ${a} · ${c} = ${p} ta — <b>surat suratga</b> ko'paydi. Jami kataklar ${b} · ${d} = ${q} ta — <b>maxraj maxrajga</b> ko'paydi. ${fr(a,b)} × ${fr(c,d)} = ${resFr(p,q)}.${g>1?" Endi qisqartiring.":""}`,"good");render1(true);return}
     setMsg("m1",+x!==p?`Yashil kataklarni qayta sanang: ko'k ustunlar (${a} ta) va to'q sariq qatorlar (${c} ta) kesishgan joylar.`:`Jami kataklar: ${b} ta ustun va ${d} ta qator — ${b} · ${d}.`,"bad");return}
-  if(e.target.closest("#ck1s")){const x=+$("sn1").value,y=+$("sd1").value;if(!x||!y)return;
+  if(e.target.closest("#ck1s")){const sa=$("sn1").value.trim(),sb=$("sd1").value.trim(),bad=badFr(sa,sb);if(bad){setMsg("m1",bad,"bad");return}const x=+sa,y=+sb;
     if(x===p/g&&y===q/g){s1.h.push(snap1());s1.log.push(`Qisqartirildi: ${fr(p,q)} = ${fr(x,y)}.`);s1.phase="done";setMsg("m1",`To'g'ri! ${fr(p,q)} = ${resFr(x,y)} (${g} ga qisqartirildi).`,"good");render1();return}
     setMsg("m1",x*q===y*p?`Qiymati to'g'ri, lekin yana qisqaradi: ${x} va ${y} ni ${gcd(x,y)} ga bo'ling.`:`${p} va ${q} ni bir xil songa bo'ling (eng kattasi — ${g}).`,"bad")}});
 $("w1").addEventListener("keydown",e=>{if(e.key!=="Enter")return;const b=$("ck1")||$("ck1s");if(b)b.click()});
 $("un1").onclick=()=>{const h=s1.h.pop();if(!h)return;Object.assign(s1,{cols:h.cols,rows:h.rows,phase:h.phase});s1.log.length=h.L;render1();$("m1").innerHTML=h.m;$("m1").className=h.mc};
 $("cl1").onclick=reset1;
-$("st1").addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(!b)return;s1[b.dataset.d[0]]+=b.dataset.d[1]==="+"?1:-1;reset1()});
+/* sozlash: o'zgarmasa — sababini aytadi; boshqa son o'zgarsa yoki kasr qisqarsa — ogohlantiradi */
+$("st1").addEventListener("click",e=>{const btn=e.target.closest("[data-d]");if(!btn)return;
+  const key=btn.dataset.d[0],dir=btn.dataset.d[1]==="+"?1:-1,old={a:s1.a,b:s1.b,c:s1.c,d:s1.d};s1[key]+=dir;fix1();
+  const same=["a","b","c","d"].every(k=>s1[k]===old[k]),nm={a:"1-kasr surati",b:"1-kasr maxraji",c:"2-kasr surati",d:"2-kasr maxraji"};
+  if(same){const den=key==="a"?old.b:key==="c"?old.d:0;
+    setMsg("m1",den&&dir>0?`Surat maxrajdan kichik bo'lishi kerak (bu bo'limda to'g'ri kasrlar): ${nm[key]} ${den} dan kichik. Avval maxrajni oshiring.`:`${nm[key]} ${old[key]} dan ${dir>0?"katta":"kichik"} bo'lmaydi.`,"bad");return}
+  reset1();const notes=[];
+  for(const q of "ac")if(q!==key&&s1[q]!==old[q])notes.push(`${nm[q]} ${s1[q]} ga tushirildi — surat maxrajdan kichik bo'lishi kerak.`);
+  [["a","b"],["c","d"]].forEach(([n,d])=>{const g=gcd(s1[n],s1[d]);if(g>1)notes.push(`Diqqat: ${fr(s1[n],s1[d])} qisqaradi — ${fr(s1[n],s1[d])} = ${fr(s1[n]/g,s1[d]/g)}.`)});
+  if(notes.length)setMsg("m1",`<b>${notes.join(" ")}</b> `+$("m1").innerHTML)});
 $("rn1").onclick=()=>{s1.b=rnd(2,6);s1.d=rnd(2,6);do s1.a=rnd(1,s1.b-1);while(gcd(s1.a,s1.b)>1);do s1.c=rnd(1,s1.d-1);while(gcd(s1.c,s1.d)>1);reset1()};
 
 /* ================= 2. Qismning qismi ================= */
@@ -386,7 +400,7 @@ function render2(focus){
   const [txt,obj]=CTX[ctx](fr(a,b),fr(c,d));
   $("q2").innerHTML=txt;
   $("t2").innerHTML=phase==="outer"?`<b>1-qadam.</b> Butun ${obj} — butun tasma. Uning ${fr(c,d)} qismini belgilang: ${d} ta bo'lakdan <b class="ca">${c} tasini</b> bosing.`
-    :phase==="inner"?`<b>2-qadam.</b> Ko'k qism ${b} ta teng guruhga bo'lindi. Uning ${fr(a,b)} qismini oling: <b class="cg">${a} ta guruhni</b> bosing.`
+    :phase==="inner"?`<b>2-qadam.</b> Ko'k qism ${b} ta teng guruhga bo'lindi (yashil punktir chiziqlar), har bir guruhda <b>${c} ta</b> kichik katak. Uning ${fr(a,b)} qismini oling: <b class="cg">${a} ta guruhni</b> bosing.`
     :`<b>3-qadam.</b> Yashil qism butun tasmaning qanday qismi? Kichik kataklarni sanang.`;
   // ko'k qismdagi kichik kataklar tartibi → b ta guruh (har birida c ta katak)
   const blue=[];outer.slice().sort((x,y)=>x-y).forEach(i=>{for(let t=0;t<b;t++)blue.push(i*b+t)});
@@ -397,7 +411,7 @@ function render2(focus){
   for(let i=1;i<d;i++)g+=`<line x1="${X0+i*big}" y1="${Y-6}" x2="${X0+i*big}" y2="${Y+H+6}" stroke="${CB[0]}" stroke-width="3"/>`;
   // guruh chegaralari (ko'k qism ichida)
   if(phase!=="outer"){for(let k=1;k<b;k++){const cell=blue[k*c];if(cell==null)continue;const x=X0+cell*sm;g+=`<line x1="${x}" y1="${Y-12}" x2="${x}" y2="${Y+H+12}" stroke="${CG[0]}" stroke-width="3" stroke-dasharray="5 3"/>`}
-    for(let k=0;k<b;k++){const f=blue[k*c],l=blue[k*c+c-1];g+=`<text x="${X0+(f+l+1)/2*sm}" y="${Y+H+28}" text-anchor="middle" font-size="13" font-weight="800" fill="${CG[0]}">${k+1}-guruh</text>`}}
+    const gw=c*sm;for(let k=0;k<b;k++){const f=blue[k*c],l=blue[k*c+c-1];g+=`<text x="${X0+(f+l+1)/2*sm}" y="${Y+H+28}" text-anchor="middle" font-size="13" font-weight="800" fill="${CG[0]}">${gw>=64?`${k+1}-guruh`:k+1}</text>`}}
   g+=`<rect x="${X0}" y="${Y}" width="${Wd}" height="${H}" fill="none" stroke="#14213D" stroke-width="3"/>`;
   g+=`<text x="${X0}" y="${Y-14}" class="slab">Butun ${obj} = 1</text><text x="${X0+Wd}" y="${Y-14}" text-anchor="end" class="slab" style="fill:${CA[0]}">belgilandi: ${outer.length} / ${d}</text>`;
   if(phase==="outer")for(let i=0;i<d;i++)g+=`<rect class="hitc" data-o="${i}" x="${X0+i*big}" y="${Y}" width="${big}" height="${H}" fill="transparent"/>`;
@@ -426,7 +440,7 @@ function next2(){const {a,b,c,d,phase}=s2;
   render2(true)}
 $("nx2").onclick=next2;
 $("sh2").onclick=()=>{const {a,c,phase}=s2;s2.h.push(snap2());if(phase==="outer")s2.outer=Array.from({length:c},(_,i)=>i);if(phase==="inner")s2.inner=Array.from({length:a},(_,i)=>i);render2();next2();s2.h.splice(-2,1)};
-$("w2").addEventListener("click",e=>{if(!e.target.closest("#ck2"))return;const {a,b,c,d}=s2,p=a*c,q=b*d,x=+$("an2").value,y=+$("ad2").value;if(!x||!y)return;
+$("w2").addEventListener("click",e=>{if(!e.target.closest("#ck2"))return;const {a,b,c,d}=s2,p=a*c,q=b*d,sa=$("an2").value.trim(),sb=$("ad2").value.trim(),bad=badFr(sa,sb);if(bad){setMsg("m2",bad,"bad");return}const x=+sa,y=+sb;
   if(x*q===y*p){s2.h.push(snap2());s2.phase="done";s2.log.push(`Javob: ${fr(c,d)} ning ${fr(a,b)} qismi = ${fr(a,b)} × ${fr(c,d)} = ${fr(p,q)}${gcd(p,q)>1?` = ${fr(p/gcd(p,q),q/gcd(p,q))}`:""}.`);
     setMsg("m2",`To'g'ri! Yashil kataklar ${a} · ${c} = ${p} ta, jami ${b} · ${d} = ${q} ta → ${resFr(p,q)}${gcd(p,q)>1?` = ${resFr(p/gcd(p,q),q/gcd(p,q))}`:""}. «Qismning qismi»ni topish — kasrlarni ko'paytirish.`,"good");render2();return}
   setMsg("m2",y!==q&&x===p?`Maxraj — butun tasmadagi kichik kataklar: ${b} · ${d}.`:`Yashil kataklarni sanang: ${a} ta guruh, har birida ${c} ta katak.`,"bad")});
@@ -479,10 +493,12 @@ $("q3").addEventListener("click",e=>{
     if(bad){setMsg("m3",`Hali qisqaradigan juft bor: ${last(s3.N[bad[0]])} va ${last(s3.D[bad[1]])}. Yaxshilab qarang!`,"bad");return}
     s3.h.push(snap3());s3.phase="mul";s3.log.push("Boshqa qisqaradigan juft qolmadi.");setMsg("m3","To'g'ri, endi hech biri qisqarmaydi. Ko'paytiring.","good");render3(true);return}
   if(e.target.closest("[data-back]")){s3.h.push(snap3());s3.phase="pair";s3.sel=null;render3();return}
-  const gb=e.target.closest("[data-g]");if(gb){const g=gb.dataset.g==="in"?+($("gi3").value||0):+gb.dataset.g;if(g)apply3(g);return}
+  const gb=e.target.closest("[data-g]");if(gb){const gv=gb.dataset.g==="in"?$("gi3").value.trim():gb.dataset.g;
+    if(!isNum(gv)||+gv===0){setMsg("m3",gv===""?"Katakka bo'luvchini yozing yoki yuqoridagi sonlardan birini bosing.":"Bo'luvchini son bilan yozing (masalan, 2 yoki 3).","bad");return}
+    apply3(+gv);return}
   if(e.target.closest("[data-m]"))mul3()});
 $("q3").addEventListener("keydown",e=>{if(e.key!=="Enter")return;if(e.target.id==="gi3")$("q3").querySelector('[data-g="in"]').click();if(e.target.id==="pn3"||e.target.id==="pd3")mul3()});
-function mul3(){const n0=last(s3.N[0]),n1=last(s3.N[1]),d0=last(s3.D[0]),d1=last(s3.D[1]),x=+$("pn3").value,y=+$("pd3").value;if(!x||!y)return;
+function mul3(){const n0=last(s3.N[0]),n1=last(s3.N[1]),d0=last(s3.D[0]),d1=last(s3.D[1]),sa=$("pn3").value.trim(),sb=$("pd3").value.trim(),bad=badFr(sa,sb);if(bad){setMsg("m3",bad,"bad");return}const x=+sa,y=+sb;
   if(x===n0*n1&&y===d0*d1){s3.h.push(snap3());s3.phase="done";s3.log.push(`Ko'paytirdik: ${fr(`${n0} · ${n1}`,`${d0} · ${d1}`)} = ${fr(x,y)}.`);
     setMsg("m3",`To'g'ri! ${fr(s3.a,s3.b)} × ${fr(s3.c,s3.d)} = ${y===1?`<b class="cg">${x}</b>`:resFr(x,y)} — javob darhol qisqarmaydigan bo'lib chiqdi.`,"good");render3();return}
   setMsg("m3",x!==n0*n1?`Surat: ${n0} · ${n1} ni qayta hisoblang.`:`Maxraj: ${d0} · ${d1} ni qayta hisoblang.`,"bad")}
@@ -494,17 +510,17 @@ $("new3").onclick=()=>start3(gen3());
 /* cmp — natija ikkinchi kasrdan katta/kichik (1 dan kichik songa ko'paytirsak — kamayadi); xato — yechimni baholash; mas — matnli masala */
 const WHO=["Aziz","Malika","Sardor","Laylo","Jasur"];
 const MAS=[
-  (A,B)=>`Bog'ning ${B} qismiga daraxt ekildi. Daraxtlarning ${A} qismi — olma. Olma daraxtlari bog'ning qancha qismini egallaydi?`,
-  (A,B)=>`Idishda ${B} litr sut bor edi. Uning ${A} qismi ichildi. Necha litr sut ichildi?`,
-  (A,B)=>`Yo'lning ${B} qismi asfaltlangan. Asfaltlangan qismning ${A} qismi yangi. Yangi asfalt butun yo'lning qancha qismi?`,
-  (A,B)=>`Sinf o'quvchilarining ${B} qismi qizlar. Qizlarning ${A} qismi to'garakka qatnashadi. Ular butun sinfning qancha qismi?`];
+  (A,B)=>[`Bog'ning ${B} qismiga daraxt ekildi. Daraxtlarning ${A} qismi — olma. Olma daraxtlari bog'ning qancha qismini egallaydi?`,"qismi"],
+  (A,B)=>[`Idishda ${B} litr sut bor edi. Uning ${A} qismi ichildi. Necha litr sut ichildi?`,"litr"],
+  (A,B)=>[`Yo'lning ${B} qismi asfaltlangan. Asfaltlangan qismning ${A} qismi yangi. Yangi asfalt butun yo'lning qancha qismi?`,"qismi"],
+  (A,B)=>[`Sinf o'quvchilarining ${B} qismi qizlar. Qizlarning ${A} qismi to'garakka qatnashadi. Ular butun sinfning qancha qismi?`,"qismi"]];
 const s4={ok:0,total:0,streak:0};
 function sc4(){$("sc4").innerHTML=`<span>To'g'ri: <b>${s4.ok}</b> / ${s4.total}</span><span>Ketma-ket: <b>${s4.streak}</b></span>`}
 const irr=(lo,hi)=>{const d=rnd(lo,hi);let n;do n=rnd(1,d-1);while(gcd(n,d)>1);return[n,d]};
 function new4(){
   const kind=pickOne(["cmp","xato","xato","mas"]);let [a,b]=irr(2,6),[c,d]=irr(2,8);
-  Object.assign(s4,{kind,a,b,c,d,done:false});$("eq4").hidden=true;$("nx4").hidden=true;setMsg("m4","");
-  if(kind==="cmp"){if(Math.random()<.4){a=b+rnd(1,b);while(gcd(a,b)>1)a++;s4.a=a}   // ba'zan 1-kasr 1 dan katta
+  Object.assign(s4,{kind,a,b,c,d,done:false,tries:0});$("eq4").hidden=true;$("nx4").hidden=true;setMsg("m4","");
+  if(kind==="cmp"){const r=Math.random();if(r<.4){a=b+rnd(1,b);while(gcd(a,b)>1)a++;s4.a=a}else if(r<.5){a=b;s4.a=a}   // ba'zan 1-kasr 1 dan katta
     const v=a/b*c/d,real=v<c/d?"kichik":v>c/d?"katta":"teng";s4.real=real;
     $("q4").innerHTML=`Hisoblamasdan taxmin qiling: ${fr(a,b)} × ${fr(c,d)} natija ${fr(c,d)} dan katta yoki kichik bo'ladi?`;
     $("w4").innerHTML=`<div class="vrow">${[["kichik","Kichik"],["teng","Teng"],["katta","Katta"]].map(([k,t])=>`<button class="chipC" data-c="${k}">${t}</button>`).join("")}</div>`}
@@ -514,23 +530,27 @@ function new4(){
     const g=gcd(p,q),shown=err==="ok"&&g>1&&Math.random()<.5?fr(p/g,q/g):fr(sn,sd);
     $("q4").innerHTML=`<b>${who}</b> yechdi: ${fr(a,b)} × ${fr(c,d)} = ${shown}. Yechim to'g'rimi?`;
     $("w4").innerHTML=`<div class="vrow"><span class="vq">Baholang:</span><button class="btn green" data-v="1">To'g'ri</button><button class="btn" style="background:#C62828" data-v="0">Xato</button></div>`}
-  else{$("q4").innerHTML=pickOne(MAS)(fr(a,b),fr(c,d));
-    $("w4").innerHTML=`<div class="ans">${fr(c,d)} ning ${fr(a,b)} qismi${op("=")}<span class="frin"><input id="an4" inputmode="numeric" aria-label="Surat" placeholder="?"><input id="ad4" inputmode="numeric" aria-label="Maxraj" placeholder="?"></span><button class="btn" id="ck4">Tekshirish</button><span class="alab">Javobni qisqartirilgan holda yozing.</span></div>`}
+  else{const [mt,mu]=pickOne(MAS)(fr(a,b),fr(c,d));s4.unit=mu;$("q4").innerHTML=mt;
+    $("w4").innerHTML=`<div class="ans"><span class="vq">Javob:</span><span class="frin"><input id="an4" inputmode="numeric" aria-label="Surat" placeholder="?"><input id="ad4" inputmode="numeric" aria-label="Maxraj" placeholder="?"></span><span class="unit">${mu==="litr"?"litr":"qismi"}</span><button class="btn" id="ck4">Tekshirish</button><span class="alab">Javobni qisqartirilgan holda yozing.</span></div>`}
   sc4()}
 function score4(ok){s4.total++;if(ok){s4.ok++;s4.streak++}else s4.streak=0;s4.done=true;$("nx4").hidden=false;sc4();
   $("eq4").innerHTML=prodBox(s4.a,s4.b,s4.c,s4.d);$("eq4").hidden=false;$("w4").querySelectorAll("button,input").forEach(x=>x.disabled=true)}
 $("w4").addEventListener("click",e=>{if(s4.done)return;const {a,b,c,d}=s4,p=a*c,q=b*d,g=gcd(p,q);
   const cb=e.target.closest("[data-c]");
   if(cb){const ok=cb.dataset.c===s4.real;
-    setMsg("m4",`${ok?"To'g'ri!":"Noto'g'ri."} ${fr(a,b)} ${a<b?"1 dan kichik":"1 dan katta"} — ${fr(c,d)} ni ${a<b?"1 dan kichik songa ko'paytirsak, natija <b>kichrayadi</b> (uning bir qismini olamiz)":"1 dan katta songa ko'paytirsak, natija <b>kattalashadi</b>"}.`,ok?"good":"bad");score4(ok);return}
+    setMsg("m4",`${ok?"To'g'ri!":"Noto'g'ri."} ${fr(a,b)} ${a<b?"1 dan kichik":a===b?"1 ga teng":"1 dan katta"} — ${fr(c,d)} ni ${a<b?"1 dan kichik songa ko'paytirsak, natija <b>kichrayadi</b> (uning bir qismini olamiz)":a===b?"1 ga ko'paytirsak, natija <b>o'zgarmaydi</b>":"1 dan katta songa ko'paytirsak, natija <b>kattalashadi</b>"}.`,ok?"good":"bad");score4(ok);return}
   const v=e.target.closest("[data-v]");
   if(v){const ok=(v.dataset.v==="1")===s4.right;
     const why={ok:"yechim to'g'ri",den:`faqat suratlar ko'paytirilgan, maxraj esa ${d} qoldirilgan. Maxrajlar ham ko'paytiriladi: ${b} · ${d} = ${q}`,
       cross:`xochsimon ko'paytirilgan (bu bo'lishdagi usul). Ko'paytirishda surat suratga, maxraj maxrajga: ${fr(`${a} · ${c}`,`${b} · ${d}`)}`,
       add:`suratlar va maxrajlar qo'shilgan. Kasrlarni ko'paytirishda ular ko'paytiriladi: ${fr(`${a} · ${c}`,`${b} · ${d}`)}`}[s4.err];
     setMsg("m4",`${ok?"To'g'ri baho!":"Bahoyingiz noto'g'ri."} Yechim ${s4.right?"to'g'ri":"xato"}: ${why}.`,ok?"good":"bad");score4(ok);return}
-  if(e.target.closest("#ck4")){const x=+$("an4").value,y=+$("ad4").value;if(!x||!y)return;const ok=x*q===y*p;
-    setMsg("m4",ok?`To'g'ri! ${fr(c,d)} ning ${fr(a,b)} qismi = ${fr(a,b)} × ${fr(c,d)} = ${resFr(p/g,q/g)}.${gcd(x,y)>1?" Eslatma: javobni qisqartirish kerak edi.":""}`:`Hali emas. «Qismning qismi» — ko'paytirish: ${fr(a,b)} × ${fr(c,d)}.`,ok?"good":"bad");score4(ok)}});
+  if(e.target.closest("#ck4")){const sa=$("an4").value.trim(),sb=$("ad4").value.trim(),bad=badFr(sa,sb);if(bad){setMsg("m4",bad,"bad");return}
+    const x=+sa,y=+sb,ok=x*q===y*p;s4.tries++;
+    if(ok){setMsg("m4",`To'g'ri! ${fr(c,d)} ning ${fr(a,b)} qismi = ${fr(a,b)} × ${fr(c,d)} = ${resFr(p/g,q/g)}${s4.unit==="litr"?" litr":""}.${gcd(x,y)>1?" Eslatma: javobni qisqartirish kerak edi.":""}`,"good");score4(true);return}
+    const hint=`«${fr(c,d)} ning ${fr(a,b)} qismi» — bu ko'paytirish: ${fr(a,b)} × ${fr(c,d)}. Surat suratga, maxraj maxrajga ko'paytiriladi.`;
+    if(s4.tries<2){setMsg("m4",`Hali emas. ${hint} <b>Yana bir urinib ko'ring.</b>`,"bad");return}
+    setMsg("m4",`Hali emas. ${hint} To'g'ri javob pastda.`,"bad");score4(false)}});
 $("w4").addEventListener("keydown",e=>{if(e.key==="Enter"&&$("ck4"))$("ck4").click()});
 $("nx4").onclick=new4;
 
@@ -552,10 +572,10 @@ function nextG(){
   const wrongs=[[p,d],[a*d,b*c],[a+c,b+d],[p,Q+1]].filter(([x,y])=>x*Q!==y*p).map(([x,y])=>fr(x,y));
   const mk=(okH,ws)=>{const Mp=new Map([["ok",okH]]);ws.forEach((h,i)=>{if(Mp.size<4&&![...Mp.values()].includes(h))Mp.set("w"+i,h)});return Mp};
   if(kind==="calc")q={kind,ask:"Ko'paytmani toping (qisqartirilgan holda)",show:`${fr(a,b)} × ${fr(c,d)} = ?`,M:mk(R,wrongs),correct:"ok",why:`${fr(`${a} · ${c}`,`${b} · ${d}`)} = ${R}`};
-  else if(kind==="cmp"){if(Math.random()<.4){a=b+rnd(1,b);while(gcd(a,b)>1)a++}const v=a/b,real=v<1?"kichik":v>1?"katta":"teng";
-    q={kind,ask:`Natija ${fr(c,d)} dan katta yoki kichik?`,show:`${fr(a,b)} × ${fr(c,d)}`,M:new Map([["kichik","Kichik"],["teng","Teng"],["katta","Katta"]]),correct:real,why:`${fr(a,b)} ${v<1?"1 dan kichik — natija kichrayadi":"1 dan katta — natija kattalashadi"}`}}
+  else if(kind==="cmp"){const r=Math.random();if(r<.4){a=b+rnd(1,b);while(gcd(a,b)>1)a++}else if(r<.5)a=b;const v=a/b,real=v<1?"kichik":v>1?"katta":"teng";
+    q={kind,ask:`Natija ${fr(c,d)} dan katta yoki kichik?`,show:`${fr(a,b)} × ${fr(c,d)}`,M:new Map([["kichik","Kichik"],["teng","Teng"],["katta","Katta"]]),correct:real,why:`${fr(a,b)} ${v<1?"1 dan kichik — natija kichrayadi":v===1?"1 ga teng — natija o'zgarmaydi":"1 dan katta — natija kattalashadi"}`}}
   else if(kind==="cut"){const o=gen3(),P=o.a*o.c,QQ=o.b*o.d,G2=gcd(P,QQ),RR=fr(P/G2,QQ/G2);
-    q={kind,ask:"Avval qisqartirib, hisoblang",show:`${fr(o.a,o.b)} × ${fr(o.c,o.d)} = ?`,M:mk(RR,[fr(P,QQ),fr(o.a*o.d,o.b*o.c),fr(P/G2+1,QQ/G2),fr(P/G2,QQ/G2+1)]),correct:"ok",why:`${fr(P,QQ)} = ${RR}`}}
+    q={kind,ask:"Avval qisqartirib, hisoblang",show:`${fr(o.a,o.b)} × ${fr(o.c,o.d)} = ?`,M:mk(RR,[[P,QQ/G2],[o.a*o.d,o.b*o.c],[P/G2+1,QQ/G2],[P/G2,QQ/G2+1]].filter(([x,y])=>x*QQ!==y*P).map(([x,y])=>fr(x,y))),correct:"ok",why:`${fr(P,QQ)} = ${RR}`}}
   else if(kind==="part")q={kind,ask:`${fr(c,d)} ning ${fr(a,b)} qismi qancha?`,show:"",M:mk(R,wrongs),correct:"ok",why:`${fr(a,b)} × ${fr(c,d)} = ${R}`};
   else{const wrong=Math.random()<.55&&wrongs.length>0,shown=wrong?pickOne(wrongs.slice(0,3)):R;
     q={kind,ask:"Yechim to'g'rimi?",show:`${fr(a,b)} × ${fr(c,d)} = ${shown}`,M:new Map([["togri","To'g'ri"],["xato","Noto'g'ri"]]),correct:wrong?"xato":"togri",why:`to'g'ri javob ${R}`}}
