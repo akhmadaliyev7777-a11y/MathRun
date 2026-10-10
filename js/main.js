@@ -462,6 +462,8 @@ function renderTopicPage() {
 // ---------- Ko'rgazmalar galereyasi ----------
 // qizil nuqta — simulyatorni tekshirish kerak: hali tekshirilmagan yoki kamchiligi bor (data.js da review: true; foydalanuvchi «tayyor» desa o'chiriladi)
 function reviewDot(topic) {
+  // review: true — qizil (hali tekshirilmagan / kamchiligi bor); review: "sariq" — o'quvchi sifatida sinab, tuzatildi, foydalanuvchi tasdig'i kutilmoqda
+  if (topic.review === "sariq") return '<span class="review-dot yellow" title="Sinab ko\'rildi va tuzatildi — tasdiqlash kutilmoqda" aria-label="tasdiqlash kutilmoqda"></span>';
   return topic.review ? '<span class="review-dot" title="Tekshirish kerak — kamchiligi bor yoki hali tekshirilmagan" aria-label="tekshirish kerak"></span>' : "";
 }
 
