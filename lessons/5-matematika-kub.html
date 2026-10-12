@@ -233,7 +233,7 @@ p{margin:0}
 .fls .fl{font-size:clamp(19px,4.4vw,26px)}
 .fls .fk{font:700 14px var(--f-body);color:var(--muted);min-width:150px}
 .xa{color:#DC2626}.xb{color:#16A34A}.xc{color:#2563EB}
-.wgrid{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:10px;align-items:start}
+.wgrid{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:10px;align-items:start}
 .r3 svg{overflow:hidden;border-radius:12px}
 .r3 .vbar{grid-column:1/3;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px}
 .r3 .zm{display:inline-flex;align-items:center;gap:4px;font:800 14px var(--f-body);color:var(--muted)}
@@ -241,7 +241,7 @@ p{margin:0}
 .r3 .zm button:disabled{opacity:.35;cursor:default}
 .r3 .zm output{min-width:46px;text-align:center;font:800 15px var(--f-display);color:var(--ink)}
 .r3 .axt[aria-pressed="false"]{opacity:.6;text-decoration:line-through}
-@media (max-width:560px){.wgrid{grid-template-columns:1fr}.menz{max-width:130px;margin:0 auto}.dims{gap:6px 10px}.dim button{width:30px;height:30px}.dim input{width:44px}
+@media (max-width:560px){.wgrid{grid-template-columns:1fr}.menz{max-width:210px;margin:0 auto}.dims{gap:6px 10px}.dim button{width:30px;height:30px}.dim input{width:44px}
   /* telefonda X o'qi chizig'i ham yotiq — model kattaroq ko'rinadi */
   .r3{grid-template-columns:minmax(0,1fr)}.r3 .side{flex-direction:row}.r3 .side input{writing-mode:horizontal-tb;direction:ltr;width:auto;height:auto;flex:1}.r3 .side .ax{writing-mode:horizontal-tb;transform:none}.r3 .top,.r3 .bot,.r3 .vbar{grid-column:1}.r3 .vbar{justify-content:flex-start}}
 .menz{display:flex;flex-direction:column;align-items:center;gap:4px;font:700 13px var(--f-body);color:var(--muted);text-align:center}
@@ -309,7 +309,7 @@ p{margin:0}
     <div class="dims" id="dm4"></div>
     <div class="ctx" id="t4"></div>
     <div id="v4"></div>
-    <div class="row tools"><button class="btn violet" id="ad4"></button><button class="btn ghost sm" id="al4">Birdan to'ldirish ⏩</button><button class="btn ghost sm" id="un4">← Orqaga</button><button class="btn ghost sm" id="cl4">Tozalash</button></div>
+    <div class="row tools"><button class="btn violet" id="on4">+ 1 kubcha</button><button class="btn violet" id="ad4"></button><button class="btn ghost sm" id="al4">Birdan to'ldirish ⏩</button><button class="btn ghost sm" id="un4">← Orqaga</button><button class="btn ghost sm" id="cl4">Tozalash</button></div>
     <div id="w4"></div>
     <div class="story" id="m4" aria-live="polite"></div>
     <div class="eqbox" id="eq4" hidden></div>
@@ -318,10 +318,10 @@ p{margin:0}
 
   <!-- 5. Menzurkadan suv quyish -->
   <section class="panel" role="tabpanel" id="p-suv" hidden>
-    <div class="row" style="justify-content:space-between"><div class="dims" id="dm5"></div><button class="btn ghost sm" id="lt5">1 litrlik idish (10 × 10 × 10)</button></div>
+    <div class="row" style="justify-content:space-between"><div class="dims" id="dm5"></div><div class="row"><span class="vq">Hajm:</span><span class="mgrp" id="vu5" role="group" aria-label="Hajm birligi"><button class="seg sel" data-vu="ml">ml</button><button class="seg" data-vu="l">litr</button></span><button class="btn ghost sm" id="lt5">1 litrlik idish (10 × 10 × 10)</button></div></div>
     <div class="ctx" id="t5"></div>
-    <div class="wgrid"><div id="v5"></div><div class="menz"><svg id="mz5" viewBox="0 0 140 350" aria-label="Menzurka"></svg><span>Menzurka: shkalani bosib suv oling</span></div></div>
-    <div class="row tools"><button class="btn violet" id="po5">Quyish ▶</button><button class="btn ghost sm" id="fu5">Menzurkani to'ldirish (200 ml)</button><button class="btn ghost sm" id="em5">Idishni bo'shatish</button></div>
+    <div class="wgrid"><div id="v5"></div><div class="menz"><svg id="mz5" viewBox="0 0 232 350" aria-label="Menzurka"></svg><span>Menzurka: shkalani bosib suv oling</span></div></div>
+    <div class="row tools"><button class="btn violet" id="po5">Quyish ▶</button><button class="btn ghost sm" id="fu5"></button><button class="btn ghost sm" id="em5">Idishni bo'shatish</button></div>
     <div class="info" id="in5"></div>
     <div id="w5"></div>
     <div class="story" id="m5" aria-live="polite"></div>
@@ -348,6 +348,10 @@ const isNum=v=>/^\d+$/.test(v);
 const fmt=v=>String(Math.round(v*100)/100).replace(".",",");
 /* ml → litr, aniq (0,216 l) */
 const lit=v=>String(v/1000).replace(".",",");
+/* U — uzunlik birligi (1–4-bo'limlar; shakl o'zgarmaydi, faqat yozuvlar); VU — suv hajmi birligi (ml yoki l) */
+let U="sm",VU="ml";
+const UNITS=["mm","sm","dm","m"];
+const vnum=ml=>VU==="ml"?String(ml):lit(ml),vf=ml=>vnum(ml)+" "+VU;
 const op=t=>`<span class="op">${t}</span>`;
 function setMsg(id,t,c){const m=$(id);m.innerHTML=t;m.className="story "+(c||"")}
 function drawLog(id,arr){const el=$(id);el.hidden=!arr.length;el.innerHTML=`<h3>Jarayon</h3><ol>${arr.map(x=>`<li>${x}</li>`).join("")}</ol>`}
@@ -439,13 +443,13 @@ function make3D(id,opt){
 
 /* ================= o'lchamlarni kiritish: «−» / «+» yoki katakka yozish ================= */
 const DNU={a:"Uzunlik (a)",b:"Eni (b)",c:"Balandlik (c)"};
-function dimsUI(id,s,lim,mid,onCh){
+function dimsUI(id,s,lim,mid,onCh,water){
   const keys=KUB?["a"]:["a","b","c"];
-  $(id).innerHTML=keys.map(k=>`<span class="dim" style="--dc:${DC[k]}"><b>${k} =</b><button data-d="${k}-" aria-label="${k} ni kamaytirish">−</button><input data-k="${k}" inputmode="numeric" maxlength="2" value="${s[k]}" aria-label="${KUB?"Kub qirrasi":DNU[k]}"><button data-d="${k}+" aria-label="${k} ni oshirish">+</button></span>`).join("")+`<span class="unit">sm</span>`;
+  $(id).innerHTML=keys.map(k=>`<span class="dim" style="--dc:${DC[k]}"><b>${k} =</b><button data-d="${k}-" aria-label="${k} ni kamaytirish">−</button><input data-k="${k}" inputmode="numeric" maxlength="2" value="${s[k]}" aria-label="${KUB?"Kub qirrasi":DNU[k]}"><button data-d="${k}+" aria-label="${k} ni oshirish">+</button></span>`).join("")+(water?`<span class="unit">sm</span>`:`<span class="mgrp us" role="group" aria-label="Uzunlik birligi">${UNITS.map(u=>`<button class="seg${u===U?" sel":""}" data-u="${u}">${u}</button>`).join("")}</span>`);
   const nm=k=>KUB?"Kub qirrasi (a)":DNU[k];
   const set=(k,v)=>{if(KUB){s.a=s.b=s.c=v}else s[k]=v;$(id).querySelector(`[data-k="${k}"]`).value=v;onCh()};
   $(id).addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(!b)return;const k=b.dataset.d[0],dir=b.dataset.d[1]==="+"?1:-1,v=s[k]+dir;
-    if(v<lim[0]||v>lim[1]){setMsg(mid,`${nm(k)} ${dir>0?`${lim[1]} sm dan katta`:`${lim[0]} sm dan kichik`} bo'lmaydi — rasmga sig'ishi uchun.`,"bad");return}set(k,v)});
+    if(v<lim[0]||v>lim[1]){setMsg(mid,`${nm(k)} ${dir>0?`${lim[1]} ${water?"sm":U} dan katta`:`${lim[0]} ${water?"sm":U} dan kichik`} bo'lmaydi — rasmga sig'ishi uchun.`,"bad");return}set(k,v)});
   const apply=inp=>{const k=inp.dataset.k,v=inp.value.trim();
     if(!isNum(v)){setMsg(mid,v===""?`${nm(k)}ni yozing.`:"Uzunlikka faqat butun son yozing.","bad");inp.value=s[k];return}
     if(+v<lim[0]||+v>lim[1]){setMsg(mid,`${nm(k)} ${lim[0]} dan ${lim[1]} gacha bo'lishi mumkin (rasmga sig'ishi uchun).`,"bad");inp.value=s[k];return}
@@ -465,15 +469,15 @@ function draw1(T){const D=[s1.a,s1.b,s1.c],G=boxGeo(T,D);let g=axes(T,D);
     g+=`<polygon class="fc" data-f="${f.i}" points="${pts(f.pts)}" fill="${on?shade(PC[f.k],f.lit):shade("#CBD5E1",f.lit)}" stroke="#1E293B" stroke-width="2" stroke-linejoin="round"/>`;
     if(on){const [x,y]=cen(f.pts),[u,v]=fdims(f.k,s1);g+=`<text x="${x.toFixed(1)}" y="${(y+5).toFixed(1)}" text-anchor="middle" font-size="15" font-weight="800" fill="#fff" stroke="rgba(0,0,0,.35)" stroke-width="3" paint-order="stroke" pointer-events="none">${u} × ${v}</text>`}});
   G.edges.filter(e=>!e.hid).forEach(e=>g+=line(e,"#1E293B",2.4));
-  return g+dimLabels(T,G,D," sm")}
+  return g+dimLabels(T,G,D," "+U)}
 function render1(){V1.draw();const n=Object.keys(s1.paint).length;
   $("t1").innerHTML=`Yoqni bosing — u va unga <b>qarama-qarshi</b> yoq bir xil rangga bo'yaladi. Aylantirish uchun chiziqlarni suring yoki modelni sudrang.`;
   $("f1").innerHTML=`<span class="fact"><b>6</b> ta yoq</span><span class="fact"><b>12</b> ta qirra</span><span class="fact"><b>8</b> ta uch</span><span class="fact${n===3?" on":""}">Teng yoqlar juftlari: <b>${n}/3</b></span>`}
 function reset1(){s1.paint={};setMsg("m1",KUB?"Kubning barcha qirralari teng. Yoqni bosib ko'ring.":"Yoqni bosib ko'ring: qaysi yoqlar bir-biriga teng?");render1()}
 function click1(e){const p=e.target.closest(".fc");if(!p)return;const f=FACES[+p.dataset.f],opp=FACES[+p.dataset.f^1],[u,v]=fdims(f.k,s1);
-  if(s1.paint[f.k]){setMsg("m1",`${f.nm} va ${opp.nm.toLowerCase()} allaqachon bo'yalgan: ikkalasi ham ${u} × ${v} sm. Boshqa yoqni bosing.`);return}
+  if(s1.paint[f.k]){setMsg("m1",`${f.nm} va ${opp.nm.toLowerCase()} allaqachon bo'yalgan: ikkalasi ham ${u} × ${v} ${U}. Boshqa yoqni bosing.`);return}
   s1.paint[f.k]=1;const n=Object.keys(s1.paint).length;
-  if(n<3)setMsg("m1",`<b>${f.nm}</b>: ${u} × ${v} sm. Unga qarama-qarshi <b>${opp.nm.toLowerCase()}</b> ham xuddi shunday — ikkalasi bir xil rangga bo'yaldi. Modelni aylantirib, uni toping. Yana ${3-n} juft qoldi.`,"good");
+  if(n<3)setMsg("m1",`<b>${f.nm}</b>: ${u} × ${v} ${U}. Unga qarama-qarshi <b>${opp.nm.toLowerCase()}</b> ham xuddi shunday — ikkalasi bir xil rangga bo'yaldi. Modelni aylantirib, uni toping. Yana ${3-n} juft qoldi.`,"good");
   else setMsg("m1",KUB?`Barcha 6 yoq bo'yaldi. Kubning hamma yoqlari — teng kvadratlar (${s1.a} × ${s1.a}), qarama-qarshi yoqlar juft-juft bo'lib turadi. Kubda 12 qirraning hammasi teng.`:`Barcha 6 yoq bo'yaldi: <b>3 juft teng yoq</b>. Ustki va ostki — a × b, old va orqa — a × c, chap va o'ng — b × c. Qarama-qarshi yoqlar har doim teng!`,"good");
   render1()}
 
@@ -487,31 +491,31 @@ function draw2(T){const D=[s2.a,s2.b,s2.c],G=boxGeo(T,D);let g=axes(T,D);
     g+=line(e,col,on?6:e.hid?1.8:2.6,e.hid&&!on?"5 4":"");
     if(on){const m=[(e.p[0]+e.q[0])/2,(e.p[1]+e.q[1])/2];g+=`<text x="${m[0].toFixed(1)}" y="${(m[1]-8).toFixed(1)}" text-anchor="middle" font-size="14" font-weight="800" fill="${DC[e.d]}" stroke="#fff" stroke-width="4" paint-order="stroke" pointer-events="none">${s2[e.d]}</text>`}});
   G.edges.forEach(e=>g+=`<line class="ed" data-e="${e.i}" x1="${e.p[0].toFixed(1)}" y1="${e.p[1].toFixed(1)}" x2="${e.q[0].toFixed(1)}" y2="${e.q[1].toFixed(1)}" stroke="transparent" stroke-width="18" stroke-linecap="round"/>`);
-  return g+dimLabels(T,G,D," sm")}
+  return g+dimLabels(T,G,D," "+U)}
 function render2(focus){V2.draw();const n=s2.on.filter(Boolean).length,cnt=d=>EDGES.filter((e,i)=>e.d===d&&s2.on[i]).length;
   $("t2").innerHTML=s2.phase==="click"?`Har bir qirrani bosing — u o'z rangiga bo'yaladi. Orqadagi (shtrixli) qirralarni ham unutmang: modelni aylantiring.`:`Barcha 12 qirra sanaldi. Endi ularning uzunliklari yig'indisini toping.`;
-  $("f2").innerHTML=KUB?`<span class="fact${n===12?" on":""}">Bosilgan qirralar: <b>${n}/12</b></span><span class="fact">Har biri <b>${s2.a}</b> sm</span>`
-    :["a","b","c"].map(d=>`<span class="fact${cnt(d)===4?" on":""}" style="color:${DC[d]}">${d} = ${s2[d]} sm: <b>${cnt(d)}/4</b></span>`).join("")+`<span class="fact${n===12?" on":""}">Jami: <b>${n}/12</b></span>`;
+  $("f2").innerHTML=KUB?`<span class="fact${n===12?" on":""}">Bosilgan qirralar: <b>${n}/12</b></span><span class="fact">Har biri <b>${s2.a}</b> ${U}</span>`
+    :["a","b","c"].map(d=>`<span class="fact${cnt(d)===4?" on":""}" style="color:${DC[d]}">${d} = ${s2[d]} ${U}: <b>${cnt(d)}/4</b></span>`).join("")+`<span class="fact${n===12?" on":""}">Jami: <b>${n}/12</b></span>`;
   let w="";
   if(s2.phase==="sum")w=`<div class="ans">${KUB?`12 · ${s2.a}`:`4 · ${s2.a} + 4 · ${s2.b} + 4 · ${s2.c}`}${op("=")}<input id="ls2" class="wide" inputmode="numeric" aria-label="Qirralar yig'indisi" placeholder="?"><span class="unit">sm</span><button class="btn" id="ck2">Tekshirish</button><span class="alab">${KUB?"Kubda 12 ta qirra, hammasi teng.":"Har bir uzunlikdan 4 tadan qirra bor."}</span></div>`;
   $("w2").innerHTML=w;
   $("sh2").hidden=s2.phase!=="click";$("un2").disabled=$("cl2").disabled=!s2.h.length;
   $("eq2").hidden=s2.phase!=="done";
-  if(s2.phase==="done"){const {a,b,c}=s2;$("eq2").innerHTML=`<span class="eqlab">Qirralar yig'indisi:</span><div class="eqline">${KUB?`L = 12 · a = 12 · ${a} = <b class="cg">${12*a} sm</b>`:`L = 4 · (a + b + c) = 4 · (${a} + ${b} + ${c}) = <b class="cg">${Lsum(s2)} sm</b>`}</div>`}
+  if(s2.phase==="done"){const {a,b,c}=s2;$("eq2").innerHTML=`<span class="eqlab">Qirralar yig'indisi:</span><div class="eqline">${KUB?`L = 12 · a = 12 · ${a} = <b class="cg">${12*a} ${U}</b>`:`L = 4 · (a + b + c) = 4 · (${a} + ${b} + ${c}) = <b class="cg">${Lsum(s2)} ${U}</b>`}</div>`}
   drawLog("pr2",s2.log);if(focus&&$("ls2"))$("ls2").focus({preventScroll:true})}
 const snap2=()=>({on:s2.on.slice(),phase:s2.phase,L:s2.log.length,m:$("m2").innerHTML,mc:$("m2").className});
 function reset2(){Object.assign(s2,{on:Array(12).fill(false),phase:"click",h:[],log:[],tries:0});setMsg("m2","Qirralarni bittalab bosing.");render2()}
-function after2(){if(s2.on.every(Boolean)){s2.phase="sum";s2.log.push(KUB?`12 ta qirra, har biri ${s2.a} sm.`:`12 ta qirra: 4 tasi ${s2.a} sm, 4 tasi ${s2.b} sm, 4 tasi ${s2.c} sm.`);
-  setMsg("m2",KUB?`Barcha 12 qirra topildi — hammasi ${s2.a} sm. Endi yig'indisini hisoblang.`:`Barcha 12 qirra topildi: har bir uzunlikdan <b>4 tadan</b>. Endi yig'indisini hisoblang.`,"good")}}
+function after2(){if(s2.on.every(Boolean)){s2.phase="sum";s2.log.push(KUB?`12 ta qirra, har biri ${s2.a} ${U}.`:`12 ta qirra: 4 tasi ${s2.a} ${U}, 4 tasi ${s2.b} ${U}, 4 tasi ${s2.c} ${U}.`);
+  setMsg("m2",KUB?`Barcha 12 qirra topildi — hammasi ${s2.a} ${U}. Endi yig'indisini hisoblang.`:`Barcha 12 qirra topildi: har bir uzunlikdan <b>4 tadan</b>. Endi yig'indisini hisoblang.`,"good")}}
 function click2(e){const l=e.target.closest(".ed");if(!l||s2.phase!=="click")return;const i=+l.dataset.e,ed=EDGES[i];
   if(s2.on[i]){setMsg("m2","Bu qirra allaqachon sanalgan. Boshqasini bosing.");return}
   s2.h.push(snap2());s2.on[i]=true;const n=s2.on.filter(Boolean).length,k=EDGES.filter((x,j)=>x.d===ed.d&&s2.on[j]).length;
-  setMsg("m2",KUB?`${n}-qirra: ${s2.a} sm. Yana ${12-n} ta qoldi.`:`${ed.d} uzunlikdagi qirra (${s2[ed.d]} sm): bunday qirralardan ${k} tasi topildi${k===4?" — hammasi":""}. Jami ${n}/12.`);
+  setMsg("m2",KUB?`${n}-qirra: ${s2.a} ${U}. Yana ${12-n} ta qoldi.`:`${ed.d} uzunlikdagi qirra (${s2[ed.d]} ${U}): bunday qirralardan ${k} tasi topildi${k===4?" — hammasi":""}. Jami ${n}/12.`);
   after2();render2(true)}
 function check2(){const v=$("ls2").value.trim(),{a,b,c}=s2,L=Lsum(s2);
   if(v===""){setMsg("m2","Avval javobni yozing.","bad");return}if(!isNum(v)){setMsg("m2","Katakka faqat son yozing.","bad");return}
-  const x=+v;if(x===L){s2.h.push(snap2());s2.phase="done";s2.log.push(`Yig'indi: ${KUB?`12 · ${a}`:`4 · ${a} + 4 · ${b} + 4 · ${c}`} = ${L} sm.`);
-    setMsg("m2",`To'g'ri! Qirralar yig'indisi ${L} sm.${KUB?"":` Qisqaroq: 4 · (${a} + ${b} + ${c}) = 4 · ${a+b+c} = ${L}.`}`,"good");render2();return}
+  const x=+v;if(x===L){s2.h.push(snap2());s2.phase="done";s2.log.push(`Yig'indi: ${KUB?`12 · ${a}`:`4 · ${a} + 4 · ${b} + 4 · ${c}`} = ${L} ${U}.`);
+    setMsg("m2",`To'g'ri! Qirralar yig'indisi ${L} ${U}.${KUB?"":` Qisqaroq: 4 · (${a} + ${b} + ${c}) = 4 · ${a+b+c} = ${L}.`}`,"good");render2();return}
   setMsg("m2",x===a+b+c?`Bu faqat 3 ta qirra. ${KUB?"Kubda 12 ta qirra bor":"Har bir uzunlikdan 4 tadan qirra bor"}: ${KUB?`12 · ${a}`:`4 · ${a} + 4 · ${b} + 4 · ${c}`}.`
     :x===2*(a+b+c)?"Bu 6 ta qirra. Hammasi 12 ta — yana bir marta shuncha.":x===a*b*c?"Bu hajm (a · b · c). Bizga qirralar uzunliklari yig'indisi kerak.":`Qayta hisoblang: ${KUB?`12 · ${a}`:`4 · ${a} = ${4*a}, 4 · ${b} = ${4*b}, 4 · ${c} = ${4*c}`}.`,"bad")}
 
@@ -528,7 +532,7 @@ function draw3(T){const D=[s3.a,s3.b,s3.c],t=s3.t;let g=axes(T,D);
     G.edges.filter(e=>e.hid).forEach(e=>g+=line(e,"#94A3B8",1.6,"5 4"));
     G.faces.filter(f=>f.vis).sort((x,y)=>y.dep-x.dep).forEach(f=>g+=face3(f.i,f.pts,f.lit));
     G.edges.filter(e=>!e.hid).forEach(e=>g+=line(e,"#1E293B",2.4));
-    return g+dimLabels(T,G,D," sm")}
+    return g+dimLabels(T,G,D," "+U)}
   const Q=foldQ(D,t).map((q,i)=>{const P2=q.map(u=>T.P(u));return{i,pts:P2,dep:P2.reduce((s,p)=>s+p[2],0)/4}});
   Q.sort((x,y)=>y.dep-x.dep).forEach(f=>g+=face3(f.i,f.pts,0.85));
   return g}
@@ -542,11 +546,11 @@ function render3(focus){V3.draw();const {a,b,c,phase}=s3,n=s3.on.filter(Boolean)
   let w="";
   if(phase==="pairs")w=KUB?`<div class="pin3"><span>Bitta yoq yuzi:</span><label style="--pc:${PC.ab}">a · a = <input id="p3ab" inputmode="numeric" aria-label="a · a"></label><button class="btn" id="ck3">Tekshirish</button></div>`
     :`<div class="pin3"><span>Har bir rangdagi yoq yuzi:</span>${["ab","ac","bc"].map(k=>`<label style="--pc:${PC[k]}">${fsym(k)} = <input id="p3${k}" inputmode="numeric" aria-label="${fsym(k)}"></label>`).join("")}<button class="btn" id="ck3">Tekshirish</button></div>`;
-  if(phase==="total")w=`<div class="ans">S = ${KUB?`6 · ${a*a}`:`2 · (${a*b} + ${a*c} + ${b*c})`}${op("=")}<input id="st3" class="wide" inputmode="numeric" aria-label="Sirt yuzi" placeholder="?"><span class="unit">sm²</span><button class="btn" id="ck3">Tekshirish</button><span class="alab">${KUB?"Kubda 6 ta bir xil kvadrat yoq bor.":"Har bir rangdan 2 tadan yoq bor."}</span></div>`;
+  if(phase==="total")w=`<div class="ans">S = ${KUB?`6 · ${a*a}`:`2 · (${a*b} + ${a*c} + ${b*c})`}${op("=")}<input id="st3" class="wide" inputmode="numeric" aria-label="Sirt yuzi" placeholder="?"><span class="unit">${U}²</span><button class="btn" id="ck3">Tekshirish</button><span class="alab">${KUB?"Kubda 6 ta bir xil kvadrat yoq bor.":"Har bir rangdan 2 tadan yoq bor."}</span></div>`;
   $("w3").innerHTML=w;
   $("fo3").disabled=phase==="click";$("sh3").hidden=phase!=="click";
   $("eq3").hidden=phase!=="done";
-  if(phase==="done")$("eq3").innerHTML=`<span class="eqlab">Sirt yuzi — barcha 6 yoq yuzlarining yig'indisi:</span><div class="eqline">${KUB?`S = 6 · a² = 6 · ${a}² = 6 · ${a*a} = <b class="cg">${6*a*a} sm²</b>`:`S = 2 · (ab + ac + bc) = 2 · (${a*b} + ${a*c} + ${b*c}) = <b class="cg">${2*(a*b+a*c+b*c)} sm²</b>`}</div>`;
+  if(phase==="done")$("eq3").innerHTML=`<span class="eqlab">Sirt yuzi — barcha 6 yoq yuzlarining yig'indisi:</span><div class="eqline">${KUB?`S = 6 · a² = 6 · ${a}² = 6 · ${a*a} = <b class="cg">${6*a*a} ${U}²</b>`:`S = 2 · (ab + ac + bc) = 2 · (${a*b} + ${a*c} + ${b*c}) = <b class="cg">${2*(a*b+a*c+b*c)} ${U}²</b>`}</div>`;
   drawLog("pr3",s3.log);if(focus){const f=$("p3ab")||$("st3");if(f)f.focus({preventScroll:true})}}
 function reset3(){if(s3.anim)cancelAnimationFrame(s3.anim);Object.assign(s3,{on:Array(6).fill(false),phase:"click",t:0,anim:null,log:[]});setMsg("m3","Yoqlarni bittalab bosing.");render3()}
 function fold3(){if(s3.phase==="click"||s3.anim)return;const t0=s3.t,t1=t0>0.5?0:1,st=performance.now();
@@ -560,8 +564,8 @@ function fold3(){if(s3.phase==="click"||s3.anim)return;const t0=s3.t,t1=t0>0.5?0
 function click3(e){if(s3.phase!=="click"){fold3();return}
   const p=e.target.closest(".fc");if(!p)return;const i=+p.dataset.f,f=FACES[i],[u,v]=fdims(f.k,s3);
   if(s3.on[i]){setMsg("m3",`${f.nm} allaqachon sanalgan. Boshqasini bosing.`);return}
-  s3.on[i]=true;const n=s3.on.filter(Boolean).length;s3.log.push(`${f.nm}: ${u} · ${v} = ${u*v} sm².`);
-  if(n<6)setMsg("m3",`${f.nm}: ${u} · ${v} = ${u*v} sm². Yana ${6-n} ta yoq qoldi${n>=3?" — ular orqada, modelni aylantiring":""}.`);
+  s3.on[i]=true;const n=s3.on.filter(Boolean).length;s3.log.push(`${f.nm}: ${u} · ${v} = ${u*v} ${U}².`);
+  if(n<6)setMsg("m3",`${f.nm}: ${u} · ${v} = ${u*v} ${U}². Yana ${6-n} ta yoq qoldi${n>=3?" — ular orqada, modelni aylantiring":""}.`);
   else{s3.phase="net";setMsg("m3","Barcha 6 yoq topildi! Endi modelni bosing — u yoyilmaga ochiladi.","good")}
   render3()}
 function check3(){const {a,b,c}=s3;
@@ -569,57 +573,61 @@ function check3(){const {a,b,c}=s3;
     if(vals.some(v=>v==="")){setMsg("m3","Avval barcha kataklarni to'ldiring.","bad");return}if(vals.some(v=>!isNum(v))){setMsg("m3","Kataklarga faqat son yozing.","bad");return}
     const bad=keys.find((k,i)=>{const [u,v]=fdims(k,s3);return +vals[i]!==u*v});
     if(bad){const [u,v]=fdims(bad,s3);setMsg("m3",`${KUB?"Kvadrat":"To'g'ri to'rtburchak"} yuzi = bo'yi × eni: ${fsym(bad)} = ${u} · ${v}. Qayta hisoblang.`,"bad");return}
-    s3.phase="total";s3.log.push(KUB?`Bitta yoq: ${a} · ${a} = ${a*a} sm².`:`Yoqlar: a·b = ${a*b}, a·c = ${a*c}, b·c = ${b*c} sm².`);
+    s3.phase="total";s3.log.push(KUB?`Bitta yoq: ${a} · ${a} = ${a*a} ${U}².`:`Yoqlar: a·b = ${a*b}, a·c = ${a*c}, b·c = ${b*c} ${U}².`);
     setMsg("m3",KUB?`To'g'ri! Kubda shunday kvadratlardan 6 ta. Endi sirt yuzini toping: S = 6 · ${a*a}.`:`To'g'ri! Har bir yoqdan 2 tadan bo'lgani uchun S = 2 · (${a*b} + ${a*c} + ${b*c}). Hisoblang.`,"good");render3(true);return}
   const v=$("st3").value.trim(),S=KUB?6*a*a:2*(a*b+a*c+b*c);
   if(v===""){setMsg("m3","Avval javobni yozing.","bad");return}if(!isNum(v)){setMsg("m3","Katakka faqat son yozing.","bad");return}
-  if(+v===S){s3.phase="done";s3.log.push(`Sirt yuzi: S = ${S} sm².`);setMsg("m3",`To'g'ri! Sirt yuzi ${S} sm² — bu yoyilmaning (barcha 6 yoqning) yuzi.`,"good");render3();return}
+  if(+v===S){s3.phase="done";s3.log.push(`Sirt yuzi: S = ${S} ${U}².`);setMsg("m3",`To'g'ri! Sirt yuzi ${S} ${U}² — bu yoyilmaning (barcha 6 yoqning) yuzi.`,"good");render3();return}
   setMsg("m3",KUB?(+v===a*a?"Bu bitta yoq. Kubda 6 ta yoq bor.":+v===a*a*a?"Bu hajm (a³). Bizga sirt yuzi kerak.":`Qayta hisoblang: 6 · ${a*a}.`)
     :(+v===a*b+a*c+b*c?"Bu faqat 3 ta yoq (har rangdan bittadan). Har bir rangdan 2 tadan yoq bor — 2 ga ko'paytiring.":+v===a*b*c?"Bu hajm (a · b · c). Bizga sirt yuzi kerak.":`Qayta hisoblang: ${a*b} + ${a*c} + ${b*c} = ${a*b+a*c+b*c}, keyin 2 ga ko'paytiring.`),"bad")}
 
 /* ================= 4. Hajm: birlik kubchalar ================= */
-/* phase: row — asosga qatorlar qo'yiladi; base — asosdagi kubchalar soni; layer — qatlamlar; total — jami; done */
-const s4=KUB?{a:3,b:3,c:3}:{a:4,b:3,c:3};Object.assign(s4,{rows:0,layers:0,phase:"row",h:[],log:[]});
+/* n — qo'yilgan kubchalar soni (tartib: qator bo'ylab, keyin keyingi qator, keyin keyingi qatlam).
+   phase: row — asos to'ldiriladi; base — asosdagi kubchalar soni; layer — qatlamlar; total — jami; done */
+const s4=KUB?{a:3,b:3,c:3}:{a:4,b:3,c:3};Object.assign(s4,{n:0,phase:"row",h:[],log:[]});
 let V4,D4;
 const LC=["#3B82F6","#F59E0B","#10B981","#EC4899","#8B5CF6","#06B6D4"];
-function draw4(T){const {a,b,c}=s4,D=[a,b,c],G=boxGeo(T,D);let g=axes(T,D);
-  const L=s4.layers,has=(i,j,k)=>i>=0&&j>=0&&k>=0&&i<a&&(L?(j<b&&k<L):(k===0&&j<s4.rows));
+function draw4(T){const {a,b,c,n}=s4,D=[a,b,c],G=boxGeo(T,D),ab=a*b;let g=axes(T,D);
+  const has=(i,j,k)=>i>=0&&j>=0&&k>=0&&i<a&&j<b&&k<c&&k*ab+j*a+i<n,byRow=s4.phase==="row"||s4.phase==="base";
   G.edges.filter(e=>e.hid).forEach(e=>g+=line(e,"#94A3B8",1.4,"5 4"));
   const fs=[];
-  for(let k=0;k<Math.max(L,1);k++)for(let j=0;j<b;j++)for(let i=0;i<a;i++){if(!has(i,j,k))continue;
+  for(let q=0;q<n;q++){const i=q%a,j=Math.floor(q/a)%b,k=Math.floor(q/ab);
     FACES.forEach(f=>{if(has(i+f.n[0],j+f.n[1],k+f.n[2])||!T.vis(f.n))return;const P2=f.q.map(u=>T.P([i+u[0],j+u[1],k+u[2]])),rn=T.rn(f.n);
-      fs.push({pts:P2,dep:P2.reduce((s,p)=>s+p[2],0)/4,col:LC[(L?k:j)%LC.length],lit:Math.min(1,Math.max(0,-rn[1]*0.5+rn[2]*0.5+0.35))})})}
+      fs.push({pts:P2,dep:P2.reduce((s,p)=>s+p[2],0)/4,col:LC[(byRow?j:k)%LC.length],lit:Math.min(1,Math.max(0,-rn[1]*0.5+rn[2]*0.5+0.35))})})}
   fs.sort((x,y)=>y.dep-x.dep).forEach(f=>g+=`<polygon points="${pts(f.pts)}" fill="${shade(f.col,f.lit)}" stroke="#1E293B" stroke-width="1" stroke-linejoin="round"/>`);
   G.edges.filter(e=>!e.hid).forEach(e=>g+=line(e,"#1E293B",2,""));
-  return g+dimLabels(T,G,D," sm")}
-function render4(focus){V4.draw();const {a,b,c,phase,rows,layers}=s4;
-  $("t4").innerHTML=phase==="row"?`<b>1-qadam.</b> Asosni to'ldiring: har bir bosishda ${a} ta kubchadan iborat <b>qator</b> qo'yiladi (${rows}/${b} qator).`
+  return g+dimLabels(T,G,D," "+U)}
+function render4(focus){V4.draw();const {a,b,c,phase,n}=s4,ab=a*b,V=ab*c;
+  $("t4").innerHTML=phase==="row"?`<b>1-qadam.</b> Asosni to'ldiring: kubchalarni <b>bittalab</b> yoki <b>qatorlab</b> (har qatorda ${a} ta) qo'ying. Asosda hozir: ${n} ta.`
     :phase==="base"?`<b>2-qadam.</b> Asos to'ldi. Unda nechta kubcha bor?`
-    :phase==="layer"?`<b>3-qadam.</b> Endi qatlamlarni ustma-ust qo'ying (${layers}/${c} qatlam). Har bir qatlam — asosdagidek ${a*b} ta kubcha.`
-    :phase==="total"?`<b>4-qadam.</b> Idish to'ldi. Jami nechta kubcha?`:`Hajm — jism ichiga sig'adigan birlik kubchalar soni. Bitta kubcha — 1 sm³.`;
-  $("ad4").textContent=phase==="row"?"+ 1 qator":"+ 1 qatlam";$("ad4").hidden=!(phase==="row"||phase==="layer");$("al4").hidden=!(phase==="row"||phase==="layer");
+    :phase==="layer"?`<b>3-qadam.</b> Idish to'lguncha kubchalarni qo'ying — bittalab yoki qatlamlab (har bir qatlam — ${ab} ta). Hozir: ${n} ta kubcha, ${Math.floor(n/ab)} ta to'liq qatlam.`
+    :phase==="total"?`<b>4-qadam.</b> Idish to'la to'ldi. Jami nechta kubcha?`:`Hajm — jism ichiga sig'adigan birlik kubchalar soni. Bitta kubcha — 1 ${U}³.`;
+  const act=phase==="row"||phase==="layer";
+  $("on4").hidden=$("ad4").hidden=$("al4").hidden=!act;$("ad4").textContent=phase==="row"?"+ 1 qator":"+ 1 qatlam";
   let w="";
   if(phase==="base")w=`<div class="ans">Asosda: <input id="bs4" inputmode="numeric" aria-label="Asosdagi kubchalar" placeholder="?"> ta kubcha<button class="btn" id="ck4">Tekshirish</button><span class="alab">${b} ta qator, har birida ${a} ta kubcha.</span></div>`;
-  if(phase==="total")w=`<div class="ans">Jami: <input id="tt4" class="wide" inputmode="numeric" aria-label="Jami kubchalar" placeholder="?"> ta kubcha<button class="btn" id="ck4">Tekshirish</button><span class="alab">${c} ta qatlam, har birida ${a*b} ta kubcha.</span></div>`;
+  if(phase==="total")w=`<div class="ans">Jami: <input id="tt4" class="wide" inputmode="numeric" aria-label="Jami kubchalar" placeholder="?"> ta kubcha<button class="btn" id="ck4">Tekshirish</button><span class="alab">${c} ta qatlam, har birida ${ab} ta kubcha.</span></div>`;
   $("w4").innerHTML=w;$("un4").disabled=$("cl4").disabled=!s4.h.length;
   $("eq4").hidden=phase!=="done";
-  if(phase==="done")$("eq4").innerHTML=`<span class="eqlab">Hajm:</span><div class="eqline">${KUB?`V = a · a · a = a³ = ${a}³ = <b class="cg">${a*a*a} sm³</b>`:`V = a · b · c = ${a} · ${b} · ${c} = <b class="cg">${a*b*c} sm³</b>`}</div><span class="eqlab">Asosdagi kubchalar (${KUB?"a · a":"a · b"} = ${a*b}) × qatlamlar soni (${c}).</span>`;
+  if(phase==="done")$("eq4").innerHTML=`<span class="eqlab">Hajm:</span><div class="eqline">${KUB?`V = a · a · a = a³ = ${a}³ = <b class="cg">${V} ${U}³</b>`:`V = a · b · c = ${a} · ${b} · ${c} = <b class="cg">${V} ${U}³</b>`}</div><span class="eqlab">Asosdagi kubchalar (${KUB?"a · a":"a · b"} = ${ab}) × qatlamlar soni (${c}).</span>`;
   drawLog("pr4",s4.log);if(focus){const f=$("bs4")||$("tt4");if(f)f.focus({preventScroll:true})}}
-const snap4=()=>({rows:s4.rows,layers:s4.layers,phase:s4.phase,L:s4.log.length,m:$("m4").innerHTML,mc:$("m4").className});
-function reset4(){Object.assign(s4,{rows:0,layers:0,phase:"row",h:[],log:[]});setMsg("m4","«+ 1 qator» tugmasini bosing.");render4()}
-function add4(all){const {a,b,c}=s4;if(s4.phase==="row"){s4.h.push(snap4());s4.rows=all?b:s4.rows+1;
-    if(s4.rows>=b){s4.phase="base";s4.log.push(`Asos: ${b} ta qator, har birida ${a} ta kubcha.`);setMsg("m4",`Asos to'ldi: ${b} ta qator. Nechta kubcha bor?`,"good");render4(true);return}
-    setMsg("m4",`${s4.rows}-qator qo'yildi: hozircha ${s4.rows*a} ta kubcha. Yana ${b-s4.rows} ta qator.`);render4();return}
-  if(s4.phase==="layer"){s4.h.push(snap4());s4.layers=all?c:s4.layers+1;
-    if(s4.layers>=c){s4.phase="total";s4.log.push(`${c} ta qatlam qo'yildi.`);setMsg("m4",`Idish to'ldi: ${c} ta qatlam. Jami nechta kubcha?`,"good");render4(true);return}
-    setMsg("m4",`${s4.layers}-qatlam: hozircha ${s4.layers*a*b} ta kubcha. Yana ${c-s4.layers} ta qatlam.`);render4()}}
+const snap4=()=>({n:s4.n,phase:s4.phase,L:s4.log.length,m:$("m4").innerHTML,mc:$("m4").className});
+function reset4(){Object.assign(s4,{n:0,phase:"row",h:[],log:[]});setMsg("m4","«+ 1 kubcha» yoki «+ 1 qator» tugmasini bosing.");render4()}
+/* how: 1 — bitta kubcha, "grp" — qator/qatlam, "all" — birdan to'ldirish */
+function add4(how){const {a,b,c}=s4,ab=a*b,V=ab*c;
+  if(s4.phase==="row"){s4.h.push(snap4());s4.n=how==="all"?ab:how==="grp"?Math.min(ab,(Math.floor(s4.n/a)+1)*a):s4.n+1;
+    if(s4.n>=ab){s4.phase="base";s4.log.push(`Asos to'ldi: ${b} ta qator, har birida ${a} ta kubcha.`);setMsg("m4",`Asos to'ldi: ${b} ta qator. Nechta kubcha bor?`,"good");render4(true);return}
+    const r=Math.floor(s4.n/a),o=s4.n%a;setMsg("m4",`Asosda ${s4.n} ta kubcha${r?`: ${r} ta to'liq qator${o?` va yana ${o} ta`:""}`:""}. To'lishiga yana ${ab-s4.n} ta.`);render4();return}
+  if(s4.phase==="layer"){s4.h.push(snap4());s4.n=how==="all"?V:how==="grp"?Math.min(V,(Math.floor(s4.n/ab)+1)*ab):s4.n+1;
+    if(s4.n>=V){s4.phase="total";s4.log.push(`Idish to'la to'ldi: ${c} ta qatlam.`);setMsg("m4",`Idish to'la to'ldi: ${c} ta qatlam. Jami nechta kubcha?`,"good");render4(true);return}
+    const L=Math.floor(s4.n/ab),o=s4.n%ab;setMsg("m4",`Hozir ${s4.n} ta kubcha: ${L} ta to'liq qatlam${o?` va yana ${o} ta`:""}. To'lishiga yana ${V-s4.n} ta.`);render4()}}
 function check4(){const {a,b,c}=s4,id=s4.phase==="base"?"bs4":"tt4",v=$(id).value.trim();
   if(v===""){setMsg("m4","Avval javobni yozing.","bad");return}if(!isNum(v)){setMsg("m4","Katakka faqat son yozing.","bad");return}const x=+v;
-  if(s4.phase==="base"){if(x===a*b){s4.h.push(snap4());s4.phase="layer";s4.layers=1;s4.log.push(`Asosda ${a} · ${b} = ${a*b} ta kubcha — bu 1-qatlam.`);
-      setMsg("m4",`To'g'ri! ${a} · ${b} = ${a*b} ta. Bu — birinchi qatlam. Endi «+ 1 qatlam» bilan qatlamlarni qo'shing.`,"good");render4();return}
+  if(s4.phase==="base"){if(x===a*b){s4.h.push(snap4());s4.phase="layer";s4.log.push(`Asosda ${a} · ${b} = ${a*b} ta kubcha — bu 1-qatlam.`);
+      setMsg("m4",`To'g'ri! ${a} · ${b} = ${a*b} ta. Bu — birinchi qatlam. Endi idish to'lguncha kubchalarni qo'ying.`,"good");render4();return}
     setMsg("m4",x===a+b?`Qo'shmang — ko'paytiring: ${b} ta qator, har birida ${a} tadan: ${a} · ${b}.`:`Sanang: ${b} ta qator, har birida ${a} ta → ${a} · ${b}.`,"bad");return}
-  if(x===a*b*c){s4.h.push(snap4());s4.phase="done";s4.log.push(`Jami: ${a*b} · ${c} = ${a*b*c} ta kubcha = ${a*b*c} sm³.`);
-    setMsg("m4",`To'g'ri! ${a*b} · ${c} = ${a*b*c} ta kubcha. Har biri 1 sm³ — demak hajm <b>${a*b*c} sm³</b>.`,"good");render4();return}
+  if(x===a*b*c){s4.h.push(snap4());s4.phase="done";s4.log.push(`Jami: ${a*b} · ${c} = ${a*b*c} ta kubcha = ${a*b*c} ${U}³.`);
+    setMsg("m4",`To'g'ri! ${a*b} · ${c} = ${a*b*c} ta kubcha. Har biri 1 ${U}³ — demak hajm <b>${a*b*c} ${U}³</b>.`,"good");render4();return}
   setMsg("m4",x===a*b?"Bu faqat bitta qatlam. Qatlamlar soniga ko'paytiring.":x===a+b+c?"Qo'shmang — ko'paytiring: asosdagi kubchalar × qatlamlar soni.":`Hisoblang: ${a*b} · ${c}.`,"bad")}
 
 /* ================= 5. Menzurkadan suv quyish ================= */
@@ -634,18 +642,24 @@ function draw5(T){const {a,b,c}=s5,D=[a,b,c],G=boxGeo(T,D);let g=axes(T,D);
   G.faces.filter(f=>f.vis).sort((x,y)=>y.dep-x.dep).forEach(f=>g+=`<polygon points="${pts(f.pts)}" fill="#F0F9FF" fill-opacity=".14" stroke="#0EA5E9" stroke-width="1.2"/>`);
   G.edges.forEach(e=>g+=line(e,e.hid?"#7DD3FC":"#0369A1",e.hid?1.4:2.4,e.hid?"5 4":""));
   return g+dimLabels(T,G,D," sm")}
-function drawMz(){const y=mzY(s5.mzv);let g=`<path d="M30 ${MY1-12} L30 ${MY0+10} Q30 ${MY0+22} 42 ${MY0+22} L98 ${MY0+22} Q110 ${MY0+22} 110 ${MY0+10} L110 ${MY1-12}" fill="#F8FAFC" stroke="#64748B" stroke-width="2.5"/><path d="M30 ${MY1-12} L20 ${MY1-22}" stroke="#64748B" stroke-width="2.5"/>`;
-  if(s5.mzv>0.5)g+=`<rect x="32" y="${y}" width="76" height="${MY0+20-y}" fill="#60A5FA" opacity=".75"/><rect x="32" y="${y}" width="76" height="4" fill="#93C5FD"/>`;
-  for(let m=0;m<=MZ;m+=10){const yy=mzY(m),big=m%50===0;g+=`<line x1="${big?82:94}" y1="${yy}" x2="110" y2="${yy}" stroke="#334155" stroke-width="${big?2:1.2}"/>`;if(big&&m)g+=`<text x="78" y="${yy+5}" text-anchor="end" font-size="13" font-weight="800" fill="#334155">${m}</text>`}
-  g+=`<text x="70" y="${MY0+42}" text-anchor="middle" font-size="16" font-weight="800" fill="#1D4ED8">${Math.round(s5.mzv)} ml</text><rect class="hitm" x="20" y="${MY1-15}" width="100" height="${MY0-MY1+40}" fill="transparent"/>`;
+/* menzurka: o'rtada idish; chapda — sm³ shkalasi, o'ngda — ml/l (tanlangan) va dm³ shkalalari */
+function drawMz(){const y=mzY(s5.mzv),X0=70,X1=150;
+  let g=`<path d="M${X0} ${MY1-12} L${X0} ${MY0+10} Q${X0} ${MY0+22} ${X0+12} ${MY0+22} L${X1-12} ${MY0+22} Q${X1} ${MY0+22} ${X1} ${MY0+10} L${X1} ${MY1-12}" fill="#F8FAFC" stroke="#64748B" stroke-width="2.5"/><path d="M${X0} ${MY1-12} L${X0-10} ${MY1-22}" stroke="#64748B" stroke-width="2.5"/>`;
+  if(s5.mzv>0.5)g+=`<rect x="${X0+2}" y="${y}" width="${X1-X0-4}" height="${MY0+20-y}" fill="#60A5FA" opacity=".75"/><rect x="${X0+2}" y="${y}" width="${X1-X0-4}" height="4" fill="#93C5FD"/>`;
+  const T=(x,yy,t,anc,col)=>`<text x="${x}" y="${yy}" text-anchor="${anc}" font-size="12.5" font-weight="800" fill="${col}">${t}</text>`;
+  for(let m=0;m<=MZ;m+=10){const yy=mzY(m),big=m%50===0;
+    g+=`<line x1="${X0}" y1="${yy}" x2="${X0+(big?22:10)}" y2="${yy}" stroke="#7C3AED" stroke-width="${big?2:1.1}"/><line x1="${X1-(big?22:10)}" y1="${yy}" x2="${X1}" y2="${yy}" stroke="#334155" stroke-width="${big?2:1.1}"/>`;
+    if(big&&m)g+=T(X0-6,yy+4,m,"end","#7C3AED")+T(X1+6,yy+4,vnum(m),"start","#334155")+T(226,yy+4,lit(m),"end","#0F766E")}
+  g+=T(X0-16,MY1-16,"sm³","end","#7C3AED")+T(X1+6,MY1-16,VU,"start","#334155")+T(226,MY1-16,"dm³","end","#0F766E");
+  g+=`<text x="${(X0+X1)/2}" y="${MY0+42}" text-anchor="middle" font-size="15" font-weight="800" fill="#1D4ED8">${vf(Math.round(s5.mzv))}</text><rect class="hitm" x="${X0-10}" y="${MY1-15}" width="${X1-X0+20}" height="${MY0-MY1+40}" fill="transparent"/>`;
   $("mz5").innerHTML=g}
 function render5(focus){V5.draw();drawMz();const {a,b,c}=s5,V=a*b*c,h=s5.water/(a*b);
-  $("t5").innerHTML=`Menzurka shkalasini bosib, unga suv oling, keyin «Quyish» tugmasini bosing. <b>1 sm³ = 1 ml</b>. Idish to'lguncha necha ml suv ketadi?`;
-  $("in5").innerHTML=`<span class="fact">Quyildi: <b>${s5.water}</b> ml</span><span class="fact">Suv sathi: <b>${fmt(h)}</b> sm</span><span class="fact">Quyishlar: <b>${s5.pours}</b></span>`;
-  $("w5").innerHTML=s5.pred?"":`<div class="ans">Idish hajmi: V = <input id="pv5" class="wide" inputmode="numeric" aria-label="Idish hajmi" placeholder="?"><span class="unit">sm³</span><button class="btn" id="ck5">Tekshirish</button><span class="alab">Avval hisoblang: idishga necha ml suv sig'adi? (${KUB?"V = a · a · a":"V = a · b · c"})</span></div>`;
+  $("t5").innerHTML=`Menzurka shkalasini bosib, unga suv oling, keyin «Quyish» tugmasini bosing. <b>1 sm³ = 1 ml</b>, <b>1 dm³ = 1 l = 1000 ml</b>. Idish to'lguncha necha ${VU==="ml"?"ml":"litr"} suv ketadi?`;$("fu5").textContent=`Menzurkani to'ldirish (${vf(MZ)})`;
+  $("in5").innerHTML=`<span class="fact">Quyildi: <b>${vnum(s5.water)}</b> ${VU}</span><span class="fact">= <b>${s5.water}</b> sm³</span><span class="fact">= <b>${lit(s5.water)}</b> dm³</span><span class="fact">Suv sathi: <b>${fmt(h)}</b> sm</span><span class="fact">Quyishlar: <b>${s5.pours}</b></span>`;
+  $("w5").innerHTML=s5.pred?"":`<div class="ans">Idish hajmi: V = <input id="pv5" class="wide" inputmode="numeric" aria-label="Idish hajmi" placeholder="?"><span class="unit">sm³</span><button class="btn" id="ck5">Tekshirish</button><span class="alab">Avval hisoblang: idishga necha ${VU==="ml"?"ml":"litr"} suv sig'adi? (${KUB?"V = a · a · a":"V = a · b · c"})</span></div>`;
   $("po5").disabled=!!s5.anim;$("em5").disabled=!s5.water||!!s5.anim;
   $("eq5").hidden=s5.water<V;
-  if(s5.water>=V)$("eq5").innerHTML=`<span class="eqlab">Idish to'ldi:</span><div class="eqline">V = ${KUB?`${a}³`:`${a} · ${b} · ${c}`} = ${V} sm³ = ${V} ml = <b class="cg">${lit(V)} l</b></div><span class="eqlab">1 l = 1000 ml = 1000 sm³ — qirrasi 10 sm bo'lgan kub hajmi.${V===1000?" Bu idish aynan 1 litr!":""}</span>`;
+  if(s5.water>=V)$("eq5").innerHTML=`<span class="eqlab">Idish to'ldi:</span><div class="eqline">V = ${KUB?`${a}³`:`${a} · ${b} · ${c}`} = ${V} sm³ = ${lit(V)} dm³ = ${V} ml = <b class="cg">${lit(V)} l</b></div><span class="eqlab">1 sm³ = 1 ml, 1 dm³ = 1 l = 1000 sm³ — qirrasi 10 sm (1 dm) bo'lgan kub hajmi.${V===1000?" Bu idish aynan 1 litr!":""}</span>`;
   drawLog("pr5",s5.log);if(focus&&$("pv5"))$("pv5").focus({preventScroll:true})}
 function reset5(){if(s5.anim)cancelAnimationFrame(s5.anim);Object.assign(s5,{menz:0,water:0,lev:0,mzv:0,pours:0,anim:null,log:[],pred:false});setMsg("m5","Avval idish hajmini hisoblang yoki menzurkaga suv olib quyib ko'ring.");render5()}
 function anim5(l1,m1,done){const l0=s5.lev,m0=s5.mzv,st=performance.now();
@@ -656,18 +670,18 @@ function pour5(){const {a,b,c}=s5,V=a*b*c;if(s5.anim)return;
   if(s5.water>=V){setMsg("m5","Idish to'la! Yana quyib bo'lmaydi — «Idishni bo'shatish» tugmasini bosing.","bad");return}
   if(!s5.menz){setMsg("m5","Menzurka bo'sh. Avval shkalani bosib, menzurkaga suv oling.","bad");return}
   const amt=Math.min(s5.menz,V-s5.water);s5.water+=amt;s5.menz-=amt;s5.pours++;const h=s5.water/(a*b),full=s5.water>=V;
-  s5.log.push(`${s5.pours}-quyish: +${amt} ml → idishda ${s5.water} ml.`);
+  s5.log.push(`${s5.pours}-quyish: +${vf(amt)} → idishda ${vf(s5.water)}.`);
   anim5(Math.min(c,h),s5.menz,()=>{
-    if(full){s5.log.push(`Idish to'ldi: ${V} ml = ${V} sm³ = ${lit(V)} l.`);setMsg("m5",`Idish to'ldi! Unga ${V} ml suv sig'di — bu ${V} sm³${s5.menz?`. Menzurkada ${s5.menz} ml ortib qoldi`:""}.`,"good")}
-    else setMsg("m5",`+${amt} ml quyildi. Idishda ${s5.water} ml = ${s5.water} sm³. Suv sathi: ${s5.water} : (${a} · ${b}) = ${fmt(h)} sm. Yana ${V-s5.water} ml kerak.`);
+    if(full){s5.log.push(`Idish to'ldi: ${V} sm³ = ${lit(V)} dm³ = ${V} ml = ${lit(V)} l.`);setMsg("m5",`Idish to'ldi! Unga ${vf(V)} suv sig'di — bu ${V} sm³ = ${lit(V)} dm³${s5.menz?`. Menzurkada ${vf(s5.menz)} ortib qoldi`:""}.`,"good")}
+    else setMsg("m5",`+${vf(amt)} quyildi. Idishda ${vf(s5.water)} = ${s5.water} sm³ = ${lit(s5.water)} dm³. Suv sathi: ${s5.water} : (${a} · ${b}) = ${fmt(h)} sm. Yana ${vf(V-s5.water)} kerak.`);
     render5()})}
 function mzClick(e){if(s5.anim)return;const svg=$("mz5"),p=svg.createSVGPoint();p.x=e.clientX;p.y=e.clientY;const q=p.matrixTransform(svg.getScreenCTM().inverse());
   const ml=Math.max(0,Math.min(MZ,Math.round((MY0-q.y)/(MY0-MY1)*MZ/10)*10));s5.menz=ml;s5.mzv=ml;drawMz();
-  setMsg("m5",ml?`Menzurkada ${ml} ml suv. Endi «Quyish ▶» tugmasini bosing.`:"Menzurka bo'shatildi.")}
+  setMsg("m5",ml?`Menzurkada ${vf(ml)} suv. Endi «Quyish ▶» tugmasini bosing.`:"Menzurka bo'shatildi.")}
 function check5(){const {a,b,c}=s5,V=a*b*c,v=$("pv5").value.trim();
   if(v===""){setMsg("m5","Avval javobni yozing.","bad");return}if(!isNum(v)){setMsg("m5","Katakka faqat son yozing.","bad");return}const x=+v;
-  if(x===V){s5.pred=true;s5.log.push(`Hisob: V = ${KUB?`${a}³`:`${a} · ${b} · ${c}`} = ${V} sm³ → ${V} ml suv sig'adi.`);
-    setMsg("m5",`To'g'ri! V = ${V} sm³, demak idishga <b>${V} ml</b> suv sig'adi (1 sm³ = 1 ml). Endi menzurka bilan tekshirib ko'ring.`,"good");render5();return}
+  if(x===V){s5.pred=true;s5.log.push(`Hisob: V = ${KUB?`${a}³`:`${a} · ${b} · ${c}`} = ${V} sm³ → ${vf(V)} suv sig'adi.`);
+    setMsg("m5",`To'g'ri! V = ${V} sm³, demak idishga <b>${V} ml${VU==="l"?` = ${lit(V)} l`:""}</b> suv sig'adi (1 sm³ = 1 ml). Endi menzurka bilan tekshirib ko'ring.`,"good");render5();return}
   setMsg("m5",x===a+b+c?"Qo'shmang — ko'paytiring.":x===(KUB?6*a*a:2*(a*b+a*c+b*c))?"Bu sirt yuzi. Bizga hajm kerak.":x===a*b?"Bu faqat asos yuzi (bitta qatlam). Balandlikka ham ko'paytiring.":`Hisoblang: ${KUB?`${a} · ${a} · ${a}`:`${a} · ${b} · ${c}`}.`,"bad")}
 
 /* ================= tablar ================= */
@@ -756,7 +770,15 @@ V2=make3D("v2",{dims:()=>[s2.a,s2.b,s2.c],draw:draw2,click:click2});
 V3=make3D("v3",{dims:()=>[s3.a,s3.b,s3.c],draw:draw3,click:click3,extra:D=>s3.t>0.01?foldQ(D,s3.t).flat():null,tilt:()=>s3.t*50});
 V4=make3D("v4",{dims:()=>[s4.a,s4.b,s4.c],draw:draw4});
 V5=make3D("v5",{dims:()=>[s5.a,s5.b,s5.c],draw:draw5});
-D1=dimsUI("dm1",s1,[1,9],"m1",reset1);D2=dimsUI("dm2",s2,[1,9],"m2",reset2);D3=dimsUI("dm3",s3,[1,8],"m3",reset3);D4=dimsUI("dm4",s4,[1,6],"m4",reset4);D5=dimsUI("dm5",s5,[2,12],"m5",reset5);
+D1=dimsUI("dm1",s1,[1,9],"m1",reset1);D2=dimsUI("dm2",s2,[1,9],"m2",reset2);D3=dimsUI("dm3",s3,[1,8],"m3",reset3);D4=dimsUI("dm4",s4,[1,6],"m4",reset4);D5=dimsUI("dm5",s5,[2,12],"m5",reset5,true);
+/* uzunlik birligi: barcha bo'limlarda bir xil; shakl va sonlar o'zgarmaydi */
+const MSGU={mod:"m1",qir:"m2",yuz:"m3",haj:"m4"};
+document.addEventListener("click",e=>{const b=e.target.closest("[data-u]");if(!b)return;U=b.dataset.u;
+  document.querySelectorAll("[data-u]").forEach(x=>x.classList.toggle("sel",x.dataset.u===U));
+  render1();render2();render3();render4();const tab=document.querySelector(".tab[aria-selected=true]").dataset.tab;
+  if(MSGU[tab])setMsg(MSGU[tab],`Birlik: <b>${U}</b>. Shakl o'zgarmadi — sonlar ham o'sha, faqat o'lchov birligi boshqa: uzunlik ${U}, yuz ${U}², hajm ${U}³.`)});
+$("vu5").addEventListener("click",e=>{const b=e.target.closest("[data-vu]");if(!b)return;VU=b.dataset.vu;$("vu5").querySelectorAll("[data-vu]").forEach(x=>x.classList.toggle("sel",x.dataset.vu===VU));
+  render5();setMsg("m5",VU==="l"?`Hajm endi litrda: 1 l = 1000 ml. Masalan, ${s5.water||250} ml = ${lit(s5.water||250)} l.`:`Hajm endi millilitrda: 1 ml = 1 sm³.`)});
 $("sh1").onclick=()=>{s1.paint={ab:1,ac:1,bc:1};setMsg("m1",KUB?"Kubning 6 yog'i — 3 juft qarama-qarshi teng kvadrat.":"3 juft teng yoq: ustki va ostki (a × b), old va orqa (a × c), chap va o'ng (b × c).","good");render1()};
 $("cl1").onclick=reset1;
 $("sh2").onclick=()=>{if(s2.phase!=="click")return;s2.h.push(snap2());s2.on=Array(12).fill(true);after2();render2(true)};
@@ -768,14 +790,14 @@ $("fo3").onclick=fold3;$("cl3").onclick=reset3;
 $("sh3").onclick=()=>{if(s3.phase!=="click")return;s3.on=Array(6).fill(true);s3.phase="net";s3.log.push("Barcha yoqlar ko'rsatildi.");setMsg("m3","Barcha 6 yoq bo'yaldi. Endi modelni bosing — u yoyilmaga ochiladi.","good");render3()};
 $("w3").addEventListener("click",e=>{if(e.target.closest("#ck3"))check3()});
 $("w3").addEventListener("keydown",e=>{if(e.key==="Enter"&&$("ck3"))check3()});
-$("ad4").onclick=()=>add4(false);$("al4").onclick=()=>add4(true);
-$("un4").onclick=()=>{const h=s4.h.pop();if(!h)return;Object.assign(s4,{rows:h.rows,layers:h.layers,phase:h.phase});s4.log.length=h.L;render4();$("m4").innerHTML=h.m;$("m4").className=h.mc};
+$("on4").onclick=()=>add4(1);$("ad4").onclick=()=>add4("grp");$("al4").onclick=()=>add4("all");
+$("un4").onclick=()=>{const h=s4.h.pop();if(!h)return;Object.assign(s4,{n:h.n,phase:h.phase});s4.log.length=h.L;render4();$("m4").innerHTML=h.m;$("m4").className=h.mc};
 $("cl4").onclick=reset4;
 $("w4").addEventListener("click",e=>{if(e.target.closest("#ck4"))check4()});
 $("w4").addEventListener("keydown",e=>{if(e.key==="Enter"&&$("ck4"))check4()});
 $("mz5").addEventListener("click",mzClick);
 $("po5").onclick=pour5;
-$("fu5").onclick=()=>{if(s5.anim)return;s5.menz=MZ;s5.mzv=MZ;drawMz();setMsg("m5",`Menzurkada ${MZ} ml suv. Endi «Quyish ▶» tugmasini bosing.`)};
+$("fu5").onclick=()=>{if(s5.anim)return;s5.menz=MZ;s5.mzv=MZ;drawMz();setMsg("m5",`Menzurkada ${vf(MZ)} suv. Endi «Quyish ▶» tugmasini bosing.`)};
 $("em5").onclick=()=>{if(s5.anim)return;s5.water=0;s5.lev=0;s5.pours=0;s5.log.push("Idish bo'shatildi.");setMsg("m5","Idish bo'shatildi.");render5()};
 $("lt5").onclick=()=>{s5.a=s5.b=s5.c=10;D5.sync();reset5();setMsg("m5","Qirrasi 10 sm bo'lgan kub: V = 10 · 10 · 10 = 1000 sm³. Unga necha ml suv sig'adi? Menzurka bilan tekshiring.")};
 $("w5").addEventListener("click",e=>{if(e.target.closest("#ck5"))check5()});
