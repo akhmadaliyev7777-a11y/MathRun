@@ -386,7 +386,9 @@ function renderActiveSubjectTopics(grade) {
     );
   }).join("");
 
-  container.innerHTML = '<ol class="topic-list">' + rowsHtml + '</ol>' +
+  // nuqtalar izohi — ro'yxat tepasida
+  container.innerHTML = '<p class="dot-legend"><span><i class="review-dot blue"></i>Ma\'ruza yuklangan</span><span><i class="review-dot green"></i>Simulyator tayyor</span><span><i class="review-dot yellow"></i>Tuzatildi, tasdiq kutilmoqda</span><span><i class="review-dot"></i>Tekshirish kerak</span></p>' +
+    '<ol class="topic-list">' + rowsHtml + '</ol>' +
     '<p class="topic-list-foot">' + subject.topics.length + ' ta mavzu</p>';
 }
 
@@ -465,8 +467,13 @@ function renderTopicPage() {
 // qizil nuqta — simulyatorni tekshirish kerak: hali tekshirilmagan yoki kamchiligi bor (data.js da review: true; foydalanuvchi «tayyor» desa o'chiriladi)
 function reviewDot(topic) {
   // review: true — qizil (hali tekshirilmagan / kamchiligi bor); review: "sariq" — o'quvchi sifatida sinab, tuzatildi, foydalanuvchi tasdig'i kutilmoqda
-  if (topic.review === "sariq") return '<span class="review-dot yellow" title="Sinab ko\'rildi va tuzatildi — tasdiqlash kutilmoqda" aria-label="tasdiqlash kutilmoqda"></span>';
-  return topic.review ? '<span class="review-dot" title="Tekshirish kerak — kamchiligi bor yoki hali tekshirilmagan" aria-label="tekshirish kerak"></span>' : "";
+  // yashil — yangi simulyator tayyor (tekshirilgan, review yo'q); ko'k — ma'ruza (darslikdan) yuklangan
+  let dot = "";
+  if (topic.review === "sariq") dot = '<span class="review-dot yellow" title="Sinab ko\'rildi va tuzatildi — tasdiqlash kutilmoqda" aria-label="tasdiqlash kutilmoqda"></span>';
+  else if (topic.review) dot = '<span class="review-dot" title="Tekshirish kerak — kamchiligi bor yoki hali tekshirilmagan" aria-label="tekshirish kerak"></span>';
+  else if (topic.newSim && topic.interactive) dot = '<span class="review-dot green" title="Simulyator tayyor" aria-label="simulyator tayyor"></span>';
+  if (topicHasLecture(topic)) dot += '<span class="review-dot blue" title="Ma\'ruza yuklangan" aria-label="ma\'ruza yuklangan"></span>';
+  return dot;
 }
 
 function renderGallery() {

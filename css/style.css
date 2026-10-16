@@ -1419,3 +1419,8 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 /* qizil nuqta — hali tekshirilmagan yangi simulyator */
 .review-dot { display: inline-block; width: 10px; height: 10px; margin-left: 8px; border-radius: 50%; background: #E11D48; box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.18); vertical-align: middle; }
 .review-dot.yellow { background: #F59E0B; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.22); }
+.review-dot.green { background: #16A34A; box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2); }
+.review-dot.blue { background: #2563EB; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); }
+.dot-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.85rem; color: var(--muted); margin: 0 0 12px; }
+.dot-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.dot-legend .review-dot { margin-left: 3px; }
