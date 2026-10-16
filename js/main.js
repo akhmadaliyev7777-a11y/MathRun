@@ -423,7 +423,9 @@ function renderTopicPage() {
   if (pageEl) pageEl.textContent = topic.page || "";
 
   if (topic.lecture && topic.lecture.embedUrl) {
-    lectureEl.innerHTML = '<iframe class="embed-frame" src="' + topic.lecture.embedUrl + '" allowfullscreen></iframe>';
+    // maruza/ dagi kitob sahifalari ham LESSON_VER bilan yangilanadi
+    const mv = typeof LESSON_VER !== "undefined" && topic.lecture.embedUrl.indexOf("maruza/") === 0 ? "?v=" + LESSON_VER : "";
+    lectureEl.innerHTML = '<iframe class="embed-frame" src="' + topic.lecture.embedUrl + mv + '" allowfullscreen></iframe>';
   } else if (topic.sections && topic.sections.length > 0) {
     lectureEl.innerHTML = topic.sections.map(function (s, i) {
       return (

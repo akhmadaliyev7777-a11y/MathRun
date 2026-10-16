@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oddiy kasrni o'nli kasrga aylantirish — ma'ruza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Darslik sahifasi uslubida ma'ruza: 5-sinf Matematika 1-qism (2024), 52–55-betlar.
+   Matn va misollar kitobdan aynan olingan; rasmlar kitobdan kesib olingan (maruza/img/). */
+:root{
+  --ink:#1d2433; --muted:#5d6678; --line:#d9dee8;
+  --green:#6cc24a; --green-d:#3f9a22;
+  --blue:#2f8fd8; --blue-s:#e3f3fc; --pill-blue:#cfe8f8;
+  --purple:#b48ad0; --purple-s:#e6d6f1;
+  --orange:#f08a1c; --pink:#f6c9c9; --pink-t:#e2453c;
+  --ok:#2a8a4a; --ok-s:#e3f5e8;
+}
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{margin:0;background:#fff;color:var(--ink);font:17px/1.55 "Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 16px 28px}
+.wrap{max-width:860px;margin:0 auto}
+.src{font-size:13px;color:var(--muted);margin:12px 0 10px;text-align:right}
+h1{margin:0 -16px 22px;background:var(--green);color:#fff;text-align:center;font-weight:800;font-size:clamp(22px,5vw,32px);line-height:1.2;padding:18px 16px;border-radius:0 0 4px 4px}
+@media (min-width:700px){h1{margin:0 0 26px;border-radius:6px}}
+/* bo'lim belgisi (kitobdagi rangli yorliq + rasm) */
+.tag{display:inline-flex;align-items:center;gap:0;margin:26px 0 14px;font-weight:800;font-size:20px}
+.tag span{padding:5px 16px 5px 18px;border-radius:999px 0 0 999px}
+.tag img{width:58px;height:58px;border-radius:50%;object-fit:cover;margin-left:-8px;background:#fff}
+.tag.blue span{background:var(--pill-blue);color:var(--blue)}
+.tag.orange span{background:#fde0c9;color:var(--orange)}
+.tag.purple span{background:var(--purple-s);color:#7b3fa8}
+.tag.pink span{background:var(--pink);color:var(--pink-t)}
+.tag.green span{background:#dbf0d2;color:var(--green-d)}
+.box-q{border:3px solid #b7dd3c;border-radius:16px;padding:6px 18px 18px;margin-top:28px;position:relative}
+.box-q > .lbl{position:absolute;top:-17px;left:-3px;background:var(--green);color:#fff;font-weight:800;font-size:15px;padding:5px 16px;border-radius:10px 10px 0 0}
+/* raqamli topshiriq */
+.task{display:grid;grid-template-columns:30px 1fr;gap:10px;margin:18px 0}
+.num{width:28px;height:28px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;display:grid;place-items:center;font-size:16px;margin-top:1px}
+.task p{margin:0 0 8px}
+/* kasr */
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.1;margin:0 2px;font-size:.92em}
+.fr>span{padding:0 2px}
+.fr>span:first-child{border-bottom:1.5px solid currentColor}
+.mix{white-space:nowrap}
+/* usul qutilari */
+.usullar{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:6px 0 10px}
+.usul{background:var(--blue-s);border-radius:4px;padding:10px 14px 14px}
+.usul b.u{display:inline-block;background:var(--purple);color:#fff;padding:3px 14px;border-radius:4px;margin-bottom:8px;font-weight:800}
+.row{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px 22px}
+.eq{display:grid;grid-template-columns:auto auto;align-items:center;gap:6px 6px;justify-content:start}
+.eq .r{grid-column:2}
+/* kitobdagi qahramonlar va ularning gaplari */
+.say{display:flex;align-items:flex-end;gap:4px;max-width:360px}
+.say img{width:96px;height:auto;flex:0 0 auto}
+.bubble{border:2px solid #57b86a;border-radius:16px;padding:10px 14px;text-align:center;font-size:15.5px;background:#fff;position:relative}
+.bubble b{color:var(--green-d)}
+.side{display:flex;flex-direction:column;gap:14px}
+@media (min-width:760px){.two{display:grid;grid-template-columns:1fr 330px;gap:20px;align-items:start}}
+/* ×k strelkali sxema */
+.sx{display:inline-grid;justify-items:center;background:var(--blue-s);border-radius:4px;padding:6px 14px}
+.sx .pill{background:#f5d3e6;color:#333;border-radius:999px;font-size:13px;padding:0 9px;font-weight:700}
+.sx svg{display:block;width:110px;height:16px;color:var(--blue)}
+.sx .mid{display:flex;align-items:center;gap:18px;margin:2px 0}
+.ex2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px 26px;margin-top:6px}
+.ex2 .it{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.ex2 .let{font-weight:700;margin-right:4px}
+/* burchak usulida bo'lish */
+.ld{display:inline-grid;grid-template-columns:auto auto;font:500 17px/1.45 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.22em;vertical-align:top}
+.ld .l{padding-right:6px}
+.ld .ln{white-space:pre;position:relative;padding-left:14px}
+.ld .ln .ul{position:relative}
+.ld .ln .mn{position:absolute;left:-.95em;letter-spacing:0}
+.ld .ln .ul{border-bottom:1.5px solid var(--ink)}
+.ld .cm{display:inline-block;width:0;position:relative;left:-.3em;top:.12em}
+.ld .r{display:flex;flex-direction:column}
+.ld .r{letter-spacing:0}
+.ld .dv{border-left:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:0 10px 0 6px}
+.ld .q{border-left:1.5px solid var(--ink);padding:0 6px}
+/* mashqlar */
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 18px;margin:6px 0}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px 18px;margin:6px 0}
+.cards{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0}
+.cards>span{font-size:1.05em;background:var(--purple-s);padding:10px 16px;border-radius:2px}
+details{margin-top:8px;background:var(--ok-s);border-radius:10px;padding:2px 12px}
+details summary{cursor:pointer;font-weight:700;color:var(--ok);padding:6px 0;font-size:15px}
+details[open]{padding-bottom:10px}
+details .ans{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center}
+.calc{display:inline-flex;align-items:center;gap:0;margin:6px 0}
+.calc img{width:34px;height:auto}
+.calc span{background:var(--green);color:#fff;font-weight:800;padding:3px 14px;border-radius:0 999px 999px 0;margin-left:-2px}
+.daftar{display:flex;justify-content:flex-end;margin:16px 0}
+.daftar span{background:var(--orange);color:#3a2000;border-radius:999px;padding:4px 6px 4px 18px;font-size:15px;display:flex;gap:12px;align-items:center}
+.daftar b{background:#fff;border-radius:999px;padding:1px 10px}
+.check{list-style:none;padding:0;margin:0}
+.check li{display:flex;gap:10px;align-items:center;margin:8px 0}
+.check input{width:22px;height:22px;accent-color:var(--orange)}
+.pg{color:var(--muted);font-size:13px;text-align:center;margin:26px 0 0;border-top:1px dashed var(--line);padding-top:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="src">Manba: 5-sinf Matematika, 1-qism (2024), 52–55-betlar</p>
+<h1>Oddiy kasrni o‘nli kasrga aylantirish</h1>
+
+<!-- ===== 52-bet ===== -->
+<div class="tag blue"><span>Qarang va o‘rganing</span><img src="img/belgi-qarang.webp" alt=""></div>
+
+<div class="two">
+  <div>
+    <div class="task"><div class="num">1</div><div>
+      <p>3 kg li tort 5 nafar bola o‘rtasida teng taqsimlandi. Har bir bola tortning qancha qismini olgan? Javobni o‘nli kasr ko‘rinishida ifodalang.</p>
+      <div class="usullar">
+        <div class="usul"><b class="u">1-usul</b>
+          <div class="eq"><span>3 ÷ 5 =</span><span data-f="3/5"></span><span class="r">= <span data-f="6/10"></span></span><span class="r">= 0,6</span></div>
+        </div>
+        <div class="usul"><b class="u">2-usul</b>
+          <div class="row"><span>3 ÷ 5 = 0,6</span><span class="ld" data-ld="3,0;-30; 0" data-d="5" data-q="0,6"></span></div>
+        </div>
+      </div>
+      <p>Har bir bola 0,6 kg tort olgan.</p>
+    </div></div>
+  </div>
+  <div class="side">
+    <div class="say"><div class="bubble">Maxraji 10, 100 yoki 1000 ga teng bo‘lgan teng kuchli kasrni toping.</div><img src="img/robot.webp" alt="Robot"></div>
+    <div class="say"><div class="bubble">Kasrni o‘nli kasrga aylantirishda burchak usulida bo‘lishdan ham foydalanish mumkin.</div><img src="img/bola-korsatadi.webp" alt="Bola"></div>
+  </div>
+</div>
+
+<div class="task"><div class="num">2</div><div>
+  <p>Quyidagi oddiy kasrlarni o‘nli kasr ko‘rinishida ifodalang.</p>
+  <div class="ex2">
+    <div class="it"><span class="let">a)</span><div class="eq"><span data-f="7/20"></span><span>= <span data-f="35/100"></span></span><span class="r">= 0,35</span></div><span data-sx="7/20/35/100/5"></span></div>
+    <div class="it"><span class="let">b)</span><div class="eq"><span data-f="9/50"></span><span>= <span data-f="18/100"></span></span><span class="r">= 0,18</span></div><span data-sx="9/50/18/100/2"></span></div>
+    <div class="it"><span class="let">c)</span><div class="eq"><span data-f="13/25"></span><span>= <span data-f="52/100"></span></span><span class="r">= 0,52</span></div><span data-sx="13/25/52/100/4"></span></div>
+    <div class="it"><span class="let">d)</span><div class="eq"><span data-f="1/8"></span><span>= <span data-f="125/1000"></span></span><span class="r">= 0,125</span></div><span data-sx="1/8/125/1000/125"></span></div>
+  </div>
+</div></div>
+
+<!-- ===== 53-bet ===== -->
+<div class="task"><div class="num">3</div><div>
+  <p><b>a)</b> <span data-f="2/9"></span> ni o‘nli kasr ko‘rinishida ifodalang. Javobni o‘ndan birlar xonasigacha yaxlitlang.</p>
+  <div class="row"><span><span data-f="2/9"></span> = 0,2 &nbsp;(o‘ndan birlar xonasigacha)</span><span class="ld" data-ld="2,00;-18; 20;- 18;  2" data-d="9" data-q="0,22..."></span></div>
+  <p style="margin-top:16px"><b>b)</b> <span data-f="6/11"></span> ni o‘nli kasr ko‘rinishida ifodalang. Javobni yuzdan birlar xonasigacha yaxlitlang.</p>
+  <div class="row"><span><span data-f="6/11"></span> = 0,55 &nbsp;(yuzdan birlar xonasigacha)</span><span class="ld" data-ld="6,000;-55; 50;- 44;  60;-  55;   5" data-d="11" data-q="0,545..."></span></div>
+</div></div>
+
+<div class="task"><div class="num">4</div><div>
+  <p><span data-f="9/4"></span> ni o‘nli kasr ko‘rinishida ifodalang.</p>
+  <div class="usullar">
+    <div class="usul"><b class="u">1-usul</b>
+      <div class="row"><div class="eq"><span data-f="9/4"></span><span>= <span data-f="225/100"></span></span><span class="r">= 2,25</span></div><span data-sx="9/4/225/100/25"></span></div>
+    </div>
+    <div class="usul"><b class="u">2-usul</b>
+      <div class="row"><div class="eq"><span data-f="9/4"></span><span>= 9 ÷ 4</span><span class="r">= 2,25</span></div><span class="ld" data-ld="9,00;-8;10;- 8; 20;- 20;  0" data-d="4" data-q="2,25"></span></div>
+    </div>
+    <div class="usul"><b class="u">3-usul</b>
+      <div class="row"><div class="eq"><span data-f="9/4"></span><span>= <span data-f="4/4"></span> + <span data-f="4/4"></span> + <span data-f="1/4"></span></span><span class="r">= <span class="mix">2<span data-f="1/4"></span></span></span><span class="r">= 2,25</span></div><span data-sx="1/4/25/100/25"></span></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ===== 54-bet ===== -->
+<div class="box-q"><span class="lbl">Qiziqarli matematika</span>
+  <div class="tag orange"><span>O‘rganing va bo‘lishing</span><img src="img/belgi-organing.webp" alt=""></div>
+  <p>Guruh bo‘lib ishlang.</p>
+  <div class="task"><b>a)</b><div>
+    <p>Berilgan oddiy kasrlarni o‘nli kasrga aylantirish usullarini muhokama qiling. Oddiy kasrlarni o‘nli kasrga aylantirish jarayonida maxrajlar bilan bog‘liq nimani payqadingiz?</p>
+    <div class="cards"><span data-f="7/2"></span><span data-f="3/4"></span><span data-f="3/8"></span><span data-f="13/20"></span><span data-f="8/5"></span><span data-f="6/25"></span><span data-f="47/50"></span></div>
+    <details><summary>Javobni ko‘rish</summary>
+      <div class="ans"><span><span data-f="7/2"></span> = 3,5</span><span><span data-f="3/4"></span> = 0,75</span><span><span data-f="3/8"></span> = 0,375</span><span><span data-f="13/20"></span> = 0,65</span><span><span data-f="8/5"></span> = 1,6</span><span><span data-f="6/25"></span> = 0,24</span><span><span data-f="47/50"></span> = 0,94</span></div>
+      <p style="margin-top:8px">Bu kasrlarning maxrajlari faqat 2 va 5 ko‘paytuvchilardan iborat (2, 4, 8, 20, 5, 25, 50), shuning uchun ularni maxraji 10, 100 yoki 1000 bo‘lgan kasrga keltirish mumkin.</p>
+    </details>
+  </div></div>
+  <div class="task"><b>b)</b><div><p>Maxraji 3, 6, 7 va 9 bo‘lgan kasrlarni yozing.<br>Kasrlarni o‘nli kasrga aylantirish usullarini muhokama qiling.</p></div></div>
+  <div class="task"><b>c)</b><div><p>b) topshiriqdagi o‘nli kasrlarni yuzdan birlar xonasigacha yaxlitlang.</p>
+    <details><summary>Namuna javob</summary>
+      <div class="ans"><span><span data-f="1/3"></span> = 0,333... ≈ 0,33</span><span><span data-f="1/6"></span> = 0,1666... ≈ 0,17</span><span><span data-f="1/7"></span> = 0,1428... ≈ 0,14</span><span><span data-f="1/9"></span> = 0,111... ≈ 0,11</span></div>
+      <p style="margin-top:8px">Maxrajida 3 yoki 7 ko‘paytuvchisi bo‘lgan kasrlarda bo‘lish tugamaydi — javob yaxlitlanadi.</p>
+    </details>
+  </div></div>
+  <div class="calc"><img src="img/belgi-kalkulyator.webp" alt=""><span>Tekshirish</span></div>
+</div>
+
+<div class="tag purple"><span>Juftlikda ishlang</span><img src="img/belgi-juftlik.webp" alt=""></div>
+<p>Juftlikda ishlang.</p>
+<div class="task"><div class="num">1</div><div>
+  <p>Quyidagi oddiy kasrlarni o‘nli kasr ko‘rinishida ifodalang.</p>
+  <div class="grid4"><span>a) <span data-f="1/11"></span></span><span>b) <span data-f="2/11"></span></span><span>c) <span data-f="3/11"></span></span><span>d) <span data-f="4/11"></span></span></div>
+  <p>Yozilgan o‘nli kasrlarda biror qonuniyat bormi?</p>
+  <details><summary>Javobni ko‘rish</summary>
+    <div class="ans"><span><span data-f="1/11"></span> = 0,0909...</span><span><span data-f="2/11"></span> = 0,1818...</span><span><span data-f="3/11"></span> = 0,2727...</span><span><span data-f="4/11"></span> = 0,3636...</span></div>
+    <p style="margin-top:8px">Qonuniyat: verguldan keyin ikki raqam takrorlanadi va u suratning 9 ga ko‘paytmasiga teng: 1 × 9 = 09, 2 × 9 = 18, 3 × 9 = 27, 4 × 9 = 36.</p>
+  </details>
+</div></div>
+<div class="task"><div class="num">2</div><div>
+  <p>1-misoldagi qonuniyat asosida quyidagi kasrlarni navbat bilan, kalkulyatordan foydalanmasdan o‘nli kasr ko‘rinishida ifodalang. So‘ng sheringingizning javobini kalkulyatordan foydalanib tekshiring.</p>
+  <div class="grid4"><span>a) <span data-f="5/11"></span></span><span>b) <span data-f="6/11"></span></span><span>c) <span data-f="7/11"></span></span><span>d) <span data-f="8/11"></span></span></div>
+  <details><summary>Javobni ko‘rish</summary>
+    <div class="ans"><span><span data-f="5/11"></span> = 0,4545...</span><span><span data-f="6/11"></span> = 0,5454...</span><span><span data-f="7/11"></span> = 0,6363...</span><span><span data-f="8/11"></span> = 0,7272...</span></div>
+  </details>
+</div></div>
+
+<!-- ===== 55-bet ===== -->
+<div class="tag pink"><span>Bajaring va o‘rganing</span><img src="img/belgi-bajaring.webp" alt=""></div>
+<div class="task"><div class="num">1</div><div>
+  <p>Quyidagi kasrlarni o‘nli kasr ko‘rinishida ifodalang.</p>
+  <div class="grid3"><span>a) <span data-f="4/5"></span></span><span>b) <span data-f="3/4"></span></span><span>c) <span data-f="9/25"></span></span><span>d) <span data-f="11/20"></span></span><span>e) <span data-f="21/50"></span></span><span>f) <span data-f="6/125"></span></span></div>
+  <details><summary>Javobni ko‘rish</summary>
+    <div class="ans"><span>a) 0,8</span><span>b) 0,75</span><span>c) 0,36</span><span>d) 0,55</span><span>e) 0,42</span><span>f) 0,048</span></div>
+  </details>
+</div></div>
+<div class="task"><div class="num">2</div><div>
+  <p>Quyidagi kasrlarni o‘nli kasr ko‘rinishida ifodalang. Javoblarni o‘ndan birlar xonasigacha yaxlitlang.</p>
+  <div class="grid3"><span>a) <span data-f="7/3"></span></span><span>b) <span data-f="13/7"></span></span></div>
+  <details><summary>Javobni ko‘rish</summary>
+    <div class="ans"><span>a) 2,333... ≈ 2,3</span><span>b) 1,857... ≈ 1,9</span></div>
+  </details>
+</div></div>
+<div class="task"><div class="num">3</div><div>
+  <p>3 ℓ apelsin sharbati 4 ta stakanga teng miqdorda quyildi. Har bir stakanda qancha apelsin sharbati bor? Javobni o‘nli kasr ko‘rinishida ifodalang.</p>
+  <details><summary>Javobni ko‘rish</summary><p>3 ÷ 4 = <span data-f="3/4"></span> = <span data-f="75/100"></span> = 0,75 ℓ</p></details>
+</div></div>
+<div class="task"><div class="num">4</div><div>
+  <p>10 kg shakar 8 ta idishga teng taqsimlandi. Har bir idishda necha kilogramm shakar bor? Javobni o‘nli kasr ko‘rinishida ifodalang.</p>
+  <details><summary>Javobni ko‘rish</summary><p>10 ÷ 8 = <span data-f="10/8"></span> = <span data-f="5/4"></span> = <span data-f="125/100"></span> = 1,25 kg</p></details>
+</div></div>
+<div class="task"><div class="num">5</div><div>
+  <p>6 kg pechenye 4 nafar bola o‘rtasida teng taqsimlandi. Har bir bola necha kilogramm pechenye olgan? Javobni o‘nli kasr ko‘rinishida ifodalang.</p>
+  <details><summary>Javobni ko‘rish</summary><p>6 ÷ 4 = <span data-f="6/4"></span> = <span data-f="3/2"></span> = <span data-f="15/10"></span> = 1,5 kg</p></details>
+</div></div>
+
+<div class="daftar"><span>Mashq daftariga o‘ting <b>59–62</b></span></div>
+
+<div class="tag green"><span>O‘zingizni tekshiring</span><img src="img/belgi-tekshiring.webp" alt=""></div>
+<ul class="check">
+  <li><input type="checkbox" id="c1"><label for="c1">a) Men sonlarni bo‘lishni kasr ko‘rinishida ifodalashni bilaman.</label></li>
+  <li><input type="checkbox" id="c2"><label for="c2">b) Men kasrni o‘nli kasrga aylantirishni bilaman.</label></li>
+</ul>
+<p class="pg">Darslikning 52–55-betlari</p>
+</div>
+
+<script>
+// kasr: data-f="a/b"
+const fr=(a,b)=>`<span class="fr"><span>${a}</span><span>${b}</span></span>`;
+document.querySelectorAll("[data-f]").forEach(el=>{const [a,b]=el.dataset.f.split("/");el.outerHTML=fr(a,b)});
+
+// ×k sxemasi: data-sx="a/b/c/d/k" — surat ham, maxraj ham k ga ko'paytiriladi
+const arc=(up)=>`<svg viewBox="0 0 110 16" aria-hidden="true"><path d="${up?"M8 15 Q55 -6 100 13":"M8 1 Q55 22 100 3"}" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="${up?"M94 8 L101 14 L92 15":"M93 1 L101 3 L95 9"}" fill="currentColor"/></svg>`;
+document.querySelectorAll("[data-sx]").forEach(el=>{
+  const [a,b,c,d,k]=el.dataset.sx.split("/");
+  el.outerHTML=`<span class="sx" aria-label="${a}/${b} ning surat va maxrajini ${k} ga ko'paytiramiz"><span class="pill">× ${k}</span>${arc(1)}<span class="mid">${fr(a,b)}<span>=</span>${fr(c,d)}</span>${arc(0)}<span class="pill">× ${k}</span></span>`;
+});
+
+// burchak usulida bo'lish: data-ld="qatorlar ; bilan", "-" bilan boshlangan qator ayiriladi (minus va tagiga chiziq)
+document.querySelectorAll("[data-ld]").forEach(el=>{
+  const rows=el.dataset.ld.split(";").map(s=>{
+    const sub=s.startsWith("-"),t=sub?s.slice(1):s,lead=t.match(/^ */)[0],body=t.slice(lead.length).replace(/,/g,'<span class="cm">,</span>');
+    return `<div class="ln">${lead}${sub?`<span class="ul"><span class="mn">−</span>${body}</span>`:body}</div>`;
+  }).join("");
+  el.innerHTML=`<div class="l">${rows}</div><div class="r"><span class="dv">${el.dataset.d}</span><span class="q">${el.dataset.q}</span></div>`;
+});
+
+// sayt ichida (iframe) balandlikni yuborish
+(function(){function post(){try{parent.postMessage({type:"mathrun:height",h:document.documentElement.scrollHeight},"*")}catch(e){}}
+addEventListener("load",post);addEventListener("resize",post);document.querySelectorAll("details").forEach(d=>d.addEventListener("toggle",post));
+if(window.ResizeObserver)new ResizeObserver(post).observe(document.body);post()})();
+</script>
+</body>
+</html>
