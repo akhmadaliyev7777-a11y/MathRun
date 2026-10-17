@@ -22,6 +22,13 @@
                                           d ta qatordan c tasi shtrixlangan — shtrixlangan kataklar a·c / b·d
    data-qolgan="1/6/2/5" [data-yozuv="1/6|Bo'yalmagan qism|?"] — tasmaning a/b qismi bo'yalgan, qolgan qismning
                                           c/d qismi belgilangan (kerak bo'lsa bo'laklar maydaroq bo'linadi)
+   data-geo='{...}'                — geometrik chizma (JSON, koordinatalar katak birligida, y yuqoriga):
+       "katak":[eni,bo'yi]  — katakli fon (o'lchami); "nuqta":{"A":[x,y],...} — uchlar (nomi yoziladi);
+       "shakl":["ABC",...]  — ko'pburchaklar (bo'yalgan); "asos":"BC" — qizil qalin tomon;
+       "bal":["A","BC","D"] — A dan BC ga (yoki davomiga) perpendikulyar, D — asosi (avtomatik topiladi,
+                              davomi bo'lsa punktir bilan uzaytiriladi, to'g'ri burchak belgisi qo'yiladi);
+       "kesma":[["P","Q"],...] — qo'shimcha punktir kesmalar; "tik":["C",...] — shakldagi to'g'ri burchak belgisi;
+       "uzun":{"AB":"6 cm",...} — tomon yonidagi yozuv; "yozuv":{"BC":"asos",...} — tomon yonidagi rangli yozuv
 */
 (function () {
   "use strict";
@@ -555,6 +562,101 @@
       " qismi bo'yalgan, qolgan qismning " + c + "/" + d + ' qismi belgilangan">' + svg + "</svg>";
   }
 
+  // ---------- geometrik chizma: uchburchak, asos, balandlik, katakli fon ----------
+  function chizGeo(el) {
+    let g;
+    try { g = JSON.parse(el.dataset.geo); } catch (e) { return; }
+    const s = Number(g.olcham || 30), pad = g.uzun ? 44 : 26;   // tomon yozuvlari uchun chetda joy
+    const pts = g.nuqta || {};
+    const nom = Object.keys(pts);
+    // bo'lish uchun chegaralar
+    let xs = nom.map(function (k) { return pts[k][0]; }), ys = nom.map(function (k) { return pts[k][1]; });
+    const balAsos = [];
+    (g.bal ? (Array.isArray(g.bal[0]) ? g.bal : [g.bal]) : []).forEach(function (b) {
+      const A = pts[b[0]], P = pts[b[1][0]], Q = pts[b[1][1]];
+      const dx = Q[0] - P[0], dy = Q[1] - P[1], t = ((A[0] - P[0]) * dx + (A[1] - P[1]) * dy) / (dx * dx + dy * dy);
+      const D = [P[0] + t * dx, P[1] + t * dy];
+      balAsos.push({ A: A, P: P, Q: Q, D: D, t: t, nom: b[2] || "" });
+      if (b[2]) pts[b[2]] = D;
+      xs.push(D[0]); ys.push(D[1]);
+    });
+    const kw = g.katak ? g.katak[0] : Math.max.apply(null, xs), kh = g.katak ? g.katak[1] : Math.max.apply(null, ys);
+    const minx = g.katak ? 0 : Math.min.apply(null, xs), miny = g.katak ? 0 : Math.min.apply(null, ys);
+    const W = (kw - minx) * s + 2 * pad, H = (kh - miny) * s + 2 * pad;
+    const X = function (p) { return pad + (p[0] - minx) * s; }, Y = function (p) { return pad + (kh - p[1]) * s; };
+    const xy = function (p) { return X(p).toFixed(1) + " " + Y(p).toFixed(1); };
+    let svg = "";
+    if (g.katak) {
+      for (let i = 0; i <= kw; i++) svg += '<line x1="' + (pad + i * s) + '" y1="' + pad + '" x2="' + (pad + i * s) + '" y2="' + (pad + kh * s) + '" stroke="#d9dde8" stroke-width="1"/>';
+      for (let j = 0; j <= kh; j++) svg += '<line x1="' + pad + '" y1="' + (pad + j * s) + '" x2="' + (pad + kw * s) + '" y2="' + (pad + j * s) + '" stroke="#d9dde8" stroke-width="1"/>';
+    }
+    const RANG = ["#e3f5ec", "#eef0fc", "#fff4e5", "#f3eefc"];
+    (g.shakl || []).forEach(function (sh, i) {
+      svg += '<path d="M' + sh.split("").map(function (k) { return xy(pts[k]); }).join(" L") + ' Z" fill="' + RANG[i % RANG.length] + '" fill-opacity=".9" stroke="#12805c" stroke-width="2.4" stroke-linejoin="round"/>';
+    });
+    // to'g'ri burchak belgisi: P nuqtada, u va v yo'nalishlar bo'yicha (piksel fazosida)
+    const birlik = function (a, b) { const dx = X(b) - X(a), dy = Y(b) - Y(a), l = Math.hypot(dx, dy) || 1; return [dx / l, dy / l]; };
+    const burchak = function (P, U, V, rang) {
+      const u = birlik(P, U), v = birlik(P, V), r = 10, x = X(P), y = Y(P);
+      return '<path d="M' + (x + u[0] * r) + " " + (y + u[1] * r) + " L" + (x + u[0] * r + v[0] * r) + " " + (y + u[1] * r + v[1] * r) + " L" + (x + v[0] * r) + " " + (y + v[1] * r) + '" fill="none" stroke="' + rang + '" stroke-width="1.8"/>';
+    };
+    (g.tik || []).forEach(function (k) {
+      // shakldagi qo'shni uchlar
+      const sh = (g.shakl || []).find(function (q) { return q.indexOf(k) >= 0; });
+      if (!sh) return;
+      const i = sh.indexOf(k), a = sh[(i + sh.length - 1) % sh.length], b = sh[(i + 1) % sh.length];
+      svg += burchak(pts[k], pts[a], pts[b], "#1f2433");
+    });
+    (g.kesma || []).forEach(function (k) {
+      svg += '<line x1="' + X(pts[k[0]]) + '" y1="' + Y(pts[k[0]]) + '" x2="' + X(pts[k[1]]) + '" y2="' + Y(pts[k[1]]) + '" stroke="#5f6676" stroke-width="2" stroke-dasharray="6 5"/>';
+      if (k[2] === "tik") svg += burchak(pts[k[1]], pts[k[0]], pts[k[3]], "#5f6676");
+    });
+    if (g.asos) {
+      const a = pts[g.asos[0]], b = pts[g.asos[1]];
+      svg += '<line x1="' + X(a) + '" y1="' + Y(a) + '" x2="' + X(b) + '" y2="' + Y(b) + '" stroke="#d4501b" stroke-width="4.5" stroke-linecap="round"/>';
+    }
+    balAsos.forEach(function (b) {
+      if (b.t < -1e-9 || b.t > 1 + 1e-9) {
+        const yaqin = b.t < 0 ? b.P : b.Q;
+        svg += '<line x1="' + X(yaqin) + '" y1="' + Y(yaqin) + '" x2="' + X(b.D) + '" y2="' + Y(b.D) + '" stroke="#9aa3b5" stroke-width="2" stroke-dasharray="4 4"/>';
+      }
+      const tomon = Math.abs(b.t) < 1e-9 ? b.Q : b.P;   // asosni bo'ylab yo'nalish
+      svg += '<line x1="' + X(b.A) + '" y1="' + Y(b.A) + '" x2="' + X(b.D) + '" y2="' + Y(b.D) + '" stroke="#1f5fd6" stroke-width="2.6" stroke-dasharray="7 5"/>';
+      svg += burchak(b.D, tomon === b.D ? b.Q : tomon, b.A, "#1f5fd6");
+    });
+    // tomon yonidagi yozuvlar (shakl markazidan tashqariga)
+    const markaz = (function () { const k = nom.length ? nom : []; let sx = 0, sy = 0; k.forEach(function (q) { sx += X(pts[q]); sy += Y(pts[q]); }); return [sx / (k.length || 1), sy / (k.length || 1)]; })();
+    const tomonYoz = function (ab, matn, rang, ichkari, ulush) {
+      const a = pts[ab[0]], b = pts[ab[1]], u = ulush || 0.5;   // ulush — yozuv tomonning qayerida turishi
+      const mx = X(a) + (X(b) - X(a)) * u, my = Y(a) + (Y(b) - Y(a)) * u;
+      let nx = -(Y(b) - Y(a)), ny = X(b) - X(a); const l = Math.hypot(nx, ny) || 1; nx /= l; ny /= l;
+      // tomon shaklning qo'shni uchlari bo'lsa — tashqi tomonni shakl aylanish yo'nalishidan topamiz (botiq shaklda ham to'g'ri)
+      const sh = (g.shakl || []).find(function (q) { const i = q.indexOf(ab[0]), j = q.indexOf(ab[1]); return i >= 0 && j >= 0 && (Math.abs(i - j) === 1 || Math.abs(i - j) === q.length - 1); });
+      if (sh) {
+        let yuz = 0;
+        for (let i = 0; i < sh.length; i++) { const p = pts[sh[i]], q = pts[sh[(i + 1) % sh.length]]; yuz += X(p) * Y(q) - X(q) * Y(p); }
+        const oldinga = sh[(sh.indexOf(ab[0]) + 1) % sh.length] === ab[1];   // ab shakl aylanishi bo'yicha yo'nalganmi
+        const tash = (yuz > 0 ? -1 : 1) * (oldinga ? 1 : -1);
+        nx *= tash; ny *= tash;
+      } else if ((mx - markaz[0]) * nx + (my - markaz[1]) * ny < 0) { nx = -nx; ny = -ny; }
+      if (ichkari) { nx = -nx; ny = -ny; }
+      const off = 12 + Math.abs(nx) * matn.length * 3.8;   // tik tomonda yozuv kengligi hisobga olinadi
+      return '<text x="' + (mx + nx * off).toFixed(1) + '" y="' + (my + ny * 13 + 5).toFixed(1) + '" text-anchor="middle" font-size="14" font-weight="700" fill="' + rang + '">' + matn + "</text>";
+    };
+    Object.keys(g.uzun || {}).forEach(function (k) { svg += tomonYoz(k, g.uzun[k], "#1f2433", false); });
+    // «asos» yozuvi tomonning chetrog'ida — o'rtasiga tushgan balandlik belgisi bilan ustma-ust tushmasin
+    Object.keys(g.yozuv || {}).forEach(function (k) { svg += tomonYoz(k, g.yozuv[k], k === g.asos ? "#d4501b" : "#1f5fd6", true, 0.78); });
+    // uch nomlari
+    Object.keys(pts).forEach(function (k) {
+      if (g.yashir && g.yashir.indexOf(k) >= 0) return;
+      const x = X(pts[k]), y = Y(pts[k]);
+      let dx = x - markaz[0], dy = y - markaz[1]; const l = Math.hypot(dx, dy) || 1; dx /= l; dy /= l;
+      svg += '<text x="' + (x + dx * 14).toFixed(1) + '" y="' + (y + dy * 14 + 6).toFixed(1) + '" text-anchor="middle" font-size="17" font-weight="800" fill="#1f2433">' + k + "</text>";
+    });
+    el.classList.add("geo");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="max-width:' + W + 'px" role="img" aria-label="' + (el.dataset.izoh || "Geometrik chizma") + '">' + svg + "</svg>";
+  }
+
   window.MaruzaChizma = {
     bolish: bolish,
     chiz: function (root) {
@@ -576,6 +678,7 @@
       root.querySelectorAll("[data-qism]").forEach(chizQism);
       root.querySelectorAll("[data-yuza]").forEach(chizYuza);
       root.querySelectorAll("[data-qolgan]").forEach(chizQolgan);
+      root.querySelectorAll("[data-geo]").forEach(chizGeo);
     }
   };
 })();

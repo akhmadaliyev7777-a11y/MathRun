@@ -245,7 +245,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 
 ### 4-bob. Uchburchakning yuzi
 
-#### ☐ 12. Uchburchakning asosi va balandligi (+ Eslang: kvadrat va to'g'ri to'rtburchak) — D1 90–95; M1 115–118
+#### ✅ 12. Uchburchakning asosi va balandligi (+ Eslang: kvadrat va to'g'ri to'rtburchak) — D1 90–95; M1 115–118
+**Holat (2026-10-17):** tayyor, `ccr-6644adea-vrr90g` shoxida (main ga qo'shilmagan). Fayl: maruza/5-uchburchak-asosi-balandligi.html. O'z testi: `5|matematika|uchburchak-asosi-balandligi` (10 savol, izohli), data.js da test havolasi qo'shildi.
+**Kitob bilan solishtirildi:** Eslang (to'g'ri to'rtburchak bo'yi/eni, kvadrat, yuzlar, perpendikulyar ⊥) + 6 qoida (3 uch/3 tomon/3 burchak; asos — istalgan tomon, balandlik — qarshi uchdan perpendikulyar; uchta balandlik; to'g'ri burchakli — tomon bilan ustma-ust; o'tmas — asos davomiga; chizg'ich bilan aniqlash) ✅ — «uchta balandlik» va «chizg'ich bilan» alohida qoida qilindi. Darslik turlari (berilgan asosga balandlik, berilgan balandlikka asos, «VW balandlikmi?» 2 holat, chizg'ich bilan aniqlash, katakli qog'ozda 3 xil chizish) ✅; daftar turlari (bitta uchburchakda har uch asosga balandlik — jadval va mashq, balandlikka mos asos, Eslang: burchaklari to'g'ri murakkab shakl yuzi — namuna + 2 mashq) ✅. Kitob harflari va shakllari (ABC, DEF, WXY, EFG, PQR, KLM, STV, ACE) ishlatilmadi.
+**Tekshiruv:** ekspert — 13 tenglik (xato 0), yuzlar va balandlik asoslari koordinatalar bilan hisoblangan (perpendikulyar asosi dastur bilan topiladi); o'quvchi — telefon 390 px va 1100 px: tuzatildi — tomon yozuvlari chetdan chiqib kesilardi (chet kengaytirildi), «asos» yozuvi balandlik belgisi ustiga tushardi (chetga surildi), botiq shakllarda yozuvlar ichkariga tushardi (tashqi tomon shakl yo'nalishidan topiladi). Texnik — 12 ta ma'ruza regressiya tekshiruvi xatosiz. Yangi chizma: data-geo.
+**Simulyator uchun g'oyalar:** uchburchak uchini sudrash — balandlik o'zi qayta chiziladi, o'tmasga o'tganda asos davomi paydo bo'ladi; asosni bosib tanlash va unga balandlikni o'quvchi chizishi; «qaysi kesma balandlik?» o'yini.
 **Qoidalar ro'yxati:**
 - Eslang: to'g'ri to'rtburchak (bo'yi, eni), kvadrat; yuzi = bo'yi × eni, kvadrat yuzi = tomoni × tomoni; perpendikulyar (⊥) — to'g'ri burchak ostida kesishadi.
 - Uchburchakning 3 ta tomoni, 3 ta burchagi, 3 ta uchi bor.

@@ -333,6 +333,12 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 .qism { margin: 10px 0; }
 .qism svg { width: 100%; height: auto; display: block; margin: 0 auto; }
 
+/* geometrik chizma (chizma.js "geo"): uchburchak, asos, balandlik */
+.geo { margin: 10px 0; }
+.geo svg { width: 100%; height: auto; display: block; margin: 0 auto; }
+.geo-qator { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; align-items: end; }
+.geo-qator > div > p { margin: 4px 0 0; text-align: center; font-size: 15px; }
+
 /* qolgan qismning qismi (chizma.js "qolgan"): tasma modeli */
 .qolgan { margin: 10px 0; }
 .qolgan svg { width: 100%; height: auto; display: block; margin: 0 auto; }
