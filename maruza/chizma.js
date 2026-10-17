@@ -28,7 +28,8 @@
        "bal":["A","BC","D"] — A dan BC ga (yoki davomiga) perpendikulyar, D — asosi (avtomatik topiladi,
                               davomi bo'lsa punktir bilan uzaytiriladi, to'g'ri burchak belgisi qo'yiladi);
        "kesma":[["P","Q"],...] — qo'shimcha punktir kesmalar; "tik":["C",...] — shakldagi to'g'ri burchak belgisi;
-       "uzun":{"AB":"6 cm",...} — tomon yonidagi yozuv; "yozuv":{"BC":"asos",...} — tomon yonidagi rangli yozuv
+       "uzun":{"AB":"6 cm",...} — tomon yonidagi yozuv ("MH-" — yozuv kesmaning narigi tomonida); "yozuv":{"BC":"asos",...} — tomon yonidagi rangli yozuv
+       "ramka":["ABCD",...] — punktir ramka (bo'yalmagan), masalan uchburchakka mos to'g'ri to'rtburchak
 */
 (function () {
   "use strict";
@@ -594,6 +595,9 @@
     (g.shakl || []).forEach(function (sh, i) {
       svg += '<path d="M' + sh.split("").map(function (k) { return xy(pts[k]); }).join(" L") + ' Z" fill="' + RANG[i % RANG.length] + '" fill-opacity=".9" stroke="#12805c" stroke-width="2.4" stroke-linejoin="round"/>';
     });
+    (g.ramka || []).forEach(function (sh) {
+      svg += '<path d="M' + sh.split("").map(function (k) { return xy(pts[k]); }).join(" L") + ' Z" fill="none" stroke="#6d3fc0" stroke-width="2" stroke-dasharray="7 5"/>';
+    });
     // to'g'ri burchak belgisi: P nuqtada, u va v yo'nalishlar bo'yicha (piksel fazosida)
     const birlik = function (a, b) { const dx = X(b) - X(a), dy = Y(b) - Y(a), l = Math.hypot(dx, dy) || 1; return [dx / l, dy / l]; };
     const burchak = function (P, U, V, rang) {
@@ -643,7 +647,7 @@
       const off = 12 + Math.abs(nx) * matn.length * 3.8;   // tik tomonda yozuv kengligi hisobga olinadi
       return '<text x="' + (mx + nx * off).toFixed(1) + '" y="' + (my + ny * 13 + 5).toFixed(1) + '" text-anchor="middle" font-size="14" font-weight="700" fill="' + rang + '">' + matn + "</text>";
     };
-    Object.keys(g.uzun || {}).forEach(function (k) { svg += tomonYoz(k, g.uzun[k], "#1f2433", false); });
+    Object.keys(g.uzun || {}).forEach(function (k) { svg += tomonYoz(k.replace("-", ""), g.uzun[k], "#1f2433", k.slice(-1) === "-"); });
     // «asos» yozuvi tomonning chetrog'ida — o'rtasiga tushgan balandlik belgisi bilan ustma-ust tushmasin
     Object.keys(g.yozuv || {}).forEach(function (k) { svg += tomonYoz(k, g.yozuv[k], k === g.asos ? "#d4501b" : "#1f5fd6", true, 0.78); });
     // uch nomlari
