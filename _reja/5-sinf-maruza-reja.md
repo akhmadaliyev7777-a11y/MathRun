@@ -227,7 +227,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** rasm yordamida tekshirish (1 1/2 · 2); ko'paytmani javobi bilan tutashtirish; otaning vazni (2 marta); 3 kvadratdan tuzilgan to'g'ri to'rtburchak perimetri; ko'rpacha matosi; 25 shisha × 1 1/2 ℓ.
 **Rasmlar:** doiralar qatori, kvadrat.
 
-#### ☐ 11. Qolgan qismning qismi + matnli masalalar — D1 82–88; M1 89–100
+#### ✅ 11. Qolgan qismning qismi + matnli masalalar — D1 82–88; M1 89–100
+**Holat (2026-10-17):** tayyor, `ccr-6644adea-vrr90g` shoxida (main ga qo'shilmagan). Fayl: maruza/5-qolgan-qismning-qismi.html. O'z testi: `5|matematika|qolgan-qismning-qismi` (10 savol, izohli).
+**Kitob bilan solishtirildi:** 6 qoida (qolgan qism; qolganning qismi = (1 − a/b)·c/d; miqdorga aylantirish — 2 usulda; qismiga ko'ra butun; chizma-model va bo'laklar farqi; «qismi» va «miqdor» farqi — daftardagi Matematika kundaligidan alohida qoida qilindi) ✅. Darslik turlari (tasma, pul sarflash, o'quvchilar — qiz/o'g'il/to'garak, bo'laklar farqi bilan jami — musobaqa, uch rangli munchoqlar, «marta ko'p» — lager, masofa velosiped/piyoda, kompot, qismiga ko'ra butun) ✅; daftar turlari (5 ta tasmali «qolganning qismi» — chizmali javob bilan, «1/6 qismi 15 bo'lgan sonning 2/3 qismi», aralash sonli tomorqa perimetri va yuzi, qolgan pulga ko'ra dastlabki pul — 2 ta, o'naqay/chapaqay farqi, ikki xil somsa qoldig'i, Kundalik «qismi va miqdor») ✅; qiyin masala (to'garak — o'g'il/qiz ulushlari) ✅. Kitob sonlari va vaziyatlari (1/6 sariq, 1/4 + 1/2, Jahongir, Sardor 60 000, 480 o'quvchi, konsert 147, 1701, tugmalar 144, p87 masalalari, 40 o'quvchi suzish) almashtirildi.
+**Tekshiruv:** ekspert — 89 tenglik skript bilan (1 «XATO» — atayin xato); barcha javoblar oldindan Fraction bilan, musobaqa masalasi yagona javobli ekani tekshirildi (N = 90); «qism = miqdor» yozuvlari «→» ga o'tkazildi. O'quvchi — telefon 390 px va 1100 px: surilish yo'q, KaTeX ✅, tasma chizmalari o'qiladi.
+**Simulyator uchun g'oyalar:** tasmani bosqichma-bosqich bo'yash (avval qism, keyin qolganning qismi — bo'laklar o'zi maydalanadi); «farq = 18» kabi masalalarda bo'laklarni sudrab tenglashtirish; qolgan pulga ko'ra orqaga hisoblash o'yini.
 **Qoidalar ro'yxati:**
 - Qolgan qism = 1 − ishlatilgan qism.
 - Qolgan qismning c/d qismi = (1 − a/b) · c/d (butunga nisbatan).
