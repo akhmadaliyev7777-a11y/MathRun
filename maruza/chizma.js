@@ -30,6 +30,7 @@
        "kesma":[["P","Q"],...] — qo'shimcha punktir kesmalar; "tik":["C",...] — shakldagi to'g'ri burchak belgisi;
        "uzun":{"AB":"6 cm",...} — tomon yonidagi yozuv ("MH-" — yozuv kesmaning narigi tomonida); "yozuv":{"BC":"asos",...} — tomon yonidagi rangli yozuv
        "ramka":["ABCD",...] — punktir ramka (bo'yalmagan), masalan uchburchakka mos to'g'ri to'rtburchak
+       "oq":["DEC",...] — oq (bo'yalmagan) ko'pburchak — bo'yalgan shakldan kesib olingan qism
 */
 (function () {
   "use strict";
@@ -594,6 +595,9 @@
     const RANG = ["#e3f5ec", "#eef0fc", "#fff4e5", "#f3eefc"];
     (g.shakl || []).forEach(function (sh, i) {
       svg += '<path d="M' + sh.split("").map(function (k) { return xy(pts[k]); }).join(" L") + ' Z" fill="' + RANG[i % RANG.length] + '" fill-opacity=".9" stroke="#12805c" stroke-width="2.4" stroke-linejoin="round"/>';
+    });
+    (g.oq || []).forEach(function (sh) {
+      svg += '<path d="M' + sh.split("").map(function (k) { return xy(pts[k]); }).join(" L") + ' Z" fill="#fff" stroke="#12805c" stroke-width="2" stroke-linejoin="round"/>';
     });
     (g.ramka || []).forEach(function (sh) {
       svg += '<path d="M' + sh.split("").map(function (k) { return xy(pts[k]); }).join(" L") + ' Z" fill="none" stroke="#6d3fc0" stroke-width="2" stroke-dasharray="7 5"/>';
