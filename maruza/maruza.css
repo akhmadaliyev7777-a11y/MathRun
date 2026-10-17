@@ -328,3 +328,7 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 .doira-qator > b { font-size: 26px; color: var(--muted); }
 .doira-qator .doira { width: auto; }
 .doira-qator .doira svg { height: 56px; width: auto; }
+
+/* sonning qismi (chizma.js "qism"): guruhlardagi sharlar yoki tasma */
+.qism { margin: 10px 0; }
+.qism svg { width: 100%; height: auto; display: block; margin: 0 auto; }

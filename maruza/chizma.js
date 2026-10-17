@@ -16,6 +16,8 @@
    data-pitsa="2/3" [data-usul="butun"] — a ta pitsa b ta bolaga: har pitsa b bo'lakka, har bola o'z rangida;
                                           usul="butun" — avval butun pitsalar beriladi, qolgani bo'linadi (aralash son)
    data-doira="2 3/4" [data-rang="0"]   — aralash son doiralarda: butunlar to'liq, kasr qism bo'yalgan bo'laklar
+   data-qism="10/3/5" [data-yozuv="qizil"] — sonning qismi: n ta narsa b ta teng guruhga, a tasi bo'yalgan;
+                                          n katta bo'lsa — tasma (har bo'lakda qiymati yozilgan)
 */
 (function () {
   "use strict";
@@ -447,6 +449,50 @@
       (butun ? butun + " butun " : "") + (sur ? sur + "/" + mx : "") + '">' + svg + "</svg>";
   }
 
+  // ---------- sonning qismi: 10 ning 3/5 qismi ----------
+  function chizQism(el) {
+    const [n, a, b] = el.dataset.qism.split("/").map(Number);
+    const k = n / b, nat = k * a, yozuv = el.dataset.yozuv || "";
+    const RANG = "#d4501b", BOSH = "#1f5fd6";
+    let svg = "", W, H;
+    if (n <= 40) {
+      // har guruh — quti, ichida k ta shar (1–3 ustun)
+      const c = k <= 3 ? 1 : k <= 8 ? 2 : 3, q = Math.ceil(k / c), s = 22, p = 6, gap = 10;
+      const bw = c * s + 2 * p, bh = q * s + 2 * p;
+      W = b * bw + (b - 1) * gap + 4; H = bh + (yozuv ? 40 : 6);
+      for (let g = 0; g < b; g++) {
+        const x = 2 + g * (bw + gap), on = g < a;
+        svg += '<rect x="' + x + '" y="2" width="' + bw + '" height="' + bh + '" rx="7" fill="' + (on ? "#fff1ea" : "#fff") + '" stroke="' + (on ? RANG : "#9aa3b5") + '" stroke-width="2"/>';
+        for (let i = 0; i < k; i++) {
+          svg += '<circle cx="' + (x + p + (i % c) * s + s / 2) + '" cy="' + (2 + p + Math.floor(i / c) * s + s / 2) + '" r="7.5" fill="' + (on ? RANG : BOSH) + '"/>';
+        }
+      }
+      if (yozuv) {
+        const x2 = 2 + a * (bw + gap) - gap, y = bh + 8;
+        // yozuv qavsdan uzun bo'lsa, rasm chetidan chiqib ketmasin
+        const tw = yozuv.length * 8.6, tx = Math.max((2 + x2) / 2, tw / 2 + 2);
+        W = Math.max(W, tx + tw / 2 + 2);
+        svg += '<path d="M2 ' + y + " Q2 " + (y + 8) + " 10 " + (y + 8) + " H" + (x2 - 8) + " Q" + x2 + " " + (y + 8) + " " + x2 + " " + y + '" fill="none" stroke="' + RANG + '" stroke-width="2"/>' +
+          '<text x="' + tx + '" y="' + (y + 28) + '" text-anchor="middle" font-size="16" font-weight="700" fill="' + RANG + '">' + yozuv + "</text>";
+      }
+    } else {
+      // tasma: b ta teng bo'lak, a tasi bo'yalgan, ustida jami, har bo'lakda qiymati
+      const L = 4, w = 380 / b, y = 30, h = 36;
+      W = L * 2 + 380; H = y + h + (yozuv ? 34 : 6);
+      svg += '<path d="M' + L + " " + (y - 6) + " V" + (y - 12) + " H" + (L + 380) + " V" + (y - 6) + '" fill="none" stroke="#1f2433" stroke-width="1.6"/>' +
+        '<text x="' + (L + 190) + '" y="' + (y - 17) + '" text-anchor="middle" font-size="16" font-weight="800" fill="#1f2433">' + guruh(n) + "</text>";
+      for (let g = 0; g < b; g++) {
+        const on = g < a;
+        svg += '<rect x="' + (L + g * w) + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="' + (on ? "#ffe6d6" : "#fff") + '" stroke="' + (on ? RANG : "#9aa3b5") + '" stroke-width="2"/>' +
+          '<text x="' + (L + g * w + w / 2) + '" y="' + (y + h / 2 + 6) + '" text-anchor="middle" font-size="16" font-weight="700" fill="' + (on ? RANG : "#5f6676") + '">' + guruh(k) + "</text>";
+      }
+      if (yozuv) svg += '<text x="' + (L + a * w / 2) + '" y="' + (y + h + 24) + '" text-anchor="middle" font-size="15" font-weight="700" fill="' + RANG + '">' + yozuv + "</text>";
+    }
+    el.classList.add("qism");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="max-width:' + W + 'px" role="img" aria-label="' + n + " ning " + a + "/" + b + " qismi: " + nat + '">' + svg + "</svg>" +
+      '<p class="chz-cap">' + guruh(n) + " : " + b + " = " + guruh(k) + " — bitta bo'lak; &nbsp;" + guruh(k) + " · " + a + " = " + guruh(nat) + " — " + a + " ta bo'lak.</p>";
+  }
+
   window.MaruzaChizma = {
     bolish: bolish,
     chiz: function (root) {
@@ -465,6 +511,7 @@
       root.querySelectorAll("[data-tasma]").forEach(chizTasma);
       root.querySelectorAll("[data-pitsa]").forEach(chizPitsa);
       root.querySelectorAll("[data-doira]").forEach(chizDoira);
+      root.querySelectorAll("[data-qism]").forEach(chizQism);
     }
   };
 })();
