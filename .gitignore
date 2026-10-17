@@ -1,3 +1,4 @@
 .DS_Store
-# ichki rejalar — saytga chiqmaydi
-reja/
+# kitob PDF'lari (mualliflik huquqi) — hech qachon commit qilinmaydi
+_kitob/
+__pycache__/

@@ -1,0 +1,898 @@
+{
+ "1": {
+  "id": "kop-xonali-sonlar",
+  "nom": "Ko'p xonali sonlar (10 milliongacha)",
+  "darslik": "D1",
+  "d": [
+   [
+    2,
+    12
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    1,
+    18
+   ]
+  ]
+ },
+ "2": {
+  "id": "10-100-1000-kopaytirish-bolish",
+  "nom": "Sonni 10, 100, 1000 ga ko'paytirish va bo'lish",
+  "darslik": "D1",
+  "d": [
+   [
+    14,
+    18
+   ],
+   [
+    21,
+    25
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    19,
+    20
+   ],
+   [
+    25,
+    26
+   ]
+  ]
+ },
+ "3": {
+  "id": "onlik-yuzlik-minglik-kopaytirish-bolish",
+  "nom": "Sonni o'nlik, yuzlik, mingliklarga ko'paytirish va bo'lish",
+  "darslik": "D1",
+  "d": [
+   [
+    19,
+    20
+   ],
+   [
+    26,
+    28
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    21,
+    24
+   ],
+   [
+    27,
+    30
+   ]
+  ]
+ },
+ "4": {
+  "id": "amallar-tartibi",
+  "nom": "Amallarni bajarish tartibi (qavssiz va qavsli) + matnli masalalar",
+  "darslik": "D1",
+  "d": [
+   [
+    29,
+    44
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    31,
+    54
+   ]
+  ]
+ },
+ "5": {
+  "id": "bolishni-kasr-korinishida",
+  "nom": "Bo'lishni kasr ko'rinishida ifodalash",
+  "darslik": "D1",
+  "d": [
+   [
+    46,
+    51
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    55,
+    58
+   ]
+  ]
+ },
+ "6": {
+  "id": "oddiy-kasrni-onli-kasrga",
+  "nom": "Oddiy kasrni o'nli kasrga aylantirish",
+  "darslik": "D1",
+  "d": [
+   [
+    52,
+    55
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    59,
+    62
+   ]
+  ]
+ },
+ "7": {
+  "id": "aralash-sonlarni-qoshish-ayirish",
+  "nom": "Aralash sonlarni qo'shish va ayirish (+ Eslang: kasrlarni qo'shish va ayirish)",
+  "darslik": "D1",
+  "d": [
+   [
+    56,
+    63
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    63,
+    70
+   ]
+  ]
+ },
+ "8": {
+  "id": "kasrni-natural-songa-kopaytirish",
+  "nom": "Kasrni natural songa ko'paytirish (to'g'ri va noto'g'ri) (+ Eslang: to'plamning qismi)",
+  "darslik": "D1",
+  "d": [
+   [
+    64,
+    69
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    71,
+    78
+   ]
+  ]
+ },
+ "9": {
+  "id": "kasrni-kasrga-kopaytirish",
+  "nom": "Kasrni kasrga ko'paytirish",
+  "darslik": "D1",
+  "d": [
+   [
+    70,
+    78
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    79,
+    84
+   ]
+  ]
+ },
+ "10": {
+  "id": "aralash-sonni-natural-songa",
+  "nom": "Aralash sonni natural songa ko'paytirish",
+  "darslik": "D1",
+  "d": [
+   [
+    79,
+    81
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    85,
+    88
+   ]
+  ]
+ },
+ "11": {
+  "id": "qolgan-qismning-qismi",
+  "nom": "Qolgan qismning qismi + matnli masalalar",
+  "darslik": "D1",
+  "d": [
+   [
+    82,
+    88
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    89,
+    100
+   ]
+  ]
+ },
+ "12": {
+  "id": "uchburchak-asosi-balandligi",
+  "nom": "Uchburchakning asosi va balandligi (+ Eslang: kvadrat va to'g'ri to'rtburchak)",
+  "darslik": "D1",
+  "d": [
+   [
+    90,
+    95
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    115,
+    118
+   ]
+  ]
+ },
+ "13": {
+  "id": "uchburchak-yuzi",
+  "nom": "Uchburchakning yuzini topish",
+  "darslik": "D1",
+  "d": [
+   [
+    96,
+    102
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    119,
+    122
+   ]
+  ]
+ },
+ "14": {
+  "id": "murakkab-shakllar-yuzi",
+  "nom": "To'g'ri to'rtburchak va uchburchaklardan tuzilgan shakllarning yuzi",
+  "darslik": "D1",
+  "d": [
+   [
+    103,
+    108
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    123,
+    138
+   ]
+  ]
+ },
+ "15": {
+  "id": "fazoviy-jismlar-hajmi",
+  "nom": "Fazoviy jismlarning hajmi (birlik kublar) (+ Eslang: kub, kuboid, hajm, sig'im)",
+  "darslik": "D1",
+  "d": [
+   [
+    110,
+    114
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    139,
+    140
+   ]
+  ]
+ },
+ "16": {
+  "id": "izometrik-panjarada-chizish",
+  "nom": "Uch o'lchamli panjarada fazoviy jismlarni chizish",
+  "darslik": "D1",
+  "d": [
+   [
+    115,
+    117
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    141,
+    142
+   ]
+  ]
+ },
+ "17": {
+  "id": "jismning-korinishlari",
+  "nom": "Jismning turli ko'rinishlari (old, yon, ust)",
+  "darslik": "D1",
+  "d": [
+   [
+    118,
+    119
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    143,
+    144
+   ]
+  ]
+ },
+ "18": {
+  "id": "hajm-birliklari",
+  "nom": "Hajmni cm³ va m³ da o'lchash",
+  "darslik": "D1",
+  "d": [
+   [
+    120,
+    122
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    145,
+    146
+   ]
+  ]
+ },
+ "19.1": {
+  "id": "kuboid-kub-hajmi",
+  "nom": "Kuboid (to'g'ri burchakli parallelepiped) hajmi",
+  "darslik": "D1",
+  "d": [
+   [
+    123,
+    128
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    147,
+    150
+   ]
+  ]
+ },
+ "19.2": {
+  "id": "kub-hajmi",
+  "nom": "Kub hajmi",
+  "darslik": "D1",
+  "d": [
+   [
+    123,
+    128
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    147,
+    150
+   ]
+  ]
+ },
+ "20": {
+  "id": "suyuqlik-hajmi",
+  "nom": "Suyuqlik hajmi: cm³, m³, litr, ml + matnli masalalar",
+  "darslik": "D1",
+  "d": [
+   [
+    129,
+    138
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    151,
+    164
+   ]
+  ]
+ },
+ "21": {
+  "id": "nisbat-tushunchasi",
+  "nom": "Nisbat tushunchasi",
+  "darslik": "D1",
+  "d": [
+   [
+    140,
+    145
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    165,
+    168
+   ]
+  ]
+ },
+ "22": {
+  "id": "teng-kuchli-nisbatlar",
+  "nom": "Teng kuchli nisbatlar",
+  "darslik": "D1",
+  "d": [
+   [
+    146,
+    154
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    169,
+    178
+   ]
+  ]
+ },
+ "23": {
+  "id": "nisbat-boshqa-miqdor",
+  "nom": "Miqdor va nisbatga ko'ra boshqa miqdorni topish",
+  "darslik": "D1",
+  "d": [
+   [
+    155,
+    156
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    179,
+    180
+   ]
+  ]
+ },
+ "24": {
+  "id": "nisbat-qismlarni-topish",
+  "nom": "Jami miqdor va nisbatga ko'ra qismlarni topish + ikki miqdor nisbatiga doir matnli masalalar",
+  "darslik": "D1",
+  "d": [
+   [
+    157,
+    164
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    181,
+    188
+   ]
+  ]
+ },
+ "25": {
+  "id": "uchta-miqdor-nisbati",
+  "nom": "Uchta miqdorning nisbati + matnli masalalar",
+  "darslik": "D1",
+  "d": [
+   [
+    165,
+    172
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    189,
+    203
+   ]
+  ]
+ },
+ "26": {
+  "id": "onli-kasr-10-100-1000",
+  "nom": "O'nli kasrni 10, 100, 1000 ga ko'paytirish va bo'lish (+ Eslang: o'nli kasrlar)",
+  "darslik": "D2",
+  "d": [
+   [
+    2,
+    8
+   ],
+   [
+    12,
+    16
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    1,
+    8
+   ],
+   [
+    13,
+    16
+   ]
+  ]
+ },
+ "27": {
+  "id": "onli-kasr-onlik-yuzlik-minglik",
+  "nom": "O'nli kasrni o'nlik, yuzlik, mingliklarga ko'paytirish va bo'lish",
+  "darslik": "D2",
+  "d": [
+   [
+    9,
+    11
+   ],
+   [
+    17,
+    18
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    9,
+    12
+   ],
+   [
+    17,
+    20
+   ]
+  ]
+ },
+ "28": {
+  "id": "olchov-birliklarini-almashtirish",
+  "nom": "O'lchov birliklarini almashtirish + matnli masalalar (+ Eslang: birliklar)",
+  "darslik": "D2",
+  "d": [
+   [
+    19,
+    32
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    21,
+    40
+   ]
+  ]
+ },
+ "29": {
+  "id": "meyorni-topish",
+  "nom": "Me'yorni topish",
+  "darslik": "D2",
+  "d": [
+   [
+    34,
+    37
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    41,
+    44
+   ]
+  ]
+ },
+ "30": {
+  "id": "meyor-umumiy-miqdor",
+  "nom": "Me'yorga ko'ra umumiy miqdorni topish",
+  "darslik": "D2",
+  "d": [
+   [
+    38,
+    42
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    45,
+    50
+   ]
+  ]
+ },
+ "31": {
+  "id": "birliklar-sonini-topish",
+  "nom": "Birliklar sonini topish + matnli masalalar",
+  "darslik": "D2",
+  "d": [
+   [
+    43,
+    50
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    51,
+    64
+   ]
+  ]
+ },
+ "32": {
+  "id": "foiz-tushunchasi",
+  "nom": "Foiz tushunchasi (+ Eslang: bir butunning qismlari)",
+  "darslik": "D2",
+  "d": [
+   [
+    52,
+    55
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    65,
+    68
+   ]
+  ]
+ },
+ "33": {
+  "id": "kasr-onli-kasr-foiz",
+  "nom": "Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish",
+  "darslik": "D2",
+  "d": [
+   [
+    56,
+    61
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    69,
+    72
+   ]
+  ]
+ },
+ "34": {
+  "id": "miqdorning-foizi",
+  "nom": "Miqdorning foizi + matnli masalalar",
+  "darslik": "D2",
+  "d": [
+   [
+    62,
+    68
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    73,
+    84
+   ]
+  ]
+ },
+ "35": {
+  "id": "qqs-chegirma-omonat",
+  "nom": "QQS, chegirma va omonat foizi + matnli masalalar",
+  "darslik": "D2",
+  "d": [
+   [
+    69,
+    77
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    85,
+    96
+   ]
+  ]
+ },
+ "36": {
+  "id": "ortacha-qiymat-tushunchasi",
+  "nom": "O'rtacha qiymat tushunchasi",
+  "darslik": "D2",
+  "d": [
+   [
+    79,
+    82
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    115,
+    118
+   ]
+  ]
+ },
+ "37": {
+  "id": "ortacha-jami-soni",
+  "nom": "O'rtacha qiymat, jami qiymat va son orasidagi bog'lanish",
+  "darslik": "D2",
+  "d": [
+   [
+    83,
+    89
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    119,
+    130
+   ]
+  ]
+ },
+ "38": {
+  "id": "togri-chiziqdagi-burchaklar",
+  "nom": "To'g'ri chiziqdagi burchaklar (+ Eslang: burchakning gradus o'lchovi)",
+  "darslik": "D2",
+  "d": [
+   [
+    91,
+    95
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    131,
+    136
+   ]
+  ]
+ },
+ "39": {
+  "id": "vertikal-burchaklar",
+  "nom": "Vertikal burchaklar",
+  "darslik": "D2",
+  "d": [
+   [
+    96,
+    99
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    137,
+    140
+   ]
+  ]
+ },
+ "40": {
+  "id": "nuqta-atrofidagi-burchaklar",
+  "nom": "Nuqta atrofidagi burchaklar",
+  "darslik": "D2",
+  "d": [
+   [
+    100,
+    104
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    141,
+    142
+   ]
+  ]
+ },
+ "41": {
+  "id": "nomalum-burchaklarni-topish",
+  "nom": "Noma'lum burchaklarni topish",
+  "darslik": "D2",
+  "d": [
+   [
+    105,
+    109
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    143,
+    150
+   ]
+  ]
+ },
+ "42": {
+  "id": "uchburchak-turlari",
+  "nom": "Uchburchakning turlari",
+  "darslik": "D2",
+  "d": [
+   [
+    111,
+    117
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    151,
+    154
+   ]
+  ]
+ },
+ "43": {
+  "id": "uchburchaklarni-chizish",
+  "nom": "Uchburchaklarni chizish",
+  "darslik": "D2",
+  "d": [
+   [
+    118,
+    122
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    155,
+    156
+   ]
+  ]
+ },
+ "44": {
+  "id": "uchburchak-burchaklari",
+  "nom": "Uchburchakning burchaklari (yig'indisi 180°)",
+  "darslik": "D2",
+  "d": [
+   [
+    123,
+    131
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    157,
+    164
+   ]
+  ]
+ },
+ "45": {
+  "id": "parallelogramm-romb-trapetsiya",
+  "nom": "Parallelogramm, romb va trapetsiyaning xossalari (+ Eslang: kvadrat va to'g'ri to'rtburchak)",
+  "darslik": "D2",
+  "d": [
+   [
+    133,
+    143
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    165,
+    172
+   ]
+  ]
+ },
+ "46": {
+  "id": "tortburchaklarni-chizish",
+  "nom": "To'rtburchaklarni chizish",
+  "darslik": "D2",
+  "d": [
+   [
+    144,
+    149
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    173,
+    176
+   ]
+  ]
+ },
+ "47": {
+  "id": "tortburchak-nomalum-burchaklari",
+  "nom": "To'rtburchakning noma'lum burchaklarini topish",
+  "darslik": "D2",
+  "d": [
+   [
+    150,
+    156
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    177,
+    182
+   ]
+  ]
+ }
+}

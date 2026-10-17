@@ -1,0 +1,5 @@
+# GitHub Pages (Jekyll): ichki fayllar saytga chiqmaydi. _ bilan boshlangan papkalar (_reja, _kitob) o'zi chiqarilmaydi.
+exclude:
+  - CLAUDE.md
+  - mathrunner-web/CLAUDE.md
+  - README.md
