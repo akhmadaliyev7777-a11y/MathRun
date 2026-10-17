@@ -1416,9 +1416,10 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 .site-search-meta b.is-old { color: var(--primary); }
 .site-search-meta b.is-new { color: #12805C; }
 
-/* logotip: "MathRun" — asosiy, "Simulyator" — yengilroq */
-.site-logo-sub { font-weight: 700; color: var(--accent-geometriya); margin-left: 2px; }
-@media (max-width: 380px) { .site-logo { font-size: 1.05rem; } }
+/* logotip — logo.png (belgi + "Mathlearn" yozuvi) */
+.site-logo { display: flex; align-items: center; }
+.site-logo-img { display: block; height: 36px; width: auto; }
+@media (max-width: 380px) { .site-logo-img { height: 28px; } }
 
 /* qizil nuqta — hali tekshirilmagan yangi simulyator */
 .review-dot { display: inline-block; width: 10px; height: 10px; margin-left: 8px; border-radius: 50%; background: #E11D48; box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.18); vertical-align: middle; }

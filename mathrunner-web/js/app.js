@@ -22,13 +22,13 @@ export function nav(active) {
 export function footer() {
   return el('footer', { class: 'site-footer' },
     el('div', { class: 'footer-inner' },
-      el('span', { class: 'footer-logo' }, 'MathRun Simulyator'),
+      el('span', { class: 'footer-logo' }, 'Mathlearn'),
       el('nav', { class: 'footer-links' },
         el('a', { href: '../index.html' }, 'Bosh sahifa'),
         el('a', { href: '../korgazmalar.html' }, 'Interaktiv darslar'),
         el('a', { href: '#/' }, 'Boshlang\'ich sinflar'),
         el('a', { href: '../info.html' }, 'Ma\'lumot')),
-      el('span', { class: 'footer-copy' }, '© MathRun Simulyator')));
+      el('span', { class: 'footer-copy' }, '© Mathlearn')));
 }
 
 export const curriculum = () => CUR;

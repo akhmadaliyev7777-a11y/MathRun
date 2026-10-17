@@ -51,7 +51,7 @@ function renderAbout(root) {
       el('section', { class: 'section' },
         el('h2', {}, 'Loyiha haqida'),
         el('p', { class: 'section__lead' },
-          'MathRunner Web — O\'zbekiston 1–4 sinf matematika darsligining ochiq, bepul ' +
+          'Mathlearn — O\'zbekiston 1–4 sinf matematika darsligining ochiq, bepul ' +
           'interaktiv ko\'rinishi. Ro\'yxatdan o\'tish shart emas, hamma narsa qulfsiz.'),
         el('div', { class: 'stats', style: 'margin-top:8px' },
           el('div', { class: 'stat' }, el('b', {}, String(t.levels)), el('span', {}, 'dars-bosqich')),

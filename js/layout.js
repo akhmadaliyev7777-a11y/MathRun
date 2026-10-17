@@ -12,7 +12,7 @@ function renderSiteHeader(base, active) {
         '<button id="menu-toggle-btn" class="menu-toggle" aria-label="Menyu">' +
           "<span></span><span></span><span></span>" +
         "</button>" +
-        '<a class="site-logo" href="' + base + 'index.html">MathRun <span class="site-logo-sub">Simulyator</span></a>' +
+        '<a class="site-logo" href="' + base + 'index.html"><img class="site-logo-img" src="' + base + 'logo.png?v=1" alt="Mathlearn" width="185" height="36"></a>' +
       "</div>" +
       '<nav class="site-nav">' +
         '<a href="' + base + 'index.html"' + cls("home") + '>Bosh sahifa</a>' +

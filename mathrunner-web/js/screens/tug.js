@@ -471,7 +471,7 @@ export async function render(root, _params) {
     root.replaceChildren(
       el('div', { class: 'tug-topbar' },
         el('div', { class: 'tug-teamlabel tug-teamlabel--blue' }, el('span', {}, names.blue), scoreBlue),
-        el('div', { class: 'brand__name', style: 'color:var(--violet)' }, 'MathRunner'),
+        el('div', { class: 'brand__name', style: 'color:var(--violet)' }, 'Mathlearn'),
         el('div', { class: 'tug-teamlabel tug-teamlabel--red' }, scoreRed, el('span', {}, names.red))),
       mainEl);
     paintRig();
