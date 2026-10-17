@@ -180,7 +180,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** Eslang: to'g'ri kasrlarni qo'shish/ayirish (butun − kasr: 4 − 1/3); aralash son + butun son, butun − aralash; idish sig'imi (bor + kerak); 3 bosqichli: ko'k sim − qizil − qora; 3 xil mato yig'indisi; ishlatdi + quydi.
 **Rasmlar:** kasrli doira bo'laklari, tasma.
 
-#### ☐ 8. Kasrni natural songa ko'paytirish (to'g'ri va noto'g'ri) (+ Eslang: to'plamning qismi) — D1 64–69; M1 71–78
+#### ✅ 8. Kasrni natural songa ko'paytirish (to'g'ri va noto'g'ri) (+ Eslang: to'plamning qismi) — D1 64–69; M1 71–78
+**Holat (2026-10-17):** tayyor, `ccr-6644adea-vrr90g` shoxida (main ga qo'shilmagan). Fayl: maruza/5-kasrni-natural-songa-kopaytirish.html. O'z testi: `5|matematika|kasrni-natural-songa-kopaytirish` (10 savol, izohli).
+**Kitob bilan solishtirildi:** 7 qoida (Eslang: qism va qismiga ko'ra butun; «n ning a/b qismi» = ko'paytirish; surat × son, maxraj o'zgarmaydi; oldin qisqartirish; javob → aralash son; noto'g'ri kasr × son; qolgan qism) ✅ — «qolgan qism» alohida qoida ramkasi bo'ldi. Darslik turlari (sharlar, tomoshabinlar → sport zali, tugmalar, «o'g'il bolalar nechta» qolgan qism, kvadrat perimetri, stakanlardagi suyuqlik, oqib ketgan suv) ✅; daftar turlari (doirachalar guruhlari rasmdan, qismiga ko'ra butun — namuna va mashq, javob-harf o'yini «KITOB», qayta ishlanadigan chiqindi, 1/2 + 1/3 + qolgan qism — shirinliklar namuna va masala) ✅. Kitob sonlari (12 ning 3/4, 2/5·12, 3/2·2, 1/4·5, 10·3/5, 150·2/3, 150·1/3, 4·7/3, 9·3/5, tasma 2/5 = 6 m, 2/7·3) va kitob ismlari/vaziyatlari (Kamola, marka, konsert) o'z sonlarimiz va vaziyatlarimizga almashtirildi.
+**Tekshiruv:** ekspert — 66 tenglik skript bilan (xato 3 — hammasi atayin xato: Diqqat va «Xatoni toping»), test javoblari Fraction bilan; kitob juftlari skript bilan qidirildi — 0. O'quvchi — telefon 390 px va 1100 px: surilish yo'q, KaTeX ✅, xato yo'q. Matnli masalalar 13 tadan 10 taga qisqartirildi. Yangi: data-qism ga data-izoh="0" (rasmli mashqda hisob yashiriladi).
+**Simulyator uchun g'oyalar:** sharlarni guruhlarga sudrab ajratish va kerakli guruhlarni bo'yash; «avval qisqartir» tugmasi bilan qisqartirish animatsiyasi; doira bo'laklarini yig'ib aralash son hosil qilish; javob-harf o'yini.
 **Qoidalar ro'yxati:**
 - Eslang: sonning qismini topish (12 ning 3/4 qismi: 12 : 4 · 3); qismiga ko'ra butunni topish (2/5 qismi 6 m → butun 15 m).
 - "n ning a/b qismi" = n · a/b.
@@ -191,9 +195,14 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 - Qolgan qism: 1 − 2/3 = 1/3 (bolalar soni).
 **Misol turlari:** to'plamning qismi (sharlar, tomoshabinlar, tugmalar); "katta yoshlilar nechta" (qolgan qism); kvadrat perimetri (tomoni 5/8 m); stakanlardagi suv; idishdan oqib ketgan suv.
 **Mashq daftaridan (qo'shimcha):** Eslang: doirachalarni guruhlarga ajratib qismni topish; qismiga ko'ra butunni topish (4/7 qismi 32 ta → jami); javobga mos harflardan so'z tuzish (o'yin); qayta ishlanadigan chiqindi; 1/2 + 1/3 + qolgan qism (shirinliklar).
+**Qo'shimcha qoida (ma'ruzada alohida):** qolgan qismni ikki usulda topish — butundan ayirish yoki butunni (1 − a/b) ga ko'paytirish.
 **Rasmlar:** doirachalar guruhlari, tasma modeli.
 
-#### ☐ 9. Kasrni kasrga ko'paytirish — D1 70–78; M1 79–84
+#### ✅ 9. Kasrni kasrga ko'paytirish — D1 70–78; M1 79–84
+**Holat (2026-10-17):** tayyor, `ccr-6644adea-vrr90g` shoxida (main ga qo'shilmagan). Fayl: maruza/5-kasrni-kasrga-kopaytirish.html. O'z testi: `5|matematika|kasrni-kasrga-kopaytirish` (10 savol, izohli).
+**Kitob bilan solishtirildi:** 7 qoida (kasrning qismi = ko'paytirish; surat×surat, maxraj×maxraj; javobni qisqartirish; oldin/xochsimon qisqartirish; to'g'ri × noto'g'ri va noto'g'ri × noto'g'ri — javob aralash son; ko'paytma kattaligi: to'g'ri kasrga — kamayadi, 1 dan kattaga — ortadi, 1 ga tengga — o'zgarmaydi; ko'paytma 1 dan katta/kichik — to'plamlar) ✅ — 5- va 6-qoida alohida ramka qilindi. Darslik turlari (tort/qog'oz buklab shtrixlash, un, sharbat, uzum, kvadrat yuzi, jamg'arma, teatr — katta/bola/qiz/o'g'il, ikki usulda, tez hisoblash) ✅; daftar turlari (chizmada shtrixlash — mashq va javobda rasm, natural son × kasr — Eslang mashqi, qizil va dumaloq tugmalar, suzishni biladigan o'g'il bolalar, bir tomoni noto'g'ri kasr bo'lgan to'rtburchak yuzi 7/4 × 2/3 + amaliy bo'yash, ichimlik qoldig'i) ✅. Kitob sonlari (1/2·1/3, 1/3·2/3, 2/6·1/2, 1/2·4/5, 1/2·2/3, 3/4·1/3, 2/3·1/5, 2/5·2/3, 3/2·1/2, 2/3·3/4, 9/10·2/3, 3/4·8/7, 5/4·3/2, 6/4·8/3, p77 to'plamlari) va ismlar (Kamola, Akmal, Madina-qog'oz, Lobar opa, Zafar) almashtirildi; qisqartirishdan keyingi oraliq juftlar ham kitobnikiga to'g'ri kelmaydi.
+**Tekshiruv:** ekspert — 68 tenglik skript bilan (xato 5 — atayin xato va □ topshiriq), test javoblari Fraction bilan; kitob juftlari skript bilan qidirildi — 0. O'quvchi — telefon 390 px va 1100 px: surilish yo'q, KaTeX ✅, yuza chizmalari (2 butunli 5/3 va 7/4 ham) o'qiladi. Yangi chizma: data-yuza (a > b bo'lsa bir nechta butun to'rtburchak).
+**Simulyator uchun g'oyalar:** qog'ozni tikkasiga va yotig'iga «buklash» tugmalari, kataklarni sanab kasr hosil qilish; ko'paytuvchini 1 dan kichik/katta qilib surganda ko'paytma qanday o'zgarishini ko'rsatuvchi slayder; xochsimon qisqartirish o'yini.
 **Qoidalar ro'yxati:**
 - "a/b ning c/d qismi" = a/b · c/d.
 - Ikki kasrni ko'paytirish: surat suratga, maxraj maxrajga ko'paytiriladi, natija qisqarmas ko'rinishga keltiriladi.

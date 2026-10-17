@@ -16,8 +16,8 @@
    data-pitsa="2/3" [data-usul="butun"] — a ta pitsa b ta bolaga: har pitsa b bo'lakka, har bola o'z rangida;
                                           usul="butun" — avval butun pitsalar beriladi, qolgani bo'linadi (aralash son)
    data-doira="2 3/4" [data-rang="0"]   — aralash son doiralarda: butunlar to'liq, kasr qism bo'yalgan bo'laklar
-   data-qism="10/3/5" [data-yozuv="qizil"] — sonning qismi: n ta narsa b ta teng guruhga, a tasi bo'yalgan;
-                                          n katta bo'lsa — tasma (har bo'lakda qiymati yozilgan)
+   data-qism="10/3/5" [data-yozuv="qizil"] [data-izoh="0"] — sonning qismi: n ta narsa b ta teng guruhga, a tasi bo'yalgan;
+                                          n katta bo'lsa — tasma (har bo'lakda qiymati yozilgan); izoh="0" — hisob yozilmaydi (mashq uchun)
    data-yuza="1/3/2/3"             — a/b ning c/d qismi (to'g'ri to'rtburchak modeli): b ta ustundan a tasi bo'yalgan,
                                           d ta qatordan c tasi shtrixlangan — shtrixlangan kataklar a·c / b·d
    data-qolgan="1/6/2/5" [data-yozuv="1/6|Bo'yalmagan qism|?"] — tasmaning a/b qismi bo'yalgan, qolgan qismning
@@ -493,8 +493,9 @@
       if (yozuv) svg += '<text x="' + (L + a * w / 2) + '" y="' + (y + h + 24) + '" text-anchor="middle" font-size="15" font-weight="700" fill="' + RANG + '">' + yozuv + "</text>";
     }
     el.classList.add("qism");
-    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="max-width:' + W + 'px" role="img" aria-label="' + n + " ning " + a + "/" + b + " qismi: " + nat + '">' + svg + "</svg>" +
+    const izoh = el.dataset.izoh === "0" ? "" :
       '<p class="chz-cap">' + guruh(n) + " : " + b + " = " + guruh(k) + " — bitta bo'lak; &nbsp;" + guruh(k) + " · " + a + " = " + guruh(nat) + " — " + a + " ta bo'lak.</p>";
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="max-width:' + W + 'px" role="img" aria-label="' + n + " ta narsa " + b + " ta teng guruhga bo'lingan, " + a + ' tasi bo\'yalgan">' + svg + "</svg>" + izoh;
   }
 
   // ---------- kasrning kasr qismi: to'g'ri to'rtburchak modeli ----------

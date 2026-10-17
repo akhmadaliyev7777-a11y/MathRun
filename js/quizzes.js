@@ -83,29 +83,29 @@ const QUIZ_DATA = {
   ],
   // 8-mavzu o'z testi (ma'ruzaga mos)
   "5|matematika|kasrni-natural-songa-kopaytirish": [
-    { level: 1, question: "2/9 · 4 = ?", options: ["8/9", "8/36", "6/9", "2/36"], answer: "8/9", explain: "Suratni songa ko'paytiramiz, maxraj o'zgarmaydi: 2 · 4 = 8, maxraj 9. Javob 8/9." },
-    { level: 2, question: "20 ning 3/4 qismi nechaga teng?", options: ["15", "5", "60", "12"], answer: "15", explain: "20 ni 4 ta teng bo'lakka bo'lamiz: 20 : 4 = 5 (bitta bo'lak). 3 ta bo'lak: 5 · 3 = 15." },
+    { level: 1, question: "2/9 · 4 = ?", options: ["8/9", "8/36", "6/9", "2/36"], answer: "8/9", explain: "Suratni songa ko'paytiramiz, maxraj o'zgarmaydi: 2 · 4 = 8, maxraj 9. 8/36 — maxraj ham ko'paytirilgan (xato)." },
+    { level: 2, question: "28 ning 3/4 qismi nechaga teng?", options: ["21", "7", "84", "12"], answer: "21", explain: "28 ni 4 ta teng bo'lakka bo'lamiz: 28 : 4 = 7 (bitta bo'lak). 3 ta bo'lak: 7 · 3 = 21. 7 — faqat bitta bo'lak." },
     { level: 3, question: "Qaysi yozuv to'g'ri?", options: ["3/5 · 2 = 6/5", "3/5 · 2 = 6/10", "3/5 · 2 = 3/10", "3/5 · 2 = 5/7"], answer: "3/5 · 2 = 6/5", explain: "Faqat surat ko'paytiriladi: 3 · 2 = 6, maxraj 5 o'zgarmaydi. 6/10 da maxraj ham ko'paytirilgan — bu xato." },
-    { level: 4, question: "5 nafar bola chorak bo'lakdan tort yedi. Ular qancha tort yegan? (1/4 · 5)", options: ["1 1/4", "5/20", "1 1/5", "5 1/4"], answer: "1 1/4", explain: "1/4 · 5 = 5/4. 5 ta chorakdan 4 tasi bitta butun tort, bittasi ortadi: 5/4 = 1 1/4." },
-    { level: 5, question: "10 · 3/5 ni qisqartirib hisoblang.", options: ["6", "30", "6/5", "2"], answer: "6", explain: "10 va 5 ni 5 ga qisqartiramiz: 2 · 3/1 = 6. Tekshirish: 10 ning 3/5 qismi — 10 : 5 · 3 = 6." },
-    { level: 6, question: "2/5 · 12 = ?", options: ["4 4/5", "24/60", "4 2/5", "2 2/5"], answer: "4 4/5", explain: "2 · 12 = 24, maxraj 5: 24/5. 24 : 5 = 4 (qoldiq 4), demak 4 4/5." },
-    { level: 7, question: "3/2 · 2 = ?", options: ["3", "6/4", "1 1/2", "3/4"], answer: "3", explain: "Ikkita «bir yarim» — uchta butun: 3/2 · 2 = 6/2 = 3. Yoki 2 va 2 ni qisqartiramiz: 3 · 1 = 3." },
-    { level: 8, question: "4 · 7/3 = ?", options: ["9 1/3", "28/12", "7 1/3", "9 2/3"], answer: "9 1/3", explain: "4 · 7 = 28, maxraj 3: 28/3. 28 : 3 = 9 (qoldiq 1), demak 9 1/3." },
-    { level: 9, question: "Zalda 150 tomoshabin bor, ularning 2/3 qismi — katta yoshlilar. Zalda nechta bola bor?", options: ["50", "100", "75", "300"], answer: "50", explain: "Katta yoshlilar: 150 : 3 · 2 = 100. Bolalar: 150 − 100 = 50. Yoki bolalar 1/3 qism: 150 : 3 = 50." },
-    { level: 10, question: "Kvadratning tomoni 5/6 m. Uning perimetrini toping.", options: ["3 1/3 m", "20/24 m", "2 1/2 m", "1 2/3 m"], answer: "3 1/3 m", explain: "Kvadratning 4 ta tomoni teng: 5/6 · 4 = 20/6 = 10/3 = 3 1/3 m." }
+    { level: 4, question: "5 nafar bola uchdan bir bo'lakdan pirog yedi. Ular qancha pirog yegan? (1/3 · 5)", options: ["1 2/3", "5/15", "1 1/3", "5 1/3"], answer: "1 2/3", explain: "1/3 · 5 = 5/3. 5 ta uchdan birdan 3 tasi bitta butun pirog, 2 tasi ortadi: 5/3 = 1 2/3." },
+    { level: 5, question: "14 · 5/7 ni qisqartirib hisoblang.", options: ["10", "70", "10/7", "2"], answer: "10", explain: "14 va 7 ni 7 ga qisqartiramiz: 2 · 5 = 10. Tekshirish: 14 ning 5/7 qismi — 14 : 7 · 5 = 10. 2 — bitta bo'lak, javob emas." },
+    { level: 6, question: "3/7 · 5 = ?", options: ["2 1/7", "15/35", "1 1/7", "2 2/7"], answer: "2 1/7", explain: "3 · 5 = 15, maxraj 7: 15/7. 15 : 7 = 2 (qoldiq 1), demak 2 1/7. 15/35 — maxraj ham ko'paytirilgan." },
+    { level: 7, question: "5/3 · 3 = ?", options: ["5", "15/9", "1 2/3", "8/3"], answer: "5", explain: "3 va 3 ni qisqartiramiz: 5 · 1 = 5. Uchta «bir butun va uchdan ikki» — beshta butun. 15/9 — maxraj ham ko'paytirilgan." },
+    { level: 8, question: "3 · 9/4 = ?", options: ["6 3/4", "27/12", "6 1/4", "3 3/4"], answer: "6 3/4", explain: "3 · 9 = 27, maxraj 4: 27/4. 27 : 4 = 6 (qoldiq 3), demak 6 3/4." },
+    { level: 9, question: "Zalda 180 nafar o'quvchi bor, ularning 4/9 qismi qizlar. Zalda nechta o'g'il bola bor?", options: ["100", "80", "20", "405"], answer: "100", explain: "Qizlar: 180 : 9 · 4 = 80. O'g'il bolalar: 180 − 80 = 100. Yoki o'g'il bolalar 5/9 qism: 180 : 9 · 5 = 100. 80 — qizlar soni." },
+    { level: 10, question: "Kvadratning tomoni 5/6 m. Uning perimetrini toping.", options: ["3 1/3 m", "20/24 m", "2 1/2 m", "1 2/3 m"], answer: "3 1/3 m", explain: "Kvadratning 4 ta tomoni teng: 5/6 · 4 = 20/6 = 10/3 = 3 1/3 m. 2 1/2 m — 3 ta tomon, 1 2/3 m — 2 ta tomon." }
   ],
   // 9-mavzu o'z testi (ma'ruzaga mos)
   "5|matematika|kasrni-kasrga-kopaytirish": [
-    { level: 1, question: "1/2 · 1/3 = ?", options: ["1/6", "2/5", "2/6", "1/5"], answer: "1/6", explain: "Surat suratga, maxraj maxrajga ko'paytiriladi: 1 · 1 = 1, 2 · 3 = 6. Javob 1/6." },
-    { level: 2, question: "2/3 · 4/5 = ?", options: ["8/15", "6/8", "8/5", "6/15"], answer: "8/15", explain: "2 · 4 = 8 — surat, 3 · 5 = 15 — maxraj. Javob 8/15." },
-    { level: 3, question: "3/4 ning 1/3 qismi nechaga teng?", options: ["1/4", "3/7", "5/12", "4/7"], answer: "1/4", explain: "«Ning qismi» — ko'paytirish: 3/4 · 1/3 = 3/12 = 1/4." },
+    { level: 1, question: "1/4 · 1/3 = ?", options: ["1/12", "2/7", "2/12", "1/7"], answer: "1/12", explain: "Surat suratga, maxraj maxrajga ko'paytiriladi: 1 · 1 = 1, 4 · 3 = 12. 2/7 — qo'shib yuborilgan (xato)." },
+    { level: 2, question: "2/3 · 4/5 = ?", options: ["8/15", "6/8", "8/5", "6/15"], answer: "8/15", explain: "2 · 4 = 8 — surat, 3 · 5 = 15 — maxraj. 8/5 — maxraj ko'paytirilmagan." },
+    { level: 3, question: "5/6 ning 2/5 qismi nechaga teng?", options: ["1/3", "13/30", "7/11", "10/11"], answer: "1/3", explain: "«Ning qismi» — ko'paytirish: 5/6 · 2/5 = 10/30 = 1/3. 13/30 — ayirib yuborilgan (5/6 − 2/5)." },
     { level: 4, question: "Qaysi yozuv to'g'ri?", options: ["2/5 · 3/4 = 6/20", "2/5 · 3/4 = 6/4", "2/5 · 3/4 = 5/9", "2/5 · 3/4 = 6/9"], answer: "2/5 · 3/4 = 6/20", explain: "2 · 3 = 6, 5 · 4 = 20. 6/20 ni qisqartirsak 3/10 bo'ladi. 6/4 da maxraj ko'paytirilmagan, 5/9 da qo'shib yuborilgan." },
-    { level: 5, question: "3/4 · 8/7 = ?", options: ["6/7", "24/11", "11/28", "1 1/7"], answer: "6/7", explain: "Noto'g'ri kasr ham shu qoida bilan ko'paytiriladi. 8 va 4 ni 4 ga qisqartiramiz: 3/1 · 2/7 = 6/7." },
-    { level: 6, question: "1/2 · 4/5 = ?", options: ["2/5", "5/7", "4/7", "1/5"], answer: "2/5", explain: "Avval 4 va 2 ni 2 ga qisqartiramiz: 1/1 · 2/5 = 2/5. Yoki 4/10 = 2/5." },
-    { level: 7, question: "5/4 · 3/2 = ?", options: ["1 7/8", "8/6", "2 3/8", "1 1/8"], answer: "1 7/8", explain: "Qisqartiradigan son yo'q: 5 · 3 = 15, 4 · 2 = 8. 15/8 = 1 7/8. Ikkala kasr 1 dan katta — ko'paytma ham 1 dan katta." },
-    { level: 8, question: "Lobar opada 3/4 kg un bor edi. U unning 1/3 qismini ishlatdi. Qancha un qoldi?", options: ["1/2 kg", "1/4 kg", "5/12 kg", "2/3 kg"], answer: "1/2 kg", explain: "Ishlatdi: 3/4 · 1/3 = 1/4 kg. Qoldi: 3/4 − 1/4 = 2/4 = 1/2 kg. 1/4 kg — ishlatilgani, qolgani emas." },
+    { level: 5, question: "1/3 · 6/7 = ?", options: ["2/7", "7/10", "6/10", "1/7"], answer: "2/7", explain: "Avval 6 va 3 ni 3 ga qisqartiramiz: 1/1 · 2/7 = 2/7. Yoki 6/21 = 2/7. 7/10 — qo'shib yuborilgan." },
+    { level: 6, question: "4/5 · 15/8 = ?", options: ["1 1/2", "19/13", "60/13", "1 1/4"], answer: "1 1/2", explain: "Noto'g'ri kasr ham shu qoida bilan ko'paytiriladi. 4 va 8 ni 4 ga, 15 va 5 ni 5 ga qisqartiramiz: 1/1 · 3/2 = 3/2 = 1 1/2." },
+    { level: 7, question: "7/4 · 5/3 = ?", options: ["2 11/12", "12/7", "2 1/12", "1 11/12"], answer: "2 11/12", explain: "Qisqartiradigan son yo'q: 7 · 5 = 35, 4 · 3 = 12. 35/12 = 2 11/12. Ikkala kasr 1 dan katta — ko'paytma ham 1 dan katta." },
+    { level: 8, question: "Gulnora opada 5/6 kg un bor edi. U unning 2/5 qismini ishlatdi. Qancha un qoldi?", options: ["1/2 kg", "1/3 kg", "13/30 kg", "2/5 kg"], answer: "1/2 kg", explain: "Ishlatdi: 5/6 · 2/5 = 1/3 kg. Qoldi: 5/6 − 1/3 = 3/6 = 1/2 kg. 1/3 kg — ishlatilgani, qolgani emas." },
     { level: 9, question: "To'g'ri to'rtburchakning tomonlari 3/4 m va 2/5 m. Uning yuzi qancha?", options: ["3/10 m²", "5/9 m²", "6/9 m²", "1 3/20 m²"], answer: "3/10 m²", explain: "Yuz = bo'yi · eni: 3/4 · 2/5 = 6/20 = 3/10 m². 1 3/20 — tomonlar yig'indisi, yuz emas." },
-    { level: 10, question: "Hisoblamasdan ayting: 3/4 · 5/6 natijasi qanday?", options: ["3/4 dan kichik", "3/4 dan katta", "3/4 ga teng", "1 dan katta"], answer: "3/4 dan kichik", explain: "3/4 ning 5/6 qismini olyapmiz — qism butundan kichik. Haqiqatan 3/4 · 5/6 = 5/8 < 3/4." }
+    { level: 10, question: "Hisoblamasdan ayting: 3/4 · 7/6 natijasi qanday?", options: ["3/4 dan katta", "3/4 dan kichik", "3/4 ga teng", "1/2 dan kichik"], answer: "3/4 dan katta", explain: "7/6 > 1 — sonni 1 dan katta kasrga ko'paytirsak, son ortadi. Haqiqatan 3/4 · 7/6 = 7/8 > 3/4." }
   ],
   // 10-mavzu o'z testi (ma'ruzaga mos)
   "5|matematika|aralash-sonni-natural-songa": [
