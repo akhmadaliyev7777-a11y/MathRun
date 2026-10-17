@@ -109,16 +109,16 @@ const QUIZ_DATA = {
   ],
   // 10-mavzu o'z testi (ma'ruzaga mos)
   "5|matematika|aralash-sonni-natural-songa": [
-    { level: 1, question: "2 1/3 ni noto'g'ri kasrga aylantiring.", options: ["7/3", "5/3", "3/3", "6/3"], answer: "7/3", explain: "Butun × maxraj + surat: 2 · 3 + 1 = 7 — yangi surat, maxraj 3 o'zgarmaydi: 7/3." },
-    { level: 2, question: "1 1/2 · 3 = ?", options: ["4 1/2", "3 1/2", "3 3/6", "4"], answer: "4 1/2", explain: "1 1/2 = 3/2. 3/2 · 3 = 9/2 = 4 1/2. Uchta butun va uchta yarimta: ikkita yarimta yana bitta butun." },
-    { level: 3, question: "2 1/4 · 3 = ?", options: ["6 3/4", "6 1/4", "2 3/4", "6 3/12"], answer: "6 3/4", explain: "2 · 3 = 6 va 1/4 · 3 = 3/4. Jami 6 3/4. 6 1/4 — kasr qism ko'paytirilmagan." },
-    { level: 4, question: "Kvadratning tomoni 3 3/4 m. Uning perimetri qancha?", options: ["15 m", "12 3/4 m", "13 m", "16 m"], answer: "15 m", explain: "3 3/4 · 4 = 15/4 · 4 = 15 m. Yoki 3 · 4 + 3/4 · 4 = 12 + 3 = 15." },
-    { level: 5, question: "2 1/2 · 4 ni qismlarga ajratib hisoblang.", options: ["10", "8 1/2", "8 2/4", "9"], answer: "10", explain: "2 · 4 = 8, 1/2 · 4 = 2. 8 + 2 = 10." },
-    { level: 6, question: "5 1/3 · 6 = ?", options: ["32", "30 1/3", "30 6/18", "31"], answer: "32", explain: "5 · 6 = 30, 1/3 · 6 = 2. Jami 32." },
-    { level: 7, question: "7 · 2 5/8 ning qiymati qaysi oraliqda?", options: ["14 va 21 orasida", "7 va 14 orasida", "21 va 28 orasida", "2 va 3 orasida"], answer: "14 va 21 orasida", explain: "7 · 2 = 14, 7 · 3 = 21. Aniq javob: 147/8 = 18 3/8 — haqiqatan 14 va 21 orasida." },
-    { level: 8, question: "2 3/4 · 2 = ?", options: ["5 1/2", "4 3/4", "4 6/8", "5 3/4"], answer: "5 1/2", explain: "2 · 2 = 4, 3/4 · 2 = 6/4 = 1 1/2. 4 + 1 1/2 = 5 1/2." },
-    { level: 9, question: "1 kg olma 12 000 so'm. 2 3/4 kg olma qancha turadi?", options: ["33 000 so'm", "24 000 so'm", "27 000 so'm", "36 000 so'm"], answer: "33 000 so'm", explain: "12 000 · 2 = 24 000, 12 000 · 3/4 = 9 000. Jami 33 000 so'm." },
-    { level: 10, question: "Kvadratning tomoni 4 2/3 m. Uning perimetrini toping.", options: ["18 2/3 m", "16 2/3 m", "16 8/3 m", "18 1/3 m"], answer: "18 2/3 m", explain: "4 · 4 = 16, 2/3 · 4 = 8/3 = 2 2/3. 16 + 2 2/3 = 18 2/3 m. 16 8/3 — kasr qismdan butun ajratilmagan." }
+    { level: 1, question: "3 2/7 ni noto'g'ri kasrga aylantiring.", options: ["23/7", "5/7", "13/7", "21/7"], answer: "23/7", explain: "Butun × maxraj + surat: 3 · 7 + 2 = 23 — yangi surat, maxraj 7 o'zgarmaydi. 5/7 — butun maxrajga ko'paytirilmagan (3 + 2)." },
+    { level: 2, question: "1 2/3 · 4 = ?", options: ["6 2/3", "4 2/3", "20/12", "6 1/3"], answer: "6 2/3", explain: "1 2/3 = 5/3. 5/3 · 4 = 20/3 = 6 2/3. 4 2/3 — faqat butun qism ko'paytirilgan, 20/12 — maxraj ham ko'paytirilgan." },
+    { level: 3, question: "2 1/5 · 3 = ?", options: ["6 3/5", "6 1/5", "2 3/5", "6 3/15"], answer: "6 3/5", explain: "2 · 3 = 6 va 1/5 · 3 = 3/5. Jami 6 3/5. 6 1/5 — kasr qism ko'paytirilmagan." },
+    { level: 4, question: "Kvadratning tomoni 2 3/8 m. Uning perimetri qancha?", options: ["9 1/2 m", "8 3/8 m", "9 3/8 m", "4 3/4 m"], answer: "9 1/2 m", explain: "2 3/8 · 4 = 8 + 3/8 · 4 = 8 + 3/2 = 9 1/2 m. 4 3/4 m — faqat ikki tomon yig'indisi." },
+    { level: 5, question: "3 1/4 · 8 ni qismlarga ajratib hisoblang.", options: ["26", "24 1/4", "24 2/8", "25"], answer: "26", explain: "3 · 8 = 24, 1/4 · 8 = 2. 24 + 2 = 26. 24 1/4 — kasr qism 8 ga ko'paytirilmagan." },
+    { level: 6, question: "2 5/6 · 6 = ?", options: ["17", "12 5/6", "12 30/36", "16"], answer: "17", explain: "2 5/6 = 17/6. 6 va 6 ni qisqartiramiz: 17 · 1 = 17. Yoki 2 · 6 + 5/6 · 6 = 12 + 5 = 17." },
+    { level: 7, question: "6 · 3 4/9 ning qiymati qaysi oraliqda?", options: ["18 va 24 orasida", "6 va 18 orasida", "24 va 30 orasida", "3 va 4 orasida"], answer: "18 va 24 orasida", explain: "6 · 3 = 18, 6 · 4 = 24 — javob shu ikki son orasida. Aniq javob: 62/3 = 20 2/3." },
+    { level: 8, question: "1 4/7 · 3 = ?", options: ["4 5/7", "3 4/7", "3 12/7", "4 2/7"], answer: "4 5/7", explain: "1 · 3 = 3, 4/7 · 3 = 12/7 = 1 5/7. 3 + 1 5/7 = 4 5/7. 3 12/7 — kasr qismdan butun ajratilmagan." },
+    { level: 9, question: "1 kg gilos 48 000 so'm. 2 1/4 kg gilos qancha turadi?", options: ["108 000 so'm", "96 000 so'm", "100 000 so'm", "120 000 so'm"], answer: "108 000 so'm", explain: "48 000 · 2 = 96 000, 48 000 · 1/4 = 12 000. Jami 108 000 so'm. 96 000 — chorak kilogramm hisobga olinmagan." },
+    { level: 10, question: "Bekzodning vazni 38 1/4 kg, otasining vazni undan 2 marta ko'p. Otasining vazni necha kilogramm?", options: ["76 1/2 kg", "76 1/4 kg", "40 1/4 kg", "77 kg"], answer: "76 1/2 kg", explain: "38 · 2 = 76, 1/4 · 2 = 1/2. Jami 76 1/2 kg. 40 1/4 — «2 marta ko'p» o'rniga 2 qo'shilgan." }
   ],
   // 11-mavzu o'z testi (ma'ruzaga mos)
   "5|matematika|qolgan-qismning-qismi": [

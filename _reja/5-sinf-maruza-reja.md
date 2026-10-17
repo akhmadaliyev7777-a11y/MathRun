@@ -213,7 +213,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** ko'paytmani chizmada shtrixlab ko'rsatish (1/2 ning 2/3 qismi); natural son × kasr (10 · 2/3, 12 · 4/5); "qizil va dumaloq" tugmalar; suzishni biladigan o'g'il bolalar ulushi; to'g'ri to'rtburchak yuzi (8/5 m × 3/4 m) — 1 m kvadratda 2/5 × 3/4 bo'yash (amaliy).
 **Rasmlar:** to'g'ri to'rtburchakda ustma-ust bo'yash (eniga va bo'yiga).
 
-#### ☐ 10. Aralash sonni natural songa ko'paytirish — D1 79–81; M1 85–88
+#### ✅ 10. Aralash sonni natural songa ko'paytirish — D1 79–81; M1 85–88
+**Holat (2026-10-17):** tayyor, `ccr-6644adea-vrr90g` shoxida (main ga qo'shilmagan). Fayl: maruza/5-aralash-sonni-natural-songa.html. O'z testi: `5|matematika|aralash-sonni-natural-songa` (10 savol, izohli).
+**Kitob bilan solishtirildi:** 4 qoida (1-usul noto'g'ri kasr orqali; oldin qisqartirish; 2-usul qismlarga ajratib — kasr qismdan butun ajratish bilan; chamalash + o'rin almashtirish) ✅ — har biri alohida ramka va namuna. Darslik turlari (non bo'lish — doiralar, kvadrat perimetri, kunlik suv × kunlar, narx, yer maydoni yuzi, blok massasi, shishalar sig'imi, ikki usulda hisoblash) ✅; daftar turlari (doiralar bilan tekshirish — mashq, ko'paytmani javobi bilan juftlash, «2 marta og'ir» vazn, 3 kvadratdan to'g'ri to'rtburchak perimetri, ko'rpacha matosi, ko'p shishadagi sharbat) ✅. Kitob sonlari (1 1/2·3, 3 3/4·4, 7·2 5/8, 2 1/2·4, 5 1/3·6, 4 2/5·10, 3·4 2/9, 9·7 5/6, juftlik va «Bajaring» misollari, 60 000 · 3 1/2) va vaziyatlari (pirog, o'simliklarni sug'orish, Nodira) almashtirildi; kitob juftlari skript bilan qidirildi — 0.
+**Tekshiruv:** ekspert — 55 tenglik skript bilan (6 «XATO» — 5 tasi atayin xato, 1 tasi □ topshiriq), barcha javoblar oldindan Fraction bilan; o'quvchi — telefon 390 px va 1100 px: surilish yo'q, KaTeX ✅, xato yo'q; tuzatildi — mashq sarlavhasidagi formula alohida qatorga chiqarildi.
+**Simulyator uchun g'oyalar:** doiralarni ko'paytirib, bo'laklarni yig'ib butun hosil qilish; 1-usul / 2-usul tugmalari bilan bir misolni ikki yo'l bilan ko'rsatish; chamalash o'yini — javob qaysi oraliqda.
 **Qoidalar ro'yxati:**
 - 1-usul: aralash sonni noto'g'ri kasrga aylantirib, so'ng ko'paytirish (1 1/2 · 3 = 3/2 · 3 = 9/2 = 4 1/2).
 - 2-usul: butun va kasr qismini alohida ko'paytirib, qo'shish (2 1/2 · 4 = 8 + 2 = 10).

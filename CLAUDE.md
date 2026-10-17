@@ -66,9 +66,10 @@ PDF beti = kitob beti + 4. Agar nomlar boshqacha bo'lsa — faylni qayta nomlang
 | 7. Aralash sonlarni qo'shish va ayirish | ✅ | ✅ |
 | 8. Kasrni natural songa ko'paytirish | ✅ (shoxda) | ✅ |
 | 9. Kasrni kasrga ko'paytirish | ✅ (shoxda) | ✅ |
-| 10, 11 | ☐ qoralama shoxda — kitob sonlari almashtirilmagan, qayta ko'rib chiqiladi | ☐ qoralama |
+| 10. Aralash sonni natural songa ko'paytirish | ✅ (shoxda) | ✅ |
+| 11 | ☐ qoralama shoxda — kitob sonlari almashtirilmagan, qayta ko'rib chiqiladi | ☐ qoralama |
 
-**Navbat:** 10-mavzu «Aralash sonni natural songa ko'paytirish» (id `aralash-sonni-natural-songa`, D1 79–81, M1 85–88) — shoxdagi qoralamani qoidalar bo'yicha qayta ishlash, keyin 11, 12, ... 47 tartib bilan. 8, 9 (va 10, 11 qoralamasi) `ccr-6644adea-vrr90g` shoxida — main ga kompyuterdagi sessiya qo'shadi. Alohida vazifa: 1, 2, 6-mavzularga o'z testi (10 savol, izohli).
+**Navbat:** 11-mavzu «Qolgan qismning qismi» (id `qolgan-qismning-qismi`, D1 82–88, M1 89–100) — shoxdagi qoralamani qoidalar bo'yicha qayta ishlash, keyin 12, ... 47 tartib bilan. 8, 9, 10 (va 11 qoralamasi) `ccr-6644adea-vrr90g` shoxida — main ga kompyuterdagi sessiya qo'shadi. Alohida vazifa: 1, 2, 6-mavzularga o'z testi (10 savol, izohli).
 
 ## Chizmalar (`maruza/chizma.js`, HTML'da `data-*` atribut)
 `data-xk` (kasrni ×k), `data-ld` (burchak usulida bo'lish), `data-kataklar`, `data-sonoqi`, `data-xona`, `data-tugma`, `data-oq`, `data-siljish`, `data-zanjir="43/x2/x10"`, `data-nollar="63000/700"`, `data-tartib="80 - 5 * (6 + 4) : 2"` (amallar tartibi raqamlari + qadamlar), `data-tasma="Otasi:3|Qizi:1" data-farq="..."` (chizmali model), `data-pitsa="3/5" [data-usul="butun"]`, `data-doira="2 3/4" [data-rang]`, `data-qism="14/5/7" [data-yozuv="ko'k"] [data-izoh="0"]` (sonning qismi: n ta narsa b ta guruhga, a tasi bo'yalgan; n > 40 — tasma; izoh="0" — hisobsiz, mashq uchun), `data-yuza="1/4/2/3"` (a/b ning c/d qismi — to'g'ri to'rtburchakda bo'yash va shtrixlash; a > b bo'lsa bir nechta butun), `data-qolgan="1/6/2/5" [data-yozuv="1/6|Qolgan qism|?"]` (tasma: a/b qism bo'yalgan, qolganning c/d qismi belgilangan). Yangi tur kerak bo'lsa — shu faylga qo'shing (boshqa mavzularda ham ishlaydi) va fayl boshidagi ro'yxatga yozing.
