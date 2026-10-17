@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amallarni bajarish tartibi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=20">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Amallarni bajarish tartibi (qavssiz va qavsli)</h1>
+<p class="m-lead">Bir nechta amali bor ifodada qaysi amal birinchi bajariladi, qavslar nima uchun kerak va ko'p bosqichli matnli masalalar qanday yechiladi.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">\(5 + 4 \cdot 3\) — 27 mi yoki 17 mi? Ikkalasi ham bo'lishi mumkin emas-ku!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>To'rt amal: qo'shish (+), ayirish (−), ko'paytirish (·), bo'lish (:).</li>
+      <li>Sonlar va amal belgilaridan tuzilgan yozuv — <b>ifoda</b>. Barcha amallarni bajarib chiqqan son — <b>ifodaning qiymati</b>.</li>
+      <li>Bo'lish ko'paytirishga, ayirish qo'shishga teskari amal: \(72 : 8 = 9\), chunki \(9 \cdot 8 = 72\).</li>
+      <li>Javobni chamalab tekshirish: sonlarni yaxlitlab, taxminiy javob topiladi (\(\approx\)).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Hamma bir xil javob olishi uchun amallar doim bir xil tartibda bajariladi. Bu tartibni yodlab oling!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · faqat qo'shish va ayirish</span>
+    <p>Ifodada faqat <strong>qo'shish va ayirish</strong> bo'lsa, amallar <strong>chapdan o'ngga</strong> qarab, yozilgan tartibda ketma-ket bajariladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna</span>
+    <div class="usullar">
+      <div class="box"><div data-tartib="40 - 15 + 8"></div></div>
+      <div class="box"><div data-tartib="18 - 9 + 30 - 14"></div></div>
+    </div>
+    <p><b>Masala.</b> Avtobusda 25 yo'lovchi bor edi. Bekatda 7 kishi tushdi va 12 kishi chiqdi. Avtobusda nechta yo'lovchi bo'ldi?</p>
+    <div class="usullar">
+      <div class="box"><p><b>1-usul</b> (ketma-ket amallar)</p><p>\(25 - 7 = 18\)<br>\(18 + 12 = 30\)</p></div>
+      <div class="box"><p><b>2-usul</b> (bitta ifoda)</p><p>\(25 - 7 + 12 = 18 + 12 = \nat{30}\)</p></div>
+    </div>
+    <p>Javob: avtobusda 30 ta yo'lovchi bo'ldi.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · faqat ko'paytirish va bo'lish</span>
+    <p>Ifodada faqat <strong>ko'paytirish va bo'lish</strong> bo'lsa, amallar ham <strong>chapdan o'ngga</strong> qarab, yozilgan tartibda ketma-ket bajariladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna</span>
+    <div class="usullar">
+      <div class="box"><div data-tartib="36 : 4 * 3"></div></div>
+      <div class="box"><div data-tartib="6 * 20 : 8 * 3"></div></div>
+    </div>
+    <p><b>Masala.</b> 4 ta qutining har birida 9 tadan pishiriq bor. Barcha pishiriqlar 6 tadan qilib likopchalarga qo'yildi. Nechta likopcha kerak bo'ldi?</p>
+    <div class="usullar">
+      <div class="box"><p><b>1-usul</b></p><p>\(4 \cdot 9 = 36\)<br>\(36 : 6 = 6\)</p></div>
+      <div class="box"><p><b>2-usul</b></p><p>\(4 \cdot 9 : 6 = 36 : 6 = \nat{6}\)</p></div>
+    </div>
+    <p>Javob: 6 ta likopcha kerak bo'ldi.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · qavssiz aralash ifoda</span>
+    <p>Qavssiz ifodada to'rt amalning hammasi uchrasa:</p>
+    <ol>
+      <li>avval <strong>ko'paytirish va bo'lish</strong> chapdan o'ngga qarab bajariladi;</li>
+      <li>so'ng <strong>qo'shish va ayirish</strong> chapdan o'ngga qarab bajariladi.</li>
+    </ol>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna</span>
+    <div class="usullar">
+      <div class="box"><div data-tartib="70 : 7 - 2 * 4"></div></div>
+      <div class="box"><div data-tartib="100 - 20 * 6 : 3"></div></div>
+      <div class="box"><div data-tartib="30 * 4 + 18 : 6"></div></div>
+      <div class="box"><div data-tartib="50 - 12 + 24 : 4 * 3"></div></div>
+    </div>
+    <p><b>Masala.</b> Nodirada 30 ta nok bor edi. U 4 ta xaltaga 6 tadan nok soldi. Nechta nok ortib qoldi?</p>
+    <div class="usullar">
+      <div class="box"><p><b>1-usul</b></p><p>\(4 \cdot 6 = 24\)<br>\(30 - 24 = 6\)</p></div>
+      <div class="box"><p><b>2-usul</b></p><p>\(30 - 4 \cdot 6 = 30 - 24 = \nat{6}\)</p></div>
+    </div>
+    <p>Javob: 6 ta nok ortib qoldi.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · qavsli ifoda</span>
+    <p>Ifodada qavs bo'lsa:</p>
+    <ol>
+      <li>avval <strong>qavs ichidagi</strong> amallar bajariladi (qavs ichida ham 3-qoida ishlaydi);</li>
+      <li>keyin <strong>ko'paytirish va bo'lish</strong> chapdan o'ngga;</li>
+      <li>so'ng <strong>qo'shish va ayirish</strong> chapdan o'ngga.</li>
+    </ol>
+    <p>Qavs «avval meni hisobla» degan belgi: u odatdagi tartibni o'zgartiradi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna</span>
+    <div class="usullar">
+      <div class="box"><div data-tartib="45 - (30 - 12)"></div></div>
+      <div class="box"><div data-tartib="48 : (24 : 4)"></div></div>
+      <div class="box"><div data-tartib="(75 - 3) : (18 : 2)"></div></div>
+      <div class="box"><div data-tartib="(900 - 300) : 4 : (3 * 5)"></div></div>
+    </div>
+    <p><b>Taqqoslang:</b> \(5 + 4 \cdot 3 = 5 + 12 = 17\), ammo \((5 + 4) \cdot 3 = 9 \cdot 3 = 27\). Qavs natijani o'zgartirdi.</p>
+    <p><b>Masala.</b> 7 ta qutining har birida 10 tadan tuxum bor edi. Har bir qutidan 3 tadan tuxum olindi. Qutilarda jami nechta tuxum qoldi?</p>
+    <div class="usullar">
+      <div class="box"><p><b>1-usul</b></p><p>\(10 - 3 = 7\)<br>\(7 \cdot 7 = 49\)</p></div>
+      <div class="box"><p><b>2-usul</b></p><p>\(7 \cdot (10 - 3) = 7 \cdot 7 = \nat{49}\)</p></div>
+    </div>
+    <p>Javob: qutilarda 49 ta tuxum qoldi.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">5-qoida · kalkulyator</span>
+    <p>Telefon va ilmiy kalkulyatorlar ham shu tartibda hisoblaydi: \(5 + 4 \cdot 3\) terilsa, avval \(4 \cdot 3\) ni hisoblab, keyin 5 ni qo'shadi va <b>17</b> chiqaradi. Qavsli ifodani kalkulyatorga qavslari bilan teriladi.</p>
+    <p>Ba'zi oddiy kalkulyatorlar esa amallarni tugmalar bosilgan tartibda bajaradi va 27 chiqaradi. Shuning uchun kalkulyator javobini doim amallar tartibi bilan o'zingiz ham tekshiring.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">6-qoida · matnli masalani yechish</span>
+    <ol>
+      <li><strong>Tushunish:</strong> nima berilgan, nima so'ralgan?</li>
+      <li><strong>Reja:</strong> masalani chizmali model (bo'laklardan tasma) bilan tasvirlash; qaysi amallar va qaysi tartibda kerakligini aniqlash.</li>
+      <li><strong>Yechish:</strong> ketma-ket amallar bilan (1-usul) yoki bitta ifoda bilan (2-usul).</li>
+      <li><strong>Tekshirish:</strong> javobni masala shartiga qo'yib ko'rish yoki chamalash.</li>
+    </ol>
+    <p>Yosh haqidagi masalalarda: <strong>ikki kishining yoshlari farqi hech qachon o'zgarmaydi</strong> — har yili ikkalasi ham bir yoshga kattalashadi.</p>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Men amallar ustiga raqam qo'yib chiqaman — keyin adashmayman!</div></div>
+  <div class="box">
+    <p><b>Amallar ustiga tartib raqamlari:</b> avval qavs, keyin · va :, so'ng + va −.</p>
+    <div data-tartib="80 - 5 * (6 + 4) : 2"></div>
+  </div>
+  <div class="box">
+    <p><b>Chizmali model:</b> ota 38 yoshda, qizi 6 yoshda. Necha yildan keyin ota qizidan 3 marta katta bo'ladi?</p>
+    <div data-tasma="Otasi:3|Qizi:1" data-farq="farq 32 yil — o'zgarmaydi"></div>
+    <p>Ota qizidan 3 marta katta bo'lganda qizi — 1 bo'lak, otasi — 3 bo'lak. Farq 2 bo'lakka teng va u doim 32 yil: \(38 - 6 = 32\).</p>
+    <p>1 bo'lak: \(32 : 2 = 16\) yil — o'shanda qizi 16 yoshda bo'ladi. \(16 - 6 = \nat{10}\) yildan keyin.</p>
+    <p>Bitta ifoda bilan: \((38 - 6) : 2 - 6 = 10\). Tekshirish: 10 yildan keyin ota 48, qizi 16 yoshda; \(16 \cdot 3 = 48\) ✓</p>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar — matnli masalalar</h2>
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · narx</span>
+    <p>Do'konga har birida 30 tadan ruchka bo'lgan 25 ta quti keltirildi. Bitta ruchka 2500 so'm. Hamma ruchkalar necha so'm turadi?</p>
+    <div class="qadam"><b>1</b><span>Bir qutidagi ruchkalar narxi: \(30 \cdot 2500 = 75 000\) so'm.</span></div>
+    <div class="qadam"><b>2</b><span>25 ta quti: \(75 000 \cdot 25 = \nat{1 875 000}\) so'm.</span></div>
+    <div class="qadam"><b>3</b><span>Chamalash: \(30 \cdot 2500 \cdot 25 \approx 30 \cdot 2500 \cdot 20 = 1 500 000\) va \(30 \cdot 2500 \cdot 30 = 2 250 000\). Javob shu ikki son orasida — maqbul ✓</span></div>
+    <p>Bitta ifoda: \(30 \cdot 2500 \cdot 25 = 1 875 000\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · bo'lib to'lash</span>
+    <p>Kir yuvish mashinasi uchun avval 600 000 so'm, keyin 10 oy davomida har oy 85 000 so'mdan to'landi. Mashina necha so'm turadi?</p>
+    <div class="qadam"><b>1</b><span>10 oyda: \(85 000 \cdot 10 = 850 000\) so'm.</span></div>
+    <div class="qadam"><b>2</b><span>Jami: \(850 000 + 600 000 = \nat{1 450 000}\) so'm.</span></div>
+    <p>Bitta ifoda: \(85 000 \cdot 10 + 600 000 = 1 450 000\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · qoldiqni qayta joylash</span>
+    <p>Ustaxonada 35 ta quti munchoq bor, har qutida 120 tadan. 200 ta munchoq sotildi, qolgani 50 tadan qilib qopchalarga solindi. Nechta qopcha kerak bo'ldi?</p>
+    <div class="qadam"><b>1</b><span>Jami munchoq: \(35 \cdot 120 = 4200\).</span></div>
+    <div class="qadam"><b>2</b><span>Sotilgandan keyin: \(4200 - 200 = 4000\).</span></div>
+    <div class="qadam"><b>3</b><span>Qopchalar: \(4000 : 50 = 400 : 5 = \nat{80}\).</span></div>
+    <div data-tartib="(35 * 120 - 200) : 50"></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 4 · «dastlab qancha bo'lgan?»</span>
+    <p>Alida Validan 5000 so'm ko'p pul bor edi. Vali Aliga 4000 so'm berdi. Endi Alining puli Valinikidan 3 marta ko'p bo'ldi. Alida dastlab qancha pul bo'lgan?</p>
+    <div data-tasma="Ali:3|Vali:1" data-farq="5000 + 4000 + 4000 = 13 000"></div>
+    <div class="qadam"><b>1</b><span>Vali 4000 so'm bersa, Alida 4000 ko'payadi, Valida 4000 kamayadi — farq \(5000 + 4000 + 4000 = 13 000\) so'm bo'ladi.</span></div>
+    <div class="qadam"><b>2</b><span>Endi Ali — 3 bo'lak, Vali — 1 bo'lak, farq — 2 bo'lak: \(13 000 : 2 = 6500\) so'm (Valida qolgan pul).</span></div>
+    <div class="qadam"><b>3</b><span>Alida endi: \(6500 \cdot 3 = 19 500\) so'm. Dastlab: \(19 500 - 4000 = \nat{15 500}\) so'm.</span></div>
+    <p>Tekshirish: dastlab Ali 15 500, Vali 10 500 — farq 5000 ✓. Keyin Ali 19 500, Vali 6500; \(6500 \cdot 3 = 19 500\) ✓</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 5 · perimetr bo'yicha tomon</span>
+    <p>To'g'ri to'rtburchak shaklidagi bog'ning perimetri 180 m, bo'yi enidan 14 m uzun. Bog'ning enini toping.</p>
+    <div class="qadam"><b>1</b><span>Eni va bo'yining yig'indisi — perimetrning yarmi: \(180 : 2 = 90\) m.</span></div>
+    <div class="qadam"><b>2</b><span>Bo'yidan ortiqcha 14 m ni olib tashlasak, ikkita teng en qoladi: \(90 - 14 = 76\) m.</span></div>
+    <div class="qadam"><b>3</b><span>Eni: \(76 : 2 = \nat{38}\) m, bo'yi: \(38 + 14 = 52\) m. Tekshirish: \((38 + 52) \cdot 2 = 180\) ✓</span></div>
+    <div data-tartib="(180 : 2 - 14) : 2" data-qadam="0"></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 6 · jadvaldan foydalanib</span>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Hayvonot bog'i chiptasi</th><th>Narxi</th></tr>
+      <tr><td>Kattalar</td><td>30 000 so'm</td></tr>
+      <tr><td>Bolalar</td><td>15 000 so'm</td></tr>
+    </table></div>
+    <p>24 nafar katta va 65 nafar bola chipta uchun jami qancha to'laydi?</p>
+    <p>\(24 \cdot 30 000 + 65 \cdot 15 000 = 720 000 + 975 000 = \nat{1 695 000}\) so'm.</p>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">«Chapdan o'ngga» degani — hamma amalni ketma-ket bajarish degani emas!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Qo'shishni ko'paytirish va bo'lishdan oldin bajarish.<br><span class="xato">20 + 36 : 4 · 2 = 56 : 4 · 2 = 28</span><br><span class="togri">20 + 36 : 4 · 2 = 20 + 9 · 2 = 20 + 18 = 38</span></li>
+      <li>Ko'paytirishni bo'lishdan oldin bajarish (ular teng huquqli — chapdan o'ngga!).<br><span class="xato">36 : 4 · 3 = 36 : 12 = 3</span> &nbsp;→&nbsp; <span class="togri">36 : 4 · 3 = 9 · 3 = 27</span></li>
+      <li>Ketma-ket ayirishda keyingi ikki sonni oldin ayirib yuborish (qavs yo'q — demak chapdan o'ngga!).<br><span class="xato">100 − 30 − 20 = 100 − 10 = 90</span> &nbsp;→&nbsp; <span class="togri">100 − 30 − 20 = 70 − 20 = 50</span></li>
+      <li>Qavsni e'tiborsiz qoldirish.<br><span class="xato">5 · (8 + 2) = 40 + 2 = 42</span> &nbsp;→&nbsp; <span class="togri">5 · (8 + 2) = 5 · 10 = 50</span></li>
+      <li>Ayirishni ko'paytirishdan oldin bajarish.<br><span class="xato">80 − 20 · 3 : 5 = 60 · 3 : 5 = 36</span><br><span class="togri">80 − 20 · 3 : 5 = 80 − 60 : 5 = 80 − 12 = 68</span></li>
+      <li>Yosh masalasida farqni o'zgaradi deb hisoblash. Ota 38, qizi 6 yoshda bo'lsa, 10 yildan keyin ham farq 32 yil: 48 va 16.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Avval amallar ustiga 1, 2, 3 deb raqam qo'yaman, keyin hisoblayman.</div></div>
+
+  <div class="daraja oson"><i></i>Oson — faqat qo'shish va ayirish</div>
+  <div class="misollar" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr))">
+    <span><b>a)</b>48 + 27 − 35</span><span><b>b)</b>90 − 36 − 28</span><span><b>c)</b>54 − 19 + 45</span>
+    <span><b>d)</b>26 + 58 − 47 + 13</span><span><b>e)</b>81 − 24 + 17 − 30</span><span><b>f)</b>65 + 35 − 50 − 25</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 40</span><span>b) 26</span><span>c) 80</span><span>d) 50</span><span>e) 44</span><span>f) 25</span></div>
+  </details>
+
+  <div class="daraja oson"><i></i>Oson — faqat ko'paytirish va bo'lish</div>
+  <div class="misollar" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr))">
+    <span><b>a)</b>4 · 5 · 3</span><span><b>b)</b>72 : 8 : 3</span><span><b>c)</b>6 · 8 : 4</span>
+    <span><b>d)</b>90 : 9 · 7</span><span><b>e)</b>40 : 8 · 6 : 3</span><span><b>f)</b>7 · 12 : 4 : 3</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 60</span><span>b) 3</span><span>c) 12</span><span>d) 70</span><span>e) 10</span><span>f) 7</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — birinchi bajariladigan amalni ayting, keyin hisoblang</div>
+  <div class="misollar" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+    <span><b>a)</b>6 · 7 − 25</span><span><b>b)</b>9 + 7 · 5</span><span><b>c)</b>15 + 56 : 8</span>
+    <span><b>d)</b>64 : 8 − 5</span><span><b>e)</b>8 · 6 − 4 · 9</span><span><b>f)</b>6 · 9 + 42 : 7 − 8</span>
+    <span><b>g)</b>60 − 40 : 5 · 6</span><span><b>h)</b>36 : 4 + 5 · 8 − 17</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 6 · 7; 17</span><span>b) 7 · 5; 44</span><span>c) 56 : 8; 22</span><span>d) 64 : 8; 3</span><span>e) 8 · 6; 12</span><span>f) 6 · 9; 52</span><span>g) 40 : 5; 12</span><span>h) 36 : 4; 32</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — qavsli ifodalar</div>
+  <div class="misollar" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+    <span><b>a)</b>(9 + 16) · 4</span><span><b>b)</b>(45 − 9) : 4</span><span><b>c)</b>60 − (7 · 6) + 12</span>
+    <span><b>d)</b>9 + (48 : 6) : 2</span><span><b>e)</b>81 : 9 + 2 · (15 − 7)</span><span><b>f)</b>(96 − 24) : 9 · (12 − 7 + 1)</span>
+    <span><b>g)</b>40 + 9 · 4 : (15 − 9 : 3)</span><span><b>h)</b>(8000 + 1600) : 40</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 100</span><span>b) 9</span><span>c) 30</span><span>d) 13</span><span>e) 25</span><span>f) 48</span><span>g) 43</span><span>h) 240</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — amallar tartibi jadvali (javobni kalkulyatorda tekshiring)</div>
+  <div class="jad-wrap"><table class="jad">
+    <tr><th>Ifoda</th><th>1-amal</th><th>2-amal</th><th>3-amal</th><th>Javob</th></tr>
+    <tr><td>12 − 3 · 2</td><td>3 · 2</td><td>12 − 6</td><td>—</td><td>6</td></tr>
+    <tr><td>20 + 30 : 6</td><td>?</td><td>?</td><td>—</td><td>?</td></tr>
+    <tr><td>15 − 6 + 4</td><td>?</td><td>?</td><td>—</td><td>?</td></tr>
+    <tr><td>80 : 10 − 3</td><td>?</td><td>?</td><td>—</td><td>?</td></tr>
+    <tr><td>3 · 6 + 4 · 5</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+    <tr><td>36 : 3 − 8 : 2</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+    <tr><td>7 · 3 − 40 : 8</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+  </table></div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>20 + 30 : 6: 30 : 6, 20 + 5 → 25</span><span>15 − 6 + 4: 15 − 6, 9 + 4 → 13</span><span>80 : 10 − 3: 80 : 10, 8 − 3 → 5</span><span>3 · 6 + 4 · 5: 3 · 6, 4 · 5, 18 + 20 → 38</span><span>36 : 3 − 8 : 2: 36 : 3, 8 : 2, 12 − 4 → 8</span><span>7 · 3 − 40 : 8: 7 · 3, 40 : 8, 21 − 5 → 16</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — qaysi yechim to'g'ri?</div>
+  <p>\(40 + 36 : 4 \cdot 3\) ifodani to'rt o'quvchi to'rt xil hisobladi:</p>
+  <div class="misollar qator">
+    <span><b>A)</b>= 76 : 4 · 3 = 19 · 3 = 57</span>
+    <span><b>B)</b>= 40 + 9 · 3 = 49 · 3 = 147</span>
+    <span><b>C)</b>= 40 + 36 : 12 = 40 + 3 = 43</span>
+    <span><b>D)</b>= 40 + 9 · 3 = 40 + 27 = 67</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>D) to'g'ri. A) da qo'shish birinchi bajarilgan; B) da qo'shish ko'paytirishdan oldin bajarilgan; C) da ko'paytirish bo'lishdan oldin bajarilgan.</details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — tenglik to'g'ri bo'lishi uchun +, −, · yoki : qo'ying</div>
+  <div class="misollar" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+    <span><b>a)</b>6 □ 4 □ 3 = 18</span><span><b>b)</b>56 □ 8 □ 2 = 14</span><span><b>c)</b>45 □ 15 □ 3 = 40</span>
+    <span><b>d)</b>24 □ 6 □ 2 □ 3 = 30</span><span><b>e)</b>40 □ 8 □ 2 □ 5 = 38</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 6 + 4 · 3</span><span>b) 56 : 8 · 2</span><span>c) 45 − 15 : 3</span><span>d) 24 + 6 : 2 + 3</span><span>e) 40 + 8 − 2 · 5</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — tenglik to'g'ri bo'lishi uchun qavs qo'ying</div>
+  <div class="misollar" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+    <span><b>a)</b>5 · 6 + 4 = 50</span><span><b>b)</b>48 : 6 − 2 = 12</span>
+    <span><b>c)</b>40 − 10 − 5 · 2 = 50</span><span><b>d)</b>7 + 3 · 9 − 4 = 50</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 5 · (6 + 4)</span><span>b) 48 : (6 − 2)</span><span>c) (40 − 10 − 5) · 2</span><span>d) (7 + 3) · (9 − 4)</span></div>
+  </details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Pul va narx</span>
+    <ol class="masalalar">
+      <li>To'garakka 24 o'quvchi yozildi. Har biri oyiga 60 000 so'm to'laydi, to'garak 5 oy davom etdi. Jami qancha pul yig'ildi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(60 000 \cdot 24 \cdot 5 = 7 200 000\) so'm</details></li>
+      <li>Ishchiga haftaning birinchi 5 kuni uchun kuniga 80 000 so'mdan, shanba uchun 95 000 so'm to'lanadi. Dushanbadan shanbagacha ishlagan ishchi qancha oladi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(80 000 \cdot 5 + 95 000 = 495 000\) so'm</details></li>
+      <li>Ofis uchun har biri 1 250 000 so'mdan 4 ta printer va har biri 980 000 so'mdan 3 ta monitor olindi. Jami qancha to'landi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(1 250 000 \cdot 4 + 980 000 \cdot 3 = 5 000 000 + 2 940 000 = 7 940 000\) so'm</details></li>
+      <li>Onaning oylik maoshi 2 400 000 so'm. U har oy 900 000 so'mni jamg'arib, qolganini sarflaydi. Bir yilda qancha pul sarflaydi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\((2 400 000 - 900 000) \cdot 12 = 1 500 000 \cdot 12 = 18 000 000\) so'm</details></li>
+      <li>Changyutgich 912 000 so'm turadi. Avval 120 000 so'm to'landi, qolgani oyiga 33 000 so'mdan bo'lib to'landi. Necha oyda to'lab bo'lindi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\((912 000 - 120 000) : 33 000 = 792 000 : 33 000 = 24\) oy</details></li>
+      <li>Konditsionerlar 5 400 000 so'm turadi. Avval 1 800 000 so'm to'landi, qolgani 12 oyda teng to'landi. Har oy qancha to'langan?
+        <details class="javob"><summary>Javobni ko'rish</summary>\((5 400 000 - 1 800 000) : 12 = 3 600 000 : 12 = 300 000\) so'm</details></li>
+      <li>8 ta daftar va 12 ta qalam uchun 136 000 so'm to'landi. Bitta qalam 3000 so'm. Bitta daftar necha so'm?
+        <details class="javob"><summary>Javobni ko'rish</summary>\((136 000 - 3000 \cdot 12) : 8 = (136 000 - 36 000) : 8 = 100 000 : 8 = 12 500\) so'm</details></li>
+      <li>12 ta futbol to'pining har biri 150 000 so'm. Xuddi shu pulga 24 juft bir xil krossovka olish mumkin. Bir juft krossovka necha so'm?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(150 000 \cdot 12 : 24 = 1 800 000 : 24 = 75 000\) so'm</details></li>
+      <li>Novvoy 260 ta nonni savatlarga 12 tadan soldi. Har bir savatni 25 000 so'mdan, savatga sig'magan nonlarni donasini 2500 so'mdan sotdi. Jami qancha pul oldi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(260 : 12 = 21\) (qoldiq 8): 21 savat va 8 ta non. \(21 \cdot 25 000 + 8 \cdot 2500 = 525 000 + 20 000 = 545 000\) so'm</details></li>
+    </ol>
+  </div>
+  <div class="box masala">
+    <span class="tag">Taqsimlash va qoldiq</span>
+    <ol class="masalalar" start="10">
+      <li>Uchta omborda 1250, 3870 va 2440 ta sovg'a bor. Ular 12 ta maktabga teng taqsimlandi. Har bir maktab nechtadan sovg'a oldi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\((1250 + 3870 + 2440) : 12 = 7560 : 12 = 630\) ta</details></li>
+      <li>Idishda 5 litr sharbat bor. U 70 ml li stakanlarga to'ldirib quyildi. a) Nechta stakan to'ldi? b) Idishda qancha sharbat qoldi? (1 l = 1000 ml)
+        <details class="javob"><summary>Javobni ko'rish</summary>5 l = 5000 ml. \(5000 : 70 = 71\) (qoldiq 30): a) 71 ta stakan; b) 30 ml qoldi. Tekshirish: \(71 \cdot 70 + 30 = 5000\) ✓</details></li>
+      <li>500 ta tugma 12 ta qopchaga teng solindi. Har qopchada nechtadan tugma bor va nechta ortib qoldi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(500 : 12 = 41\) (qoldiq 8): 41 tadan, 8 ta ortib qoldi</details></li>
+      <li>A zalda 512, B zalda 288 o'quvchi bor. A zaldan bir necha o'quvchi B zalga o'tkazilgach, zallarda o'quvchilar soni teng bo'ldi. Har bir zalda nechtadan o'quvchi bo'ldi? Nechta o'quvchi o'tkazildi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\((512 + 288) : 2 = 400\) tadan; \(512 - 400 = 112\) o'quvchi o'tkazildi</details></li>
+      <li>Bayramda 80 o'g'il va 140 qiz bor edi. Teng sondagi o'g'il va qizlar ketgach, qolgan qizlar o'g'il bolalardan 3 marta ko'p bo'ldi. Jami nechta bola ketdi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Farq doim \(140 - 80 = 60\). Qizlar 3 bo'lak, o'g'illar 1 bo'lak, farq 2 bo'lak: \(60 : 2 = 30\) o'g'il qoldi. \(80 - 30 = 50\) o'g'il va 50 qiz ketdi — jami 100 bola</details></li>
+    </ol>
+  </div>
+  <div class="box masala">
+    <span class="tag">Chizmali model bilan</span>
+    <ol class="masalalar" start="15">
+      <li>Pul uch bolaga bo'lindi. Ali 6000 so'm oldi. Vali Alidan 1500 so'm ko'p, Sobir Validan 2 marta ko'p oldi. Uchala bola jami qancha oldi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Vali: \(6000 + 1500 = 7500\), Sobir: \(7500 \cdot 2 = 15 000\). Jami: \(6000 + 7500 + 15 000 = 28 500\) so'm</details></li>
+      <li>Aziz 9 yoshda, opasi undan 4 yosh katta. Necha yildan keyin ularning yoshlari yig'indisi 50 ga teng bo'ladi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Hozir: \(9 + 13 = 22\). Har yili yig'indi 2 ga oshadi: \((50 - 22) : 2 = 14\) yildan keyin (23 va 27 yosh)</details></li>
+      <li>Bobo 62 yoshda, nabirasi 6 yoshda. Necha yildan keyin bobo nabirasidan 5 marta katta bo'ladi?
+        <div data-tasma="Bobo:5|Nabira:1" data-farq="farq 56 yil"></div>
+        <details class="javob"><summary>Javobni ko'rish</summary>Farq \(62 - 6 = 56\) yil = 4 bo'lak. 1 bo'lak \(56 : 4 = 14\) — nabira 14 yoshda bo'ladi: \(14 - 6 = 8\) yildan keyin. Tekshirish: 70 va 14, \(14 \cdot 5 = 70\) ✓</details></li>
+      <li>Go'zal va Zahroda bir xil miqdorda marka bor edi. Go'zal 300 ta, Zahro 90 ta markasini sotdi. Shundan so'ng Zahroda Go'zaldagidan 4 marta ko'p marka qoldi. Dastlab har birida nechtadan marka bor edi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Qolganlar farqi \(300 - 90 = 210\) = 3 bo'lak. 1 bo'lak \(210 : 3 = 70\) (Go'zalda qolgan). Dastlab: \(70 + 300 = 370\) tadan. Tekshirish: Zahroda \(370 - 90 = 280 = 70 \cdot 4\) ✓</details></li>
+      <li>4 ta ko'ylak va 6 ta shim 280 000 so'm turadi. Bitta ko'ylak bitta shimdan 2 marta qimmat. Bitta ko'ylak necha so'm?
+        <details class="javob"><summary>Javobni ko'rish</summary>Shim — 1 bo'lak, ko'ylak — 2 bo'lak. Jami \(4 \cdot 2 + 6 = 14\) bo'lak = 280 000. 1 bo'lak \(= 20 000\) (shim), ko'ylak \(= 40 000\) so'm</details></li>
+      <li>Bo'sh quti va apelsinlar 23 kg, xuddi shunday bo'sh quti va olmalar 9 kg keladi. Apelsinlar olmalardan 3 marta og'ir. a) Apelsinlar necha kg? b) Bo'sh quti necha kg?
+        <details class="javob"><summary>Javobni ko'rish</summary>Farq \(23 - 9 = 14\) kg = 2 bo'lak (apelsin 3, olma 1 bo'lak). Olma \(14 : 2 = 7\) kg, a) apelsin \(7 \cdot 3 = 21\) kg, b) quti \(23 - 21 = 2\) kg</details></li>
+      <li>Yasminada 150 ta stiker bor edi. U Sitoraga 30 ta berganidan keyin Yasminada Sitoradagidan 2 marta ko'p stiker qoldi. Ikkala qizda jami nechta stiker bor?
+        <details class="javob"><summary>Javobni ko'rish</summary>Yasminada \(150 - 30 = 120\), Sitorada \(120 : 2 = 60\). Jami \(120 + 60 = 180\) ta</details></li>
+      <li>Akmal va Sardorda bir xil pul bor edi. Har kuni Akmal 5000, Sardor 7000 so'm sarfladi. Bir necha kundan keyin Sardorda 3000 so'm qoldi, Akmalda esa Sardordagidan 3 marta ko'p. Har birida dastlab qancha pul bo'lgan?
+        <details class="javob"><summary>Javobni ko'rish</summary>Akmalda \(3000 \cdot 3 = 9000\) qoldi. Farq \(9000 - 3000 = 6000\), har kuni farq \(7000 - 5000 = 2000\) ga oshadi: \(6000 : 2000 = 3\) kun. Dastlab: \(3000 + 7000 \cdot 3 = 24 000\) so'm</details></li>
+      <li>Stol va 6 ta bir xil stul 4 200 000 so'm turadi. Stul stoldan 350 000 so'm arzon. Stol necha so'm?
+        <details class="javob"><summary>Javobni ko'rish</summary>Stolni ham stul narxiga tenglasak: \(4 200 000 - 350 000 = 3 850 000\) — bu 7 ta stul. Stul \(3 850 000 : 7 = 550 000\), stol \(550 000 + 350 000 = 900 000\) so'm</details></li>
+      <li>Dilnoza va Kamolada jami 530 ta stiker, Akmal va Dilnozada 200 ta stiker bor. Kamolaning stikerlari Akmalnikidan 4 marta ko'p. Dilnozada nechta stiker bor?
+        <details class="javob"><summary>Javobni ko'rish</summary>Kamola − Akmal \(= 530 - 200 = 330\) = 3 bo'lak. Akmal \(330 : 3 = 110\), Dilnoza \(200 - 110 = 90\) ta</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Bu masalalarni yechishning bir nechta usuli bor. Siz qaysi birini topasiz?</div></div>
+  <div class="box qiyin">
+    <span class="tag">Ketma-ket sonlar</span>
+    <p>Ketma-ket kelgan beshta natural sonning (har biri oldingisidan 1 ga katta) yig'indisi 215. Bu sonlarni toping.</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>O'rtadagi son \(215 : 5 = 43\). Sonlar: 41, 42, 43, 44, 45. Tekshirish: \(41 + 42 + 43 + 44 + 45 = 215\) ✓</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Ish soatlari</span>
+    <p>Usta 5 kun ishladi. Har kuni oldingi kundan 3 soat ko'p ishlab, jami 50 soat ishladi. Oxirgi kuni necha soat ishlagan?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Ortiqcha soatlar: \(0 + 3 + 6 + 9 + 12 = 30\). \((50 - 30) : 5 = 4\) soat — birinchi kun. Oxirgi kun: \(4 + 12 = 16\) soat. Tekshirish: \(4 + 7 + 10 + 13 + 16 = 50\) ✓</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Olmalar</span>
+    <p>Stolda bir nechta likopcha va savatda olmalar bor. Har likopchaga 4 tadan olma qo'yilsa, 2 ta olma ortib qoladi; 5 tadan qo'yilsa, 3 ta olma yetmaydi. Nechta likopcha va nechta olma bor?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Har likopchaga 1 tadan ko'p qo'yilsa, kerak bo'ladigan olma \(2 + 3 = 5\) taga ko'payadi: ortgan 2 ta ishlatiladi va yana 3 ta kerak. Demak likopchalar \(5 : 1 = 5\) ta. Olmalar: \(5 \cdot 4 + 2 = 22\) ta. Tekshirish: \(5 \cdot 5 - 3 = 22\) ✓</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Tangalar</span>
+    <p>Hamyonda 200 so'mlik va 500 so'mlik tangalar bor. 200 so'mliklar soni 500 so'mliklardan 3 marta ko'p. Jami 22 000 so'm. Hamyonda nechta tanga bor?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Bitta «to'plam»: 3 ta 200 so'mlik va 1 ta 500 so'mlik — \(3 \cdot 200 + 500 = 1100\) so'm. \(22 000 : 1100 = 20\) to'plam, har birida 4 tanga: \(20 \cdot 4 = 80\) ta tanga</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Qulay yig'indi</span>
+    <p>\(3 + 6 + 9 + \dots + 57 + 60\) yig'indini toping.</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Sonlarni chetdan juftlaymiz: \(3 + 60 = 63\), \(6 + 57 = 63\), ... Jami 20 ta son — 10 ta juft: \(63 \cdot 10 = 630\)</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Turnir</span>
+    <p>8 nafar shaxmatchi turnirda har biri qolganlar bilan bittadan o'yin o'ynadi. Jami nechta o'yin bo'ldi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Har biri 7 tadan o'yin: \(8 \cdot 7 = 56\), ammo har bir o'yin ikki marta sanaldi: \(56 : 2 = 28\) ta o'yin</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Viktorina</span>
+    <p>Jamoa 25 ta savolga javob berib, 102 ball to'pladi. Har bir to'g'ri javobga 6 ball qo'shiladi, har bir xato javob uchun 2 ball ayiriladi. Nechta savolga to'g'ri javob berilgan?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Hammasi to'g'ri bo'lsa: \(25 \cdot 6 = 150\). Har bir xato \(6 + 2 = 8\) ball kamaytiradi: \((150 - 102) : 8 = 6\) xato. To'g'ri: \(25 - 6 = 19\). Tekshirish: \(19 \cdot 6 - 6 \cdot 2 = 102\) ✓</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Buzuq kalkulyator</span>
+    <p>Kalkulyatorda 9 tugmasi ishlamayapti. U bilan \(199 \cdot 56\) ni qanday hisoblash mumkin?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>\(199 = 200 - 1\), shuning uchun \(199 \cdot 56 = 200 \cdot 56 - 56 = 11 200 - 56 = 11 144\). Kalkulyatorga: 200 · 56 − 56 = teriladi</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Ifoda tuzing</span>
+    <p>3, 5, 2, 8 raqamlari va uchta amal belgisidan foydalanib, ikki xil ifoda tuzing va qiymatini toping.</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Masalan: \(3 + 5 \cdot 2 - 8 = 5\), \((3 + 5) \cdot 2 - 8 = 8\), \(3 \cdot 8 - 5 \cdot 2 = 14\). Har bir ifodada amallar tartibiga e'tibor bering</details>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — belgilab chiqing va Interaktiv panelda mashq qiling!</div></div>
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men qavssiz ifodalarda amallarni bajarish tartibini bilaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men qavsli ifodalarda amallarni bajarish tartibini bilaman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men masalani ketma-ket amallar bilan ham, bitta ifoda bilan ham yecha olaman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men chizmali model yordamida «necha marta», yosh va «dastlab qancha» masalalarini yecha olaman.</label></li>
+    </ul>
+  </div>
+</section>
+
+<p class="m-foot">Mathlearn · 5-sinf matematika</p>
+</main>
+<script src="chizma.js?v=14"></script>
+<script src="maruza.js?v=3"></script>
+</body>
+</html>

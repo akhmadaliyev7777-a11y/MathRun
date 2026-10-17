@@ -9,6 +9,13 @@
    data-tugma="3594627"            — sonli tugmalar: har xonada raqamcha tugma (1 000 000, 100 000, ...)
    data-siljish="324/x100" yoki "41300/:100" — xona jadvalida raqamlarning surilishi (bir xil raqam — bir xil rang)
    data-oq="0/1000000/100000" [data-nuqta="A:300000,B:750000"] [data-har="2"] — katta sonlar uchun son o'qi
+   data-zanjir="43/x2/x10" yoki "540/:10/:6" — amallar zanjiri: son →(×2)→ 86 →(×10)→ 860
+   data-nollar="63000/700"          — bo'linuvchi va bo'luvchi oxiridagi teng sondagi nollar chizib tashlanadi
+   data-tartib="60 - 15 + 12 : 3 * 2" [data-qadam="0"] — amallar ustida bajarilish tartibi (1, 2, 3 ...) va qadamma-qadam yechim
+   data-tasma="Otasi:4|O'g'li:1" [data-farq="36 yil"] [data-bolak="12"] — chizmali model: teng bo'laklardan tasmalar
+   data-pitsa="2/3" [data-usul="butun"] — a ta pitsa b ta bolaga: har pitsa b bo'lakka, har bola o'z rangida;
+                                          usul="butun" — avval butun pitsalar beriladi, qolgani bo'linadi (aralash son)
+   data-doira="2 3/4" [data-rang="0"]   — aralash son doiralarda: butunlar to'liq, kasr qism bo'yalgan bo'laklar
 */
 (function () {
   "use strict";
@@ -249,6 +256,197 @@
       '<p class="chz-cap">' + guruh(son) + " " + (kop ? "×" : ":") + " " + guruh(k) + " = " + guruh(natija) + ". " + izoh + "</p>";
   }
 
+  // ---------- amallar zanjiri: 43 →(×2)→ 86 →(×10)→ 860 ----------
+  function strelka() {
+    return '<svg viewBox="0 0 56 14" aria-hidden="true"><path d="M2 7 H50" stroke="currentColor" stroke-width="2"/><path d="M44 2 L53 7 L44 12 Z" fill="currentColor"/></svg>';
+  }
+  function chizZanjir(el) {
+    const q = el.dataset.zanjir.split("/");
+    let v = Number(q[0]);
+    let h = '<span class="z-son z-bosh">' + guruh(v) + "</span>";
+    const izoh = [];
+    for (let i = 1; i < q.length; i++) {
+      const kop = q[i][0] === "x", k = Number(q[i].slice(1));
+      const oldin = v;
+      v = kop ? v * k : v / k;
+      izoh.push(guruh(oldin) + (kop ? " × " : " : ") + guruh(k) + " = " + guruh(v));
+      h += '<span class="z-qadam"><span class="pill">' + (kop ? "× " : ": ") + guruh(k) + "</span>" + strelka() + "</span>" +
+        '<span class="z-son' + (i === q.length - 1 ? " z-oxir" : "") + '">' + guruh(v) + "</span>";
+    }
+    el.classList.add("zanjir");
+    el.innerHTML = h;
+    el.setAttribute("role", "img");
+    el.setAttribute("aria-label", izoh.join(", "));
+  }
+
+  // ---------- bo'lishda oxiridagi teng nollarni tashlash: 630|00 : 7|00 ----------
+  function nollarSoni(t) { const m = t.match(/0*$/); return m ? m[0].length : 0; }
+  function chizNollar(el) {
+    const [a, b] = el.dataset.nollar.split("/");
+    const k = Math.min(nollarSoni(a), nollarSoni(b));
+    const yoz = function (t) {
+      return '<span class="n-tana">' + guruh(t.slice(0, t.length - k)) + "</span>" +
+        (k ? '<span class="n-nol">' + t.slice(t.length - k) + "</span>" : "");
+    };
+    const a2 = Number(a.slice(0, a.length - k)), b2 = Number(b.slice(0, b.length - k));
+    const nat = a2 / b2;
+    const nomi = ["", "bittadan", "ikkitadan", "uchtadan", "to'rttadan"][k] || k + " tadan";
+    el.classList.add("nollar");
+    el.innerHTML = '<div class="n-qator">' + yoz(a) + '<span class="n-belgi">:</span>' + yoz(b) +
+      '<span class="n-belgi">=</span><span class="n-tana">' + guruh(a2) + '</span><span class="n-belgi">:</span><span class="n-tana">' + guruh(b2) + "</span>" +
+      '<span class="n-belgi">=</span><span class="n-natija">' + guruh(nat) + "</span></div>" +
+      '<p class="chz-cap">Ikkala sonning oxirida ' + nomi + " nol bor — ularni tashlaymiz (ikkalasini " + guruh(Math.pow(10, k)) + " ga bo'lamiz), bo'linma o'zgarmaydi.</p>";
+  }
+
+  // ---------- amallarni bajarish tartibi ----------
+  // Qoidalar: avval qavs ichi (ichkisidan, chapdan o'ngga), keyin × va : (chapdan o'ngga), so'ng + va − (chapdan o'ngga).
+  const AMAL = { "+": "+", "-": "−", "−": "−", "*": "·", "×": "·", "·": "·", ":": ":", "/": ":", "÷": ":" };
+  function tokenlar(ifoda) {
+    const t = [];
+    const re = /\s*(\d+|[()+\-−*×·:\/÷])/g;
+    let m, id = 0;
+    while ((m = re.exec(ifoda))) {
+      const x = m[1];
+      if (/\d/.test(x)) t.push({ k: "son", v: Number(x) });
+      else if (x === "(" || x === ")") t.push({ k: x });
+      else t.push({ k: "amal", v: AMAL[x], id: id++ });
+    }
+    return t;
+  }
+  function hisobla(a, op, b) { return op === "+" ? a + b : op === "−" ? a - b : op === "·" ? a * b : a / b; }
+  // bitta qadam: keyingi bajariladigan amalni topib bajaradi; {t, id, natija} qaytaradi
+  function qadam(t) {
+    // eng ichki qavs: ")" dan oldingi eng yaqin "("
+    let bosh = 0, oxir = t.length;
+    const yop = t.findIndex(function (x) { return x.k === ")"; });
+    if (yop >= 0) {
+      let och = yop; while (t[och].k !== "(") och--;
+      bosh = och + 1; oxir = yop;
+    }
+    let i = -1;
+    for (let j = bosh; j < oxir; j++) if (t[j].k === "amal" && (t[j].v === "·" || t[j].v === ":")) { i = j; break; }
+    if (i < 0) for (let j = bosh; j < oxir; j++) if (t[j].k === "amal") { i = j; break; }
+    const op = t[i];
+    const n = hisobla(t[i - 1].v, op.v, t[i + 1].v);
+    const yangi = t.slice(0, i - 1).concat([{ k: "son", v: n }], t.slice(i + 2));
+    // qavs ichida bitta son qolsa — qavslar olib tashlanadi
+    for (let j = 1; j < yangi.length - 1; j++) {
+      if (yangi[j - 1].k === "(" && yangi[j].k === "son" && yangi[j + 1].k === ")") { yangi.splice(j + 1, 1); yangi.splice(j - 1, 1); break; }
+    }
+    return { t: yangi, id: op.id, natija: n };
+  }
+  function yozTok(t, tartib) {
+    return t.map(function (x) {
+      if (x.k === "son") return '<span class="t-son">' + guruh(x.v) + "</span>";
+      if (x.k === "amal") {
+        const n = tartib ? tartib[x.id] : 0;
+        return '<span class="t-amal' + (n ? " t-r" + ((n - 1) % 6) : "") + '">' + (n ? '<b class="t-n">' + n + "</b>" : "") + x.v + "</span>";
+      }
+      return '<span class="t-qavs">' + x.k + "</span>";
+    }).join("");
+  }
+  function chizTartib(el) {
+    let t = tokenlar(el.dataset.tartib);
+    const bosh = t;
+    const tartib = {}, qatorlar = [];
+    let n = 0;
+    while (t.length > 1 && n < 30) {
+      const q = qadam(t);
+      tartib[q.id] = ++n;
+      t = q.t;
+      qatorlar.push(t);
+    }
+    el.classList.add("tartib");
+    let h = '<div class="t-ifoda">' + yozTok(bosh, tartib) + "</div>";
+    if (el.dataset.qadam !== "0") h += qatorlar.map(function (q, k) {
+      return '<div class="t-qator' + (k === qatorlar.length - 1 ? " t-oxir" : "") + '"><span class="t-teng">=</span>' + yozTok(q, null) + "</div>";
+    }).join("");
+    el.innerHTML = h;
+    el.setAttribute("role", "img");
+    el.setAttribute("aria-label", el.dataset.tartib + " = " + guruh(t[0].v) + ", amallar tartibi raqamlar bilan ko'rsatilgan");
+  }
+
+  // ---------- chizmali model (tasmalar) ----------
+  const TASMA_RANG = [["#dbe7ff", "#1f5fd6"], ["#ffe6d6", "#d4501b"], ["#dcf3e8", "#12805c"], ["#ece4fb", "#6d3fc0"]];
+  function chizTasma(el) {
+    const qator = el.dataset.tasma.split("|").map(function (q) { const p = q.split(":"); return { nom: p[0], b: Number(p[1]) }; });
+    const maxB = Math.max.apply(null, qator.map(function (q) { return q.b; }));
+    const W = 380, L = 86, R = 8, H = 34, gap = 14, top = el.dataset.farq ? 36 : 8;
+    const w = (W - L - R) / maxB;
+    const bolak = el.dataset.bolak || "";
+    let svg = "";
+    qator.forEach(function (q, i) {
+      const y = top + i * (H + gap), c = TASMA_RANG[i % TASMA_RANG.length];
+      svg += '<text x="' + (L - 10) + '" y="' + (y + H / 2 + 5) + '" text-anchor="end" font-size="16" font-weight="700" fill="#1f2433">' + q.nom + "</text>";
+      for (let k = 0; k < q.b; k++) {
+        svg += '<rect x="' + (L + k * w) + '" y="' + y + '" width="' + w + '" height="' + H + '" fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="2" rx="3"/>';
+        if (bolak) svg += '<text x="' + (L + k * w + w / 2) + '" y="' + (y + H / 2 + 5) + '" text-anchor="middle" font-size="15" font-weight="700" fill="' + c[1] + '">' + bolak + "</text>";
+      }
+    });
+    if (el.dataset.farq && qator.length > 1) {
+      // farq: birinchi tasmaning ikkinchisidan ortiq qismi ustida qavs
+      const x1 = L + qator[1].b * w, x2 = L + qator[0].b * w, y = top - 6;
+      svg += '<path d="M' + x1 + " " + (y + 4) + " V" + (y - 2) + " H" + x2 + " V" + (y + 4) + '" fill="none" stroke="#b45309" stroke-width="2"/>' +
+        '<text x="' + ((x1 + x2) / 2) + '" y="' + (y - 8) + '" text-anchor="middle" font-size="15" font-weight="800" fill="#b45309">' + el.dataset.farq + "</text>";
+    }
+    const Ht = top + qator.length * (H + gap) - gap + 6;
+    el.classList.add("tasma");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + Ht + '" role="img" aria-label="Chizmali model: ' +
+      qator.map(function (q) { return q.nom + " — " + q.b + " bo'lak"; }).join(", ") + '">' + svg + "</svg>";
+  }
+
+  // ---------- pitsalarni bolalarga teng bo'lish ----------
+  const BOLA_RANG = ["#1f5fd6", "#d4501b", "#12805c", "#6d3fc0", "#be185d", "#0e7490", "#b45309", "#334155", "#65a30d", "#c026d3", "#0891b2", "#dc2626"];
+  function sektor(cx, cy, r, a0, a1, rang) {
+    if (a1 - a0 >= Math.PI * 2 - 1e-9) return '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="' + rang + '" fill-opacity=".8" stroke="#fff" stroke-width="2"/>';
+    const x0 = cx + r * Math.sin(a0), y0 = cy - r * Math.cos(a0), x1 = cx + r * Math.sin(a1), y1 = cy - r * Math.cos(a1);
+    return '<path d="M' + cx + " " + cy + " L" + x0.toFixed(2) + " " + y0.toFixed(2) + " A" + r + " " + r + " 0 " + (a1 - a0 > Math.PI ? 1 : 0) + " 1 " + x1.toFixed(2) + " " + y1.toFixed(2) + ' Z" fill="' + rang + '" fill-opacity=".8" stroke="#fff" stroke-width="2"/>';
+  }
+  function chizPitsa(el) {
+    const [a, b] = el.dataset.pitsa.split("/").map(Number);
+    const butunUsul = el.dataset.usul === "butun";
+    const butunlar = butunUsul ? Math.floor(a / b) * b : 0;   // butunligicha beriladigan pitsalar
+    const r = 34, d = 2 * r + 14;
+    const qator = Math.min(a, 6), qatorlar = Math.ceil(a / 6);
+    const W = qator * d, H = qatorlar * d;
+    let svg = "";
+    for (let i = 0; i < a; i++) {
+      const cx = (i % 6) * d + d / 2, cy = Math.floor(i / 6) * d + d / 2;
+      svg += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r + 3) + '" fill="#f6d9a8" stroke="#c98b3a" stroke-width="2"/>';
+      if (i < butunlar) svg += sektor(cx, cy, r, 0, Math.PI * 2, BOLA_RANG[i % b]);
+      else for (let k = 0; k < b; k++) svg += sektor(cx, cy, r, k * 2 * Math.PI / b, (k + 1) * 2 * Math.PI / b, BOLA_RANG[k % BOLA_RANG.length]);
+    }
+    const leg = [];
+    for (let k = 0; k < b; k++) leg.push('<span><i style="background:' + BOLA_RANG[k % BOLA_RANG.length] + '"></i>' + (k + 1) + "-bola</span>");
+    el.classList.add("pitsa");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="max-width:' + W + 'px" role="img" aria-label="' + a + " ta pitsa " + b +
+      " ta bolaga teng bo'lindi" + (butunUsul ? ": avval butun pitsalar, keyin qolgani bo'laklarga" : ": har pitsa " + b + " ta teng bo'lakka") + '">' + svg + "</svg>" +
+      '<div class="pitsa-leg">' + leg.join("") + "</div>";
+  }
+
+  // ---------- aralash son doiralarda: 2 3/4 ----------
+  const DOIRA_RANG = ["#1f5fd6", "#d4501b", "#12805c", "#6d3fc0"];
+  function chizDoira(el) {
+    const m = el.dataset.doira.trim().match(/^(?:(\d+)\s*)?(?:(\d+)\/(\d+))?$/);
+    const butun = Number(m[1] || 0), sur = Number(m[2] || 0), mx = Number(m[3] || 1);
+    const rang = DOIRA_RANG[Number(el.dataset.rang || 0) % DOIRA_RANG.length];
+    // kasr qism noto'g'ri bo'lsa (masalan 2 5/4), bo'laklari bilan bir nechta doira chiziladi
+    const r = 26, d = 2 * r + 10, n = butun + Math.ceil(sur / mx);
+    let svg = "";
+    for (let i = 0; i < n; i++) {
+      const cx = i * d + d / 2, cy = d / 2;
+      svg += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="#fff" stroke="#9aa3b5" stroke-width="1.5"/>';
+      const k = i < butun ? mx : Math.min(mx, sur - (i - butun) * mx);
+      for (let j = 0; j < mx; j++) {
+        if (j < k) svg += sektor(cx, cy, r, j * 2 * Math.PI / mx, (j + 1) * 2 * Math.PI / mx, rang);
+        else if (mx > 1) svg += sektor(cx, cy, r, j * 2 * Math.PI / mx, (j + 1) * 2 * Math.PI / mx, "#eef0f5");
+      }
+    }
+    el.classList.add("doira");
+    el.innerHTML = '<svg viewBox="0 0 ' + Math.max(n, 1) * d + " " + d + '" style="max-width:' + Math.max(n, 1) * d + 'px" role="img" aria-label="' +
+      (butun ? butun + " butun " : "") + (sur ? sur + "/" + mx : "") + '">' + svg + "</svg>";
+  }
+
   window.MaruzaChizma = {
     bolish: bolish,
     chiz: function (root) {
@@ -261,6 +459,12 @@
       root.querySelectorAll("[data-tugma]").forEach(chizTugma);
       root.querySelectorAll("[data-oq]").forEach(chizOq);
       root.querySelectorAll("[data-siljish]").forEach(chizSiljish);
+      root.querySelectorAll("[data-zanjir]").forEach(chizZanjir);
+      root.querySelectorAll("[data-nollar]").forEach(chizNollar);
+      root.querySelectorAll("[data-tartib]").forEach(chizTartib);
+      root.querySelectorAll("[data-tasma]").forEach(chizTasma);
+      root.querySelectorAll("[data-pitsa]").forEach(chizPitsa);
+      root.querySelectorAll("[data-doira]").forEach(chizDoira);
     }
   };
 })();
