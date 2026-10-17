@@ -332,3 +332,10 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 /* sonning qismi (chizma.js "qism"): guruhlardagi sharlar yoki tasma */
 .qism { margin: 10px 0; }
 .qism svg { width: 100%; height: auto; display: block; margin: 0 auto; }
+
+/* kasrning kasr qismi (chizma.js "yuza"): bo'yalgan ustunlar va shtrixlangan kataklar */
+.yuza { margin: 10px 0; }
+.yuza svg { width: 100%; height: auto; display: block; margin: 0 auto; }
+.yuza .yz-b, .yuza .yz-s { display: inline-block; width: 13px; height: 13px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.yuza .yz-b { background: #ece4fb; border: 2px solid #6d3fc0; }
+.yuza .yz-s { background: repeating-linear-gradient(45deg, #d4501b 0 2px, #f3e4a8 2px 5px); border: 1px solid #d4501b; }

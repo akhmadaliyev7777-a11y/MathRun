@@ -94,6 +94,19 @@ const QUIZ_DATA = {
     { level: 9, question: "Zalda 150 tomoshabin bor, ularning 2/3 qismi — katta yoshlilar. Zalda nechta bola bor?", options: ["50", "100", "75", "300"], answer: "50", explain: "Katta yoshlilar: 150 : 3 · 2 = 100. Bolalar: 150 − 100 = 50. Yoki bolalar 1/3 qism: 150 : 3 = 50." },
     { level: 10, question: "Kvadratning tomoni 5/6 m. Uning perimetrini toping.", options: ["3 1/3 m", "20/24 m", "2 1/2 m", "1 2/3 m"], answer: "3 1/3 m", explain: "Kvadratning 4 ta tomoni teng: 5/6 · 4 = 20/6 = 10/3 = 3 1/3 m." }
   ],
+  // 9-mavzu o'z testi (ma'ruzaga mos)
+  "5|matematika|kasrni-kasrga-kopaytirish": [
+    { level: 1, question: "1/2 · 1/3 = ?", options: ["1/6", "2/5", "2/6", "1/5"], answer: "1/6", explain: "Surat suratga, maxraj maxrajga ko'paytiriladi: 1 · 1 = 1, 2 · 3 = 6. Javob 1/6." },
+    { level: 2, question: "2/3 · 4/5 = ?", options: ["8/15", "6/8", "8/5", "6/15"], answer: "8/15", explain: "2 · 4 = 8 — surat, 3 · 5 = 15 — maxraj. Javob 8/15." },
+    { level: 3, question: "3/4 ning 1/3 qismi nechaga teng?", options: ["1/4", "3/7", "5/12", "4/7"], answer: "1/4", explain: "«Ning qismi» — ko'paytirish: 3/4 · 1/3 = 3/12 = 1/4." },
+    { level: 4, question: "Qaysi yozuv to'g'ri?", options: ["2/5 · 3/4 = 6/20", "2/5 · 3/4 = 6/4", "2/5 · 3/4 = 5/9", "2/5 · 3/4 = 6/9"], answer: "2/5 · 3/4 = 6/20", explain: "2 · 3 = 6, 5 · 4 = 20. 6/20 ni qisqartirsak 3/10 bo'ladi. 6/4 da maxraj ko'paytirilmagan, 5/9 da qo'shib yuborilgan." },
+    { level: 5, question: "2/6 · 1/2 = ? (javobni qisqartiring)", options: ["1/6", "3/8", "1/4", "2/8"], answer: "1/6", explain: "2/6 · 1/2 = 2/12. Surat va maxrajni 2 ga bo'lamiz: 2/12 = 1/6." },
+    { level: 6, question: "1/2 · 4/5 = ?", options: ["2/5", "5/7", "4/7", "1/5"], answer: "2/5", explain: "Avval 4 va 2 ni 2 ga qisqartiramiz: 1/1 · 2/5 = 2/5. Yoki 4/10 = 2/5." },
+    { level: 7, question: "6/7 · 7/12 = ?", options: ["1/2", "13/19", "42/19", "1/12"], answer: "1/2", explain: "7 va 7 ni 7 ga, 6 va 12 ni 6 ga qisqartiramiz: 1/1 · 1/2 = 1/2." },
+    { level: 8, question: "Lobar opada 3/4 kg un bor edi. U unning 1/3 qismini ishlatdi. Qancha un qoldi?", options: ["1/2 kg", "1/4 kg", "5/12 kg", "2/3 kg"], answer: "1/2 kg", explain: "Ishlatdi: 3/4 · 1/3 = 1/4 kg. Qoldi: 3/4 − 1/4 = 2/4 = 1/2 kg. 1/4 kg — ishlatilgani, qolgani emas." },
+    { level: 9, question: "To'g'ri to'rtburchakning tomonlari 3/4 m va 2/5 m. Uning yuzi qancha?", options: ["3/10 m²", "5/9 m²", "6/9 m²", "1 3/20 m²"], answer: "3/10 m²", explain: "Yuz = bo'yi · eni: 3/4 · 2/5 = 6/20 = 3/10 m². 1 3/20 — tomonlar yig'indisi, yuz emas." },
+    { level: 10, question: "Hisoblamasdan ayting: 3/4 · 5/6 natijasi qanday?", options: ["3/4 dan kichik", "3/4 dan katta", "3/4 ga teng", "1 dan katta"], answer: "3/4 dan kichik", explain: "3/4 ning 5/6 qismini olyapmiz — qism butundan kichik. Haqiqatan 3/4 · 5/6 = 5/8 < 3/4." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },
