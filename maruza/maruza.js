@@ -18,19 +18,25 @@
   }
 
   function balandlik() {
-    try { parent.postMessage({ type: "mathrun:height", h: document.documentElement.scrollHeight }, "*"); } catch (e) { /* sayt tashqarisida ochilgan */ }
+    // documentElement.scrollHeight iframe balandligidan kichik bo'lmaydi (kichrayganda bo'sh joy qoladi) — shuning uchun body o'lchami olinadi
+    const h = Math.ceil(document.body.getBoundingClientRect().height);
+    try { parent.postMessage({ type: "mathrun:height", h: h }, "*"); } catch (e) { /* sayt tashqarisida ochilgan */ }
   }
 
-  // \( ... \) ichidagi "raqam,raqam" ni KaTeX uchun "raqam{,}raqam" ga almashtirish (aks holda vergul ortidan bo'sh joy qo'yadi)
+  // raqamlar yozuvini tayyorlash: o'nli vergul, katta sonlar guruhlari (formula ichida va tashqarisida)
   function vergul(root) {
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     const nodes = [];
     while (walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach(function (n) {
-      if (n.nodeValue.indexOf("\\(") < 0 && n.nodeValue.indexOf("\\[") < 0) return;
-      n.nodeValue = n.nodeValue.replace(/\\\(([\s\S]*?)\\\)|\\\[([\s\S]*?)\\\]/g, function (m) {
-        return m.replace(/(\d),(?=\d)/g, "$1{,}");
+      if (n.parentNode && /^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName)) return;
+      // formuladan tashqarida: "3 594 627" — guruhlar orasida uzilmaydigan bo'sh joy
+      let v = n.nodeValue.replace(/(\d) (?=\d{3}(?!\d))/g, "$1\u00A0");
+      // formula ichida: o'nli vergul {,} va guruhlar orasida \, (KaTeX oddiy bo'sh joyni tashlab yuboradi)
+      v = v.replace(/\\\(([\s\S]*?)\\\)|\\\[([\s\S]*?)\\\]/g, function (m) {
+        return m.replace(/(\d),(?=\d)/g, "$1{,}").replace(/(\d)[ \u00A0](?=\d{3}(?!\d))/g, "$1\\,");
       });
+      if (v !== n.nodeValue) n.nodeValue = v;
     });
   }
 

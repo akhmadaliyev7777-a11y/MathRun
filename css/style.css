@@ -531,6 +531,10 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
   padding: 24px;
 }
 
+/* ma'ruza sahifasi (maruza/*.html) iframe ichida — tashqi quti va ichki chegarasiz, ortiqcha bo'sh joysiz */
+.lecture-box:has(> iframe) { padding: 0; border: none; background: transparent; }
+.lecture-box > iframe.embed-frame { display: block; border: 1px solid var(--border); }
+
 .lecture-section {
   padding-bottom: 18px;
   margin-bottom: 18px;
