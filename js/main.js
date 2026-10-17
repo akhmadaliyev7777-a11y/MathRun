@@ -427,7 +427,7 @@ function renderTopicPage() {
   if (topic.lecture && topic.lecture.embedUrl) {
     // maruza/ dagi kitob sahifalari ham LESSON_VER bilan yangilanadi
     const mv = typeof LESSON_VER !== "undefined" && topic.lecture.embedUrl.indexOf("maruza/") === 0 ? "?v=" + LESSON_VER : "";
-    lectureEl.innerHTML = '<iframe class="embed-frame" src="' + topic.lecture.embedUrl + mv + '" allowfullscreen></iframe>';
+    lectureEl.innerHTML = '<iframe class="embed-frame" data-src="' + topic.lecture.embedUrl + mv + '" allowfullscreen></iframe>';
   } else if (topic.sections && topic.sections.length > 0) {
     lectureEl.innerHTML = topic.sections.map(function (s, i) {
       return (
@@ -451,16 +451,75 @@ function renderTopicPage() {
     : "";
   if (topic.interactive) {
     const lv = typeof LESSON_VER !== "undefined" ? (topic.interactive.indexOf("?") < 0 ? "?v=" : "&v=") + LESSON_VER : "";
-    interactiveEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" src="' + topic.interactive + lv + '" allowfullscreen></iframe>' + planHtml;
+    interactiveEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" data-src="' + topic.interactive + lv + '" allowfullscreen></iframe>' + planHtml;
   } else {
     interactiveEl.innerHTML = '<div class="placeholder">🚧 Interaktiv ko\'rgazma tez orada qo\'shiladi</div>' + planHtml;
   }
 
   if (topic.test) {
-    testEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" src="' + topic.test + '" allowfullscreen></iframe>';
+    testEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" data-src="' + topic.test + '" allowfullscreen></iframe>';
   } else {
     testEl.innerHTML = '<div class="placeholder">🚧 Interaktiv test tez orada qo\'shiladi</div>';
   }
+
+  initTopicSteps();
+}
+
+// Mavzu bosqichlari: Nazariya → Interaktiv panel → Test. Bir vaqtda bitta bo'lim ko'rinadi;
+// iframe faqat bo'lim birinchi ochilganda yuklanadi (data-src → src). Manzildagi #maruza / #interaktiv / #test saqlanadi.
+function initTopicSteps() {
+  const nav = document.getElementById("topic-steps");
+  if (!nav) return;
+  const steps = [
+    { id: "maruza", label: "Nazariya" },
+    { id: "interaktiv", label: "Interaktiv panel" },
+    { id: "test", label: "Test" },
+  ].filter(function (st) {
+    const el = document.getElementById(st.id);
+    return el && el.style.display !== "none";
+  });
+  if (!steps.length) return;
+
+  nav.innerHTML = steps.map(function (st, i) {
+    return '<button type="button" class="topic-step" data-step="' + st.id + '"><b>' + (i + 1) + '</b>' + st.label + '</button>';
+  }).join("");
+
+  // har bo'lim ostida — keyingi bosqichga o'tish tugmasi
+  steps.forEach(function (st, i) {
+    const next = steps[i + 1];
+    if (!next) return;
+    document.getElementById(st.id).insertAdjacentHTML("beforeend",
+      '<div class="step-next"><button type="button" class="step-next-btn" data-step="' + next.id + '">Keyingi bosqich: ' + next.label + ' →</button></div>');
+  });
+
+  function show(id, scroll) {
+    steps.forEach(function (st) {
+      const el = document.getElementById(st.id);
+      const on = st.id === id;
+      el.hidden = !on;
+      if (on) el.querySelectorAll("iframe[data-src]").forEach(function (f) {
+        f.src = f.dataset.src;
+        f.removeAttribute("data-src");
+      });
+    });
+    nav.querySelectorAll(".topic-step").forEach(function (b) { b.classList.toggle("active", b.dataset.step === id); });
+    if (history.replaceState) history.replaceState(null, "", "#" + id);
+    // bosqich almashganda — bo'lim boshiga. Panel yopishib turgani uchun uning asl joyi oldingi element ostidan olinadi
+    if (scroll && nav.previousElementSibling) {
+      const y = nav.previousElementSibling.getBoundingClientRect().bottom + window.pageYOffset;
+      if (window.pageYOffset > y) window.scrollTo(0, Math.max(0, y));
+    }
+  }
+
+  document.addEventListener("click", function (e) {
+    const b = e.target.closest("[data-step]");
+    if (!b) return;
+    show(b.dataset.step, true);
+  });
+
+  const fromHash = location.hash.slice(1);
+  show(steps.some(function (st) { return st.id === fromHash; }) ? fromHash : steps[0].id, false);
+  window.scrollTo(0, 0);
 }
 
 // ---------- Ko'rgazmalar galereyasi ----------

@@ -7,7 +7,8 @@
     level: 1..10,
     question: "Savol matni",
     options: ["variant1", "variant2", ...],   // nechta bo'lsa, sahifada shuncha tugma chiqadi
-    answer: "variant1"                         // options ichidagi qiymatlardan biri bilan AYNAN bir xil bo'lishi kerak
+    answer: "variant1",                        // options ichidagi qiymatlardan biri bilan AYNAN bir xil bo'lishi kerak
+    explain: "Nega shunday — qisqa izoh"       // ixtiyoriy: javobdan keyin ko'rsatiladi
   }
 
   Variantlar tartibi sahifada avtomatik aralashtiriladi — options ro'yxatidagi
@@ -65,16 +66,16 @@ const QUIZ_DATA = {
   ],
 
   "5|matematika|oddiy-kasrlar": [
-    { level: 1, question: "Doira 4 ta teng bo'lakka bo'lingan, 1 tasi bo'yalgan. Bo'yalgan qism qanday kasr bilan ifodalanadi?", options: ["1/4", "1/2", "1/3", "4/1"], answer: "1/4" },
-    { level: 2, question: "3/5 kasrida maxraj nechaga teng?", options: ["5", "3", "8", "15"], answer: "5" },
-    { level: 3, question: "Qaysi kasr to'g'ri kasr (surati maxrajidan kichik)?", options: ["3/7", "7/3", "5/5", "8/6"], answer: "3/7" },
-    { level: 4, question: "1/4 va 3/4 kasrlaridan qaysi biri katta?", options: ["3/4", "1/4", "Teng", "Aniqlab bo'lmaydi"], answer: "3/4" },
-    { level: 5, question: "2/9 + 4/9 = ?", options: ["6/9", "6/18", "2/9", "8/9"], answer: "6/9" },
-    { level: 6, question: "7/10 - 3/10 = ?", options: ["4/10", "4/20", "10/10", "3/10"], answer: "4/10" },
-    { level: 7, question: "17/5 kasrini aralash son ko'rinishida yozing.", options: ["3 va 2/5", "3 va 1/5", "2 va 3/5", "5 va 2/3"], answer: "3 va 2/5" },
-    { level: 8, question: "2 va 1/3 aralash sonini noto'g'ri kasrga o'tkazing.", options: ["7/3", "6/3", "5/3", "8/3"], answer: "7/3" },
-    { level: 9, question: "2 va 1/4 + 1 va 2/4 = ?", options: ["3 va 3/4", "3 va 1/4", "4", "3 va 2/4"], answer: "3 va 3/4" },
-    { level: 10, question: "Matoning 3/8 qismi qizil, qolgani ko'k rangda bo'yalgan. Matoning necha qismi ko'k rangda?", options: ["5/8", "3/8", "1/8", "8/8"], answer: "5/8" }
+    { level: 1, question: "Doira 4 ta teng bo'lakka bo'lingan, 1 tasi bo'yalgan. Bo'yalgan qism qanday kasr bilan ifodalanadi?", options: ["1/4", "1/2", "1/3", "4/1"], answer: "1/4", explain: "Maxraj — butun nechta teng bo'lakka bo'linganini (4), surat — nechtasi olinganini (1) ko'rsatadi." },
+    { level: 2, question: "3/5 kasrida maxraj nechaga teng?", options: ["5", "3", "8", "15"], answer: "5", explain: "Kasr chizig'ining ostidagi son — maxraj. 3/5 da surat 3, maxraj 5." },
+    { level: 3, question: "Qaysi kasr to'g'ri kasr (surati maxrajidan kichik)?", options: ["3/7", "7/3", "5/5", "8/6"], answer: "3/7", explain: "To'g'ri kasrda surat maxrajdan kichik bo'ladi: 3 < 7. 7/3 va 8/6 da surat katta, 5/5 esa 1 ga teng." },
+    { level: 4, question: "1/4 va 3/4 kasrlaridan qaysi biri katta?", options: ["3/4", "1/4", "Teng", "Aniqlab bo'lmaydi"], answer: "3/4", explain: "Maxrajlari teng kasrlardan surati katta bo'lgani katta: 3 > 1, demak 3/4 > 1/4." },
+    { level: 5, question: "2/9 + 4/9 = ?", options: ["6/9", "6/18", "2/9", "8/9"], answer: "6/9", explain: "Maxrajlari teng kasrlarni qo'shganda suratlar qo'shiladi, maxraj o'zgarmaydi: 2 + 4 = 6, maxraj 9." },
+    { level: 6, question: "7/10 - 3/10 = ?", options: ["4/10", "4/20", "10/10", "3/10"], answer: "4/10", explain: "Maxrajlari teng kasrlarni ayirganda suratlar ayiriladi, maxraj o'zgarmaydi: 7 − 3 = 4, maxraj 10." },
+    { level: 7, question: "17/5 kasrini aralash son ko'rinishida yozing.", options: ["3 va 2/5", "3 va 1/5", "2 va 3/5", "5 va 2/3"], answer: "3 va 2/5", explain: "17 ni 5 ga bo'lamiz: 17 = 5 · 3 + 2. Butun qism 3, qoldiq 2 surat bo'ladi: 3 va 2/5." },
+    { level: 8, question: "2 va 1/3 aralash sonini noto'g'ri kasrga o'tkazing.", options: ["7/3", "6/3", "5/3", "8/3"], answer: "7/3", explain: "Butun qismni maxrajga ko'paytirib, suratni qo'shamiz: 2 · 3 + 1 = 7. Maxraj o'zgarmaydi: 7/3." },
+    { level: 9, question: "2 va 1/4 + 1 va 2/4 = ?", options: ["3 va 3/4", "3 va 1/4", "4", "3 va 2/4"], answer: "3 va 3/4", explain: "Butunlarni alohida, kasrlarni alohida qo'shamiz: 2 + 1 = 3 va 1/4 + 2/4 = 3/4." },
+    { level: 10, question: "Matoning 3/8 qismi qizil, qolgani ko'k rangda bo'yalgan. Matoning necha qismi ko'k rangda?", options: ["5/8", "3/8", "1/8", "8/8"], answer: "5/8", explain: "Butun mato — 8/8. Qizildan qolgani: 8/8 − 3/8 = 5/8." }
   ],
 
   "5|matematika|onli-kasrlar": [

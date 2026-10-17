@@ -9,6 +9,18 @@ function initQuiz() {
   const topic = subject ? findTopic(subject, topicId) : null;
 
   const backLink = document.getElementById("quiz-back-link");
+  // mavzu sahifasi ichida (iframe) ochilgan — "Mavzuga qaytish" kerak emas, aks holda sahifa iframe ichida ochilib qoladi
+  const embedded = window.self !== window.top;
+  if (embedded) {
+    backLink.style.display = "none";
+    document.documentElement.classList.add("quiz-embedded");
+  }
+  // mavzu sahifasidagi oyna balandligi testga moslashadi (izoh chiqqanda ham ichki aylantirishsiz)
+  if (embedded && window.ResizeObserver) {
+    new ResizeObserver(function () {
+      try { parent.postMessage({ type: "mathrun:height", h: Math.ceil(document.body.getBoundingClientRect().height) }, "*"); } catch (e) { /* sayt tashqarisida */ }
+    }).observe(document.body);
+  }
   // bob testi (masalan 5-sinf) bir nechta mavzuga ulangan — mavzu topilmasa sinf sahifasiga qaytadi
   if (topic) backLink.href = topicHref(gradeId, subjectId, topicId);
   else if (subject) backLink.href = "sinf.html?sinf=" + gradeId + "&fan=" + subjectId;
@@ -81,6 +93,8 @@ function initQuiz() {
           '<div class="feedback-text ' + (isCorrect ? "correct-text" : "wrong-text") + '">' +
             (isCorrect ? "✓ To'g'ri!" : "✗ Noto'g'ri. To'g'ri javob: " + q.answer) +
           '</div>' +
+          // ixtiyoriy izoh (quizzes.js da explain bo'lsa)
+          (q.explain ? '<div class="feedback-explain">' + q.explain + '</div>' : '') +
           '<button class="quiz-next" id="quiz-next-btn">' +
             (current === questions.length - 1 ? "Yakunlash" : "Keyingi savol →") +
           '</button>';
@@ -108,7 +122,7 @@ function initQuiz() {
         '<p class="quiz-result-message">' + message + '</p>' +
         '<div class="quiz-result-actions">' +
           '<button class="quiz-next" id="quiz-restart-btn">Qayta boshlash</button>' +
-          (topic ? '<a class="quiz-back-btn" href="' + topicHref(gradeId, subjectId, topicId) + '">Mavzuga qaytish</a>' : "") +
+          (topic && !embedded ? '<a class="quiz-back-btn" href="' + topicHref(gradeId, subjectId, topicId) + '">Mavzuga qaytish</a>' : "") +
         '</div>' +
       '</div>';
 
