@@ -333,6 +333,10 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 .qism { margin: 10px 0; }
 .qism svg { width: 100%; height: auto; display: block; margin: 0 auto; }
 
+/* qolgan qismning qismi (chizma.js "qolgan"): tasma modeli */
+.qolgan { margin: 10px 0; }
+.qolgan svg { width: 100%; height: auto; display: block; margin: 0 auto; }
+
 /* kasrning kasr qismi (chizma.js "yuza"): bo'yalgan ustunlar va shtrixlangan kataklar */
 .yuza { margin: 10px 0; }
 .yuza svg { width: 100%; height: auto; display: block; margin: 0 auto; }

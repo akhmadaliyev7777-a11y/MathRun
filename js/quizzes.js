@@ -100,12 +100,38 @@ const QUIZ_DATA = {
     { level: 2, question: "2/3 · 4/5 = ?", options: ["8/15", "6/8", "8/5", "6/15"], answer: "8/15", explain: "2 · 4 = 8 — surat, 3 · 5 = 15 — maxraj. Javob 8/15." },
     { level: 3, question: "3/4 ning 1/3 qismi nechaga teng?", options: ["1/4", "3/7", "5/12", "4/7"], answer: "1/4", explain: "«Ning qismi» — ko'paytirish: 3/4 · 1/3 = 3/12 = 1/4." },
     { level: 4, question: "Qaysi yozuv to'g'ri?", options: ["2/5 · 3/4 = 6/20", "2/5 · 3/4 = 6/4", "2/5 · 3/4 = 5/9", "2/5 · 3/4 = 6/9"], answer: "2/5 · 3/4 = 6/20", explain: "2 · 3 = 6, 5 · 4 = 20. 6/20 ni qisqartirsak 3/10 bo'ladi. 6/4 da maxraj ko'paytirilmagan, 5/9 da qo'shib yuborilgan." },
-    { level: 5, question: "2/6 · 1/2 = ? (javobni qisqartiring)", options: ["1/6", "3/8", "1/4", "2/8"], answer: "1/6", explain: "2/6 · 1/2 = 2/12. Surat va maxrajni 2 ga bo'lamiz: 2/12 = 1/6." },
+    { level: 5, question: "3/4 · 8/7 = ?", options: ["6/7", "24/11", "11/28", "1 1/7"], answer: "6/7", explain: "Noto'g'ri kasr ham shu qoida bilan ko'paytiriladi. 8 va 4 ni 4 ga qisqartiramiz: 3/1 · 2/7 = 6/7." },
     { level: 6, question: "1/2 · 4/5 = ?", options: ["2/5", "5/7", "4/7", "1/5"], answer: "2/5", explain: "Avval 4 va 2 ni 2 ga qisqartiramiz: 1/1 · 2/5 = 2/5. Yoki 4/10 = 2/5." },
-    { level: 7, question: "6/7 · 7/12 = ?", options: ["1/2", "13/19", "42/19", "1/12"], answer: "1/2", explain: "7 va 7 ni 7 ga, 6 va 12 ni 6 ga qisqartiramiz: 1/1 · 1/2 = 1/2." },
+    { level: 7, question: "5/4 · 3/2 = ?", options: ["1 7/8", "8/6", "2 3/8", "1 1/8"], answer: "1 7/8", explain: "Qisqartiradigan son yo'q: 5 · 3 = 15, 4 · 2 = 8. 15/8 = 1 7/8. Ikkala kasr 1 dan katta — ko'paytma ham 1 dan katta." },
     { level: 8, question: "Lobar opada 3/4 kg un bor edi. U unning 1/3 qismini ishlatdi. Qancha un qoldi?", options: ["1/2 kg", "1/4 kg", "5/12 kg", "2/3 kg"], answer: "1/2 kg", explain: "Ishlatdi: 3/4 · 1/3 = 1/4 kg. Qoldi: 3/4 − 1/4 = 2/4 = 1/2 kg. 1/4 kg — ishlatilgani, qolgani emas." },
     { level: 9, question: "To'g'ri to'rtburchakning tomonlari 3/4 m va 2/5 m. Uning yuzi qancha?", options: ["3/10 m²", "5/9 m²", "6/9 m²", "1 3/20 m²"], answer: "3/10 m²", explain: "Yuz = bo'yi · eni: 3/4 · 2/5 = 6/20 = 3/10 m². 1 3/20 — tomonlar yig'indisi, yuz emas." },
     { level: 10, question: "Hisoblamasdan ayting: 3/4 · 5/6 natijasi qanday?", options: ["3/4 dan kichik", "3/4 dan katta", "3/4 ga teng", "1 dan katta"], answer: "3/4 dan kichik", explain: "3/4 ning 5/6 qismini olyapmiz — qism butundan kichik. Haqiqatan 3/4 · 5/6 = 5/8 < 3/4." }
+  ],
+  // 10-mavzu o'z testi (ma'ruzaga mos)
+  "5|matematika|aralash-sonni-natural-songa": [
+    { level: 1, question: "2 1/3 ni noto'g'ri kasrga aylantiring.", options: ["7/3", "5/3", "3/3", "6/3"], answer: "7/3", explain: "Butun × maxraj + surat: 2 · 3 + 1 = 7 — yangi surat, maxraj 3 o'zgarmaydi: 7/3." },
+    { level: 2, question: "1 1/2 · 3 = ?", options: ["4 1/2", "3 1/2", "3 3/6", "4"], answer: "4 1/2", explain: "1 1/2 = 3/2. 3/2 · 3 = 9/2 = 4 1/2. Uchta butun va uchta yarimta: ikkita yarimta yana bitta butun." },
+    { level: 3, question: "2 1/4 · 3 = ?", options: ["6 3/4", "6 1/4", "2 3/4", "6 3/12"], answer: "6 3/4", explain: "2 · 3 = 6 va 1/4 · 3 = 3/4. Jami 6 3/4. 6 1/4 — kasr qism ko'paytirilmagan." },
+    { level: 4, question: "Kvadratning tomoni 3 3/4 m. Uning perimetri qancha?", options: ["15 m", "12 3/4 m", "13 m", "16 m"], answer: "15 m", explain: "3 3/4 · 4 = 15/4 · 4 = 15 m. Yoki 3 · 4 + 3/4 · 4 = 12 + 3 = 15." },
+    { level: 5, question: "2 1/2 · 4 ni qismlarga ajratib hisoblang.", options: ["10", "8 1/2", "8 2/4", "9"], answer: "10", explain: "2 · 4 = 8, 1/2 · 4 = 2. 8 + 2 = 10." },
+    { level: 6, question: "5 1/3 · 6 = ?", options: ["32", "30 1/3", "30 6/18", "31"], answer: "32", explain: "5 · 6 = 30, 1/3 · 6 = 2. Jami 32." },
+    { level: 7, question: "7 · 2 5/8 ning qiymati qaysi oraliqda?", options: ["14 va 21 orasida", "7 va 14 orasida", "21 va 28 orasida", "2 va 3 orasida"], answer: "14 va 21 orasida", explain: "7 · 2 = 14, 7 · 3 = 21. Aniq javob: 147/8 = 18 3/8 — haqiqatan 14 va 21 orasida." },
+    { level: 8, question: "2 3/4 · 2 = ?", options: ["5 1/2", "4 3/4", "4 6/8", "5 3/4"], answer: "5 1/2", explain: "2 · 2 = 4, 3/4 · 2 = 6/4 = 1 1/2. 4 + 1 1/2 = 5 1/2." },
+    { level: 9, question: "1 kg olma 12 000 so'm. 2 3/4 kg olma qancha turadi?", options: ["33 000 so'm", "24 000 so'm", "27 000 so'm", "36 000 so'm"], answer: "33 000 so'm", explain: "12 000 · 2 = 24 000, 12 000 · 3/4 = 9 000. Jami 33 000 so'm." },
+    { level: 10, question: "Kvadratning tomoni 4 2/3 m. Uning perimetrini toping.", options: ["18 2/3 m", "16 2/3 m", "16 8/3 m", "18 1/3 m"], answer: "18 2/3 m", explain: "4 · 4 = 16, 2/3 · 4 = 8/3 = 2 2/3. 16 + 2 2/3 = 18 2/3 m. 16 8/3 — kasr qismdan butun ajratilmagan." }
+  ],
+  // 11-mavzu o'z testi (ma'ruzaga mos)
+  "5|matematika|qolgan-qismning-qismi": [
+    { level: 1, question: "Tasmaning 1/4 qismi bo'yalgan. Bo'yalmagan qismi tasmaning qancha qismi?", options: ["3/4", "1/4", "4/4", "1/3"], answer: "3/4", explain: "Butun tasma — 1 = 4/4. 4/4 − 1/4 = 3/4." },
+    { level: 2, question: "Tasmaning 1/6 qismi bo'yalgan. Bo'yalmagan qismining 2/5 qismi butun tasmaning qancha qismi?", options: ["1/3", "2/5", "2/30", "5/11"], answer: "1/3", explain: "Bo'yalmagan qism: 1 − 1/6 = 5/6. 5/6 · 2/5 = 10/30 = 1/3. 2/5 — bu qolgan qismning qismi, butunniki emas." },
+    { level: 3, question: "Tasmaning 1/4 qismi bo'yalgan. Bo'yalmagan qismining 1/2 qismi tasmaning qancha qismi?", options: ["3/8", "1/8", "1/2", "3/4"], answer: "3/8", explain: "Bo'yalmagan qism 3/4. Uning yarmi: 3/4 · 1/2 = 3/8." },
+    { level: 4, question: "Jahongir pulining 1/4 qismini yo'l kiraga, qolgan pulining 1/3 qismini ovqatlanishga sarfladi. Ovqatlanishga pulining qancha qismini sarfladi?", options: ["1/4", "1/3", "1/12", "7/12"], answer: "1/4", explain: "Qolgan: 3/4. Uning 1/3 qismi: 3/4 · 1/3 = 1/4. 1/12 — qolgan qism o'rniga 1/4 dan olingan (xato)." },
+    { level: 5, question: "Qutidagi tugmalarning 1/4 qismi qizil, 1/3 qismi ko'k. Qolgan tugmalar qancha qismni tashkil etadi?", options: ["5/12", "2/7", "7/12", "1/2"], answer: "5/12", explain: "1/4 + 1/3 = 3/12 + 4/12 = 7/12. Qolgan: 12/12 − 7/12 = 5/12." },
+    { level: 6, question: "Akmal 18 000 so'mga hamyon oldi — bu uning pulining 3/10 qismi. Dastlab qancha puli bor edi?", options: ["60 000 so'm", "5 400 so'm", "54 000 so'm", "30 000 so'm"], answer: "60 000 so'm", explain: "3 bo'lak = 18 000, 1 bo'lak = 6 000. 10 bo'lak = 60 000 so'm." },
+    { level: 7, question: "480 nafar o'quvchining 3/5 qismi qizlar. O'g'il bolalar nechta?", options: ["192", "288", "96", "320"], answer: "192", explain: "O'g'il bolalar: 1 − 3/5 = 2/5 qism. 480 : 5 · 2 = 192. 288 — qizlar soni." },
+    { level: 8, question: "Sardorda 60 000 so'm bor edi. 1/5 qismini simkartaga, qolganning 1/2 qismini batareyaga sarfladi. Unda qancha pul qoldi?", options: ["24 000 so'm", "30 000 so'm", "12 000 so'm", "48 000 so'm"], answer: "24 000 so'm", explain: "Simkarta 12 000, qolgan 48 000. Batareya 24 000, qoldi 48 000 − 24 000 = 24 000 so'm." },
+    { level: 9, question: "Ombordan unning 2/5 qismi olib ketildi, 360 kg qoldi. Omborda qancha un bor edi?", options: ["600 kg", "900 kg", "144 kg", "216 kg"], answer: "600 kg", explain: "Qolgan qism 3/5 = 360 kg. 1 bo'lak = 120 kg, 5 bo'lak = 600 kg." },
+    { level: 10, question: "Zaldagi tomoshabinlarning 3/7 qismi ayollar, qolganlarning 3/4 qismi erkaklar, qolgani bolalar. Bolalar erkaklardan 42 nafar kam. Zalda jami nechta tomoshabin bor?", options: ["147", "126", "168", "98"], answer: "147", explain: "Tasma 7 bo'lak: ayollar 3, erkaklar 3, bolalar 1. Farq 2 bo'lak = 42, 1 bo'lak = 21. Jami 7 · 21 = 147." }
   ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },

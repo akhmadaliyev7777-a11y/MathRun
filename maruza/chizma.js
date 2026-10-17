@@ -20,6 +20,8 @@
                                           n katta bo'lsa — tasma (har bo'lakda qiymati yozilgan)
    data-yuza="1/3/2/3"             — a/b ning c/d qismi (to'g'ri to'rtburchak modeli): b ta ustundan a tasi bo'yalgan,
                                           d ta qatordan c tasi shtrixlangan — shtrixlangan kataklar a·c / b·d
+   data-qolgan="1/6/2/5" [data-yozuv="1/6|Bo'yalmagan qism|?"] — tasmaning a/b qismi bo'yalgan, qolgan qismning
+                                          c/d qismi belgilangan (kerak bo'lsa bo'laklar maydaroq bo'linadi)
 */
 (function () {
   "use strict";
@@ -497,22 +499,59 @@
 
   // ---------- kasrning kasr qismi: to'g'ri to'rtburchak modeli ----------
   let yuzaId = 0;
+  // a > b bo'lsa (noto'g'ri kasr) — bir nechta butun to'rtburchak yonma-yon chiziladi
   function chizYuza(el) {
     const [a, b, c, d] = el.dataset.yuza.split("/").map(Number);
-    const W = 300, H = 180, x0 = 3, y0 = 3, w = W / b, h = H / d, id = "shtrix" + (++yuzaId);
+    const butun = Math.ceil(a / b), gap = 18;
+    const W = butun === 1 ? 300 : 210, H = butun === 1 ? 180 : 140, w = W / b, h = H / d, id = "shtrix" + (++yuzaId);
     let svg = '<defs><pattern id="' + id + '" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
       '<rect width="9" height="9" fill="#f3e4a8"/><line x1="0" y1="0" x2="0" y2="9" stroke="#d4501b" stroke-width="3.5"/></pattern></defs>';
-    svg += '<rect x="' + x0 + '" y="' + y0 + '" width="' + W + '" height="' + H + '" fill="#fff"/>';
-    svg += '<rect x="' + x0 + '" y="' + y0 + '" width="' + a * w + '" height="' + H + '" fill="#ece4fb"/>';
-    svg += '<rect x="' + x0 + '" y="' + y0 + '" width="' + a * w + '" height="' + c * h + '" fill="url(#' + id + ')"/>';
-    for (let i = 1; i < b; i++) svg += '<line x1="' + (x0 + i * w) + '" y1="' + y0 + '" x2="' + (x0 + i * w) + '" y2="' + (y0 + H) + '" stroke="#9aa3b5" stroke-width="1.5"/>';
-    for (let j = 1; j < d; j++) svg += '<line x1="' + x0 + '" y1="' + (y0 + j * h) + '" x2="' + (x0 + W) + '" y2="' + (y0 + j * h) + '" stroke="#9aa3b5" stroke-width="1.5" stroke-dasharray="6 4"/>';
-    svg += '<rect x="' + x0 + '" y="' + y0 + '" width="' + a * w + '" height="' + H + '" fill="none" stroke="#6d3fc0" stroke-width="2.5"/>';
-    svg += '<rect x="' + x0 + '" y="' + y0 + '" width="' + W + '" height="' + H + '" fill="none" stroke="#1f2433" stroke-width="2.5"/>';
-    const n = a * c, m = b * d;
+    for (let t = 0; t < butun; t++) {
+      const x0 = 3 + t * (W + gap), y0 = 3, ust = Math.min(b, a - t * b);   // shu butundagi bo'yalgan ustunlar
+      svg += '<rect x="' + x0 + '" y="' + y0 + '" width="' + W + '" height="' + H + '" fill="#fff"/>';
+      svg += '<rect x="' + x0 + '" y="' + y0 + '" width="' + ust * w + '" height="' + H + '" fill="#ece4fb"/>';
+      svg += '<rect x="' + x0 + '" y="' + y0 + '" width="' + ust * w + '" height="' + c * h + '" fill="url(#' + id + ')"/>';
+      for (let i = 1; i < b; i++) svg += '<line x1="' + (x0 + i * w) + '" y1="' + y0 + '" x2="' + (x0 + i * w) + '" y2="' + (y0 + H) + '" stroke="#9aa3b5" stroke-width="1.5"/>';
+      for (let j = 1; j < d; j++) svg += '<line x1="' + x0 + '" y1="' + (y0 + j * h) + '" x2="' + (x0 + W) + '" y2="' + (y0 + j * h) + '" stroke="#9aa3b5" stroke-width="1.5" stroke-dasharray="6 4"/>';
+      svg += '<rect x="' + x0 + '" y="' + y0 + '" width="' + ust * w + '" height="' + H + '" fill="none" stroke="#6d3fc0" stroke-width="2.5"/>';
+      svg += '<rect x="' + x0 + '" y="' + y0 + '" width="' + W + '" height="' + H + '" fill="none" stroke="#1f2433" stroke-width="2.5"/>';
+    }
+    const n = a * c, m = b * d, VW = butun * W + (butun - 1) * gap + 6;
     el.classList.add("yuza");
-    el.innerHTML = '<svg viewBox="0 0 ' + (W + 6) + " " + (H + 6) + '" style="max-width:' + (W + 6) + 'px" role="img" aria-label="' + a + "/" + b + " ning " + c + "/" + d + " qismi: " + m + " ta katakdan " + n + ' tasi shtrixlangan">' + svg + "</svg>" +
-      '<p class="chz-cap"><span class="yz-b"></span>bo\'yalgan: \\(\\frac{' + a + "}{" + b + '}\\) &nbsp; <span class="yz-s"></span>shtrixlangan: ' + m + " ta katakdan " + n + " tasi, \\(\\frac{" + a + "}{" + b + "} \\cdot \\frac{" + c + "}{" + d + "} = \\frac{" + n + "}{" + m + "}\\)</p>";
+    el.innerHTML = '<svg viewBox="0 0 ' + VW + " " + (H + 6) + '" style="max-width:' + VW + 'px" role="img" aria-label="' + a + "/" + b + " ning " + c + "/" + d + " qismi: bitta butun " + m + " ta katak, " + n + ' ta katak shtrixlangan">' + svg + "</svg>" +
+      '<p class="chz-cap"><span class="yz-b"></span>bo\'yalgan: \\(\\frac{' + a + "}{" + b + '}\\) &nbsp; <span class="yz-s"></span>shtrixlangan: ' + n + " ta katak, bitta butun — " + m + " ta katak. \\(\\frac{" + a + "}{" + b + "} \\cdot \\frac{" + c + "}{" + d + "} = \\frac{" + n + "}{" + m + "}\\)</p>";
+  }
+
+  // ---------- qolgan qismning qismi: tasma modeli ----------
+  function ekub(x, y) { return y ? ekub(y, x % y) : x; }
+  function chizQolgan(el) {
+    const [a, b, c, d] = el.dataset.qolgan.split("/").map(Number);
+    const yoz = (el.dataset.yozuv || a + "/" + b + "|Qolgan qism|" + c + "/" + d + " qismi").split("|");
+    const k = d / ekub(b - a, d);                  // har bo'lak k ta mayda bo'lakka bo'linadi
+    const n = b * k, sariq = a * k, belgi = (b - a) * k * c / d;
+    const L = 4, W = 400, w = W / n, y = 42, h = 36;
+    let svg = "";
+    for (let i = 0; i < n; i++) {
+      const fill = i < sariq ? "#fde68a" : i < sariq + belgi ? "#ffd8c2" : "#fff";
+      svg += '<rect x="' + (L + i * w) + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="' + fill + '"/>';
+    }
+    for (let i = 1; i < n; i++) {
+      const katta = i % k === 0;
+      svg += '<line x1="' + (L + i * w) + '" y1="' + y + '" x2="' + (L + i * w) + '" y2="' + (y + h) + '" stroke="' + (katta ? "#1f2433" : "#9aa3b5") + '" stroke-width="' + (katta ? 1.8 : 1.4) + '"' + (katta ? "" : ' stroke-dasharray="5 4"') + "/>";
+    }
+    svg += '<rect x="' + L + '" y="' + y + '" width="' + W + '" height="' + h + '" fill="none" stroke="#1f2433" stroke-width="2.2"/>';
+    const qavs = function (x1, x2, yy, past, matn, rang) {
+      const s = past ? 1 : -1;
+      return '<path d="M' + (x1 + 2) + " " + yy + " v" + 6 * s + " H" + (x2 - 2) + " v" + -6 * s + '" fill="none" stroke="' + rang + '" stroke-width="2"/>' +
+        '<text x="' + (x1 + x2) / 2 + '" y="' + (yy + (past ? 26 : -12)) + '" text-anchor="middle" font-size="15" font-weight="700" fill="' + rang + '">' + matn + "</text>";
+    };
+    const xs = L + sariq * w, xb = xs + belgi * w;
+    svg += '<text x="' + (L + xs) / 2 + '" y="' + (y - 10) + '" text-anchor="middle" font-size="15" font-weight="700" fill="#b45309">' + yoz[0] + "</text>";
+    svg += qavs(xs, L + W, y - 4, false, yoz[1], "#1f2433");
+    svg += qavs(xs, xb, y + h + 4, true, yoz[2], "#d4501b");
+    el.classList.add("qolgan");
+    el.innerHTML = '<svg viewBox="0 0 ' + (W + 8) + " " + (y + h + 38) + '" style="max-width:' + (W + 8) + 'px" role="img" aria-label="Tasmaning ' + a + "/" + b +
+      " qismi bo'yalgan, qolgan qismning " + c + "/" + d + ' qismi belgilangan">' + svg + "</svg>";
   }
 
   window.MaruzaChizma = {
@@ -535,6 +574,7 @@
       root.querySelectorAll("[data-doira]").forEach(chizDoira);
       root.querySelectorAll("[data-qism]").forEach(chizQism);
       root.querySelectorAll("[data-yuza]").forEach(chizYuza);
+      root.querySelectorAll("[data-qolgan]").forEach(chizQolgan);
     }
   };
 })();
