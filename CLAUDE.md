@@ -25,6 +25,7 @@ Bu fayl har sessiya boshida o'qiladi. Ish shu yerdan davom etadi.
 | Mavzu → kitob betlari | `_reja/mavzular.json` |
 | Kitob betlarini o'qish | `python3 _reja/kitob.py N` (matn), `... N --rasm DIR` (PNG). Kerak: `pip install pymupdf` |
 | Tengliklarni tekshirish | `python3 _reja/tools/tenglik.py maruza/5-<id>.html` |
+| Kitob sonlari ko'chirilmaganini tekshirish | `python3 _reja/kitob.py N > /tmp/kN.txt; python3 _reja/tools/kitobdan.py /tmp/kN.txt maruza/5-<id>.html` (bir xil «son amal son» juftlarini ko'rsatadi; ½·a·h kabi formulalar va tasodifiy oddiy juftlar normal — namuna va masalalar kitobdagidek bo'lmasin) |
 | Ma'ruza sahifalari | `maruza/5-<id>.html` (namuna: `maruza/5-aralash-sonlarni-qoshish-ayirish.html`) |
 | Umumiy andoza | `maruza/maruza.css`, `maruza/maruza.js` (KaTeX, javob tugmalari, iframe balandligi), `maruza/chizma.js` (chizmalar — ro'yxati fayl boshida) |
 | Personajlar | `maruza/personaj/*.webp` (aziz, madina, ustoz + holatlari — `_reja/CLAUDE-ish-tartibi.md` 3a) |
@@ -64,16 +65,16 @@ PDF beti = kitob beti + 4. Agar nomlar boshqacha bo'lsa — faylni qayta nomlang
 | 5. Bo'lishni kasr ko'rinishida ifodalash | ✅ | ✅ |
 | 6. Oddiy kasrni o'nli kasrga aylantirish | ✅ | ☐ (umumiy `oddiy-kasrlar` testi, izohli) |
 | 7. Aralash sonlarni qo'shish va ayirish | ✅ | ✅ |
-| 8. Kasrni natural songa ko'paytirish | ✅ (shoxda) | ✅ |
-| 9. Kasrni kasrga ko'paytirish | ✅ (shoxda) | ✅ |
-| 10. Aralash sonni natural songa ko'paytirish | ✅ (shoxda) | ✅ |
-| 11. Qolgan qismning qismi + matnli masalalar | ✅ (shoxda) | ✅ |
-| 12. Uchburchakning asosi va balandligi | ✅ (shoxda) | ✅ |
-| 13. Uchburchakning yuzini topish | ✅ (shoxda) | ✅ |
-| 14. To'g'ri to'rtburchak va uchburchaklardan tuzilgan shakllarning yuzi | ✅ (shoxda) | ✅ |
-| 15. Fazoviy jismlarning hajmi | ✅ (shoxda) | ✅ |
+| 8. Kasrni natural songa ko'paytirish | ✅ | ✅ |
+| 9. Kasrni kasrga ko'paytirish | ✅ | ✅ |
+| 10. Aralash sonni natural songa ko'paytirish | ✅ | ✅ |
+| 11. Qolgan qismning qismi + matnli masalalar | ✅ | ✅ |
+| 12. Uchburchakning asosi va balandligi | ✅ | ✅ |
+| 13. Uchburchakning yuzini topish | ✅ | ✅ |
+| 14. To'g'ri to'rtburchak va uchburchaklardan tuzilgan shakllarning yuzi | ✅ | ✅ |
+| 15. Fazoviy jismlarning hajmi | ✅ | ✅ |
 
-**Navbat:** 16-mavzu «Uch o'lchamli panjarada fazoviy jismlarni chizish» (id `izometrik-panjarada-chizish`, D1 115–117, M1 141–142; kitob betlari 103–134 foydalanuvchi yuborgan PDF'da bor), keyin 17, ... 47 tartib bilan. 8–15-mavzular `ccr-6644adea-vrr90g` shoxida — main ga kompyuterdagi sessiya qo'shadi. Alohida vazifa: 1, 2, 6-mavzularga o'z testi (10 savol, izohli).
+**Navbat:** 16-mavzu «Uch o'lchamli panjarada fazoviy jismlarni chizish» (id `izometrik-panjarada-chizish`, D1 115–117, M1 141–142; kitob betlari 103–134 foydalanuvchi yuborgan PDF'da bor), keyin 17, ... 47 tartib bilan. 8–15-mavzular 2026-10-18 da kompyuterdagi sessiya tekshirib, main ga qo'shdi. Yangi ishni avval `git fetch origin main` qilib, eng so'nggi main ustida boshla; ishni o'z shoxingga push qil — main ga kompyuterdagi sessiya qo'shadi. Alohida vazifa: 1, 2, 6-mavzularga o'z testi (10 savol, izohli).
 
 ## Chizmalar (`maruza/chizma.js`, HTML'da `data-*` atribut)
 `data-xk` (kasrni ×k), `data-ld` (burchak usulida bo'lish), `data-kataklar`, `data-sonoqi`, `data-xona`, `data-tugma`, `data-oq`, `data-siljish`, `data-zanjir="43/x2/x10"`, `data-nollar="63000/700"`, `data-tartib="80 - 5 * (6 + 4) : 2"` (amallar tartibi raqamlari + qadamlar), `data-tasma="Otasi:3|Qizi:1" data-farq="..."` (chizmali model), `data-pitsa="3/5" [data-usul="butun"]`, `data-doira="2 3/4" [data-rang]`, `data-qism="14/5/7" [data-yozuv="ko'k"] [data-izoh="0"]` (sonning qismi: n ta narsa b ta guruhga, a tasi bo'yalgan; n > 40 — tasma; izoh="0" — hisobsiz, mashq uchun), `data-yuza="1/4/2/3"` (a/b ning c/d qismi — to'g'ri to'rtburchakda bo'yash va shtrixlash; a > b bo'lsa bir nechta butun), `data-qolgan="1/6/2/5" [data-yozuv="1/6|Qolgan qism|?"]` (tasma: a/b qism bo'yalgan, qolganning c/d qismi belgilangan). `data-kub="3x2x2" | "3,2,1|3,2,1"` [data-yozuv="bo'yi|eni|balandligi"] [data-rang] [data-ajrat="1"] [data-son="1"] [data-olcham] (birlik kubchalardan izometrik jism: kuboid "b x e x h" yoki ustundagi kubchalar soni, qatorlar "|" bilan; ajrat — qatlamlar ajratiladi, son — ustdan ko'rinish). `data-geo='{"katak":[7,5],"nuqta":{"M":[0,0],"N":[7,0],"P":[3,5]},"shakl":["MNP"],"asos":"MN","bal":["P","MN","D"],"uzun":{"MN":"7 cm"}}'` (geometriya: katakli fon, uchlar, ko'pburchaklar, qizil asos, balandlik — asosi avtomatik topiladi, davomi punktir, to'g'ri burchak belgisi; "kesma":[["P","Q","tik","R"]], "tik":["C"], "ramka":["ABCD"] (punktir mos to'rtburchak), "oq":["DEC"] (kesib olingan oq qism), "uzun":{"MH-":"..."} (yozuv narigi tomonda), "yashir", "olcham" — to'liq ro'yxat chizma.js boshida). Yangi tur kerak bo'lsa — shu faylga qo'shing (boshqa mavzularda ham ishlaydi) va fayl boshidagi ro'yxatga yozing.
