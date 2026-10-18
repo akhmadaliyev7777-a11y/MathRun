@@ -336,7 +336,8 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** qirrasi 1 m kublardan jism hajmi (m³); eng kichik / teng hajmlar.
 **Rasmlar:** 1 cm³ va 1 m³ taqqoslash (odam bo'yi bilan).
 
-#### ☐ 19.1. Kuboid (to'g'ri burchakli parallelepiped) hajmi — D1 123–128; M1 147–150
+#### ✅ 19.1. Kuboid (to'g'ri burchakli parallelepiped) hajmi — D1 123–128; M1 147–150
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-kuboid-kub-hajmi.html (kuboid; kub — 19.2 da alohida). O'z testi: `5|matematika|kuboid-kub-hajmi` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Yangi chizma kerak bo'lmadi (data-kub, ajratilgan qatlamlar). **Qoidalar ro'yxati (19.1):** kuboid qatlamlarga bo'linadi (qatlamda bo'yi × eni kubcha, qatlamlar soni = balandlik); V = bo'yi × eni × balandligi; o'lchamlar bir xil birlikda, hajm cm³/m³ da (1 m = 100 cm); V = asos yuzi × balandlik, yuz (cm²) va hajm (cm³) farqi. **Misol turlari:** jadval (sanab topilgan hajm ↔ o'lchamlar); formula bilan (cm va m); asosi kvadrat kuboid; kuboid idish (qirralar bo'ylab kubchalar); noma'lum o'lchamni topish; idishning bo'sh qismi (3/4 muz); har xil birlik; ikki marta katta kub; bir nechta kub hajmiga teng kuboid; ustma-ust bloklar; matnli masalalar (kuzov, akvarium, quti, xona, chuqur, ikki idish). Kitob bilan solishtirildi (D1 123–128, kub qismi 19.2 ga qoldi): formula, jadval, idish, yuz–hajm farqi bor; sonlar o'zimizniki. Konteyner jadvali (33,150 m³) kitobdagi «Turmushda matematika» — sonlarisiz, o'z mashinasi bilan almashtirildi. M1 147–150 berilmagan. Tekshiruv: tenglik.py 49/0, kitobdan.py 0, node --check, 390/1100 px to'g'ri, xato yo'q. Simulyator: tayyor lessons/5-matematika-parallelepiped.html bor (tegilmaydi).
 **Mashq daftaridan (qo'shimcha):** jadval (o'lchamlar → hajm); kub hajmi kuboiddan 2 marta katta → kuboid hajmi; kuboid hajmi 6 ta kub hajmiga teng → bitta kub; kuboidni 3 blokka bo'lib ustma-ust qo'yish; qisman kubchalar bilan to'ldirilgan idishning bo'sh qismi; Matematika kundaligi: muz bo'lagi hajmi (idishning 3/4 qismi).
 
 #### ☐ 19.2. Kub hajmi — D1 123–128; M1 147–150
@@ -719,7 +720,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** qirrasi 1 m kublardan jism hajmi (m³); eng kichik / teng hajmlar.
 **Rasmlar:** 1 cm³ va 1 m³ taqqoslash (odam bo'yi bilan).
 
-#### ☐ 19.1. Kuboid (to'g'ri burchakli parallelepiped) hajmi — D1 123–128; M1 147–150
+#### ✅ 19.1. Kuboid (to'g'ri burchakli parallelepiped) hajmi — D1 123–128; M1 147–150
 **Mashq daftaridan (qo'shimcha):** jadval (o'lchamlar → hajm); kub hajmi kuboiddan 2 marta katta → kuboid hajmi; kuboid hajmi 6 ta kub hajmiga teng → bitta kub; kuboidni 3 blokka bo'lib ustma-ust qo'yish; qisman kubchalar bilan to'ldirilgan idishning bo'sh qismi; Matematika kundaligi: muz bo'lagi hajmi (idishning 3/4 qismi).
 
 #### ☐ 19.2. Kub hajmi — D1 123–128; M1 147–150

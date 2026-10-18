@@ -220,6 +220,18 @@ const QUIZ_DATA = {
     { level: 9, question: "Qirrasi 1 cm bo'lgan 8 ta kubdan qirrasi 2 cm bo'lgan kub yasaldi. Uning hajmi?", options: ["8 cm³", "4 cm³", "6 cm³", "2 cm³"], answer: "8 cm³", explain: "Hajm kublar soniga teng: 4 + 4 = 8 ta kub — 8 cm³. 4 — faqat bitta qatlam." },
     { level: 10, question: "Qirrasi 1 m kubga qirrasi 1 cm bo'lgan nechta kubcha sig'adi?", options: ["1 000 000", "10 000", "1000", "100"], answer: "1 000 000", explain: "Qirra bo'ylab 100 ta kubcha: bir qatlamda 100 · 100 = 10 000, qatlamlar 100 ta: 10 000 · 100 = 1 000 000. 100 — faqat bitta qatordagi kubchalar." }
   ],
+  "5|matematika|kuboid-kub-hajmi": [
+    { level: 1, question: "Kuboid hajmining formulasi qaysi?", options: ["bo'yi × eni × balandligi", "bo'yi + eni + balandligi", "bo'yi × eni", "2 × (bo'yi + eni)"], answer: "bo'yi × eni × balandligi", explain: "Kuboid hajmi uchta o'lchamning ko'paytmasiga teng: bo'yi × eni × balandligi." },
+    { level: 2, question: "Kuboidning bo'yi 6, eni 3 kubcha. Bitta qatlamda nechta kubcha bor?", options: ["18", "9", "12", "36"], answer: "18", explain: "Bir qatlamdagi kubchalar soni bo'yi × eni: 6 · 3 = 18." },
+    { level: 3, question: "Kuboidning bo'yi 5 cm, eni 3 cm, balandligi 4 cm. Hajmi qancha?", options: ["60 cm³", "12 cm³", "60 cm²", "15 cm³"], answer: "60 cm³", explain: "5 · 3 · 4 = 60. Hajm cm³ da yoziladi; 60 cm² — noto'g'ri birlik, 15 — faqat asosining yuzi." },
+    { level: 4, question: "Hovuz kuboid shaklida: bo'yi 9 m, eni 5 m, chuqurligi 3 m. Hajmi qancha?", options: ["135 m³", "17 m³", "45 m³", "135 m²"], answer: "135 m³", explain: "9 · 5 · 3 = 45 · 3 = 135. O'lchamlar metrda bo'lgani uchun hajm m³ da." },
+    { level: 5, question: "Asosi 4 cm × 4 cm kvadrat, balandligi 10 cm bo'lgan kuboidning hajmi?", options: ["160 cm³", "40 cm³", "16 cm³", "80 cm³"], answer: "160 cm³", explain: "Asosining yuzi 4 · 4 = 16 cm², hajmi 16 · 10 = 160 cm³. 16 — faqat asosning yuzi." },
+    { level: 6, question: "Kuboidning hajmi 60 cm³, bo'yi 5 cm, eni 4 cm. Balandligi necha cm?", options: ["3 cm", "12 cm", "15 cm", "300 cm"], answer: "3 cm", explain: "Asosining yuzi 5 · 4 = 20 cm². Balandligi: 60 : 20 = 3 cm. Tekshiruv: 5 · 4 · 3 = 60." },
+    { level: 7, question: "Kuboidning bo'yi 1 m, eni 40 cm, balandligi 25 cm. Hajmi necha cm³?", options: ["100 000 cm³", "1000 cm³", "65 cm³", "10 000 cm³"], answer: "100 000 cm³", explain: "Avval hamma o'lchamni cm ga keltiramiz: 1 m = 100 cm. 100 · 40 · 25 = 100 000 cm³." },
+    { level: 8, question: "Idishning bo'yi 10 cm, eni 5 cm, balandligi 8 cm. Idishning 3/4 qismi muz bilan to'la. Bo'sh qismi necha cm³?", options: ["100 cm³", "300 cm³", "400 cm³", "25 cm³"], answer: "100 cm³", explain: "Idishning hajmi 10 · 5 · 8 = 400 cm³. Bo'sh qism — 1/4 qism: 400 : 4 = 100 cm³." },
+    { level: 9, question: "Uchta bir xil blok ustma-ust qo'yildi. Har birining o'lchamlari 5 cm, 4 cm, 2 cm. Hosil bo'lgan kuboidning hajmi?", options: ["120 cm³", "40 cm³", "60 cm³", "30 cm³"], answer: "120 cm³", explain: "Bitta blok: 5 · 4 · 2 = 40 cm³, uchtasi 40 · 3 = 120 cm³. Balandligi 6 cm: 5 · 4 · 6 = 120." },
+    { level: 10, question: "Kuboidning uchala o'lchami ham 2 baravar oshirildi. Hajmi necha marta oshadi?", options: ["8 marta", "2 marta", "4 marta", "6 marta"], answer: "8 marta", explain: "Masalan, 3 · 2 · 2 = 12 edi, endi 6 · 4 · 4 = 96. 96 : 12 = 8. Har bir o'lcham hajmni 2 marta oshiradi: 2 · 2 · 2 = 8." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },
