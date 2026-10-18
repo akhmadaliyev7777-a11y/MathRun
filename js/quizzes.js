@@ -184,6 +184,18 @@ const QUIZ_DATA = {
     { level: 9, question: "18 ta birlik kubdan nechta xil kuboid yasash mumkin (aylantirilgani bir xil hisoblanadi)?", options: ["4", "3", "6", "2"], answer: "4", explain: "18 ni ko'paytma ko'rinishida yozamiz: 18×1×1, 9×2×1, 6×3×1, 3×3×2 — jami 4 xil." },
     { level: 10, question: "27 ta kubchadan qirrasi 3 bo'lgan kub yasab, tashqi yoqlari bo'yaldi. Bo'yalmagan kubchalar nechta?", options: ["1", "0", "6", "3"], answer: "1", explain: "Faqat o'rtadagi kubcha hamma tomondan o'ralgan, uning birorta yog'i bo'yalmaydi." }
   ],
+  "5|matematika|suyuqlik-hajmi": [
+    { level: 1, question: "35 ml necha cm³ ga teng?", options: ["35 cm³", "3500 cm³", "350 cm³", "35 000 cm³"], answer: "35 cm³", explain: "1 ml = 1 cm³, shuning uchun son o'zgarmaydi: 35 ml = 35 cm³." },
+    { level: 2, question: "Qirrasi 10 cm bo'lgan kub shaklidagi idishga necha litr suv sig'adi?", options: ["1 ℓ", "10 ℓ", "100 ℓ", "30 ℓ"], answer: "1 ℓ", explain: "10 · 10 · 10 = 1000 cm³ = 1000 ml = 1 ℓ." },
+    { level: 3, question: "3 ℓ 45 ml necha cm³ ga teng?", options: ["3045 cm³", "345 cm³", "3450 cm³", "30 045 cm³"], answer: "3045 cm³", explain: "3 ℓ = 3000 cm³, 45 ml = 45 cm³; 3000 + 45 = 3045 cm³. Millilitrni litr yoniga yozib qo'yib bo'lmaydi." },
+    { level: 4, question: "7080 cm³ ni litr va millilitrda ifodalang.", options: ["7 ℓ 80 ml", "7 ℓ 8 ml", "70 ℓ 80 ml", "7 ℓ 800 ml"], answer: "7 ℓ 80 ml", explain: "1000 lar soni — litr: 7 ℓ, qolgani 80 cm³ = 80 ml." },
+    { level: 5, question: "Idishning bo'yi 20 cm, eni 10 cm, balandligi 15 cm, suv sathi 6 cm. Idishdagi suv hajmi qancha?", options: ["1200 cm³", "3000 cm³", "1800 cm³", "200 cm³"], answer: "1200 cm³", explain: "Suv hajmi = bo'yi × eni × suv sathi: 20 · 10 · 6 = 1200 cm³. 3000 — idishning sig'imi." },
+    { level: 6, question: "Idish 30 cm × 20 cm × 25 cm, suv sathi 15 cm. To'ldirish uchun yana qancha suv kerak?", options: ["6 ℓ", "9 ℓ", "15 ℓ", "10 ℓ"], answer: "6 ℓ", explain: "Bo'sh qism balandligi 25 − 15 = 10 cm; 30 · 20 · 10 = 6000 cm³ = 6 ℓ." },
+    { level: 7, question: "Bo'yi 12 m, eni 5 m, chuqurligi 2 m bo'lgan hovuzning sig'imi qancha?", options: ["120 m³", "19 m³", "60 m³", "240 m³"], answer: "120 m³", explain: "Sig'im = bo'yi × eni × chuqurligi: 12 · 5 · 2 = 120 m³." },
+    { level: 8, question: "Idish 40 cm × 25 cm × 20 cm yarmigacha suvga to'la. Bu suv 200 cm³ li stakanlarga quyilsa, nechta stakan to'ladi?", options: ["50", "100", "25", "40"], answer: "50", explain: "Suv sathi 20 : 2 = 10 cm; 40 · 25 · 10 = 10 000 cm³; 10 000 : 200 = 50 ta. 100 — idish to'la bo'lganda." },
+    { level: 9, question: "Idish 30 cm × 20 cm × 18 cm ning 2/3 qismi suvga to'la. Undan 2 ℓ suv olindi. Idishda qancha suv qoldi?", options: ["5 ℓ 200 ml", "7 ℓ 200 ml", "8 ℓ 800 ml", "10 ℓ 800 ml"], answer: "5 ℓ 200 ml", explain: "Suv sathi 2/3 · 18 = 12 cm; 30 · 20 · 12 = 7200 cm³; 7200 − 2000 = 5200 cm³ = 5 ℓ 200 ml." },
+    { level: 10, question: "B idishning bo'yi, eni va balandligi A idishnikidan 2 baravardan katta. B ning sig'imi A nikidan necha baravar katta?", options: ["8 baravar", "2 baravar", "4 baravar", "6 baravar"], answer: "8 baravar", explain: "Har bir o'lcham 2 baravar kattalashgani uchun hajm 2 · 2 · 2 = 8 baravar katta bo'ladi." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },

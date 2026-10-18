@@ -351,5 +351,7 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 .yuza .yz-s { background: repeating-linear-gradient(45deg, #d4501b 0 2px, #f3e4a8 2px 5px); border: 1px solid #d4501b; }
 .kub { margin: 10px 0; }
 .kub svg { width: 100%; height: auto; display: block; margin: 0 auto; }
+.idish { margin: 10px 0; }
+.idish svg { width: 100%; height: auto; display: block; margin: 0 auto; }
 .kub-qator { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; align-items: end; }
 .kub-qator > div > p { margin: 4px 0 0; text-align: center; font-size: 15px; }
