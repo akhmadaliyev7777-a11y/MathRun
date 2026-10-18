@@ -37,6 +37,17 @@
        [data-rang="ko'k"] (yashil, ko'k, sariq, binafsha, qizil) [data-qatlam="1"] — har qatlam o'z rangida
        [data-ajrat="1"] — qatlamlar bir-biridan ajratib ko'rsatiladi; [data-son="1"] — yonida ustdan ko'rinish va ustundagi sonlar
        [data-olcham="26"] — kubcha qirrasi (px)
+   data-korinish="2,1|1,1" [data-qaysi="yuqori,old,yon"] [data-olcham="24"] [data-yorliq="1"] — jismning ko'rinishlari kvadratli panjarada
+                                          (jism data-kub dagidek yoziladi: qatorlar orqadan oldinga, ustundagi kubchalar soni);
+                                          yuqoridan — old tomon pastda; olddan — chapdan o'ngga bo'yi bo'yicha;
+                                          yondan — chapda old qism, o'ngda orqa qism; yorliq="1" — yuqoridan ko'rinishda old/yon tomon belgilanadi
+       data-kub ga qo'shimcha: [data-strelka="1"] — yuqoridan / olddan / yondan qarash strelkalari
+   data-panjara="4x3x2"            — uch o'lchamli (izometrik) nuqtali panjarada chizilgan kuboid: "bo'yi x eni x balandligi";
+                                          faqat ko'rinadigan 9 qirra chiziladi: bo'yi — to'q sariq, eni — ko'k, balandligi — binafsha
+       [data-bosqich="1..4"] — chizish bosqichlari: 1 old tik qirra, 2 uning pastidan ikki qiya qirra, 3 ikki chetki tik qirra, 4 tepa yoq;
+                               oxirgi bosqich qalin chiziladi
+       [data-yozuv="bo'yi|eni|balandligi"] — qirralar yonida yozuv; [data-yashirin="1"] — ko'rinmaydigan 3 qirra punktir;
+       [data-bolak="1"] — yoqlar birlik kvadratlarga bo'linadi; [data-olcham="22"] — 1 birlik (px)
    data-idish="40x25x30" [data-suv="18"] — kuboid shaklidagi shisha idish (bo'yi x eni x balandligi), ichida suv sathi
                                           (o'sha birlikda; bo'lmasa — bo'sh idish); o'lchamlar taxminan nisbatda chiziladi
        [data-yozuv="40 cm|25 cm|30 cm|18 cm|12 cm"] — bo'yi | eni | balandligi | suv sathi | bo'sh qism (bo'sh — yozilmaydi)
@@ -735,6 +746,21 @@
     if (yoz[0]) { const a = Pk(0, Y, 0, 0), b = Pk(X, Y, 0, 0); svg += matn((a[0] + b[0]) / 2 - 10, (a[1] + b[1]) / 2 + 22, yoz[0], "end", "#d4501b"); }
     if (yoz[1]) { const a = Pk(X, 0, 0, 0), b = Pk(X, Y, 0, 0); svg += matn((a[0] + b[0]) / 2 + 10, (a[1] + b[1]) / 2 + 22, yoz[1], "start", "#1f5fd6"); }
     if (yoz[2]) { const a = Pk(0, Y, 0, 0), b = Pk(0, Y, Z, Z - 1); svg += matn(a[0] - 8, (a[1] + b[1]) / 2 + 5, yoz[2], "end", "#6d3fc0"); }
+    if (el.dataset.strelka === "1") {
+      const ok = function (t, q, nom, anchor, dx, dy) {
+        const dxx = q[0] - t[0], dyy = q[1] - t[1], L = Math.sqrt(dxx * dxx + dyy * dyy), ux = dxx / L, uy = dyy / L;
+        const bx = q[0] - ux * 9, by = q[1] - uy * 9;
+        [t, q].forEach(function (z) { minx = Math.min(minx, z[0]); maxx = Math.max(maxx, z[0]); miny = Math.min(miny, z[1]); maxy = Math.max(maxy, z[1]); });
+        return '<line x1="' + t[0].toFixed(1) + '" y1="' + t[1].toFixed(1) + '" x2="' + bx.toFixed(1) + '" y2="' + by.toFixed(1) + '" stroke="#2f6f9f" stroke-width="2.2" stroke-linecap="round"/>' +
+          '<polygon points="' + q[0].toFixed(1) + "," + q[1].toFixed(1) + " " + (bx - uy * 5).toFixed(1) + "," + (by + ux * 5).toFixed(1) + " " + (bx + uy * 5).toFixed(1) + "," + (by - ux * 5).toFixed(1) + '" fill="#2f6f9f"/>' +
+          matn(t[0] + dx, t[1] + dy, nom, anchor, "#2f6f9f");
+      };
+      const ust = Pk(X / 2, Y / 2, Z, 0), t1 = [ust[0], ust[1] - 1.7 * s], q1 = [ust[0], ust[1] - 0.45 * s];
+      const o1 = Pk(X / 2, Y + 1.7, Z / 2, 0), o2 = Pk(X / 2, Y + 0.45, Z / 2, 0);
+      const y1 = Pk(X + 1.7, Y / 2, Z / 2, 0), y2 = Pk(X + 0.45, Y / 2, Z / 2, 0);
+      svg += ok(t1, q1, "yuqoridan", "middle", 0, -7) + ok(o1, o2, "olddan", "end", -4, 15) + ok(y1, y2, "yondan", "start", 4, 15);
+      minx -= 8; maxx += 10;
+    }
     const m = 6;
     let W = maxx - minx + 2 * m, H = maxy - miny + 2 * m;
     let jism = '<g transform="translate(' + (m - minx).toFixed(1) + " " + (m - miny).toFixed(1) + ')">' + svg + "</g>";
@@ -756,6 +782,131 @@
     el.classList.add("kub");
     el.innerHTML = '<svg viewBox="0 0 ' + W.toFixed(1) + " " + H.toFixed(1) + '" style="max-width:' + Math.round(W) + 'px" role="img" aria-label="' +
       (el.dataset.izoh || kublar.length + " ta birlik kubdan yasalgan jism") + '">' + jism + "</svg>";
+  }
+
+  // ---------- uch o'lchamli (izometrik) nuqtali panjarada kuboid ----------
+  function chizPanjara(el) {
+    const o = el.dataset.panjara.trim().split("x").map(Number);
+    const X = o[0], Y = o[1], Z = o[2];
+    const s = Number(el.dataset.olcham || 22), c = 0.866;
+    const bosq = Number(el.dataset.bosqich || 4);
+    const P = function (x, y, z) { return [(x - y) * c * s, (x + y) * 0.5 * s - z * s]; };
+    const rang = { x: "#d4501b", y: "#1f5fd6", z: "#6d3fc0" };
+    const pad = Math.max(28, 1.6 * s);
+    const yoz = (el.dataset.yozuv || "").split("|");
+    const padL = yoz[2] ? Math.max(pad, yoz[2].length * 8.5 + 18) : pad, padR = yoz[1] ? Math.max(pad, yoz[1].length * 8.5 + 18) : pad;
+    const gx0 = -Y * c * s - padL, gx1 = X * c * s + padR, gy0 = -Z * s - pad, gy1 = (X + Y) * 0.5 * s + pad;
+    let svg = "";
+    // nuqtali panjara: ustunlar c*s oraliqda, qo'shni ustunlar yarim qadamga siljigan
+    for (let a = Math.ceil(gx0 / (c * s)); a <= Math.floor(gx1 / (c * s)); a++) {
+      const x = a * c * s;
+      for (let m = Math.ceil((gy0 - a * 0.5 * s) / s); m <= Math.floor((gy1 - a * 0.5 * s) / s); m++) {
+        svg += '<circle cx="' + (x - gx0).toFixed(1) + '" cy="' + ((a * 0.5 + m) * s - gy0).toFixed(1) + '" r="1.7" fill="#9aa3b5"/>';
+      }
+    }
+    const T = function (p) { const q = P(p[0], p[1], p[2]); return (q[0] - gx0).toFixed(1) + " " + (q[1] - gy0).toFixed(1); };
+    const yuz = function (pts, fill) { return '<path d="M' + pts.map(T).join(" L") + ' Z" fill="' + fill + '"/>'; };
+    const chiziq = function (a, b, rn, w, extra) {
+      const qa = P(a[0], a[1], a[2]), qb = P(b[0], b[1], b[2]);
+      return '<line x1="' + (qa[0] - gx0).toFixed(1) + '" y1="' + (qa[1] - gy0).toFixed(1) + '" x2="' + (qb[0] - gx0).toFixed(1) + '" y2="' + (qb[1] - gy0).toFixed(1) +
+        '" stroke="' + rang[rn] + '" stroke-width="' + w + '" stroke-linecap="round"' + (extra || "") + "/>";
+    };
+    if (bosq >= 4) {
+      svg += yuz([[0, 0, Z], [X, 0, Z], [X, Y, Z], [0, Y, Z]], "#f2f6fd");
+      svg += yuz([[0, Y, 0], [X, Y, 0], [X, Y, Z], [0, Y, Z]], "#e0e9f9");
+      svg += yuz([[X, 0, 0], [X, Y, 0], [X, Y, Z], [X, 0, Z]], "#d0ddf5");
+    }
+    if (el.dataset.bolak === "1" && bosq >= 4) {
+      let t = "";
+      const nozik = function (a, b) { const qa = P(a[0], a[1], a[2]), qb = P(b[0], b[1], b[2]); t += '<line x1="' + (qa[0] - gx0).toFixed(1) + '" y1="' + (qa[1] - gy0).toFixed(1) + '" x2="' + (qb[0] - gx0).toFixed(1) + '" y2="' + (qb[1] - gy0).toFixed(1) + '"/>'; };
+      for (let i = 1; i < X; i++) { nozik([i, 0, Z], [i, Y, Z]); nozik([i, Y, 0], [i, Y, Z]); }
+      for (let j = 1; j < Y; j++) { nozik([0, j, Z], [X, j, Z]); nozik([X, j, 0], [X, j, Z]); }
+      for (let k = 1; k < Z; k++) { nozik([0, Y, k], [X, Y, k]); nozik([X, 0, k], [X, Y, k]); }
+      svg += '<g stroke="#8aa0cf" stroke-width="1" opacity=".8">' + t + "</g>";
+    }
+    // qirralar: [boshi, oxiri, yo'nalish, bosqich]
+    const qirralar = [
+      [[X, Y, 0], [X, Y, Z], "z", 1],
+      [[X, Y, 0], [0, Y, 0], "x", 2], [[X, Y, 0], [X, 0, 0], "y", 2],
+      [[0, Y, 0], [0, Y, Z], "z", 3], [[X, 0, 0], [X, 0, Z], "z", 3],
+      [[X, Y, Z], [0, Y, Z], "x", 4], [[X, Y, Z], [X, 0, Z], "y", 4], [[0, Y, Z], [0, 0, Z], "y", 4], [[X, 0, Z], [0, 0, Z], "x", 4]
+    ];
+    if (el.dataset.yashirin === "1" && bosq >= 4) {
+      svg += chiziq([0, 0, 0], [0, 0, Z], "z", 2, ' stroke-dasharray="5 4" opacity=".55"');
+      svg += chiziq([0, 0, 0], [X, 0, 0], "x", 2, ' stroke-dasharray="5 4" opacity=".55"');
+      svg += chiziq([0, 0, 0], [0, Y, 0], "y", 2, ' stroke-dasharray="5 4" opacity=".55"');
+    }
+    qirralar.forEach(function (q) {
+      if (q[3] > bosq) return;
+      const hozir = bosq < 4 && q[3] === bosq;
+      svg += chiziq(q[0], q[1], q[2], hozir ? 3.6 : 2.4, bosq < 4 && !hozir ? ' opacity=".6"' : "");
+      const n = Math.abs(q[1][0] - q[0][0]) + Math.abs(q[1][1] - q[0][1]) + Math.abs(q[1][2] - q[0][2]);
+      for (let t = 0; t <= n; t++) {
+        const d = n ? t / n : 0;
+        const pt = P(q[0][0] + (q[1][0] - q[0][0]) * d, q[0][1] + (q[1][1] - q[0][1]) * d, q[0][2] + (q[1][2] - q[0][2]) * d);
+        svg += '<circle cx="' + (pt[0] - gx0).toFixed(1) + '" cy="' + (pt[1] - gy0).toFixed(1) + '" r="' + (hozir ? 3.6 : 2.8) + '" fill="' + rang[q[2]] + '"/>';
+      }
+    });
+    const matn = function (x, y, t, anchor, rn) {
+      return '<text x="' + (x - gx0).toFixed(1) + '" y="' + (y - gy0).toFixed(1) + '" text-anchor="' + anchor + '" font-size="15" font-weight="800" fill="' + rang[rn] + '">' + t + "</text>";
+    };
+    if (yoz[0]) { const a = P(0, Y, 0), b = P(X, Y, 0); svg += matn((a[0] + b[0]) / 2 - 10, (a[1] + b[1]) / 2 + 24, yoz[0], "end", "x"); }
+    if (yoz[1]) { const a = P(X, 0, 0), b = P(X, Y, 0); svg += matn((a[0] + b[0]) / 2 + 10, (a[1] + b[1]) / 2 + 24, yoz[1], "start", "y"); }
+    if (yoz[2]) { const a = P(0, Y, 0), b = P(0, Y, Z); svg += matn(a[0] - 10, (a[1] + b[1]) / 2 + 5, yoz[2], "end", "z"); }
+    const W = gx1 - gx0, H = gy1 - gy0;
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + W.toFixed(1) + " " + H.toFixed(1) + '" style="max-width:' + Math.round(W) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || "Nuqtali panjarada chizilgan " + X + " × " + Y + " × " + Z + " kuboid") + '">' + svg + "</svg>";
+  }
+
+  // ---------- jismning yuqoridan, olddan, yondan ko'rinishlari (kvadratli panjarada) ----------
+  function chizKorinish(el) {
+    const xarita = el.dataset.korinish.trim().split("|").map(function (q) { return q.split(",").map(Number); });
+    const Y = xarita.length;
+    let X = 0, Z = 0;
+    xarita.forEach(function (q) { q.forEach(function (h, i) { if (h > 0) X = Math.max(X, i + 1); Z = Math.max(Z, h); }); });
+    const h = function (j, i) { return xarita[j][i] || 0; };
+    const yuqori = [], old = [], yon = [];
+    for (let j = 0; j < Y; j++) { const q = []; for (let i = 0; i < X; i++) q.push(h(j, i) > 0); yuqori.push(q); }
+    for (let k = Z - 1; k >= 0; k--) {
+      const q = [];
+      for (let i = 0; i < X; i++) { let b = false; for (let j = 0; j < Y; j++) if (h(j, i) > k) b = true; q.push(b); }
+      old.push(q);
+      const r = [];
+      for (let j = Y - 1; j >= 0; j--) { let b = false; for (let i = 0; i < X; i++) if (h(j, i) > k) b = true; r.push(b); }
+      yon.push(r);
+    }
+    const hammasi = { yuqori: ["yuqoridan", yuqori], old: ["olddan", old], yon: ["yondan", yon] };
+    const tanlov = (el.dataset.qaysi || "yuqori,old,yon").split(",").map(function (z) { return z.trim(); });
+    const s = Number(el.dataset.olcham || 24), bosh = 26, oraliq = 22, m = 6;
+    let x0 = m, svg = "", H = 0;
+    const paneller = tanlov.map(function (n) { return hammasi[n]; }).filter(Boolean);
+    paneller.forEach(function (pn, pi) {
+      const g = pn[1], R = g.length, C = g[0].length, w = C * s, hh = R * s, sl = Math.max(w, 78);
+      const xs = x0;
+      x0 += (sl - w) / 2;
+      svg += '<text x="' + (x0 + w / 2) + '" y="' + (m + 14) + '" text-anchor="middle" font-size="14" font-weight="800" fill="#2f6f9f">' + pn[0] + "</text>";
+      svg += '<rect x="' + x0 + '" y="' + (bosh + m) + '" width="' + w + '" height="' + hh + '" fill="#eef5fb" stroke="#9ec2e0" stroke-width="1.2"/>';
+      for (let a = 1; a < C; a++) svg += '<line x1="' + (x0 + a * s) + '" y1="' + (bosh + m) + '" x2="' + (x0 + a * s) + '" y2="' + (bosh + m + hh) + '" stroke="#b9d3e8" stroke-width="1"/>';
+      for (let b = 1; b < R; b++) svg += '<line x1="' + x0 + '" y1="' + (bosh + m + b * s) + '" x2="' + (x0 + w) + '" y2="' + (bosh + m + b * s) + '" stroke="#b9d3e8" stroke-width="1"/>';
+      g.forEach(function (q, b) {
+        q.forEach(function (on, a) {
+          if (on) svg += '<rect x="' + (x0 + a * s) + '" y="' + (bosh + m + b * s) + '" width="' + s + '" height="' + s + '" fill="#ffd9e3" stroke="#d6336c" stroke-width="2"/>';
+        });
+      });
+      if (el.dataset.yorliq === "1" && pn[0] === "yuqoridan") {
+        svg += '<text x="' + (x0 + w / 2) + '" y="' + (bosh + m + hh + 14) + '" text-anchor="middle" font-size="11" font-weight="700" fill="#5f6676">old tomon</text>';
+        svg += '<text x="' + (x0 + w + 5) + '" y="' + (bosh + m + hh / 2 + 4) + '" font-size="11" font-weight="700" fill="#5f6676">yon</text>';
+        H = Math.max(H, bosh + m + hh + 20);
+        x0 += 22;
+      }
+      H = Math.max(H, bosh + m + hh + m);
+      x0 = xs + sl + (el.dataset.yorliq === "1" && pn[0] === "yuqoridan" ? 22 : 0) + oraliq;
+    });
+    const W = x0 - oraliq + m;
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="max-width:' + Math.round(W) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || "Jismning ko'rinishlari kvadratli panjarada") + '">' + svg + "</svg>";
   }
 
   // ---------- suvli idish (kuboid, qiya proyeksiya) ----------
@@ -855,6 +1006,8 @@
       root.querySelectorAll("[data-kub]").forEach(chizKub);
       root.querySelectorAll("[data-idish]").forEach(chizIdish);
       root.querySelectorAll("[data-menzurka]").forEach(chizMenzurka);
+      root.querySelectorAll("[data-panjara]").forEach(chizPanjara);
+      root.querySelectorAll("[data-korinish]").forEach(chizKorinish);
     }
   };
 })();

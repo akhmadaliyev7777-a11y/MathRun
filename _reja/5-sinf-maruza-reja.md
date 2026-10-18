@@ -307,7 +307,8 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** 16 ta birlik kubdan 4 xil kuboid (jadval: bo'yi, eni, balandligi, hajmi).
 **Rasmlar:** izometrik kubchalar.
 
-#### ☐ 16. Uch o'lchamli panjarada fazoviy jismlarni chizish — D1 115–117; M1 141–142
+#### ✅ 16. Uch o'lchamli panjarada fazoviy jismlarni chizish — D1 115–117; M1 141–142
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-izometrik-panjarada-chizish.html. O'z testi: `5|matematika|izometrik-panjarada-chizish` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Yangi chizma: `data-panjara` (nuqtali izometrik panjarada kuboid, bosqichlar, ko'rinmas qirralar, birlik bo'linishi; chizma.js). Kitob bilan solishtirildi (D1 115–117): barcha qoidalar (3 yo'nalish, kub, kuboid, ikki xil joylashuv) va misol turlari bor; sonlar o'zimizniki. Mashq daftari M1 141–142 berilmagan — reja ro'yxati bo'yicha (tik ustun, yassi taxta, kub, ikki xil joylashuv) o'z sonlarimiz bilan. Tekshiruv: tenglik.py 18/0, kitobdan.py 0, node --check, 390/1100 px to'g'ri, xato yo'q; barcha 5-*.html ma'ruzalari chizma.js?v=25 bilan xatosiz ochildi. `review: true` tegilmadi. Simulyator: tayyor lessons/5-matematika-izometrik-chizish.html bor (tegilmaydi).
 **Qoidalar ro'yxati:**
 - Uch o'lchamli (izometrik) nuqtali panjarada qirralar 3 yo'nalishda: tik va ikki qiya.
 - Kubning 3 ta o'lchami teng; kuboid — bo'yi, eni, balandligi.
@@ -316,7 +317,8 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** berilgan o'lchamlar (4×1×3, 3×3×3, 2×2×5, 1×6×2, 4×3×3, 5×4×1) bo'yicha izometrik chizish.
 **Rasmlar:** izometrik panjara, bosqichma-bosqich chizish.
 
-#### ☐ 17. Jismning turli ko'rinishlari (old, yon, ust) — D1 118–119; M1 143–144
+#### ✅ 17. Jismning turli ko'rinishlari (old, yon, ust) — D1 118–119; M1 143–144
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-jismning-korinishlari.html. O'z testi: `5|matematika|jismning-korinishlari` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Yangi chizmalar: `data-korinish` (jismning yuqoridan/olddan/yondan ko'rinishlari kvadratli panjarada) va `data-kub` ga `data-strelka` (qarash strelkalari). Qoidalarga 2 ta qo'shildi: ko'rinishlar o'lchamlari bo'yicha mos keladi; bir xil ko'rinishga har xil jism mos kelishi mumkin (eng kam/eng ko'p kubcha). Ko'rinishga qarab topiladigan hamma masalalar bir javobli ekani kompyuterda sanab tekshirildi. Kitob bilan solishtirildi (D1 118–119): 2 qoida va ikkala misol turi (3 ko'rinishni chizish; ko'rinishga qarab jismni topish) bor; jismlar o'zimizniki. M1 143–144 berilmagan — reja bo'yicha (6 ta jism uchun 3 ko'rinish) o'z jismlarim bilan. Tekshiruv: tenglik.py 9/0, kitobdan.py 0, node --check, 390/1100 px to'g'ri, xato yo'q; barcha 5-*.html chizma.js?v=26 bilan xatosiz ochildi. Simulyator uchun g'oya: jismni aylantirib, kvadratli panjarada ko'rinishlarni o'zi bo'yaydi, so'ng solishtiriladi (reja ro'yxati bo'yicha).
 **Qoidalar ro'yxati:**
 - Yuqoridan, olddan, yondan ko'rinish — kvadratli panjarada ko'rinadigan kvadrat yuzlar.
 - Ko'rinishlar soni jism shakliga bog'liq; orqadagi kubchalar ko'rinishda chiqmaydi.
@@ -324,7 +326,8 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** 6 ta jism uchun 3 ko'rinishni kvadratli panjarada chizish.
 **Rasmlar:** izometrik jism + 3 ta kvadrat panjara, ko'z belgisi.
 
-#### ☐ 18. Hajmni cm³ va m³ da o'lchash — D1 120–122; M1 145–146
+#### ✅ 18. Hajmni cm³ va m³ da o'lchash — D1 120–122; M1 145–146
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-hajm-birliklari.html. O'z testi: `5|matematika|hajm-birliklari` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Yangi chizma kerak bo'lmadi (data-kub); 1 m³ va 5-sinf o'quvchisi rasmi — sahifaning o'zida kichik SVG. Qoidalarga 4-qoida qo'shildi (har xil birlikdagi hajmlarni taqqoslash: m³ > cm³); «1 m³ = 1 000 000 cm³» — O'ylab ko'ring bo'limida (100·100·100). Kitob bilan solishtirildi (D1 120–122): 3 qoida va barcha misol turlari bor (cm³ va m³ da sanash; eng katta / teng hajmlilar); jismlar, harflar va sonlar o'zimizniki. M1 145–146 berilmagan — reja bo'yicha. Tekshiruv: tenglik.py 23/0, kitobdan.py 0, node --check, 390/1100 px to'g'ri, xato yo'q. Simulyator uchun g'oya: 1 cm³ va 1 m³ yonma-yon, qirra bo'ylab 100 ta kubcha, m³ ↔ cm³ slayderi (reja ro'yxati).
 **Qoidalar ro'yxati:**
 - Qirrasi 1 cm bo'lgan kubning hajmi 1 cm³ (santimetr kub).
 - Qirrasi 1 m bo'lgan kubning hajmi 1 m³ (metr kub); 1 m = 100 cm.
@@ -333,10 +336,12 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** qirrasi 1 m kublardan jism hajmi (m³); eng kichik / teng hajmlar.
 **Rasmlar:** 1 cm³ va 1 m³ taqqoslash (odam bo'yi bilan).
 
-#### ☐ 19.1. Kuboid (to'g'ri burchakli parallelepiped) hajmi — D1 123–128; M1 147–150
+#### ✅ 19.1. Kuboid (to'g'ri burchakli parallelepiped) hajmi — D1 123–128; M1 147–150
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-kuboid-kub-hajmi.html (kuboid; kub — 19.2 da alohida). O'z testi: `5|matematika|kuboid-kub-hajmi` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Yangi chizma kerak bo'lmadi (data-kub, ajratilgan qatlamlar). **Qoidalar ro'yxati (19.1):** kuboid qatlamlarga bo'linadi (qatlamda bo'yi × eni kubcha, qatlamlar soni = balandlik); V = bo'yi × eni × balandligi; o'lchamlar bir xil birlikda, hajm cm³/m³ da (1 m = 100 cm); V = asos yuzi × balandlik, yuz (cm²) va hajm (cm³) farqi. **Misol turlari:** jadval (sanab topilgan hajm ↔ o'lchamlar); formula bilan (cm va m); asosi kvadrat kuboid; kuboid idish (qirralar bo'ylab kubchalar); noma'lum o'lchamni topish; idishning bo'sh qismi (3/4 muz); har xil birlik; ikki marta katta kub; bir nechta kub hajmiga teng kuboid; ustma-ust bloklar; matnli masalalar (kuzov, akvarium, quti, xona, chuqur, ikki idish). Kitob bilan solishtirildi (D1 123–128, kub qismi 19.2 ga qoldi): formula, jadval, idish, yuz–hajm farqi bor; sonlar o'zimizniki. Konteyner jadvali (33,150 m³) kitobdagi «Turmushda matematika» — sonlarisiz, o'z mashinasi bilan almashtirildi. M1 147–150 berilmagan. Tekshiruv: tenglik.py 49/0, kitobdan.py 0, node --check, 390/1100 px to'g'ri, xato yo'q. Simulyator: tayyor lessons/5-matematika-parallelepiped.html bor (tegilmaydi).
 **Mashq daftaridan (qo'shimcha):** jadval (o'lchamlar → hajm); kub hajmi kuboiddan 2 marta katta → kuboid hajmi; kuboid hajmi 6 ta kub hajmiga teng → bitta kub; kuboidni 3 blokka bo'lib ustma-ust qo'yish; qisman kubchalar bilan to'ldirilgan idishning bo'sh qismi; Matematika kundaligi: muz bo'lagi hajmi (idishning 3/4 qismi).
 
-#### ☐ 19.2. Kub hajmi — D1 123–128; M1 147–150
+#### ✅ 19.2. Kub hajmi — D1 123–128; M1 147–150
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-kub-hajmi.html. O'z testi: `5|matematika|kub-hajmi` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Yangi chizma kerak bo'lmadi (data-kub). **Qoidalar (19.2):** V = qirrasi × qirrasi × qirrasi (a³); kub qatlamlarga bo'linadi (qatlamda a·a, qatlamlar a ta); birlik cm³/m³; yuz (a·a, cm²) va hajm (a·a·a, cm³) farqi; kub va kuboid farqi (uchala o'lcham teng). **Misol turlari:** qirra bo'yicha hajm (5 cm, 7 m, 3 cm); qatlamlab (4); jadval qirra → yuz, hajm (1–6); hajmdan qirrani topish; kub va kuboidni taqqoslash; bo'yalgan kub; teng hajmli kuboid; kub shaklidagi quti ichiga kubiklar. Kitob bilan solishtirildi (D1 124, 126–128: kub jadvali, 2 cm va 3 m kublar, 6 cm kub, kvadrat yuzi va kub hajmi farqi): hammasi bor, sonlar o'zimizniki; kitobdagi W/X/Y/Z harflari va 8 cm³/27 m³ misollari almashtirildi. Gazeta o'ramlari amaliy mashqi 19.1 «O'ylab ko'ring» da. M1 147–150 berilmagan. Tekshiruv: tenglik.py 48 ta to'g'ri (1 ta «xato» — Diqqat dagi atayin xato misol), kitobdan.py 0, node --check, 390/1100 px to'g'ri, xato yo'q. Qirralar yig'indisi va sirt yuzi bu darslik mavzusida yo'q — qo'shilmadi (qaror kutilmoqda).
 **Qoidalar ro'yxati:**
 - Kuboid hajmi = bo'yi × eni × balandligi (V = a·b·c).
 - Kub hajmi = qirrasi × qirrasi × qirrasi (V = a·a·a = a³).
@@ -694,7 +699,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** 16 ta birlik kubdan 4 xil kuboid (jadval: bo'yi, eni, balandligi, hajmi).
 **Rasmlar:** izometrik kubchalar.
 
-#### ☐ 16. Uch o'lchamli panjarada fazoviy jismlarni chizish — D1 115–117; M1 141–142
+#### ✅ 16. Uch o'lchamli panjarada fazoviy jismlarni chizish — D1 115–117; M1 141–142
 **Qoidalar ro'yxati:**
 - Uch o'lchamli (izometrik) nuqtali panjarada qirralar 3 yo'nalishda: tik va ikki qiya.
 - Kubning 3 ta o'lchami teng; kuboid — bo'yi, eni, balandligi.
@@ -703,7 +708,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** berilgan o'lchamlar (4×1×3, 3×3×3, 2×2×5, 1×6×2, 4×3×3, 5×4×1) bo'yicha izometrik chizish.
 **Rasmlar:** izometrik panjara, bosqichma-bosqich chizish.
 
-#### ☐ 17. Jismning turli ko'rinishlari (old, yon, ust) — D1 118–119; M1 143–144
+#### ✅ 17. Jismning turli ko'rinishlari (old, yon, ust) — D1 118–119; M1 143–144
 **Qoidalar ro'yxati:**
 - Yuqoridan, olddan, yondan ko'rinish — kvadratli panjarada ko'rinadigan kvadrat yuzlar.
 - Ko'rinishlar soni jism shakliga bog'liq; orqadagi kubchalar ko'rinishda chiqmaydi.
@@ -711,7 +716,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** 6 ta jism uchun 3 ko'rinishni kvadratli panjarada chizish.
 **Rasmlar:** izometrik jism + 3 ta kvadrat panjara, ko'z belgisi.
 
-#### ☐ 18. Hajmni cm³ va m³ da o'lchash — D1 120–122; M1 145–146
+#### ✅ 18. Hajmni cm³ va m³ da o'lchash — D1 120–122; M1 145–146
 **Qoidalar ro'yxati:**
 - Qirrasi 1 cm bo'lgan kubning hajmi 1 cm³ (santimetr kub).
 - Qirrasi 1 m bo'lgan kubning hajmi 1 m³ (metr kub); 1 m = 100 cm.
@@ -720,10 +725,10 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** qirrasi 1 m kublardan jism hajmi (m³); eng kichik / teng hajmlar.
 **Rasmlar:** 1 cm³ va 1 m³ taqqoslash (odam bo'yi bilan).
 
-#### ☐ 19.1. Kuboid (to'g'ri burchakli parallelepiped) hajmi — D1 123–128; M1 147–150
+#### ✅ 19.1. Kuboid (to'g'ri burchakli parallelepiped) hajmi — D1 123–128; M1 147–150
 **Mashq daftaridan (qo'shimcha):** jadval (o'lchamlar → hajm); kub hajmi kuboiddan 2 marta katta → kuboid hajmi; kuboid hajmi 6 ta kub hajmiga teng → bitta kub; kuboidni 3 blokka bo'lib ustma-ust qo'yish; qisman kubchalar bilan to'ldirilgan idishning bo'sh qismi; Matematika kundaligi: muz bo'lagi hajmi (idishning 3/4 qismi).
 
-#### ☐ 19.2. Kub hajmi — D1 123–128; M1 147–150
+#### ✅ 19.2. Kub hajmi — D1 123–128; M1 147–150
 **Qoidalar ro'yxati:**
 - Kuboid hajmi = bo'yi × eni × balandligi (V = a·b·c).
 - Kub hajmi = qirrasi × qirrasi × qirrasi (V = a·a·a = a³).

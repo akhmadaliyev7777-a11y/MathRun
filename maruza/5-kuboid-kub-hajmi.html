@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kuboidning hajmi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=28">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Kuboid (to'g'ri burchakli parallelepiped) hajmi</h1>
+<p class="m-lead">Kubchalarni sanamasdan, kuboidning bo'yi, eni va balandligi bo'yicha hajmini topishni — formulani — o'rganamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik — qatlamlab sanash</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Kubchalarni birma-bir sanash uzoq. Tezroq yo'l bormi?</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li><b>Kuboid</b> (to'g'ri burchakli parallelepiped) — 6 ta yog'i to'g'ri to'rtburchak bo'lgan jism. Uning <b>bo'yi, eni va balandligi</b> bor.</li>
+      <li>Kuboid hajmi — undagi birlik kublar soni. Qirrasi 1 cm kublardan bo'lsa — cm³ da, 1 m kublardan bo'lsa — m³ da yoziladi.</li>
+      <li>Jismni <b>qatlamlab</b> sanash mumkin: har qatlamda nechta kubcha bor, qatlamlar nechta.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Bitta qatlamdagi kubchalarni topamiz, qatlamlar soniga ko'paytiramiz!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · kuboid qatlamlarga bo'linadi</span>
+    <p>Kuboidni gorizontal <b>qatlamlarga</b> bo'lish mumkin. <strong>Bir qatlamdagi kubchalar soni = bo'yi × eni</strong>, <strong>qatlamlar soni = balandligi</strong>.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · 4 × 3 × 2 kuboid</span>
+    <div data-kub="4x3x2" data-ajrat="1" data-olcham="26" data-yozuv="bo'yi 4|eni 3|bal. 2" data-izoh="Qatlamlarga ajratilgan kuboid"></div>
+    <div class="qadam"><b>1</b><span>Bitta qatlamda: \(4 \cdot 3 = 12\) ta kubcha.</span></div>
+    <div class="qadam"><b>2</b><span>Qatlamlar soni — balandligi: 2 ta.</span></div>
+    <div class="qadam"><b>3</b><span>Hammasi: \(12 + 12 = 24\), ya'ni \(12 \cdot 2 = \nat{24}\) kub birlik.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · kuboid hajmining formulasi</span>
+    <p><strong>Kuboid hajmi = bo'yi × eni × balandligi.</strong></p>
+    <p>Hajm uchta o'lchamga bog'liq: har birini o'zgartirsak, qatlamdagi kubchalar yoki qatlamlar soni o'zgaradi, hajm ham o'zgaradi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · formula bilan</span>
+    <p>Bo'yi 6 cm, eni 4 cm, balandligi 5 cm bo'lgan kuboidning hajmini toping.</p>
+    <p>Hajmi \(= 6 \cdot 4 \cdot 5 = 24 \cdot 5 = \nat{120}\) cm³.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · birliklar</span>
+    <p>Formulaga <strong>hamma o'lcham bir xil birlikda</strong> qo'yiladi. O'lchamlar cm da bo'lsa — hajm <b>cm³</b> da, m da bo'lsa — <b>m³</b> da. O'lchamlar har xil birlikda berilsa, avval bir xil birlikka keltiramiz (\(1\ \text{m} = 100\ \text{cm}\)).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · har xil birlik</span>
+    <p>Bo'yi 1 m, eni 40 cm, balandligi 25 cm bo'lgan kuboidning hajmi.</p>
+    <div class="qadam"><b>1</b><span>Hammasini cm ga keltiramiz: \(1\ \text{m} = 100\ \text{cm}\). O'lchamlar: 100 cm, 40 cm, 25 cm.</span></div>
+    <div class="qadam"><b>2</b><span>Hajmi: \(100 \cdot 40 \cdot 25 = 4000 \cdot 25 = \nat{100\,000}\) cm³.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · asos yuzi va balandlik</span>
+    <p>Bo'yi × eni — kuboid <b>asosining yuzi</b> (cm² yoki m²). Shuning uchun <strong>hajm = asosning yuzi × balandligi</strong>. Yuz va hajm turli narsa: yuz — tekis shaklniki (cm²), hajm — fazoviy jismniki (cm³).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · yuz va hajm</span>
+    <p>Asosi 5 cm × 3 cm, balandligi 4 cm. Asosning yuzi \(5 \cdot 3 = 15\) cm². Hajmi \(15 \cdot 4 = \nat{60}\) cm³. Asosga qirrasi 1 cm kublardan 15 tasi sig'adi, balandlikda 4 ta shunday qatlam bor.</p>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz — sanash va formula</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Sanab topilgan hajm va formula bir xil javob beradi!</div></div>
+  <div class="box">
+    <div class="kub-qator">
+      <div><div data-kub="4x2x1" data-olcham="20" data-izoh="A kuboid"></div><p>A</p></div>
+      <div><div data-kub="3x2x2" data-rang="ko'k" data-olcham="20" data-izoh="B kuboid"></div><p>B</p></div>
+      <div><div data-kub="3x3x2" data-rang="sariq" data-olcham="20" data-izoh="C kuboid"></div><p>C</p></div>
+      <div><div data-kub="4x3x3" data-rang="binafsha" data-olcham="18" data-izoh="D kuboid"></div><p>D</p></div>
+    </div>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Kuboid</th><th>Sanab topilgan hajm</th><th>Bo'yi · eni · balandligi</th></tr>
+      <tr><td>A</td><td>8</td><td>\(4 \cdot 2 \cdot 1 = 8\)</td></tr>
+      <tr><td>B</td><td>12</td><td>\(3 \cdot 2 \cdot 2 = 12\)</td></tr>
+      <tr><td>C</td><td>18</td><td>\(3 \cdot 3 \cdot 2 = 18\)</td></tr>
+      <tr><td>D</td><td>36</td><td>\(4 \cdot 3 \cdot 3 = 36\)</td></tr>
+    </table></div>
+    <p>Har gal kubchalarni sanash ham, uch o'lchamni ko'paytirish ham bir xil hajmni beradi — formula to'g'ri.</p>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar</h2>
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · metrlarda</span>
+    <p>Hovuz kuboid shaklida: bo'yi 9 m, eni 5 m, chuqurligi 3 m. Hovuzning hajmi qancha?</p>
+    <p>\(9 \cdot 5 \cdot 3 = 45 \cdot 3 = \nat{135}\) m³.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · kuboid shaklidagi idish</span>
+    <div data-kub="0,0,0,0,0,0,0,0,1|0,0,0,0,0,0,0,0,1|0,0,0,0,0,0,0,0,1|1,1,1,1,1,1,1,1,5" data-rang="binafsha" data-olcham="20" data-izoh="Idishning qirralari bo'ylab terilgan kubchalar"></div>
+    <p>Kuboid shaklidagi idishning qirralari bo'ylab qirrasi 1 cm bo'lgan kublar terilgan: bo'yi bo'ylab 9 ta, eni bo'ylab 4 ta, balandligi bo'ylab 5 ta. Idishning hajmini hamma kubchalarni sanamay topamiz:</p>
+    <p>\(9 \cdot 4 \cdot 5 = 36 \cdot 5 = \nat{180}\) cm³.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · asosi kvadrat kuboid</span>
+    <p>Asosi 4 cm × 4 cm kvadrat, balandligi 10 cm bo'lgan kuboidning hajmi.</p>
+    <p>\(4 \cdot 4 \cdot 10 = 16 \cdot 10 = \nat{160}\) cm³.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 4 · noma'lum o'lchamni topish</span>
+    <p>Kuboidning hajmi 60 cm³, bo'yi 5 cm, eni 4 cm. Balandligi qancha?</p>
+    <div class="qadam"><b>1</b><span>Asosning yuzi: \(5 \cdot 4 = 20\) cm².</span></div>
+    <div class="qadam"><b>2</b><span>Balandligi: hajmni asos yuziga bo'lamiz: \(60 : 20 = \nat{3}\) cm.</span></div>
+    <div class="qadam"><b>3</b><span>Tekshiruv: \(5 \cdot 4 \cdot 3 = 60\) ✓.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 5 · idishning bo'sh qismi</span>
+    <p>Kuboid shaklidagi idishning bo'yi 10 cm, eni 5 cm, balandligi 8 cm. Idishning \(\frac{3}{4}\) qismi muz bilan to'lgan. Idishning bo'sh qismi necha cm³?</p>
+    <div class="qadam"><b>1</b><span>Idishning hajmi: \(10 \cdot 5 \cdot 8 = \nat{400}\) cm³.</span></div>
+    <div class="qadam"><b>2</b><span>Muz: \(400 : 4 \cdot 3 = 100 \cdot 3 = 300\) cm³.</span></div>
+    <div class="qadam"><b>3</b><span>Bo'sh qism: \(400 - 300 = \nat{100}\) cm³ (idishning \(\frac{1}{4}\) qismi).</span></div>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Uchala o'lchamni ko'paytiring — qo'shmang!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>O'lchamlarni qo'shish.<br><span class="xato">4 + 3 + 2 = 9 (hajm)</span> &nbsp;→&nbsp; <span class="togri">4 · 3 · 2 = 24</span></li>
+      <li>Faqat ikki o'lchamni ko'paytirish.<br><span class="xato">hajmi 5 · 3 = 15 cm³</span> &nbsp;→&nbsp; <span class="togri">5 · 3 — asos yuzi (15 cm²); hajm 5 · 3 · 4 = 60 cm³</span></li>
+      <li>Hajmni yuz birligida yozish.<br><span class="xato">hajmi 60 cm²</span> &nbsp;→&nbsp; <span class="togri">hajmi 60 cm³</span></li>
+      <li>Har xil birlikni to'g'ridan-to'g'ri ko'paytirish.<br><span class="xato">1 m · 40 cm · 25 cm = 1000</span> &nbsp;→&nbsp; <span class="togri">100 · 40 · 25 = 100 000 cm³</span></li>
+      <li>Idish hajmini ichidagi kubchalar soni bilan almashtirish.<br><span class="xato">idishda 20 ta kubcha ko'rinadi, demak hajmi 20</span> &nbsp;→&nbsp; <span class="togri">hajmi — butun idish o'lchamlarining ko'paytmasi</span></li>
+      <li>Noma'lum o'lchamni topishda ko'paytirish.<br><span class="xato">hajm 60, bo'yi 5, eni 4: 60 · 5 · 4</span> &nbsp;→&nbsp; <span class="togri">60 : (5 · 4) = 3</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Avval formulani yozaman, keyin sonlarni qo'yaman!</div></div>
+
+  <div class="daraja oson"><i></i>Oson — jadvalni to'ldiring</div>
+  <div class="kub-qator">
+    <div><div data-kub="5x1x2" data-olcham="18" data-izoh="a kuboid"></div><p>a)</p></div>
+    <div><div data-kub="2x2x4" data-rang="ko'k" data-olcham="18" data-izoh="b kuboid"></div><p>b)</p></div>
+    <div><div data-kub="5x2x3" data-rang="sariq" data-olcham="16" data-izoh="c kuboid"></div><p>c)</p></div>
+    <div><div data-kub="4x4x2" data-rang="binafsha" data-olcham="16" data-izoh="d kuboid"></div><p>d)</p></div>
+  </div>
+  <p>Har bir kuboid uchun bo'yi, eni, balandligini yozing, hajmini formula bilan toping va kubchalarni sanab tekshiring.</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Kuboid</th><th>Bo'yi</th><th>Eni</th><th>Balandligi</th><th>Hajmi</th></tr>
+      <tr><td>a</td><td>5</td><td>1</td><td>2</td><td>\(5 \cdot 1 \cdot 2 = 10\)</td></tr>
+      <tr><td>b</td><td>2</td><td>2</td><td>4</td><td>\(2 \cdot 2 \cdot 4 = 16\)</td></tr>
+      <tr><td>c</td><td>5</td><td>2</td><td>3</td><td>\(5 \cdot 2 \cdot 3 = 30\)</td></tr>
+      <tr><td>d</td><td>4</td><td>4</td><td>2</td><td>\(4 \cdot 4 \cdot 2 = 32\)</td></tr>
+    </table></div>
+  </details>
+
+  <div class="daraja oson"><i></i>Oson — formula bilan toping</div>
+  <ol type="a">
+    <li>Bo'yi 7 cm, eni 2 cm, balandligi 3 cm.</li>
+    <li>Bo'yi 8 m, eni 5 m, balandligi 6 m.</li>
+    <li>Asosi 9 cm × 9 cm, balandligi 2 cm.</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) \(7 \cdot 2 \cdot 3 = 42\) cm³</span><span>b) \(8 \cdot 5 \cdot 6 = 240\) m³</span><span>c) \(9 \cdot 9 \cdot 2 = 162\) cm³</span></div>
+  </details>
+
+  <div class="daraja oson"><i></i>Oson — savollar</div>
+  <ol>
+    <li>Kuboid hajmining formulasini yozing.</li>
+    <li>Bo'yi 6 va eni 3 bo'lgan kuboidning bitta qatlamida nechta kubcha bor?</li>
+    <li>Kuboid o'lchamlari m da berilgan. Hajm qaysi birlikda yoziladi?</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) hajm = bo'yi · eni · balandligi.</span><span>2) \(6 \cdot 3 = 18\) ta.</span><span>3) m³ da.</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — yetishmagan o'lchamni toping</div>
+  <p>Jadvalda yetishmagan sonni toping.</p>
+  <div class="jad-wrap"><table class="jad">
+    <tr><th></th><th>Bo'yi</th><th>Eni</th><th>Balandligi</th><th>Hajmi</th></tr>
+    <tr><td>1</td><td>6</td><td>5</td><td>2</td><td>?</td></tr>
+    <tr><td>2</td><td>8</td><td>3</td><td>?</td><td>96</td></tr>
+    <tr><td>3</td><td>?</td><td>4</td><td>5</td><td>100</td></tr>
+    <tr><td>4</td><td>9</td><td>?</td><td>2</td><td>72</td></tr>
+  </table></div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) \(6 \cdot 5 \cdot 2 = 60\)</span><span>2) \(8 \cdot 3 = 24\), \(96 : 24 = 4\)</span><span>3) \(4 \cdot 5 = 20\), \(100 : 20 = 5\)</span><span>4) \(9 \cdot 2 = 18\), \(72 : 18 = 4\)</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — hajmini toping</div>
+  <ol type="a">
+    <li>Asosi kvadrat bo'lgan kuboid: asosining tomoni 6 cm, balandligi 9 cm.</li>
+    <li>Yupqa uzun kuboid: bo'yi 12 m, eni 3 m, balandligi 1 m.</li>
+    <li>Bo'yi 5 m, eni 4 m, balandligi 11 m.</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) \(6 \cdot 6 \cdot 9 = 324\) cm³</span><span>b) \(12 \cdot 3 \cdot 1 = 36\) m³</span><span>c) \(5 \cdot 4 \cdot 11 = 220\) m³</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — har xil birlik</div>
+  <p>Kuboidning bo'yi 1 m, eni 30 cm, balandligi 20 cm. Hajmi necha cm³?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1 m = 100 cm. \(100 \cdot 30 \cdot 20 = 3000 \cdot 20 = 60\,000\) cm³.</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — ikki marta katta kub</div>
+  <p>Kuboidning o'lchamlari 8 cm, 2 cm, 2 cm. Hajmi shu kuboidning hajmidan 2 marta katta bo'lgan kubning qirrasi necha cm?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>Kuboid: \(8 \cdot 2 \cdot 2 = 32\) cm³.</span><span>Kub: \(32 \cdot 2 = 64\) cm³.</span><span>\(4 \cdot 4 \cdot 4 = 64\), demak qirrasi 4 cm.</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — bir nechta kubning hajmiga teng</div>
+  <p>Kuboidning hajmi qirrasi 2 cm bo'lgan 6 ta kubning umumiy hajmiga teng. Kuboidning bo'yi 4 cm, eni 3 cm. Balandligi necha cm?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>Bitta kub: \(2 \cdot 2 \cdot 2 = 8\) cm³; 6 ta: \(8 \cdot 6 = 48\) cm³.</span><span>Asosi: \(4 \cdot 3 = 12\) cm². Balandligi: \(48 : 12 = 4\) cm.</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — ustma-ust qo'yilgan bloklar</div>
+  <p>Uchta bir xil kuboid blok ustma-ust qo'yildi. Har birining bo'yi 5 cm, eni 4 cm, balandligi 2 cm. Hosil bo'lgan kuboidning balandligi va hajmini toping.</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>Balandligi: \(2 \cdot 3 = 6\) cm.</span><span>Hajmi: \(5 \cdot 4 \cdot 6 = 120\) cm³ (bitta blok \(5 \cdot 4 \cdot 2 = 40\), uchtasi \(40 \cdot 3 = 120\)).</span></div>
+  </details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Masalalarni yeching (kerak bo'lsa, rasm chizing)</span>
+    <ol class="masalalar">
+      <li>Yuk mashinasi kuzovi kuboid shaklida: bo'yi 4 m, eni 2 m, balandligi 2 m. Kuzovning hajmi qancha? To'rtta shunday mashinaning umumiy hajmi-chi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(4 \cdot 2 \cdot 2 = 16\) m³. To'rttasi: \(16 \cdot 4 = 64\) m³.</details></li>
+      <li>Akvariumning bo'yi 60 cm, eni 30 cm, balandligi 40 cm. Akvariumning hajmi necha cm³?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(60 \cdot 30 \cdot 40 = 1800 \cdot 40 = 72\,000\) cm³.</details></li>
+      <li>Quti ichi kuboid: bo'yi 15 cm, eni 10 cm, balandligi 6 cm. Unga qirrasi 1 cm bo'lgan nechta kubik sig'adi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(15 \cdot 10 \cdot 6 = 900\) ta.</details></li>
+      <li>Sinf xonasi bo'yi 8 m, eni 6 m, balandligi 3 m. Sinfda 24 ta o'quvchi bor. Har bir o'quvchiga necha m³ havo to'g'ri keladi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Xonaning hajmi: \(8 \cdot 6 \cdot 3 = 144\) m³. Har biriga: \(144 : 24 = 6\) m³.</details></li>
+      <li>Karton qutining ichi bo'yi 20 cm, eni 10 cm, balandligi 15 cm. Unga qirrasi 5 cm bo'lgan kublar zich terilmoqda. Nechta kub sig'adi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Bo'yi bo'ylab \(20 : 5 = 4\), eni bo'ylab \(10 : 5 = 2\), balandligi bo'ylab \(15 : 5 = 3\) ta kub: \(4 \cdot 2 \cdot 3 = 24\) ta. Tekshiruv: qutining hajmi \(20 \cdot 10 \cdot 15 = 3000\) cm³, kubniki \(5 \cdot 5 \cdot 5 = 125\) cm³, \(3000 : 125 = 24\).</details></li>
+      <li>Bog'dagi chuqurning hajmi 90 m³. Uning bo'yi 6 m, eni 5 m. Chuqurligi necha metr?
+        <details class="javob"><summary>Javobni ko'rish</summary>Asosi: \(6 \cdot 5 = 30\) m². Chuqurligi: \(90 : 30 = 3\) m.</details></li>
+      <li>A idishning o'lchamlari 8 cm, 5 cm, 4 cm, B idishniki 10 cm, 4 cm, 5 cm. Qaysi idishning hajmi katta va necha cm³ ga?
+        <details class="javob"><summary>Javobni ko'rish</summary>A: \(8 \cdot 5 \cdot 4 = 160\) cm³. B: \(10 \cdot 4 \cdot 5 = 200\) cm³. B katta: \(200 - 160 = 40\) cm³ ga.</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Qirralarni o'zgartirsak, hajm qanchaga o'zgaradi?</div></div>
+  <div class="box qiyin">
+    <span class="tag">Yuz va hajm</span>
+    <p>Tomoni 1 m bo'lgan kvadratning yuzi va qirrasi 1 m bo'lgan kubning hajmi o'rtasida qanday farq bor? Bunday kubning qirralarini yasash uchun uzunligi 1 m bo'lgan nechta o'ram kerak?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Kvadratning yuzi 1 m² — ikki o'lchamning ko'paytmasi; kubning hajmi 1 m³ — uch o'lchamning ko'paytmasi. Kubning 12 ta qirrasi bor, demak 12 ta o'ram kerak.</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Hamma o'lcham ikki baravar</span>
+    <p>Bo'yi 3, eni 2, balandligi 2 bo'lgan kuboidning hamma o'lchamlarini ikki baravar oshirdik. Hajmi necha marta oshadi? Faqat balandlikni ikki baravar oshirsak-chi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Avval hajm \(3 \cdot 2 \cdot 2 = 12\) edi, keyin \(6 \cdot 4 \cdot 4 = 96\) bo'ldi. Bo'lib ko'ramiz: \(96 : 12 = 8\) — 8 marta oshadi. Faqat balandlikni oshirsak: \(3 \cdot 2 \cdot 4 = 24\), ya'ni 2 marta.</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Butun o'lchamli kuboidlar</span>
+    <p>Hajmi 30 cm³ bo'lgan, o'lchamlari butun sonli bo'lgan nechta turli kuboid bor (aylantirilganini bir xil hisoblang)?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>5 ta: \(30 \cdot 1 \cdot 1\), \(15 \cdot 2 \cdot 1\), \(10 \cdot 3 \cdot 1\), \(6 \cdot 5 \cdot 1\), \(5 \cdot 3 \cdot 2\).</details>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — belgilab chiqing va Interaktiv panelda sinab ko'ring!</div></div>
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men kuboidni boshqa jismlardan ajrata olaman, bo'yi, eni va balandligini bilaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men formula yordamida kuboidning hajmini topa olaman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men o'lchamlarni bir xil birlikka keltirib, hajmni cm³ yoki m³ da yoza olaman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men hajm va ikki o'lcham ma'lum bo'lsa, uchinchisini topa olaman.</label></li>
+    </ul>
+  </div>
+</section>
+<p class="m-foot">Mathlearn · 5-sinf matematika</p>
+</main>
+<script src="chizma.js?v=27"></script>
+<script src="maruza.js?v=3"></script>
+</body>
+</html>
