@@ -317,7 +317,8 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** berilgan o'lchamlar (4×1×3, 3×3×3, 2×2×5, 1×6×2, 4×3×3, 5×4×1) bo'yicha izometrik chizish.
 **Rasmlar:** izometrik panjara, bosqichma-bosqich chizish.
 
-#### ☐ 17. Jismning turli ko'rinishlari (old, yon, ust) — D1 118–119; M1 143–144
+#### ✅ 17. Jismning turli ko'rinishlari (old, yon, ust) — D1 118–119; M1 143–144
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-jismning-korinishlari.html. O'z testi: `5|matematika|jismning-korinishlari` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Yangi chizmalar: `data-korinish` (jismning yuqoridan/olddan/yondan ko'rinishlari kvadratli panjarada) va `data-kub` ga `data-strelka` (qarash strelkalari). Qoidalarga 2 ta qo'shildi: ko'rinishlar o'lchamlari bo'yicha mos keladi; bir xil ko'rinishga har xil jism mos kelishi mumkin (eng kam/eng ko'p kubcha). Ko'rinishga qarab topiladigan hamma masalalar bir javobli ekani kompyuterda sanab tekshirildi. Kitob bilan solishtirildi (D1 118–119): 2 qoida va ikkala misol turi (3 ko'rinishni chizish; ko'rinishga qarab jismni topish) bor; jismlar o'zimizniki. M1 143–144 berilmagan — reja bo'yicha (6 ta jism uchun 3 ko'rinish) o'z jismlarim bilan. Tekshiruv: tenglik.py 9/0, kitobdan.py 0, node --check, 390/1100 px to'g'ri, xato yo'q; barcha 5-*.html chizma.js?v=26 bilan xatosiz ochildi. Simulyator uchun g'oya: jismni aylantirib, kvadratli panjarada ko'rinishlarni o'zi bo'yaydi, so'ng solishtiriladi (reja ro'yxati bo'yicha).
 **Qoidalar ro'yxati:**
 - Yuqoridan, olddan, yondan ko'rinish — kvadratli panjarada ko'rinadigan kvadrat yuzlar.
 - Ko'rinishlar soni jism shakliga bog'liq; orqadagi kubchalar ko'rinishda chiqmaydi.
@@ -700,7 +701,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** berilgan o'lchamlar (4×1×3, 3×3×3, 2×2×5, 1×6×2, 4×3×3, 5×4×1) bo'yicha izometrik chizish.
 **Rasmlar:** izometrik panjara, bosqichma-bosqich chizish.
 
-#### ☐ 17. Jismning turli ko'rinishlari (old, yon, ust) — D1 118–119; M1 143–144
+#### ✅ 17. Jismning turli ko'rinishlari (old, yon, ust) — D1 118–119; M1 143–144
 **Qoidalar ro'yxati:**
 - Yuqoridan, olddan, yondan ko'rinish — kvadratli panjarada ko'rinadigan kvadrat yuzlar.
 - Ko'rinishlar soni jism shakliga bog'liq; orqadagi kubchalar ko'rinishda chiqmaydi.
