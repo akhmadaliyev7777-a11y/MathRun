@@ -232,6 +232,18 @@ const QUIZ_DATA = {
     { level: 9, question: "Uchta bir xil blok ustma-ust qo'yildi. Har birining o'lchamlari 5 cm, 4 cm, 2 cm. Hosil bo'lgan kuboidning hajmi?", options: ["120 cm³", "40 cm³", "60 cm³", "30 cm³"], answer: "120 cm³", explain: "Bitta blok: 5 · 4 · 2 = 40 cm³, uchtasi 40 · 3 = 120 cm³. Balandligi 6 cm: 5 · 4 · 6 = 120." },
     { level: 10, question: "Kuboidning uchala o'lchami ham 2 baravar oshirildi. Hajmi necha marta oshadi?", options: ["8 marta", "2 marta", "4 marta", "6 marta"], answer: "8 marta", explain: "Masalan, 3 · 2 · 2 = 12 edi, endi 6 · 4 · 4 = 96. 96 : 12 = 8. Har bir o'lcham hajmni 2 marta oshiradi: 2 · 2 · 2 = 8." }
   ],
+  "5|matematika|kub-hajmi": [
+    { level: 1, question: "Kub hajmining formulasi qaysi?", options: ["qirrasi × qirrasi × qirrasi", "qirrasi × 3", "qirrasi + qirrasi + qirrasi", "qirrasi × qirrasi"], answer: "qirrasi × qirrasi × qirrasi", explain: "Kubning bo'yi, eni va balandligi qirrasiga teng, shuning uchun hajm qirrani uch marta ko'paytirishdan chiqadi." },
+    { level: 2, question: "Qirrasi 3 cm bo'lgan kubning hajmi qancha?", options: ["27 cm³", "9 cm³", "9 cm²", "6 cm³"], answer: "27 cm³", explain: "3 · 3 · 3 = 27. 9 — faqat bir yog'ining yuzi (cm²)." },
+    { level: 3, question: "Qirrasi 6 m bo'lgan kubning hajmi qancha?", options: ["216 m³", "18 m³", "36 m³", "216 m²"], answer: "216 m³", explain: "6 · 6 · 6 = 36 · 6 = 216. Qirra m da bo'lgani uchun hajm m³ da." },
+    { level: 4, question: "Qirrasi 4 cm bo'lgan kub bir yog'ining yuzi qancha?", options: ["16 cm²", "64 cm³", "12 cm²", "16 cm³"], answer: "16 cm²", explain: "Yoqi — kvadrat: 4 · 4 = 16 cm². Yuz cm² da yoziladi; 64 cm³ — kubning hajmi." },
+    { level: 5, question: "Qaysi o'lchamlar kubga mos keladi?", options: ["5, 5, 5", "5, 5, 4", "4, 5, 6", "2, 2, 4"], answer: "5, 5, 5", explain: "Kubda bo'yi, eni va balandligi teng. Boshqa variantlarda o'lchamlar har xil — bular kuboid." },
+    { level: 6, question: "Kubning hajmi 125 cm³. Qirrasi necha cm?", options: ["5 cm", "25 cm", "12 cm", "15 cm"], answer: "5 cm", explain: "5 · 5 · 5 = 125, demak qirrasi 5 cm. 125 : 3 yoki 125 : 5 bilan topib bo'lmaydi." },
+    { level: 7, question: "Qirrasi 4 cm kub va o'lchamlari 5 cm, 4 cm, 3 cm kuboidni taqqoslang.", options: ["Kubning hajmi 4 cm³ katta", "Kuboidning hajmi 4 cm³ katta", "Hajmlari teng", "Kubning hajmi 64 cm³ katta"], answer: "Kubning hajmi 4 cm³ katta", explain: "Kub: 4 · 4 · 4 = 64 cm³. Kuboid: 5 · 4 · 3 = 60 cm³. 64 − 60 = 4 cm³." },
+    { level: 8, question: "Kubning qirrasi 3 cm dan 6 cm ga oshirildi. Hajmi necha marta oshdi?", options: ["8 marta", "2 marta", "4 marta", "6 marta"], answer: "8 marta", explain: "Avval 3 · 3 · 3 = 27 cm³, keyin 6 · 6 · 6 = 216 cm³. 216 : 27 = 8." },
+    { level: 9, question: "Qirrasi 4 cm bo'lgan kubning tashqi yoqlari bo'yalib, qirrasi 1 cm bo'lgan kubchalarga arralandi. Nechta kubchaning birorta ham yog'i bo'yalmagan?", options: ["8", "4", "16", "2"], answer: "8", explain: "Ichkaridagi kubning qirrasi 4 − 2 = 2, hajmi 2 · 2 · 2 = 8 ta kubcha." },
+    { level: 10, question: "Kuboidning hajmi qirrasi 3 cm bo'lgan kubning hajmiga teng. Kuboidning bo'yi 9 cm, eni 1 cm. Balandligi qancha?", options: ["3 cm", "27 cm", "9 cm", "1 cm"], answer: "3 cm", explain: "Kub: 3 · 3 · 3 = 27 cm³. Kuboid asosi 9 · 1 = 9 cm². Balandligi 27 : 9 = 3 cm." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },
