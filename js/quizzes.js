@@ -208,6 +208,18 @@ const QUIZ_DATA = {
     { level: 9, question: "Jismning yuqoridan ko'rinishida 3 ustun va 2 qator bor. Olddan ko'rinishda nechta ustun bo'lishi kerak?", options: ["3", "2", "4", "6"], answer: "3", explain: "Yuqoridan va olddan ko'rinishda ustunlar soni bir xil bo'ladi — 3 ta. Qatorlar soni (2) yondan ko'rinishdagi ustunlar soniga teng." },
     { level: 10, question: "Jismning uchala ko'rinishi to'la 2 × 2 kvadrat. Jism eng kamida va eng ko'pi bilan nechta kubchadan iborat?", options: ["6 va 8", "4 va 8", "4 va 6", "8 va 10"], answer: "6 va 8", explain: "Eng ko'pi — 2 × 2 × 2 kub, 8 ta. Eng kami: 4 ta ustun bor, ikkita qarama-qarshi ustun 2 ta baland bo'lsa, 1 + 2 + 2 + 1 = 6 ta kubcha yetadi." }
   ],
+  "5|matematika|hajm-birliklari": [
+    { level: 1, question: "Qaysi birlik hajmni o'lchash uchun ishlatiladi?", options: ["cm³", "cm", "cm²", "m²"], answer: "cm³", explain: "Hajm kub birliklarda o'lchanadi: cm³ yoki m³. cm — uzunlik, cm² va m² — yuz birliklari." },
+    { level: 2, question: "Qirrasi 1 cm bo'lgan kubning hajmi qancha?", options: ["1 cm³", "1 cm", "1 cm²", "1 m³"], answer: "1 cm³", explain: "Qirrasi 1 cm bo'lgan kubning hajmi 1 santimetr kub — 1 cm³ deb yoziladi." },
+    { level: 3, question: "1 m necha santimetr?", options: ["100 cm", "10 cm", "1000 cm", "60 cm"], answer: "100 cm", explain: "1 metr = 100 santimetr. Shu sababli qirrasi 1 m bo'lgan kub qirrasi 1 cm kubdan ancha katta." },
+    { level: 4, question: "Jism qirrasi 1 m bo'lgan 7 ta kubdan yasalgan. Hajmi qancha?", options: ["7 m³", "7 m", "7 m²", "7 cm³"], answer: "7 m³", explain: "Hajm kublar soniga teng, birligi kubning qirrasiga qarab: qirrasi 1 m bo'lgani uchun 7 m³." },
+    { level: 5, question: "Qirrasi 1 m bo'lgan kublardan zina qurildi: qatorlarda 4, 3, 2 va 1 ta kub. Hajmi qancha?", options: ["10 m³", "4 m³", "24 m³", "10 m²"], answer: "10 m³", explain: "4 + 3 + 2 + 1 = 10 ta kub, hajmi 10 m³. 24 — ko'paytirib yuborilgan." },
+    { level: 6, question: "6 m³ va 6 cm³ ni taqqoslang.", options: ["6 m³ > 6 cm³", "6 m³ < 6 cm³", "6 m³ = 6 cm³", "Taqqoslab bo'lmaydi"], answer: "6 m³ > 6 cm³", explain: "Kublar soni teng, lekin m³ — qirrasi 1 m, cm³ — qirrasi 1 cm bo'lgan kub. Birinchisi ancha katta." },
+    { level: 7, question: "Qirrasi 1 m bo'lgan kublardan 4 × 3 × 2 kuboid yasaldi, undan 5 ta kub olindi. Qolgan hajm?", options: ["19 m³", "29 m³", "24 m³", "12 m³"], answer: "19 m³", explain: "Kuboid: 4 · 3 = 12, 2 qatlam — 24 m³. 24 − 5 = 19 m³." },
+    { level: 8, question: "Jism qirrasi 1 m bo'lgan kublardan: orqa qator ustunlari 3, 3, 2, old qator ustunlari 3, 1, 1 ta kubdan. Hajmi?", options: ["13 m³", "8 m³", "19 m³", "5 m³"], answer: "13 m³", explain: "Orqa qator: 3 + 3 + 2 = 8, old qator: 3 + 1 + 1 = 5. Jami 8 + 5 = 13 m³." },
+    { level: 9, question: "Qirrasi 1 cm bo'lgan 8 ta kubdan qirrasi 2 cm bo'lgan kub yasaldi. Uning hajmi?", options: ["8 cm³", "4 cm³", "6 cm³", "2 cm³"], answer: "8 cm³", explain: "Hajm kublar soniga teng: 4 + 4 = 8 ta kub — 8 cm³. 4 — faqat bitta qatlam." },
+    { level: 10, question: "Qirrasi 1 m kubga qirrasi 1 cm bo'lgan nechta kubcha sig'adi?", options: ["1 000 000", "10 000", "1000", "100"], answer: "1 000 000", explain: "Qirra bo'ylab 100 ta kubcha: bir qatlamda 100 · 100 = 10 000, qatlamlar 100 ta: 10 000 · 100 = 1 000 000. 100 — faqat bitta qatordagi kubchalar." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },

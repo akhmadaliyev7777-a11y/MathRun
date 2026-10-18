@@ -326,7 +326,8 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** 6 ta jism uchun 3 ko'rinishni kvadratli panjarada chizish.
 **Rasmlar:** izometrik jism + 3 ta kvadrat panjara, ko'z belgisi.
 
-#### ☐ 18. Hajmni cm³ va m³ da o'lchash — D1 120–122; M1 145–146
+#### ✅ 18. Hajmni cm³ va m³ da o'lchash — D1 120–122; M1 145–146
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-hajm-birliklari.html. O'z testi: `5|matematika|hajm-birliklari` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Yangi chizma kerak bo'lmadi (data-kub); 1 m³ va 5-sinf o'quvchisi rasmi — sahifaning o'zida kichik SVG. Qoidalarga 4-qoida qo'shildi (har xil birlikdagi hajmlarni taqqoslash: m³ > cm³); «1 m³ = 1 000 000 cm³» — O'ylab ko'ring bo'limida (100·100·100). Kitob bilan solishtirildi (D1 120–122): 3 qoida va barcha misol turlari bor (cm³ va m³ da sanash; eng katta / teng hajmlilar); jismlar, harflar va sonlar o'zimizniki. M1 145–146 berilmagan — reja bo'yicha. Tekshiruv: tenglik.py 23/0, kitobdan.py 0, node --check, 390/1100 px to'g'ri, xato yo'q. Simulyator uchun g'oya: 1 cm³ va 1 m³ yonma-yon, qirra bo'ylab 100 ta kubcha, m³ ↔ cm³ slayderi (reja ro'yxati).
 **Qoidalar ro'yxati:**
 - Qirrasi 1 cm bo'lgan kubning hajmi 1 cm³ (santimetr kub).
 - Qirrasi 1 m bo'lgan kubning hajmi 1 m³ (metr kub); 1 m = 100 cm.
@@ -709,7 +710,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** 6 ta jism uchun 3 ko'rinishni kvadratli panjarada chizish.
 **Rasmlar:** izometrik jism + 3 ta kvadrat panjara, ko'z belgisi.
 
-#### ☐ 18. Hajmni cm³ va m³ da o'lchash — D1 120–122; M1 145–146
+#### ✅ 18. Hajmni cm³ va m³ da o'lchash — D1 120–122; M1 145–146
 **Qoidalar ro'yxati:**
 - Qirrasi 1 cm bo'lgan kubning hajmi 1 cm³ (santimetr kub).
 - Qirrasi 1 m bo'lgan kubning hajmi 1 m³ (metr kub); 1 m = 100 cm.
