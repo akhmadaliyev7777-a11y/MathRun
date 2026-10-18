@@ -37,6 +37,12 @@
        [data-rang="ko'k"] (yashil, ko'k, sariq, binafsha, qizil) [data-qatlam="1"] — har qatlam o'z rangida
        [data-ajrat="1"] — qatlamlar bir-biridan ajratib ko'rsatiladi; [data-son="1"] — yonida ustdan ko'rinish va ustundagi sonlar
        [data-olcham="26"] — kubcha qirrasi (px)
+   data-panjara="4x3x2"            — uch o'lchamli (izometrik) nuqtali panjarada chizilgan kuboid: "bo'yi x eni x balandligi";
+                                          faqat ko'rinadigan 9 qirra chiziladi: bo'yi — to'q sariq, eni — ko'k, balandligi — binafsha
+       [data-bosqich="1..4"] — chizish bosqichlari: 1 old tik qirra, 2 uning pastidan ikki qiya qirra, 3 ikki chetki tik qirra, 4 tepa yoq;
+                               oxirgi bosqich qalin chiziladi
+       [data-yozuv="bo'yi|eni|balandligi"] — qirralar yonida yozuv; [data-yashirin="1"] — ko'rinmaydigan 3 qirra punktir;
+       [data-bolak="1"] — yoqlar birlik kvadratlarga bo'linadi; [data-olcham="22"] — 1 birlik (px)
 */
 (function () {
   "use strict";
@@ -754,6 +760,81 @@
       (el.dataset.izoh || kublar.length + " ta birlik kubdan yasalgan jism") + '">' + jism + "</svg>";
   }
 
+  // ---------- uch o'lchamli (izometrik) nuqtali panjarada kuboid ----------
+  function chizPanjara(el) {
+    const o = el.dataset.panjara.trim().split("x").map(Number);
+    const X = o[0], Y = o[1], Z = o[2];
+    const s = Number(el.dataset.olcham || 22), c = 0.866;
+    const bosq = Number(el.dataset.bosqich || 4);
+    const P = function (x, y, z) { return [(x - y) * c * s, (x + y) * 0.5 * s - z * s]; };
+    const rang = { x: "#d4501b", y: "#1f5fd6", z: "#6d3fc0" };
+    const pad = Math.max(28, 1.6 * s);
+    const yoz = (el.dataset.yozuv || "").split("|");
+    const padL = yoz[2] ? Math.max(pad, yoz[2].length * 8.5 + 18) : pad, padR = yoz[1] ? Math.max(pad, yoz[1].length * 8.5 + 18) : pad;
+    const gx0 = -Y * c * s - padL, gx1 = X * c * s + padR, gy0 = -Z * s - pad, gy1 = (X + Y) * 0.5 * s + pad;
+    let svg = "";
+    // nuqtali panjara: ustunlar c*s oraliqda, qo'shni ustunlar yarim qadamga siljigan
+    for (let a = Math.ceil(gx0 / (c * s)); a <= Math.floor(gx1 / (c * s)); a++) {
+      const x = a * c * s;
+      for (let m = Math.ceil((gy0 - a * 0.5 * s) / s); m <= Math.floor((gy1 - a * 0.5 * s) / s); m++) {
+        svg += '<circle cx="' + (x - gx0).toFixed(1) + '" cy="' + ((a * 0.5 + m) * s - gy0).toFixed(1) + '" r="1.7" fill="#9aa3b5"/>';
+      }
+    }
+    const T = function (p) { const q = P(p[0], p[1], p[2]); return (q[0] - gx0).toFixed(1) + " " + (q[1] - gy0).toFixed(1); };
+    const yuz = function (pts, fill) { return '<path d="M' + pts.map(T).join(" L") + ' Z" fill="' + fill + '"/>'; };
+    const chiziq = function (a, b, rn, w, extra) {
+      const qa = P(a[0], a[1], a[2]), qb = P(b[0], b[1], b[2]);
+      return '<line x1="' + (qa[0] - gx0).toFixed(1) + '" y1="' + (qa[1] - gy0).toFixed(1) + '" x2="' + (qb[0] - gx0).toFixed(1) + '" y2="' + (qb[1] - gy0).toFixed(1) +
+        '" stroke="' + rang[rn] + '" stroke-width="' + w + '" stroke-linecap="round"' + (extra || "") + "/>";
+    };
+    if (bosq >= 4) {
+      svg += yuz([[0, 0, Z], [X, 0, Z], [X, Y, Z], [0, Y, Z]], "#f2f6fd");
+      svg += yuz([[0, Y, 0], [X, Y, 0], [X, Y, Z], [0, Y, Z]], "#e0e9f9");
+      svg += yuz([[X, 0, 0], [X, Y, 0], [X, Y, Z], [X, 0, Z]], "#d0ddf5");
+    }
+    if (el.dataset.bolak === "1" && bosq >= 4) {
+      let t = "";
+      const nozik = function (a, b) { const qa = P(a[0], a[1], a[2]), qb = P(b[0], b[1], b[2]); t += '<line x1="' + (qa[0] - gx0).toFixed(1) + '" y1="' + (qa[1] - gy0).toFixed(1) + '" x2="' + (qb[0] - gx0).toFixed(1) + '" y2="' + (qb[1] - gy0).toFixed(1) + '"/>'; };
+      for (let i = 1; i < X; i++) { nozik([i, 0, Z], [i, Y, Z]); nozik([i, Y, 0], [i, Y, Z]); }
+      for (let j = 1; j < Y; j++) { nozik([0, j, Z], [X, j, Z]); nozik([X, j, 0], [X, j, Z]); }
+      for (let k = 1; k < Z; k++) { nozik([0, Y, k], [X, Y, k]); nozik([X, 0, k], [X, Y, k]); }
+      svg += '<g stroke="#8aa0cf" stroke-width="1" opacity=".8">' + t + "</g>";
+    }
+    // qirralar: [boshi, oxiri, yo'nalish, bosqich]
+    const qirralar = [
+      [[X, Y, 0], [X, Y, Z], "z", 1],
+      [[X, Y, 0], [0, Y, 0], "x", 2], [[X, Y, 0], [X, 0, 0], "y", 2],
+      [[0, Y, 0], [0, Y, Z], "z", 3], [[X, 0, 0], [X, 0, Z], "z", 3],
+      [[X, Y, Z], [0, Y, Z], "x", 4], [[X, Y, Z], [X, 0, Z], "y", 4], [[0, Y, Z], [0, 0, Z], "y", 4], [[X, 0, Z], [0, 0, Z], "x", 4]
+    ];
+    if (el.dataset.yashirin === "1" && bosq >= 4) {
+      svg += chiziq([0, 0, 0], [0, 0, Z], "z", 2, ' stroke-dasharray="5 4" opacity=".55"');
+      svg += chiziq([0, 0, 0], [X, 0, 0], "x", 2, ' stroke-dasharray="5 4" opacity=".55"');
+      svg += chiziq([0, 0, 0], [0, Y, 0], "y", 2, ' stroke-dasharray="5 4" opacity=".55"');
+    }
+    qirralar.forEach(function (q) {
+      if (q[3] > bosq) return;
+      const hozir = bosq < 4 && q[3] === bosq;
+      svg += chiziq(q[0], q[1], q[2], hozir ? 3.6 : 2.4, bosq < 4 && !hozir ? ' opacity=".6"' : "");
+      const n = Math.abs(q[1][0] - q[0][0]) + Math.abs(q[1][1] - q[0][1]) + Math.abs(q[1][2] - q[0][2]);
+      for (let t = 0; t <= n; t++) {
+        const d = n ? t / n : 0;
+        const pt = P(q[0][0] + (q[1][0] - q[0][0]) * d, q[0][1] + (q[1][1] - q[0][1]) * d, q[0][2] + (q[1][2] - q[0][2]) * d);
+        svg += '<circle cx="' + (pt[0] - gx0).toFixed(1) + '" cy="' + (pt[1] - gy0).toFixed(1) + '" r="' + (hozir ? 3.6 : 2.8) + '" fill="' + rang[q[2]] + '"/>';
+      }
+    });
+    const matn = function (x, y, t, anchor, rn) {
+      return '<text x="' + (x - gx0).toFixed(1) + '" y="' + (y - gy0).toFixed(1) + '" text-anchor="' + anchor + '" font-size="15" font-weight="800" fill="' + rang[rn] + '">' + t + "</text>";
+    };
+    if (yoz[0]) { const a = P(0, Y, 0), b = P(X, Y, 0); svg += matn((a[0] + b[0]) / 2 - 10, (a[1] + b[1]) / 2 + 24, yoz[0], "end", "x"); }
+    if (yoz[1]) { const a = P(X, 0, 0), b = P(X, Y, 0); svg += matn((a[0] + b[0]) / 2 + 10, (a[1] + b[1]) / 2 + 24, yoz[1], "start", "y"); }
+    if (yoz[2]) { const a = P(0, Y, 0), b = P(0, Y, Z); svg += matn(a[0] - 10, (a[1] + b[1]) / 2 + 5, yoz[2], "end", "z"); }
+    const W = gx1 - gx0, H = gy1 - gy0;
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + W.toFixed(1) + " " + H.toFixed(1) + '" style="max-width:' + Math.round(W) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || "Nuqtali panjarada chizilgan " + X + " × " + Y + " × " + Z + " kuboid") + '">' + svg + "</svg>";
+  }
+
   window.MaruzaChizma = {
     bolish: bolish,
     chiz: function (root) {
@@ -777,6 +858,7 @@
       root.querySelectorAll("[data-qolgan]").forEach(chizQolgan);
       root.querySelectorAll("[data-geo]").forEach(chizGeo);
       root.querySelectorAll("[data-kub]").forEach(chizKub);
+      root.querySelectorAll("[data-panjara]").forEach(chizPanjara);
     }
   };
 })();
