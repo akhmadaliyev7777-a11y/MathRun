@@ -31,6 +31,12 @@
        "uzun":{"AB":"6 cm",...} — tomon yonidagi yozuv ("MH-" — yozuv kesmaning narigi tomonida); "yozuv":{"BC":"asos",...} — tomon yonidagi rangli yozuv
        "ramka":["ABCD",...] — punktir ramka (bo'yalmagan), masalan uchburchakka mos to'g'ri to'rtburchak
        "oq":["DEC",...] — oq (bo'yalmagan) ko'pburchak — bo'yalgan shakldan kesib olingan qism
+   data-kub="3x2x2" yoki "2,1,1|3,2,0" — birlik kubchalardan jism (izometrik): "bo'yi x eni x balandligi" — kuboid;
+                                          yoki ustdan qaraganda har ustundagi kubchalar soni (qatorlar "|" bilan, orqadan oldinga)
+       [data-yozuv="bo'yi|eni|balandligi"] — kuboid qirralari yonida yozuv (bo'sh qoldirilsa — yozilmaydi)
+       [data-rang="ko'k"] (yashil, ko'k, sariq, binafsha, qizil) [data-qatlam="1"] — har qatlam o'z rangida
+       [data-ajrat="1"] — qatlamlar bir-biridan ajratib ko'rsatiladi; [data-son="1"] — yonida ustdan ko'rinish va ustundagi sonlar
+       [data-olcham="26"] — kubcha qirrasi (px)
 */
 (function () {
   "use strict";
@@ -665,6 +671,89 @@
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="max-width:' + W + 'px" role="img" aria-label="' + (el.dataset.izoh || "Geometrik chizma") + '">' + svg + "</svg>";
   }
 
+  // ---------- birlik kubchalardan jism (izometrik chizma) ----------
+  const KUB_RANG = {
+    "yashil": ["#c9f1e1", "#86d6b9", "#55b996", "#1d6b52"],
+    "ko'k": ["#d3e3ff", "#93b6f2", "#6390e0", "#1f4fa8"],
+    "sariq": ["#ffe9c2", "#ffc874", "#f0a33c", "#9a5a0c"],
+    "binafsha": ["#e7dcfb", "#bfa5ef", "#9a78dc", "#4f2f94"],
+    "qizil": ["#ffd9d2", "#f6a495", "#e6735f", "#9b2c1a"]
+  };
+  function chizKub(el) {
+    const v = el.dataset.kub.trim();
+    let xarita;                                   // xarita[qator][ustun] — ustundagi kubchalar soni, 0-qator eng orqada
+    if (/^\d+x\d+x\d+$/.test(v)) {
+      const o = v.split("x").map(Number);
+      xarita = [];
+      for (let j = 0; j < o[1]; j++) { const q = []; for (let i = 0; i < o[0]; i++) q.push(o[2]); xarita.push(q); }
+    } else xarita = v.split("|").map(function (q) { return q.split(",").map(Number); });
+    const s = Number(el.dataset.olcham || 26), c = 0.866;
+    const ajrat = el.dataset.ajrat === "1" ? 0.7 : 0;
+    const qatlam = el.dataset.qatlam === "1" || ajrat > 0;
+    const rangNom = Object.keys(KUB_RANG), asosRang = KUB_RANG[el.dataset.rang] ? el.dataset.rang : "yashil";
+    const kublar = [];
+    let X = 0, Y = xarita.length, Z = 0;
+    xarita.forEach(function (q, j) {
+      q.forEach(function (h, i) { for (let k = 0; k < h; k++) kublar.push([i, j, k]); if (h > 0) X = Math.max(X, i + 1); Z = Math.max(Z, h); });
+    });
+    // ekran koordinatasi: x — o'ngga-pastga, y (orqadan oldinga) — chapga-pastga, z — tepaga
+    // ajratilgan qatlamda kubcha (k) ning hamma uchlari bir xil siljiydi
+    const Pk = function (x, y, z, k) { return [(x - y) * c * s, (x + y) * 0.5 * s - z * s - k * ajrat * s]; };
+    kublar.sort(function (a, b) { return (a[0] + a[1] + a[2]) - (b[0] + b[1] + b[2]) || a[2] - b[2]; });
+    const bor = {};
+    kublar.forEach(function (k) { bor[k.join(",")] = 1; });
+    const tola = [];
+    let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+    const yuz = function (nuqtalar, k, rang) {
+      const pp = nuqtalar.map(function (n) { return Pk(n[0], n[1], n[2], k); });
+      pp.forEach(function (p) { minx = Math.min(minx, p[0]); maxx = Math.max(maxx, p[0]); miny = Math.min(miny, p[1]); maxy = Math.max(maxy, p[1]); });
+      tola.push('<path d="M' + pp.map(function (p) { return p[0].toFixed(1) + " " + p[1].toFixed(1); }).join(" L") + ' Z" fill="' + rang + '"/>');
+    };
+    kublar.forEach(function (kb) {
+      const i = kb[0], j = kb[1], k = kb[2];
+      const r = KUB_RANG[qatlam ? rangNom[k % rangNom.length] : asosRang];
+      const usti = !ajrat && bor[[i, j, k + 1].join(",")];
+      const start = tola.length;
+      if (!usti) yuz([[i, j, k + 1], [i + 1, j, k + 1], [i + 1, j + 1, k + 1], [i, j + 1, k + 1]], k, r[0]);
+      yuz([[i, j + 1, k], [i + 1, j + 1, k], [i + 1, j + 1, k + 1], [i, j + 1, k + 1]], k, r[1]);   // chap (old) yoq
+      yuz([[i + 1, j, k], [i + 1, j + 1, k], [i + 1, j + 1, k + 1], [i + 1, j, k + 1]], k, r[2]);   // o'ng yoq
+      for (let t = start; t < tola.length; t++) tola[t] = tola[t].replace("/>", ' stroke="' + r[3] + '" stroke-width="1.3" stroke-linejoin="round"/>');
+    });
+    let svg = tola.join("");
+    // kuboid qirralari yonidagi yozuvlar
+    const yoz = (el.dataset.yozuv || "").split("|");
+    const matn = function (x, y, t, anchor, rang) {
+      minx = Math.min(minx, anchor === "end" ? x - t.length * 8 : anchor === "start" ? x : x - t.length * 4);
+      maxx = Math.max(maxx, anchor === "start" ? x + t.length * 8 : anchor === "end" ? x : x + t.length * 4);
+      miny = Math.min(miny, y - 14); maxy = Math.max(maxy, y + 4);
+      return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + anchor + '" font-size="15" font-weight="800" fill="' + rang + '">' + t + "</text>";
+    };
+    if (yoz[0]) { const a = Pk(0, Y, 0, 0), b = Pk(X, Y, 0, 0); svg += matn((a[0] + b[0]) / 2 - 10, (a[1] + b[1]) / 2 + 22, yoz[0], "end", "#d4501b"); }
+    if (yoz[1]) { const a = Pk(X, 0, 0, 0), b = Pk(X, Y, 0, 0); svg += matn((a[0] + b[0]) / 2 + 10, (a[1] + b[1]) / 2 + 22, yoz[1], "start", "#1f5fd6"); }
+    if (yoz[2]) { const a = Pk(0, Y, 0, 0), b = Pk(0, Y, Z, Z - 1); svg += matn(a[0] - 8, (a[1] + b[1]) / 2 + 5, yoz[2], "end", "#6d3fc0"); }
+    const m = 6;
+    let W = maxx - minx + 2 * m, H = maxy - miny + 2 * m;
+    let jism = '<g transform="translate(' + (m - minx).toFixed(1) + " " + (m - miny).toFixed(1) + ')">' + svg + "</g>";
+    // ustdan ko'rinish: har katakda ustundagi kubchalar soni
+    if (el.dataset.son === "1") {
+      const k = 24, x0 = W + 18, y0 = Math.max(m, (H - Y * k) / 2);
+      let t = "";
+      xarita.forEach(function (q, j) {
+        q.forEach(function (h, i) {
+          if (i >= X) return;
+          t += '<rect x="' + (x0 + i * k) + '" y="' + (y0 + j * k) + '" width="' + k + '" height="' + k + '" fill="' + (h ? "#eef7f2" : "#fff") + '" stroke="#5f6676" stroke-width="1.2"/>';
+          if (h) t += '<text x="' + (x0 + i * k + k / 2) + '" y="' + (y0 + j * k + k / 2 + 5) + '" text-anchor="middle" font-size="14" font-weight="800" fill="#1f2433">' + h + "</text>";
+        });
+      });
+      t += '<text x="' + (x0 + X * k / 2) + '" y="' + (y0 + Y * k + 17) + '" text-anchor="middle" font-size="12" font-weight="700" fill="#5f6676">ustdan</text>';
+      jism += t;
+      W = x0 + X * k + m; H = Math.max(H, y0 + Y * k + 24);
+    }
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + W.toFixed(1) + " " + H.toFixed(1) + '" style="max-width:' + Math.round(W) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || kublar.length + " ta birlik kubdan yasalgan jism") + '">' + jism + "</svg>";
+  }
+
   window.MaruzaChizma = {
     bolish: bolish,
     chiz: function (root) {
@@ -687,6 +776,7 @@
       root.querySelectorAll("[data-yuza]").forEach(chizYuza);
       root.querySelectorAll("[data-qolgan]").forEach(chizQolgan);
       root.querySelectorAll("[data-geo]").forEach(chizGeo);
+      root.querySelectorAll("[data-kub]").forEach(chizKub);
     }
   };
 })();

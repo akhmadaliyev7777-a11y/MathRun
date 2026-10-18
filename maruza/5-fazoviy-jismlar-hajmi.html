@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fazoviy jismlarning hajmi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=26">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Fazoviy jismlarning hajmi</h1>
+<p class="m-lead">Birlik kub nima ekanini, jismning hajmini undagi birlik kublarni sanab topishni, yashirin kubchalarni qatlamlab sanashni va hajmlarni taqqoslashni o'rganamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik — kub, kuboid, hajm va sig'im</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Quti ham, kubik ham, choynakdagi choy ham joy egallaydi — demak, hammasining hajmi bor!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li><b>Kub</b> — 6 ta yog'i bor, hammasi bir xil <b>kvadrat</b>. Kubning barcha qirralari o'zaro teng.</li>
+      <li><b>Kuboid</b> — 6 ta yog'i bor: hammasi to'g'ri to'rtburchak yoki 4 tasi to'g'ri to'rtburchak va 2 tasi kvadrat.</li>
+      <li>Kub va kuboid fazoda joy egallaydi — shuning uchun ularning <b>hajmi</b> bor.</li>
+      <li>Idishdagi suyuqlik ham joy egallaydi. Suyuqlik hajmi <b>litr (ℓ)</b> va <b>millilitr (ml)</b> da o'lchanadi: 1 ℓ = 1000 ml.</li>
+      <li>Idishning <b>sig'imi</b> — idishni to'ldirish uchun kerak bo'lgan suyuqlik hajmi.</li>
+    </ul>
+  </div>
+  <div class="kub-qator">
+    <div><div data-kub="3x3x3" data-rang="ko'k" data-olcham="22" data-izoh="Kub"></div><p>kub: 6 ta kvadrat yoq</p></div>
+    <div><div data-kub="4x1x2" data-olcham="22" data-izoh="Kuboid: hamma yoqlari to'g'ri to'rtburchak"></div><p>kuboid: 6 ta to'g'ri to'rtburchak</p></div>
+    <div><div data-kub="2x2x4" data-rang="sariq" data-olcham="22" data-izoh="Kuboid: 4 ta to'g'ri to'rtburchak va 2 ta kvadrat yoq"></div><p>kuboid: 4 ta to'g'ri to'rtburchak va 2 ta kvadrat (ust va ost)</p></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · hajm va sig'im</span>
+    <p>Choynakning sig'imi 1 ℓ: u to'la bo'lganda ichida 1 ℓ (1000 ml) choy bo'ladi. Choynakka 700 ml choy quyildi — choyning hajmi 700 ml, choynakning sig'imi esa baribir 1 ℓ. To'ldirish uchun yana \(1000 - 700 = \nat{300}\) ml kerak.</p>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Hajmni o'lchash uchun bitta kichkina kubcha — birlik kub — yetarli!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · birlik kub</span>
+    <p><b>Birlik kub</b> — o'lchamlari 1 birlik × 1 birlik × 1 birlik bo'lgan kub. Uning hajmi <strong>1 kub birlik</strong> ga teng.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · birlik kub</span>
+    <div data-kub="1x1x1" data-olcham="56" data-yozuv="1 birlik|1 birlik|1 birlik" data-izoh="Birlik kub: qirralari 1 birlikdan"></div>
+    <p class="chz-cap">Bo'yi, eni va balandligi — 1 birlikdan. Hajmi = <b>1 kub birlik</b>.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · hajm = birlik kublar soni</span>
+    <p>Jism birlik kublardan yasalgan bo'lsa, uning <strong>hajmi undagi birlik kublar soniga teng</strong> (kub birliklarda).</p>
+    <p>Kuboidning <b>bo'yi</b>, <b>eni</b> va <b>balandligi</b> bor; kubning esa uchala o'lchami teng — u <b>qirrasi</b> deyiladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · kuboid</span>
+    <div data-kub="3x2x2" data-olcham="34" data-yozuv="bo'yi 3|eni 2|balandligi 2" data-izoh="Bo'yi 3, eni 2, balandligi 2 bo'lgan kuboid"></div>
+    <div class="qadam"><b>1</b><span>Pastki qatlamda 3 tadan 2 qator: \(3 + 3 = 6\) ta kubcha.</span></div>
+    <div class="qadam"><b>2</b><span>Ustki qatlam ham xuddi shunday — 6 ta. Jami \(6 + 6 = 12\) ta kubcha.</span></div>
+    <div class="qadam"><b>3</b><span>Kuboidning hajmi = \(\nat{12}\) kub birlik.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · kub</span>
+    <div data-kub="3x3x3" data-rang="ko'k" data-olcham="28" data-yozuv="qirrasi 3||" data-izoh="Qirrasi 3 birlik bo'lgan kub"></div>
+    <p>Har qatlamda \(3 \cdot 3 = 9\) ta kubcha, qatlamlar 3 ta: \(9 + 9 + 9 = 27\). Kubning hajmi = \(\nat{27}\) kub birlik.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · turli shakl — bir xil hajm</span>
+    <p>Shakli har xil bo'lgan jismlar <strong>bir xil hajmga</strong> ega bo'lishi mumkin: kubchalar soni bir xil bo'lsa, hajmlar teng.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · 7 ta kubchadan uch xil jism</span>
+    <div class="kub-qator">
+      <div><div data-kub="1,1,1,1,1,1,1" data-olcham="20" data-izoh="7 ta kubcha bir qatorda"></div><p>a) bir qator</p></div>
+      <div><div data-kub="3,1|2,1" data-rang="binafsha" data-olcham="24" data-izoh="7 ta kubchadan yasalgan jism"></div><p>b) minorali</p></div>
+      <div><div data-kub="2,2,1|1,1,0" data-rang="sariq" data-olcham="24" data-izoh="7 ta kubchadan yasalgan jism"></div><p>c) pog'onali</p></div>
+    </div>
+    <p>a) \(7\); b) \(3 + 1 + 2 + 1 = 7\); c) \(2 + 2 + 1 + 1 + 1 = 7\). Uchala jismning hajmi <b>7 kub birlik</b> — shakllari har xil, hajmlari teng.</p>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz — yashirin kubchalar</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Orqadagi va ostidagi kubchalar ko'rinmaydi, lekin ular ham bor!</div></div>
+  <div class="box">
+    <p><b>Pog'onali jism.</b> Rasmda hamma kubcha ko'rinmaydi. Ularni ikki usulda sanaymiz.</p>
+    <div data-kub="3,2,1|3,2,1|3,2,1" data-son="1" data-olcham="30" data-izoh="Uch pog'onali jism va uning ustdan ko'rinishi"></div>
+    <p class="chz-cap"><b>1-usul — ustunlab.</b> Ustdan qaraganda har katakda shu ustundagi kubchalar soni yozilgan. Har qatorda \(3 + 2 + 1 = 6\), qatorlar 3 ta: \(6 + 6 + 6 = 18\).</p>
+    <div data-kub="3,2,1|3,2,1|3,2,1" data-ajrat="1" data-olcham="30" data-izoh="Pog'onali jism qatlamlarga ajratilgan"></div>
+    <p class="chz-cap"><b>2-usul — qatlamlab.</b> Jismni qatlamlarga ajratamiz: pastki qatlam \(3 \cdot 3 = 9\), o'rtadagi \(2 \cdot 3 = 6\), ustki \(1 \cdot 3 = 3\). Jami \(9 + 6 + 3 = \nat{18}\) kub birlik.</p>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar</h2>
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · kubchalarni sanash</span>
+    <div data-kub="2,2,1|3,2,1" data-son="1" data-olcham="32" data-izoh="11 ta kubchadan yasalgan jism va ustdan ko'rinishi"></div>
+    <div class="qadam"><b>1</b><span>Orqa qator ustunlari: \(2 + 2 + 1 = 5\).</span></div>
+    <div class="qadam"><b>2</b><span>Old qator ustunlari: \(3 + 2 + 1 = 6\).</span></div>
+    <div class="qadam"><b>3</b><span>Hajmi: \(5 + 6 = \nat{11}\) kub birlik.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · hajmlarni taqqoslash</span>
+    <div class="kub-qator">
+      <div><div data-kub="3x1x3" data-olcham="22" data-izoh="P jism"></div><p>P</p></div>
+      <div><div data-kub="2,2|2,1|1,1" data-rang="ko'k" data-olcham="22" data-izoh="Q jism"></div><p>Q</p></div>
+      <div><div data-kub="4,3,2,1" data-rang="sariq" data-olcham="22" data-izoh="R jism"></div><p>R</p></div>
+      <div><div data-kub="3x2x1" data-rang="binafsha" data-olcham="22" data-izoh="S jism"></div><p>S</p></div>
+    </div>
+    <div class="misollar qator">
+      <span>P: \(3 + 3 + 3 = 9\)</span><span>Q: \(4 + 3 + 2 = 9\)</span><span>R: \(4 + 3 + 2 + 1 = 10\)</span><span>S: \(3 + 3 = 6\)</span>
+    </div>
+    <p>Eng katta hajm — <b>R</b> (10 kub birlik), eng kichik — <b>S</b> (6 kub birlik). <b>P</b> va <b>Q</b> ning shakli har xil, hajmi teng — 9 kub birlik.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · 5 ta kubchadan turli jismlar yasash</span>
+    <div class="kub-qator">
+      <div><div data-kub="1,1,1,1,1" data-olcham="22" data-izoh="5 ta kubcha bir qatorda"></div><p>a)</p></div>
+      <div><div data-kub="2,1|1,1" data-rang="ko'k" data-olcham="26" data-izoh="5 ta kubchadan jism"></div><p>b)</p></div>
+      <div><div data-kub="3,1,1" data-rang="sariq" data-olcham="26" data-izoh="5 ta kubchadan jism"></div><p>c)</p></div>
+    </div>
+    <p>Kubchalarni qanday joylashtirsak ham, har bir jismning hajmi <b>5 kub birlik</b> bo'ladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 4 · 12 ta kubchadan 4 xil kuboid</span>
+    <div class="kub-qator">
+      <div><div data-kub="6x2x1" data-olcham="18" data-izoh="Kuboid 6 × 2 × 1"></div><p>6 × 2 × 1</p></div>
+      <div><div data-kub="4x3x1" data-rang="ko'k" data-olcham="18" data-izoh="Kuboid 4 × 3 × 1"></div><p>4 × 3 × 1</p></div>
+      <div><div data-kub="3x2x2" data-rang="sariq" data-olcham="18" data-izoh="Kuboid 3 × 2 × 2"></div><p>3 × 2 × 2</p></div>
+    </div>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Kuboid</th><th>Bo'yi</th><th>Eni</th><th>Balandligi</th><th>Hajmi</th></tr>
+      <tr><td>1</td><td>12</td><td>1</td><td>1</td><td>12</td></tr>
+      <tr><td>2</td><td>6</td><td>2</td><td>1</td><td>12</td></tr>
+      <tr><td>3</td><td>4</td><td>3</td><td>1</td><td>12</td></tr>
+      <tr><td>4</td><td>3</td><td>2</td><td>2</td><td>12</td></tr>
+    </table></div>
+    <p>To'rttala kuboidning shakli har xil, hajmi esa bir xil — <b>12 kub birlik</b>. (Kuboidni aylantirib qo'ysak — masalan, 2 × 6 × 1 — yangi kuboid hosil bo'lmaydi.)</p>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Ko'rinmaydigan kubchalarni ham unutmang!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Faqat ko'rinib turgan kubchalarni sanash (3 × 2 × 2 kuboidda pastki qatlamning 2 ta kubchasi ko'rinmaydi).<br><span class="xato">hajmi 10 kub birlik</span> &nbsp;→&nbsp; <span class="togri">\(6 + 6 = 12\) kub birlik</span></li>
+      <li>Kubchalar o'rniga yoqlardagi kvadratchalarni sanash (3 × 1 × 2 kuboid: ustida 3, oldida 6, yonida 2 kvadratcha).<br><span class="xato">hajmi \(3 + 6 + 2 = 11\)</span> &nbsp;→&nbsp; <span class="togri">kubchalar \(3 + 3 = 6\) ta, hajmi 6 kub birlik</span></li>
+      <li>Balandroq jismning hajmi albatta katta deb o'ylash.<br><span class="xato">6 qavatli minora (1 × 1 × 6) 3 × 3 × 1 taxtadan katta</span> &nbsp;→&nbsp; <span class="togri">minora 6, taxta 9 kub birlik — taxta katta</span></li>
+      <li>Hajm birligini noto'g'ri yozish.<br><span class="xato">12 kvadrat birlik</span> &nbsp;→&nbsp; <span class="togri">12 kub birlik</span></li>
+      <li>Idishdagi suyuqlik hajmini idishning sig'imi deb o'ylash.<br><span class="xato">chelakda 5 ℓ suv bor, demak sig'imi 5 ℓ</span> &nbsp;→&nbsp; <span class="togri">chelak to'la bo'lsagina sig'imi 5 ℓ; to'lmagan bo'lsa, sig'imi 5 ℓ dan katta</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Qatlamlab sanayman, keyin ustunlab tekshiraman!</div></div>
+
+  <div class="daraja oson"><i></i>Oson — jismning hajmini toping</div>
+  <div class="kub-qator">
+    <div><div data-kub="2x1x3" data-olcham="24" data-izoh="a jism"></div><p>a)</p></div>
+    <div><div data-kub="4x2x1" data-rang="ko'k" data-olcham="24" data-izoh="b jism"></div><p>b)</p></div>
+    <div><div data-kub="1,2,3,2" data-rang="sariq" data-olcham="24" data-izoh="c jism"></div><p>c)</p></div>
+    <div><div data-kub="2,1|2,1|2,1" data-rang="binafsha" data-olcham="24" data-izoh="d jism"></div><p>d)</p></div>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) \(2 + 2 + 2 = 6\) kub birlik</span><span>b) \(4 + 4 = 8\) kub birlik</span><span>c) \(1 + 2 + 3 + 2 = 8\) kub birlik</span><span>d) \(3 + 3 + 3 = 9\) kub birlik</span></div>
+  </details>
+
+  <div class="daraja oson"><i></i>Oson — birlik kub va sig'im</div>
+  <ol>
+    <li>Birlik kubning bo'yi, eni va balandligi necha birlik? Hajmi-chi?</li>
+    <li>Kubning nechta yog'i bor? Ular qanday shaklda?</li>
+    <li>Ko'zaning sig'imi 2 ℓ. To'la ko'zada necha ml suv bor?</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) Hammasi 1 birlik; hajmi 1 kub birlik.</span><span>2) 6 ta, hammasi teng kvadrat.</span><span>3) 2 ℓ = 2000 ml.</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — yashirin kubchalarni ham sanang</div>
+  <div class="kub-qator">
+    <div><div data-kub="3,3|3,3" data-olcham="26" data-izoh="a jism"></div><p>a)</p></div>
+    <div><div data-kub="3,2,1|2,1,0" data-rang="ko'k" data-olcham="26" data-izoh="b jism"></div><p>b)</p></div>
+    <div><div data-kub="1,2,1|2,4,2|1,2,1" data-rang="sariq" data-olcham="24" data-izoh="c jism"></div><p>c) o'rtadagi ustun eng baland</p></div>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) har qatlamda 4 ta, 3 qatlam: \(4 + 4 + 4 = 12\) kub birlik</span><span>b) orqa qator \(3 + 2 + 1 = 6\), old qator \(2 + 1 = 3\), yig'indi \(6 + 3 = 9\) kub birlik</span><span>c) qatorlar: \(1 + 2 + 1 = 4\), \(2 + 4 + 2 = 8\), \(1 + 2 + 1 = 4\); jami \(4 + 8 + 4 = 16\) kub birlik</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — hajmlarni taqqoslang</div>
+  <div class="kub-qator">
+    <div><div data-kub="3x1x2" data-olcham="24" data-izoh="K jism"></div><p>K</p></div>
+    <div><div data-kub="2,1|1,1|1,0" data-rang="ko'k" data-olcham="24" data-izoh="L jism"></div><p>L</p></div>
+    <div><div data-kub="3,2|1,1" data-rang="sariq" data-olcham="24" data-izoh="M jism"></div><p>M</p></div>
+  </div>
+  <p>Qaysi jismning hajmi eng katta? Qaysilarining hajmi teng?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>K: \(3 + 3 = 6\)</span><span>L: \(3 + 2 + 1 = 6\)</span><span>M: \(5 + 2 = 7\)</span><span>Eng katta — M (7 kub birlik); K va L teng (6 kub birlik).</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — 18 ta kubchadan kuboidlar</div>
+  <p>18 ta birlik kubdan yasash mumkin bo'lgan barcha kuboidlarni toping va jadvalni to'ldiring: bo'yi, eni, balandligi, hajmi. Nechta xil kuboid chiqdi?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Kuboid</th><th>Bo'yi</th><th>Eni</th><th>Balandligi</th><th>Hajmi</th></tr>
+      <tr><td>1</td><td>18</td><td>1</td><td>1</td><td>18</td></tr>
+      <tr><td>2</td><td>9</td><td>2</td><td>1</td><td>18</td></tr>
+      <tr><td>3</td><td>6</td><td>3</td><td>1</td><td>18</td></tr>
+      <tr><td>4</td><td>3</td><td>3</td><td>2</td><td>18</td></tr>
+    </table></div>
+    <p>4 xil kuboid; hammasining hajmi 18 kub birlik.</p>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — kubni to'ldiring</div>
+  <div data-kub="3,3,3|3,2,1|3,1,1" data-son="1" data-olcham="30" data-izoh="Qirrasi 3 bo'lgan kubning bir qismi"></div>
+  <p>Bu jism qirrasi 3 birlik bo'lgan kubning bir qismi. Uning hajmi qancha? To'liq kub hosil qilish uchun yana nechta birlik kub kerak?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>Hajmi: \(9 + 6 + 5 = 20\) kub birlik.</span><span>To'liq kub: \(9 + 9 + 9 = 27\). Kerak: \(27 - 20 = 7\) ta birlik kub.</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — pog'onali zina</div>
+  <p>Zinaning 5 ta pog'onasi bor: birinchisi 1 kubcha baland, keyingi har biri oldingisidan 1 kubcha baland. Zinaning eni 2 kubcha. Zina nechta birlik kubdan yasalgan?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>Bir qatorda \(1 + 2 + 3 + 4 + 5 = 15\), qatorlar 2 ta: \(15 + 15 = 30\) kub birlik.</span></div>
+  </details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Masalalarni yeching (kerak bo'lsa, rasm chizing)</span>
+    <ol class="masalalar">
+      <li>Dilnoza qutiga kubiklarni terdi: tagida 5 qator, har qatorda 3 tadan kubik, shunday qatlamlar 4 ta. Qutidagi kubiklar egallagan hajm necha kub birlik?
+        <details class="javob"><summary>Javobni ko'rish</summary>Bir qatlam: \(5 \cdot 3 = 15\); 4 qatlam: \(15 \cdot 4 = 60\) kub birlik.</details></li>
+      <li>Bekzod 27 ta kubikdan qirrasi 3 birlik bo'lgan kub yasadi. Keyin uni buzib, hamma kubiklarni bir qatorga terdi. Qatorning uzunligi necha birlik? Hajmi o'zgardimi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Uzunligi 27 birlik. Hajmi o'zgarmadi — 27 kub birlik (kubiklar soni bir xil).</details></li>
+      <li>Otabekning minorasi 4 qavat, har qavatida 4 ta kubik. Zarinaning minorasi 3 qavat, har qavatida 6 ta kubik. Qaysi minoraning hajmi katta va necha kub birlikka?
+        <details class="javob"><summary>Javobni ko'rish</summary>Otabek: \(4 \cdot 4 = 16\); Zarina: \(3 \cdot 6 = 18\). Zarinaniki \(18 - 16 = 2\) kub birlikka katta.</details></li>
+      <li>Idishning sig'imi 3 ℓ. Unda 1 ℓ 400 ml suv bor. Idishni to'ldirish uchun yana necha ml suv kerak?
+        <details class="javob"><summary>Javobni ko'rish</summary>3 ℓ = 3000 ml, 1 ℓ 400 ml = 1400 ml. \(3000 - 1400 = 1600\) ml.</details></li>
+      <li>Termosning sig'imi 1 ℓ 200 ml. Bitta piyolaga 150 ml choy sig'adi. To'la termosdagi choy nechta piyolaga yetadi?
+        <details class="javob"><summary>Javobni ko'rish</summary>1 ℓ 200 ml = 1200 ml. \(1200 : 150 = 8\) ta piyola.</details></li>
+      <li>Sherzodda 20 ta kubik bor. U bo'yi 3, eni 2, balandligi 3 birlik bo'lgan kuboid yasamoqchi. Kubiklar yetadimi? Nechta ortadi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Bir qatlam \(3 \cdot 2 = 6\), 3 qatlam: \(6 + 6 + 6 = 18\). Yetadi, \(20 - 18 = 2\) ta ortadi.</details></li>
+      <li>Nodira bo'yi 4, eni 3, balandligi 2 birlik bo'lgan kuboid yasadi. Keyin uning ustiga xuddi shunday yana bitta qatlam qo'ydi. Hajm qanchaga ortdi va qancha bo'ldi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Bir qatlam \(4 \cdot 3 = 12\). Avval \(12 + 12 = 24\), 12 ga ortib, \(24 + 12 = 36\) kub birlik bo'ldi.</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Kubning ichida nima borligini tasavvur qiling!</div></div>
+  <div class="box qiyin">
+    <span class="tag">Bo'yalmagan kubcha</span>
+    <p>27 ta birlik kubdan qirrasi 3 bo'lgan kub yasaldi va uning hamma tashqi yoqlari bo'yaldi. Nechta kubchaning birorta ham yog'i bo'yalmay qoldi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>1 ta — kubning qoq o'rtasidagi kubcha. U hamma tomondan boshqa kubchalar bilan o'ralgan.</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Kubgacha to'ldirish</span>
+    <p>Bo'yi 3, eni 2, balandligi 2 bo'lgan kuboidga eng kamida nechta birlik kub qo'shsak, kub hosil bo'ladi (kuboid ichida qoladi)?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Kuboid qirrasi 2 bo'lgan kubga sig'maydi (bo'yi 3). Eng kichik mos kub — qirrasi 3: 27 kubcha. Kuboidda 12 ta, demak \(27 - 12 = 15\) ta qo'shish kerak.</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">6 ta kubcha</span>
+    <p>6 ta birlik kubdan nechta xil kuboid yasash mumkin?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>2 xil: 6 × 1 × 1 va 3 × 2 × 1. (Boshqalari shularning aylantirilgani.)</details>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — belgilab chiqing va Interaktiv panelda kubiklardan jism quring!</div></div>
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men kub va kuboidni ajrata olaman, hajm va sig'im nima ekanini bilaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men birlik kublardan foydalanib jismlar yasay olaman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men jismning hajmini kub birliklarda — yashirin kubchalarni ham hisobga olib — topa olaman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men jismlarning hajmini taqqoslay olaman va turli shakldagi jismlar bir xil hajmga ega bo'lishi mumkinligini bilaman.</label></li>
+    </ul>
+  </div>
+</section>
+<p class="m-foot">Mathlearn · 5-sinf matematika</p>
+</main>
+<script src="chizma.js?v=24"></script>
+<script src="maruza.js?v=3"></script>
+</body>
+</html>

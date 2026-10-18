@@ -172,6 +172,18 @@ const QUIZ_DATA = {
     { level: 9, question: "To'rtburchakning diagonallari perpendikulyar: biri 10 cm, ikkinchisi 8 cm. Yuzi qancha?", options: ["40 cm²", "80 cm²", "18 cm²", "20 cm²"], answer: "40 cm²", explain: "Diagonal to'rtburchakni ikki uchburchakka bo'ladi: har biri ½ · 10 · 4 = 20. Jami 40 cm². 80 — ½ hisobga olinmagan." },
     { level: 10, question: "Panjara katagining tomoni 2 cm. Uchburchakning asosi 4 katak, balandligi 3 katak. Yuzi necha cm²?", options: ["24 cm²", "6 cm²", "12 cm²", "48 cm²"], answer: "24 cm²", explain: "Asos 8 cm, balandlik 6 cm: ½ · 8 · 6 = 24 cm². 6 — kataklar soni, har katak esa 4 cm²." }
   ],
+  "5|matematika|fazoviy-jismlar-hajmi": [
+    { level: 1, question: "Birlik kubning hajmi qancha?", options: ["1 kub birlik", "6 kub birlik", "3 kub birlik", "1 kvadrat birlik"], answer: "1 kub birlik", explain: "Birlik kubning bo'yi, eni va balandligi 1 birlikdan, hajmi esa 1 kub birlik. Kvadrat birlik — yuz o'lchovi." },
+    { level: 2, question: "Kubning nechta yog'i bor va ular qanday shaklda?", options: ["6 ta, hammasi kvadrat", "4 ta, hammasi kvadrat", "6 ta, hammasi to'g'ri to'rtburchak (kvadrat emas)", "8 ta, hammasi kvadrat"], answer: "6 ta, hammasi kvadrat", explain: "Kubning 6 ta yog'i bor va hammasi bir xil kvadrat." },
+    { level: 3, question: "Jism 9 ta birlik kubdan yasalgan. Uning hajmi qancha?", options: ["9 kub birlik", "18 kub birlik", "3 kub birlik", "6 kub birlik"], answer: "9 kub birlik", explain: "Jismning hajmi undagi birlik kublar soniga teng: 9 kub birlik." },
+    { level: 4, question: "Kuboid ikki qatlamdan iborat, har qatlamda 3 tadan 2 qator kubcha bor. Hajmi qancha?", options: ["12 kub birlik", "6 kub birlik", "10 kub birlik", "5 kub birlik"], answer: "12 kub birlik", explain: "Bir qatlamda 3 · 2 = 6 ta, ikki qatlamda 6 + 6 = 12 ta kubcha. 6 — faqat bitta qatlam." },
+    { level: 5, question: "Zina 3 ta pog'onadan iborat: balandliklari 1, 2 va 3 kubcha, eni 2 kubcha. Nechta birlik kub kerak?", options: ["12", "6", "9", "18"], answer: "12", explain: "Bir qatorda 1 + 2 + 3 = 6, qatorlar 2 ta: 6 + 6 = 12. 6 — faqat bitta qator." },
+    { level: 6, question: "P jism 8 ta, Q jism 5 ta, R jism 8 ta birlik kubdan yasalgan. To'g'ri javobni tanlang.", options: ["P va R hajmi teng, Q kichik", "Faqat P eng katta", "Hammasining hajmi teng", "Q eng katta"], answer: "P va R hajmi teng, Q kichik", explain: "Hajm kubchalar soniga bog'liq, shaklga emas: P = R = 8, Q = 5 — eng kichik." },
+    { level: 7, question: "Qirrasi 3 birlik bo'lgan kubning hajmi qancha?", options: ["27 kub birlik", "9 kub birlik", "12 kub birlik", "6 kub birlik"], answer: "27 kub birlik", explain: "Bir qatlamda 3 · 3 = 9 ta, qatlamlar 3 ta: 9 + 9 + 9 = 27. 9 — faqat bitta qatlam." },
+    { level: 8, question: "Idishning sig'imi 2 ℓ, unda 750 ml suv bor. To'ldirish uchun yana qancha suv kerak?", options: ["1250 ml", "1750 ml", "1500 ml", "2750 ml"], answer: "1250 ml", explain: "2 ℓ = 2000 ml; 2000 − 750 = 1250 ml." },
+    { level: 9, question: "18 ta birlik kubdan nechta xil kuboid yasash mumkin (aylantirilgani bir xil hisoblanadi)?", options: ["4", "3", "6", "2"], answer: "4", explain: "18 ni ko'paytma ko'rinishida yozamiz: 18×1×1, 9×2×1, 6×3×1, 3×3×2 — jami 4 xil." },
+    { level: 10, question: "27 ta kubchadan qirrasi 3 bo'lgan kub yasab, tashqi yoqlari bo'yaldi. Bo'yalmagan kubchalar nechta?", options: ["1", "0", "6", "3"], answer: "1", explain: "Faqat o'rtadagi kubcha hamma tomondan o'ralgan, uning birorta yog'i bo'yalmaydi." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },
