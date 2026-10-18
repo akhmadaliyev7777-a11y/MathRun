@@ -17,6 +17,19 @@ Bu fayl har sessiya boshida o'qiladi. Ish shu yerdan davom etadi.
 7. `js/data.js` dagi `review: true` / `review: "sariq"` (qizil/sariq nuqta) faqat foydalanuvchi «tayyor» desa olib tashlanadi.
 8. Ichki nomlar o'zgartirilmaydi: localStorage kaliti `mathrun-progress-v1`, postMessage turi `mathrun:height`, `mathrunner-web/` papkasi.
 
+## Ishlash qoidalari (foydalanuvchi bilan kelishilgan, 2026-10-18)
+- **Shox:** `main` da ishlanadi (8–15-mavzular allaqachon `main` da). Mavzu tayyor bo'lgach foydalanuvchidan **push qilishga ruxsat so'rang**; ruxsat bo'lmasa push qilmang.
+- **Kitobdan ko'chirma taassuroti bo'lmasin:** kitobdagi aynan bir xil ifoda, son-juftlik, ism va vaziyatlarni o'zimizniki bilan almashtiring. Qoida mazmuni va atamalari — aniq, so'zlari — o'zimizniki.
+- **Birinchi o'rinda — sifat, ikkinchisida — token.** Maqsad: ish sifati tushmasin va foydalanuvchining haftalik/oylik limiti kechagidek tez tugab qolmasin (ko'proq mavzu ishlansin). Sifat tushadigan bo'lsa, tejash qoidalarini buzish mumkin: ko'proq o'qing, qayta yozing, qayta tekshiring.
+  - **Hech qachon qisqartirilmaydi:** tenglik.py, javoblarni Python bilan hisoblash, masala bir javobli ekanini tekshirish, 390/1100 px ko'rish tekshiruvi, kitobdan ko'chirmaslik.
+  - **Kitobdan ko'chirma:** kitob bilan aynan mos tushgan son, ifoda, ism va vaziyatlar **albatta** almashtiriladi (`python3 _reja/tools/kitobdan.py` bilan toping, butun kitobni qayta o'qimang). Mos kelmagan misollarga tegmang. Chizmalar: biroz o'zgartirish yetarli bo'lsa — shuni qiling, sifati past chizmani qaytadan yasang.
+  - **Kuchliroq model (Opus):** modelni o'zingiz almashtira olmaysiz. Qiyin mavzuda (masalan 18–20: yangi chizma turi, murakkab hisob) yoki Sonnet takror xato qilsa, foydalanuvchiga «bu mavzuga /model bilan Opus kerak» deb ayting va sababini bir gapda yozing. Oddiy mavzularda Sonnet.
+  - **Chegara:** bir mavzu uchun o'rtacha ish hajmidan (bir sessiyada 1–2 mavzu) sezilarli oshib ketsangiz — to'xtab, foydalanuvchiga ayting va so'rang; bir ma'ruzani ikki martadan ortiq butunlay qayta yozmang.
+- **Tejash (sessiya):** bir sessiyada bitta-ikkita mavzu; keyingisini yangi sessiyada boshlang. Kitob PDF'ini va rasmlarni faqat kerakli betlar bo'yicha o'qing. Barcha ma'ruzalarni qayta tekshirish faqat `chizma.js`/`maruza.css` o'zgarganda kerak. Oddiy ish uchun Sonnet yetarli.
+- **Kitoblar:** PDF'lar GitHub'da yo'q — yangi sessiyada foydalanuvchi qayta yuklaydi (16–20-mavzular: kitob betlari 103–134). Mashq daftarlari (M1, M2) hali berilmagan — reja ro'yxatlari bilan ishlang va hisobotda ayting.
+- **Tekshiruv:** `python3 _reja/tools/tenglik.py`, `node --check`, 390 va 1100 px (Playwright, KaTeX'ni `scratchpad/node_modules/katex` dan `page.route` bilan berish; server: `python3 -m http.server`, o'chirish: `pkill -f "http.serve[r] 8765"`).
+- **Hisobot:** har mavzudan keyin qisqa, texnik so'zsiz o'zbekcha hisobot.
+
 ## Fayllar
 | Nima | Qayerda |
 |---|---|
