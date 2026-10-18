@@ -307,7 +307,8 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** 16 ta birlik kubdan 4 xil kuboid (jadval: bo'yi, eni, balandligi, hajmi).
 **Rasmlar:** izometrik kubchalar.
 
-#### ☐ 16. Uch o'lchamli panjarada fazoviy jismlarni chizish — D1 115–117; M1 141–142
+#### ✅ 16. Uch o'lchamli panjarada fazoviy jismlarni chizish — D1 115–117; M1 141–142
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-izometrik-panjarada-chizish.html. O'z testi: `5|matematika|izometrik-panjarada-chizish` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Yangi chizma: `data-panjara` (nuqtali izometrik panjarada kuboid, bosqichlar, ko'rinmas qirralar, birlik bo'linishi; chizma.js). Kitob bilan solishtirildi (D1 115–117): barcha qoidalar (3 yo'nalish, kub, kuboid, ikki xil joylashuv) va misol turlari bor; sonlar o'zimizniki. Mashq daftari M1 141–142 berilmagan — reja ro'yxati bo'yicha (tik ustun, yassi taxta, kub, ikki xil joylashuv) o'z sonlarimiz bilan. Tekshiruv: tenglik.py 18/0, kitobdan.py 0, node --check, 390/1100 px to'g'ri, xato yo'q; barcha 5-*.html ma'ruzalari chizma.js?v=25 bilan xatosiz ochildi. `review: true` tegilmadi. Simulyator: tayyor lessons/5-matematika-izometrik-chizish.html bor (tegilmaydi).
 **Qoidalar ro'yxati:**
 - Uch o'lchamli (izometrik) nuqtali panjarada qirralar 3 yo'nalishda: tik va ikki qiya.
 - Kubning 3 ta o'lchami teng; kuboid — bo'yi, eni, balandligi.
@@ -690,7 +691,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** 16 ta birlik kubdan 4 xil kuboid (jadval: bo'yi, eni, balandligi, hajmi).
 **Rasmlar:** izometrik kubchalar.
 
-#### ☐ 16. Uch o'lchamli panjarada fazoviy jismlarni chizish — D1 115–117; M1 141–142
+#### ✅ 16. Uch o'lchamli panjarada fazoviy jismlarni chizish — D1 115–117; M1 141–142
 **Qoidalar ro'yxati:**
 - Uch o'lchamli (izometrik) nuqtali panjarada qirralar 3 yo'nalishda: tik va ikki qiya.
 - Kubning 3 ta o'lchami teng; kuboid — bo'yi, eni, balandligi.
