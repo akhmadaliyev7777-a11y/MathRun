@@ -8,7 +8,7 @@ Bu fayl har sessiya boshida o'qiladi. Ish shu yerdan davom etadi.
 - Hozirgi asosiy ish: **5-sinf mavzulari uchun ma'ruzalar** (Nazariya) va har mavzuning **o'z testi**.
 
 ## Qat'iy qoidalar
-1. **Push faqat foydalanuvchi «push qil» deganda.** Undan oldin o'zgarishni tayyorlab, tekshirib, nima qilinganini tushuntirib, so'rash.
+1. **Push — so'rovsiz, avtomatik `main` ga (foydalanuvchi qarori, 2026-10-18).** Mavzu tayyor bo'lib, barcha tekshiruvlar (tenglik.py, `node --check`, 390/1100 px, kitobdan ko'chirmaslik) xatosiz o'tgach — ruxsat so'ramasdan `main` ga push qilinadi, keyin hisobot beriladi. Tekshiruv o'tmasa yoki shubha bo'lsa — push qilinmaydi, foydalanuvchiga aytiladi.
 2. **Oxirgi tahrirdan keyin** sintaksis tekshiruvi: `for f in js/*.js maruza/*.js; do node --check $f; done`. `lessons/*.html` dagi bir qatorli skriptlarga `//` izoh yozilmaydi (qatorning qolgani o'chib, sahifa ishlamay qoladi) — faqat `/* */`.
 3. **Kitob matni/rasmi aynan ko'chirilmaydi.** Qoida mazmuni va atamalari aniq, so'zlari o'zimizniki; misollar — o'z sonlarimiz; rasmlar — `maruza/chizma.js` chizgan SVG. Saytda kitob nomi va betlari yozilmaydi.
 4. **Kitob PDF'lari hech qachon commit qilinmaydi** — ular faqat `_kitob/` papkasida (`.gitignore` da).
@@ -20,7 +20,7 @@ Bu fayl har sessiya boshida o'qiladi. Ish shu yerdan davom etadi.
 ## Ishlash qoidalari (foydalanuvchi bilan kelishilgan, 2026-10-18)
 - **Shox — har doim `main` ga (foydalanuvchi qarori, 2026-10-18):** sessiya qaysi shoxda ochilgan bo'lsa ham (masalan `claude/...`), tayyor ish **`main` ga** yuklanadi — sayt shundan chiqadi. Tartib:
   1. **Sessiya boshida:** `git fetch origin` va `git branch -r` — boshqa shoxlarda `main` ga qo'shilmagan mavzu bormi (`git log --oneline origin/main..origin/<shox>`)? Bo'lsa — foydalanuvchiga ayting va uni `main` ga birlashtiring (ikkala tomondagi ish saqlanadi; `?v=` versiyalar kattasidan +1). Keyin ishni eng so'nggi `main` ustida boshlang.
-  2. **Mavzu tayyor va tekshirilgach** — «push qil» deyilganda: `git push origin HEAD:main` (o'z shoxingizga ham push qilsa bo'ladi). Push oldidan `git fetch origin main`; `main` oldinga ketgan bo'lsa — avval birlashtiring, qayta tekshiring, keyin push.
+  2. **Mavzu tayyor va tekshirilgach** — so'rovsiz: `git push origin HEAD:main` (o'z shoxingizga ham push qilsa bo'ladi). Push oldidan `git fetch origin main`; `main` oldinga ketgan bo'lsa — avval birlashtiring, qayta tekshiring, keyin push.
   3. Boshqa sessiya «main ga kompyuterdagi sessiya qo'shadi» deb kutmasin — endi har sessiya o'zi `main` ga qo'shadi.
 - **Kitobdan ko'chirma taassuroti bo'lmasin:** kitobdagi aynan bir xil ifoda, son-juftlik, ism va vaziyatlarni o'zimizniki bilan almashtiring. Qoida mazmuni va atamalari — aniq, so'zlari — o'zimizniki.
 - **Birinchi o'rinda — sifat, ikkinchisida — token.** Maqsad: ish sifati tushmasin va foydalanuvchining haftalik/oylik limiti kechagidek tez tugab qolmasin (ko'proq mavzu ishlansin). Sifat tushadigan bo'lsa, tejash qoidalarini buzish mumkin: ko'proq o'qing, qayta yozing, qayta tekshiring.
@@ -67,7 +67,7 @@ PDF beti = kitob beti + 4. Agar nomlar boshqacha bo'lsa — faylni qayta nomlang
 7. **Kitob bilan qayta solishtirish** — har qoida va har misol turi sahifada bormi; natija rejaga va hisobotga.
 8. **Ko'rish tekshiruvi** — imkon bo'lsa brauzerda (Playwright/Chromium) telefon 390 px va kompyuter 1100 px: `scrollWidth` = ekran kengligi, KaTeX yuklangan, xato yo'q, rasmlar o'qiladi. Imkon bo'lmasa — foydalanuvchiga telefonda ochib ko'rishni so'rash.
 9. **Rejada belgilash** — `☐` → `✅`, sana, «Kitob bilan solishtirildi», «Tekshiruv», «Simulyator uchun g'oyalar».
-10. Foydalanuvchiga qisqa hisobot (nima kirdi, nima tekshirildi, nima tuzatildi) va «push qil» kutish.
+10. Tekshiruvlar xatosiz bo'lsa — `main` ga push (so'rovsiz), keyin foydalanuvchiga qisqa hisobot (nima kirdi, nima tekshirildi, nima tuzatildi, saytga chiqdi).
 
 ## Holat (2026-10-18)
 5-sinf, 47 mavzu. Saytda (main ga qo'shilgan, 2026-10-18):

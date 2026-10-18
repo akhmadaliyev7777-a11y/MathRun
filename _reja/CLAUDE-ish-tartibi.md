@@ -5,7 +5,7 @@ Foydalanuvchi: o'zbek tilida yozadi, dasturchi emas. Javoblar o'zbek tilida, qis
 
 ## 0. Qat'iy qoidalar (buzilmaydi)
 1. **Bir vaqtda bitta mavzu.** Tugatib, tekshirib, ko'rsatib, keyin keyingisi.
-2. **Push faqat "push qil" deyilganda.** Undan oldin: `node --check` + skrinshot tekshiruvi OXIRGI tahrirdan keyin.
+2. **Push — so'rovsiz, avtomatik `main` ga** (2026-10-18 dan). Undan oldin: `node --check` + skrinshot tekshiruvi OXIRGI tahrirdan keyin; birorta tekshiruv o'tmasa — push qilinmaydi.
 3. **Kitob matni/rasmi aynan ko'chirilmaydi.** Qoida mazmuni va atamalari aniq saqlanadi, so'zlari o'zimizniki. Misollar — o'z sonlarimiz va vaziyatlarimiz. Rasmlar — o'zimiz chizgan SVG. Saytda kitob nomi va betlari yozilmaydi.
 4. **Hech bir qoida tushib qolmaydi.** Rejadagi "Qoidalar ro'yxati"ning har bandi ma'ruzada bo'lishi shart.
 5. **Hech bir misol turi tushib qolmaydi.** "Misol turlari" + "Mashq daftaridan" ro'yxatlaridagi har tur kamida bitta mashq bo'ladi.
@@ -57,7 +57,7 @@ PDF bet = kitob beti + 4. Formulalar faqat KaTeX: `\frac{3}{5}`, `2\frac{1}{4}`,
 6. **Ulash.** data.js `embedUrl`, `LESSON_VER` +1, `data.js?v=` +1 → qayta `node --check`.
 7. **Ko'rsatish.** Foydalanuvchiga: nima qilindi, qaysi qoidalar va misol turlari kirdi, kitobda topilgan xato bo'lsa — qisqa. Havola: `http://localhost:8765/mavzu.html?sinf=5&fan=matematika&mavzu=<id>` (server: `python3 -m http.server 8765`).
 8. **Rejada belgilash.** `☐` → `✅`, sana, tekshiruv natijasi, "Simulyator uchun g'oyalar".
-9. **Push** — faqat "push qil" dan keyin.
+9. **Push** — tekshiruvlar xatosiz bo'lsa, so'rovsiz `main` ga (`git push origin HEAD:main`).
 
 ## 3a. Personajlar (maruza/personaj/*.webp)
 Bor: aziz, madina, ustoz (to'liq bo'y); aziz-tushuntiradi, aziz-oylaydi, aziz-diqqat, aziz-yozadi; madina-tushuntiradi, madina-oylaydi; ustoz-tushuntiradi, ustoz-oylaydi.
