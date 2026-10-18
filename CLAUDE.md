@@ -66,8 +66,8 @@ PDF beti = kitob beti + 4. Agar nomlar boshqacha bo'lsa — faylni qayta nomlang
 9. **Rejada belgilash** — `☐` → `✅`, sana, «Kitob bilan solishtirildi», «Tekshiruv», «Simulyator uchun g'oyalar».
 10. Foydalanuvchiga qisqa hisobot (nima kirdi, nima tekshirildi, nima tuzatildi) va «push qil» kutish.
 
-## Holat (2026-10-17)
-5-sinf, 47 mavzu. Saytda (push qilingan, `03970a8`):
+## Holat (2026-10-18)
+5-sinf, 47 mavzu. Saytda (main ga qo'shilgan, 2026-10-18):
 
 | Mavzu | Ma'ruza | O'z testi |
 |---|---|---|
@@ -86,7 +86,7 @@ PDF beti = kitob beti + 4. Agar nomlar boshqacha bo'lsa — faylni qayta nomlang
 | 13. Uchburchakning yuzini topish | ✅ | ✅ |
 | 14. To'g'ri to'rtburchak va uchburchaklardan tuzilgan shakllarning yuzi | ✅ | ✅ |
 | 15. Fazoviy jismlarning hajmi | ✅ | ✅ |
-| 20. Suyuqlik hajmi (16–19 hali yo'q; foydalanuvchi so'rovi bilan oldinroq) | ✅ (push kutilmoqda) | ✅ |
+| 20. Suyuqlik hajmi (16–19 hali yo'q; foydalanuvchi so'rovi bilan oldinroq) | ✅ | ✅ |
 
 **Navbat:** 16-mavzu «Uch o'lchamli panjarada fazoviy jismlarni chizish» (id `izometrik-panjarada-chizish`, D1 115–117, M1 141–142; kitob betlari 103–134 foydalanuvchi yuborgan PDF'da bor), keyin 17, ... 47 tartib bilan. 8–15-mavzular 2026-10-18 da kompyuterdagi sessiya tekshirib, main ga qo'shdi. Yangi ishni avval `git fetch origin main` qilib, eng so'nggi main ustida boshla; ishni o'z shoxingga push qil — main ga kompyuterdagi sessiya qo'shadi. Alohida vazifa: 1, 2, 6-mavzularga o'z testi (10 savol, izohli).
 
