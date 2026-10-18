@@ -370,7 +370,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 
 ### 6-bob. Nisbatlar
 
-#### ☐ 21. Nisbat tushunchasi — D1 140–145; M1 165–168
+#### ✅ 21. Nisbat tushunchasi — D1 140–145; M1 165–168
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-nisbat-tushunchasi.html. O'z testi: `5|matematika|nisbat-tushunchasi` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Yangi chizma (chizma.js): `data-buyum` — buyumlar qatori (doira, kvadrat, uchburchak, romb, yulduz; 6 rang), `data-guruh` bilan guruhlarga ajratish (22-mavzuda ham ishlatildi); `data-kataklar` ga `data-ustun` qo'shildi. Nisbatlar 21-mavzuda qisqartirilmaydi (kitobdagidek), hadlar atamasi kiritildi.
+**Kitob bilan solishtirildi:** 5 qoida (a : b va o'qilishi, hadlar; tartib muhim; birliklar yozilmaydi va bir xil birlik; qismning jamiga nisbati; «n marta ko'p» → n : 1 va chizmali model) ✅. Darslik turlari: rasmdan nisbat (shakllar, tugmalar), massa/hajm nisbati, qism : jami (sharlar), bo'lak modeli (savatlar — teng paketlar), «marta ko'p» → nisbat va jami, ichimlik (qaysi kuchliroq), to'g'ri to'rtburchak bo'yi : eni, bo'yi : perimetri, katakli rasm ✅. Mashq daftari (M1 165–168): rasmdan ikki tomonlama nisbat, jami bilan nisbat, tasmalar/model bo'yicha nisbat, chizmali model chizish (P : Q), jadvaldan nisbat, «4 marta, 2 marta ko'p» uchta odam → qism : jami ✅ (o'z sonlarimiz: 6 va 3 marta). Bob boshidagi bozor rasmi (bepul shirinliklar) — kirmadi, 23-mavzuga mos. kitobdan.py: 2 ta tasodifiy oddiy juft (3 : 4, 6 : 5 — boshqa vaziyatda), qolganlari almashtirildi.
+**Tekshiruv:** tenglik.py 18 to'g'ri, 0 xato; javoblar Python bilan; 390/1100 px — siljish yo'q, KaTeX, xato yo'q; chizma.js/maruza.css o'zgargani uchun barcha 23 ma'ruza qayta ochildi — xato yo'q.
+**Simulyator uchun g'oyalar:** ikki xil buyumni qo'shish/olish tugmalari — nisbat va «qism : jami» darhol yangilanadi; «tartibni almashtir» tugmasi; ichimlik aralashtirish (sharbat/suv piyolalari, rang to'qligi nisbatga qarab).
 **Qoidalar ro'yxati:**
 - Ikki miqdorni taqqoslash: a : b ("a ga b" deb o'qiladi).
 - Tartib muhim: ko'k : qizil = 4 : 1, qizil : ko'k = 1 : 4.
@@ -381,7 +385,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** nisbatni chizma-model bilan tasvirlash (P : Q = 6 : 5); jadvaldan nisbat (stikerlar); "4 marta, 2 marta ko'p" → qismning jamiga nisbati.
 **Rasmlar:** buyumlar qatori, ikki qatorli bo'lak modeli.
 
-#### ☐ 22. Teng kuchli nisbatlar — D1 146–154; M1 169–178
+#### ✅ 22. Teng kuchli nisbatlar — D1 146–154; M1 169–178
+**Holat (2026-10-18):** tayyor (bulut sessiyasi). Fayl: maruza/5-teng-kuchli-nisbatlar.html. O'z testi: `5|matematika|teng-kuchli-nisbatlar` (10 savol, izohli); data.js da ma'ruza va test havolasi ulandi. Chizmalar: `data-buyum` + `data-guruh` (2, 3, 6 tadan guruhlash), `data-kataklar` + `data-ustun="6"` (6 × 6 qog'oz).
+**Kitob bilan solishtirildi:** 4 qoida (ikkala hadni bir xil songa ko'paytirish/bo'lish; qisqarmas shakl — umumiy bo'luvchi, eng kattasi bilan bir qadamda, 2 : 4 kabi oraliq natija qisqarmas emas; noma'lum had — teng kuchli kasrlardagidek; kasr ↔ nisbat) ✅ + teng kuchlilikni qisqarmas shakl bilan tekshirish. Darslik turlari: guruhlarga ajratish, qisqarmas shaklga keltirish, teng kuchli nisbat zanjiri, sinfdagi qiz/o'g'il, markalar, pullar soni, noma'lum had (3 xil joyda), paketlar jadvali (biri ma'lum → ikkinchisi), retsept ✅. Mashq daftari (M1 169–178): rasmdan guruhlab qisqarmas shakl, birlikli nisbatlar (ml, m), yoshlar nisbati yillar o'tib, katakli qog'oz + yana bo'yaldi, so'zlar bilan nisbat, noma'lum hadli tengliklar (ikki noma'lumli zanjir ham), sovg'a qutilari ✅ (M1 177–178 qutilar masalasi 23-mavzuda ham davom etadi). kitobdan.py: 2 ta (12 : 18 — yosh javobi, 3 : 7 — javob), situatsiyalar boshqa.
+**Tekshiruv:** tenglik.py 45 to'g'ri; 13 «xato» — barchasi atayin xato (2 : 3 = 4 : 5), □ topshiriqlar va «bo'luvchi 3:» kabi matn bo'laklari, hisob xatosi yo'q; javoblar Python bilan (qisqarmas shakllar, noma'lum hadlar, hadlar yig'indisi 35 → yagona javob 15 : 20); 390/1100 px — xato yo'q.
+**Simulyator uchun g'oyalar:** buyumlarni 2, 3, 4 ... tadan guruhlash slayderi — nisbat o'zgarib, eng katta guruhda qisqarmas shakl chiqadi; noma'lum had o'yini («×?» strelkasini tanlash).
 **Qoidalar ro'yxati:**
 - Nisbatning ikkala hadini bir xil songa ko'paytirsak yoki bo'lsak, teng kuchli nisbat hosil bo'ladi (12 : 8 = 6 : 4 = 3 : 2).
 - Qisqarmas shakl: hadlar eng katta umumiy bo'luvchiga bo'linadi (4 : 8 → 1 : 2); 2 : 4 hali qisqarmas emas.
@@ -753,7 +761,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 
 ### 6-bob. Nisbatlar
 
-#### ☐ 21. Nisbat tushunchasi — D1 140–145; M1 165–168
+#### ✅ 21. Nisbat tushunchasi — D1 140–145; M1 165–168
 **Qoidalar ro'yxati:**
 - Ikki miqdorni taqqoslash: a : b ("a ga b" deb o'qiladi).
 - Tartib muhim: ko'k : qizil = 4 : 1, qizil : ko'k = 1 : 4.
@@ -764,7 +772,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** nisbatni chizma-model bilan tasvirlash (P : Q = 6 : 5); jadvaldan nisbat (stikerlar); "4 marta, 2 marta ko'p" → qismning jamiga nisbati.
 **Rasmlar:** buyumlar qatori, ikki qatorli bo'lak modeli.
 
-#### ☐ 22. Teng kuchli nisbatlar — D1 146–154; M1 169–178
+#### ✅ 22. Teng kuchli nisbatlar — D1 146–154; M1 169–178
 **Qoidalar ro'yxati:**
 - Nisbatning ikkala hadini bir xil songa ko'paytirsak yoki bo'lsak, teng kuchli nisbat hosil bo'ladi (12 : 8 = 6 : 4 = 3 : 2).
 - Qisqarmas shakl: hadlar eng katta umumiy bo'luvchiga bo'linadi (4 : 8 → 1 : 2); 2 : 4 hali qisqarmas emas.

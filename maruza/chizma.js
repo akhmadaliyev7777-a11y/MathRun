@@ -3,7 +3,7 @@
 
    data-ld="a/b" [data-x="3"]     — burchak usulida bo'lish a : b, verguldan keyin ko'pi bilan x xona
    data-xk="a/b/c/d/k"             — a/b = c/d, surat va maxraj k ga ko'paytiriladi (strelkali sxema)
-   data-kataklar="n" [data-jami]   — 10×10 (yoki 10×jami/10) katak, n tasi bo'yalgan
+   data-kataklar="n" [data-jami]   — 10×10 (yoki 10×jami/10) katak, n tasi bo'yalgan; [data-ustun="6"] — bir qatordagi kataklar soni (bo'lmasa 10)
    data-sonoqi="bo'lak/nuqta" [data-yozuv="0,6"] — 0 dan 1 gacha son o'qi, bo'lak ga bo'lingan, nuqta-chi bo'lakda belgi
    data-xona="3594627" [data-bosh="1"]  — xona jadvali (sinflar bilan); bosh="1" — raqamlarsiz bo'sh jadval
    data-tugma="3594627"            — sonli tugmalar: har xonada raqamcha tugma (1 000 000, 100 000, ...)
@@ -52,6 +52,10 @@
                                           (o'sha birlikda; bo'lmasa — bo'sh idish); o'lchamlar taxminan nisbatda chiziladi
        [data-yozuv="40 cm|25 cm|30 cm|18 cm|12 cm"] — bo'yi | eni | balandligi | suv sathi | bo'sh qism (bo'sh — yozilmaydi)
    data-menzurka="600/1000"        — o'lchov idishi (menzurka): shkala 0 dan 1000 ml gacha, ichida 600 ml suyuqlik
+   data-buyum="Doiralar:doira:ko'k:6|Kvadratlar:kvadrat:sariq:4" [data-guruh="2"] [data-olcham="24"] — buyumlar qatori (nisbat uchun):
+                                          har qator "nomi:shakli:rangi:soni" (shakl: doira, kvadrat, uchburchak, romb, yulduz;
+                                          rang: ko'k, qizil, yashil, sariq, binafsha, to'q sariq; nomi bo'sh bo'lsa — yozilmaydi);
+                                          guruh="2" — har qatordagi buyumlar 2 tadan punktir ramkali guruhlarga ajratiladi
 */
 (function () {
   "use strict";
@@ -145,14 +149,14 @@
   function chizKataklar(el) {
     const n = Number(el.dataset.kataklar);
     const jami = Number(el.dataset.jami || 100);
-    const qatorlar = jami / 10, s = 22, g = 2;
-    const W = 10 * s + 2 * g, H = qatorlar * s + 2 * g;
+    const u = Number(el.dataset.ustun || 10), qatorlar = Math.ceil(jami / u), s = 22, g = 2;
+    const W = u * s + 2 * g, H = qatorlar * s + 2 * g;
     let h = '<svg viewBox="0 0 ' + W + " " + H + '" width="' + W + '" role="img" aria-label="' + jami + " ta katakdan " + n + ' tasi bo\'yalgan">';
     for (let i = 0; i < jami; i++) {
-      const x = g + (i % 10) * s, y = g + Math.floor(i / 10) * s;
+      const x = g + (i % u) * s, y = g + Math.floor(i / u) * s;
       h += '<rect x="' + x + '" y="' + y + '" width="' + s + '" height="' + s + '" fill="' + (i < n ? "#12805c" : "#fff") + '" fill-opacity="' + (i < n ? 0.75 : 1) + '" stroke="#9aa3b5" stroke-width="1"/>';
     }
-    h += '<rect x="' + g + '" y="' + g + '" width="' + 10 * s + '" height="' + qatorlar * s + '" fill="none" stroke="#1f2433" stroke-width="2"/></svg>';
+    h += '<rect x="' + g + '" y="' + g + '" width="' + u * s + '" height="' + qatorlar * s + '" fill="none" stroke="#1f2433" stroke-width="2"/></svg>';
     el.classList.add("chz");
     el.innerHTML = h;
   }
@@ -958,6 +962,46 @@
       (el.dataset.izoh || "Kuboid shaklidagi idish" + (suv ? ", ichida suv" : "")) + '">' + s + "</svg>";
   }
 
+  // ---------- buyumlar qatori (nisbat): shakllar, kerak bo'lsa guruhlarga ajratilgan ----------
+  const BUYUM_RANG = { "ko'k": ["#8fb3f5", "#1f5fd6"], qizil: ["#f59a9a", "#c81e1e"], yashil: ["#8fd6b4", "#12805c"], sariq: ["#fbd56b", "#b58105"],
+    binafsha: ["#c4adf0", "#6d3fc0"], "to'q sariq": ["#fbb48a", "#d4501b"] };
+  function shakl(tur, cx, cy, r, c) {
+    const st = '" fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="2" stroke-linejoin="round"/>';
+    const nuqtalar = function (p) { return '<path d="M' + p.map(function (q) { return q[0].toFixed(1) + " " + q[1].toFixed(1); }).join(" L") + ' Z' + st; };
+    if (tur === "kvadrat") return '<rect x="' + (cx - r * 0.86) + '" y="' + (cy - r * 0.86) + '" width="' + r * 1.72 + '" height="' + r * 1.72 + '" rx="2' + st;
+    if (tur === "uchburchak") return nuqtalar([[cx, cy - r], [cx + r * 0.95, cy + r * 0.72], [cx - r * 0.95, cy + r * 0.72]]);
+    if (tur === "romb") return nuqtalar([[cx, cy - r], [cx + r * 0.78, cy], [cx, cy + r], [cx - r * 0.78, cy]]);
+    if (tur === "yulduz") {
+      const p = [];
+      for (let k = 0; k < 10; k++) { const a = Math.PI * k / 5, q = k % 2 ? r * 0.45 : r * 1.05; p.push([cx + q * Math.sin(a), cy - q * Math.cos(a) + r * 0.08]); }
+      return nuqtalar(p);
+    }
+    return '<circle cx="' + cx + '" cy="' + cy + '" r="' + r * 0.92 + st;
+  }
+  function chizBuyum(el) {
+    const qator = el.dataset.buyum.split("|").map(function (q) { const p = q.split(":"); return { nom: p[0], tur: p[1], rang: p[2], n: Number(p[3]) }; });
+    const g = Number(el.dataset.guruh || 0), s = Number(el.dataset.olcham || 24), qadam = s + 6, W = 380, ich = g ? 5 : 0, ora = g ? 12 : 0;
+    let svg = "", y = 0, maxX = 0;
+    qator.forEach(function (q) {
+      if (q.nom) { svg += '<text x="2" y="' + (y + 15) + '" font-size="15" font-weight="700" fill="#1f2433">' + q.nom + "</text>"; y += 22; }
+      const blok = g || 1, bolaklar = Math.ceil(q.n / blok), bw = blok * qadam - 6 + 2 * ich;
+      let x = 2, yy = y + ich;
+      for (let b = 0; b < bolaklar; b++) {
+        if (x + bw > W - 2 && x > 2) { x = 2; yy += s + 2 * ich + 8; }
+        const soni = Math.min(blok, q.n - b * blok);
+        if (g) svg += '<rect x="' + x + '" y="' + (yy - ich) + '" width="' + (soni * qadam - 6 + 2 * ich) + '" height="' + (s + 2 * ich) + '" rx="8" fill="none" stroke="#6d3fc0" stroke-width="1.8" stroke-dasharray="5 4"/>';
+        for (let k = 0; k < soni; k++) svg += shakl(q.tur, x + ich + k * qadam + s / 2, yy + s / 2, s / 2, BUYUM_RANG[q.rang] || BUYUM_RANG["ko'k"]);
+        maxX = Math.max(maxX, x + soni * qadam - 6 + 2 * ich);
+        x += bw + ora;
+      }
+      y = yy + s + ich + 12;
+    });
+    const Wt = Math.max(maxX + 2, 120);
+    el.classList.add("buyum");
+    el.innerHTML = '<svg viewBox="0 0 ' + Wt + " " + (y - 6) + '" style="max-width:' + Wt + 'px" role="img" aria-label="' + (el.dataset.izoh ||
+      qator.map(function (q) { return (q.nom ? q.nom + ": " : "") + q.n + " ta"; }).join(", ") + (g ? ", " + g + " tadan guruhlarga ajratilgan" : "")) + '">' + svg + "</svg>";
+  }
+
   // ---------- o'lchov idishi (menzurka) ----------
   function chizMenzurka(el) {
     const [v, max] = el.dataset.menzurka.split("/").map(Number);
@@ -1006,6 +1050,7 @@
       root.querySelectorAll("[data-kub]").forEach(chizKub);
       root.querySelectorAll("[data-idish]").forEach(chizIdish);
       root.querySelectorAll("[data-menzurka]").forEach(chizMenzurka);
+      root.querySelectorAll("[data-buyum]").forEach(chizBuyum);
       root.querySelectorAll("[data-panjara]").forEach(chizPanjara);
       root.querySelectorAll("[data-korinish]").forEach(chizKorinish);
     }
