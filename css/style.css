@@ -1529,3 +1529,29 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
   .tc-icon, .tc-icon img { width: 60px; height: 60px; flex-basis: 60px; }
   .tc-meta { margin-left: 72px; }
 }
+
+/* bosh sahifa: sinf afishalari — katta tik rasm, ostida shu fonda sinf nomi (mavzu kartochkalaridan ajralib turadi) */
+#grades-grid { max-width: 1180px; }
+.grade-tiles { gap: 22px; }
+.grade-poster { position: relative; display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: #e8ecfc; color: #1e2a78; box-shadow: 0 6px 18px rgba(30, 42, 120, .08); transition: transform .25s ease, box-shadow .25s ease; }
+.grade-poster:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(30, 42, 120, .18); }
+.gp-art { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; }
+.gp-art img { position: absolute; left: 0; top: 0; width: 100%; height: auto; display: block; transition: transform .5s ease; transform-origin: center 40%; }
+.grade-poster:hover .gp-art img { transform: scale(1.05); }
+.gp-num { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; font-size: clamp(5rem, 11vw, 8rem); line-height: 1; color: #3b4fd8; letter-spacing: -.05em; }
+.gp-badge { display: none; }
+.gp-body { display: flex; flex-direction: column; gap: 4px; padding: 4px 20px 20px; }
+.gp-name { font-weight: 800; font-size: 1.85rem; line-height: 1.05; letter-spacing: -.02em; color: #1e2a78; }
+.gp-subj { font-size: .9rem; font-weight: 700; color: #3b4fd8; line-height: 1.35; }
+.grade-poster--primary .gp-subj { color: #12805c; }
+.gp-meta { color: #4b5578; font-size: .84rem; font-weight: 600; }
+.gp-meta b { color: #12805c; font-weight: 800; }
+@media (max-width: 860px) { .grade-tiles { gap: 16px; } .gp-name { font-size: 1.55rem; } }
+@media (max-width: 560px) {
+  .grade-tiles { gap: 12px; }
+  .grade-poster { border-radius: 18px; }
+  .gp-body { padding: 2px 12px 12px; gap: 2px; }
+  .gp-name { font-size: 1.25rem; }
+  .gp-subj { font-size: .78rem; }
+  .gp-meta { font-size: .74rem; }
+}

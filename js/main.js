@@ -52,14 +52,20 @@ function topicStatusBadge(topic) {
 
 // ---------- Bosh sahifa: sinflar to'ri ----------
 // Bosh sahifadagi sinflar: ikki guruh — boshlang'ich (1–4) va 5–11 sinflar
+// sinf afishalari (img/sinf/<sinf>.webp); rasmi yo'q sinfda — och fonda katta raqam
+const GRADE_POSTERS = { 1: true, 2: true, 3: true, 4: true };
+
 function gradeTile(href, number, name, chips, meta, primary) {
+  const poster = GRADE_POSTERS[number]
+    ? '<img src="img/sinf/' + number + '.webp?v=3" alt="" loading="lazy" decoding="async">'
+    : '<span class="gp-num">' + number + '</span>';
   return (
-    '<a class="grade-tile' + (primary ? ' grade-tile--primary' : '') + '" href="' + href + '">' +
-      '<span class="grade-tile-num">' + number + '</span>' +
-      '<span class="grade-tile-body">' +
-        '<span class="grade-tile-name">' + name + '</span>' +
-        (chips.length ? '<span class="grade-tile-subj">' + chips.join(" · ") + '</span>' : "") +
-        '<span class="grade-tile-meta">' + meta + '</span>' +
+    '<a class="grade-poster' + (primary ? ' grade-poster--primary' : '') + '" href="' + href + '">' +
+      '<span class="gp-art">' + poster + '<span class="gp-badge">' + number + '</span></span>' +
+      '<span class="gp-body">' +
+        '<span class="gp-name">' + name + '</span>' +
+        (chips.length ? '<span class="gp-subj">' + chips.join(" · ") + '</span>' : "") +
+        '<span class="gp-meta">' + meta + '</span>' +
       '</span>' +
     '</a>'
   );
