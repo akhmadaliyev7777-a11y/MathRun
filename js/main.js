@@ -71,6 +71,115 @@ function gradeTile(href, number, name, chips, meta, primary) {
   );
 }
 
+// ---------- Bosh sahifa: o'ng tomondagi slayd-shou ----------
+// Slaydlar ma'lumotlardan (js/data.js) yasaladi: yangi ma'ruzalar, yangi interaktiv dars, 5-sinf statistikasi.
+function renderHeroSlider() {
+  const box = document.getElementById("hero-slider");
+  if (!box || typeof SITE_DATA === "undefined") return;
+  const grade = findGrade("5");
+  const subject = grade && grade.subjects[0];
+  const topics = subject ? subject.topics : [];
+  const strip = function (t) { return t.replace(/^[\d.]+\.\s*/, ""); };
+  const href = function (t, anchor) { return topicHref(grade.id, subject.id, t.id) + (anchor || ""); };
+  const ico = function (t, size) {
+    return t.icon ? '<img src="' + t.icon + '" alt="" width="' + size + '" height="' + size + '" loading="lazy">' : "";
+  };
+  const slides = [];
+
+  slides.push('<div class="hs-slide hs-art"><img src="img/hero/kirish.webp?v=2" alt="Matematika: kublar, transportir, kasrlar, π va √">' +
+    '<div class="hs-shior"><span class="hs-label">Mathlearn</span><b><span>Matematika</span> <span>endi qiyin</span> <span>fan emas</span></b></div></div>');
+
+  const lectures = topics.filter(topicHasLecture);
+  if (lectures.length) {
+    const last = lectures.slice(-3).reverse();
+    slides.push(
+      '<div class="hs-slide hs-list">' +
+        '<span class="hs-label">Yangi ma\'ruzalar · 5-sinf</span>' +
+        '<h3>Endi o\'qisa bo\'ladi</h3>' +
+        last.map(function (t) {
+          return '<a class="hs-row" href="' + href(t, "#maruza") + '"><span class="hs-ico">' + ico(t, 48) + '</span><span>' + strip(t.title) + '</span><b aria-hidden="true">→</b></a>';
+        }).join("") +
+        '<a class="hs-more" href="sinf.html?sinf=5&amp;fan=' + subject.id + '">Barcha mavzular →</a>' +
+      '</div>');
+  }
+
+  const sims = topics.filter(function (t) { return t.newSim && t.interactive && !t.review; });
+  const sim = sims[sims.length - 1];
+  if (sim) {
+    slides.push(
+      '<div class="hs-slide hs-feature">' +
+        '<span class="hs-big">' + ico(sim, 150) + '</span>' +
+        '<span class="hs-text">' +
+          '<span class="hs-label">Interaktiv dars</span>' +
+          '<h3>' + strip(sim.title) + '</h3>' +
+          '<p>Sudrab, bosib, o\'zgartirib — mavzuni qo\'l bilan sinab ko\'ring.</p>' +
+          '<a class="hs-btn" href="' + href(sim, "#interaktiv") + '">Sinab ko\'rish →</a>' +
+        '</span>' +
+      '</div>');
+  }
+
+  const n = function (f) { return topics.filter(f).length; };
+  slides.push(
+    '<div class="hs-slide hs-feature hs-grade">' +
+      '<span class="hs-poster"><img src="img/sinf/5.webp?v=3" alt="" loading="lazy"></span>' +
+      '<span class="hs-text">' +
+        '<span class="hs-label">5-sinf · Matematika</span>' +
+        '<h3>Hammasi bir joyda</h3>' +
+        '<span class="hs-stats">' +
+          '<span><b>' + topics.length + '</b>mavzu</span>' +
+          '<span><b>' + lectures.length + '</b>ma\'ruza</span>' +
+          '<span><b>' + n(function (t) { return !!t.test; }) + '</b>test</span>' +
+        '</span>' +
+        '<a class="hs-btn" href="sinf.html?sinf=5&amp;fan=' + subject.id + '">5-sinfni ochish →</a>' +
+      '</span>' +
+    '</div>');
+
+  box.innerHTML = '<div class="hs-track">' + slides.join("") + '</div>' +
+    '<button type="button" class="hs-arrow hs-prev" aria-label="Oldingi">‹</button>' +
+    '<button type="button" class="hs-arrow hs-next" aria-label="Keyingi">›</button>' +
+    '<div class="hs-dots">' + slides.map(function (_, i) { return '<button type="button" aria-label="' + (i + 1) + '-slayd"></button>'; }).join("") + '</div>';
+
+  const els = box.querySelectorAll(".hs-slide"), dots = box.querySelectorAll(".hs-dots button");
+  let cur = 0, timer = null;
+  // coverflow: o'rtadagi slayd oldinda, ikki yonidagisi qiya, xira va yarmi orqada yashiringan
+  const show = function (i) {
+    const len = els.length;
+    cur = (i + len) % len;
+    els.forEach(function (e, k) {
+      const rel = (k - cur + len) % len;
+      e.classList.remove("on", "prev", "next");
+      if (rel === 0) e.classList.add("on");
+      else if (rel === 1) e.classList.add("next");
+      else if (rel === len - 1) e.classList.add("prev");
+      e.setAttribute("aria-hidden", rel === 0 ? "false" : "true");
+      e.querySelectorAll("a, button").forEach(function (x) { x.tabIndex = rel === 0 ? 0 : -1; });
+    });
+    dots.forEach(function (d, k) { d.classList.toggle("on", k === cur); });
+  };
+  // yondagi slaydni bosganda — o'sha slayd o'rtaga chiqadi
+  els.forEach(function (e, k) {
+    e.addEventListener("click", function (ev) {
+      if (!e.classList.contains("on")) { ev.preventDefault(); show(k); play(); }
+    });
+  });
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const play = function () { stop(); if (!reduce) timer = setInterval(function () { show(cur + 1); }, 5000); };
+  const stop = function () { if (timer) clearInterval(timer); timer = null; };
+  box.querySelector(".hs-prev").addEventListener("click", function () { show(cur - 1); play(); });
+  box.querySelector(".hs-next").addEventListener("click", function () { show(cur + 1); play(); });
+  dots.forEach(function (d, k) { d.addEventListener("click", function () { show(k); play(); }); });
+  box.addEventListener("mouseenter", stop); box.addEventListener("mouseleave", play);
+  box.addEventListener("focusin", stop); box.addEventListener("focusout", play);
+  let x0 = null;
+  box.addEventListener("pointerdown", function (e) { x0 = e.clientX; });
+  box.addEventListener("pointerup", function (e) {
+    if (x0 === null) return;
+    const dx = e.clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) { show(cur + (dx < 0 ? 1 : -1)); play(); }
+  });
+  show(0); play();
+}
+
 function renderGradesGrid() {
   const el = document.getElementById("grades-grid");
   if (!el) return;

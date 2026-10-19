@@ -15,11 +15,11 @@ function renderSiteHeader(base, active) {
         '<a class="site-logo" href="' + base + 'index.html"><img class="site-logo-img" src="' + base + 'logo.png?v=1" alt="Mathlearn" width="185" height="36"></a>' +
       "</div>" +
       '<nav class="site-nav">' +
-        '<a href="' + base + 'index.html"' + cls("home") + '>Bosh sahifa</a>' +
-        '<a href="' + base + 'korgazmalar.html"' + cls("lessons") + '>Interaktiv darslar</a>' +
-        '<a href="' + base + 'mathrunner-web/index.html#/games" data-nav="games"' + cls("games") + '>Fikrlash o\'yinlari</a>' +
-        '<a href="' + base + 'mathrunner-web/index.html" data-nav="primary"' + cls("primary") + '>Boshlang\'ich sinflar</a>' +
+        '<a href="' + base + 'index.html"' + cls("home") + '>Home</a>' +
+        '<a href="' + base + 'korgazmalar.html"' + cls("lessons") + '>Interaktiv</a>' +
+        '<a href="' + base + 'mathrunner-web/index.html#/games" data-nav="games"' + cls("games") + '>O\'yinlar</a>' +
       "</nav>" +
+      '<button type="button" id="site-login-btn" class="site-login-btn">Kirish</button>' +
       '<button type="button" id="search-open-btn" class="search-open" aria-label="Mavzu qidirish" title="Mavzu qidirish (/)">' + SEARCH_ICON + "</button>" +
     "</header>" +
     '<div id="site-search" class="site-search" hidden>' +
@@ -70,6 +70,19 @@ function renderSiteHeader(base, active) {
   initSiteSearch(base);
 
   if (window.onAuthReadyForMenu) window.onAuthReadyForMenu();
+  // Kirish — hozircha ishga tushirilmagan: bosiladi, lekin faqat xabar ko'rsatadi
+  const loginBtn = document.getElementById("site-login-btn");
+  if (loginBtn) loginBtn.addEventListener("click", function () {
+    let tip = document.getElementById("site-login-tip");
+    if (!tip) {
+      tip = document.createElement("div");
+      tip.id = "site-login-tip"; tip.className = "site-login-tip"; tip.setAttribute("role", "status");
+      tip.textContent = "Kirish tez orada ishga tushadi";
+      document.body.appendChild(tip);
+    }
+    tip.classList.add("on");
+    clearTimeout(tip._t); tip._t = setTimeout(function () { tip.classList.remove("on"); }, 2200);
+  });
 }
 
 // ---------- Mavzu qidirish (yuqoridagi lupa) ----------
