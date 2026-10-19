@@ -420,7 +420,8 @@ function renderTopicPage() {
   ]);
 
   titleEl.textContent = topic.title;
-  if (topic.review) titleEl.insertAdjacentHTML("beforeend", reviewDot(topic));
+  // nuqtalar: tekshirish belgisi (qizil/sariq) yoki ma'ruza yuklangan (ko'k) bo'lsa — sarlavha yonida
+  if (topic.review || topicHasLecture(topic)) titleEl.insertAdjacentHTML("beforeend", reviewDot(topic));
   const pageEl = document.getElementById("topic-page");
   if (pageEl) pageEl.textContent = topic.page || "";
 
