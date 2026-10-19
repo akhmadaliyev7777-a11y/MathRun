@@ -53,7 +53,7 @@ function topicStatusBadge(topic) {
 // ---------- Bosh sahifa: sinflar to'ri ----------
 // Bosh sahifadagi sinflar: ikki guruh — boshlang'ich (1–4) va 5–11 sinflar
 // sinf afishalari (img/sinf/<sinf>.webp); rasmi yo'q sinfda — och fonda katta raqam
-const GRADE_POSTERS = { 1: true, 2: true, 3: true, 4: true };
+const GRADE_POSTERS = { 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true, 10: true, 11: true };
 
 function gradeTile(href, number, name, chips, meta, primary) {
   const poster = GRADE_POSTERS[number]
