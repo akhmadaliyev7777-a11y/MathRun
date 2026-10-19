@@ -361,6 +361,30 @@ window.addEventListener("message", function (e) {
   });
 });
 
+// mavzu kartochkasi (sinf sahifasi va Interaktiv darslar bo'limi uchun umumiy)
+function topicCardHtml(topic, i, href, parts, btn, interactiveFirst) {
+  const icon = topic.icon
+    ? '<img src="' + topic.icon + '" alt="" width="72" height="72" loading="lazy" decoding="async">'
+    : '<span class="tc-num">' + parts.num.replace(/\.$/, "") + '</span>';
+  const dots = reviewDot(topic);
+  // ma'ruza bo'lmasa — Interaktiv asosiy tugma; yangi simulyatorli darslar (newSim) — yashil
+  const bInt = topic.interactive ? btn("Interaktiv", "#interaktiv", interactiveFirst || !topicHasLecture(topic), topic.newSim ? " topic-btn--new" : "") : "";
+  const bLec = topicHasLecture(topic) ? btn("Ma'ruza", "#maruza", !interactiveFirst) : "";
+  return (
+    '<li class="topic-card">' +
+      '<a class="tc-main" href="' + href + (interactiveFirst ? '#interaktiv' : '') + '">' +
+        '<span class="tc-icon">' + icon + '</span>' +
+        '<span class="tc-title"><b>' + parts.num + '</b> ' + parts.title + '</span>' +
+      '</a>' +
+      ((dots || topic.page) ? '<span class="tc-meta">' + dots + (topic.page ? '<span class="tc-page">' + topic.page + '</span>' : '') + '</span>' : '') +
+      '<span class="tc-actions">' +
+        (interactiveFirst ? bInt + bLec : bLec + bInt) +
+        (topic.test ? btn("Test", "#test", false) : "") +
+      '</span>' +
+    '</li>'
+  );
+}
+
 function renderActiveSubjectTopics(grade) {
   const container = document.getElementById("subjects-container");
   const subject = findSubject(grade, activeGradeSubjectId);
@@ -373,25 +397,7 @@ function renderActiveSubjectTopics(grade) {
     const btn = function (label, anchor, primary, extra) {
       return '<a class="topic-btn' + (primary ? ' topic-btn--primary' : '') + (extra || '') + '" href="' + href + anchor + '">' + label + '</a>';
     };
-    const icon = topic.icon
-      ? '<img src="' + topic.icon + '" alt="" width="72" height="72" loading="lazy" decoding="async">'
-      : '<span class="tc-num">' + parts.num.replace(/\.$/, "") + '</span>';
-    const dots = reviewDot(topic);
-    return (
-      '<li class="topic-card">' +
-        '<a class="tc-main" href="' + href + '">' +
-          '<span class="tc-icon">' + icon + '</span>' +
-          '<span class="tc-title"><b>' + parts.num + '</b> ' + parts.title + '</span>' +
-        '</a>' +
-        ((dots || topic.page) ? '<span class="tc-meta">' + dots + (topic.page ? '<span class="tc-page">' + topic.page + '</span>' : '') + '</span>' : '') +
-        '<span class="tc-actions">' +
-          // ma'ruza bo'lmasa — Interaktiv asosiy tugma; yangi simulyatorli darslar (newSim) — yashil
-          (topicHasLecture(topic) ? btn("Ma'ruza", "#maruza", true) : "") +
-          (topic.interactive ? btn("Interaktiv", "#interaktiv", !topicHasLecture(topic), topic.newSim ? " topic-btn--new" : "") : "") +
-          (topic.test ? btn("Test", "#test", false) : "") +
-        '</span>' +
-      '</li>'
-    );
+    return topicCardHtml(topic, i, href, parts, btn, false);
   }).join("");
 
   // nuqtalar izohi — ro'yxat tepasida
@@ -570,24 +576,12 @@ function renderGallery() {
         const btn = function (label, anchor, primary, extra) {
           return '<a class="topic-btn' + (primary ? ' topic-btn--primary' : '') + (extra || '') + '" href="' + href + anchor + '">' + label + '</a>';
         };
-        return (
-          '<li class="topic-row">' +
-            '<span class="topic-row-num">' + parts.num + '</span>' +
-            '<a class="topic-row-title" href="' + href + '#interaktiv">' + parts.title + reviewDot(topic) +
-              (topic.page ? '<span class="topic-row-page">' + topic.page + '</span>' : '') +
-            '</a>' +
-            '<span class="topic-row-actions">' +
-              btn("Interaktiv", "#interaktiv", true, topic.newSim ? " topic-btn--new" : "") +
-              (topicHasLecture(topic) ? btn("Ma'ruza", "#maruza", false) : "") +
-              (topic.test ? btn("Test", "#test", false) : "") +
-            '</span>' +
-          '</li>'
-        );
+        return topicCardHtml(topic, i, href, parts, btn, true);
       }).join("");
       if (!rows) return "";
       return (
         (grade.subjects.length > 1 ? '<div class="gallery-subject">' + subject.name + '</div>' : "") +
-        '<ol class="topic-list gallery-list">' + rows + '</ol>'
+        '<ol class="topic-cards">' + rows + '</ol>'
       );
     }).join("");
     if (!subjectBlocks) return "";
@@ -617,21 +611,20 @@ function renderGallery() {
         n++;
         const href = "mathrunner-web/index.html#/sim/" + t.g + "/" + t.c + "/" + t.b;
         return (
-          '<li class="topic-row">' +
-            '<span class="topic-row-num">' + t.b + '.</span>' +
-            '<a class="topic-row-title" href="' + href + '">' + (t.sim.name || t.sim.title) + (t.sim.review ? '<span class="review-dot" title="Tekshirish kerak — kamchiligi bor yoki hali tekshirilmagan"></span>' : '') +
-              '<span class="topic-row-page">' + t.c + '-chorak</span>' +
+          '<li class="topic-card">' +
+            '<a class="tc-main" href="' + href + '">' +
+              '<span class="tc-icon"><span class="tc-num">' + t.b + '</span></span>' +
+              '<span class="tc-title">' + (t.sim.name || t.sim.title) + '</span>' +
             '</a>' +
-            '<span class="topic-row-actions">' +
-              '<a class="topic-btn topic-btn--primary topic-btn--new" href="' + href + '">Interaktiv</a>' +
-            '</span>' +
+            '<span class="tc-meta">' + (t.sim.review ? '<span class="review-dot" title="Tekshirish kerak — kamchiligi bor yoki hali tekshirilmagan"></span>' : '') + '<span class="tc-page">' + t.c + '-chorak</span></span>' +
+            '<span class="tc-actions"><a class="topic-btn topic-btn--primary topic-btn--new" href="' + href + '">Interaktiv</a></span>' +
           '</li>'
         );
       }).join("");
       return (
         '<section class="gallery-grade">' +
           '<h2 class="gallery-grade-title"><a href="mathrunner-web/index.html#/g/' + g + '">' + g + '-sinf</a></h2>' +
-          '<ol class="topic-list gallery-list">' + rows + '</ol>' +
+          '<ol class=\"topic-cards\">' + rows + '</ol>' +
         '</section>'
       );
     }).join("");
