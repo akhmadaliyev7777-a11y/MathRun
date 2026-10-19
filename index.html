@@ -7,7 +7,7 @@
 <meta name="description" content="Mathlearn: matematikani o'zgartirib, kuzatib o'rganing. 1–11-sinflar uchun interaktiv simulyatorlar, darslar va testlar.">
 <link rel="icon" href="favicon.png?v=3" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
-<link rel="stylesheet" href="css/style.css?v=40">
+<link rel="stylesheet" href="css/style.css?v=44">
 </head>
 <body>
 
@@ -16,30 +16,16 @@
 <section class="hero-section">
   <div class="hero-grid">
     <div class="hero-text">
-      <h1>Matematikani ko'rib, o'ynab o'rganing</h1>
-      <p>Har bir mavzu — interaktiv illyustratsiya va o'yin ko'rinishida. Sinfingizni tanlang va mavzuni harakatda his qiling.</p>
-      <a class="hero-cta" href="#grades-section">Sinfingizni tanlang ↓</a>
+      <h1>Matematikani <span>ko'rib, o'ynab</span> o'rganing</h1>
+      <p>Har bir mavzu — interaktiv illyustratsiya va o'yin ko'rinishida.</p>
+      <a class="hero-cta" href="#grades-section">Sinfingizni tanlang <span aria-hidden="true">→</span></a>
+      <ul class="hero-feats">
+        <li><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></i>Interaktiv darslar</li>
+        <li><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="11" rx="5.5" fill="currentColor"/><path d="M7 10.2v4.6M4.7 12.5h4.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="16" cy="11" r="1.3" fill="#fff"/><circle cx="18" cy="14" r="1.3" fill="#fff"/></svg></i>Qiziqarli mashqlar</li>
+        <li><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="12" width="4" height="8" rx="1" fill="currentColor"/><rect x="10" y="8" width="4" height="12" rx="1" fill="currentColor"/><rect x="16" y="4" width="4" height="16" rx="1" fill="currentColor"/></svg></i>Har bir sinf uchun</li>
+      </ul>
     </div>
-    <div class="hero-illustration">
-      <svg width="320" height="220" viewBox="0 0 320 220" fill="none">
-        <line x1="0" y1="55" x2="320" y2="55" stroke="#e5e7f0" stroke-width="1"/>
-        <line x1="0" y1="110" x2="320" y2="110" stroke="#e5e7f0" stroke-width="1"/>
-        <line x1="0" y1="165" x2="320" y2="165" stroke="#e5e7f0" stroke-width="1"/>
-        <line x1="80" y1="0" x2="80" y2="220" stroke="#e5e7f0" stroke-width="1"/>
-        <line x1="160" y1="0" x2="160" y2="220" stroke="#e5e7f0" stroke-width="1"/>
-        <line x1="240" y1="0" x2="240" y2="220" stroke="#e5e7f0" stroke-width="1"/>
-
-        <path d="M 10 150 C 60 60, 120 60, 160 120 C 200 180, 260 180, 310 90" stroke="#4f5bd5" stroke-width="4" stroke-linecap="round" fill="none"/>
-
-        <circle cx="60" cy="60" r="16" fill="none" stroke="#16a394" stroke-width="3"/>
-        <polygon points="230,150 250,150 240,132" fill="#4f5bd5"/>
-        <rect x="270" y="55" width="26" height="26" rx="4" fill="none" stroke="#4f5bd5" stroke-width="3" transform="rotate(18 283 68)"/>
-        <circle cx="160" cy="120" r="5" fill="#16a394"/>
-
-        <text x="24" y="196" font-size="24" fill="#c7cbe0" font-weight="700">+</text>
-        <text x="288" y="205" font-size="22" fill="#c7cbe0" font-weight="700">×</text>
-      </svg>
-    </div>
+    <div class="hero-slider" id="hero-slider" role="region" aria-roledescription="slayd-shou" aria-label="Yangiliklar"></div>
   </div>
 </section>
 
@@ -182,12 +168,12 @@
 </footer>
 
 <script src="js/data.js?v=105"></script>
-<script src="js/main.js?v=34"></script>
+<script src="js/main.js?v=36"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="js/firebase-config.js?v=5"></script>
 <script src="js/auth.js?v=5"></script>
-<script src="js/layout.js?v=17"></script>
-<script>renderSiteHeader("", "home"); renderGradesGrid(); initShowcaseDemos();</script>
+<script src="js/layout.js?v=18"></script>
+<script>renderSiteHeader("", "home"); renderHeroSlider(); renderGradesGrid(); initShowcaseDemos();</script>
 </body>
 </html>

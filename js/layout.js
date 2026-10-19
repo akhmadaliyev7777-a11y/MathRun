@@ -15,10 +15,9 @@ function renderSiteHeader(base, active) {
         '<a class="site-logo" href="' + base + 'index.html"><img class="site-logo-img" src="' + base + 'logo.png?v=1" alt="Mathlearn" width="185" height="36"></a>' +
       "</div>" +
       '<nav class="site-nav">' +
-        '<a href="' + base + 'index.html"' + cls("home") + '>Bosh sahifa</a>' +
-        '<a href="' + base + 'korgazmalar.html"' + cls("lessons") + '>Interaktiv darslar</a>' +
-        '<a href="' + base + 'mathrunner-web/index.html#/games" data-nav="games"' + cls("games") + '>Fikrlash o\'yinlari</a>' +
-        '<a href="' + base + 'mathrunner-web/index.html" data-nav="primary"' + cls("primary") + '>Boshlang\'ich sinflar</a>' +
+        '<a href="' + base + 'index.html"' + cls("home") + '>Home</a>' +
+        '<a href="' + base + 'korgazmalar.html"' + cls("lessons") + '>Interaktiv</a>' +
+        '<a href="' + base + 'mathrunner-web/index.html#/games" data-nav="games"' + cls("games") + '>O\'yinlar</a>' +
       "</nav>" +
       '<button type="button" id="search-open-btn" class="search-open" aria-label="Mavzu qidirish" title="Mavzu qidirish (/)">' + SEARCH_ICON + "</button>" +
     "</header>" +
