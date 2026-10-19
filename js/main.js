@@ -86,7 +86,8 @@ function renderHeroSlider() {
   };
   const slides = [];
 
-  slides.push('<div class="hs-slide hs-art"><img src="img/hero/kirish.webp?v=1" alt="Matematika: kublar, transportir, kasrlar, π va √"></div>');
+  slides.push('<div class="hs-slide hs-art"><img src="img/hero/kirish.webp?v=2" alt="Matematika: kublar, transportir, kasrlar, π va √">' +
+    '<div class="hs-shior"><span class="hs-label">Mathlearn</span><b>Matematika — <br>ko\'rib, sinab,<br>tushunib</b></div></div>');
 
   const lectures = topics.filter(topicHasLecture);
   if (lectures.length) {

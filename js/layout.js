@@ -19,6 +19,7 @@ function renderSiteHeader(base, active) {
         '<a href="' + base + 'korgazmalar.html"' + cls("lessons") + '>Interaktiv</a>' +
         '<a href="' + base + 'mathrunner-web/index.html#/games" data-nav="games"' + cls("games") + '>O\'yinlar</a>' +
       "</nav>" +
+      '<button type="button" id="site-login-btn" class="site-login-btn">Kirish</button>' +
       '<button type="button" id="search-open-btn" class="search-open" aria-label="Mavzu qidirish" title="Mavzu qidirish (/)">' + SEARCH_ICON + "</button>" +
     "</header>" +
     '<div id="site-search" class="site-search" hidden>' +
@@ -69,6 +70,19 @@ function renderSiteHeader(base, active) {
   initSiteSearch(base);
 
   if (window.onAuthReadyForMenu) window.onAuthReadyForMenu();
+  // Kirish — hozircha ishga tushirilmagan: bosiladi, lekin faqat xabar ko'rsatadi
+  const loginBtn = document.getElementById("site-login-btn");
+  if (loginBtn) loginBtn.addEventListener("click", function () {
+    let tip = document.getElementById("site-login-tip");
+    if (!tip) {
+      tip = document.createElement("div");
+      tip.id = "site-login-tip"; tip.className = "site-login-tip"; tip.setAttribute("role", "status");
+      tip.textContent = "Kirish tez orada ishga tushadi";
+      document.body.appendChild(tip);
+    }
+    tip.classList.add("on");
+    clearTimeout(tip._t); tip._t = setTimeout(function () { tip.classList.remove("on"); }, 2200);
+  });
 }
 
 // ---------- Mavzu qidirish (yuqoridagi lupa) ----------

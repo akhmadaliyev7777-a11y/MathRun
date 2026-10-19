@@ -1497,7 +1497,8 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 /* logotip — logo.png (belgi + "Mathlearn" yozuvi) */
 .site-logo { display: flex; align-items: center; }
 .site-logo-img { display: block; height: 36px; width: auto; }
-@media (max-width: 380px) { .site-logo-img { height: 28px; } }
+@media (max-width: 640px) { .site-header { padding-left: 14px; padding-right: 14px; } .site-header-left { gap: 10px; min-width: 0; } .site-logo-img { height: 28px; } }
+@media (max-width: 360px) { .site-logo-img { height: 24px; } }
 
 /* qizil nuqta — hali tekshirilmagan yangi simulyator */
 .review-dot { display: inline-block; width: 10px; height: 10px; margin-left: 8px; border-radius: 50%; background: #E11D48; box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.18); vertical-align: middle; }
@@ -1562,9 +1563,16 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 .hero-text h1 span { color: #3b4fd8; display: block; }
 .hero-text p { font-size: 1.1rem; color: #4b5578; max-width: 30ch; }
 .hero-cta { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 14px; background: #3b4fd8; font-size: 1.02rem; box-shadow: 0 8px 20px rgba(59, 79, 216, .25); }
-.hero-feats { list-style: none; display: flex; flex-wrap: wrap; gap: 14px 22px; margin: 26px 0 0; padding: 0; }
-.hero-feats li { display: flex; align-items: center; gap: 10px; font-size: .85rem; font-weight: 600; color: #4b5578; max-width: 9.5em; line-height: 1.25; }
-.hero-feats i { flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: #fff; box-shadow: 0 3px 10px rgba(30, 42, 120, .08); display: grid; place-items: center; color: #3b4fd8; }
+.hero-feats { list-style: none; display: flex; flex-wrap: wrap; gap: 12px 16px; margin: 26px 0 0; padding: 0; }
+.hero-feats li { flex: 0 0 auto; }
+.hero-feats a { max-width: 10.5em; font-size: .8rem !important; padding: 6px 14px 6px 6px; border-radius: 999px; background: #fff; border: 1px solid #e3e7f7; box-shadow: 0 4px 14px rgba(30, 42, 120, .06); transition: border-color .15s ease, box-shadow .15s ease, color .15s ease, transform .15s ease; }
+.hero-feats a:hover { border-color: #c7cdf6; box-shadow: 0 8px 20px rgba(59, 79, 216, .14); transform: translateY(-1px); }
+.hero-feats a i { background: #eef1ff !important; box-shadow: none !important; }
+.hero-feats i { flex-basis: 36px !important; width: 36px !important; height: 36px !important; }
+.hero-feats a { display: flex; align-items: center; gap: 10px; font-size: .85rem; font-weight: 600; color: #4b5578; line-height: 1.25; border-radius: 999px; transition: color .15s ease; }
+.hero-feats a:hover { color: #3b4fd8; }
+.hero-feats a:hover i { transform: none; }
+.hero-feats i { transition: box-shadow .15s ease, transform .15s ease; flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: #fff; box-shadow: 0 3px 10px rgba(30, 42, 120, .08); display: grid; place-items: center; color: #3b4fd8; }
 .hero-feats svg { width: 20px; height: 20px; }
 
 .hero-slider { position: relative; aspect-ratio: 3 / 2; perspective: 1400px; touch-action: pan-y; user-select: none; }
@@ -1578,7 +1586,10 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 .hs-slide.next { transform: translateX(40%) rotateY(-32deg) scale(.82); }
 .hs-slide.prev:hover, .hs-slide.next:hover { opacity: .75; }
 .hs-art { padding: 0; }
-.hs-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hs-art { background: #e4e9fd; }
+.hs-art img { position: absolute; right: 0; bottom: 0; width: 88%; height: auto; display: block; -webkit-mask-image: linear-gradient(to right, transparent, #000 14%), linear-gradient(to bottom, transparent, #000 16%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 14%), linear-gradient(to bottom, transparent, #000 16%); mask-composite: intersect; }
+.hs-shior { position: absolute; left: 7%; top: 50%; transform: translateY(-50%); max-width: 40%; display: flex; flex-direction: column; gap: 8px; z-index: 1; }
+.hs-shior b { font-size: clamp(1.1rem, 1.9vw, 1.6rem); line-height: 1.18; letter-spacing: -.02em; font-weight: 800; color: #1e2a78; }
 .hs-label { font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #3b4fd8; }
 .hs-slide h3 { margin: 6px 0 14px; font-size: clamp(1.35rem, 2.3vw, 1.9rem); line-height: 1.15; letter-spacing: -.02em; font-weight: 800; }
 .hs-row { display: flex; align-items: center; gap: 14px; padding: 7px 12px; margin-bottom: 7px; border-radius: 16px; background: #fff; font-weight: 700; font-size: .95rem; color: #1e2a78; box-shadow: 0 3px 10px rgba(30, 42, 120, .06); transition: transform .15s ease; }
@@ -1613,6 +1624,9 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
   .hero-slider { aspect-ratio: 1 / 1.08; }
   .hs-slide { padding: 20px 18px; left: 9%; right: 9%; border-radius: 20px; }
   .hs-art { padding: 0; }
+  .hs-art img { width: 128%; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%); -webkit-mask-composite: source-over; mask-image: linear-gradient(to bottom, transparent, #000 14%); mask-composite: add; }
+  .hs-shior { top: 8%; transform: none; max-width: 86%; gap: 4px; }
+  .hs-shior b br:first-child { display: none; }
   .hs-slide.prev { transform: translateX(-30%) rotateY(30deg) scale(.8); }
   .hs-slide.next { transform: translateX(30%) rotateY(-30deg) scale(.8); }
   .hs-feature { flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -1628,3 +1642,31 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
   .hs-row:nth-of-type(3) { display: none; }
   .hs-arrow { display: none; }
 }
+
+/* yuqori menyu: Kirish tugmasi (hozircha xabar ko'rsatadi) */
+.site-login-btn { margin-left: auto; margin-right: 10px; padding: 9px 20px; border: none; border-radius: 12px; background: #3b4fd8; color: #fff; font: inherit; font-weight: 700; font-size: .92rem; cursor: pointer; box-shadow: 0 4px 12px rgba(59, 79, 216, .22); }
+.site-login-btn:hover { background: #1e2a78; }
+.site-nav + .site-login-btn { margin-left: 24px; }
+.site-login-tip { position: fixed; left: 50%; top: 84px; transform: translate(-50%, -8px); padding: 10px 18px; border-radius: 12px; background: #1e2a78; color: #fff; font-weight: 600; font-size: .9rem; box-shadow: 0 10px 24px rgba(30, 42, 120, .25); opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; z-index: 50; }
+.site-login-tip.on { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 640px) { .site-login-btn, .site-nav + .site-login-btn { padding: 8px 14px; font-size: .85rem; margin-right: 8px; margin-left: auto; } .search-open { margin-left: 0; } }
+
+/* bosh sahifa: interaktiv darslar (maket bo'yicha, harakatsiz kartochkalar) */
+.lessons-panel { max-width: 1180px; margin: 0 auto; background: #fff; border-radius: 28px; padding: 32px 32px 28px; box-shadow: 0 10px 30px rgba(30, 42, 120, .06); }
+.lessons-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 24px; flex-wrap: wrap; }
+.lessons-title { margin: 6px 0 6px; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.12; letter-spacing: -.025em; font-weight: 800; color: #1e2a78; }
+.lessons-sub { margin: 0; color: #4b5578; font-size: 1.02rem; }
+.lessons-all { flex: 0 0 auto; padding: 12px 20px; border: 1.5px solid #c7cdf6; border-radius: 14px; color: #3b4fd8; font-weight: 700; background: #fff; transition: border-color .15s ease, background .15s ease; }
+.lessons-all:hover { border-color: #3b4fd8; background: #f3f5ff; }
+.lessons-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.lesson-card { position: relative; display: flex; align-items: stretch; min-height: 210px; padding: 20px; border-radius: 22px; background: #fff; border: 1px solid #e6e9f6; box-shadow: 0 6px 18px rgba(30, 42, 120, .06); color: #1e2a78; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
+.lesson-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(30, 42, 120, .12); }
+.lesson-text { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 8px; max-width: 54%; }
+.lesson-chip { align-self: flex-start; padding: 4px 12px; border-radius: 10px; background: #eef1ff; color: #3b4fd8; font-weight: 700; font-size: .82rem; }
+.lesson-name { font-size: 1.3rem; font-weight: 800; letter-spacing: -.01em; }
+.lesson-desc { color: #4b5578; font-size: .88rem; line-height: 1.45; }
+.lesson-link { margin-top: auto; color: #3b4fd8; font-weight: 700; font-size: .95rem; }
+.lesson-art { position: absolute; right: 8px; bottom: 50%; transform: translateY(50%); width: 40%; height: auto; pointer-events: none; transition: transform .3s ease; }
+.lesson-card:hover .lesson-art { transform: translateY(50%) scale(1.05); }
+@media (max-width: 960px) { .lessons-grid { grid-template-columns: 1fr; } .lesson-art { width: 34%; } }
+@media (max-width: 560px) { .lessons-panel { padding: 22px 16px; border-radius: 22px; } .lesson-text { max-width: 62%; } .lesson-art { width: 38%; } }
