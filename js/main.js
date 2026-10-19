@@ -87,7 +87,7 @@ function renderHeroSlider() {
   const slides = [];
 
   slides.push('<div class="hs-slide hs-art"><img src="img/hero/kirish.webp?v=2" alt="Matematika: kublar, transportir, kasrlar, π va √">' +
-    '<div class="hs-shior"><span class="hs-label">Mathlearn</span><b>Matematika — <br>ko\'rib, sinab,<br>tushunib</b></div></div>');
+    '<div class="hs-shior"><span class="hs-label">Mathlearn</span><b><span>Matematika</span> <span>endi qiyin</span> <span>fan emas</span></b></div></div>');
 
   const lectures = topics.filter(topicHasLecture);
   if (lectures.length) {
