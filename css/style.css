@@ -1507,3 +1507,25 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 .dot-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.85rem; color: var(--muted); margin: 0 0 12px; }
 .dot-legend span { display: inline-flex; align-items: center; gap: 8px; }
 .dot-legend .review-dot { margin-left: 3px; }
+
+/* mavzular kartochkalari (sinf sahifasi) */
+.topic-cards { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.topic-card { display: flex; flex-direction: column; gap: 10px; padding: 14px 14px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+.topic-card:hover { border-color: #c7cdf6; box-shadow: 0 8px 22px rgba(30, 42, 120, .10); transform: translateY(-1px); }
+.tc-main { display: flex; align-items: flex-start; gap: 12px; color: inherit; }
+.tc-icon { flex: 0 0 72px; width: 72px; height: 72px; display: grid; place-items: center; border-radius: 14px; background: #f3f5ff; overflow: hidden; }
+.tc-icon img { width: 72px; height: 72px; object-fit: contain; display: block; }
+.tc-num { font-weight: 800; font-size: 1.6rem; line-height: 1; color: #5b6cf0; letter-spacing: -.02em; }
+.tc-title { font-weight: 650; line-height: 1.38; font-size: .95rem; padding-top: 2px; }
+.tc-title b { color: #9ca3af; font-weight: 700; margin-right: 2px; }
+.tc-main:hover .tc-title { color: var(--primary); }
+.tc-meta { display: flex; align-items: center; gap: 2px; margin-left: 84px; min-height: 14px; }
+.tc-meta .review-dot { margin-left: 0; margin-right: 6px; }
+.tc-page { font-size: .78rem; font-weight: 600; color: #9ca3af; }
+.tc-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); }
+.tc-actions:empty { display: none; }
+@media (max-width: 560px) {
+  .topic-cards { grid-template-columns: 1fr; gap: 10px; }
+  .tc-icon, .tc-icon img { width: 60px; height: 60px; flex-basis: 60px; }
+  .tc-meta { margin-left: 72px; }
+}

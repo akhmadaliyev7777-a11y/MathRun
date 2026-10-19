@@ -360,25 +360,27 @@ function renderActiveSubjectTopics(grade) {
   const subject = findSubject(grade, activeGradeSubjectId);
   if (!container || !subject) return;
 
-  // ro'yxat ko'rinishi: raqam · mavzu nomi · darslik beti · Ma'ruza / Interaktiv / Test tugmalari
+  // kartochkalar: ikonka (yoki raqam) · raqam va nom · holat nuqtalari va darslik beti · Ma'ruza / Interaktiv / Test tugmalari
   const rowsHtml = subject.topics.map(function (topic, i) {
     const href = topicHref(grade.id, subject.id, topic.id);
     const parts = splitTopicTitle(topic.title, i);
-    const num = parts.num;
-    const title = parts.title;
     const btn = function (label, anchor, primary, extra) {
       return '<a class="topic-btn' + (primary ? ' topic-btn--primary' : '') + (extra || '') + '" href="' + href + anchor + '">' + label + '</a>';
     };
+    const icon = topic.icon
+      ? '<img src="' + topic.icon + '" alt="" width="72" height="72" loading="lazy" decoding="async">'
+      : '<span class="tc-num">' + parts.num.replace(/\.$/, "") + '</span>';
+    const dots = reviewDot(topic);
     return (
-      '<li class="topic-row">' +
-        '<span class="topic-row-num">' + num + '</span>' +
-        '<a class="topic-row-title" href="' + href + '">' + title + reviewDot(topic) +
-          (topic.page ? '<span class="topic-row-page">' + topic.page + '</span>' : '') +
+      '<li class="topic-card">' +
+        '<a class="tc-main" href="' + href + '">' +
+          '<span class="tc-icon">' + icon + '</span>' +
+          '<span class="tc-title"><b>' + parts.num + '</b> ' + parts.title + '</span>' +
         '</a>' +
-        '<span class="topic-row-actions">' +
-          // ma'ruza matni bo'lmasa (5-sinf) — tugma ko'rsatilmaydi, Interaktiv asosiy tugma bo'ladi
+        ((dots || topic.page) ? '<span class="tc-meta">' + dots + (topic.page ? '<span class="tc-page">' + topic.page + '</span>' : '') + '</span>' : '') +
+        '<span class="tc-actions">' +
+          // ma'ruza bo'lmasa — Interaktiv asosiy tugma; yangi simulyatorli darslar (newSim) — yashil
           (topicHasLecture(topic) ? btn("Ma'ruza", "#maruza", true) : "") +
-          // yangi simulyatorli darslar (newSim) — yashil, qolganlari ko'k
           (topic.interactive ? btn("Interaktiv", "#interaktiv", !topicHasLecture(topic), topic.newSim ? " topic-btn--new" : "") : "") +
           (topic.test ? btn("Test", "#test", false) : "") +
         '</span>' +
@@ -388,7 +390,7 @@ function renderActiveSubjectTopics(grade) {
 
   // nuqtalar izohi — ro'yxat tepasida
   container.innerHTML = '<p class="dot-legend"><span><i class="review-dot blue"></i>Ma\'ruza yuklangan</span><span><i class="review-dot green"></i>Simulyator tayyor</span><span><i class="review-dot yellow"></i>Tuzatildi, tasdiq kutilmoqda</span><span><i class="review-dot"></i>Tekshirish kerak</span></p>' +
-    '<ol class="topic-list">' + rowsHtml + '</ol>' +
+    '<ol class="topic-cards">' + rowsHtml + '</ol>' +
     '<p class="topic-list-foot">' + subject.topics.length + ' ta mavzu</p>';
 }
 
