@@ -41,6 +41,8 @@
   }
 
   function boshla() {
+    // sayt ichida (iframe) ochilganda sahifa o'zi aylanmaydi — balandlik tashqi oynaga moslanadi, aylantirish faqat tashqi sahifada
+    if (window.parent !== window) document.documentElement.style.overflow = "hidden";
     if (window.MaruzaChizma) window.MaruzaChizma.chiz(document);
     document.querySelectorAll("details").forEach(function (d) { d.addEventListener("toggle", balandlik); });
     if (window.ResizeObserver) new ResizeObserver(balandlik).observe(document.body);
