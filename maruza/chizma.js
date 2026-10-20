@@ -10,6 +10,8 @@
    data-siljish="324/x100" yoki "41300/:100" — xona jadvalida raqamlarning surilishi (bir xil raqam — bir xil rang)
    data-oq="0/1000000/100000" [data-nuqta="A:300000,B:750000"] [data-har="2"] — katta sonlar uchun son o'qi
    data-zanjir="43/x2/x10" yoki "540/:10/:6" yoki "2,3/x2/x10" — amallar zanjiri (o'nli kasr ham mumkin, vergul bilan): son →(×2)→ 86 →(×10)→ 860
+   data-ikki="km/m/1000/0/4/0.5" [data-nuqta="A:1500,B:3000"] — ikki shkalali son o'qi: yuqorida katta birlik (km), pastda kichik (m); 1 katta = 1000 kichik;
+                                          0 dan 4 gacha, har 0,5 da belgi; nuqtalar kichik birlikda beriladi (faqat harf, qiymati yozilmaydi — o'quvchi topadi)
    data-nollar="63000/700"          — bo'linuvchi va bo'luvchi oxiridagi teng sondagi nollar chizib tashlanadi
    data-tartib="60 - 15 + 12 : 3 * 2" [data-qadam="0"] — amallar ustida bajarilish tartibi (1, 2, 3 ...) va qadamma-qadam yechim
    data-tasma="Otasi:4|O'g'li:1" [data-farq="36 yil"] [data-bolak="12"] — chizmali model: teng bo'laklardan tasmalar
@@ -257,6 +259,34 @@
       const x = kx(p.v);
       h += '<circle cx="' + x + '" cy="' + y + '" r="6.5" fill="#d4501b"/>';
       h += '<text x="' + x + '" y="' + (y - 16) + '" text-anchor="middle" font-size="21" font-weight="800" fill="#d4501b">' + p.h + "</text>";
+    });
+    h += "</svg>";
+    el.classList.add("chz");
+    el.innerHTML = h;
+  }
+
+  // ---------- ikki shkalali son o'qi: yuqorida katta birlik, pastda kichik birlik ----------
+  function chizIkki(el) {
+    const [yu, pa, kS, aS, bS, stS] = el.dataset.ikki.split("/");
+    const k = Number(kS), a = Number(aS), b = Number(bS), st = Number(stS);
+    const nuqtalar = (el.dataset.nuqta || "").split(",").filter(Boolean).map(function (t) { const q = t.split(":"); return { h: q[0], v: Number(q[1]) }; });
+    const W = 470, x0 = 46, x1 = 424, y = 62;
+    const kx = function (v) { return x0 + (v - a) / (b - a) * (x1 - x0); };
+    let h = '<svg viewBox="0 0 ' + W + ' 118" width="' + W + '" role="img" aria-label="Ikki shkalali son o\'qi: ' + yu + " va " + pa + '">';
+    h += '<line x1="' + (x0 - 14) + '" y1="' + y + '" x2="' + (x1 + 22) + '" y2="' + y + '" stroke="#1f2433" stroke-width="2"/>';
+    h += '<path d="M' + (x1 + 22) + " " + (y - 5) + " L" + (x1 + 31) + " " + y + " L" + (x1 + 22) + " " + (y + 5) + ' Z" fill="#1f2433"/>';
+    h += '<text x="6" y="' + (y - 20) + '" font-size="14" font-weight="800" fill="#1f5fd6">' + yu + "</text>";
+    h += '<text x="6" y="' + (y + 32) + '" font-size="14" font-weight="800" fill="#d4501b">' + pa + "</text>";
+    for (let v = a; v <= b + 1e-9; v += st) {
+      const x = kx(v);
+      h += '<line x1="' + x + '" y1="' + (y - 8) + '" x2="' + x + '" y2="' + (y + 8) + '" stroke="#1f2433" stroke-width="1.6"/>';
+      h += '<text x="' + x + '" y="' + (y - 16) + '" text-anchor="middle" font-size="14" fill="#1f5fd6">' + onliSon(v) + "</text>";
+      h += '<text x="' + x + '" y="' + (y + 30) + '" text-anchor="middle" font-size="14" fill="#d4501b">' + onliSon(v * k) + "</text>";
+    }
+    nuqtalar.forEach(function (p) {
+      const x = kx(p.v / k);
+      h += '<circle cx="' + x + '" cy="' + y + '" r="6.5" fill="#16a394"/>';
+      h += '<text x="' + x + '" y="' + (y + 52) + '" text-anchor="middle" font-size="21" font-weight="800" fill="#0e7a6f">' + p.h + "</text>";
     });
     h += "</svg>";
     el.classList.add("chz");
@@ -1157,6 +1187,7 @@
       root.querySelectorAll("[data-xona]").forEach(chizXona);
       root.querySelectorAll("[data-tugma]").forEach(chizTugma);
       root.querySelectorAll("[data-oq]").forEach(chizOq);
+      root.querySelectorAll("[data-ikki]").forEach(chizIkki);
       root.querySelectorAll("[data-siljish]").forEach(chizSiljish);
       root.querySelectorAll("[data-zanjir]").forEach(chizZanjir);
       root.querySelectorAll("[data-nollar]").forEach(chizNollar);

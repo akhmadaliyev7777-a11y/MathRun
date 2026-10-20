@@ -340,6 +340,18 @@ const QUIZ_DATA = {
     { level: 9, question: "9,6 kg yong'oq 30 ta bir xil xaltaga teng bo'lib solindi. Har bir xaltada necha kilogramm yong'oq bor?", options: ["0,32", "3,2", "0,032", "32"], answer: "0,32", explain: "9,6 : 30: 30 = 3 · 10. Avval 9,6 : 3 = 3,2, keyin 3,2 : 10 = 0,32 kg. Tekshiruv: 0,32 · 30 = 9,6." },
     { level: 10, question: "1,08 : □ = 0,0027. Noma'lum bo'luvchini toping.", options: ["400", "40", "4000", "4"], answer: "400", explain: "400 = 4 · 100: 1,08 : 4 = 0,27, keyin 0,27 : 100 = 0,0027. Demak bo'luvchi 400." }
   ],
+  "5|matematika|olchov-birliklarini-almashtirish": [
+    { level: 1, question: "4,2 m necha santimetr?", options: ["420 cm", "42 cm", "4200 cm", "0,42 cm"], answer: "420 cm", explain: "Metrdan santimetrga o'tishda 100 ga ko'paytiramiz: 4,2 · 100 = 420 cm." },
+    { level: 2, question: "750 g necha kilogramm?", options: ["0,75 kg", "7,5 kg", "0,075 kg", "75 kg"], answer: "0,75 kg", explain: "Grammdan kilogrammga o'tishda 1000 ga bo'lamiz: 750 : 1000 = 0,75 kg." },
+    { level: 3, question: "3 km 80 m necha kilometr?", options: ["3,08 km", "3,8 km", "3,008 km", "3,80 km"], answer: "3,08 km", explain: "80 m = 80 : 1000 = 0,08 km, demak 3 km + 0,08 km = 3,08 km. Nolni tushirib qoldirmang." },
+    { level: 4, question: "6,4 ℓ ni litr va millilitrda ifodalang.", options: ["6 ℓ 400 ml", "6 ℓ 4 ml", "6 ℓ 40 ml", "64 ℓ"], answer: "6 ℓ 400 ml", explain: "0,4 ℓ = 0,4 · 1000 = 400 ml, shuning uchun 6,4 ℓ = 6 ℓ 400 ml." },
+    { level: 5, question: "0,036 km necha metr?", options: ["36 m", "3,6 m", "360 m", "0,36 m"], answer: "36 m", explain: "Kilometrdan metrga o'tishda 1000 ga ko'paytiramiz: 0,036 · 1000 = 36 m (vergul 3 xona o'ngga)." },
+    { level: 6, question: "9 kg 5 g necha kilogramm?", options: ["9,005 kg", "9,5 kg", "9,05 kg", "9,0005 kg"], answer: "9,005 kg", explain: "5 g = 5 : 1000 = 0,005 kg. Xona yetmagani uchun ikkita nol yoziladi: 9 + 0,005 = 9,005 kg." },
+    { level: 7, question: "12,045 kg ni kilogramm va grammda ifodalang.", options: ["12 kg 45 g", "12 kg 450 g", "12 kg 4 g", "12 kg 405 g"], answer: "12 kg 45 g", explain: "0,045 kg = 0,045 · 1000 = 45 g, demak 12,045 kg = 12 kg 45 g." },
+    { level: 8, question: "Idishda 6 ℓ suv bor edi. Undan har gal 250 ml dan 8 marta suv olindi. Idishda necha litr suv qoldi?", options: ["4 ℓ", "2 ℓ", "5,75 ℓ", "3,5 ℓ"], answer: "4 ℓ", explain: "Olingan suv: 250 · 8 = 2000 ml = 2 ℓ. Qolgan suv: 6 − 2 = 4 ℓ. Birliklarni avval tenglab olamiz." },
+    { level: 9, question: "15,6 m sim 12 ta teng bo'lakka bo'lindi. Har bir bo'lak necha santimetr?", options: ["130 cm", "13 cm", "1300 cm", "1,3 cm"], answer: "130 cm", explain: "Bitta bo'lak: 15,6 : 12 = 1,3 m. Santimetrga o'tkazamiz: 1,3 · 100 = 130 cm." },
+    { level: 10, question: "Birinchi idishda ikkinchi idishdagidan 3 marta ko'p suv bor. Birinchidan ikkinchisiga 2,4 ℓ suv quyilgach, suv miqdori teng bo'ldi. Dastlab birinchi idishda necha litr suv bor edi?", options: ["7,2 ℓ", "4,8 ℓ", "2,4 ℓ", "9,6 ℓ"], answer: "7,2 ℓ", explain: "Dastlabki farq 2,4 + 2,4 = 4,8 ℓ — bu ikkinchi idishdagi suvning 2 barobari. Ikkinchida 2,4 ℓ, birinchida 2,4 · 3 = 7,2 ℓ bo'lgan." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },
