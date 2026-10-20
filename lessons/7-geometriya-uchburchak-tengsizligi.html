@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Uchburchak tengsizligi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Bitta ustun: yuqorida qoida, tablar, pastda tanlangan bo'lim.
+   Tomonlar ranglari: a — ko'k, b — to'q sariq, c — yashil; yetmagan joy — qizil */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --ink:#14213D; --muted:#5B6577; --line:#D5DBE5;
+  --c1:#1F5FD6; --c2:#12805C; --c3:#D4501B; --c4:#8B5CF6;
+  --ok:#12805C; --bad:#C62828; --badbg:#FBE3E3; --okbg:#DDF3E9;
+  --f-display:"Bricolage Grotesque",ui-rounded,"Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;padding-inline:16px;padding-block:22px 48px;background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body)}
+.wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+h1{font:800 clamp(24px,5.2vw,36px)/1.12 var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font:700 20px/1.25 var(--f-display);margin:0 0 4px}
+p{margin:0}
+.sub{color:var(--muted);margin-top:6px}
+.hint{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{background:var(--ink);color:#fff;border:0;border-radius:9px;padding:10px 16px;font:700 15px var(--f-body);cursor:pointer;min-height:42px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.green{background:var(--c2)}.btn.red{background:var(--bad)}
+.btn:disabled{opacity:.4;cursor:default}
+:focus-visible{outline:3px solid var(--c1);outline-offset:2px}
+.ca{color:var(--c1)}.cb{color:var(--c3)}.cc{color:var(--c2)}.bad{color:var(--bad)}.ok{color:var(--ok)}
+.formula{display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:14px;background:var(--surface);border:1.5px solid var(--line)}
+.fl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;font:800 clamp(20px,4.6vw,28px)/1.25 var(--f-display);font-variant-numeric:tabular-nums}
+.fnote{font:700 15px/1.5 var(--f-body);color:var(--muted)}
+.fnote b{color:var(--ink)}
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid var(--line);scrollbar-width:thin}
+.tab{flex:0 0 auto;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;padding:10px 14px;font:700 15px var(--f-body);color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.panel[hidden]{display:none}
+/* surgichlar */
+.sliders{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 16px}
+.sl{display:flex;flex-direction:column;gap:2px}
+.sl label{display:flex;justify-content:space-between;font:800 15px var(--f-body)}
+.sl output{font:800 20px var(--f-display)}
+.sl input{width:100%;accent-color:var(--sc)}
+.sl.a{--sc:var(--c1)}.sl.b{--sc:var(--c3)}.sl.c{--sc:var(--c2)}
+.sl.a label{color:var(--c1)}.sl.b label{color:var(--c3)}.sl.c label{color:var(--c2)}
+@media (max-width:560px){.sliders{grid-template-columns:1fr}}
+.stage.drag{touch-action:none;user-select:none}
+.knob{cursor:grab}
+.stage{width:100%;height:auto;display:block;border-radius:14px;background:#FBFCFE;border:1.5px solid var(--line)}
+.lab{font:800 15px var(--f-body)}
+.vx{font:800 15px var(--f-display);fill:var(--ink)}
+.ang{font:700 12px var(--f-body);fill:var(--muted)}
+/* uchta tengsizlik tekshiruvi */
+.checks{display:flex;flex-direction:column;gap:6px}
+.ck{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:8px 12px;border-radius:10px;font:800 18px var(--f-display);font-variant-numeric:tabular-nums;background:var(--okbg)}
+.ck.no{background:var(--badbg)}
+.ck .op{color:var(--muted)}
+.ck .mark{margin-left:auto;font:800 15px var(--f-body)}
+.ck.no .mark{color:var(--bad)}.ck .mark{color:var(--ok)}
+.verdict{font:800 18px/1.4 var(--f-body);padding:10px 14px;border-radius:12px;background:var(--okbg);color:var(--ok)}
+.verdict.no{background:var(--badbg);color:var(--bad)}
+.verdict.flat{background:#FFF4E5;color:#B45309}
+/* son o'qi */
+.range-txt{font:800 clamp(18px,4.4vw,24px)/1.35 var(--f-display);font-variant-numeric:tabular-nums}
+/* mashq */
+.task{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:800 clamp(24px,6vw,34px)/1.2 var(--f-display);font-variant-numeric:tabular-nums}
+.chip{display:inline-block;padding:2px 12px;border-radius:10px;background:var(--bg);border:1.5px solid var(--line)}
+.score{font:800 15px var(--f-body);color:var(--muted)}
+.story{font-weight:700;font-size:16px;line-height:1.6;min-height:1.6em}
+.story.good{color:var(--ok)}.story.bad{color:var(--bad)}
+/* o'yin: son tugmalari */
+.nums{display:flex;flex-wrap:wrap;gap:8px}
+.num{width:48px;height:48px;border-radius:12px;border:2px solid var(--line);background:#fff;font:800 20px var(--f-display);color:var(--ink);cursor:pointer}
+.num.on{background:var(--c4);border-color:var(--c4);color:#fff}
+.num.right{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.num.miss{border-color:var(--ok);border-style:dashed;color:var(--ok)}
+.num.wrong{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.num:disabled{cursor:default}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Uchburchak tengsizligi</h1>
+    <p class="sub">Uchta tayoqchadan har doim ham uchburchak yasab bo'lmaydi. Qachon bo'ladi — o'zingiz sinab ko'ring.</p>
+  </header>
+
+  <div class="formula">
+    <div class="fl"><span><span class="ca">a</span> &lt; <span class="cb">b</span> + <span class="cc">c</span></span><span><span class="cb">b</span> &lt; <span class="ca">a</span> + <span class="cc">c</span></span><span><span class="cc">c</span> &lt; <span class="ca">a</span> + <span class="cb">b</span></span></div>
+    <div class="fnote">Har bir tomon qolgan ikki tomon yig'indisidan <b>kichik</b>. Tekshirish uchun <b>eng katta tomonni</b> qolgan ikkitasining yig'indisi bilan solishtirish yetarli.</div>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="yasa" aria-selected="true">Tayoqchalardan yasash</button>
+    <button class="tab" role="tab" data-tab="chegara" aria-selected="false">Uchinchi tomon qanday bo'ladi?</button>
+    <button class="tab" role="tab" data-tab="mashq" aria-selected="false">Bo'ladimi?</button>
+    <button class="tab" role="tab" data-tab="oyin" aria-selected="false">O'yin</button>
+  </div>
+
+  <!-- 1. Tayoqchalardan yasash -->
+  <section class="panel" data-panel="yasa">
+    <div>
+      <h2>Yon tomonlarni burang</h2>
+      <p class="hint"><b class="cc">c</b> — asos. <b class="cb">b</b> tomon chap uchga, <b class="ca">a</b> tomon o'ng uchga mahkamlangan va o'z aylanasi bo'ylab buriladi. Tomonlarning uchidagi doirachani surib, ikki uchni uchrashtiring. Aylanalar kesishsa — uchburchak hosil bo'ladi, kesishmasa — hosil bo'lmaydi.</p>
+    </div>
+    <div class="sliders">
+      <div class="sl a"><label for="ya">a <output id="ya-o">6</output></label><input type="range" id="ya" min="1" max="15" value="6"></div>
+      <div class="sl b"><label for="yb">b <output id="yb-o">8</output></label><input type="range" id="yb" min="1" max="15" value="8"></div>
+      <div class="sl c"><label for="yc">c <output id="yc-o">11</output></label><input type="range" id="yc" min="1" max="15" value="11"></div>
+    </div>
+    <svg class="stage drag" id="y-svg" viewBox="0 0 360 250" role="img" aria-label="Asos va aylana bo'ylab buriladigan ikki yon tomon"></svg>
+    <div class="row">
+      <button class="btn green" id="y-meet">Uchlarini uchrashtirish</button>
+      <button class="btn ghost" id="y-reset">Boshlang'ich holat ↻</button>
+    </div>
+    <div class="checks" id="y-checks"></div>
+    <div class="verdict" id="y-verdict"></div>
+  </section>
+
+  <!-- 2. Uchinchi tomon chegarasi -->
+  <section class="panel" data-panel="chegara" hidden>
+    <div>
+      <h2>Ikki tomon berilgan</h2>
+      <p class="hint">Ikki tomonni tanlang, keyin uchinchisini suring. Yashil oraliqdagi har qanday uzunlik bilan uchburchak hosil bo'ladi.</p>
+    </div>
+    <div class="sliders">
+      <div class="sl a"><label for="ca">a <output id="ca-o">4</output></label><input type="range" id="ca" min="1" max="10" value="4"></div>
+      <div class="sl b"><label for="cb">b <output id="cb-o">7</output></label><input type="range" id="cb" min="1" max="10" value="7"></div>
+      <div class="sl c"><label for="cc">c <output id="cc-o">6</output></label><input type="range" id="cc" min="1" max="14" value="6"></div>
+    </div>
+    <div class="range-txt" id="c-range"></div>
+    <svg class="stage" id="c-line" viewBox="0 0 360 74" role="img" aria-label="Uchinchi tomon uchun son o'qi"></svg>
+    <svg class="stage" id="c-svg" viewBox="0 0 360 230" role="img" aria-label="Uchburchak"></svg>
+    <div class="verdict" id="c-verdict"></div>
+  </section>
+
+  <!-- 3. Bo'ladimi? -->
+  <section class="panel" data-panel="mashq" hidden>
+    <div class="row" style="justify-content:space-between">
+      <h2>Shu uzunliklardan uchburchak bo'ladimi?</h2>
+      <span class="score" id="m-score"></span>
+    </div>
+    <div class="task" id="m-task"></div>
+    <div class="row">
+      <button class="btn green" id="m-yes">Bo'ladi</button>
+      <button class="btn red" id="m-no">Bo'lmaydi</button>
+      <button class="btn ghost" id="m-next" hidden>Keyingisi →</button>
+    </div>
+    <div class="story" id="m-story"></div>
+    <svg class="stage" id="m-svg" viewBox="0 0 360 230" hidden role="img" aria-label="Javob chizmasi"></svg>
+  </section>
+
+  <!-- 4. O'yin -->
+  <section class="panel" data-panel="oyin" hidden>
+    <div class="row" style="justify-content:space-between">
+      <h2>Uchinchi tomonning barcha qiymatlari</h2>
+      <span class="score" id="o-score"></span>
+    </div>
+    <div class="task" id="o-task"></div>
+    <p class="hint">Uchinchi tomon butun son. U qaysi qiymatlarni qabul qilishi mumkin? Hammasini belgilang va «Tekshirish» ni bosing.</p>
+    <div class="nums" id="o-nums"></div>
+    <div class="row">
+      <button class="btn" id="o-check">Tekshirish</button>
+      <button class="btn ghost" id="o-next" hidden>Yangi savol →</button>
+    </div>
+    <div class="story" id="o-story"></div>
+  </section>
+</div>
+
+<script>
+const COL = { a: "#1F5FD6", b: "#D4501B", c: "#12805C", bad: "#C62828", ink: "#14213D", muted: "#5B6577" };
+const $ = id => document.getElementById(id);
+
+/* ---------- tablar ---------- */
+function setTab(name) {
+  document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === name));
+  document.querySelectorAll(".panel").forEach(p => { p.hidden = p.dataset.panel !== name; });
+}
+document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => setTab(b.dataset.tab)));
+
+/* ---------- chizma: eng uzun tomon pastda ----------
+   s = {a, b, c}; uchburchak bo'lsa — ABC (a = BC, b = AC, c = AB), bo'lmasa — tayoqchalar asosga yotqiziladi va yetmagan joy qizil */
+function draw(svg, s) {
+  const W = 360, H = 230, pad = 30;
+  const names = ["a", "b", "c"].sort((x, y) => s[y] - s[x]);
+  const L = names[0], P = names[1], Q = names[2];          /* L — eng uzun; P chap uchdan, Q o'ng uchdan */
+  const vL = s[L], vP = s[P], vQ = s[Q];
+  let out = "";
+  if (vL <= 0) { svg.innerHTML = ""; return; }
+  const ok = vP + vQ > vL;
+  /* uchburchak bo'lsa: chap uch (0,0), o'ng uch (vL,0), cho'qqi — chapdan vP, o'ngdan vQ masofada */
+  let apex = null, h = 0;
+  if (ok) {
+    const x = (vP * vP - vQ * vQ + vL * vL) / (2 * vL);
+    h = Math.sqrt(Math.max(0, vP * vP - x * x));
+    apex = [x, h];
+  }
+  const k = Math.min((W - 2 * pad) / vL, (H - 70) / Math.max(h, 0.01));
+  const X = x => (W - vL * k) / 2 + x * k;
+  const baseY = ok ? H - 40 : H / 2 + 30;
+  const Y = y => baseY - y * k;
+  const seg = (x1, y1, x2, y2, c, w, dash) =>
+    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"${dash ? ` stroke-dasharray="${dash}"` : ""}/>`;
+  const text = (x, y, t, c, cls, anchor) => `<text x="${x}" y="${y}" fill="${c}" class="${cls || "lab"}" text-anchor="${anchor || "middle"}">${t}</text>`;
+  const x0 = X(0), x1 = X(vL), y0 = Y(0);
+  if (ok) {
+    const ax = X(apex[0]), ay = Y(apex[1]);
+    out += `<polygon points="${x0},${y0} ${x1},${y0} ${ax},${ay}" fill="#1F5FD6" fill-opacity=".07"/>`;
+    out += seg(x0, y0, x1, y0, COL[L], 6) + seg(x0, y0, ax, ay, COL[P], 6) + seg(x1, y0, ax, ay, COL[Q], 6);
+    /* tomon yozuvlari */
+    out += text((x0 + x1) / 2, y0 + 24, `${L} = ${vL}`, COL[L]);
+    const mx1 = (x0 + ax) / 2, my1 = (y0 + ay) / 2, mx2 = (x1 + ax) / 2, my2 = (y0 + ay) / 2;
+    out += text(Math.max(mx1 - 12, 58), my1 - 4, `${P} = ${vP}`, COL[P], "lab", "end");
+    out += text(Math.min(mx2 + 12, 302), my2 - 4, `${Q} = ${vQ}`, COL[Q], "lab", "start");
+    /* burchaklar (kosinuslar teoremasi) — katta tomon qarshisida katta burchak */
+    const deg = (opp, s1, s2) => Math.round(Math.acos(Math.min(1, Math.max(-1, (s1 * s1 + s2 * s2 - opp * opp) / (2 * s1 * s2)))) * 180 / Math.PI);
+    const angLeft = deg(vQ, vL, vP), angRight = deg(vP, vL, vQ), angTop = 180 - angLeft - angRight;
+    out += text(x0 + 22, y0 - 8, angLeft + "°", COL.muted, "ang", "start");
+    out += text(x1 - 22, y0 - 8, angRight + "°", COL.muted, "ang", "end");
+    out += text(ax, ay + 22, angTop + "°", COL.muted, "ang");
+    for (const [px, py] of [[x0, y0], [x1, y0], [ax, ay]]) out += `<circle cx="${px}" cy="${py}" r="5" fill="${COL.ink}"/>`;
+  } else {
+    /* yotqizilgan tayoqchalar: P chapdan o'ngga, Q o'ngdan chapga; asos ustida */
+    out += seg(x0, y0, x1, y0, COL[L], 6);
+    out += text((x0 + x1) / 2, y0 + 26, `${L} = ${vL}`, COL[L]);
+    const pEnd = X(vP), qStart = X(vL - vQ);
+    out += seg(x0, y0 - 18, pEnd, y0 - 18, COL[P], 6);
+    out += seg(qStart, y0 - 34, x1, y0 - 34, COL[Q], 6);
+    out += text(x0, y0 - 28, `${P} = ${vP}`, COL[P], "lab", "start");
+    out += text(x1, y0 - 44, `${Q} = ${vQ}`, COL[Q], "lab", "end");
+    /* aylana yoylari: P va Q tayoqchalari burilganda yetadigan joylar (chizma ichida qoladi) */
+    const arc = (cx, r, dir, c) => {
+      if (r <= 0) return "";
+      const t = Math.min(1.2, Math.asin(Math.min(1, (y0 - 12) / r)));
+      return `<path d="M ${cx + dir * r} ${y0} A ${r} ${r} 0 0 ${dir > 0 ? 0 : 1} ${cx + dir * r * Math.cos(t)} ${y0 - r * Math.sin(t)}" fill="none" stroke="${c}" stroke-width="1.5" stroke-dasharray="4 4" opacity=".7"/>`;
+    };
+    out += arc(x0, vP * k, 1, COL[P]) + arc(x1, vQ * k, -1, COL[Q]);
+    if (vP + vQ < vL) {
+      out += `<rect x="${pEnd}" y="${y0 - 6}" width="${qStart - pEnd}" height="12" rx="4" fill="${COL.bad}" opacity=".85"/>`;
+      out += text((pEnd + qStart) / 2, y0 + 50, `yetmaydi: ${vL - vP - vQ}`, COL.bad);
+    } else {
+      out += `<circle cx="${pEnd}" cy="${y0}" r="7" fill="#B45309"/>`;
+      out += text(W / 2, y0 + 50, "uchlari asosda uchrashdi — shakl yassi", "#B45309");
+    }
+    for (const px of [x0, x1]) out += `<circle cx="${px}" cy="${y0}" r="5" fill="${COL.ink}"/>`;
+  }
+  svg.innerHTML = out;
+}
+
+function verdict(el, s) {
+  const m = Math.max(s.a, s.b, s.c), sum = s.a + s.b + s.c - m;
+  el.className = "verdict" + (sum > m ? "" : sum === m ? " flat" : " no");
+  el.textContent = sum > m ? "Uchburchak hosil bo'ladi: eng katta tomon " + m + " < " + sum + "."
+    : sum === m ? "Uchburchak hosil bo'lmaydi: " + sum + " = " + m + ", tayoqchalar bitta to'g'ri chiziqqa yotib qoladi."
+    : "Uchburchak hosil bo'lmaydi: " + sum + " < " + m + ", ikki tayoqcha bir-biriga yetmaydi.";
+}
+
+/* ---------- 1. Yon tomonlarni aylana bo'ylab burish ----------
+   A(0,0), B(c,0) — asos; b tomon A atrofida, a tomon B atrofida buriladi (burchaklar: 0 — o'ngga, π — chapga, faqat yuqori yarim).
+   Aylanalar kesishish nuqtasi I bo'lsa — uchlar shu yerda uchrashadi */
+const T = { t1: Math.PI / 3, t2: Math.PI * 2 / 3, drag: null, anim: 0, view: null };
+function sides1() { return { a: +$("ya").value, b: +$("yb").value, c: +$("yc").value }; }
+function meetPoint(s) {
+  const x = (s.b * s.b - s.a * s.a + s.c * s.c) / (2 * s.c), y2 = s.b * s.b - x * x;
+  if (y2 < -1e-9) return null;
+  return { x, y: Math.sqrt(Math.max(0, y2)), flat: y2 < 1e-9 };
+}
+/* kesishmasa — uchlar bir-biriga qarab burilgan holat (chiziqlar ustma-ust tushmasligi uchun sal ko'tarilgan) */
+function closest(s) {
+  if (s.a >= s.b + s.c) return [Math.PI - 0.45, Math.PI - 0.45];
+  if (s.b >= s.a + s.c) return [0.45, 0.45];
+  return [0.3, Math.PI - 0.3];
+}
+function draw1() {
+  const s = sides1(), svg = $("y-svg"), W = 360, H = 250, pad = 16;
+  const xmin = Math.min(-s.b, s.c - s.a), xmax = Math.max(s.b, s.c + s.a), ymax = Math.max(s.a, s.b);
+  const k = Math.min((W - 2 * pad) / (xmax - xmin), (H - 64) / ymax);
+  const ox = (W - (xmax - xmin) * k) / 2 - xmin * k, oy = H - 40;
+  const X = x => ox + x * k, Y = y => oy - y * k;
+  T.view = { k, ox, oy };
+  const P = [s.b * Math.cos(T.t1), s.b * Math.sin(T.t1)];
+  const Q = [s.c + s.a * Math.cos(T.t2), s.a * Math.sin(T.t2)];
+  const I = meetPoint(s);
+  const gap = Math.hypot(P[0] - Q[0], P[1] - Q[1]);
+  const met = I && gap < 1e-6;
+  let o = "";
+  /* aylanalar (yuqori yarmi) */
+  const semi = (cx, r, col) => `<path d="M ${X(cx + r)} ${oy} A ${r * k} ${r * k} 0 0 0 ${X(cx - r)} ${oy}" fill="none" stroke="${col}" stroke-width="2" stroke-dasharray="5 5" opacity=".55"/>`;
+  o += `<line x1="${pad}" y1="${oy}" x2="${W - pad}" y2="${oy}" stroke="#D5DBE5" stroke-width="1.5"/>`;
+  o += semi(0, s.b, COL.b) + semi(s.c, s.a, COL.a);
+  if (met && !I.flat) o += `<polygon points="${X(0)},${oy} ${X(s.c)},${oy} ${X(P[0])},${Y(P[1])}" fill="${COL.c}" fill-opacity=".12"/>`;
+  /* asos */
+  o += `<line x1="${X(0)}" y1="${oy}" x2="${X(s.c)}" y2="${oy}" stroke="${COL.c}" stroke-width="6" stroke-linecap="round"/>`;
+  o += `<text x="${(X(0) + X(s.c)) / 2}" y="${oy + 24}" text-anchor="middle" class="lab" fill="${COL.c}">c = ${s.c}</text>`;
+  /* kesishish nuqtasi */
+  if (I && !met) o += `<circle cx="${X(I.x)}" cy="${Y(I.y)}" r="9" fill="none" stroke="${COL.c}" stroke-width="2.5" stroke-dasharray="3 3"/>`;
+  /* uchlar orasidagi masofa (kesishmasa) */
+  if (!I && gap > 1e-6) {
+    o += `<line x1="${X(P[0])}" y1="${Y(P[1])}" x2="${X(Q[0])}" y2="${Y(Q[1])}" stroke="${COL.bad}" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>`;
+    o += `<text x="${(X(P[0]) + X(Q[0])) / 2}" y="${Math.max(18, Math.min(Y(P[1]), Y(Q[1])) - 18)}" text-anchor="middle" class="lab" fill="${COL.bad}" stroke="#FBFCFE" stroke-width="5" paint-order="stroke">uchrashmaydi</text>`;
+  }
+  /* yon tomonlar */
+  o += `<line x1="${X(0)}" y1="${oy}" x2="${X(P[0])}" y2="${Y(P[1])}" stroke="${COL.b}" stroke-width="6" stroke-linecap="round"/>`;
+  o += `<line x1="${X(s.c)}" y1="${oy}" x2="${X(Q[0])}" y2="${Y(Q[1])}" stroke="${COL.a}" stroke-width="6" stroke-linecap="round"/>`;
+  /* tomon uzunliklari — yuqori burchaklarda (tomonlar rangidan taniladi) */
+  const halo = 'stroke="#FBFCFE" stroke-width="5" paint-order="stroke"';
+  o += `<text x="14" y="24" class="lab" fill="${COL.b}" ${halo}>b = ${s.b}</text>`;
+  o += `<text x="${W - 14}" y="24" text-anchor="end" class="lab" fill="${COL.a}" ${halo}>a = ${s.a}</text>`;
+  for (const x of [0, s.c]) o += `<circle cx="${X(x)}" cy="${oy}" r="5" fill="${COL.ink}"/>`;
+  /* suriladigan uchlar */
+  o += `<circle class="knob" data-k="1" cx="${X(P[0])}" cy="${Y(P[1])}" r="11" fill="${COL.b}" stroke="#fff" stroke-width="3"/>`;
+  o += `<circle class="knob" data-k="2" cx="${X(Q[0])}" cy="${Y(Q[1])}" r="11" fill="${COL.a}" stroke="#fff" stroke-width="3"/>`;
+  if (met) o += `<circle cx="${X(P[0])}" cy="${Y(P[1])}" r="6" fill="#fff"/>`;
+  svg.innerHTML = o;
+  /* holat yozuvi */
+  const v = $("y-verdict"), m = Math.max(s.a, s.b, s.c), sum = s.a + s.b + s.c - m;
+  if (!I) {
+    v.className = "verdict no";
+    v.textContent = `Aylanalar kesishmaydi — uchlar hech qachon uchrashmaydi. Uchburchak hosil bo'lmaydi: ${sum} < ${m}.`;
+  } else if (I.flat) {
+    v.className = "verdict flat";
+    v.textContent = met ? `Uchlar asosning ustida uchrashdi — shakl yassi, uchburchak emas: ${sum} = ${m}.`
+      : `Aylanalar faqat asosda bitta nuqtada tegadi: ${sum} = ${m}. Uchburchak hosil bo'lmaydi.`;
+  } else {
+    v.className = met ? "verdict" : "verdict flat";
+    v.textContent = met ? `Uchlar uchrashdi — uchburchak hosil bo'ldi! Eng katta tomon ${m} < ${sum}.`
+      : "Aylanalar kesishadi. Ikkala uchni punktir doiraga olib boring — uchburchak hosil bo'ladi.";
+  }
+  $("y-meet").textContent = I ? "Uchlarini uchrashtirish" : "Uchlarini yaqinlashtirish";
+}
+function animTo(a1, a2) {
+  cancelAnimationFrame(T.anim);
+  const s1 = T.t1, s2 = T.t2, t0 = performance.now(), dur = 700;
+  const step = now => {
+    const u = Math.min(1, (now - t0) / dur), e = u < .5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+    T.t1 = s1 + (a1 - s1) * e; T.t2 = s2 + (a2 - s2) * e;
+    draw1();
+    if (u < 1) T.anim = requestAnimationFrame(step);
+  };
+  T.anim = requestAnimationFrame(step);
+}
+$("y-meet").addEventListener("click", () => {
+  const s = sides1(), I = meetPoint(s);
+  if (I) animTo(Math.atan2(I.y, I.x), Math.atan2(I.y, I.x - s.c));
+  else { const [a1, a2] = closest(s); animTo(a1, a2); }
+});
+$("y-reset").addEventListener("click", () => animTo(Math.PI / 3, Math.PI * 2 / 3));
+/* sudrash: uch faqat o'z aylanasi bo'ylab yuradi; kesishish nuqtasiga yaqinlashsa — unga yopishadi */
+(function () {
+  const svg = $("y-svg");
+  const pt = e => { const r = svg.getBoundingClientRect(); return [(e.clientX - r.left) * 360 / r.width, (e.clientY - r.top) * 250 / r.height]; };
+  svg.addEventListener("pointerdown", e => {
+    const kn = e.target.closest(".knob"); if (!kn) return;
+    cancelAnimationFrame(T.anim);
+    T.drag = kn.dataset.k; svg.setPointerCapture(e.pointerId); e.preventDefault();
+  });
+  svg.addEventListener("pointermove", e => {
+    if (!T.drag) return;
+    const s = sides1(), [px, py] = pt(e), { k, ox, oy } = T.view;
+    const mx = (px - ox) / k, my = Math.max(0, (oy - py) / k);
+    const cx = T.drag === "1" ? 0 : s.c;
+    let t = Math.atan2(my, mx - cx);
+    t = Math.min(Math.PI, Math.max(0, t));
+    const I = meetPoint(s);
+    if (I) {
+      const ti = Math.atan2(I.y, I.x - cx), r = T.drag === "1" ? s.b : s.a;
+      if (Math.abs(t - ti) * r * k < 14) t = ti;
+    }
+    if (T.drag === "1") T.t1 = t; else T.t2 = t;
+    draw1();
+  });
+  const end = () => { T.drag = null; };
+  svg.addEventListener("pointerup", end); svg.addEventListener("pointercancel", end);
+})();
+function upd1() {
+  const s = sides1();
+  ["a", "b", "c"].forEach(n => { $("y" + n + "-o").textContent = s[n]; });
+  draw1();
+  const rows = [["a", "b", "c"], ["b", "a", "c"], ["c", "a", "b"]].map(([x, y, z]) => {
+    const good = s[x] < s[y] + s[z];
+    return `<div class="ck${good ? "" : " no"}"><span><span class="c${x}">${x}</span> &lt; <span class="c${y}">${y}</span> + <span class="c${z}">${z}</span></span><span class="op">→</span>`
+      + `<span>${s[x]} ${good ? "&lt;" : (s[x] === s[y] + s[z] ? "=" : "&gt;")} ${s[y] + s[z]}</span><span class="mark">${good ? "✓ to'g'ri" : "✗ bajarilmadi"}</span></div>`;
+  });
+  $("y-checks").innerHTML = rows.join("");
+}
+["ya", "yb", "yc"].forEach(id => $(id).addEventListener("input", upd1));
+
+/* ---------- 2. Uchinchi tomon chegarasi ---------- */
+function upd2() {
+  const a = +$("ca").value, b = +$("cb").value;
+  const cIn = $("cc");
+  cIn.max = a + b + 3;
+  if (+cIn.value > +cIn.max) cIn.value = cIn.max;
+  const c = +cIn.value;
+  $("ca-o").textContent = a; $("cb-o").textContent = b; $("cc-o").textContent = c;
+  const lo = Math.abs(a - b), hi = a + b;
+  $("c-range").innerHTML = `<span class="cc">c</span> &gt; ${Math.max(a, b)} − ${Math.min(a, b)} = ${lo} &nbsp;va&nbsp; <span class="cc">c</span> &lt; ${a} + ${b} = ${hi}`
+    + `<br><span class="ok">${lo} &lt; c &lt; ${hi}</span>`;
+  /* son o'qi */
+  const max = a + b + 3, W = 360, p = 20, k = (W - 2 * p) / max, X = v => p + v * k, y = 34;
+  let o = `<line x1="${p}" y1="${y}" x2="${W - p + 6}" y2="${y}" stroke="${COL.muted}" stroke-width="2"/>`;
+  o += `<line x1="${X(lo)}" y1="${y}" x2="${X(hi)}" y2="${y}" stroke="${COL.c}" stroke-width="10" stroke-linecap="butt" opacity=".35"/>`;
+  const step = max > 16 ? 2 : 1;
+  for (let v = 0; v <= max; v++) {
+    o += `<line x1="${X(v)}" y1="${y - 5}" x2="${X(v)}" y2="${y + 5}" stroke="${COL.muted}" stroke-width="1.5"/>`;
+    if (v % step === 0 || v === lo || v === hi) o += `<text x="${X(v)}" y="${y + 22}" text-anchor="middle" class="ang">${v}</text>`;
+  }
+  for (const v of [lo, hi]) o += `<circle cx="${X(v)}" cy="${y}" r="6" fill="#fff" stroke="${COL.c}" stroke-width="3"/>`;
+  const good = c > lo && c < hi;
+  o += `<path d="M ${X(c)} ${y - 8} l -7 -12 h 14 z" fill="${good ? COL.c : COL.bad}"/>`;
+  o += `<text x="${X(c)}" y="${y - 24}" text-anchor="middle" class="lab" fill="${good ? COL.c : COL.bad}">c = ${c}</text>`;
+  $("c-line").innerHTML = o;
+  const s = { a, b, c };
+  draw($("c-svg"), s);
+  verdict($("c-verdict"), s);
+}
+["ca", "cb", "cc"].forEach(id => $(id).addEventListener("input", upd2));
+
+/* ---------- 3. Bo'ladimi? ---------- */
+const M = { n: 0, right: 0, cur: null, done: false, ROUNDS: 10 };
+function rnd(lo, hi) { return lo + Math.floor(Math.random() * (hi - lo + 1)); }
+function newTriple() {
+  /* uch xil holat teng ehtimol bilan: bo'ladi, yassi (tenglik), yetmaydi */
+  const kind = rnd(0, 2);
+  let x = rnd(2, 9), y = rnd(2, 9), z;
+  if (kind === 0) z = rnd(Math.abs(x - y) + 1, x + y - 1);
+  else if (kind === 1) z = x + y;
+  else z = x + y + rnd(1, 4);
+  const arr = [x, y, z];
+  for (let i = 2; i > 0; i--) { const j = rnd(0, i); [arr[i], arr[j]] = [arr[j], arr[i]]; }
+  return arr;
+}
+function showM() {
+  M.cur = newTriple(); M.done = false;
+  $("m-task").innerHTML = M.cur.map(v => `<span class="chip">${v}</span>`).join("");
+  $("m-story").textContent = ""; $("m-story").className = "story";
+  $("m-svg").hidden = true;
+  $("m-yes").disabled = $("m-no").disabled = false;
+  $("m-next").hidden = true;
+  $("m-score").textContent = `${M.n + 1}-savol / ${M.ROUNDS} · to'g'ri: ${M.right}`;
+}
+function answerM(saysYes) {
+  if (M.done) return;
+  M.done = true; M.n++;
+  const [x, y, z] = M.cur, m = Math.max(x, y, z), sum = x + y + z - m;
+  const isYes = sum > m, correct = saysYes === isYes;
+  if (correct) M.right++;
+  const why = isYes ? `Eng katta tomon ${m}, qolganlari yig'indisi ${sum}: ${m} < ${sum}.`
+    : sum === m ? `Eng katta tomon ${m}, qolganlari yig'indisi ham ${sum}. Teng bo'lsa — uchburchak bo'lmaydi.`
+    : `Eng katta tomon ${m}, qolganlari yig'indisi ${sum}: ${sum} < ${m}, yetmaydi.`;
+  $("m-story").className = "story " + (correct ? "good" : "bad");
+  $("m-story").textContent = (correct ? "To'g'ri! " : "Xato. ") + why;
+  const svg = $("m-svg"); svg.hidden = false;
+  draw(svg, { a: x, b: y, c: z });
+  $("m-yes").disabled = $("m-no").disabled = true;
+  $("m-score").textContent = `${M.n}-savol / ${M.ROUNDS} · to'g'ri: ${M.right}`;
+  $("m-next").hidden = false;
+  $("m-next").textContent = M.n >= M.ROUNDS ? "Qaytadan boshlash ↻" : "Keyingisi →";
+  if (M.n >= M.ROUNDS) $("m-story").textContent += ` Natija: ${M.right} / ${M.ROUNDS}.`;
+}
+$("m-yes").addEventListener("click", () => answerM(true));
+$("m-no").addEventListener("click", () => answerM(false));
+$("m-next").addEventListener("click", () => { if (M.n >= M.ROUNDS) { M.n = 0; M.right = 0; } showM(); });
+
+/* ---------- 4. O'yin: uchinchi tomonning barcha butun qiymatlari ---------- */
+const G = { a: 0, b: 0, picked: new Set(), done: false, solved: 0, total: 0 };
+function newGame() {
+  do { G.a = rnd(2, 9); G.b = rnd(2, 9); } while (G.a === G.b && Math.random() < .6);
+  G.picked = new Set(); G.done = false;
+  $("o-task").innerHTML = `<span class="chip ca">${G.a}</span><span class="chip cb">${G.b}</span><span class="chip cc">?</span>`;
+  const max = G.a + G.b + 2;
+  $("o-nums").innerHTML = Array.from({ length: max }, (_, i) => `<button class="num" data-v="${i + 1}">${i + 1}</button>`).join("");
+  $("o-story").textContent = ""; $("o-story").className = "story";
+  $("o-check").disabled = false; $("o-next").hidden = true;
+  $("o-score").textContent = G.total ? `Topilgan: ${G.solved} / ${G.total}` : "";
+}
+$("o-nums").addEventListener("click", e => {
+  const b = e.target.closest(".num"); if (!b || G.done) return;
+  const v = +b.dataset.v;
+  if (G.picked.has(v)) G.picked.delete(v); else G.picked.add(v);
+  b.classList.toggle("on", G.picked.has(v));
+});
+$("o-check").addEventListener("click", () => {
+  if (G.done) return;
+  G.done = true; G.total++;
+  const lo = Math.abs(G.a - G.b), hi = G.a + G.b;
+  let wrong = 0, miss = 0;
+  document.querySelectorAll("#o-nums .num").forEach(b => {
+    const v = +b.dataset.v, good = v > lo && v < hi, on = G.picked.has(v);
+    b.classList.remove("on"); b.disabled = true;
+    if (good && on) b.classList.add("right");
+    else if (good) { b.classList.add("miss"); miss++; }
+    else if (on) { b.classList.add("wrong"); wrong++; }
+  });
+  const all = !wrong && !miss;
+  if (all) G.solved++;
+  const list = [];
+  for (let v = lo + 1; v < hi; v++) list.push(v);
+  $("o-story").className = "story " + (all ? "good" : "bad");
+  $("o-story").textContent = (all ? "Barakalla, hammasi to'g'ri! " : `Xato: ${wrong} ta ortiqcha, ${miss} ta tushib qolgan. `)
+    + `${lo} < c < ${hi}, ya'ni c = ${list.length <= 4 ? list.join(", ") : list[0] + ", " + list[1] + ", …, " + list[list.length - 1]} — jami ${list.length} ta qiymat.`;
+  $("o-score").textContent = `Topilgan: ${G.solved} / ${G.total}`;
+  $("o-check").disabled = true; $("o-next").hidden = false;
+});
+$("o-next").addEventListener("click", newGame);
+
+upd1(); upd2(); showM(); newGame();
+
+/* MathRun: mavzu sahifasidagi oyna balandligi ko'rgazmaga moslashadi (ichki aylantirishsiz) */
+(function(){function post(){try{parent.postMessage({type:"mathrun:height",h:document.body.offsetHeight},"*")}catch(e){}}
+new ResizeObserver(post).observe(document.body);post();})();
+</script>
+</body>
+</html>

@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 73;
+const LESSON_VER = 74;
 
 function sec(title) {
   return { title: title, text: null };
@@ -1477,7 +1477,7 @@ const SITE_DATA = {
                   "<p>Uchburchakning ikki tomoni 5 sm va 9 sm. Uchinchi tomon butun son bo'lsa, u qanday qiymatlar qabul qilishi mumkin?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: null }, interactive: "lessons/7-geometriya-uchburchak-tengsizligi.html", review: true, test: null
             },
             {
               id: "sirkul-chizgich-yasash", title: "Sirkul va chizg'ich yordamida geometrik yasashga doir masalalar", page: "152-bet",
