@@ -1673,3 +1673,9 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 @media (max-width: 960px) { .lessons-grid { grid-template-columns: 1fr; } .lesson-art { width: 34%; } }
 @media (max-width: 560px) { .lessons-panel { padding: 22px 16px; border-radius: 22px; } .lesson-text { max-width: 62%; } .lesson-art { width: 38%; } }
 .hero-section { overflow-x: clip; }
+
+/* bosh sahifa sarlavhasi: uch qatorli hikmat, oxirgi qator ko'k */
+.hero-text h1.h1-hikmat { font-size: clamp(1.9rem, 3.7vw, 3rem); line-height: 1.12; }
+.hero-text h1.h1-hikmat span { display: block; color: #1e2a78; }
+.hero-text h1.h1-hikmat span:nth-child(2) { color: #4b5578; }
+.hero-text h1.h1-hikmat span:last-child { color: #3b4fd8; }
