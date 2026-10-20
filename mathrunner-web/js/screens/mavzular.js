@@ -85,8 +85,9 @@ export function render(root, [gradeStr, chorakStr]) {
     const sim = simFor(grade, chorakNo, b.blok);
     const href = sim ? `#/sim/${grade}/${chorakNo}/${b.blok}` : first ? `#/play/${first.id}` : null;
     return el('li', { class: 'trow' + (sim ? ' trow--sim' : '') },
-      el('span', { class: 'trow__num' }, `${b.blok}.`),
-      el(href ? 'a' : 'span', { class: 'trow__title', href }, titles[idx] || b.name, sim && sim.review ? el('span', { class: 'review-dot', title: 'Tekshirish kerak — kamchiligi bor yoki hali tekshirilmagan' }) : null),
+      el(href ? 'a' : 'span', { class: 'trow__main', href },
+        el('span', { class: 'trow__icon' }, el('span', { class: 'trow__num' }, String(b.blok))),
+        el('span', { class: 'trow__title' }, titles[idx] || b.name, sim && sim.review ? el('span', { class: 'review-dot', title: 'Tekshirish kerak — kamchiligi bor yoki hali tekshirilmagan' }) : null)),
       el('div', { class: 'trow__levels' },
         sim ? el('a', { class: 'tbtn tbtn--sim', href, title: 'Interaktiv simulyator' }, 'Simulyator') : null,
         ...b.levels.map(lessonBtn)));
