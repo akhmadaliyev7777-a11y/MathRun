@@ -44,6 +44,8 @@
        data-kub ga qo'shimcha: [data-strelka="1"] — yuqoridan / olddan / yondan qarash strelkalari
    data-ustunli="Qizil:50|Yashil:30|Ko'k:?" [data-qadam="10"] [data-yozuv="Tugmalar soni"] — ustunli diagramma: har ustun o'z rangida;
                                           qiymat "?" bo'lsa — ustun chizilmaydi (punktir ramka va savol belgisi)
+   data-qismlar="X:0,0,3,6|Y:3,5,6,6|Z:3,0,6,5" [data-olcham="26"] [data-uzun="6 cm"] — to'g'ri to'rtburchak (kvadrat) qismlarga bo'lingan:
+                                          har qism "nomi:x1,y1,x2,y2" (katak birligida, y yuqoriga), har biri o'z rangida; uzun — pastki tomon yozuvi
    data-panjara="4x3x2"            — uch o'lchamli (izometrik) nuqtali panjarada chizilgan kuboid: "bo'yi x eni x balandligi";
                                           faqat ko'rinadigan 9 qirra chiziladi: bo'yi — to'q sariq, eni — ko'k, balandligi — binafsha
        [data-bosqich="1..4"] — chizish bosqichlari: 1 old tik qirra, 2 uning pastidan ikki qiya qirra, 3 ikki chetki tik qirra, 4 tepa yoq;
@@ -467,6 +469,25 @@
     el.classList.add("tasma");
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Ustunli diagramma: ' +
       q.map(function (x) { return x.nom + " — " + (x.v === null ? "noma'lum" : x.v); }).join(", ") + '">' + svg + "</svg>";
+  }
+
+  // ---------- qismlarga bo'lingan to'g'ri to'rtburchak ----------
+  function chizQismlar(el) {
+    const q = el.dataset.qismlar.split("|").map(function (t) { const i = t.indexOf(":"); const c = t.slice(i + 1).split(",").map(Number); return { nom: t.slice(0, i), x1: c[0], y1: c[1], x2: c[2], y2: c[3] }; });
+    const u = Number(el.dataset.olcham) || 26;
+    const w = Math.max.apply(null, q.map(function (r) { return r.x2; })), h = Math.max.apply(null, q.map(function (r) { return r.y2; }));
+    const M = 14, W = w * u + 2 * M, H = h * u + 2 * M + (el.dataset.uzun ? 22 : 0);
+    let svg = "";
+    q.forEach(function (r, i) {
+      const c = TASMA_RANG[i % TASMA_RANG.length];
+      svg += '<rect x="' + (M + r.x1 * u) + '" y="' + (M + (h - r.y2) * u) + '" width="' + ((r.x2 - r.x1) * u) + '" height="' + ((r.y2 - r.y1) * u) + '" fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="2.5"/>' +
+        '<text x="' + (M + (r.x1 + r.x2) / 2 * u) + '" y="' + (M + (h - (r.y1 + r.y2) / 2) * u + 6) + '" text-anchor="middle" font-size="17" font-weight="800" fill="' + c[1] + '">' + r.nom + "</text>";
+    });
+    svg += '<rect x="' + M + '" y="' + M + '" width="' + (w * u) + '" height="' + (h * u) + '" fill="none" stroke="#1f2433" stroke-width="3"/>';
+    if (el.dataset.uzun) svg += '<text x="' + (M + w * u / 2) + '" y="' + (M + h * u + 18) + '" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2433">' + el.dataset.uzun + "</text>";
+    el.classList.add("tasma");
+    el.style.maxWidth = W + "px";
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Qismlarga bo\'lingan shakl: ' + q.map(function (r) { return r.nom; }).join(", ") + '">' + svg + "</svg>";
   }
 
   // ---------- pitsalarni bolalarga teng bo'lish ----------
@@ -1076,6 +1097,7 @@
       root.querySelectorAll("[data-tartib]").forEach(chizTartib);
       root.querySelectorAll("[data-tasma]").forEach(chizTasma);
       root.querySelectorAll("[data-ustunli]").forEach(chizUstunli);
+      root.querySelectorAll("[data-qismlar]").forEach(chizQismlar);
       root.querySelectorAll("[data-pitsa]").forEach(chizPitsa);
       root.querySelectorAll("[data-doira]").forEach(chizDoira);
       root.querySelectorAll("[data-qism]").forEach(chizQism);
