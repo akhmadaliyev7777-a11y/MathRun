@@ -9,7 +9,7 @@
    data-tugma="3594627"            — sonli tugmalar: har xonada raqamcha tugma (1 000 000, 100 000, ...)
    data-siljish="324/x100" yoki "41300/:100" — xona jadvalida raqamlarning surilishi (bir xil raqam — bir xil rang)
    data-oq="0/1000000/100000" [data-nuqta="A:300000,B:750000"] [data-har="2"] — katta sonlar uchun son o'qi
-   data-zanjir="43/x2/x10" yoki "540/:10/:6" — amallar zanjiri: son →(×2)→ 86 →(×10)→ 860
+   data-zanjir="43/x2/x10" yoki "540/:10/:6" yoki "2,3/x2/x10" — amallar zanjiri (o'nli kasr ham mumkin, vergul bilan): son →(×2)→ 86 →(×10)→ 860
    data-nollar="63000/700"          — bo'linuvchi va bo'luvchi oxiridagi teng sondagi nollar chizib tashlanadi
    data-tartib="60 - 15 + 12 : 3 * 2" [data-qadam="0"] — amallar ustida bajarilish tartibi (1, 2, 3 ...) va qadamma-qadam yechim
    data-tasma="Otasi:4|O'g'li:1" [data-farq="36 yil"] [data-bolak="12"] — chizmali model: teng bo'laklardan tasmalar
@@ -306,18 +306,23 @@
   function strelka() {
     return '<svg viewBox="0 0 56 14" aria-hidden="true"><path d="M2 7 H50" stroke="currentColor" stroke-width="2"/><path d="M44 2 L53 7 L44 12 Z" fill="currentColor"/></svg>';
   }
+  function onliSon(x) {   // o'nli kasr: vergul bilan, butun qismi guruhlangan (1 234,5)
+    const t = String(Math.round(x * 1e9) / 1e9).split(".");
+    return t[1] ? guruh(t[0]) + "," + t[1] : guruh(t[0]);
+  }
   function chizZanjir(el) {
     const q = el.dataset.zanjir.split("/");
-    let v = Number(q[0]);
-    let h = '<span class="z-son z-bosh">' + guruh(v) + "</span>";
+    const son = function (t) { return Number(String(t).replace(",", ".")); };
+    let v = son(q[0]);
+    let h = '<span class="z-son z-bosh">' + onliSon(v) + "</span>";
     const izoh = [];
     for (let i = 1; i < q.length; i++) {
-      const kop = q[i][0] === "x", k = Number(q[i].slice(1));
+      const kop = q[i][0] === "x", k = son(q[i].slice(1));
       const oldin = v;
       v = kop ? v * k : v / k;
-      izoh.push(guruh(oldin) + (kop ? " × " : " : ") + guruh(k) + " = " + guruh(v));
-      h += '<span class="z-qadam"><span class="pill">' + (kop ? "× " : ": ") + guruh(k) + "</span>" + strelka() + "</span>" +
-        '<span class="z-son' + (i === q.length - 1 ? " z-oxir" : "") + '">' + guruh(v) + "</span>";
+      izoh.push(onliSon(oldin) + (kop ? " × " : " : ") + onliSon(k) + " = " + onliSon(v));
+      h += '<span class="z-qadam"><span class="pill">' + (kop ? "× " : ": ") + onliSon(k) + "</span>" + strelka() + "</span>" +
+        '<span class="z-son' + (i === q.length - 1 ? " z-oxir" : "") + '">' + onliSon(v) + "</span>";
     }
     el.classList.add("zanjir");
     el.innerHTML = h;

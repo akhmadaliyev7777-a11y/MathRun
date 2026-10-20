@@ -328,6 +328,18 @@ const QUIZ_DATA = {
     { level: 9, question: "Bitta tugmaning massasi 2,3 g. 100 ta shunday tugmaning massasi necha gramm?", options: ["230", "23", "2300", "0,23"], answer: "230", explain: "Ko'paytiramiz: 2,3 · 100. Vergul 2 xona o'ngga suriladi, 1 ta raqam yetmaydi — bitta nol qo'shamiz: 230 g." },
     { level: 10, question: "9,3 : □ = 0,0093. Noma'lum bo'luvchini toping.", options: ["1000", "100", "10", "0,001"], answer: "1000", explain: "9,3 dan 0,0093 ga o'tishda vergul 3 xona chapga surilgan (9,3 → 0,0093), demak 1000 ga bo'lingan." }
   ],
+  "5|matematika|onli-kasr-onlik-yuzlik-minglik": [
+    { level: 1, question: "0,3 · 20 = ?", options: ["6", "0,6", "60", "0,06"], answer: "6", explain: "20 = 2 · 10. Avval 0,3 · 2 = 0,6, keyin 0,6 · 10 = 6 (vergul 1 xona o'ngga suriladi)." },
+    { level: 2, question: "1,4 · 60 = ?", options: ["84", "8,4", "840", "0,84"], answer: "84", explain: "60 = 6 · 10. Avval 1,4 · 6 = 8,4, keyin 8,4 · 10 = 84." },
+    { level: 3, question: "8,4 : 20 = ?", options: ["0,42", "4,2", "0,042", "42"], answer: "0,42", explain: "20 = 2 · 10. Avval 8,4 : 2 = 4,2, keyin 4,2 : 10 = 0,42 (vergul 1 xona chapga suriladi)." },
+    { level: 4, question: "0,25 · 300 = ?", options: ["75", "7,5", "750", "0,75"], answer: "75", explain: "300 = 3 · 100. Avval 0,25 · 3 = 0,75, keyin 0,75 · 100 = 75 (vergul 2 xona o'ngga suriladi)." },
+    { level: 5, question: "Bitta qalamning narxi 1,2 ming so'm. 50 ta qalamning narxi necha ming so'm?", options: ["60", "6", "600", "0,6"], answer: "60", explain: "Ko'paytiramiz: 1,2 · 50. 50 = 5 · 10, avval 1,2 · 5 = 6, keyin 6 · 10 = 60 ming so'm." },
+    { level: 6, question: "2,4 · 5000 = ?", options: ["12000", "1200", "120000", "120"], answer: "12000", explain: "5000 = 5 · 1000. Avval 2,4 · 5 = 12, keyin 12 · 1000 = 12000 (vergul 3 xona o'ngga suriladi)." },
+    { level: 7, question: "6 : 200 = ?", options: ["0,03", "0,3", "0,003", "3"], answer: "0,03", explain: "200 = 2 · 100. Avval 6 : 2 = 3, keyin 3 : 100 = 0,03 (vergul 2 xona chapga suriladi, boshiga nol yoziladi)." },
+    { level: 8, question: "0,36 · □ = 108. Noma'lum son qaysi?", options: ["300", "30", "3000", "3"], answer: "300", explain: "0,36 ni 100 ga ko'paytirsak 36 bo'ladi, 36 ni 3 ga ko'paytirsak 108. Demak 0,36 · 100 · 3 = 0,36 · 300 = 108." },
+    { level: 9, question: "9,6 kg yong'oq 30 ta bir xil xaltaga teng bo'lib solindi. Har bir xaltada necha kilogramm yong'oq bor?", options: ["0,32", "3,2", "0,032", "32"], answer: "0,32", explain: "9,6 : 30: 30 = 3 · 10. Avval 9,6 : 3 = 3,2, keyin 3,2 : 10 = 0,32 kg. Tekshiruv: 0,32 · 30 = 9,6." },
+    { level: 10, question: "1,08 : □ = 0,0027. Noma'lum bo'luvchini toping.", options: ["400", "40", "4000", "4"], answer: "400", explain: "400 = 4 · 100: 1,08 : 4 = 0,27, keyin 0,27 : 100 = 0,0027. Demak bo'luvchi 400." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },
