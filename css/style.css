@@ -1534,7 +1534,7 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 /* bosh sahifa: sinf afishalari — katta tik rasm, ostida shu fonda sinf nomi (mavzu kartochkalaridan ajralib turadi) */
 #grades-grid { max-width: 1180px; }
 .grade-tiles { gap: 22px; }
-.grade-poster { position: relative; display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: #e8ecfc; color: #1e2a78; box-shadow: 0 6px 18px rgba(30, 42, 120, .08); transition: transform .25s ease, box-shadow .25s ease; }
+.grade-poster { position: relative; display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: #e8ecfc; border: 1px solid rgba(30, 42, 120, .07); color: #1e2a78; box-shadow: 0 6px 18px rgba(30, 42, 120, .08); transition: transform .25s ease, box-shadow .25s ease; }
 .grade-poster:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(30, 42, 120, .18); }
 .gp-art { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; }
 .gp-art img { position: absolute; left: 0; top: 0; width: 100%; height: auto; display: block; transition: transform .5s ease; transform-origin: center 40%; }
