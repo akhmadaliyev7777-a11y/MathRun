@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 74;
+const LESSON_VER = 75;
 
 function sec(title) {
   return { title: title, text: null };

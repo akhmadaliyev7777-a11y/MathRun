@@ -40,6 +40,29 @@ p{margin:0}
 .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
 .panel[hidden]{display:none}
+/* 1-bo'lim: sirkul bilan burish (chizma chapda, boshqaruv o'ngda; telefonda ustma-ust) */
+.k-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:16px;align-items:start}
+@media (max-width:820px){.k-layout{grid-template-columns:1fr}}
+.k-stage{background:#fff;border:1.5px solid var(--line);border-radius:14px;overflow:hidden}
+.k-stage svg{display:block;width:100%;height:auto;touch-action:none;user-select:none}
+.k-status{padding:12px 14px;border-top:1px solid var(--line);display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-weight:700;font-size:15px}
+.k-pill{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:99px;color:#fff}
+.k-pill.ok{background:var(--ok)}.k-pill.bad{background:var(--bad)}.k-pill.warn{background:#B7791F}
+.k-side{display:grid;gap:12px}
+.k-box{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px}
+.k-box h3{margin:0;font:800 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.k-sl{display:grid;gap:2px}
+.k-sl label{display:flex;justify-content:space-between;align-items:baseline;font-weight:700}
+.k-sl output{font:800 17px var(--f-display);font-variant-numeric:tabular-nums}
+.k-sl input{width:100%}
+#kt1,#kt2{accent-color:var(--ink)}
+.k-dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:1px}
+.k-presets{display:flex;gap:6px;flex-wrap:wrap}
+.k-chip{font:700 14px var(--f-body);cursor:pointer;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 12px}
+.k-chip:hover{border-color:var(--muted)}
+.k-checks{display:grid;gap:6px;font:800 16px var(--f-display);font-variant-numeric:tabular-nums}
+.k-checks div{display:flex;justify-content:space-between;gap:8px;padding:6px 10px;border-radius:8px;background:#fff}
+.k-checks .yes{color:var(--ok)}.k-checks .no{color:var(--bad)}
 /* surgichlar */
 .sliders{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 16px}
 .sl{display:flex;flex-direction:column;gap:2px}
@@ -105,21 +128,43 @@ p{margin:0}
   <!-- 1. Tayoqchalardan yasash -->
   <section class="panel" data-panel="yasa">
     <div>
-      <h2>Yon tomonlarni burang</h2>
-      <p class="hint"><b class="cc">c</b> — asos. <b class="cb">b</b> tomon chap uchga, <b class="ca">a</b> tomon o'ng uchga mahkamlangan va o'z aylanasi bo'ylab buriladi. Tomonlarning uchidagi doirachani surib, ikki uchni uchrashtiring. Aylanalar kesishsa — uchburchak hosil bo'ladi, kesishmasa — hosil bo'lmaydi.</p>
+      <h2>Sirkul bilan burib ko'ring</h2>
+      <p class="hint">Eng uzun kesma asos qilib qo'yiladi. Qolgan ikki kesma asosning uchlariga mahkamlanib, sirkul kabi aylantiriladi. Uchlari uchrashsa — uchburchak hosil bo'ladi.</p>
     </div>
-    <div class="sliders">
-      <div class="sl a"><label for="ya">a <output id="ya-o">6</output></label><input type="range" id="ya" min="1" max="15" value="6"></div>
-      <div class="sl b"><label for="yb">b <output id="yb-o">8</output></label><input type="range" id="yb" min="1" max="15" value="8"></div>
-      <div class="sl c"><label for="yc">c <output id="yc-o">11</output></label><input type="range" id="yc" min="1" max="15" value="11"></div>
+    <div class="k-layout">
+      <div class="k-stage">
+        <svg id="k-svg" viewBox="0 0 800 500" role="img" aria-label="Kesmalar chizmasi"></svg>
+        <div class="k-status" id="k-status"></div>
+      </div>
+      <div class="k-side">
+        <div class="k-box">
+          <h3>Kesmalar uzunligi (sm)</h3>
+          <div class="k-sl"><label for="k1"><span><i class="k-dot" style="background:#D4501B"></i>1-kesma</span><output id="k1-o"></output></label><input type="range" id="k1" min="1" max="12" step="0.5" value="3" style="accent-color:#D4501B"></div>
+          <div class="k-sl"><label for="k2"><span><i class="k-dot" style="background:#12805C"></i>2-kesma</span><output id="k2-o"></output></label><input type="range" id="k2" min="1" max="12" step="0.5" value="4" style="accent-color:#12805C"></div>
+          <div class="k-sl"><label for="k3"><span><i class="k-dot" style="background:#1F5FD6"></i>3-kesma</span><output id="k3-o"></output></label><input type="range" id="k3" min="1" max="12" step="0.5" value="8" style="accent-color:#1F5FD6"></div>
+          <div class="k-presets" aria-label="Tayyor misollar">
+            <button class="k-chip" data-p="3,4,8">3, 4, 8</button>
+            <button class="k-chip" data-p="3,5,8">3, 5, 8</button>
+            <button class="k-chip" data-p="5,6,8">5, 6, 8</button>
+            <button class="k-chip" data-p="6,6,6">6, 6, 6</button>
+          </div>
+        </div>
+        <div class="k-box">
+          <h3>Sirkul bilan burish</h3>
+          <div class="row">
+            <button class="btn" id="k-go">Kesmalarni burish</button>
+            <button class="btn ghost" id="k-reset">Boshidan</button>
+          </div>
+          <div class="k-sl"><label for="kt1">Chap kesma burchagi<output id="kt1-o"></output></label><input type="range" id="kt1" min="0" max="180" step="1" value="90"></div>
+          <div class="k-sl"><label for="kt2">O'ng kesma burchagi<output id="kt2-o"></output></label><input type="range" id="kt2" min="0" max="180" step="1" value="90"></div>
+          <p class="hint">Kesmalarning erkin uchini sichqoncha yoki barmoq bilan ham surib aylantirish mumkin.</p>
+        </div>
+        <div class="k-box">
+          <h3>Tekshiruv</h3>
+          <div class="k-checks" id="k-checks"></div>
+        </div>
+      </div>
     </div>
-    <svg class="stage drag" id="y-svg" viewBox="0 0 360 250" role="img" aria-label="Asos va aylana bo'ylab buriladigan ikki yon tomon"></svg>
-    <div class="row">
-      <button class="btn green" id="y-meet">Uchlarini uchrashtirish</button>
-      <button class="btn ghost" id="y-reset">Boshlang'ich holat ↻</button>
-    </div>
-    <div class="checks" id="y-checks"></div>
-    <div class="verdict" id="y-verdict"></div>
   </section>
 
   <!-- 2. Uchinchi tomon chegarasi -->
@@ -135,7 +180,7 @@ p{margin:0}
     </div>
     <div class="range-txt" id="c-range"></div>
     <svg class="stage" id="c-line" viewBox="0 0 360 74" role="img" aria-label="Uchinchi tomon uchun son o'qi"></svg>
-    <svg class="stage" id="c-svg" viewBox="0 0 360 230" role="img" aria-label="Uchburchak"></svg>
+    <svg class="stage" id="c-svg" viewBox="0 0 800 470" role="img" aria-label="Uchburchak"></svg>
     <div class="verdict" id="c-verdict"></div>
   </section>
 
@@ -152,7 +197,7 @@ p{margin:0}
       <button class="btn ghost" id="m-next" hidden>Keyingisi →</button>
     </div>
     <div class="story" id="m-story"></div>
-    <svg class="stage" id="m-svg" viewBox="0 0 360 230" hidden role="img" aria-label="Javob chizmasi"></svg>
+    <svg class="stage" id="m-svg" viewBox="0 0 800 470" hidden role="img" aria-label="Javob chizmasi"></svg>
   </section>
 
   <!-- 4. O'yin -->
@@ -183,73 +228,70 @@ function setTab(name) {
 }
 document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => setTab(b.dataset.tab)));
 
-/* ---------- chizma: eng uzun tomon pastda ----------
-   s = {a, b, c}; uchburchak bo'lsa — ABC (a = BC, b = AC, c = AB), bo'lmasa — tayoqchalar asosga yotqiziladi va yetmagan joy qizil */
+/* ---------- chizma (2- va 3-bo'limlar): 1-bo'limdagi kabi sirkul ko'rinishi ----------
+   Eng uzun tomon — asos AB (katak qog'ozda). Qolgan ikkitasi A va B ga mahkamlangan, yo'li — punktir yarim aylana.
+   Uchburchak bo'lsa — uchlar kesishish nuqtasida (burchaklari bilan); bo'lmasa — asosga yotqizilgan, ostida «yetmaydi» */
 function draw(svg, s) {
-  const W = 360, H = 230, pad = 30;
+  const W = 800, H = 470, BY = 370;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   const names = ["a", "b", "c"].sort((x, y) => s[y] - s[x]);
-  const L = names[0], P = names[1], Q = names[2];          /* L — eng uzun; P chap uchdan, Q o'ng uchdan */
-  const vL = s[L], vP = s[P], vQ = s[Q];
-  let out = "";
-  if (vL <= 0) { svg.innerHTML = ""; return; }
-  const ok = vP + vQ > vL;
-  /* uchburchak bo'lsa: chap uch (0,0), o'ng uch (vL,0), cho'qqi — chapdan vP, o'ngdan vQ masofada */
-  let apex = null, h = 0;
+  const L = names[0], P = names[1], Q = names[2];            /* L — asos; P — A dan, Q — B dan */
+  const c = s[L], a = s[P], b = s[Q];
+  if (c <= 0) { svg.innerHTML = ""; return; }
+  const k = Math.min(62, 600 / c, 300 / Math.max(a, b, 0.01));
+  const Ax = W / 2 - c * k / 2, Bx = W / 2 + c * k / 2, R1 = a * k, R2 = b * k;
+  const t = (x, y, str, fill, anchor, size) => `<text x="${x}" y="${y}" fill="${fill}" text-anchor="${anchor || "middle"}" font-family="Bricolage Grotesque, Nunito Sans, sans-serif" font-size="${size || 26}" font-weight="800" stroke="#fff" stroke-width="6" paint-order="stroke">${str}</text>`;
+  let o = "";
+  for (let x = 0; x <= W; x += 20) o += `<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="#E8ECF2" stroke-width="1"/>`;
+  for (let y = 0; y <= H; y += 20) o += `<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="#E8ECF2" stroke-width="1"/>`;
+  o += `<path d="M ${Ax + R1} ${BY} A ${R1} ${R1} 0 0 0 ${Ax - R1} ${BY}" fill="none" stroke="${COL[P]}" stroke-width="2" stroke-dasharray="6 7" opacity=".55"/>`;
+  o += `<path d="M ${Bx + R2} ${BY} A ${R2} ${R2} 0 0 0 ${Bx - R2} ${BY}" fill="none" stroke="${COL[Q]}" stroke-width="2" stroke-dasharray="6 7" opacity=".55"/>`;
+  const ok = a + b > c;
+  let Px, Py, Qx, Qy;
   if (ok) {
-    const x = (vP * vP - vQ * vQ + vL * vL) / (2 * vL);
-    h = Math.sqrt(Math.max(0, vP * vP - x * x));
-    apex = [x, h];
-  }
-  const k = Math.min((W - 2 * pad) / vL, (H - 70) / Math.max(h, 0.01));
-  const X = x => (W - vL * k) / 2 + x * k;
-  const baseY = ok ? H - 40 : H / 2 + 30;
-  const Y = y => baseY - y * k;
-  const seg = (x1, y1, x2, y2, c, w, dash) =>
-    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"${dash ? ` stroke-dasharray="${dash}"` : ""}/>`;
-  const text = (x, y, t, c, cls, anchor) => `<text x="${x}" y="${y}" fill="${c}" class="${cls || "lab"}" text-anchor="${anchor || "middle"}">${t}</text>`;
-  const x0 = X(0), x1 = X(vL), y0 = Y(0);
-  if (ok) {
-    const ax = X(apex[0]), ay = Y(apex[1]);
-    out += `<polygon points="${x0},${y0} ${x1},${y0} ${ax},${ay}" fill="#1F5FD6" fill-opacity=".07"/>`;
-    out += seg(x0, y0, x1, y0, COL[L], 6) + seg(x0, y0, ax, ay, COL[P], 6) + seg(x1, y0, ax, ay, COL[Q], 6);
-    /* tomon yozuvlari */
-    out += text((x0 + x1) / 2, y0 + 24, `${L} = ${vL}`, COL[L]);
-    const mx1 = (x0 + ax) / 2, my1 = (y0 + ay) / 2, mx2 = (x1 + ax) / 2, my2 = (y0 + ay) / 2;
-    out += text(Math.max(mx1 - 12, 58), my1 - 4, `${P} = ${vP}`, COL[P], "lab", "end");
-    out += text(Math.min(mx2 + 12, 302), my2 - 4, `${Q} = ${vQ}`, COL[Q], "lab", "start");
-    /* burchaklar (kosinuslar teoremasi) — katta tomon qarshisida katta burchak */
-    const deg = (opp, s1, s2) => Math.round(Math.acos(Math.min(1, Math.max(-1, (s1 * s1 + s2 * s2 - opp * opp) / (2 * s1 * s2)))) * 180 / Math.PI);
-    const angLeft = deg(vQ, vL, vP), angRight = deg(vP, vL, vQ), angTop = 180 - angLeft - angRight;
-    out += text(x0 + 22, y0 - 8, angLeft + "°", COL.muted, "ang", "start");
-    out += text(x1 - 22, y0 - 8, angRight + "°", COL.muted, "ang", "end");
-    out += text(ax, ay + 22, angTop + "°", COL.muted, "ang");
-    for (const [px, py] of [[x0, y0], [x1, y0], [ax, ay]]) out += `<circle cx="${px}" cy="${py}" r="5" fill="${COL.ink}"/>`;
+    const xr = (R1 * R1 - R2 * R2 + c * k * c * k) / (2 * c * k), yr = Math.sqrt(Math.max(0, R1 * R1 - xr * xr));
+    Px = Qx = Ax + xr; Py = Qy = BY - yr;
+    o += `<polygon points="${Ax},${BY} ${Bx},${BY} ${Px},${Py}" fill="#12805C" opacity=".12"/>`;
   } else {
-    /* yotqizilgan tayoqchalar: P chapdan o'ngga, Q o'ngdan chapga; asos ustida */
-    out += seg(x0, y0, x1, y0, COL[L], 6);
-    out += text((x0 + x1) / 2, y0 + 26, `${L} = ${vL}`, COL[L]);
-    const pEnd = X(vP), qStart = X(vL - vQ);
-    out += seg(x0, y0 - 18, pEnd, y0 - 18, COL[P], 6);
-    out += seg(qStart, y0 - 34, x1, y0 - 34, COL[Q], 6);
-    out += text(x0, y0 - 28, `${P} = ${vP}`, COL[P], "lab", "start");
-    out += text(x1, y0 - 44, `${Q} = ${vQ}`, COL[Q], "lab", "end");
-    /* aylana yoylari: P va Q tayoqchalari burilganda yetadigan joylar (chizma ichida qoladi) */
-    const arc = (cx, r, dir, c) => {
-      if (r <= 0) return "";
-      const t = Math.min(1.2, Math.asin(Math.min(1, (y0 - 12) / r)));
-      return `<path d="M ${cx + dir * r} ${y0} A ${r} ${r} 0 0 ${dir > 0 ? 0 : 1} ${cx + dir * r * Math.cos(t)} ${y0 - r * Math.sin(t)}" fill="none" stroke="${c}" stroke-width="1.5" stroke-dasharray="4 4" opacity=".7"/>`;
-    };
-    out += arc(x0, vP * k, 1, COL[P]) + arc(x1, vQ * k, -1, COL[Q]);
-    if (vP + vQ < vL) {
-      out += `<rect x="${pEnd}" y="${y0 - 6}" width="${qStart - pEnd}" height="12" rx="4" fill="${COL.bad}" opacity=".85"/>`;
-      out += text((pEnd + qStart) / 2, y0 + 50, `yetmaydi: ${vL - vP - vQ}`, COL.bad);
-    } else {
-      out += `<circle cx="${pEnd}" cy="${y0}" r="7" fill="#B45309"/>`;
-      out += text(W / 2, y0 + 50, "uchlari asosda uchrashdi — shakl yassi", "#B45309");
-    }
-    for (const px of [x0, x1]) out += `<circle cx="${px}" cy="${y0}" r="5" fill="${COL.ink}"/>`;
+    Px = Ax + R1; Qx = Bx - R2; Py = Qy = BY;
   }
-  svg.innerHTML = out;
+  /* asos, yon tomonlar */
+  o += `<line x1="${Ax}" y1="${BY}" x2="${Bx}" y2="${BY}" stroke="${COL[L]}" stroke-width="8" stroke-linecap="round"/>`;
+  o += `<line x1="${Ax}" y1="${BY}" x2="${Px}" y2="${Py}" stroke="${COL[P]}" stroke-width="7" stroke-linecap="round"/>`;
+  o += `<line x1="${Bx}" y1="${BY}" x2="${Qx}" y2="${Qy}" stroke="${COL[Q]}" stroke-width="7" stroke-linecap="round"/>`;
+  o += t((Ax + Bx) / 2, BY + 36, `${L} = ${c}`, COL[L]);
+  if (ok) {
+    o += t((Ax + Px) / 2 - 20, (BY + Py) / 2 - 6, `${P} = ${a}`, COL[P], "end");
+    o += t((Bx + Qx) / 2 + 20, (BY + Qy) / 2 - 6, `${Q} = ${b}`, COL[Q], "start");
+    /* burchaklar — katta tomon qarshisida katta burchak */
+    const deg = (opp, s1, s2) => Math.round(Math.acos(Math.min(1, Math.max(-1, (s1 * s1 + s2 * s2 - opp * opp) / (2 * s1 * s2)))) * 180 / Math.PI);
+    const gA = deg(b, c, a), gB = deg(a, c, b), gC = 180 - gA - gB;
+    o += t(Ax + 30, BY - 12, gA + "°", COL.muted, "start", 20);
+    o += t(Bx - 30, BY - 12, gB + "°", COL.muted, "end", 20);
+    o += t(Px, Py + 36, gC + "°", COL.muted, "middle", 20);
+  } else {
+    /* yotqizilgan tomonlar yozuvi — o'z bo'lagi ustida */
+    o += t((Ax + Px) / 2, BY - 18, `${P} = ${a}`, COL[P]);
+    o += t((Bx + Qx) / 2, BY - 18, `${Q} = ${b}`, COL[Q]);
+    const gap = c - a - b;
+    if (gap > 0) {
+      o += `<line x1="${Px}" y1="${BY + 58}" x2="${Qx}" y2="${BY + 58}" stroke="${COL.bad}" stroke-width="3"/>`;
+      o += `<line x1="${Px}" y1="${BY + 50}" x2="${Px}" y2="${BY + 66}" stroke="${COL.bad}" stroke-width="3"/>`;
+      o += `<line x1="${Qx}" y1="${BY + 50}" x2="${Qx}" y2="${BY + 66}" stroke="${COL.bad}" stroke-width="3"/>`;
+      o += t((Px + Qx) / 2, BY + 92, `yetmaydi: ${gap}`, COL.bad, "middle", 24);
+    } else {
+      o += t(Px, BY + 92, "uchlar asosda uchrashdi — shakl yassi", "#B45309", "middle", 24);
+    }
+  }
+  /* tayanch nuqtalar va uchlar */
+  for (const x of [Ax, Bx]) o += `<circle cx="${x}" cy="${BY}" r="8" fill="#fff" stroke="${COL.ink}" stroke-width="3"/>`;
+  o += t(Ax - 16, BY + 28, "A", COL.ink, "end", 24) + t(Bx + 16, BY + 28, "B", COL.ink, "start", 24);
+  if (ok) o += `<circle cx="${Px}" cy="${Py}" r="9" fill="#fff" stroke="${COL.ink}" stroke-width="3"/>`;
+  else {
+    o += `<circle cx="${Px}" cy="${BY}" r="10" fill="${COL[P]}" stroke="#fff" stroke-width="3"/>`;
+    o += `<circle cx="${Qx}" cy="${BY}" r="10" fill="${COL[Q]}" stroke="#fff" stroke-width="3"/>`;
+  }
+  svg.innerHTML = o;
 }
 
 function verdict(el, s) {
@@ -260,135 +302,152 @@ function verdict(el, s) {
     : "Uchburchak hosil bo'lmaydi: " + sum + " < " + m + ", ikki tayoqcha bir-biriga yetmaydi.";
 }
 
-/* ---------- 1. Yon tomonlarni aylana bo'ylab burish ----------
-   A(0,0), B(c,0) — asos; b tomon A atrofida, a tomon B atrofida buriladi (burchaklar: 0 — o'ngga, π — chapga, faqat yuqori yarim).
-   Aylanalar kesishish nuqtasi I bo'lsa — uchlar shu yerda uchrashadi */
-const T = { t1: Math.PI / 3, t2: Math.PI * 2 / 3, drag: null, anim: 0, view: null };
-function sides1() { return { a: +$("ya").value, b: +$("yb").value, c: +$("yc").value }; }
-function meetPoint(s) {
-  const x = (s.b * s.b - s.a * s.a + s.c * s.c) / (2 * s.c), y2 = s.b * s.b - x * x;
-  if (y2 < -1e-9) return null;
-  return { x, y: Math.sqrt(Math.max(0, y2)), flat: y2 < 1e-9 };
+/* ---------- 1. Sirkul bilan burish ----------
+   Eng uzun kesma — asos AB; qolgan ikkitasi A va B ga mahkamlanib, 0°…180° oralig'ida buriladi.
+   Aylanalar kesishsa — uchlar uchrashadi (yaqinlashganda yopishadi) */
+const K = { W: 800, H: 500, BY: 410, th1: 90, th2: 90, anim: 0, drag: null };
+const KCOL = ["#D4501B", "#12805C", "#1F5FD6"];
+const kfmt = x => (Math.round(x * 10) / 10).toString().replace(".", ",");
+function kgeom() {
+  const L = [+$("k1").value, +$("k2").value, +$("k3").value];
+  const idx = [0, 1, 2].sort((i, j) => L[j] - L[i]);
+  const c = L[idx[0]], a = L[idx[1]], b = L[idx[2]];
+  const s = Math.min(62, 640 / c, 340 / Math.max(a, b));
+  const Ax = K.W / 2 - c * s / 2, Bx = K.W / 2 + c * s / 2;
+  const r1 = K.th1 * Math.PI / 180, r2 = K.th2 * Math.PI / 180;
+  return { L, base: idx[0], left: idx[1], right: idx[2], a, b, c, s, Ax, Bx,
+    P: { x: Ax + a * s * Math.cos(r1), y: K.BY - a * s * Math.sin(r1) },
+    Q: { x: Bx - b * s * Math.cos(r2), y: K.BY - b * s * Math.sin(r2) } };
 }
-/* kesishmasa — uchlar bir-biriga qarab burilgan holat (chiziqlar ustma-ust tushmasligi uchun sal ko'tarilgan) */
-function closest(s) {
-  if (s.a >= s.b + s.c) return [Math.PI - 0.45, Math.PI - 0.45];
-  if (s.b >= s.a + s.c) return [0.45, 0.45];
-  return [0.3, Math.PI - 0.3];
+function ktarget() {
+  const G = kgeom();
+  if (G.a + G.b > G.c + 1e-9)
+    return [Math.acos((G.a * G.a + G.c * G.c - G.b * G.b) / (2 * G.a * G.c)) * 180 / Math.PI,
+            Math.acos((G.b * G.b + G.c * G.c - G.a * G.a) / (2 * G.b * G.c)) * 180 / Math.PI];
+  return [0, 0];
 }
-function draw1() {
-  const s = sides1(), svg = $("y-svg"), W = 360, H = 250, pad = 16;
-  const xmin = Math.min(-s.b, s.c - s.a), xmax = Math.max(s.b, s.c + s.a), ymax = Math.max(s.a, s.b);
-  const k = Math.min((W - 2 * pad) / (xmax - xmin), (H - 64) / ymax);
-  const ox = (W - (xmax - xmin) * k) / 2 - xmin * k, oy = H - 40;
-  const X = x => ox + x * k, Y = y => oy - y * k;
-  T.view = { k, ox, oy };
-  const P = [s.b * Math.cos(T.t1), s.b * Math.sin(T.t1)];
-  const Q = [s.c + s.a * Math.cos(T.t2), s.a * Math.sin(T.t2)];
-  const I = meetPoint(s);
-  const gap = Math.hypot(P[0] - Q[0], P[1] - Q[1]);
-  const met = I && gap < 1e-6;
+function kdraw() {
+  const G = kgeom(), BY = K.BY, W = K.W, H = K.H;
+  const cA = KCOL[G.left], cB = KCOL[G.right], cC = KCOL[G.base];
+  const R1 = G.a * G.s, R2 = G.b * G.s;
+  const t = (x, y, str, fill, anchor, size) => `<text x="${x}" y="${y}" fill="${fill}" text-anchor="${anchor || "middle"}" font-family="Bricolage Grotesque, Nunito Sans, sans-serif" font-size="${size || 26}" font-weight="800">${str}</text>`;
   let o = "";
-  /* aylanalar (yuqori yarmi) */
-  const semi = (cx, r, col) => `<path d="M ${X(cx + r)} ${oy} A ${r * k} ${r * k} 0 0 0 ${X(cx - r)} ${oy}" fill="none" stroke="${col}" stroke-width="2" stroke-dasharray="5 5" opacity=".55"/>`;
-  o += `<line x1="${pad}" y1="${oy}" x2="${W - pad}" y2="${oy}" stroke="#D5DBE5" stroke-width="1.5"/>`;
-  o += semi(0, s.b, COL.b) + semi(s.c, s.a, COL.a);
-  if (met && !I.flat) o += `<polygon points="${X(0)},${oy} ${X(s.c)},${oy} ${X(P[0])},${Y(P[1])}" fill="${COL.c}" fill-opacity=".12"/>`;
-  /* asos */
-  o += `<line x1="${X(0)}" y1="${oy}" x2="${X(s.c)}" y2="${oy}" stroke="${COL.c}" stroke-width="6" stroke-linecap="round"/>`;
-  o += `<text x="${(X(0) + X(s.c)) / 2}" y="${oy + 24}" text-anchor="middle" class="lab" fill="${COL.c}">c = ${s.c}</text>`;
-  /* kesishish nuqtasi */
-  if (I && !met) o += `<circle cx="${X(I.x)}" cy="${Y(I.y)}" r="9" fill="none" stroke="${COL.c}" stroke-width="2.5" stroke-dasharray="3 3"/>`;
-  /* uchlar orasidagi masofa (kesishmasa) */
-  if (!I && gap > 1e-6) {
-    o += `<line x1="${X(P[0])}" y1="${Y(P[1])}" x2="${X(Q[0])}" y2="${Y(Q[1])}" stroke="${COL.bad}" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>`;
-    o += `<text x="${(X(P[0]) + X(Q[0])) / 2}" y="${Math.max(18, Math.min(Y(P[1]), Y(Q[1])) - 18)}" text-anchor="middle" class="lab" fill="${COL.bad}" stroke="#FBFCFE" stroke-width="5" paint-order="stroke">uchrashmaydi</text>`;
-  }
-  /* yon tomonlar */
-  o += `<line x1="${X(0)}" y1="${oy}" x2="${X(P[0])}" y2="${Y(P[1])}" stroke="${COL.b}" stroke-width="6" stroke-linecap="round"/>`;
-  o += `<line x1="${X(s.c)}" y1="${oy}" x2="${X(Q[0])}" y2="${Y(Q[1])}" stroke="${COL.a}" stroke-width="6" stroke-linecap="round"/>`;
-  /* tomon uzunliklari — yuqori burchaklarda (tomonlar rangidan taniladi) */
-  const halo = 'stroke="#FBFCFE" stroke-width="5" paint-order="stroke"';
-  o += `<text x="14" y="24" class="lab" fill="${COL.b}" ${halo}>b = ${s.b}</text>`;
-  o += `<text x="${W - 14}" y="24" text-anchor="end" class="lab" fill="${COL.a}" ${halo}>a = ${s.a}</text>`;
-  for (const x of [0, s.c]) o += `<circle cx="${X(x)}" cy="${oy}" r="5" fill="${COL.ink}"/>`;
-  /* suriladigan uchlar */
-  o += `<circle class="knob" data-k="1" cx="${X(P[0])}" cy="${Y(P[1])}" r="11" fill="${COL.b}" stroke="#fff" stroke-width="3"/>`;
-  o += `<circle class="knob" data-k="2" cx="${X(Q[0])}" cy="${Y(Q[1])}" r="11" fill="${COL.a}" stroke="#fff" stroke-width="3"/>`;
-  if (met) o += `<circle cx="${X(P[0])}" cy="${Y(P[1])}" r="6" fill="#fff"/>`;
-  svg.innerHTML = o;
-  /* holat yozuvi */
-  const v = $("y-verdict"), m = Math.max(s.a, s.b, s.c), sum = s.a + s.b + s.c - m;
-  if (!I) {
-    v.className = "verdict no";
-    v.textContent = `Aylanalar kesishmaydi — uchlar hech qachon uchrashmaydi. Uchburchak hosil bo'lmaydi: ${sum} < ${m}.`;
-  } else if (I.flat) {
-    v.className = "verdict flat";
-    v.textContent = met ? `Uchlar asosning ustida uchrashdi — shakl yassi, uchburchak emas: ${sum} = ${m}.`
-      : `Aylanalar faqat asosda bitta nuqtada tegadi: ${sum} = ${m}. Uchburchak hosil bo'lmaydi.`;
+  /* katak qog'oz */
+  for (let x = 0; x <= W; x += 20) o += `<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="#E8ECF2" stroke-width="1"/>`;
+  for (let y = 0; y <= H; y += 20) o += `<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="#E8ECF2" stroke-width="1"/>`;
+  /* sirkul yo'li — yarim aylanalar */
+  o += `<path d="M ${G.Ax + R1} ${BY} A ${R1} ${R1} 0 0 0 ${G.Ax - R1} ${BY}" fill="none" stroke="${cA}" stroke-width="2" stroke-dasharray="6 7" opacity=".6"/>`;
+  o += `<path d="M ${G.Bx + R2} ${BY} A ${R2} ${R2} 0 0 0 ${G.Bx - R2} ${BY}" fill="none" stroke="${cB}" stroke-width="2" stroke-dasharray="6 7" opacity=".6"/>`;
+  /* kesishish nuqtasi yoki yetmay qolgan joy */
+  const d = G.c * G.s;
+  let X = null;
+  if (G.a + G.b > G.c + 1e-9) {
+    const xr = (R1 * R1 - R2 * R2 + d * d) / (2 * d), yr = Math.sqrt(Math.max(0, R1 * R1 - xr * xr));
+    X = { x: G.Ax + xr, y: BY - yr };
+    o += `<circle cx="${X.x}" cy="${X.y}" r="9" fill="none" stroke="#12805C" stroke-width="2.5" stroke-dasharray="3 3"/>`;
   } else {
-    v.className = met ? "verdict" : "verdict flat";
-    v.textContent = met ? `Uchlar uchrashdi — uchburchak hosil bo'ldi! Eng katta tomon ${m} < ${sum}.`
-      : "Aylanalar kesishadi. Ikkala uchni punktir doiraga olib boring — uchburchak hosil bo'ladi.";
+    const e1 = G.Ax + R1, e2 = G.Bx - R2;
+    if (e2 - e1 > 0.5) {
+      o += `<line x1="${e1}" y1="${BY + 52}" x2="${e2}" y2="${BY + 52}" stroke="#C62828" stroke-width="2.5"/>`;
+      o += `<line x1="${e1}" y1="${BY + 45}" x2="${e1}" y2="${BY + 59}" stroke="#C62828" stroke-width="2.5"/>`;
+      o += `<line x1="${e2}" y1="${BY + 45}" x2="${e2}" y2="${BY + 59}" stroke="#C62828" stroke-width="2.5"/>`;
+      o += t((e1 + e2) / 2, BY + 84, `yetmaydi: ${kfmt(G.c - G.a - G.b)} sm`, "#C62828", "middle", 24);
+    }
   }
-  $("y-meet").textContent = I ? "Uchlarini uchrashtirish" : "Uchlarini yaqinlashtirish";
+  const gap = Math.hypot(G.P.x - G.Q.x, G.P.y - G.Q.y) / G.s;
+  const met = X && gap < 0.06;
+  if (met) o += `<polygon points="${G.Ax},${BY} ${G.Bx},${BY} ${X.x},${X.y}" fill="#12805C" opacity=".13"/>`;
+  /* asos va yon kesmalar */
+  o += `<line x1="${G.Ax}" y1="${BY}" x2="${G.Bx}" y2="${BY}" stroke="${cC}" stroke-width="8" stroke-linecap="round"/>`;
+  o += t((G.Ax + G.Bx) / 2, BY + 34, `${kfmt(G.c)} sm`, cC);
+  o += `<line x1="${G.Ax}" y1="${BY}" x2="${G.P.x}" y2="${G.P.y}" stroke="${cA}" stroke-width="7" stroke-linecap="round"/>`;
+  o += `<line x1="${G.Bx}" y1="${BY}" x2="${G.Q.x}" y2="${G.Q.y}" stroke="${cB}" stroke-width="7" stroke-linecap="round"/>`;
+  const halo = s => s.replace("<text ", '<text stroke="#fff" stroke-width="6" paint-order="stroke" ');
+  o += halo(t((G.P.x + G.Ax) / 2 - 22, (G.P.y + BY) / 2 - 8, `${kfmt(G.a)} sm`, cA, "end"));
+  o += halo(t((G.Q.x + G.Bx) / 2 + 22, (G.Q.y + BY) / 2 - 8, `${kfmt(G.b)} sm`, cB, "start"));
+  /* tayanch nuqtalar (sirkul oyog'i) */
+  for (const x of [G.Ax, G.Bx]) o += `<circle cx="${x}" cy="${BY}" r="8" fill="#fff" stroke="${COL.ink}" stroke-width="3"/>`;
+  o += t(G.Ax - 16, BY + 26, "A", COL.ink, "end");
+  o += t(G.Bx + 16, BY + 26, "B", COL.ink, "start");
+  /* erkin uchlar — sudraladi */
+  o += `<circle data-h="1" cx="${G.P.x}" cy="${G.P.y}" r="14" fill="${cA}" stroke="#fff" stroke-width="3.5" style="cursor:grab"/>`;
+  o += `<circle data-h="2" cx="${G.Q.x}" cy="${G.Q.y}" r="14" fill="${cB}" stroke="#fff" stroke-width="3.5" style="cursor:grab"/>`;
+  if (met) o += `<circle cx="${X.x}" cy="${X.y}" r="6" fill="#fff"/>`;
+  $("k-svg").innerHTML = o;
+  /* yozuvlar */
+  $("kt1-o").textContent = Math.round(K.th1) + "°"; $("kt2-o").textContent = Math.round(K.th2) + "°";
+  $("kt1").value = Math.round(K.th1); $("kt2").value = Math.round(K.th2);
+  for (let i = 0; i < 3; i++) $("k" + (i + 1) + "-o").textContent = kfmt(G.L[i]) + " sm";
+  /* holat */
+  const sum = G.a + G.b;
+  let pill, msg;
+  if (sum > G.c + 1e-9) {
+    pill = met ? '<span class="k-pill ok">Uchburchak</span>' : '<span class="k-pill ok">Mumkin</span>';
+    msg = met ? `Uchlar tutashdi: ${kfmt(G.a)} + ${kfmt(G.b)} = ${kfmt(sum)} &gt; ${kfmt(G.c)}`
+      : `Uchlar orasidagi masofa: ${kfmt(gap)} sm. Burishda davom eting.`;
+  } else if (Math.abs(sum - G.c) < 1e-9) {
+    pill = '<span class="k-pill warn">Chegara holat</span>';
+    msg = `${kfmt(G.a)} + ${kfmt(G.b)} = ${kfmt(G.c)}. Uchlar faqat asosning ustida tutashadi, uchburchak «yassi» bo'lib qoladi.`;
+  } else {
+    pill = '<span class="k-pill bad">Hosil bo\'lmaydi</span>';
+    msg = `${kfmt(G.a)} + ${kfmt(G.b)} = ${kfmt(sum)} &lt; ${kfmt(G.c)}. Kesmalar asosga yotqizilsa ham ${kfmt(G.c - sum)} sm yetmaydi.`;
+  }
+  $("k-status").innerHTML = pill + "<span>" + msg + "</span>";
+  /* uchala tengsizlik */
+  const L = G.L;
+  $("k-checks").innerHTML = [[0, 1, 2], [0, 2, 1], [1, 2, 0]].map(([i, j, k]) => {
+    const sm = L[i] + L[j], ok = sm > L[k] + 1e-9;
+    return `<div><span>${kfmt(L[i])} + ${kfmt(L[j])} ${ok ? "&gt;" : (Math.abs(sm - L[k]) < 1e-9 ? "=" : "&lt;")} ${kfmt(L[k])}</span><span class="${ok ? "yes" : "no"}">${ok ? "✓" : "✗"}</span></div>`;
+  }).join("");
 }
-function animTo(a1, a2) {
-  cancelAnimationFrame(T.anim);
-  const s1 = T.t1, s2 = T.t2, t0 = performance.now(), dur = 700;
+function kanim(t1, t2, dur) {
+  cancelAnimationFrame(K.anim);
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { K.th1 = t1; K.th2 = t2; kdraw(); return; }
+  const s1 = K.th1, s2 = K.th2, t0 = performance.now();
   const step = now => {
-    const u = Math.min(1, (now - t0) / dur), e = u < .5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
-    T.t1 = s1 + (a1 - s1) * e; T.t2 = s2 + (a2 - s2) * e;
-    draw1();
-    if (u < 1) T.anim = requestAnimationFrame(step);
+    const p = Math.min(1, (now - t0) / dur), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+    K.th1 = s1 + (t1 - s1) * e; K.th2 = s2 + (t2 - s2) * e; kdraw();
+    if (p < 1) K.anim = requestAnimationFrame(step);
   };
-  T.anim = requestAnimationFrame(step);
+  K.anim = requestAnimationFrame(step);
 }
-$("y-meet").addEventListener("click", () => {
-  const s = sides1(), I = meetPoint(s);
-  if (I) animTo(Math.atan2(I.y, I.x), Math.atan2(I.y, I.x - s.c));
-  else { const [a1, a2] = closest(s); animTo(a1, a2); }
+$("k-go").addEventListener("click", () => {
+  const [t1, t2] = ktarget();
+  /* allaqachon joyida bo'lsa — avval tepaga ko'tarib, keyin burish (sirkul harakati ko'rinsin) */
+  if (Math.abs(K.th1 - t1) < 1 && Math.abs(K.th2 - t2) < 1) { K.th1 = 120; K.th2 = 120; }
+  kanim(t1, t2, 1800);
 });
-$("y-reset").addEventListener("click", () => animTo(Math.PI / 3, Math.PI * 2 / 3));
-/* sudrash: uch faqat o'z aylanasi bo'ylab yuradi; kesishish nuqtasiga yaqinlashsa — unga yopishadi */
+$("k-reset").addEventListener("click", () => kanim(90, 90, 700));
+const kfresh = () => { cancelAnimationFrame(K.anim); K.th1 = 90; K.th2 = 90; kdraw(); };
+["k1", "k2", "k3"].forEach(id => $(id).addEventListener("input", kfresh));
+$("kt1").addEventListener("input", e => { cancelAnimationFrame(K.anim); K.th1 = +e.target.value; kdraw(); });
+$("kt2").addEventListener("input", e => { cancelAnimationFrame(K.anim); K.th2 = +e.target.value; kdraw(); });
+document.querySelectorAll("[data-p]").forEach(b => b.addEventListener("click", () => {
+  const p = b.dataset.p.split(",");
+  ["k1", "k2", "k3"].forEach((id, i) => { $(id).value = p[i]; });
+  kfresh();
+}));
+/* sudrab aylantirish; kesishish nuqtasiga 2° dan yaqin kelsa — yopishadi */
 (function () {
-  const svg = $("y-svg");
-  const pt = e => { const r = svg.getBoundingClientRect(); return [(e.clientX - r.left) * 360 / r.width, (e.clientY - r.top) * 250 / r.height]; };
+  const svg = $("k-svg");
+  const pt = e => { const r = svg.getBoundingClientRect(); return { x: (e.clientX - r.left) * K.W / r.width, y: (e.clientY - r.top) * K.H / r.height }; };
   svg.addEventListener("pointerdown", e => {
-    const kn = e.target.closest(".knob"); if (!kn) return;
-    cancelAnimationFrame(T.anim);
-    T.drag = kn.dataset.k; svg.setPointerCapture(e.pointerId); e.preventDefault();
+    const h = e.target.dataset && e.target.dataset.h;
+    if (h) { K.drag = h; cancelAnimationFrame(K.anim); svg.setPointerCapture(e.pointerId); e.preventDefault(); }
   });
   svg.addEventListener("pointermove", e => {
-    if (!T.drag) return;
-    const s = sides1(), [px, py] = pt(e), { k, ox, oy } = T.view;
-    const mx = (px - ox) / k, my = Math.max(0, (oy - py) / k);
-    const cx = T.drag === "1" ? 0 : s.c;
-    let t = Math.atan2(my, mx - cx);
-    t = Math.min(Math.PI, Math.max(0, t));
-    const I = meetPoint(s);
-    if (I) {
-      const ti = Math.atan2(I.y, I.x - cx), r = T.drag === "1" ? s.b : s.a;
-      if (Math.abs(t - ti) * r * k < 14) t = ti;
-    }
-    if (T.drag === "1") T.t1 = t; else T.t2 = t;
-    draw1();
+    if (!K.drag) return;
+    const p = pt(e), G = kgeom(), tg = ktarget(), ok = G.a + G.b > G.c + 1e-9;
+    let a = K.drag === "1" ? Math.atan2(K.BY - p.y, p.x - G.Ax) * 180 / Math.PI : Math.atan2(K.BY - p.y, G.Bx - p.x) * 180 / Math.PI;
+    a = Math.max(0, Math.min(180, a < -90 ? 180 : a));
+    const ti = K.drag === "1" ? tg[0] : tg[1];
+    if (ok && Math.abs(a - ti) < 2) a = ti;
+    if (K.drag === "1") K.th1 = a; else K.th2 = a;
+    kdraw();
   });
-  const end = () => { T.drag = null; };
+  const end = () => { K.drag = null; };
   svg.addEventListener("pointerup", end); svg.addEventListener("pointercancel", end);
 })();
-function upd1() {
-  const s = sides1();
-  ["a", "b", "c"].forEach(n => { $("y" + n + "-o").textContent = s[n]; });
-  draw1();
-  const rows = [["a", "b", "c"], ["b", "a", "c"], ["c", "a", "b"]].map(([x, y, z]) => {
-    const good = s[x] < s[y] + s[z];
-    return `<div class="ck${good ? "" : " no"}"><span><span class="c${x}">${x}</span> &lt; <span class="c${y}">${y}</span> + <span class="c${z}">${z}</span></span><span class="op">→</span>`
-      + `<span>${s[x]} ${good ? "&lt;" : (s[x] === s[y] + s[z] ? "=" : "&gt;")} ${s[y] + s[z]}</span><span class="mark">${good ? "✓ to'g'ri" : "✗ bajarilmadi"}</span></div>`;
-  });
-  $("y-checks").innerHTML = rows.join("");
-}
-["ya", "yb", "yc"].forEach(id => $(id).addEventListener("input", upd1));
 
 /* ---------- 2. Uchinchi tomon chegarasi ---------- */
 function upd2() {
@@ -509,7 +568,7 @@ $("o-check").addEventListener("click", () => {
 });
 $("o-next").addEventListener("click", newGame);
 
-upd1(); upd2(); showM(); newGame();
+kdraw(); upd2(); showM(); newGame();
 
 /* MathRun: mavzu sahifasidagi oyna balandligi ko'rgazmaga moslashadi (ichki aylantirishsiz) */
 (function(){function post(){try{parent.postMessage({type:"mathrun:height",h:document.body.offsetHeight},"*")}catch(e){}}
