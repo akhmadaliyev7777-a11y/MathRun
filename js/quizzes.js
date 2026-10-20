@@ -280,6 +280,18 @@ const QUIZ_DATA = {
     { level: 9, question: "Qaysi juftlikdagi nisbatlar teng kuchli?", options: ["6 : 8 va 15 : 20", "4 : 6 va 6 : 8", "3 : 5 va 5 : 7", "2 : 7 va 4 : 21"], answer: "6 : 8 va 15 : 20", explain: "Ikkalasini qisqarmas shaklga keltiramiz: 6 : 8 = 3 : 4 va 15 : 20 = 3 : 4 — bir xil." },
     { level: 10, question: "Har bir qutida 3 ta qalam va 7 ta daftar bor. Bir nechta qutida jami 28 ta daftar bo'lsa, ularda nechta qalam bor?", options: ["12", "7", "24", "21"], answer: "12", explain: "3 : 7 = □ : 28. 7 · 4 = 28 — 4 quti, qalamlar 3 · 4 = 12 ta." }
   ],
+  "5|matematika|nisbat-boshqa-miqdor": [
+    { level: 1, question: "2 : 3 = 10 : □. Noma'lum hadni toping.", options: ["15", "13", "12", "6"], answer: "15", explain: "Birinchi had 5 marta kattaroq (2 · 5 = 10), ikkinchisini ham 5 marta orttiramiz: 3 · 5 = 15. 13 da hadga qo'shish ishlatilgan — bu xato." },
+    { level: 2, question: "Nisbat 3 : 5. Birinchi miqdor 12 bo'lsa, 1 bo'lak nechaga teng?", options: ["4", "3", "5", "12"], answer: "4", explain: "Birinchi miqdor 3 bo'lak: 12 : 3 = 4." },
+    { level: 3, question: "Olma va nok soni 4 : 3 nisbatda. Olma 20 ta bo'lsa, nok nechta?", options: ["15", "12", "16", "27"], answer: "15", explain: "Olma 4 bo'lak = 20, 1 bo'lak 5. Nok 3 bo'lak: 5 · 3 = 15." },
+    { level: 4, question: "Ikki miqdor 5 : 2 nisbatda. Ikkinchisi 14 bo'lsa, birinchisi nechta?", options: ["35", "28", "5", "7"], answer: "35", explain: "Ikkinchi miqdor 2 bo'lak: 14 : 2 = 7. Birinchi 5 bo'lak: 7 · 5 = 35." },
+    { level: 5, question: "Ikki miqdor 3 : 4 nisbatda, birinchisi 15. Ularning jami qancha?", options: ["35", "20", "45", "28"], answer: "35", explain: "1 bo'lak 15 : 3 = 5. Jami 3 + 4 = 7 bo'lak: 5 · 7 = 35. Tekshiramiz: 15 + 20 = 35." },
+    { level: 6, question: "Ikki arqonning uzunligi 6 : 15 nisbatda. Qisqasi 14 m bo'lsa, uzuni necha metr?", options: ["35", "14", "28", "90"], answer: "35", explain: "Avval qisqartiramiz: 6 : 15 = 2 : 5. 14 : 2 = 7, uzun arqon 7 · 5 = 35 m." },
+    { level: 7, question: "Ikki devor balandligi 2 : 7 nisbatda. Pastrog'i 1 m 20 cm bo'lsa, balandi qancha?", options: ["4 m 20 cm", "1 m 40 cm", "2 m 40 cm", "6 m 30 cm"], answer: "4 m 20 cm", explain: "1 m 20 cm = 120 cm. 120 : 2 = 60 cm — 1 bo'lak. Balandi 60 · 7 = 420 cm = 4 m 20 cm." },
+    { level: 8, question: "Sinfda o'g'il va qiz bolalar 6 : 5 nisbatda. O'g'il bolalar 18 nafar bo'lsa, sinfda jami necha o'quvchi bor?", options: ["33", "15", "30", "36"], answer: "33", explain: "1 bo'lak 18 : 6 = 3. Jami 6 + 5 = 11 bo'lak: 3 · 11 = 33. Qizlar 15 ta, 18 + 15 = 33." },
+    { level: 9, question: "Ikki sonning nisbati 7 : 2, ikkinchisi 16. Ularning yig'indisi nechaga teng?", options: ["72", "56", "32", "63"], answer: "72", explain: "Ikkinchi son 2 bo'lak: 16 : 2 = 8. Jami 7 + 2 = 9 bo'lak: 8 · 9 = 72 (birinchi son 56, 56 + 16 = 72)." },
+    { level: 10, question: "Har bir qutida 2 ta shokolad va 5 ta konfet bor. Shokoladlar jami 42 ta bo'lsa, konfetlar va shokoladlar birgalikda nechta?", options: ["147", "105", "63", "84"], answer: "147", explain: "42 : 2 = 21 quti. Konfet 21 · 5 = 105 ta. Jami 42 + 105 = 147 ta." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },

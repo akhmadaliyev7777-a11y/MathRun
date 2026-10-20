@@ -411,7 +411,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** rasmdan guruhlarga ajratib qisqarmas shakl (namuna); 100 ml : 60 ml, 36 m : 48 m; yoshlar nisbati 6 yildan keyin (12 va 16); 8×8 katakli qog'oz (yana 8 katak bo'yaldi); so'zlar bilan nisbat yozish (mototsikl : mashina = 5 : 6); noma'lum hadli tengliklar (16 : □ = □ : 21 kabi).
 **Rasmlar:** guruhlarga ajratilgan shakllar.
 
-#### ☐ 23. Miqdor va nisbatga ko'ra boshqa miqdorni topish — D1 155–156; M1 179–180
+#### ✅ 23. Miqdor va nisbatga ko'ra boshqa miqdorni topish — D1 155–156; M1 179–180
+**Holat (2026-10-20):** tayyor (bulut sessiyasi). Fayl: maruza/5-nisbat-boshqa-miqdor.html. O'z testi: `5|matematika|nisbat-boshqa-miqdor` (10 savol, izohli); data.js da ma'ruza va test ulandi. Chizmalar: `data-tasma` + `data-bolak` (har bo'lakda qiymati).
+**Kitob bilan solishtirildi:** KITOB (PDF) bu sessiyada berilmagan — reja ro'yxatlari bo'yicha ishlandi. Qoidalar: 1-usul (teng kuchli nisbat), 2-usul (bo'laklar), jami (a + b bo'lak), qo'shimcha: ma'lum qiymat ikkinchi hadda, avval qisqartirish ✅. Misol turlari: idishdagi suv, markalar, jadval (nisbat — biri — jami), jo'natma massasi, pul, maktab ✅; mashq daftari turlari: sovg'a to'plami (qutilar), ferma (tovuq : o'rdak, jami) ✅; «sayohat qutisi» turi o'rniga o'z masalalar (aniq turni kitob bilan keyin solishtirish kerak). Kitobdan ko'chirma tekshiruvi (kitobdan.py) ham kitob kelgach qilinadi; sonlar va vaziyatlar o'zimizniki (21 : 49, 5 : 8 ... ).
+**Tekshiruv:** tenglik.py: 77 to'g'ri, 3 «xato» — barchasi `□` topshiriqlarining parchalari (hisob xatosi yo'q); javoblar Python (Fraction) bilan hisoblandi — barchasi butun; 390/1100 px: scrollWidth = ekran kengligi, 140 ta formula (xato 0), 5 ta tasma chizmasi, pageerror yo'q; test sahifasi ochiladi, 10 savolning har birida javob variantlar ichida va izohli.
+**Simulyator uchun g'oyalar:** tasma modeli: nisbat va bitta miqdor beriladi, bo'laklar bosilganda bitta bo'lak qiymati hisoblanib hamma bo'laklar to'ladi; ma'lum miqdorni birinchi/ikkinchi hadga almashtirish tugmasi.
 **Qoidalar ro'yxati:**
 - 1-usul: teng kuchli nisbat (4 : 5 = 800 : □, ×200).
 - 2-usul: bo'laklar usuli (4 bo'lak = 800 → 1 bo'lak = 200 → 5 bo'lak = 1000).
