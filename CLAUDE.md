@@ -16,6 +16,7 @@ Bu fayl har sessiya boshida o'qiladi. Ish shu yerdan davom etadi.
 6. `lessons/` (simulyatorlar) va `mathrunner-web/` (1–4-sinf) ga **tegilmaydi** — ma'ruzalar bosqichi tugaguncha.
 7. `js/data.js` dagi `review: true` / `review: "sariq"` (qizil/sariq nuqta) faqat foydalanuvchi «tayyor» desa olib tashlanadi.
 8. Ichki nomlar o'zgartirilmaydi: localStorage kaliti `mathrun-progress-v1`, postMessage turi `mathrun:height`, `mathrunner-web/` papkasi.
+9. **Ma'ruza ichi o'zi aylanmaydi (foydalanuvchi qarori, 2026-10-20):** ma'ruza iframe ichida ochilganda sahifa aylanmaydi, faqat tashqi sahifa aylanadi (telefonda surish silliq bo'lishi uchun). Bu `js/main.js` dagi `scrolling="no"` va `maruza/maruza.js` dagi `overflow:hidden` orqali barcha ma'ruzalarga avtomatik ishlaydi — yangi mavzuda yangi `maruza/5-*.html` da `maruza.js` ulangan bo'lsa yetarli. Bu ikki joyni o'chirmang.
 
 ## Ishlash qoidalari (foydalanuvchi bilan kelishilgan, 2026-10-18)
 - **Shox — har doim `main` ga (foydalanuvchi qarori, 2026-10-18):** sessiya qaysi shoxda ochilgan bo'lsa ham (masalan `claude/...`), tayyor ish **`main` ga** yuklanadi — sayt shundan chiqadi. Tartib:
