@@ -46,6 +46,8 @@
                                           qiymat "?" bo'lsa — ustun chizilmaydi (punktir ramka va savol belgisi)
    data-qismlar="X:0,0,3,6|Y:3,5,6,6|Z:3,0,6,5" [data-olcham="26"] [data-uzun="6 cm"] — to'g'ri to'rtburchak (kvadrat) qismlarga bo'lingan:
                                           har qism "nomi:x1,y1,x2,y2" (katak birligida, y yuqoriga), har biri o'z rangida; uzun — pastki tomon yozuvi
+   data-onli="5,8/x1000" yoki "3,7/:10" yoki "0,134" — o'nli xona jadvali: vergul ustuni bilan; amal berilsa, son va natija ikki qatorda
+                                          (bir xil raqam — bir xil rang, qo'shilgan nollar kulrang), vergul siljishi yozib qo'yiladi; amalsiz — bitta qator
    data-panjara="4x3x2"            — uch o'lchamli (izometrik) nuqtali panjarada chizilgan kuboid: "bo'yi x eni x balandligi";
                                           faqat ko'rinadigan 9 qirra chiziladi: bo'yi — to'q sariq, eni — ko'k, balandligi — binafsha
        [data-bosqich="1..4"] — chizish bosqichlari: 1 old tik qirra, 2 uning pastidan ikki qiya qirra, 3 ikki chetki tik qirra, 4 tepa yoq;
@@ -488,6 +490,65 @@
     el.classList.add("tasma");
     el.style.maxWidth = W + "px";
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Qismlarga bo\'lingan shakl: ' + q.map(function (r) { return r.nom; }).join(", ") + '">' + svg + "</svg>";
+  }
+
+  // ---------- o'nli kasr: xona jadvali va vergul siljishi ----------
+  const ONLI_INT = ["B", "O'", "Y", "M", "O'M", "YM"];
+  const ONLI_KASR = ["0,1", "0,01", "0,001", "0,0001", "0,00001"];
+  function onliTahlil(str) {
+    const p = str.split(",");
+    const butun = p[0], kasr = p[1] || "";
+    const d = (butun + kasr).split("").map(function (c, i) { return { d: c, t: i }; });
+    return { d: d, nuqta: butun.length };
+  }
+  // natijani raqamlar ro'yxati ko'rinishida topadi: qo'shilgan nollar t = -1
+  function onliSur(a, k, kop) {
+    const d = a.d.slice();
+    let n = a.nuqta + (kop ? k : -k);
+    if (n > d.length) { while (d.length < n) d.push({ d: "0", t: -1 }); }
+    if (n <= 0) { while (n < 0) { d.unshift({ d: "0", t: -1 }); n++; } d.unshift({ d: "0", t: -1 }); n = 1; }
+    while (n > 1 && d[0].d === "0") { d.shift(); n--; }
+    while (d.length > n && d[d.length - 1].d === "0") d.pop();
+    return { d: d, nuqta: n };
+  }
+  function chizOnli(el) {
+    const bol = el.dataset.onli.split("/");
+    const a = onliTahlil(bol[0]);
+    const amal = bol[1];
+    const kop = amal ? amal[0] === "x" : true, k = amal ? String(amal.slice(1)).length - 1 : 0;
+    const b = amal ? onliSur(a, k, kop) : null;
+    const satr = function (x) { return x.d.map(function (e) { return e.d; }).slice(0, x.nuqta).join("") + (x.d.length > x.nuqta ? "," + x.d.slice(x.nuqta).map(function (e) { return e.d; }).join("") : ""); };
+    const top = Math.max(a.nuqta, b ? b.nuqta : 0) - 1;
+    const past = -Math.max(a.d.length - a.nuqta, b ? b.d.length - b.nuqta : 0, 1);
+    const hujayra = function (x, q) {
+      const idx = x.nuqta - 1 - q;                 // q — xona raqami: 0 — birlar, -1 — o'ndan birlar
+      if (idx < 0 || idx >= x.d.length) return '<td class="bosh"></td>';
+      const e = x.d[idx];
+      const rang = e.t < 0 ? "#9aa3b5" : SIL_RANG[e.t % SIL_RANG.length];
+      return '<td style="color:' + rang + '">' + e.d + "</td>";
+    };
+    const qator = function (x, nom) {
+      let h = "<tr><th>" + nom + "</th>";
+      for (let q = top; q >= past; q--) {
+        h += hujayra(x, q);
+        if (q === 0) h += '<td class="vg">' + (x.d.length > x.nuqta ? "," : "") + "</td>";
+      }
+      return h + "</tr>";
+    };
+    let bosh = "<tr><th></th>";
+    for (let q = top; q >= past; q--) {
+      bosh += "<th>" + (q >= 0 ? ONLI_INT[q] || "" : ONLI_KASR[-q - 1]) + "</th>";
+      if (q === 0) bosh += '<th class="vg"></th>';
+    }
+    bosh += "</tr>";
+    const cols = top - past + 3;
+    let html = '<table class="jad">' + bosh + qator(a, b ? "son" : "");
+    if (b) {
+      const belgi = (kop ? "× " : ": ") + guruh(Math.pow(10, k));
+      html += '<tr class="sil-amal"><td colspan="' + cols + '">' + belgi + (kop ? " — vergul " + k + " xona o'ngga ⟶" : " — vergul " + k + " xona chapga ⟵") + "</td></tr>" + qator(b, "natija");
+    }
+    el.classList.add("siljish", "onli");
+    el.innerHTML = html + "</table>" + (b ? '<p class="chz-cap">' + satr(a) + " " + (kop ? "×" : ":") + " " + guruh(Math.pow(10, k)) + " = " + satr(b) + "</p>" : "");
   }
 
   // ---------- pitsalarni bolalarga teng bo'lish ----------
@@ -1098,6 +1159,7 @@
       root.querySelectorAll("[data-tasma]").forEach(chizTasma);
       root.querySelectorAll("[data-ustunli]").forEach(chizUstunli);
       root.querySelectorAll("[data-qismlar]").forEach(chizQismlar);
+      root.querySelectorAll("[data-onli]").forEach(chizOnli);
       root.querySelectorAll("[data-pitsa]").forEach(chizPitsa);
       root.querySelectorAll("[data-doira]").forEach(chizDoira);
       root.querySelectorAll("[data-qism]").forEach(chizQism);

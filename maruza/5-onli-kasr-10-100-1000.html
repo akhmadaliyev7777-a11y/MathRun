@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>O'nli kasrni 10, 100, 1000 ga ko'paytirish va bo'lish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=30">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">O'nli kasrni 10, 100, 1000 ga ko'paytirish va bo'lish</h1>
+<p class="m-lead">O'nli kasrni 10, 100 va 1000 ga ko'paytirish va bo'lishni vergulni surish bilan bajarishni o'rganamiz. Avval o'nli kasrlar haqida bilganlarimizni eslab olamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik — o'nli kasrlar</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">O'nli kasr — maxraji 10, 100, 1000 ... bo'lgan kasr. Vergul butun qismni kasr qismdan ajratadi!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li><b>Xonalar:</b> verguldan keyingi birinchi xona — o'ndan birlar (0,1), keyin yuzdan birlar (0,01), mingdan birlar (0,001).</li>
+      <li><b>Xona yoyilmasi:</b> \(3,206 = 3 + 0,2 + 0,006\).</li>
+      <li><b>Qo'shish va ayirish</b> ustun usulida: vergul vergul tagiga yoziladi.</li>
+      <li><b>Natural songa ko'paytirish va bo'lish:</b> \(1,25 \cdot 4 = 5\), \(7,2 : 5 = 1,44\).</li>
+      <li><b>O'nli kasr va oddiy kasr:</b> \(3\frac{2}{5} = 3,4\), \(2,125 = 2\frac{125}{1000} = 2\frac{1}{8}\).</li>
+    </ul>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · xona jadvali</span>
+    <div data-onli="0,134"></div>
+    <p class="chz-cap">B — birlar; 0,1 — o'ndan birlar; 0,01 — yuzdan birlar; 0,001 — mingdan birlar.</p>
+    <p>\(0,134 = 0,1 + 0,03 + 0,004\): bir o'ndan bir, uch yuzdan bir va to'rt mingdan bir.</p>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Sonning raqamlari joyida turadi — faqat vergul suriladi!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · 10, 100, 1000 ga ko'paytirish</span>
+    <p>O'nli kasrni <b>10</b>, <b>100</b> yoki <b>1000</b> ga ko'paytirish uchun vergul mos ravishda <strong>1, 2 yoki 3 xona o'ngga</strong> suriladi (10, 100, 1000 dagi nollar soni qancha bo'lsa, shuncha xona).</p>
+    <ul>
+      <li>Vergul butun qismdan keyin qolsa, u yoziladi va natija natural son bo'ladi.</li>
+      <li>Natijaning boshidagi keraksiz nollar tushiriladi: \(0,068 \cdot 1000 = 68\).</li>
+    </ul>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · vergulni o'ngga suramiz</span>
+    <div class="misollar qator">
+      <span>a) \(2,45 \cdot 10 = \nat{24,5}\) &nbsp;(1 xona)</span>
+      <span>b) \(2,45 \cdot 100 = \nat{245}\) &nbsp;(2 xona)</span>
+      <span>c) \(0,068 \cdot 1000 = \nat{68}\) &nbsp;(3 xona)</span>
+    </div>
+    <div data-onli="2,45/x100"></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · xona yetmasa, nol yoziladi</span>
+    <p>Vergulni o'ngga surishda kasr qismdagi raqamlar yetmasa, <b>oxiriga yetmagan xona soniga teng nol</b> yoziladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · oxiriga nol qo'shamiz</span>
+    <div class="misollar qator">
+      <span>a) \(7,3 \cdot 100\): 1 ta raqam bor, 2 xona suramiz — 1 ta nol qo'shamiz: \(\nat{730}\).</span>
+      <span>b) \(4,6 \cdot 1000\): 2 ta nol qo'shamiz: \(\nat{4600}\).</span>
+      <span>c) \(0,9 \cdot 100 = \nat{90}\).</span>
+    </div>
+    <div data-onli="5,8/x1000"></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · 10, 100, 1000 ga bo'lish</span>
+    <p>O'nli kasrni <b>10</b>, <b>100</b> yoki <b>1000</b> ga bo'lish uchun vergul mos ravishda <strong>1, 2 yoki 3 xona chapga</strong> suriladi.</p>
+    <ul>
+      <li>Xona yetmasa, <b>boshiga</b> yetmagan xona soniga teng nol yoziladi va butun qism uchun «0» qo'yiladi.</li>
+      <li>Natural sonda vergul oxirida turadi: \(8 = 8,0\).</li>
+    </ul>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · vergulni chapga suramiz</span>
+    <div class="misollar qator">
+      <span>a) \(3,7 : 10 = \nat{0,37}\) &nbsp;(1 xona; butun qism uchun 0 qo'shildi)</span>
+      <span>b) \(52,4 : 100 = \nat{0,524}\) &nbsp;(2 xona)</span>
+      <span>c) \(6 : 100 = \nat{0,06}\) &nbsp;(2 xona; boshiga nol)</span>
+      <span>d) \(9 : 1000 = \nat{0,009}\)</span>
+      <span>e) \(8 : 10 = \nat{0,8}\) &nbsp;(\(8 = 8,0\))</span>
+    </div>
+    <div data-onli="6/:100"></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · ko'paytirish va bo'lish — teskari amallar</span>
+    <p>Vergulni o'ngga surish va shuncha xona chapga surish bir-birini bekor qiladi: \(a \cdot 100 : 100 = a\). Shuning uchun noma'lum ko'paytuvchi yoki bo'luvchini vergulning necha xona surilganiga qarab topamiz.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · noma'lum son</span>
+    <div class="misollar qator">
+      <span>a) \(0,18 \cdot \square = 1,8\): vergul 1 xona o'ngga surilgan, demak \(\square = \nat{10}\).</span>
+      <span>b) \(7,2 : \square = 0,072\): vergul 2 xona chapga surilgan, demak \(\square = \nat{100}\).</span>
+      <span>c) \(\square : 1000 = 0,028\): vergul 3 xona o'ngga qaytarilsa, \(\square = \nat{28}\).</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz — xona jadvalida vergul siljishi</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Raqamlar bir xil rangda qoladi. Kulrang — qo'shilgan nol!</div></div>
+  <div class="box">
+    <p>Jadvalda har bir raqam o'z xonasida turadi. 10 marta ko'paytirsak, har bir raqam bitta xona chapga — kattaroq xonaga o'tadi, ya'ni <b>vergul o'ngga</b> suriladi.</p>
+    <div data-onli="4,07/x10"></div>
+    <div data-onli="4,07/x100"></div>
+    <div data-onli="4,07/x1000"></div>
+    <p>10 marta kamaytirsak (10 ga bo'lsak), har bir raqam bitta xona o'ngga — kichikroq xonaga o'tadi, ya'ni <b>vergul chapga</b> suriladi.</p>
+    <div data-onli="81,5/:10"></div>
+    <div data-onli="81,5/:100"></div>
+    <div data-onli="81,5/:1000"></div>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar — hayotiy masalalar</h2>
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · qog'oz</span>
+    <p>Bitta qog'oz varag'ining massasi 0,45 g. 1000 ta shunday varaqning massasi qancha?</p>
+    <div class="qadam"><b>1</b><span>Massa \(0,45 \cdot 1000\): vergul 3 xona o'ngga suriladi; kasr qismda 2 ta raqam bor, 1 ta nol qo'shamiz.</span></div>
+    <div class="qadam"><b>2</b><span>\(0,45 \cdot 1000 = \nat{450}\) g.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · olmalar</span>
+    <p>Bitta olmaning massasi 0,18 kg. 10 ta va 100 ta olmaning massasini toping.</p>
+    <div class="qadam"><b>1</b><span>10 ta olma: \(0,18 \cdot 10 = \nat{1,8}\) kg.</span></div>
+    <div class="qadam"><b>2</b><span>100 ta olma: \(0,18 \cdot 100 = \nat{18}\) kg.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · sharbat</span>
+    <p>1 ml = 0,001 ℓ. 350 ml necha litr?</p>
+    <div class="qadam"><b>1</b><span>1 ml litrning mingdan biri, demak millilitrni 1000 ga bo'lamiz.</span></div>
+    <div class="qadam"><b>2</b><span>\(350 : 1000 = \nat{0,35}\) ℓ.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 4 · jadval</span>
+    <p>Jadvalni to'ldiring.</p>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Son</th><th>· 10</th><th>· 100</th><th>· 1000</th></tr>
+      <tr><td>0,36</td><td>\(\nat{3,6}\)</td><td>\(\nat{36}\)</td><td>\(\nat{360}\)</td></tr>
+      <tr><td>4,07</td><td>\(\nat{40,7}\)</td><td>\(\nat{407}\)</td><td>\(\nat{4070}\)</td></tr>
+    </table></div>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Son</th><th>: 10</th><th>: 100</th><th>: 1000</th></tr>
+      <tr><td>81,5</td><td>\(\nat{8,15}\)</td><td>\(\nat{0,815}\)</td><td>\(\nat{0,0815}\)</td></tr>
+    </table></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 5 · ikki amalni ketma-ket bajaramiz</span>
+    <p>\(3,6 \cdot 100 : 1000\) ni hisoblang.</p>
+    <div class="qadam"><b>1</b><span>\(3,6 \cdot 100 = 360\) (vergul 2 xona o'ngga).</span></div>
+    <div class="qadam"><b>2</b><span>\(360 : 1000 = \nat{0,36}\) (vergul 3 xona chapga). Natija: 1 xona chapga siljigan — xuddi \(3,6 : 10\) kabi.</span></div>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Nollar soni = vergul suriladigan xonalar soni. Ko'paytirishda — o'ngga, bo'lishda — chapga!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Vergulni noto'g'ri tomonga surish.<br><span class="xato">3,7 · 10 = 0,37</span> &nbsp;→&nbsp; <span class="togri">ko'paytirishda o'ngga: 3,7 · 10 = 37</span></li>
+      <li>Nol qo'shib, vergulni qoldirish.<br><span class="xato">7,3 · 100 = 7,300</span> &nbsp;→&nbsp; <span class="togri">vergul 2 xona o'ngga: 7,3 · 100 = 730</span></li>
+      <li>Natijaning boshida keraksiz nollarni qoldirish.<br><span class="xato">0,068 · 1000 = 068</span> &nbsp;→&nbsp; <span class="togri">0,068 · 1000 = 68</span></li>
+      <li>Natural sonni bo'lishda boshiga nol yozmaslik.<br><span class="xato">6 : 100 = 0,6</span> &nbsp;→&nbsp; <span class="togri">2 xona chapga: 6 : 100 = 0,06</span></li>
+      <li>Nollar sonini xato sanash.<br><span class="xato">2,05 : 10 = 2,005</span> &nbsp;→&nbsp; <span class="togri">1 xona chapga: 2,05 : 10 = 0,205</span></li>
+      <li>Ko'paytirish va bo'lishni almashtirish.<br><span class="xato">45,6 : 10 = 456</span> &nbsp;→&nbsp; <span class="togri">bo'lishda chapga: 45,6 : 10 = 4,56</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Nechta nol bo'lsa, shuncha xona suraman!</div></div>
+
+  <div class="daraja oson"><i></i>Oson — ko'paytiring</div>
+  <div class="misollar">
+    <span><b>a)</b> \(3,4 \cdot 10\)</span><span><b>b)</b> \(0,52 \cdot 100\)</span><span><b>c)</b> \(7,125 \cdot 1000\)</span>
+    <span><b>d)</b> \(6,3 \cdot 100\)</span><span><b>e)</b> \(0,07 \cdot 10\)</span><span><b>f)</b> \(12,5 \cdot 1000\)</span>
+    <span><b>g)</b> \(0,004 \cdot 100\)</span><span><b>h)</b> \(9,2 \cdot 1000\)</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 34</span><span>b) 52</span><span>c) 7125</span><span>d) 630</span><span>e) 0,7</span><span>f) 12 500</span><span>g) 0,4</span><span>h) 9200</span></div>
+  </details>
+
+  <div class="daraja oson"><i></i>Oson — bo'ling</div>
+  <div class="misollar">
+    <span><b>a)</b> \(45,6 : 10\)</span><span><b>b)</b> \(3,8 : 100\)</span><span><b>c)</b> \(72 : 10\)</span>
+    <span><b>d)</b> \(5 : 100\)</span><span><b>e)</b> \(460 : 1000\)</span><span><b>f)</b> \(0,9 : 10\)</span>
+    <span><b>g)</b> \(12,34 : 100\)</span><span><b>h)</b> \(7 : 1000\)</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 4,56</span><span>b) 0,038</span><span>c) 7,2</span><span>d) 0,05</span><span>e) 0,46</span><span>f) 0,09</span><span>g) 0,1234</span><span>h) 0,007</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — tushirib qoldirilgan sonni toping</div>
+  <div class="misollar">
+    <span><b>a)</b> \(0,36 \cdot \square = 3,6\)</span><span><b>b)</b> \(2,5 \cdot \square = 2500\)</span><span><b>c)</b> \(\square \cdot 100 = 47,1\)</span>
+    <span><b>d)</b> \(6,4 : \square = 0,64\)</span><span><b>e)</b> \(\square : 1000 = 0,028\)</span><span><b>f)</b> \(0,053 \cdot \square = 5,3\)</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 10</span><span>b) 1000</span><span>c) 0,471</span><span>d) 10</span><span>e) 28</span><span>f) 100</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — jadvalni to'ldiring</div>
+  <div class="jad-wrap"><table class="jad">
+    <tr><th>Son</th><th>· 10</th><th>· 100</th><th>· 1000</th></tr>
+    <tr><td>0,59</td><td>?</td><td>?</td><td>?</td></tr>
+    <tr><td>3,06</td><td>?</td><td>?</td><td>?</td></tr>
+  </table></div>
+  <div class="jad-wrap"><table class="jad">
+    <tr><th>Son</th><th>: 10</th><th>: 100</th><th>: 1000</th></tr>
+    <tr><td>64,2</td><td>?</td><td>?</td><td>?</td></tr>
+    <tr><td>9</td><td>?</td><td>?</td><td>?</td></tr>
+  </table></div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>0,59: 5,9; 59; 590</span><span>3,06: 30,6; 306; 3060</span><span>64,2: 6,42; 0,642; 0,0642</span><span>9: 0,9; 0,09; 0,009</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — eslang: o'nli kasrlar bilan amallar</div>
+  <ol>
+    <li>Yozing: \(10 + 0,2 + 0,005\).</li>
+    <li>Ustun usulida hisoblang: a) \(4,6 + 2,75\) &nbsp; b) \(9 - 3,48\).</li>
+    <li>Hisoblang: a) \(1,25 \cdot 4\) &nbsp; b) \(7,2 : 5\).</li>
+    <li>O'nli kasrni oddiy kasr ko'rinishida yozing: a) \(0,35\) &nbsp; b) \(3,4\) &nbsp; c) \(2,125\).</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) 10,205</span><span>2) a) 7,35 &nbsp; b) 5,52</span><span>3) a) 5 &nbsp; b) 1,44</span><span>4) a) \(\frac{7}{20}\) &nbsp; b) \(3\frac{2}{5}\) &nbsp; c) \(2\frac{1}{8}\)</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin</div>
+  <ol>
+    <li>Hisoblang: a) \(3,6 \cdot 100 : 1000\) &nbsp; b) \(0,25 \cdot 1000 : 10\) &nbsp; c) \(48 : 100 \cdot 10\)</li>
+    <li>Tenglamani yeching: a) \(100 \cdot x = 7,3\) &nbsp; b) \(x : 1000 = 0,0093\) &nbsp; c) \(x \cdot 10 = 0,37\)</li>
+    <li>Bitta soni 2,674 ga ko'paytirib 2674 hosil bo'ldi. Qaysi son bilan ko'paytirilgan? Bu son 2,674 ni necha marta orttirgan?</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar">
+      <span>1) a) 0,36 &nbsp; b) 25 &nbsp; c) 4,8</span>
+      <span>2) a) \(x = 7,3 : 100 = 0,073\) &nbsp; b) \(x = 0,0093 \cdot 1000 = 9,3\) &nbsp; c) \(x = 0,37 : 10 = 0,037\)</span>
+      <span>3) \(2,674 \cdot \square = 2674\): vergul 3 xona o'ngga surilgan, \(\square = 1000\); 1000 marta orttirgan.</span>
+    </div>
+  </details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Masalalarni yeching</span>
+    <ol class="masalalar">
+      <li>Bitta daftarning massasi 0,06 kg. 100 ta shunday daftarning massasi qancha?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(0,06 \cdot 100 = 6\) kg.</details></li>
+      <li>Bir quti kitobning narxi 12,5 ming so'm. 10 ta shunday qutining narxi necha ming so'm?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(12,5 \cdot 10 = 125\) ming so'm.</details></li>
+      <li>Velosipedchi 1 daqiqada 0,34 km yuradi. 10 daqiqada va 100 daqiqada necha kilometr yuradi?
+        <details class="javob"><summary>Javobni ko'rish</summary>10 daqiqada \(0,34 \cdot 10 = 3,4\) km; 100 daqiqada \(0,34 \cdot 100 = 34\) km.</details></li>
+      <li>100 ta shishaning har biriga 0,35 ℓ dan sharbat quyildi. Jami necha litr sharbat quyilgan?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(0,35 \cdot 100 = 35\) ℓ.</details></li>
+      <li>Idishda 840 ml suv bor. Bu necha litr?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(840 : 1000 = 0,84\) ℓ.</details></li>
+      <li>7,2 m uzunlikdagi lentani 100 ta teng bo'lakka bo'lishdi. Har bir bo'lak necha metr?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(7,2 : 100 = 0,072\) m.</details></li>
+      <li>1000 ta bir xil tugmaning massasi 2,4 kg. 10 ta tugmaning massasi necha kilogramm?
+        <details class="javob"><summary>Javobni ko'rish</summary>1 ta tugma: \(2,4 : 1000 = 0,0024\) kg; 10 ta: \(0,0024 \cdot 10 = 0,024\) kg (yoki bevosita \(2,4 : 100 = 0,024\)).</details></li>
+      <li>Kitob javonidagi 100 ta daftarning massasi 8,5 kg. 1 ta daftarning massasi necha kilogramm?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(8,5 : 100 = 0,085\) kg.</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Vergul qaysi yo'nalishda va nechta xonaga suriladi? Shuni bilsak, hisoblash oson!</div></div>
+  <div class="box qiyin">
+    <span class="tag">Xatoni toping</span>
+    <p>Sherzod: «\(0,57 \cdot 100 = 0,5700\), chunki 2 ta nol qo'shdim». U to'g'ri yechdimi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Yo'q. 100 ga ko'paytirganda vergul 2 xona o'ngga suriladi: \(0,57 \cdot 100 = 57\). Nol qo'shish sonni o'zgartirmaydi: \(0,57 = 0,5700\) — bu xuddi o'sha son.</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Hisoblamasdan toping</span>
+    <p>\(6,8 \cdot 1000 : 1000\) ning qiymati nechaga teng? Nega hisoblash shart emas?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Vergul 3 xona o'ngga, keyin 3 xona chapga suriladi — u joyiga qaytadi: \(6,8 \cdot 1000 : 1000 = 6,8\).</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Qaysi son?</span>
+    <p>Qaysi sonni 1000 ga ko'paytirsak, 370 chiqadi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>1000 ga ko'paytirganda vergul 3 xona o'ngga suriladi, demak teskarisi — 3 xona chapga: \(370 : 1000 = 0,37\). Tekshiramiz: \(0,37 \cdot 1000 = 370\).</details>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — belgilab chiqing va testni ishlang!</div></div>
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men o'nli kasrni 10, 100 va 1000 ga ko'paytirishni (vergulni o'ngga surib) bilaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men o'nli kasrni va natural sonni 10, 100 va 1000 ga bo'lishni (vergulni chapga surib) bilaman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men xona yetmaganda nol qayerga yozilishini bilaman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men noma'lum ko'paytuvchi yoki bo'luvchini topa olaman.</label></li>
+    </ul>
+  </div>
+</section>
+<p class="m-foot">Mathlearn · 5-sinf matematika</p>
+</main>
+<script src="chizma.js?v=31"></script>
+<script src="maruza.js?v=4"></script>
+</body>
+</html>

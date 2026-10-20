@@ -316,6 +316,18 @@ const QUIZ_DATA = {
     { level: 9, question: "Lolada 8 ta gul bor. Nilufarda Lolaga qaraganda 4 ta ko'p, Gulnorada esa Nilufardan 2 ta kam. Lola, Nilufar va Gulnoradagi gullar sonining nisbatini qisqarmas shaklda yozing.", options: ["4 : 6 : 5", "8 : 12 : 10", "2 : 3 : 5", "4 : 12 : 10"], answer: "4 : 6 : 5", explain: "Lola 8, Nilufar 8 + 4 = 12, Gulnora 12 − 2 = 10. Nisbat 8 : 12 : 10, uchalasini 2 ga bo'lsak, 4 : 6 : 5." },
     { level: 10, question: "A va B ning nisbati 2 : 3, B va C ning nisbati 6 : 5. A, B va C ning nisbatini toping.", options: ["4 : 6 : 5", "2 : 3 : 5", "2 : 6 : 5", "4 : 3 : 5"], answer: "4 : 6 : 5", explain: "B ikkala nisbatda turlicha (3 va 6). Birinchi nisbatni 2 ga ko'paytiramiz: 2 : 3 = 4 : 6. Endi B = 6 ikkalasida bir xil: 4 : 6 : 5." }
   ],
+  "5|matematika|onli-kasr-10-100-1000": [
+    { level: 1, question: "4,3 · 10 = ?", options: ["43", "4,30", "0,43", "430"], answer: "43", explain: "10 ga ko'paytirganda vergul 1 xona o'ngga suriladi: 4,3 → 43." },
+    { level: 2, question: "0,27 · 100 = ?", options: ["27", "2,7", "270", "0,27"], answer: "27", explain: "100 ga ko'paytirganda vergul 2 xona o'ngga suriladi: 0,27 → 27 (boshidagi nol tushiriladi)." },
+    { level: 3, question: "56,4 : 10 = ?", options: ["5,64", "564", "0,564", "56,04"], answer: "5,64", explain: "10 ga bo'lganda vergul 1 xona chapga suriladi: 56,4 → 5,64." },
+    { level: 4, question: "3,9 · 1000 = ?", options: ["3900", "390", "39", "3,900"], answer: "3900", explain: "Vergul 3 xona o'ngga suriladi, kasr qismda faqat 1 ta raqam bor — yana 2 ta nol qo'shamiz: 3900." },
+    { level: 5, question: "7 : 100 = ?", options: ["0,07", "0,7", "0,007", "70"], answer: "0,07", explain: "7 = 7,0. 100 ga bo'lganda vergul 2 xona chapga suriladi, xona yetmagani uchun boshiga nol yoziladi: 0,07." },
+    { level: 6, question: "0,6 · □ = 60. Noma'lum son qaysi?", options: ["100", "10", "1000", "6"], answer: "100", explain: "0,6 dan 60 ga o'tishda vergul 2 xona o'ngga surilgan, demak 100 ga ko'paytirilgan." },
+    { level: 7, question: "82,5 : 1000 = ?", options: ["0,0825", "0,825", "0,00825", "8,25"], answer: "0,0825", explain: "1000 ga bo'lganda vergul 3 xona chapga suriladi: 82,5 → 0,0825 (butun qism uchun 0 va yana bitta nol qo'shiladi)." },
+    { level: 8, question: "5,06 · 100 = ?", options: ["506", "5060", "50,6", "0,506"], answer: "506", explain: "Vergul 2 xona o'ngga suriladi: 5,06 → 506. 5060 — 1000 ga ko'paytirilganda chiqadi." },
+    { level: 9, question: "Bitta tugmaning massasi 2,3 g. 100 ta shunday tugmaning massasi necha gramm?", options: ["230", "23", "2300", "0,23"], answer: "230", explain: "Ko'paytiramiz: 2,3 · 100. Vergul 2 xona o'ngga suriladi, 1 ta raqam yetmaydi — bitta nol qo'shamiz: 230 g." },
+    { level: 10, question: "9,3 : □ = 0,0093. Noma'lum bo'luvchini toping.", options: ["1000", "100", "10", "0,001"], answer: "1000", explain: "9,3 dan 0,0093 ga o'tishda vergul 3 xona chapga surilgan (9,3 → 0,0093), demak 1000 ga bo'lingan." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },
