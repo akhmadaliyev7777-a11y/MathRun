@@ -292,6 +292,18 @@ const QUIZ_DATA = {
     { level: 9, question: "Ikki sonning nisbati 7 : 2, ikkinchisi 16. Ularning yig'indisi nechaga teng?", options: ["72", "56", "32", "63"], answer: "72", explain: "Ikkinchi son 2 bo'lak: 16 : 2 = 8. Jami 7 + 2 = 9 bo'lak: 8 · 9 = 72 (birinchi son 56, 56 + 16 = 72)." },
     { level: 10, question: "Har bir qutida 2 ta shokolad va 5 ta konfet bor. Shokoladlar jami 42 ta bo'lsa, konfetlar va shokoladlar birgalikda nechta?", options: ["147", "105", "63", "84"], answer: "147", explain: "42 : 2 = 21 quti. Konfet 21 · 5 = 105 ta. Jami 42 + 105 = 147 ta." }
   ],
+  "5|matematika|nisbat-qismlarni-topish": [
+    { level: 1, question: "Jami 20 ta konfet 1 : 4 nisbatda ikki bolaga bo'lindi. Kichik qism nechta konfet?", options: ["4", "5", "16", "10"], answer: "4", explain: "Jami 1 + 4 = 5 bo'lak. 1 bo'lak 20 : 5 = 4. Kichik qism 1 bo'lak, ya'ni 4 ta." },
+    { level: 2, question: "45 ta kitob 2 : 3 nisbatda ikki javonga qo'yildi. Kattasida nechta kitob bor?", options: ["27", "18", "15", "30"], answer: "27", explain: "Jami 2 + 3 = 5 bo'lak. 1 bo'lak 45 : 5 = 9. Katta qism 3 bo'lak: 9 · 3 = 27." },
+    { level: 3, question: "Jami miqdor 4 : 7 nisbatda bo'linadi. Jami nechta bo'lak bor?", options: ["11", "3", "28", "7"], answer: "11", explain: "Jami bo'laklar soni nisbat hadlarining yig'indisiga teng: 4 + 7 = 11." },
+    { level: 4, question: "99 so'm 4 : 5 nisbatda bo'lindi. Kichik qism necha so'm?", options: ["44", "55", "11", "20"], answer: "44", explain: "Jami 4 + 5 = 9 bo'lak. 1 bo'lak 99 : 9 = 11. Kichik qism 4 bo'lak: 11 · 4 = 44. Tekshiramiz: 44 + 55 = 99." },
+    { level: 5, question: "Ikki miqdorning nisbati 5 : 2, ayirmasi 18. Kattasi nechaga teng?", options: ["30", "12", "18", "36"], answer: "30", explain: "Ayirma 5 − 2 = 3 bo'lak = 18. 1 bo'lak 6. Katta miqdor 5 bo'lak: 6 · 5 = 30." },
+    { level: 6, question: "24 ta qizil va 16 ta ko'k shar bor. Qizil sharlar sonining jami sharlar soniga nisbati qisqarmas shaklda qanday?", options: ["3 : 5", "3 : 2", "24 : 16", "2 : 5"], answer: "3 : 5", explain: "Jami 24 + 16 = 40. 24 : 40 ni 8 ga bo'lsak, 3 : 5. 3 : 2 — qizil sharlarning ko'k sharlarga nisbati." },
+    { level: 7, question: "Anvarda Ravshandan 4 marta ko'p pul bor, farq 27 000 so'm. Ravshanda qancha pul bor?", options: ["9000", "6750", "27 000", "36 000"], answer: "9000", explain: "Nisbat 4 : 1, ayirma 4 − 1 = 3 bo'lak = 27 000. 1 bo'lak 9000 — bu Ravshanning puli. Anvarda 36 000." },
+    { level: 8, question: "800 ml sharbat 3 : 5 nisbatda ikki stakanga quyildi. Katta stakanda necha millilitr?", options: ["500", "300", "160", "480"], answer: "500", explain: "Jami 3 + 5 = 8 bo'lak. 1 bo'lak 800 : 8 = 100 ml. Katta stakan 5 bo'lak — 500 ml." },
+    { level: 9, question: "Kattalar chiptasi bolalar chiptasidan 3 : 2 nisbatda qimmat. 2 ta kattalar va 3 ta bolalar chiptasiga jami 60 000 so'm to'landi. Bolalar chiptasi necha so'm?", options: ["10 000", "5000", "15 000", "12 000"], answer: "10 000", explain: "Bo'laklar: 2 · 3 + 3 · 2 = 12. 1 bo'lak 60 000 : 12 = 5000. Bolalar chiptasi 2 bo'lak: 10 000 so'm. Tekshiramiz: 2 · 15 000 + 3 · 10 000 = 60 000." },
+    { level: 10, question: "Otaning yoshi o'g'lining yoshiga 7 : 2 nisbatda, ular orasidagi farq 30 yosh. Ota necha yoshda?", options: ["42", "12", "30", "35"], answer: "42", explain: "Ayirma 7 − 2 = 5 bo'lak = 30 yosh. 1 bo'lak 6. Ota 7 bo'lak: 6 · 7 = 42 yosh (o'g'il 12 yoshda)." }
+  ],
   "5|matematika|turt-amal": [
     { level: 1, question: "7 + 5 = ?", options: ["11", "12", "13", "10"], answer: "12" },
     { level: 2, question: "15 - 6 = ?", options: ["8", "9", "10", "7"], answer: "9" },

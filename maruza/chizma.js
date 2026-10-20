@@ -42,6 +42,8 @@
                                           yuqoridan — old tomon pastda; olddan — chapdan o'ngga bo'yi bo'yicha;
                                           yondan — chapda old qism, o'ngda orqa qism; yorliq="1" — yuqoridan ko'rinishda old/yon tomon belgilanadi
        data-kub ga qo'shimcha: [data-strelka="1"] — yuqoridan / olddan / yondan qarash strelkalari
+   data-ustunli="Qizil:50|Yashil:30|Ko'k:?" [data-qadam="10"] [data-yozuv="Tugmalar soni"] — ustunli diagramma: har ustun o'z rangida;
+                                          qiymat "?" bo'lsa — ustun chizilmaydi (punktir ramka va savol belgisi)
    data-panjara="4x3x2"            — uch o'lchamli (izometrik) nuqtali panjarada chizilgan kuboid: "bo'yi x eni x balandligi";
                                           faqat ko'rinadigan 9 qirra chiziladi: bo'yi — to'q sariq, eni — ko'k, balandligi — binafsha
        [data-bosqich="1..4"] — chizish bosqichlari: 1 old tik qirra, 2 uning pastidan ikki qiya qirra, 3 ikki chetki tik qirra, 4 tepa yoq;
@@ -433,6 +435,38 @@
     el.classList.add("tasma");
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + Ht + '" role="img" aria-label="Chizmali model: ' +
       qator.map(function (q) { return q.nom + " — " + q.b + " bo'lak"; }).join(", ") + '">' + svg + "</svg>";
+  }
+
+  // ---------- ustunli diagramma ----------
+  function chizUstunli(el) {
+    const q = el.dataset.ustunli.split("|").map(function (t) { const p = t.split(":"); return { nom: p[0], v: p[1] === "?" ? null : Number(p[1]) }; });
+    const qadam = Number(el.dataset.qadam) || 10;
+    const maxV = Math.max.apply(null, q.map(function (x) { return x.v || 0; }));
+    const top = Math.ceil((maxV + 1) / qadam) * qadam;
+    const W = 380, L = 54, R = 12, T = 16, B = 34, H = 220;
+    const iH = H - T - B, iW = W - L - R, bw = iW / q.length * 0.5, g = iW / q.length;
+    const Y = function (v) { return T + iH - v / top * iH; };
+    let svg = "";
+    for (let v = 0; v <= top; v += qadam) {
+      svg += '<line x1="' + L + '" y1="' + Y(v) + '" x2="' + (W - R) + '" y2="' + Y(v) + '" stroke="#d5d9e4" stroke-width="1"/>' +
+        '<text x="' + (L - 6) + '" y="' + (Y(v) + 5) + '" text-anchor="end" font-size="13" fill="#5b6275">' + v + "</text>";
+    }
+    svg += '<line x1="' + L + '" y1="' + T + '" x2="' + L + '" y2="' + Y(0) + '" stroke="#1f2433" stroke-width="2"/>' +
+      '<line x1="' + L + '" y1="' + Y(0) + '" x2="' + (W - R) + '" y2="' + Y(0) + '" stroke="#1f2433" stroke-width="2"/>';
+    q.forEach(function (x, i) {
+      const c = TASMA_RANG[i % TASMA_RANG.length], cx = L + g * i + g / 2;
+      if (x.v === null) {
+        svg += '<rect x="' + (cx - bw / 2) + '" y="' + Y(top * 0.55) + '" width="' + bw + '" height="' + (Y(0) - Y(top * 0.55)) + '" fill="none" stroke="' + c[1] + '" stroke-width="2" stroke-dasharray="5 4" rx="3"/>' +
+          '<text x="' + cx + '" y="' + (Y(top * 0.275) + 8) + '" text-anchor="middle" font-size="24" font-weight="800" fill="' + c[1] + '">?</text>';
+      } else {
+        svg += '<rect x="' + (cx - bw / 2) + '" y="' + Y(x.v) + '" width="' + bw + '" height="' + (Y(0) - Y(x.v)) + '" fill="' + c[1] + '" fill-opacity=".85" rx="3"/>';
+      }
+      svg += '<text x="' + cx + '" y="' + (Y(0) + 20) + '" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2433">' + x.nom + "</text>";
+    });
+    if (el.dataset.yozuv) svg += '<text x="14" y="' + (T + iH / 2) + '" text-anchor="middle" font-size="12" fill="#5b6275" transform="rotate(-90 14 ' + (T + iH / 2) + ')">' + el.dataset.yozuv + "</text>";
+    el.classList.add("tasma");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Ustunli diagramma: ' +
+      q.map(function (x) { return x.nom + " — " + (x.v === null ? "noma'lum" : x.v); }).join(", ") + '">' + svg + "</svg>";
   }
 
   // ---------- pitsalarni bolalarga teng bo'lish ----------
@@ -1041,6 +1075,7 @@
       root.querySelectorAll("[data-nollar]").forEach(chizNollar);
       root.querySelectorAll("[data-tartib]").forEach(chizTartib);
       root.querySelectorAll("[data-tasma]").forEach(chizTasma);
+      root.querySelectorAll("[data-ustunli]").forEach(chizUstunli);
       root.querySelectorAll("[data-pitsa]").forEach(chizPitsa);
       root.querySelectorAll("[data-doira]").forEach(chizDoira);
       root.querySelectorAll("[data-qism]").forEach(chizQism);
