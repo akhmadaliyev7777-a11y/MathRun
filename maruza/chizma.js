@@ -69,8 +69,10 @@
    data-meyor="1 soat|16 000 so'm" data-kop="8" [data-yoz="?"] — teskari sxema: 1 birlik — me'yor, k birlik — me'yor × k (k = data-kop)
    data-vaqt="10:00|12:30" [data-bosh="60"] [data-qadam="30"] — vaqt chizig'i: boshlanish va tugash vaqti; dastlabki bosh daqiqa ko'k,
                                           keyingi har qadam daqiqa to'q sariq (raqamlangan); yarim soatlar soni pastda yoziladi
-   data-grafik="1:12,2:24,3:36" data-x="Vaqt (soat)" data-y="Masofa (km)" [data-xmax="4"] [data-ymax="48"] [data-yqadam="12"] [data-nom="Velosipedchi"] —
-                                          chiziqli grafik: nuqtalar (x:y) va ularni 0 dan o'tuvchi to'g'ri chiziq; tik o'qda yqadam oralig'ida belgilar
+   data-uchburchak="Jami miqdor|Me'yor|Birliklar soni" — uch miqdor sxemasi: tepada jami, pastda me'yor va birliklar soni;
+                                          yopib topiladigan qoida (jami = me'yor · soni; me'yor = jami : soni; soni = jami : me'yor) pastda yoziladi
+   data-grafik="1:12,2:24,3:36" data-x="Vaqt (soat)" data-y="Masofa (km)" [data-xmax="4"] [data-ymax="48"] [data-yqadam="12"] [data-xqadam="1"] [data-bosh="30"] [data-nom="Velosipedchi"] —
+                                          chiziqli grafik: nuqtalar (x:y) va ularni to'g'ri chiziq (0 dan; bosh berilsa — tik o'qdagi shu nuqtadan); tik o'qda yqadam, gorizontal o'qda xqadam oralig'ida belgilar
 */
 (function () {
   "use strict";
@@ -594,6 +596,21 @@
     el.innerHTML = '<svg viewBox="0 0 ' + W + ' 100" role="img" aria-label="Vaqt chizig\'i ' + hhmm(b) + " – " + hhmm(e) + '">' + svg + "</svg>";
   }
 
+  // ---------- uch miqdor sxemasi ----------
+  function chizUchburchak(el) {
+    const q = el.dataset.uchburchak.split("|");
+    const W = 380, H = 190;
+    let svg = '<rect x="10" y="8" width="360" height="96" rx="14" fill="#f4f6fb" stroke="#d5d9e4" stroke-width="2"/>' +
+      '<line x1="190" y1="62" x2="190" y2="104" stroke="#1f2433" stroke-width="2.4"/><line x1="10" y1="62" x2="370" y2="62" stroke="#1f2433" stroke-width="2.4"/>';
+    svg += '<text x="190" y="42" text-anchor="middle" font-size="19" font-weight="800" fill="#1f5fd6">' + q[0] + "</text>" +
+      '<text x="100" y="90" text-anchor="middle" font-size="18" font-weight="800" fill="#d4501b">' + q[1] + "</text>" +
+      '<text x="280" y="90" text-anchor="middle" font-size="18" font-weight="800" fill="#12805c">' + q[2] + "</text>";
+    const sat = [["#1f5fd6", q[0] + " = " + q[1] + " · " + q[2]], ["#d4501b", q[1] + " = " + q[0] + " : " + q[2]], ["#12805c", q[2] + " = " + q[0] + " : " + q[1]]];
+    sat.forEach(function (t, i) { svg += '<text x="190" y="' + (130 + i * 22) + '" text-anchor="middle" font-size="14" font-weight="700" fill="' + t[0] + '">' + t[1] + "</text>"; });
+    el.classList.add("tasma");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Uch miqdor: ' + q.join(", ") + '">' + svg + "</svg>";
+  }
+
   // ---------- chiziqli grafik ----------
   function chizGrafik(el) {
     const n = el.dataset.grafik.split(",").map(function (t) { const q = t.split(":"); return [Number(q[0]), Number(q[1])]; });
@@ -607,14 +624,15 @@
     for (let v = 0; v <= ym + 1e-9; v += yq)
       svg += '<line x1="' + L + '" y1="' + Y(v) + '" x2="' + (W - R) + '" y2="' + Y(v) + '" stroke="#d5d9e4" stroke-width="1"/>' +
         '<text x="' + (L - 6) + '" y="' + (Y(v) + 5) + '" text-anchor="end" font-size="13" fill="#5b6275">' + onliSon(v) + "</text>";
-    for (let v = 0; v <= xm; v++)
+    const xq = Number(el.dataset.xqadam) || 1, y0 = Number(el.dataset.bosh) || 0;
+    for (let v = 0; v <= xm + 1e-9; v += xq)
       svg += '<line x1="' + X(v) + '" y1="' + T + '" x2="' + X(v) + '" y2="' + Y(0) + '" stroke="#eceff5" stroke-width="1"/>' +
         '<text x="' + X(v) + '" y="' + (Y(0) + 18) + '" text-anchor="middle" font-size="13" fill="#5b6275">' + v + "</text>";
     svg += '<line x1="' + L + '" y1="' + T + '" x2="' + L + '" y2="' + Y(0) + '" stroke="#1f2433" stroke-width="2"/>' +
       '<line x1="' + L + '" y1="' + Y(0) + '" x2="' + (W - R) + '" y2="' + Y(0) + '" stroke="#1f2433" stroke-width="2"/>';
-    const last = n[n.length - 1], k = last[1] / last[0];
-    const xe = Math.min(xm, ym / k, last[0] + 0.45);
-    svg += '<line x1="' + X(0) + '" y1="' + Y(0) + '" x2="' + X(xe) + '" y2="' + Y(k * xe) + '" stroke="#1f5fd6" stroke-width="3" stroke-linecap="round"/>';
+    const last = n[n.length - 1], k = (last[1] - y0) / last[0];
+    const xe = Math.min(xm, (ym - y0) / k, last[0] + xm * 0.12);
+    svg += '<line x1="' + X(0) + '" y1="' + Y(y0) + '" x2="' + X(xe) + '" y2="' + Y(y0 + k * xe) + '" stroke="#1f5fd6" stroke-width="3" stroke-linecap="round"/>';
     n.forEach(function (q) { svg += '<circle cx="' + X(q[0]) + '" cy="' + Y(q[1]) + '" r="5" fill="#d4501b" stroke="#fff" stroke-width="1.5"/>'; });
     if (el.dataset.nom) svg += '<text x="' + (W / 2) + '" y="18" text-anchor="middle" font-size="15" font-weight="800" fill="#1f2433">' + el.dataset.nom + "</text>";
     if (el.dataset.x) svg += '<text x="' + (L + iW / 2) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="13" fill="#5b6275">' + el.dataset.x + "</text>";
@@ -1326,6 +1344,7 @@
       root.querySelectorAll("[data-meyor]").forEach(chizMeyor);
       root.querySelectorAll("[data-grafik]").forEach(chizGrafik);
       root.querySelectorAll("[data-vaqt]").forEach(chizVaqt);
+      root.querySelectorAll("[data-uchburchak]").forEach(chizUchburchak);
     }
   };
 })();

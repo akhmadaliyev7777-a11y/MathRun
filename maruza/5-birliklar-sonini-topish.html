@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Birliklar sonini topish. Matnli masalalar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=30">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Birliklar sonini topish. Matnli masalalar</h1>
+<p class="m-lead">Umumiy miqdor va me'yor ma'lum bo'lganda birliklar sonini (vaqtni, narsalar sonini) topishni, idishni to'ldirish va grafik masalalarini yechishni o'rganamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik — me'yor va umumiy miqdor</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Me'yor — bir birlikka to'g'ri keladigan miqdor. Jami miqdor — me'yor ko'paytirilgan birliklar soni!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li><b>Me'yor</b> = jami miqdor : birliklar soni. Masalan, 6 soatda 84 ta detal: \(84 : 6 = 14\) detal/soat.</li>
+      <li><b>Jami miqdor</b> = me'yor · birliklar soni. Masalan, \(14 \cdot 9 = 126\) detal.</li>
+      <li><b>Kuboid hajmi:</b> \(V = a \cdot b \cdot c\); \(1\ \ell = 1000\ \text{cm}^3\).</li>
+      <li><b>Vaqt:</b> \(1\ \text{soat} = 60\ \text{min}\); \(1\ \text{min} = 60\ \text{s}\). <b>Massa, sig'im:</b> \(1\ \text{kg} = 1000\ \text{g}\); \(1\ \ell = 1000\ \text{ml}\).</li>
+      <li><b>Bo'linma bo'luvchiga ko'paytirilsa, bo'linuvchi chiqadi:</b> \(126 : 14 = 9\), chunki \(14 \cdot 9 = 126\).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Jami miqdor va me'yor ma'lum bo'lsa, birliklar sonini jami miqdorni me'yorga bo'lib topamiz!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · birliklar soni</span>
+    <p>Umumiy miqdor va me'yor ma'lum bo'lsa, <b>birliklar soni umumiy miqdorni me'yorga bo'lib</b> topiladi. Vaqt masalalarida bu — ish uchun ketgan vaqt:</p>
+    <p><b>birliklar soni = jami miqdor : me'yor</b></p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · so'z yozish</span>
+    <p>Zafar kompyuterda minutiga 45 ta so'z yozadi. U 270 ta so'zni qancha vaqtda yozadi?</p>
+    <div data-tasma="270 so'z:6" data-bolak="45"></div>
+    <p>Har bo'lak — 1 minutda yozilgan 45 ta so'z. \(270 : 45 = \nat{6}\) minut.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · uch miqdor bir-biriga bog'liq</span>
+    <p><b>Me'yor, umumiy miqdor va birliklar soni</b> uch bog'liq miqdor: ulardan <b>ikkitasi ma'lum bo'lsa, uchinchisi topiladi</b>:</p>
+    <ul>
+      <li>jami = me'yor · birliklar soni;</li>
+      <li>me'yor = jami : birliklar soni;</li>
+      <li>birliklar soni = jami : me'yor.</li>
+    </ul>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · uch miqdor</span>
+    <div data-uchburchak="Jami miqdor|Me'yor|Birliklar soni"></div>
+    <p>Jami va me'yor ma'lum — son so'ralgan: \(270 : 45 = 6\). Son va me'yor ma'lum — jami so'ralgan: \(45 \cdot 6 = 270\).</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · me'yor berilmagan bo'lsa</span>
+    <p>Me'yor berilmasa, avval <b>bir birlikdagi miqdor</b> (me'yor) topiladi: jami miqdor ma'lum birliklar soniga bo'linadi. Keyin kerakli jami miqdor <b>me'yorga bo'linadi</b>.</p>
+    <p>Boshqa usul: <b>bir dona</b> ish uchun ketgan vaqtni topish (masalan, \(\frac{1}{50}\) min) va uni kerakli sonli donaga ko'paytirish.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · detallar</span>
+    <p>Usta 4 soatda 36 ta detal yasaydi. U 99 ta detalni qancha vaqtda yasaydi?</p>
+    <div class="qadam"><b>1</b><span>Me'yor: \(36 : 4 = 9\) detal/soat.</span></div>
+    <div class="qadam"><b>2</b><span>Vaqt: \(99 : 9 = \nat{11}\) soat.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · bir dona uchun vaqt</span>
+    <p>Uskuna 8 soatda 200 ta shisha tayyorlaydi. U 75 ta shishani qancha vaqtda tayyorlaydi?</p>
+    <div class="qadam"><b>1</b><span>1 ta shisha: \(8 : 200 = \frac{1}{25}\) soat.</span></div>
+    <div class="qadam"><b>2</b><span>75 ta shisha: \(\frac{1}{25} \cdot 75 = \nat{3}\) soat.</span></div>
+    <div class="qadam"><b>3</b><span>Tekshiramiz: me'yor \(200 : 8 = 25\) ta/soat; \(75 : 25 = 3\) soat — bir xil.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · idishning to'lish vaqti</span>
+    <p>Idishning to'lish (yoki bo'shash) vaqtini topish uchun: 1) <b>hajmini</b> topamiz (\(V = a \cdot b \cdot c\), cm³); 2) cm³ ni <b>litrga</b> aylantiramiz (1000 ga bo'lamiz); 3) hajmni quyilish <b>me'yoriga</b> (ℓ/min) bo'lamiz. Idishning faqat bir qismi (yarmi, \(\frac{3}{4}\), \(\frac{1}{3}\)) to'lishi kerak bo'lsa, avval o'sha qism litrda topiladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · idish</span>
+    <p>O'lchamlari 70 cm, 40 cm va 30 cm bo'lgan bo'sh idishga jo'mrakdan minutiga 7 ℓ suv quyiladi. Idish qancha vaqtda to'ladi?</p>
+    <div data-idish="70x40x30" data-yozuv="70 cm|40 cm|30 cm||"></div>
+    <div class="qadam"><b>1</b><span>Hajm: \(70 \cdot 40 \cdot 30 = 84 000\) cm³ \(= 84\) ℓ.</span></div>
+    <div class="qadam"><b>2</b><span>Vaqt: \(84 : 7 = \nat{12}\) min.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · suvning yarmi</span>
+    <p>O'lchamlari 40 cm, 30 cm, 50 cm bo'lgan to'la idishdan suv minutiga 8 ℓ tezlikda oqmoqda. Suvning yarmi qancha vaqtda oqib ketadi?</p>
+    <div class="qadam"><b>1</b><span>Hajm: \(40 \cdot 30 \cdot 50 = 60 000\) cm³ \(= 60\) ℓ; yarmi — \(30\) ℓ.</span></div>
+    <div class="qadam"><b>2</b><span>Vaqt: \(30 : 8 = \nat{3,75}\) min = 3 min 45 s.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">5-qoida · birliklarni moslash</span>
+    <p>Jami miqdor va me'yor <b>turli birlikda</b> berilgan bo'lsa, bo'lishdan oldin ularni bir xil birlikka keltiramiz: 1 kg = 1000 g, 1 ℓ = 1000 ml, 1 min = 60 s. Narx «100 g uchun» berilsa, 1 kg narxi — 10 marta ko'p.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · sekundiga millilitr</span>
+    <p>Jo'mrak sekundiga 5 ml suv beradi. Sig'imi 9 ℓ bo'lgan idish qancha vaqtda to'ladi?</p>
+    <div class="qadam"><b>1</b><span>1 min = 60 s: \(5 \cdot 60 = 300\) ml/min.</span></div>
+    <div class="qadam"><b>2</b><span>\(9\ \ell = 9000\) ml. Vaqt: \(9000 : 300 = \nat{30}\) min.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · gilos narxi</span>
+    <p>100 g gilosning narxi 3 600 so'm. 54 000 so'mga necha kilogramm gilos olish mumkin?</p>
+    <div class="qadam"><b>1</b><span>1 kg = 10 ta 100 g: \(3600 \cdot 10 = 36 000\) so'm/kg.</span></div>
+    <div class="qadam"><b>2</b><span>\(54 000 : 36 000 = \nat{1,5}\) kg.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">6-qoida · tarif bo'yicha vaqtni topish</span>
+    <p>Tarifda «dastlabki 1 soat + keyingi har soat» bo'yicha to'lov berilgan bo'lsa, vaqtni topish uchun: 1) to'lovdan <b>dastlabki soat narxi</b> ayiriladi; 2) qoldiq <b>keyingi soat narxiga bo'linadi</b> — keyingi soatlar soni; 3) unga dastlabki 1 soat qo'shiladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · mototsikl ijarasi</span>
+    <p>Mototsikl ijarasi: dastlabki 1 soat — 5 ming so'm, keyingi har soat — 3 ming so'm. Karim 17 ming so'm to'ladi. U mototsiklni necha soatga olgan?</p>
+    <div class="qadam"><b>1</b><span>Keyingi soatlar uchun: \(17 - 5 = 12\) ming so'm.</span></div>
+    <div class="qadam"><b>2</b><span>Keyingi soatlar: \(12 : 3 = 4\).</span></div>
+    <div class="qadam"><b>3</b><span>Jami: \(1 + 4 = \nat{5}\) soat.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">7-qoida · grafikdan me'yor va vaqt</span>
+    <ul>
+      <li>Grafik <b>0 dan boshlansa</b>, me'yor = tik o'qdagi qiymat : gorizontal o'qdagi qiymat. Berilgan miqdorga mos vaqtni topish uchun chiziqdan ko'rsatilgan qiymatga mos vaqt o'qiladi.</li>
+      <li>Grafik <b>0 dan boshlanmasa</b> (idishda dastlab suv bor edi), me'yor = <b>o'zgarish</b> : vaqtning o'zgarishi. Oxirgi qiymatni vaqtga bo'lish noto'g'ri.</li>
+    </ul>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · dastlab suv bor</span>
+    <p>Idishda dastlab 30 ℓ suv bor edi. Jo'mrak ochilgach, suv miqdori grafikdagidek o'zgardi. Jo'mrakdan minutiga necha litr suv tushadi? Idishga yana 150 ℓ suv quyilishi uchun qancha vaqt kerak?</p>
+    <div data-grafik="10:80,20:130,30:180" data-bosh="30" data-nom="Idishdagi suv" data-x="Vaqt (min)" data-y="Hajm (ℓ)" data-xmax="40" data-xqadam="10" data-ymax="200" data-yqadam="50"></div>
+    <div class="qadam"><b>1</b><span>20 minutda: \(130 - 30 = 100\) ℓ qo'shildi, me'yor: \(100 : 20 = \nat{5}\) ℓ/min.</span></div>
+    <div class="qadam"><b>2</b><span>150 ℓ uchun: \(150 : 5 = \nat{30}\) min.</span></div>
+    <div class="qadam"><b>3</b><span>Tekshiramiz: 30 minutdan keyin \(30 + 150 = 180\) ℓ — grafikdagi oxirgi nuqta.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">8-qoida · eng arzon xarid</span>
+    <p>Mahsulot turli sonli qadoqda sotilsa, <b>bir dona narxi</b> kichik qadoqlardan boshlab taqqoslanadi. Kerakli sonni eng arzon yig'ish uchun <b>bir dona narxi kichik</b> qadoqdan iloji boricha ko'p olinadi, qolgan son yetishmagan qadoqlar bilan to'ldiriladi; natija boshqa mos variantlar bilan solishtirib tekshiriladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · daftarlar</span>
+    <p>Do'konda 4 ta daftar 14 000 so'm, 10 ta daftar 30 000 so'm. 24 ta daftarni eng arzon narxda olish uchun qancha to'lash kerak?</p>
+    <div class="qadam"><b>1</b><span>Bir dona: 4 talikda \(14 000 : 4 = 3500\); 10 talikda \(30 000 : 10 = 3000\) so'm. 10 talik arzon.</span></div>
+    <div class="qadam"><b>2</b><span>\(24 = 10 + 10 + 4\): \(30 000 + 30 000 + 14 000 = \nat{74 000}\) so'm.</span></div>
+    <div class="qadam"><b>3</b><span>Solishtiramiz: faqat 4 talik qadoqlar (\(24 = 6 \cdot 4\)): \(6 \cdot 14 000 = 84 000\) so'm — qimmat.</span></div>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Rasm miqdorlarning qanday bog'langanini ko'rsatadi!</div></div>
+  <div class="box">
+    <p><b>Chizmali model.</b> Usta 4 soatda 36 ta detal yasaydi. 99 ta detal uchun nechta bo'lak (soat) kerak?</p>
+    <div data-tasma="99 detal:11" data-bolak="9"></div>
+    <p class="chz-cap">Har bo'lak — 1 soatda yasalgan 9 ta detal; 11 ta bo'lak — 99 detal: 11 soat.</p>
+    <p><b>Idish va suv.</b> Kuboid idish: 70 cm × 40 cm × 30 cm, hajmi 84 ℓ.</p>
+    <div data-idish="70x40x30" data-yozuv="70 cm|40 cm|30 cm||"></div>
+    <p><b>O'lchov idishi.</b> 840 ml suv — jo'mrakdan minutiga 120 ml tushsa, qancha vaqt kerak?</p>
+    <div data-menzurka="840/1000"></div>
+    <p class="chz-cap">\(840 : 120 = 7\) minut.</p>
+    <p><b>Grafik.</b> Idishda 20 ℓ suv bor edi, jo'mrak ochildi:</p>
+    <div data-grafik="5:45,10:70,15:95" data-bosh="20" data-nom="Idishdagi suv" data-x="Vaqt (min)" data-y="Hajm (ℓ)" data-xmax="20" data-xqadam="5" data-ymax="120" data-yqadam="20"></div>
+    <p class="chz-cap">10 minutda \(70 - 20 = 50\) ℓ qo'shildi: me'yor \(50 : 10 = 5\) ℓ/min.</p>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar</h2>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · kafel va maydon yuzi</span>
+    <p>14 m² polga kafel terish uchun 3 080 000 so'm to'landi. Ustaga boshqa xonaga kafel terish uchun 4 840 000 so'm to'landi. Bu xonaning yuzi qancha?</p>
+    <div class="qadam"><b>1</b><span>1 m²: \(3 080 000 : 14 = 220 000\) so'm.</span></div>
+    <div class="qadam"><b>2</b><span>Yuzi: \(4 840 000 : 220 000 = \nat{22}\) m².</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · benzin</span>
+    <p>Avtomobil 6 ℓ benzin bilan 78 km yuradi. Bir litr benzin 9,5 ming so'm. Avtomobil 130 km yo'l yursa, qancha benzin va necha ming so'm kerak?</p>
+    <div class="qadam"><b>1</b><span>Me'yor: \(78 : 6 = 13\) km/ℓ.</span></div>
+    <div class="qadam"><b>2</b><span>130 km uchun: \(130 : 13 = 10\) ℓ.</span></div>
+    <div class="qadam"><b>3</b><span>Narxi: \(10 \cdot 9,5 = \nat{95}\) ming so'm.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · konteyner</span>
+    <p>Idish kranning tagiga qo'yildi. U 14:10 da suv yig'a boshladi va 14:30 da unda 5 ℓ suv to'plandi. Kran idishni 45 minutda to'ldiradi. Idishning sig'imi qancha?</p>
+    <div class="qadam"><b>1</b><span>Vaqt: 14:10 dan 14:30 gacha — 20 min. Me'yor: \(5 : 20 = 0,25\) ℓ/min.</span></div>
+    <div class="qadam"><b>2</b><span>45 min: \(0,25 \cdot 45 = 11,25\) ℓ.</span></div>
+    <div class="qadam"><b>3</b><span>\(11,25\ \ell = 11\ \ell\ 250\ \text{ml}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 4 · qaysi restoran foydali?</span>
+    <p>A restoranda 6 soat ishlash uchun 54 ming so'm, B restoranda 5 soat uchun 47,5 ming so'm beriladi. Tohir 8 soat ishlamoqchi. Qaysi biri foydali?</p>
+    <div class="qadam"><b>1</b><span>A: \(54 : 6 = 9\); B: \(47,5 : 5 = 9,5\) ming so'm/soat.</span></div>
+    <div class="qadam"><b>2</b><span>8 soatda: A — \(9 \cdot 8 = 72\); B — \(9,5 \cdot 8 = 76\) ming so'm. <b>B foydali</b>.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 5 · pul birligi grafigi</span>
+    <p>Grafikda A davlat pul birligining so'mdagi qiymati ko'rsatilgan. a) 1 pul birligi necha so'm? b) 25 pul birligi necha so'm? c) 910 so'mga necha pul birligi olish mumkin?</p>
+    <div data-grafik="10:1300,20:2600,30:3900" data-nom="Ayirboshlash" data-x="Pul birligi" data-y="So'm" data-xmax="40" data-xqadam="10" data-ymax="5200" data-yqadam="1300"></div>
+    <div class="qadam"><b>1</b><span>a) \(1300 : 10 = \nat{130}\) so'm.</span></div>
+    <div class="qadam"><b>2</b><span>b) \(130 \cdot 25 = \nat{3250}\) so'm.</span></div>
+    <div class="qadam"><b>3</b><span>c) \(910 : 130 = \nat{7}\) pul birligi.</span></div>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Vaqtni topish uchun jami miqdorni me'yorga bo'lamiz — ko'paytirmaymiz!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Birliklar sonini topishda ko'paytirish.<br><span class="xato">270 so'z, 45 so'z/min: 270 · 45</span> &nbsp;→&nbsp; <span class="togri">270 : 45 = 6 min</span></li>
+      <li>Bo'linuvchi va bo'luvchining o'rnini almashtirish.<br><span class="xato">45 : 270</span> &nbsp;→&nbsp; <span class="togri">jami : me'yor: 270 : 45</span></li>
+      <li>Idish hajmini cm³ da qoldirib, me'yorga bo'lish.<br><span class="xato">84 000 : 7 = 12 000 min</span> &nbsp;→&nbsp; <span class="togri">84 000 cm³ = 84 ℓ; 84 : 7 = 12 min</span></li>
+      <li>100 g narxini 1 kg narxi deb olish.<br><span class="xato">100 g — 3 600 so'm, demak 1 kg — 3 600</span> &nbsp;→&nbsp; <span class="togri">1 kg = 10 ta 100 g: 36 000 so'm</span></li>
+      <li>Tarifda dastlabki soatni ayirmay bo'lish.<br><span class="xato">17 : 3 ≈ 5,7 soat</span> &nbsp;→&nbsp; <span class="togri">(17 − 5) : 3 = 4; 1 + 4 = 5 soat</span></li>
+      <li>Grafik 0 dan boshlanmaganda oxirgi qiymatni vaqtga bo'lish.<br><span class="xato">130 : 20 = 6,5 ℓ/min</span> &nbsp;→&nbsp; <span class="togri">(130 − 30) : 20 = 5 ℓ/min (dastlabki 30 ℓ ayiriladi)</span></li>
+      <li>Eng arzon xaridda faqat bir xil qadoqni olish.<br><span class="xato">24 ta daftar: 6 ta 4 talik qadoq — 84 000</span> &nbsp;→&nbsp; <span class="togri">2 ta 10 talik + 1 ta 4 talik: 74 000 so'm</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Avval nima ma'lum — jami yoki me'yor — ekanini aniqlayman!</div></div>
+
+  <div class="daraja oson"><i></i>Oson — birliklar sonini toping</div>
+  <div class="misollar qator">
+    <span><b>a)</b> Printer minutiga 45 sahifa chop etadi. 540 sahifa necha minutda chop etiladi?</span>
+    <span><b>b)</b> Soatiga 13 000 so'm ishlaydigan ishchi 91 000 so'm uchun necha soat ishlaydi?</span>
+    <span><b>c)</b> 1 kg shakar 15 000 so'm. 105 000 so'mga necha kilogramm shakar olinadi?</span>
+    <span><b>d)</b> Pechka minutiga 8 ta non yopadi. 200 ta non necha minutda yopiladi?</span>
+    <span><b>e)</b> Velosipedchi soatiga 14 km yuradi. 98 km yo'lni necha soatda bosib o'tadi?</span>
+    <span><b>f)</b> Jo'mrak minutiga 9 ℓ suv beradi. 117 ℓ suv necha minutda oqadi?</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 12 min</span><span>b) 7 soat</span><span>c) 7 kg</span><span>d) 25 min</span><span>e) 7 soat</span><span>f) 13 min</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — avval me'yorni toping</div>
+  <div class="misollar qator">
+    <span><b>a)</b> Usta 6 soatda 84 ta detal yasaydi. 126 ta detalni necha soatda yasaydi?</span>
+    <span><b>b)</b> Skaner 15 minutda 450 sahifani nusxalaydi. 600 sahifani necha minutda nusxalaydi?</span>
+    <span><b>c)</b> Nargiza 7 soat ishlab 98 000 so'm oladi. 154 000 so'm olish uchun necha soat ishlashi kerak?</span>
+    <span><b>d)</b> 20 ta daftarning narxi 130 000 so'm. 910 000 so'mga nechta daftar olinadi?</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) \(84 : 6 = 14\); \(126 : 14 = 9\) soat</span><span>b) \(450 : 15 = 30\); \(600 : 30 = 20\) min</span><span>c) \(98 000 : 7 = 14 000\); \(154 000 : 14 000 = 11\) soat</span><span>d) \(130 000 : 20 = 6500\); \(910 000 : 6500 = 140\) ta</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — birliklarni moslang</div>
+  <div class="misollar qator">
+    <span><b>a)</b> 100 g mevaning narxi 2 800 so'm. 42 000 so'mga necha kilogramm meva olinadi?</span>
+    <span><b>b)</b> Jo'mrak sekundiga 8 ml suv beradi. 6 ℓ li idish necha minutda to'ladi?</span>
+    <span><b>c)</b> Printer 10 sekundda 35 sahifa chop etadi. 280 sahifa necha sekundda chop etiladi?</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 1 kg = 28 000 so'm; \(42 000 : 28 000 = 1,5\) kg</span><span>b) 1 min = 480 ml; \(6000 : 8 = 750\) s \(= 12,5\) min</span><span>c) \(35 : 10 = 3,5\) sahifa/s; \(280 : 3,5 = 80\) s</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — idishlar</div>
+  <ol>
+    <li>O'lchamlari 60 cm, 40 cm, 50 cm bo'lgan bo'sh idishga jo'mrakdan minutiga 15 ℓ suv quyiladi. Idish necha minutda to'ladi?</li>
+    <li>Shu idish suvga to'la. Undan suv minutiga 6 ℓ tezlikda oqmoqda. \(\frac{3}{4}\) qismi necha minutda oqib ketadi? (Idish: 50 cm, 40 cm, 30 cm.)</li>
+    <li>O'lchamlari 40 cm, 30 cm, 25 cm bo'lgan idishning \(\frac{1}{3}\) qismi suv bilan to'ldirilgan. Jo'mrak minutiga 4 ℓ suv beradi. Idish necha minutda to'ladi?</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) \(60 \cdot 40 \cdot 50 = 120 000\) cm³ = 120 ℓ; \(120 : 15 = 8\) min</span><span>2) \(50 \cdot 40 \cdot 30 = 60 000\) cm³ = 60 ℓ; \(\frac{3}{4}\) qismi = 45 ℓ; \(45 : 6 = 7,5\) min</span><span>3) \(40 \cdot 30 \cdot 25 = 30 000\) cm³ = 30 ℓ; \(\frac{1}{3}\) = 10 ℓ; qolgan 20 ℓ; \(20 : 4 = 5\) min</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — tarif bo'yicha vaqt</div>
+  <ol>
+    <li>Mototsikl ijarasi: dastlabki 1 soat — 5 ming so'm, keyingi har soat — 3 ming so'm. a) 17 ming so'm; b) 11 ming so'm to'langan bo'lsa, mototsikl necha soatga olingan?</li>
+    <li>Avtoturargoh: dastlabki 1 soat — 4 000 so'm, keyingi har yarim soat — 1 500 so'm. Mashina uchun 10 000 so'm to'landi. U avtoturargohda necha soat turgan?</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) a) \((17 - 5) : 3 = 4\); \(1 + 4 = 5\) soat</span><span>b) \((11 - 5) : 3 = 2\); \(1 + 2 = 3\) soat</span><span>2) \((10 000 - 4000) : 1500 = 4\) ta yarim soat = 2 soat; \(1 + 2 = 3\) soat</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — grafiklar</div>
+  <p><b>a)</b> Idishga suv quyilmoqda (0 dan boshlanadi). Jo'mrakdan minutiga necha litr suv tushadi? 80 ℓ necha minutda quyiladi?</p>
+  <div data-grafik="2:16,4:32,6:48" data-nom="Quyilgan suv" data-x="Vaqt (min)" data-y="Hajm (ℓ)" data-xmax="8" data-ymax="64" data-yqadam="16"></div>
+  <p><b>b)</b> Idishda dastlab 20 ℓ suv bor edi. Jo'mrak ochilgach suv miqdori o'zgardi. Jo'mrakdan minutiga necha litr tushadi? Idishda 120 ℓ bo'lishi uchun qancha vaqt kerak?</p>
+  <div data-grafik="5:45,10:70,15:95" data-bosh="20" data-nom="Idishdagi suv" data-x="Vaqt (min)" data-y="Hajm (ℓ)" data-xmax="20" data-xqadam="5" data-ymax="120" data-yqadam="20"></div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 8 ℓ/min; \(80 : 8 = 10\) min</span><span>b) \((70 - 20) : 10 = 5\) ℓ/min; yana \(120 - 20 = 100\) ℓ kerak, \(100 : 5 = 20\) min</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — eng arzon xarid</div>
+  <p>Do'konda 3 ta qalam 5 000 so'm, 8 ta qalam 12 000 so'm. 19 ta qalamni eng arzon olish uchun qancha to'lash kerak?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>Bir dona: 3 talikda \(5000 : 3 \approx 1667\), 8 talikda \(12 000 : 8 = 1500\) so'm — 8 talik arzon. \(19 = 8 + 8 + 3\) (boshqa mos yig'ish yo'q): \(12 000 + 12 000 + 5000 = 29 000\) so'm.</details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — ikki usta</div>
+  <p>Birinchi usta 6 soatda 72 ta, ikkinchisi 4 soatda 60 ta detal yasaydi. Ikkalasi birga ishlab, 108 ta detalni necha soatda yasaydi?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>Birinchi: \(72 : 6 = 12\) ta/soat; ikkinchi: \(60 : 4 = 15\) ta/soat. Birga: \(12 + 15 = 27\) ta/soat. Vaqt: \(108 : 27 = 4\) soat.</details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Masalalarni yeching</span>
+    <ol class="masalalar">
+      <li>Doniyor do'konda soatiga 7 000 so'm ish haqi oladi. Bir hafta 4 kun ishlab, jami 196 000 so'm oldi. a) U necha soat ishlagan? b) Har kuni o'rtacha necha soat ishlagan?
+        <details class="javob"><summary>Javobni ko'rish</summary>a) \(196 000 : 7000 = 28\) soat. b) \(28 : 4 = 7\) soat.</details></li>
+      <li>Uskuna 12 minutda 600 ta detalga ishlov beradi. 1000 ta detalga ishlov berish uchun qancha vaqt kerak?
+        <details class="javob"><summary>Javobni ko'rish</summary>Me'yor: \(600 : 12 = 50\) ta/min. Vaqt: \(1000 : 50 = 20\) min.</details></li>
+      <li>12 m² li polga kafel terish uchun 2 880 000 so'm to'landi. Yuvinish xonasiga kafel tergan ustaga 5 760 000 so'm to'landi. Yuvinish xonasi polining yuzi qancha?
+        <details class="javob"><summary>Javobni ko'rish</summary>1 m²: \(2 880 000 : 12 = 240 000\) so'm. Yuzi: \(5 760 000 : 240 000 = 24\) m².</details></li>
+      <li>Meva rastasida 100 g gilosning narxi 3 800 so'm. Aziza 95 000 so'mga gilos sotib oldi. U necha kilogramm gilos olgan?
+        <details class="javob"><summary>Javobni ko'rish</summary>1 kg = 1000 g = 10 ta 100 g: \(3800 \cdot 10 = 38 000\) so'm/kg. \(95 000 : 38 000 = 2,5\) kg.</details></li>
+      <li>Kuboid shaklidagi idishning o'lchamlari 90 cm, 40 cm va 50 cm. Unga jo'mrakdan minutiga 12 ℓ suv quyiladi. Bo'sh idish qancha vaqtda to'ladi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Hajm: \(90 \cdot 40 \cdot 50 = 180 000\) cm³ \(= 180\) ℓ. Vaqt: \(180 : 12 = 15\) min.</details></li>
+      <li>Printer 8 sekundda 36 sahifa chop etadi. a) U 1 minutda necha sahifa chop etadi? b) 360 sahifani chop etish uchun necha sekund kerak?
+        <details class="javob"><summary>Javobni ko'rish</summary>1 s: \(36 : 8 = 4,5\) sahifa. a) \(4,5 \cdot 60 = 270\) sahifa. b) \(360 : 4,5 = 80\) s.</details></li>
+      <li>Laylo kompyuterda 6 minutda 150 ta so'z yozadi. U 400 ta so'z yozish uchun necha minut sarflaydi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Me'yor: \(150 : 6 = 25\) so'z/min. Vaqt: \(400 : 25 = 16\) min.</details></li>
+      <li>Yuk mashinasi 60 ℓ yonilg'i bilan 270 km yo'l yuradi. 1 ℓ yonilg'i 9,2 ming so'm. a) Mashina 1 ℓ yonilg'i bilan necha kilometr yuradi? b) 450 km yo'l uchun necha litr yonilg'i kerak? c) Bu yonilg'i necha ming so'm turadi?
+        <details class="javob"><summary>Javobni ko'rish</summary>a) \(270 : 60 = 4,5\) km/ℓ. b) \(450 : 4,5 = 100\) ℓ. c) \(100 \cdot 9,2 = 920\) ming so'm.</details></li>
+      <li>O'lchamlari 60 cm, 40 cm va 25 cm bo'lgan bo'sh idishga jo'mrak ochildi, u minutiga 7 ℓ suv beradi. 5 minutdan keyin jo'mrak yopildi. Idish to'lishi uchun yana necha litr suv kerak?
+        <details class="javob"><summary>Javobni ko'rish</summary>Hajm: \(60 \cdot 40 \cdot 25 = 60 000\) cm³ \(= 60\) ℓ. Quyilgan: \(7 \cdot 5 = 35\) ℓ. Qolgan: \(60 - 35 = 25\) ℓ.</details></li>
+      <li>Istirohat bog'i chiptalari. A tarif (qo'shimcha xizmatsiz): kattalar 4 000, bolalar 2 500 so'm. B tarif (xizmatlar bilan): kattalar 6 500, bolalar 3 800 so'm. Dilshod o'zi va ikki farzandi uchun jami 9 000 so'm to'ladi. Qaysi tarifni tanlagan?
+        <details class="javob"><summary>Javobni ko'rish</summary>A: \(4000 + 2 \cdot 2500 = 9000\) so'm. B: \(6500 + 2 \cdot 3800 = 14 100\) so'm. 9 000 faqat A tarifga to'g'ri keladi — <b>A tarif</b>.</details></li>
+      <li>Tohir restoranga ishga kirmoqchi. A restoranda 6 soat uchun 54 ming so'm, B restoranda 5 soat uchun 47,5 ming so'm to'lanadi. Tohir 8 soat ishlamoqchi. Qaysi restoran foydaliroq va qanchaga?
+        <details class="javob"><summary>Javobni ko'rish</summary>A: \(54 : 6 = 9\) ming so'm/soat. B: \(47,5 : 5 = 9,5\) ming so'm/soat. 8 soatda: A — \(72\), B — \(76\) ming so'm. B foydaliroq, \(76 - 72 = 4\) ming so'm ko'p.</details></li>
+      <li>Kuboid shaklidagi idishdan suv minutiga 9 ℓ tezlik bilan oqmoqda. Idish o'lchamlari 80 cm, 50 cm va 30 cm, u to'liq suvli. Qancha vaqtda idishdagi suvning \(\frac{3}{4}\) qismi oqib ketadi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Hajm: \(80 \cdot 50 \cdot 30 = 120 000\) cm³ \(= 120\) ℓ. \(\frac{3}{4}\) qismi: \(120 : 4 \cdot 3 = 90\) ℓ. Vaqt: \(90 : 9 = 10\) min.</details></li>
+      <li>Sayohat narxi (lyuks): kattalar uchun bir kishiga 600 000 so'm, 12 yoshdan kichik bolalar uchun 250 000 so'm. Oila — 2 ta kattalar va 7, 9, 11 yoshli uch farzand — sayohatga bordi. Jami qancha to'laydi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(2 \cdot 600 000 + 3 \cdot 250 000 = 1 200 000 + 750 000 = 1 950 000\) so'm.</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Grafikda chiziq qayerdan boshlanishiga qarang!</div></div>
+
+  <div class="box qiyin">
+    <span class="tag">Matematika kundaligi · grafik</span>
+    <p>Idishda dastlab 20 ℓ suv bor edi, jo'mrak ochilgach suv miqdori grafikdagidek o'zgardi. Dilya 20 minutda suv 100 ℓ bo'lganini ko'rib: «Jo'mrak minutiga \(100 : 20 = 5\) ℓ beradi» dedi. U to'g'ri aytdimi?</p>
+    <div data-grafik="10:60,20:100,30:140" data-bosh="20" data-nom="Idishdagi suv" data-x="Vaqt (min)" data-y="Hajm (ℓ)" data-xmax="40" data-xqadam="10" data-ymax="180" data-yqadam="20"></div>
+    <details class="javob"><summary>Javobni ko'rish</summary>Yo'q. Grafik 0 dan emas, 20 ℓ dan boshlangan: 20 ℓ suv dastlab ham bor edi. 20 minutda jo'mrak \(100 - 20 = 80\) ℓ suv qo'shgan. To'g'ri me'yor: \(80 : 20 = 4\) ℓ/min. Tekshiramiz: 30 minutda \(4 \cdot 30 = 120\), \(20 + 120 = 140\) ℓ — grafikdagi oxirgi nuqta.</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Muammoli topshiriq · ikki idish</span>
+    <p>Ikkita bir xil kuboid idish suvga to'la, har birining o'lchami 60 cm, 50 cm va 40 cm. A idishning jo'mragi ochilganda minutiga 8 ℓ, B idishning jo'mragi ochilganda minutiga 5 ℓ suv oqadi. Jo'mraklar bir vaqtda ochildi. Idishlar to'liq bo'shash vaqtlari orasidagi farqni toping.</p>
+    <details class="javob"><summary>Javobni ko'rish</summary><b>Reja:</b> hajmni toping, litrga aylantiring, har bir idish uchun vaqtni toping, farqini hisoblang. Hajm: \(60 \cdot 50 \cdot 40 = 120 000\) cm³ \(= 120\) ℓ. A: \(120 : 8 = 15\) min. B: \(120 : 5 = 24\) min. Farq: \(24 - 15 = 9\) min. <b>Tekshiruv:</b> 15 min da A dan \(8 \cdot 15 = 120\) ℓ, B dan \(5 \cdot 15 = 75\) ℓ oqadi; B da \(45\) ℓ qoladi, \(45 : 5 = 9\) min.</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Qiyin masala · avval qismi</span>
+    <p>Idish suvga to'la. Jo'mrak ochilib, 6 minutda idishning \(\frac{1}{5}\) qismi bo'shadi. Idishning yarmi bo'shashi uchun jami necha minut kerak?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>\(\frac{1}{5}\) qism — 6 min, demak \(\frac{1}{10}\) qism — 3 min. Yarmi — \(\frac{5}{10}\): \(3 \cdot 5 = 15\) min. Tekshiruv: \(\frac{1}{5} = \frac{2}{10}\) uchun 6 min, \(\frac{5}{10}\) uchun \(6 \cdot \frac{5}{2} = 15\) min.</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Amaliy topshiriq · kassa cheki</span>
+    <p>Do'kondan olingan biror kassa chekini oling. Undagi bitta mahsulotni tanlang: uning miqdori, o'lchov birligi (kg, dona, ℓ) va bir birlik narxi nima? Mahsulotning umumiy qiymati qanday hisoblanganini ko'rsating. Chekda yo'q bo'lsa — o'zingiz bitta mahsulotning bir birlik narxini toping.</p>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — belgilab chiqing va testni ishlang!</div></div>
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men me'yor, umumiy miqdor va birliklar sonidan ikkitasi ma'lum bo'lsa, uchinchisini topa olaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men birliklar sonini (vaqtni) umumiy miqdorni me'yorga bo'lib topaman, kerak bo'lsa avval me'yorni topaman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men idishning hajmini topib, uni to'lish vaqtini hisoblay olaman va birliklarni moslayman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men grafikdan me'yorni va vaqtni topa olaman (grafik 0 dan boshlanmagan holda ham), narxlarni solishtirib eng arzon xaridni tanlayman.</label></li>
+    </ul>
+  </div>
+</section>
+<p class="m-foot">Mathlearn · 5-sinf matematika</p>
+</main>
+<script src="chizma.js?v=36"></script>
+<script src="maruza.js?v=4"></script>
+</body>
+</html>
