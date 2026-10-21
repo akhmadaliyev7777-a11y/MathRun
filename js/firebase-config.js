@@ -21,4 +21,4 @@ const FIREBASE_CONFIG = {
   appId: "1:336090010860:web:39cabc816980ccb74b01c9"
 };
 
-const ADMIN_EMAIL = "sizning-emailingiz@gmail.com";
+const ADMIN_EMAIL = "akhmadaliyev7777@gmail.com";
