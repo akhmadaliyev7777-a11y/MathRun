@@ -1,10 +1,5 @@
-// Admin panel: «Bugungi ish», sinf bo'yicha kontent jadvali (filtr, qidiruv), mavzu yon oynasi va fayl joylash ko'rsatmalari.
-
-const UPLOAD_TYPE_INFO = {
-  lecture: { label: "Ma'ruza", folder: "presentations/", field: "lecture.embedUrl", hint: "Prezentatsiya yoki PDF fayl" },
-  interactive: { label: "Ko'rgazma", folder: "lessons/", field: "interactive", hint: "Interaktiv HTML fayl" },
-  test: { label: "Test", folder: "lessons/", field: "test", hint: "Test HTML fayli" }
-};
+// Admin panel: «Bugungi ish», sinf bo'yicha kontent jadvali (filtr, qidiruv), mavzu yon oynasi,
+// izohlar (Claude uchun eslatmalar) va o'quvchilarning nomsiz test natijalari (Firebase Firestore).
 
 const FILTERS = [
   { id: "all", label: "Hammasi" },
@@ -29,6 +24,13 @@ let activeFilter = "all";
 let searchText = "";
 let activeChorak = 1;          // 1–4 sinflar uchun
 let activeUploadTarget = null;
+let panelTopic = null;         // yon oynada ochiq mavzu
+
+// Firebase ma'lumotlar bazasi: izohlar va o'quvchilar natijalari
+let DB = null;
+let dbState = "loading";       // "loading" | "ok" | "off" (baza yoqilmagan yoki ruxsat yo'q)
+let NOTES = [];                // { id, k, title, text, done, t }
+let RESULTS = [];              // { k, h, s, n, t }
 
 // 1–4 sinflar ma'lumoti (mathrunner-web bo'limidan yuklanadi)
 let PRIMARY = null;            // curriculum.json
@@ -198,11 +200,14 @@ function renderStats() {
       todayCard("➡️", "Navbatdagi mavzu", null, nextBody, "next") +
       todayCard("👀", "Tekshiruvingiz kutilmoqda", rev.length, revBody, "review") +
       todayCard("📝", "O'z testi yo'q", noQuiz.length, quizBody) +
+      notesCard() +
     '</div>' +
     '<div class="adm-totals">' + line + '</div>';
   el.querySelectorAll(".adm-today-item").forEach(function (b) {
     b.addEventListener("click", function () { openTopicPanel(b.dataset.g, b.dataset.s, b.dataset.t); });
   });
+  const copyBtn = document.getElementById("adm-notes-copy");
+  if (copyBtn) copyBtn.addEventListener("click", function () { copyNotesForClaude(copyBtn); });
 }
 
 // ---------- sinflar ro'yxati (chap tomonda) ----------
@@ -475,15 +480,14 @@ function openTopicPanel(gradeId, subjectId, topicId) {
       panelLink(topic.interactive, "Ko'rgazma", "🧩") +
       panelLink(topic.test, "Test", "✅") +
     '</div>' +
+    '<div class="adm-psec" id="adm-pnotes"></div>' +
+    '<div class="adm-psec" id="adm-presults"' + (quiz.length ? "" : " hidden") + '></div>' +
     '<div class="adm-psec"><h4>Holati</h4>' + statusRow("Ma'ruza", st.lecture) + statusRow("Ko'rgazma", st.interactive) + statusRow("Test", st.test) + '</div>' +
     (topic.simPlan ? '<details class="adm-psec"><summary><h4>Ko\'rgazma rejasi</h4></summary><p class="adm-ptext">' + escapeHtml(topic.simPlan) + '</p></details>' : "") +
-    '<details class="adm-psec"' + (quiz.length ? "" : " open") + '><summary><h4>Test savollari' + (quiz.length ? " (" + quiz.length + ")" : "") + '</h4></summary>' + quizHtml + '</details>' +
-    '<div class="adm-psec adm-pfoot"><button type="button" class="adm-upload-btn" id="adm-panel-upload">⬆ Fayl joylash ko\'rsatmasi</button></div>';
-
-  document.getElementById("adm-panel-upload").addEventListener("click", function () {
-    const type = st.interactive.state !== "ok" ? "interactive" : st.test.state !== "ok" ? "test" : "lecture";
-    openUpload(grade.id, subject.id, topic.id, type);
-  });
+    '<details class="adm-psec"' + (quiz.length ? "" : " open") + '><summary><h4>Test savollari' + (quiz.length ? " (" + quiz.length + ")" : "") + '</h4></summary>' + quizHtml + '</details>';
+  panelTopic = { grade: grade, subject: subject, topic: topic };
+  renderPanelNotes();
+  renderPanelResults();
   const panel = document.getElementById("adm-panel");
   panel.hidden = false;
   panel.querySelector(".adm-panel-box").scrollTop = 0;
@@ -496,31 +500,6 @@ function closeTopicPanel() {
 }
 
 // ---------- yuklash oynasi ----------
-
-function openUpload(gradeId, subjectId, topicId, type) {
-  const grade = findGrade(gradeId);
-  const subject = findSubject(grade, subjectId);
-  const topic = findTopic(subject, topicId);
-  activeUploadTarget = { gradeId: gradeId, subjectId: subjectId, topicId: topicId, type: type };
-
-  document.getElementById("adm-modal-kicker").textContent = grade.name + " · " + subject.name;
-  document.getElementById("adm-modal-title").textContent = topic.title;
-
-  const tabs = document.getElementById("adm-type-tabs");
-  tabs.innerHTML = Object.keys(UPLOAD_TYPE_INFO).map(function (t) {
-    return '<button type="button" class="adm-type-tab' + (t === type ? " active" : "") + '" data-type="' + t + '">' + UPLOAD_TYPE_INFO[t].label + '</button>';
-  }).join("");
-  tabs.querySelectorAll(".adm-type-tab").forEach(function (b) {
-    b.addEventListener("click", function () { openUpload(gradeId, subjectId, topicId, b.dataset.type); });
-  });
-
-  document.getElementById("adm-drop-hint").textContent = UPLOAD_TYPE_INFO[type].hint + " → " + UPLOAD_TYPE_INFO[type].folder + " papkasiga";
-  document.getElementById("adm-file").value = "";
-  const res = document.getElementById("adm-result");
-  res.hidden = true;
-  res.innerHTML = "";
-  document.getElementById("adm-modal").hidden = false;
-}
 
 // 1–4 sinf: dars tanlanadi, savollar (yoki o'yin topshiriqlari) fayli almashtiriladi
 function openPrimaryUpload(g, c, b, idx) {
@@ -557,36 +536,6 @@ function closeUpload() {
   document.getElementById("adm-modal").hidden = true;
 }
 
-// fayl tanlangach — uni saytga ulash uchun qadamma-qadam ko'rsatma
-function uploadSteps(target, filename) {
-  const info = UPLOAD_TYPE_INFO[target.type];
-  const grade = findGrade(target.gradeId);
-  const subject = findSubject(grade, target.subjectId);
-  const topic = findTopic(subject, target.topicId);
-  const path = info.folder + filename;
-
-  if (target.type === "lecture" && topic.sections && topic.sections.length > 0) {
-    return {
-      steps: [
-        "Bu mavzu " + topic.sections.length + " ta mavzuchaga bo'lingan — yagona fayl o'rniga har bir mavzuchaga matn yoziladi.",
-        "<code>js/data.js</code> faylida <b>" + topic.title + "</b> mavzusini toping.",
-        "<code>sections</code> ro'yxatidagi har bir mavzuchaning <code>text</code> maydoniga ma'ruza matnini yozing."
-      ],
-      copy: null
-    };
-  }
-  const code = info.field === "lecture.embedUrl"
-    ? 'lecture: { embedUrl: "' + path + '" }'
-    : info.field + ': "' + path + '"';
-  const steps = [
-    "Faylni loyihadagi <code>" + info.folder + "</code> papkasiga <code>" + filename + "</code> nomi bilan joylang.",
-    "<code>js/data.js</code> faylida <b>" + grade.name + " → " + subject.name + " → " + topic.title + "</b> mavzusini toping.",
-    "Mavzuga quyidagi qatorni yozing (nusxalash tugmasi bilan):"
-  ];
-  const note = target.type === "test" ? "Yoki savollarni <code>js/quizzes.js</code> ga qo'shsangiz, test avtomatik paydo bo'ladi." : null;
-  return { steps: steps, copy: code, note: note };
-}
-
 function showPrimaryUploadResult(file) {
   const t = activeUploadTarget;
   const res = document.getElementById("adm-result");
@@ -606,22 +555,7 @@ function showPrimaryUploadResult(file) {
 
 function showUploadResult(file) {
   if (!file || !activeUploadTarget) return;
-  if (activeUploadTarget.primary) return showPrimaryUploadResult(file);
-  const r = uploadSteps(activeUploadTarget, file.name);
-  const res = document.getElementById("adm-result");
-  res.hidden = false;
-  res.innerHTML =
-    '<div class="adm-file">📎 ' + file.name + ' <span class="muted">· ' + Math.max(1, Math.round(file.size / 1024)) + ' KB</span></div>' +
-    '<ol class="adm-steps">' + r.steps.map(function (s) { return "<li>" + s + "</li>"; }).join("") + '</ol>' +
-    (r.copy ? '<div class="adm-code"><code>' + r.copy + '</code><button type="button" class="adm-copy">Nusxalash</button></div>' : "") +
-    (r.note ? '<p class="adm-note">' + r.note + '</p>' : "");
-  const copyBtn = res.querySelector(".adm-copy");
-  if (copyBtn) copyBtn.addEventListener("click", function () {
-    navigator.clipboard.writeText(r.copy).then(function () {
-      copyBtn.textContent = "Nusxalandi ✓";
-      setTimeout(function () { copyBtn.textContent = "Nusxalash"; }, 1500);
-    });
-  });
+  showPrimaryUploadResult(file);
 }
 
 function wireUpload() {
@@ -653,6 +587,7 @@ function renderAdminDashboard() {
   renderFilter();
   renderTopics();
   wireUpload();
+  initDatabase();
 
   // 1–4 sinflar ma'lumotini yuklab, ro'yxat va statistikani yangilash
   Promise.all([
@@ -665,5 +600,223 @@ function renderAdminDashboard() {
     renderGradeList();
   }).catch(function () {
     document.querySelector(".adm-side-loading") && (document.querySelector(".adm-side-loading").textContent = "1–4 sinf ma'lumotini yuklab bo'lmadi");
+  });
+}
+
+// ---------- ma'lumotlar bazasi (izohlar, natijalar) ----------
+
+function topicKey(grade, subject, topic) { return grade.id + "|" + subject.id + "|" + topic.id; }
+
+function topicByKey(k) {
+  const p = String(k).split("|");
+  const grade = findGrade(p[0]);
+  const subject = grade && findSubject(grade, p[1]);
+  const topic = subject && findTopic(subject, p[2]);
+  return topic ? { grade: grade, subject: subject, topic: topic, index: subject.topics.indexOf(topic) } : null;
+}
+
+function fmtDate(d) {
+  if (!d) return "";
+  const z = function (n) { return (n < 10 ? "0" : "") + n; };
+  return z(d.getDate()) + "." + z(d.getMonth() + 1) + "." + d.getFullYear() + " " + z(d.getHours()) + ":" + z(d.getMinutes());
+}
+
+function dbOffText() {
+  return '<p class="adm-dboff">Ma\'lumotlar bazasi hali ulanmagan. Firebase\'da <b>Firestore Database</b> yoqilib, qoidalar qo\'yilgach shu yerda ishlaydi.</p>';
+}
+
+function initDatabase() {
+  if (typeof firebase === "undefined" || !firebase.firestore || !isFirebaseConfigured()) { dbState = "off"; refreshDbViews(); return; }
+  DB = firebase.firestore();
+  Promise.all([
+    DB.collection("izohlar").orderBy("t", "desc").limit(500).get(),
+    DB.collection("natijalar").orderBy("t", "desc").limit(2000).get()
+  ]).then(function (res) {
+    NOTES = res[0].docs.map(function (d) {
+      const x = d.data();
+      return { id: d.id, k: x.k, title: x.title || "", text: x.text || "", done: !!x.done, t: x.t && x.t.toDate ? x.t.toDate() : null };
+    });
+    RESULTS = res[1].docs.map(function (d) {
+      const x = d.data();
+      return { k: x.k, h: x.h, s: x.s || [], n: x.n || 0, t: x.t && x.t.toDate ? x.t.toDate() : null };
+    });
+    dbState = "ok";
+    refreshDbViews();
+  }).catch(function (e) {
+    console.warn("Firestore:", e);
+    dbState = "off";
+    refreshDbViews();
+  });
+}
+
+function refreshDbViews() {
+  renderStats();
+  renderResultsSection();
+  if (panelTopic && !document.getElementById("adm-panel").hidden) { renderPanelNotes(); renderPanelResults(); }
+}
+
+// ---------- izohlar ----------
+
+function openNotes() { return NOTES.filter(function (n) { return !n.done; }); }
+
+function notesCard() {
+  let body;
+  if (dbState === "loading") body = '<div class="adm-today-sub">Yuklanmoqda…</div>';
+  else if (dbState === "off") body = '<div class="adm-today-sub">Baza ulanmagan</div>';
+  else {
+    const open = openNotes();
+    body = open.length
+      ? open.map(function (n) {
+          const t = topicByKey(n.k);
+          return t ? todayItem(t, "") .replace('</span></button>', '</span><span class="adm-today-note">' + escapeHtml(n.text) + '</span></button>') : "";
+        }).join("") +
+        '<button type="button" class="adm-mini-btn" id="adm-notes-copy">📋 Claude uchun nusxalash</button>'
+      : '<div class="adm-today-sub">Ochiq izoh yo\'q. Mavzuni bosib, kamchilikni yozib qo\'ying.</div>';
+  }
+  return todayCard("💬", "Izohlaringiz", dbState === "ok" ? openNotes().length : null, body, "notes");
+}
+
+function copyNotesForClaude(btn) {
+  const lines = openNotes().map(function (n) {
+    const t = topicByKey(n.k);
+    return "- " + (t ? t.grade.id + "-sinf, " + t.topic.title : n.title) + ": " + n.text;
+  });
+  const text = "Admin paneldagi izohlarim (tuzatib bering):\n" + lines.join("\n");
+  navigator.clipboard.writeText(text).then(function () {
+    btn.textContent = "Nusxalandi ✓ — Claude'ga joylang";
+    setTimeout(function () { btn.textContent = "📋 Claude uchun nusxalash"; }, 2500);
+  });
+}
+
+function renderPanelNotes() {
+  const el = document.getElementById("adm-pnotes");
+  if (!el || !panelTopic) return;
+  if (dbState !== "ok") { el.innerHTML = '<h4>Izohlar</h4>' + (dbState === "loading" ? '<p class="muted">Yuklanmoqda…</p>' : dbOffText()); return; }
+  const k = topicKey(panelTopic.grade, panelTopic.subject, panelTopic.topic);
+  const list = NOTES.filter(function (n) { return n.k === k; });
+  el.innerHTML = '<h4>Izohlar</h4>' +
+    (list.length ? '<ul class="adm-notes">' + list.map(function (n) {
+      return '<li class="' + (n.done ? "done" : "") + '"><div class="adm-note-text">' + escapeHtml(n.text) + '</div>' +
+        '<div class="adm-note-meta"><span>' + fmtDate(n.t) + '</span>' +
+        '<button type="button" data-done="' + n.id + '">' + (n.done ? "↺ Qayta ochish" : "✓ Bajarildi") + '</button>' +
+        '<button type="button" data-del="' + n.id + '">O\'chirish</button></div></li>';
+    }).join("") + '</ul>' : "") +
+    '<textarea id="adm-note-input" class="adm-note-input" rows="3" placeholder="Masalan: 3-misolning javobi noto\'g\'ri; chizma telefonda kichik…"></textarea>' +
+    '<button type="button" class="adm-mini-btn adm-mini-btn--primary" id="adm-note-save">Izohni saqlash</button>';
+
+  document.getElementById("adm-note-save").addEventListener("click", function () {
+    const input = document.getElementById("adm-note-input");
+    const text = input.value.trim();
+    if (!text) { input.focus(); return; }
+    const btn = this; btn.disabled = true; btn.textContent = "Saqlanmoqda…";
+    const doc = { k: k, title: panelTopic.topic.title, text: text, done: false, t: firebase.firestore.FieldValue.serverTimestamp() };
+    DB.collection("izohlar").add(doc).then(function (ref) {
+      NOTES.unshift({ id: ref.id, k: k, title: doc.title, text: text, done: false, t: new Date() });
+      renderPanelNotes(); renderStats();
+    }).catch(function () { btn.disabled = false; btn.textContent = "Saqlanmadi — qayta urining"; });
+  });
+  el.querySelectorAll("[data-done]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      const n = NOTES.find(function (x) { return x.id === b.dataset.done; });
+      DB.collection("izohlar").doc(n.id).update({ done: !n.done }).then(function () { n.done = !n.done; renderPanelNotes(); renderStats(); });
+    });
+  });
+  el.querySelectorAll("[data-del]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (!confirm("Izoh o'chirilsinmi?")) return;
+      DB.collection("izohlar").doc(b.dataset.del).delete().then(function () {
+        NOTES = NOTES.filter(function (x) { return x.id !== b.dataset.del; });
+        renderPanelNotes(); renderStats();
+      });
+    });
+  });
+}
+
+// ---------- o'quvchilar natijalari ----------
+
+// mavzu testi bo'yicha yig'indi: faqat savollari hozirgisi bilan bir xil bo'lgan urinishlar hisoblanadi
+function quizStats(k) {
+  const questions = QUIZ_DATA[k] || [];
+  const h = questions.length ? quizHash(questions) : null;
+  const rows = RESULTS.filter(function (r) { return r.k === k; });
+  const cur = rows.filter(function (r) { return r.h === h && r.s.length === questions.length; });
+  const per = questions.map(function (q) {
+    const picks = q.options.map(function () { return 0; });
+    cur.forEach(function (r) { const i = Number(r.s[questions.indexOf(q)]); if (picks[i] != null) picks[i]++; });
+    const ok = picks[q.options.indexOf(q.answer)] || 0;
+    return { q: q, picks: picks, ok: ok, rate: cur.length ? ok / cur.length : null };
+  });
+  const sum = cur.reduce(function (a, r) { return a + r.n; }, 0);
+  return {
+    count: cur.length, old: rows.length - cur.length,
+    avg: cur.length ? Math.round(sum / (cur.length * questions.length) * 100) : null,
+    per: per, last: cur.length ? cur[0].t : null
+  };
+}
+
+function rateClass(p) { return p == null ? "" : p < 50 ? "low" : p < 75 ? "mid" : "high"; }
+
+function renderPanelResults() {
+  const el = document.getElementById("adm-presults");
+  if (!el || !panelTopic || el.hidden) return;
+  if (dbState !== "ok") { el.innerHTML = '<h4>O\'quvchilar natijalari</h4>' + (dbState === "loading" ? '<p class="muted">Yuklanmoqda…</p>' : dbOffText()); return; }
+  const st = quizStats(topicKey(panelTopic.grade, panelTopic.subject, panelTopic.topic));
+  if (!st.count) {
+    el.innerHTML = '<h4>O\'quvchilar natijalari</h4><p class="muted">Bu test hali yechilmagan' + (st.old ? " (eski savollar bilan " + st.old + " marta yechilgan)" : "") + '.</p>';
+    return;
+  }
+  el.innerHTML = '<h4>O\'quvchilar natijalari</h4>' +
+    '<div class="adm-rsum"><div><b>' + st.count + '</b><span>marta yechildi</span></div>' +
+    '<div><b class="adm-rate--' + rateClass(st.avg) + '">' + st.avg + '%</b><span>o\'rtacha natija</span></div>' +
+    '<div><b>' + fmtDate(st.last).split(" ")[0] + '</b><span>oxirgi marta</span></div></div>' +
+    '<ol class="adm-qrates">' + st.per.map(function (p, i) {
+      const pct = Math.round(p.rate * 100);
+      let worst = -1;
+      p.picks.forEach(function (c, j) { if (p.q.options[j] !== p.q.answer && c > 0 && (worst < 0 || c > p.picks[worst])) worst = j; });
+      return '<li><div class="adm-qrate-head"><span>' + escapeHtml(p.q.question) + '</span><b class="adm-rate--' + rateClass(pct) + '">' + pct + '%</b></div>' +
+        '<span class="adm-bar"><i class="adm-bar--' + rateClass(pct) + '" style="width:' + pct + '%"></i></span>' +
+        (worst >= 0 ? '<div class="adm-qwrong">Ko\'p tanlangan xato javob: <b>' + escapeHtml(p.q.options[worst]) + '</b> (' + p.picks[worst] + ' marta)</div>' : "") + '</li>';
+    }).join("") + '</ol>' +
+    (st.old ? '<p class="muted adm-small">Savollar o\'zgarishidan oldingi ' + st.old + ' ta urinish hisobga olinmadi.</p>' : "");
+}
+
+function renderResultsSection() {
+  const el = document.getElementById("adm-results");
+  if (!el) return;
+  if (dbState !== "ok") {
+    el.innerHTML = '<div class="adm-res-head"><h2>📊 O\'quvchilar natijalari</h2></div>' + (dbState === "loading" ? '<p class="muted">Yuklanmoqda…</p>' : dbOffText());
+    return;
+  }
+  const keys = {};
+  RESULTS.forEach(function (r) { keys[r.k] = true; });
+  const weekAgo = Date.now() - 7 * 864e5;
+  const week = RESULTS.filter(function (r) { return r.t && r.t.getTime() > weekAgo; }).length;
+  const rows = Object.keys(keys).map(function (k) {
+    const t = topicByKey(k);
+    if (!t || !(QUIZ_DATA[k] || []).length) return null;
+    const st = quizStats(k);
+    if (!st.count) return null;
+    let hard = null;
+    st.per.forEach(function (p, i) { if (hard == null || p.rate < st.per[hard].rate) hard = i; });
+    return { t: t, st: st, hard: hard };
+  }).filter(Boolean).sort(function (a, b) { return b.st.count - a.st.count; });
+
+  el.innerHTML =
+    '<div class="adm-res-head"><h2>📊 O\'quvchilar natijalari</h2>' +
+    '<span class="muted">Jami <b>' + RESULTS.length + '</b> marta test yechilgan · oxirgi 7 kunda <b>' + week + '</b></span></div>' +
+    (rows.length
+      ? '<table class="adm-table adm-res-table"><thead><tr><th>Mavzu</th><th>Yechildi</th><th>O\'rtacha</th><th>Eng qiyin savol</th></tr></thead><tbody>' +
+        rows.map(function (r) {
+          const parts = splitTopicTitle(r.t.topic.title, r.t.index);
+          const hp = Math.round(r.st.per[r.hard].rate * 100);
+          return '<tr class="adm-tr" data-g="' + r.t.grade.id + '" data-s="' + r.t.subject.id + '" data-t="' + r.t.topic.id + '">' +
+            '<td class="adm-td-title">' + (r.t.grade.id !== FOCUS_GRADE ? r.t.grade.id + "-sinf · " : "") + parts.num + ' ' + escapeHtml(parts.title) + '</td>' +
+            '<td>' + r.st.count + '</td>' +
+            '<td><b class="adm-rate--' + rateClass(r.st.avg) + '">' + r.st.avg + '%</b></td>' +
+            '<td>' + (r.hard + 1) + '-savol · <b class="adm-rate--' + rateClass(hp) + '">' + hp + '%</b></td></tr>';
+        }).join("") + '</tbody></table>'
+      : '<p class="muted">Hali hech kim test yechmagan. O\'quvchilar test yechgach, natijalar shu yerda chiqadi (ism-familiyasiz).</p>');
+  el.querySelectorAll(".adm-tr").forEach(function (tr) {
+    tr.addEventListener("click", function () { openTopicPanel(tr.dataset.g, tr.dataset.s, tr.dataset.t); });
   });
 }

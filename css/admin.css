@@ -108,3 +108,60 @@ details.adm-psec[open] > summary { margin-bottom: 8px; }
   .adm-panel-box { padding: 16px 16px 28px; }
 }
 .adm-pfoot .adm-upload-btn { margin-left: 0; }
+
+/* 4 ta karta: kompyuterda bir qatorda, kichikroq ekranda ikkitadan */
+.adm-today { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1180px) { .adm-today { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .adm-today { grid-template-columns: 1fr; } }
+.adm-today-card--notes { border-top-color: #2bbfa9; }
+.adm-today-item { flex-wrap: wrap; }
+.adm-today-note { flex-basis: 100%; padding-left: 2px; color: var(--muted); font-size: 0.8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.adm-mini-btn { margin-top: 8px; align-self: flex-start; font: inherit; font-size: 0.8rem; font-weight: 700; color: var(--primary); background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 6px 12px; cursor: pointer; }
+.adm-mini-btn:hover { border-color: var(--primary); background: #f5f6fe; }
+.adm-mini-btn--primary { color: #fff; background: var(--primary); border-color: var(--primary); }
+.adm-mini-btn--primary:hover { background: var(--primary-dark); }
+.adm-mini-btn:disabled { opacity: 0.6; cursor: default; }
+.adm-dboff { margin: 0; padding: 10px 12px; border-radius: 10px; background: #f8f9fc; color: var(--muted); font-size: 0.85rem; }
+.adm-small { font-size: 0.78rem; }
+
+/* izohlar (yon oynada) */
+.adm-notes { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.adm-notes li { padding: 10px 12px; border-radius: 10px; background: #fff8e8; border: 1px solid #f6e3b4; }
+.adm-notes li.done { background: #f3f4f8; border-color: var(--border); }
+.adm-notes li.done .adm-note-text { color: var(--muted); text-decoration: line-through; }
+.adm-note-text { font-size: 0.9rem; white-space: pre-wrap; }
+.adm-note-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 6px; font-size: 0.76rem; color: var(--muted); }
+.adm-note-meta button { font: inherit; font-weight: 700; color: var(--primary); background: none; border: 0; padding: 0; cursor: pointer; }
+.adm-note-meta button[data-del] { color: #b4373b; }
+.adm-note-input { display: block; width: 100%; font: inherit; font-size: 0.9rem; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; resize: vertical; background: var(--bg); color: var(--text); }
+.adm-note-input:focus { outline: none; border-color: var(--primary); background: var(--surface); }
+
+/* natijalar */
+.adm-rate--low { color: #c2373b; }
+.adm-rate--mid { color: #a06b00; }
+.adm-rate--high { color: #0f8a7c; }
+.adm-rsum { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 12px; }
+.adm-rsum > div { padding: 10px; border-radius: 10px; background: #f8f9fc; text-align: center; }
+.adm-rsum b { display: block; font-size: 1.2rem; }
+.adm-rsum span { font-size: 0.74rem; color: var(--muted); }
+.adm-qrates { margin: 0; padding-left: 22px; }
+.adm-qrates li { margin-bottom: 12px; font-size: 0.85rem; }
+.adm-qrate-head { display: flex; gap: 10px; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+.adm-qrates .adm-bar { display: block; }
+.adm-bar i.adm-bar--low { background: #e5484d; }
+.adm-bar i.adm-bar--mid { background: #f0b429; }
+.adm-qwrong { margin-top: 3px; font-size: 0.76rem; color: var(--muted); }
+.adm-results { margin-top: 24px; padding: 18px 22px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+.adm-res-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 10px; }
+.adm-res-head h2 { margin: 0; font-size: 1.2rem; }
+.adm-res-head .muted { font-size: 0.85rem; }
+.adm-res-table { border: 1px solid var(--border); border-radius: 12px; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+.adm-res-table th:first-child, .adm-res-table td:first-child { text-align: left; }
+.adm-res-table thead th { border-top: 0; background: #f8f9fd; }
+@media (max-width: 560px) {
+  .adm-results { padding: 14px 12px; }
+  .adm-res-table td:nth-child(4), .adm-res-table th:nth-child(4) { display: none; }
+  .adm-res-table th:nth-child(1)::after { content: "Mavzu"; }
+  .adm-res-table th:nth-child(2)::after { content: "Soni"; }
+  .adm-res-table th:nth-child(3)::after { content: "O'rt."; }
+}

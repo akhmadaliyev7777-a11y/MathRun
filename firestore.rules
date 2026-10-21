@@ -1,0 +1,22 @@
+rules_version = '2';
+// Firebase Console → Firestore Database → Rules ga shu matn qo'yiladi.
+// izohlar — faqat admin; natijalar — har kim (o'quvchi) faqat yangi natija qo'sha oladi, o'qish faqat admin.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'akhmadaliyev7777@gmail.com';
+    }
+    match /izohlar/{id} {
+      allow read, write: if isAdmin();
+    }
+    match /natijalar/{id} {
+      allow read, delete: if isAdmin();
+      allow create: if request.resource.data.keys().hasOnly(['k', 'h', 's', 'n', 't'])
+        && request.resource.data.k is string && request.resource.data.k.size() < 120
+        && request.resource.data.h is string && request.resource.data.h.size() < 20
+        && request.resource.data.s is list && request.resource.data.s.size() <= 40
+        && request.resource.data.n is int && request.resource.data.n >= 0 && request.resource.data.n <= 40
+        && request.resource.data.t is timestamp;
+    }
+  }
+}

@@ -38,6 +38,7 @@ function initQuiz() {
   let current = 0;
   let score = 0;
   let answered = false;
+  let chosenIdx = [];   // har savolda tanlangan javob (options dagi o'rni) — nomsiz statistika uchun
 
   function shuffle(arr) {
     const a = arr.slice();
@@ -81,6 +82,7 @@ function initQuiz() {
         const chosen = shuffledOptions[i];
         const isCorrect = chosen === q.answer;
         if (isCorrect) score++;
+        chosenIdx[current] = q.options.indexOf(chosen);
 
         buttons.forEach(function (b, j) {
           if (shuffledOptions[j] === q.answer) b.classList.add("correct");
@@ -111,6 +113,7 @@ function initQuiz() {
   function renderResult() {
     current = questions.length;
     renderProgress();
+    if (typeof sendQuizResult === "function") sendQuizResult(key, questions, chosenIdx, score);
     const percent = Math.round((score / questions.length) * 100);
     let message = "Yaxshi urinish! Yana mashq qiling.";
     if (percent === 100) message = "Ajoyib! Barcha savollarga to'g'ri javob berdingiz! \u{1F389}";
@@ -129,6 +132,7 @@ function initQuiz() {
     document.getElementById("quiz-restart-btn").addEventListener("click", function () {
       current = 0;
       score = 0;
+      chosenIdx = [];
       renderQuestion();
     });
   }
