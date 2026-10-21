@@ -172,3 +172,5 @@ details.adm-psec[open] > summary { margin-bottom: 8px; }
 .adm-notes li.xabar.done { background: #f3f4f8; border-color: var(--border); }
 .adm-note-from { font-size: 0.78rem; margin-bottom: 3px; }
 .adm-warn { color: #8a6100; }
+.adm-quiz-set { margin: 10px 0 6px; font-weight: 800; font-size: 0.85rem; color: var(--primary-dark); }
+.adm-tag { display: inline-block; padding: 1px 7px; border-radius: 6px; background: #eef0fd; color: var(--primary); font-size: 0.72rem; font-weight: 800; vertical-align: middle; }

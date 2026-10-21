@@ -5,6 +5,22 @@
   Kutubxona yuklanmaydi: bitta oddiy so'rov yuboriladi, test sekinlashmaydi.
 */
 
+// Mavzu testlari: QUIZ_DATA[key] — eski ko'rinishda savollar ro'yxati (bitta test) yoki { oson: [...], qiyin: [...] }.
+// Natija kaliti: 1-test (oson) uchun mavzu kaliti o'zi, 2-test uchun oxiriga "|qiyin" qo'shiladi.
+function quizSets(key) {
+  const d = typeof QUIZ_DATA !== "undefined" ? QUIZ_DATA[key] : null;
+  if (!d) return [];
+  if (Array.isArray(d)) return d.length ? [{ tur: "oson", q: d }] : [];
+  return ["oson", "qiyin"].filter(function (t) { return d[t] && d[t].length; }).map(function (t) { return { tur: t, q: d[t] }; });
+}
+function quizStatKey(key, tur) { return tur === "qiyin" ? key + "|qiyin" : key; }
+function quizByStatKey(statKey) {
+  const p = String(statKey).split("|");
+  const tur = p[3] === "qiyin" ? "qiyin" : "oson";
+  const set = quizSets(p.slice(0, 3).join("|")).find(function (s) { return s.tur === tur; });
+  return set ? set.q : [];
+}
+
 // test savollari o'zgarsa, eski natijalar yangisi bilan aralashmasligi uchun qisqa "imzo"
 function quizHash(questions) {
   const text = JSON.stringify(questions.map(function (q) { return [q.question, q.options, q.answer]; }));

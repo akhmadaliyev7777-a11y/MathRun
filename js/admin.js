@@ -74,17 +74,19 @@ function topicStatus(grade, subject, topic) {
   } else if (topic.lecture && (topic.lecture.text || topic.lecture.embedUrl)) {
     lecture = { state: "ok", text: "bor" };
   }
-  const quizCount = (QUIZ_DATA[grade.id + "|" + subject.id + "|" + topic.id] || []).length;
+  const sets = quizSets(grade.id + "|" + subject.id + "|" + topic.id);
+  const quizCount = sets.reduce(function (n, x) { return n + x.q.length; }, 0);
   return {
     lecture: lecture,
     interactive: topic.interactive ? { state: "ok", text: "bor" } : { state: "none", text: "yo'q" },
-    test: quizCount > 0 ? { state: "ok", text: quizCount + " savol" }
+    test: quizCount > 0 ? { state: sets.length === 2 && sets.every(function (x) { return x.q.length >= 20; }) ? "ok" : "part",
+        text: sets.length === 2 ? sets[0].q.length + "+" + sets[1].q.length : quizCount + " savol" }
       : topic.test ? { state: "ok", text: "bor" } : { state: "none", text: "yo'q" }
   };
 }
 
 function hasOwnQuiz(grade, subject, topic) {
-  return (QUIZ_DATA[grade.id + "|" + subject.id + "|" + topic.id] || []).length > 0;
+  return quizSets(grade.id + "|" + subject.id + "|" + topic.id).length > 0;
 }
 
 function reviewState(topic) {
@@ -96,7 +98,7 @@ function matchesFilter(grade, subject, topic, filter) {
   const st = topicStatus(grade, subject, topic);
   if (filter === "no-lecture") return st.lecture.state !== "ok";
   if (filter === "no-interactive") return st.interactive.state !== "ok";
-  if (filter === "no-test") return st.test.state !== "ok";
+  if (filter === "no-test") return st.test.state === "none";
   if (filter === "review") return !!reviewState(topic);
   return true;
 }
@@ -123,7 +125,7 @@ function gradeSummary(grade) {
       const st = topicStatus(grade, subject, topic);
       topics++;
       if (st.interactive.state === "ok") interactive++;
-      if (st.test.state === "ok") test++;
+      if (st.test.state !== "none") test++;
     });
   });
   return { topics: topics, interactive: interactive, test: test };
@@ -352,8 +354,9 @@ function renderPrimaryTopics() {
 }
 
 function cell(st, label) {
-  if (st.state === "ok") return '<span class="adm-cell adm-cell--ok" title="' + label + ': ' + st.text + '">' + (/savol/.test(st.text) ? parseInt(st.text, 10) : "✓") + '</span>';
-  if (st.state === "part") return '<span class="adm-cell adm-cell--part" title="' + label + ': ' + st.text + '">' + st.text + '</span>';
+  const short = /savol/.test(st.text) ? parseInt(st.text, 10) : /^\d+\+\d+$/.test(st.text) ? st.text : st.state === "ok" ? "✓" : st.text;
+  if (st.state === "ok") return '<span class="adm-cell adm-cell--ok" title="' + label + ': ' + st.text + '">' + short + '</span>';
+  if (st.state === "part") return '<span class="adm-cell adm-cell--part" title="' + label + ': ' + st.text + '">' + short + '</span>';
   return '<span class="adm-cell adm-cell--none" title="' + label + ': yo\'q">—</span>';
 }
 
@@ -452,7 +455,8 @@ function openTopicPanel(gradeId, subjectId, topicId) {
   const topic = findTopic(subject, topicId);
   if (!topic) return;
   const st = topicStatus(grade, subject, topic);
-  const quiz = QUIZ_DATA[grade.id + "|" + subject.id + "|" + topic.id] || [];
+  const qsets = quizSets(grade.id + "|" + subject.id + "|" + topic.id);
+  const quiz = qsets.length ? qsets[0].q : [];
   const r = reviewState(topic);
   const lectureUrl = topic.lecture && topic.lecture.embedUrl;
 
@@ -460,14 +464,18 @@ function openTopicPanel(gradeId, subjectId, topicId) {
     return '<div class="adm-pstat"><span>' + label + '</span>' + cell(s, label) + '<span class="muted">' + (s.state === "ok" ? s.text : s.state === "part" ? s.text : "yo'q") + '</span></div>';
   };
 
-  const quizHtml = quiz.length
-    ? '<ol class="adm-quiz">' + quiz.map(function (qq) {
+  const oneQuiz = function (list) { return '<ol class="adm-quiz">' + list.map(function (qq) {
         return '<li><div class="adm-q">' + escapeHtml(qq.question) + '</div>' +
           '<div class="adm-opts">' + (qq.options || []).map(function (o) {
             return '<span class="adm-opt' + (String(o) === String(qq.answer) ? " adm-opt--ok" : "") + '">' + escapeHtml(o) + '</span>';
           }).join("") + '</div>' +
           (qq.explain ? '<div class="adm-explain">' + escapeHtml(qq.explain) + '</div>' : "") + '</li>';
-      }).join("") + '</ol>'
+      }).join("") + '</ol>'; };
+  const quizHtml = qsets.length
+    ? qsets.map(function (x) {
+        return '<div class="adm-quiz-set">' + (x.tur === "qiyin" ? "2-test · qiyinroq" : "1-test · oson") + ' — ' + x.q.length + ' savol' +
+          (x.q.length < 20 ? ' <span class="adm-warn">(yangi formatda 20 ta bo\'lishi kerak)</span>' : "") + '</div>' + oneQuiz(x.q);
+      }).join("") + (qsets.length < 2 ? '<p class="muted adm-small">2-test (qiyinroq, 20 savol) hali yo\'q.</p>' : "")
     : '<p class="muted">Bu mavzuning o\'z testi hali yo\'q' + (topic.test ? " (umumiy test ulangan)." : ".") + '</p>';
 
   document.getElementById("adm-panel-kicker").textContent = grade.name + " · " + subject.name;
@@ -486,7 +494,7 @@ function openTopicPanel(gradeId, subjectId, topicId) {
     '<div class="adm-psec" id="adm-presults"' + (quiz.length ? "" : " hidden") + '></div>' +
     '<div class="adm-psec"><h4>Holati</h4>' + statusRow("Ma'ruza", st.lecture) + statusRow("Ko'rgazma", st.interactive) + statusRow("Test", st.test) + '</div>' +
     (topic.simPlan ? '<details class="adm-psec"><summary><h4>Ko\'rgazma rejasi</h4></summary><p class="adm-ptext">' + escapeHtml(topic.simPlan) + '</p></details>' : "") +
-    '<details class="adm-psec"' + (quiz.length ? "" : " open") + '><summary><h4>Test savollari' + (quiz.length ? " (" + quiz.length + ")" : "") + '</h4></summary>' + quizHtml + '</details>';
+    '<details class="adm-psec"' + (quiz.length ? "" : " open") + '><summary><h4>Test savollari' + (qsets.length ? " (" + qsets.map(function (x) { return x.q.length; }).join(" + ") + ")" : "") + '</h4></summary>' + quizHtml + '</details>';
   panelTopic = { grade: grade, subject: subject, topic: topic };
   renderPanelNotes();
   renderPanelResults();
@@ -754,13 +762,13 @@ function renderPanelNotes() {
 
 // mavzu testi bo'yicha yig'indi: faqat savollari hozirgisi bilan bir xil bo'lgan urinishlar hisoblanadi
 function quizStats(k) {
-  const questions = QUIZ_DATA[k] || [];
+  const questions = quizByStatKey(k);
   const h = questions.length ? quizHash(questions) : null;
   const rows = RESULTS.filter(function (r) { return r.k === k; });
   const cur = rows.filter(function (r) { return r.h === h && r.s.length === questions.length; });
   const per = questions.map(function (q) {
     const picks = q.options.map(function () { return 0; });
-    cur.forEach(function (r) { const i = Number(r.s[questions.indexOf(q)]); if (picks[i] != null) picks[i]++; });
+    cur.forEach(function (r) { const i = Number(r.s[questions.indexOf(q)]); if (i >= 0 && picks[i] != null) picks[i]++; });
     const ok = picks[q.options.indexOf(q.answer)] || 0;
     return { q: q, picks: picks, ok: ok, rate: cur.length ? ok / cur.length : null };
   });
@@ -778,12 +786,17 @@ function renderPanelResults() {
   const el = document.getElementById("adm-presults");
   if (!el || !panelTopic || el.hidden) return;
   if (dbState !== "ok") { el.innerHTML = '<h4>O\'quvchilar natijalari</h4>' + (dbState === "loading" ? '<p class="muted">Yuklanmoqda…</p>' : dbOffText()); return; }
-  const st = quizStats(topicKey(panelTopic.grade, panelTopic.subject, panelTopic.topic));
-  if (!st.count) {
-    el.innerHTML = '<h4>O\'quvchilar natijalari</h4><p class="muted">Bu test hali yechilmagan' + (st.old ? " (eski savollar bilan " + st.old + " marta yechilgan)" : "") + '.</p>';
-    return;
-  }
-  el.innerHTML = '<h4>O\'quvchilar natijalari</h4>' +
+  const baseKey = topicKey(panelTopic.grade, panelTopic.subject, panelTopic.topic);
+  const sets = quizSets(baseKey);
+  el.innerHTML = '<h4>O\'quvchilar natijalari</h4>' + sets.map(function (x) {
+    return (sets.length > 1 ? '<div class="adm-quiz-set">' + (x.tur === "qiyin" ? "2-test · qiyinroq" : "1-test · oson") + '</div>' : "") + resultsBlock(quizStatKey(baseKey, x.tur));
+  }).join("");
+}
+
+function resultsBlock(statKey) {
+  const st = quizStats(statKey);
+  if (!st.count) return '<p class="muted">Bu test hali yechilmagan' + (st.old ? " (eski savollar bilan " + st.old + " marta yechilgan)" : "") + '.</p>';
+  return '' +
     '<div class="adm-rsum"><div><b>' + st.count + '</b><span>marta yechildi</span></div>' +
     '<div><b class="adm-rate--' + rateClass(st.avg) + '">' + st.avg + '%</b><span>o\'rtacha natija</span></div>' +
     '<div><b>' + fmtDate(st.last).split(" ")[0] + '</b><span>oxirgi marta</span></div></div>' +
@@ -811,12 +824,12 @@ function renderResultsSection() {
   const week = RESULTS.filter(function (r) { return r.t && r.t.getTime() > weekAgo; }).length;
   const rows = Object.keys(keys).map(function (k) {
     const t = topicByKey(k);
-    if (!t || !(QUIZ_DATA[k] || []).length) return null;
+    if (!t || !quizByStatKey(k).length) return null;
     const st = quizStats(k);
     if (!st.count) return null;
     let hard = null;
     st.per.forEach(function (p, i) { if (hard == null || p.rate < st.per[hard].rate) hard = i; });
-    return { t: t, st: st, hard: hard };
+    return { k: k, t: t, st: st, hard: hard };
   }).filter(Boolean).sort(function (a, b) { return b.st.count - a.st.count; });
 
   el.innerHTML =
@@ -828,7 +841,8 @@ function renderResultsSection() {
           const parts = splitTopicTitle(r.t.topic.title, r.t.index);
           const hp = Math.round(r.st.per[r.hard].rate * 100);
           return '<tr class="adm-tr" data-g="' + r.t.grade.id + '" data-s="' + r.t.subject.id + '" data-t="' + r.t.topic.id + '">' +
-            '<td class="adm-td-title">' + (r.t.grade.id !== FOCUS_GRADE ? r.t.grade.id + "-sinf · " : "") + parts.num + ' ' + escapeHtml(parts.title) + '</td>' +
+            '<td class="adm-td-title">' + (r.t.grade.id !== FOCUS_GRADE ? r.t.grade.id + "-sinf · " : "") + parts.num + ' ' + escapeHtml(parts.title) +
+              (/\|qiyin$/.test(r.k) ? ' <span class="adm-tag">2-test</span>' : "") + '</td>' +
             '<td>' + r.st.count + '</td>' +
             '<td><b class="adm-rate--' + rateClass(r.st.avg) + '">' + r.st.avg + '%</b></td>' +
             '<td>' + (r.hard + 1) + '-savol · <b class="adm-rate--' + rateClass(hp) + '">' + hp + '%</b></td></tr>';

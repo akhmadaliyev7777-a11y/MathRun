@@ -73,7 +73,7 @@ function renderMyResults() {
       ? '<h2 class="my-h">Testlar</h2><ul class="my-list">' + tests.map(function (x) {
           const parts = splitTopicTitle(x.t.topic.title, x.t.index);
           return '<li><a href="' + topicHref(x.t.grade.id, x.t.subject.id, x.t.topic.id) + '#test">' +
-            '<span class="my-topic"><small>' + x.t.grade.name + '</small>' + escapeText(parts.num + " " + parts.title) + '</span>' +
+            '<span class="my-topic"><small>' + x.t.grade.name + (/\|qiyin$/.test(x.k) ? " · 2-test" : "") + '</small>' + escapeText(parts.num + " " + parts.title) + '</span>' +
             '<span class="my-score"><b class="my-rate--' + myRateClass(x.r.best || 0) + '">' + (x.r.best || 0) + '%</b>' +
             '<small>oxirgisi ' + (x.r.last || 0) + '% · ' + (x.r.count || 1) + ' marta · ' + myDate(x.r.t) + '</small></span></a></li>';
         }).join("") + '</ul>'

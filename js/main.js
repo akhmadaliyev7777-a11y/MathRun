@@ -469,6 +469,15 @@ window.addEventListener("message", function (e) {
     if (f.contentWindow === e.source) f.style.height = Math.max(200, Math.ceil(e.data.h)) + "px";
   });
 });
+// test oynasi so'raganda — sahifa oyna boshiga (yoki oyna ichidagi y joyga) suriladi
+window.addEventListener("message", function (e) {
+  if (!e.data || e.data.type !== "mathrun:top") return;
+  document.querySelectorAll("iframe").forEach(function (f) {
+    if (f.contentWindow !== e.source) return;
+    const y = f.getBoundingClientRect().top + window.pageYOffset + (e.data.y || 0) - 80;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  });
+});
 
 // mavzu kartochkasi (sinf sahifasi va Interaktiv darslar bo'limi uchun umumiy)
 function topicCardHtml(topic, i, href, parts, btn, interactiveFirst) {
@@ -581,7 +590,8 @@ function renderTopicPage() {
   }
 
   if (topic.test) {
-    testEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" data-src="' + topic.test + '" allowfullscreen></iframe>';
+    // test oynasi ichida aylantirish yo'q — balandligi testga moslashadi (mathrun:height)
+    testEl.innerHTML = '<iframe class="embed-frame embed-frame-tall embed-frame-test" scrolling="no" data-src="' + topic.test + '" allowfullscreen></iframe>';
   } else {
     testEl.innerHTML = '<div class="placeholder">🚧 Interaktiv test tez orada qo\'shiladi</div>';
   }
