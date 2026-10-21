@@ -952,7 +952,38 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
   flex-direction: column;
   padding: 20px;
   gap: 4px;
+  height: 100%;
+  overflow-y: auto;
 }
+
+.drawer-label {
+  padding: 0 14px 4px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.drawer-link.active { background: #eef0fd; color: var(--primary); }
+
+.drawer-bottom {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.drawer-admin { color: var(--primary); }
+
+.drawer-login-small {
+  align-self: flex-start;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+.drawer-login-small:hover { color: var(--primary); }
 
 .drawer-close {
   align-self: flex-end;

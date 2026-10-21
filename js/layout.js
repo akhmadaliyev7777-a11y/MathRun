@@ -35,19 +35,31 @@ function renderSiteHeader(base, active) {
     '<div id="side-drawer" class="side-drawer">' +
       '<div class="side-drawer-inner">' +
         '<button id="drawer-close-btn" class="drawer-close" aria-label="Yopish">&times;</button>' +
+        '<div class="drawer-label">O\'rganish</div>' +
         '<a href="' + base + 'index.html" class="drawer-link">Bosh sahifa</a>' +
+        '<a href="' + base + 'index.html#grades-section" class="drawer-link">Sinflar (1–11)</a>' +
         '<a href="' + base + 'korgazmalar.html" class="drawer-link">Interaktiv darslar</a>' +
         '<a href="' + base + 'mathrunner-web/index.html#/games" class="drawer-link">Fikrlash o\'yinlari</a>' +
-        '<a href="' + base + 'mathrunner-web/index.html" class="drawer-link">Boshlang\'ich sinflar (1–4)</a>' +
-        '<a href="' + base + 'settings.html" class="drawer-link">Sozlamalar</a>' +
-        '<a href="' + base + 'info.html" class="drawer-link">Ma\'lumot</a>' +
         '<div class="drawer-divider"></div>' +
-        '<a href="' + base + 'admin.html" id="drawer-admin-link" class="drawer-link" target="_blank" rel="noopener" hidden>Admin panel</a>' +
-        '<a href="' + base + 'login.html" id="drawer-login-link" class="drawer-link">Kirish</a>' +
-        '<button id="drawer-logout-btn" class="drawer-link drawer-logout" hidden>Chiqish</button>' +
+        '<a href="' + base + 'info.html" class="drawer-link">Mathlearn haqida</a>' +
+        // pastki qism: admin kirgan bo'lsa — Admin panel va Chiqish; kirmagan bo'lsa — kichik «Muallif uchun kirish»
+        '<div class="drawer-bottom">' +
+          '<a href="' + base + 'admin.html" id="drawer-admin-link" class="drawer-link drawer-admin" target="_blank" rel="noopener" hidden>Admin panel ↗</a>' +
+          '<button id="drawer-logout-btn" class="drawer-link drawer-logout" hidden>Chiqish</button>' +
+          '<a href="' + base + 'login.html" id="drawer-login-link" class="drawer-login-small">Muallif uchun kirish</a>' +
+        '</div>' +
       "</div>" +
     "</div>" +
     '<div id="drawer-overlay" class="drawer-overlay" hidden></div>';
+
+  // menyuda hozirgi sahifa ajratib ko'rsatiladi
+  const here = location.pathname.split("/").pop() || "index.html";
+  root.querySelectorAll(".side-drawer .drawer-link[href]").forEach(function (a) {
+    const href = a.getAttribute("href").replace(base, "");
+    const page = href.split("#")[0];
+    const hash = href.indexOf("#") >= 0 ? "#" + href.split("#")[1] : "";
+    if (page === here && (hash === location.hash || (!hash && !location.hash && page !== "mathrunner-web/index.html"))) a.classList.add("active");
+  });
 
   const toggleBtn = document.getElementById("menu-toggle-btn");
   const closeBtn = document.getElementById("drawer-close-btn");
