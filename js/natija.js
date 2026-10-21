@@ -33,3 +33,15 @@ function sendQuizResult(key, questions, chosen, correct) {
       .catch(function () { /* internet yo'q yoki baza yoqilmagan — test baribir ishlaydi */ });
   } catch (e) { /* natija yozilmasa ham test ishlayveradi */ }
 }
+
+// o'quvchining o'z natijasi — shu brauzerda saqlanadi (kirgan bo'lsa, hisobiga ham ko'chiriladi — auth.js)
+function saveLocalResult(key, correct, total) {
+  try {
+    const K = "mathlearn-natijalar-v1";
+    const all = JSON.parse(localStorage.getItem(K)) || {};
+    const old = all[key] || {};
+    const pct = Math.round(correct / total * 100);
+    all[key] = { best: Math.max(old.best || 0, pct), last: pct, count: (old.count || 0) + 1, t: Date.now() };
+    localStorage.setItem(K, JSON.stringify(all));
+  } catch (e) { /* saqlab bo'lmasa ham test ishlayveradi */ }
+}

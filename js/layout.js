@@ -2,6 +2,7 @@
 // active — menyuda ajratib ko'rsatiladigan bo'lim: "home" | "lessons" | "games" | "primary"
 function renderSiteHeader(base, active) {
   base = base || "";
+  window.SITE_BASE = base;
   const cls = (key) => (active === key ? ' class="active"' : "");
   const root = document.getElementById("site-header-root");
   if (!root) return;
@@ -40,6 +41,7 @@ function renderSiteHeader(base, active) {
         '<a href="' + base + 'index.html#grades-section" class="drawer-link">Sinflar (1–11)</a>' +
         '<a href="' + base + 'korgazmalar.html" class="drawer-link">Interaktiv darslar</a>' +
         '<a href="' + base + 'mathrunner-web/index.html#/games" class="drawer-link">Fikrlash o\'yinlari</a>' +
+        '<a href="' + base + 'mening.html" class="drawer-link">Mening natijalarim</a>' +
         '<div class="drawer-divider"></div>' +
         '<a href="' + base + 'info.html" class="drawer-link">Mathlearn haqida</a>' +
         // pastki qism: admin kirgan bo'lsa — Admin panel va Chiqish; kirmagan bo'lsa — kichik «Muallif uchun kirish»
@@ -82,14 +84,15 @@ function renderSiteHeader(base, active) {
   initSiteSearch(base);
 
   if (window.onAuthReadyForMenu) window.onAuthReadyForMenu();
-  // Kirish — hozircha ishga tushirilmagan: bosiladi, lekin faqat xabar ko'rsatadi
+  // Kirish — Google bilan (auth.js). Firebase yuklanmagan bo'lsa — faqat xabar ko'rsatadi
   const loginBtn = document.getElementById("site-login-btn");
   if (loginBtn) loginBtn.addEventListener("click", function () {
+    if (window.onSiteLoginClick && window.onSiteLoginClick(loginBtn)) return;
     let tip = document.getElementById("site-login-tip");
     if (!tip) {
       tip = document.createElement("div");
       tip.id = "site-login-tip"; tip.className = "site-login-tip"; tip.setAttribute("role", "status");
-      tip.textContent = "Kirish tez orada ishga tushadi";
+      tip.textContent = "Kirish hozir ishlamayapti — sahifani yangilab ko'ring";
       document.body.appendChild(tip);
     }
     tip.classList.add("on");

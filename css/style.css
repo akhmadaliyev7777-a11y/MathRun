@@ -1710,3 +1710,58 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
 .hero-text h1.h1-hikmat span { display: block; color: #1e2a78; }
 .hero-text h1.h1-hikmat span:nth-child(2) { color: #4b5578; }
 .hero-text h1.h1-hikmat span:last-child { color: #3b4fd8; }
+
+/* ---------- O'quvchi kirishi (Google) ---------- */
+.site-login-btn.is-user { display: inline-flex; align-items: center; gap: 8px; padding: 5px 14px 5px 5px; background: var(--surface); color: var(--text); border: 1px solid var(--border); box-shadow: none; max-width: 170px; }
+.site-login-btn.is-user:hover { background: #f3f4fd; border-color: var(--primary); }
+.site-user-ava { flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #6872e0, var(--primary-dark)); color: #fff; font-weight: 800; font-size: .9rem; }
+.site-user-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 640px) { .site-login-btn.is-user { padding: 4px; max-width: none; } .site-user-name { display: none; } }
+.site-user-menu { position: absolute; z-index: 130; min-width: 230px; padding: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 16px 40px rgba(15, 18, 30, .16); }
+.site-user-menu-head { display: flex; flex-direction: column; padding: 8px 10px 10px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.site-user-menu-head span { color: var(--muted); font-size: .8rem; overflow: hidden; text-overflow: ellipsis; }
+.site-user-menu a, .site-user-menu button { display: block; width: 100%; text-align: left; padding: 9px 10px; border: 0; border-radius: 9px; background: none; font: inherit; font-weight: 600; font-size: .92rem; color: var(--text); cursor: pointer; }
+.site-user-menu a:hover, .site-user-menu button:hover { background: var(--bg); }
+.site-user-menu button { color: #c73754; }
+
+.site-login-modal { position: fixed; inset: 0; z-index: 220; background: rgba(15, 18, 30, .45); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.site-login-box { position: relative; width: min(400px, 100%); background: var(--surface); border-radius: 18px; box-shadow: 0 20px 60px rgba(15, 18, 30, .25); padding: 28px 24px 20px; text-align: center; }
+.site-login-close { position: absolute; top: 10px; right: 12px; font-size: 1.6rem; line-height: 1; color: var(--muted); background: none; border: 0; cursor: pointer; }
+.site-login-emoji { font-size: 2.2rem; }
+.site-login-box h2 { margin: 6px 0 12px; font-size: 1.35rem; }
+.site-login-why { list-style: none; margin: 0 0 18px; padding: 0; text-align: left; display: inline-block; font-size: .92rem; color: #3d4356; }
+.site-login-why li { padding: 3px 0 3px 24px; position: relative; }
+.site-login-why li::before { content: "✓"; position: absolute; left: 2px; color: var(--accent-geometriya); font-weight: 800; }
+.site-google-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 12px 16px; border: 1px solid #d5d9e6; border-radius: 12px; background: #fff; font: inherit; font-weight: 700; font-size: .98rem; color: #1f2433; cursor: pointer; }
+.site-google-btn:hover { background: #f6f7fb; border-color: #b8bdd0; }
+.site-google-btn:disabled { opacity: .6; cursor: default; }
+.site-login-err { margin-top: 12px; padding: 9px 12px; border-radius: 10px; background: #fdecec; color: #9b1c1f; font-size: .85rem; text-align: left; }
+.site-login-hint { margin: 14px 0 0; color: var(--muted); font-size: .78rem; }
+
+/* ---------- Mening natijalarim ---------- */
+.my-card { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 16px 18px; margin-bottom: 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); }
+.my-ava { flex: 0 0 48px; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #6872e0, var(--primary-dark)); color: #fff; font-weight: 800; font-size: 1.3rem; }
+.my-user-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.my-user-body span { color: var(--muted); font-size: .85rem; overflow: hidden; text-overflow: ellipsis; }
+.my-user-body .my-sync { color: #0f8a7c; font-weight: 600; font-size: .8rem; margin-top: 2px; }
+.my-logout { font: inherit; font-weight: 700; font-size: .85rem; color: #c73754; background: none; border: 1px solid var(--border); border-radius: 10px; padding: 7px 12px; cursor: pointer; }
+.my-login > div { flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px; }
+.my-login > div span { color: var(--muted); font-size: .88rem; }
+.my-login .site-google-btn { flex: 0 1 260px; }
+.my-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 22px; }
+.my-stats > div { padding: 14px; text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+.my-stats b { display: block; font-size: 1.6rem; line-height: 1.2; }
+.my-stats span { color: var(--muted); font-size: .8rem; }
+.my-rate--low { color: #c2373b; }
+.my-rate--mid { color: #a06b00; }
+.my-rate--high { color: #0f8a7c; }
+.my-h { font-size: 1.1rem; margin: 18px 0 10px; }
+.my-list { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.my-list li + li { border-top: 1px solid var(--border); }
+.my-list a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; }
+.my-list a:hover { background: #fafbff; }
+.my-topic { display: flex; flex-direction: column; font-weight: 600; min-width: 0; }
+.my-topic small, .my-score small { color: var(--muted); font-weight: 500; font-size: .76rem; }
+.my-score { display: flex; flex-direction: column; align-items: flex-end; text-align: right; flex: 0 0 auto; }
+.my-score b { font-size: 1.15rem; }
+@media (max-width: 560px) { .my-stats { gap: 8px; } .my-stats b { font-size: 1.3rem; } .my-stats span { font-size: .72rem; } .my-list a { padding: 11px 12px; } }

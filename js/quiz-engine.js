@@ -114,6 +114,7 @@ function initQuiz() {
     current = questions.length;
     renderProgress();
     if (typeof sendQuizResult === "function") sendQuizResult(key, questions, chosenIdx, score);
+    if (typeof saveLocalResult === "function") saveLocalResult(key, score, questions.length);
     const percent = Math.round((score / questions.length) * 100);
     let message = "Yaxshi urinish! Yana mashq qiling.";
     if (percent === 100) message = "Ajoyib! Barcha savollarga to'g'ri javob berdingiz! \u{1F389}";
