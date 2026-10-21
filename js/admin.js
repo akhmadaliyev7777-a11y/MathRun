@@ -29,7 +29,9 @@ let panelTopic = null;         // yon oynada ochiq mavzu
 // Firebase ma'lumotlar bazasi: izohlar va o'quvchilar natijalari
 let DB = null;
 let dbState = "loading";       // "loading" | "ok" | "off" (baza yoqilmagan yoki ruxsat yo'q)
-let NOTES = [];                // { id, k, title, text, done, t }
+let NOTES = [];                // { id, src: "izoh" | "xabar", k, title, text, bolim, ism, done, t } — izohlar (admin) va saytdagi xabarlar
+let xabarOff = false;          // "xabarlar" to'plamiga ruxsat yo'q (qoidalar yangilanmagan)
+const BOLIM_NAMES = { maruza: "Nazariya", interaktiv: "Interaktiv panel", test: "Test" };
 let RESULTS = [];              // { k, h, s, n, t }
 
 // 1–4 sinflar ma'lumoti (mathrunner-web bo'limidan yuklanadi)
@@ -630,12 +632,17 @@ function initDatabase() {
   DB = firebase.firestore();
   Promise.all([
     DB.collection("izohlar").orderBy("t", "desc").limit(500).get(),
-    DB.collection("natijalar").orderBy("t", "desc").limit(2000).get()
+    DB.collection("natijalar").orderBy("t", "desc").limit(2000).get(),
+    DB.collection("xabarlar").orderBy("t", "desc").limit(500).get().catch(function () { xabarOff = true; return { docs: [] }; })
   ]).then(function (res) {
+    const toDate = function (x) { return x && x.toDate ? x.toDate() : null; };
     NOTES = res[0].docs.map(function (d) {
       const x = d.data();
-      return { id: d.id, k: x.k, title: x.title || "", text: x.text || "", done: !!x.done, t: x.t && x.t.toDate ? x.t.toDate() : null };
-    });
+      return { id: d.id, src: "izoh", k: x.k, title: x.title || "", text: x.text || "", done: !!x.done, t: toDate(x.t) };
+    }).concat(res[2].docs.map(function (d) {
+      const x = d.data();
+      return { id: d.id, src: "xabar", k: x.k, title: "", text: x.matn || "", bolim: x.bolim, ism: x.ism || "", done: !!x.bajarildi, t: toDate(x.t) };
+    })).sort(function (a, b) { return (b.t || 0) - (a.t || 0); });
     RESULTS = res[1].docs.map(function (d) {
       const x = d.data();
       return { k: x.k, h: x.h, s: x.s || [], n: x.n || 0, t: x.t && x.t.toDate ? x.t.toDate() : null };
@@ -668,20 +675,28 @@ function notesCard() {
     body = open.length
       ? open.map(function (n) {
           const t = topicByKey(n.k);
-          return t ? todayItem(t, "") .replace('</span></button>', '</span><span class="adm-today-note">' + escapeHtml(n.text) + '</span></button>') : "";
+          return t ? todayItem(t, "").replace('</span></button>', '</span><span class="adm-today-note">' + noteSource(n) + escapeHtml(n.text) + '</span></button>') : "";
         }).join("") +
         '<button type="button" class="adm-mini-btn" id="adm-notes-copy">📋 Claude uchun nusxalash</button>'
-      : '<div class="adm-today-sub">Ochiq izoh yo\'q. Mavzuni bosib, kamchilikni yozib qo\'ying.</div>';
+      : '<div class="adm-today-sub">Ochiq izoh yoki xabar yo\'q.</div>';
+    if (xabarOff) body += '<div class="adm-today-sub adm-warn">Saytdagi xabarlarni ko\'rish uchun Firebase qoidalarini yangilang.</div>';
   }
-  return todayCard("💬", "Izohlaringiz", dbState === "ok" ? openNotes().length : null, body, "notes");
+  return todayCard("💬", "Izohlar va xabarlar", dbState === "ok" ? openNotes().length : null, body, "notes");
+}
+
+// izoh yoki xabar kimdan va qaysi bo'limdan kelgani (qisqa belgi)
+function noteSource(n) {
+  if (n.src !== "xabar") return "";
+  return '<span class="adm-src">👤 ' + escapeHtml(n.ism || "Saytdan") + (BOLIM_NAMES[n.bolim] ? " · " + BOLIM_NAMES[n.bolim] : "") + '</span> ';
 }
 
 function copyNotesForClaude(btn) {
   const lines = openNotes().map(function (n) {
     const t = topicByKey(n.k);
-    return "- " + (t ? t.grade.id + "-sinf, " + t.topic.title : n.title) + ": " + n.text;
+    const where = (t ? t.grade.id + "-sinf, " + t.topic.title : n.title) + (n.src === "xabar" && BOLIM_NAMES[n.bolim] ? " (" + BOLIM_NAMES[n.bolim] + ")" : "");
+    return "- " + where + ": " + n.text + (n.src === "xabar" ? " [saytdan" + (n.ism ? ", " + n.ism : "") + "]" : "");
   });
-  const text = "Admin paneldagi izohlarim (tuzatib bering):\n" + lines.join("\n");
+  const text = "Admin paneldagi izohlar va saytdan kelgan xabarlar (tekshirib, tuzatib bering):\n" + lines.join("\n");
   navigator.clipboard.writeText(text).then(function () {
     btn.textContent = "Nusxalandi ✓ — Claude'ga joylang";
     setTimeout(function () { btn.textContent = "📋 Claude uchun nusxalash"; }, 2500);
@@ -694,9 +709,10 @@ function renderPanelNotes() {
   if (dbState !== "ok") { el.innerHTML = '<h4>Izohlar</h4>' + (dbState === "loading" ? '<p class="muted">Yuklanmoqda…</p>' : dbOffText()); return; }
   const k = topicKey(panelTopic.grade, panelTopic.subject, panelTopic.topic);
   const list = NOTES.filter(function (n) { return n.k === k; });
-  el.innerHTML = '<h4>Izohlar</h4>' +
+  el.innerHTML = '<h4>Izohlar va xabarlar</h4>' +
     (list.length ? '<ul class="adm-notes">' + list.map(function (n) {
-      return '<li class="' + (n.done ? "done" : "") + '"><div class="adm-note-text">' + escapeHtml(n.text) + '</div>' +
+      return '<li class="' + (n.done ? "done " : "") + (n.src === "xabar" ? "xabar" : "") + '">' + (n.src === "xabar" ? '<div class="adm-note-from">' + noteSource(n) + '</div>' : "") +
+        '<div class="adm-note-text">' + escapeHtml(n.text) + '</div>' +
         '<div class="adm-note-meta"><span>' + fmtDate(n.t) + '</span>' +
         '<button type="button" data-done="' + n.id + '">' + (n.done ? "↺ Qayta ochish" : "✓ Bajarildi") + '</button>' +
         '<button type="button" data-del="' + n.id + '">O\'chirish</button></div></li>';
@@ -711,20 +727,22 @@ function renderPanelNotes() {
     const btn = this; btn.disabled = true; btn.textContent = "Saqlanmoqda…";
     const doc = { k: k, title: panelTopic.topic.title, text: text, done: false, t: firebase.firestore.FieldValue.serverTimestamp() };
     DB.collection("izohlar").add(doc).then(function (ref) {
-      NOTES.unshift({ id: ref.id, k: k, title: doc.title, text: text, done: false, t: new Date() });
+      NOTES.unshift({ id: ref.id, src: "izoh", k: k, title: doc.title, text: text, done: false, t: new Date() });
       renderPanelNotes(); renderStats();
     }).catch(function () { btn.disabled = false; btn.textContent = "Saqlanmadi — qayta urining"; });
   });
   el.querySelectorAll("[data-done]").forEach(function (b) {
     b.addEventListener("click", function () {
       const n = NOTES.find(function (x) { return x.id === b.dataset.done; });
-      DB.collection("izohlar").doc(n.id).update({ done: !n.done }).then(function () { n.done = !n.done; renderPanelNotes(); renderStats(); });
+      const upd = n.src === "xabar" ? { bajarildi: !n.done } : { done: !n.done };
+      DB.collection(n.src === "xabar" ? "xabarlar" : "izohlar").doc(n.id).update(upd).then(function () { n.done = !n.done; renderPanelNotes(); renderStats(); });
     });
   });
   el.querySelectorAll("[data-del]").forEach(function (b) {
     b.addEventListener("click", function () {
-      if (!confirm("Izoh o'chirilsinmi?")) return;
-      DB.collection("izohlar").doc(b.dataset.del).delete().then(function () {
+      if (!confirm("O'chirilsinmi?")) return;
+      const n = NOTES.find(function (x) { return x.id === b.dataset.del; });
+      DB.collection(n.src === "xabar" ? "xabarlar" : "izohlar").doc(n.id).delete().then(function () {
         NOTES = NOTES.filter(function (x) { return x.id !== b.dataset.del; });
         renderPanelNotes(); renderStats();
       });

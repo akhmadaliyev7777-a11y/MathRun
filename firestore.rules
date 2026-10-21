@@ -1,6 +1,6 @@
 rules_version = '2';
 // Firebase Console → Firestore Database → Rules ga shu matn qo'yiladi.
-// izohlar — faqat admin; natijalar — har kim (o'quvchi) faqat yangi natija qo'sha oladi, o'qish faqat admin.
+// izohlar — faqat admin; natijalar va xabarlar — har kim faqat yangisini qo'sha oladi, o'qish faqat admin.
 service cloud.firestore {
   match /databases/{database}/documents {
     function isAdmin() {
@@ -17,6 +17,16 @@ service cloud.firestore {
         && request.resource.data.s is list && request.resource.data.s.size() <= 40
         && request.resource.data.n is int && request.resource.data.n >= 0 && request.resource.data.n <= 40
         && request.resource.data.t is timestamp;
+    }
+    match /xabarlar/{id} {
+      allow read, update, delete: if isAdmin();
+      allow create: if request.resource.data.keys().hasOnly(['k', 'bolim', 'matn', 'ism', 't', 'bajarildi'])
+        && request.resource.data.k is string && request.resource.data.k.size() < 120
+        && request.resource.data.bolim in ['maruza', 'interaktiv', 'test']
+        && request.resource.data.matn is string && request.resource.data.matn.size() > 0 && request.resource.data.matn.size() <= 1000
+        && request.resource.data.ism is string && request.resource.data.ism.size() <= 60
+        && request.resource.data.t is timestamp
+        && request.resource.data.bajarildi == false;
     }
   }
 }

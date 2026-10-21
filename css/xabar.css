@@ -1,0 +1,26 @@
+/* «Kamchilik topdingizmi?» — mavzu sahifasi pastida */
+.xabar-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px; margin: 28px 0 8px; padding: 14px 16px; border: 1px dashed var(--border); border-radius: 14px; color: var(--muted); font-size: 0.92rem; text-align: center; }
+.xabar-open { font: inherit; font-size: 0.88rem; font-weight: 700; color: var(--primary); background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 8px 14px; cursor: pointer; }
+.xabar-open:hover { border-color: var(--primary); background: #f5f6fe; }
+
+.xabar-modal { position: fixed; inset: 0; z-index: 210; background: rgba(15, 18, 30, 0.45); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.xabar-box { width: min(480px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; background: var(--surface); border-radius: 16px; box-shadow: 0 20px 60px rgba(15, 18, 30, 0.25); padding: 20px 22px; }
+.xabar-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 1.1rem; margin-bottom: 6px; }
+.xabar-close { font-size: 1.6rem; line-height: 1; color: var(--muted); background: none; border: 0; cursor: pointer; padding: 0 4px; }
+.xabar-label { display: block; margin: 14px 0 6px; font-weight: 700; font-size: 0.9rem; }
+.xabar-label span { font-weight: 500; color: var(--muted); }
+.xabar-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.xabar-chip input { position: absolute; opacity: 0; pointer-events: none; }
+.xabar-chip span { display: inline-block; padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; font-size: 0.85rem; font-weight: 600; color: var(--muted); cursor: pointer; }
+.xabar-chip input:checked + span { color: #fff; background: var(--primary); border-color: var(--primary); }
+.xabar-chip input:focus-visible + span { outline: 2px solid var(--primary); outline-offset: 2px; }
+.xabar-input { display: block; width: 100%; font: inherit; font-size: 0.95rem; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); resize: vertical; }
+.xabar-input:focus { outline: none; border-color: var(--primary); background: var(--surface); }
+.xabar-error { margin-top: 10px; padding: 8px 12px; border-radius: 9px; background: #fdecec; color: #9b1c1f; font-size: 0.85rem; }
+.xabar-send { display: block; width: 100%; margin-top: 16px; font: inherit; font-weight: 700; color: #fff; background: var(--primary); border: 0; border-radius: 11px; padding: 11px; cursor: pointer; }
+.xabar-send:hover { background: var(--primary-dark); }
+.xabar-send:disabled { opacity: 0.6; cursor: default; }
+.xabar-note { margin: 10px 0 0; text-align: center; color: var(--muted); font-size: 0.78rem; }
+.xabar-done { text-align: center; }
+.xabar-done-icon { font-size: 2rem; }
+.xabar-done p { color: var(--muted); }

@@ -165,3 +165,10 @@ details.adm-psec[open] > summary { margin-bottom: 8px; }
   .adm-res-table th:nth-child(2)::after { content: "Soni"; }
   .adm-res-table th:nth-child(3)::after { content: "O'rt."; }
 }
+
+/* saytdan kelgan xabarlar */
+.adm-src { font-weight: 700; color: #0f6f63; }
+.adm-notes li.xabar { background: #eefaf7; border-color: #c9ece4; }
+.adm-notes li.xabar.done { background: #f3f4f8; border-color: var(--border); }
+.adm-note-from { font-size: 0.78rem; margin-bottom: 3px; }
+.adm-warn { color: #8a6100; }
