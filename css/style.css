@@ -1868,3 +1868,4 @@ details.qz-sol[open] div { margin-top: 8px; padding: 10px 12px; border-radius: 1
 /* mavzu sahifasi ichida: tashqi karta ramkasiz — savollar kengroq */
 .quiz-embedded #quiz-card { background: none; border: 0; box-shadow: none; padding: 4px 0 0; }
 .quiz-embedded .qz-intro, .quiz-embedded .qz-result { padding: 0 4px; }
+.qz-sol--open > b:first-child { display: block; margin-bottom: 4px; }

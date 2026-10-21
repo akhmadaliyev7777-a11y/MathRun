@@ -151,6 +151,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Rasmlar:** pitsalar va bo'laklar, tasma.
 
 #### ✅ 6. Oddiy kasrni o'nli kasrga aylantirish — D1 52–55; M1 59–62
+**Test (2026-10-21):** o'z testi — yangi format 20+20 (1-test oson, 2-test qiyinroq), har savolda qadamma-qadam yechim; javoblar Fraction/Decimal bilan tekshirildi (har savolda faqat bitta to'g'ri variant); kitob misollari (4/5, 6/125, 7/3, 13/7, 3 ℓ:4, 10 kg:8, 5 8/11, 211/23, 42/17, 2 − 3/4, 9/4) ishlatilmadi. Mavzu `oddiy-kasrlar` umumiy testidan o'z testiga ulandi.
 **Holat (2026-10-16):** yangi andozada qayta yasaldi, personajlar qo'shildi, push qilindi (e504d32). Test izohlari (`oddiy-kasrlar`, 5–11-mavzularga umumiy) ✅ 2026-10-17 (dc991dd).
 **Tekshiruv:** ekspert — 6 qoida bandi ✅, barcha javoblar Fraction/Decimal bilan tekshirildi (xato 0), burchak usuli generatori 11 000+ misolda tekshirildi; ustoz — har qoidadan keyin namuna, darslik va daftar turlari bor, tipik xatolar 5 ta; o'quvchi — telefon 390 px: jadval, kasrlar, javob tugmalari ✅ (tuzatildi: mayda kasrlar, keng jadval, "Diqqat"dagi bo'linish); texnik — node --check, xato yo'q, gorizontal surilish yo'q, iframe balandligi to'g'ri.
 **Simulyator uchun g'oyalar:** 1-usulda "nechaga ko'paytiramiz" jadvalidan tanlash; burchak usulida qadamma-qadam (generator tayyor: maruza/chizma.js bolish()); "tugaydimi?" o'yini (maxrajni 2 va 5 ga ajratish); yaxlitlash bosqichi.

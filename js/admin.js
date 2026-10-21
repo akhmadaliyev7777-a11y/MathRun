@@ -469,7 +469,7 @@ function openTopicPanel(gradeId, subjectId, topicId) {
           '<div class="adm-opts">' + (qq.options || []).map(function (o) {
             return '<span class="adm-opt' + (String(o) === String(qq.answer) ? " adm-opt--ok" : "") + '">' + escapeHtml(o) + '</span>';
           }).join("") + '</div>' +
-          (qq.explain ? '<div class="adm-explain">' + escapeHtml(qq.explain) + '</div>' : "") + '</li>';
+          (qq.explain ? '<div class="adm-explain">' + escapeHtml(qq.explain).replace(/&lt;(\/?)(b|br)&gt;/g, "<$1$2>") + '</div>' : "") + '</li>';
       }).join("") + '</ol>'; };
   const quizHtml = qsets.length
     ? qsets.map(function (x) {
