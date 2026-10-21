@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Me'yorni topish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=30">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Me'yorni topish</h1>
+<p class="m-lead">Bir birlik vaqtda (yoki bir dona, bir kilogramm, bir metrda) qancha ish bajarilishini yoki qancha turishini topishni, narxlarni va ish tezligini taqqoslashni, grafikdan me'yorni o'qishni o'rganamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik — teng bo'lish</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Bir nechta narsa narxini bitta narsa narxini bilish uchun teng bo'laklarga bo'lamiz!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li><b>Teng bo'lish:</b> \(24 : 6 = 4\) — 24 ta narsa 6 ta teng guruhga bo'linsa, har guruhda 4 tadan bo'ladi.</li>
+      <li><b>Natural sonni natural songa bo'lish natijasi o'nli kasr bo'lishi mumkin:</b> \(14 : 8 = 1,75\) (burchak usulida bo'lishni davom ettiramiz, qoldiqqa nol qo'shamiz).</li>
+      <li><b>O'nli kasrni natural songa bo'lish:</b> \(8,4 : 3 = 2,8\) — vergul bo'linmada o'sha joyda qoladi.</li>
+      <li><b>Uzunlik, massa, sig'im birliklari:</b> \(1\ \text{m} = 100\ \text{cm}\); \(1\ \text{kg} = 1000\ \text{g}\); \(1\ \ell = 1000\ \text{ml}\); \(1\ \text{soat} = 60\ \text{min}\); \(1\ \text{min} = 60\ \text{s}\).</li>
+    </ul>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · bir dona narxi</span>
+    <p>6 ta bir xil qalamning narxi 13 800 so'm. Bitta qalamning narxi: \(13 800 : 6 = \nat{2300}\) so'm.</p>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Me'yor — bitta birlikka to'g'ri keladigan miqdor. Uni topish uchun jami miqdorni birliklar soniga bo'lamiz!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · me'yor nima</span>
+    <p><b>Me'yor</b> — ma'lum <b>bir birlikda</b> (1 minut, 1 soat, 1 kun, 1 kg, 1 m, 1 dona …) bajarilgan ish miqdori yoki shu birlikka to'g'ri keladigan miqdor. Masalan, printer <b>har minutda</b> bir xil miqdorda sahifa chop etsa, bir minutda chop etilgan sahifalar soni — printerning ish me'yori; bir kilogramm olmaning narxi — olmaning narx me'yori.</p>
+    <p>Me'yor haqida gapirilganda ish <b>har birlikda bir xil</b> bajariladi deb hisoblanadi.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · me'yorni topish</span>
+    <p>Jami miqdor va birliklar soni ma'lum bo'lsa, me'yorni topish uchun <b>jami miqdor birliklar soniga bo'linadi</b>:</p>
+    <p><b>me'yor = jami miqdor : birliklar soni</b></p>
+    <p>Bo'linma o'nli kasr bo'lishi mumkin.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · bir birlikka keltiramiz</span>
+    <p>Stanok 6 minutda 1170 ta tugma tayyorlaydi. U har minutda necha tugma tayyorlaydi?</p>
+    <div data-meyor="6 min|1170 tugma"></div>
+    <p>\(1170 : 6 = \nat{195}\) — stanok minutiga 195 ta tugma tayyorlaydi.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · me'yorni yozish va o'qish</span>
+    <p>Me'yor <b>son va ikki birlik</b> bilan yoziladi: avval o'lchanayotgan miqdorning birligi, keyin «/» belgisi, so'ng bir birlikning nomi (min, soat, kun, kg, m, dona). «/» belgisi «har bir» ma'nosini beradi.</p>
+    <ul>
+      <li>195 tugma/min — «har minutda 195 ta tugma»;</li>
+      <li>1,75 ℓ/soat — «har soatda 1,75 litr»;</li>
+      <li>15 000 so'm/kg — «har bir kilogrammi 15 000 so'm».</li>
+    </ul>
+    <p>Me'yorning birligini yozmasdan, faqat son yozish — to'liq javob emas.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · o'nli kasr me'yor</span>
+    <p>Jo'mrakdan 8 soatda 14 ℓ suv tomdi. Soatiga necha litr tomadi?</p>
+    <div class="qadam"><b>1</b><span>8 soat → 14 ℓ; 1 soat → ?</span></div>
+    <div class="qadam"><b>2</b><span>\(14 : 8 = \nat{1,75}\) ℓ.</span></div>
+    <div class="qadam"><b>3</b><span>Me'yor: <b>1,75 ℓ/soat</b>. Tekshiramiz: \(8 \cdot 1,75\) ya'ni 14 ℓ ga teng.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · narxlarni taqqoslash</span>
+    <p>Turli miqdordagi mahsulotning narxini taqqoslash uchun har birining <b>bir birlikdagi narxi</b> (1 kg, 1 m, 1 ℓ, 1 dona narxi) topiladi, keyin ular solishtiriladi. <b>Bir birlik narxi kichik</b> bo'lgan xarid arzon.</p>
+    <p>Jami narxlarning o'zini solishtirish bilan javob bo'lmaydi: miqdorlar turlicha.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · qaysi qadoq arzon?</span>
+    <p>Shakar ikki xil qadoqda sotiladi: A qadoq — 2 kg, narxi 31 000 so'm; B qadoq — 5 kg, narxi 75 000 so'm. Qaysi qadoqdagi shakar arzon?</p>
+    <div class="qadam"><b>1</b><span>A: \(31 000 : 2 = 15 500\) so'm/kg.</span></div>
+    <div class="qadam"><b>2</b><span>B: \(75 000 : 5 = 15 000\) so'm/kg.</span></div>
+    <div class="qadam"><b>3</b><span>\(15 000 < 15 500\), shuning uchun <b>B qadoq arzon</b> (bir kilogrammda 500 so'm tejaladi).</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">5-qoida · grafikdan me'yorni o'qish</span>
+    <p>Grafik <b>0 dan o'tuvchi to'g'ri chiziq</b> bo'lsa, ish har birlikda bir xil bajariladi. Me'yorni topish uchun chiziqdagi <b>aniq o'qiladigan nuqta</b> olinadi: tik o'qdagi qiymat gorizontal o'qdagi qiymatga bo'linadi. Gorizontal o'qda 1 ga mos nuqta olinsa, tik o'qdagi qiymatning o'zi me'yor bo'ladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · grafik</span>
+    <p>Chizmada velosipedchining yurgan masofasi vaqtga bog'liq ko'rsatilgan. U soatiga necha kilometr yuradi?</p>
+    <div data-grafik="1:12,2:24,3:36" data-nom="Velosipedchi" data-x="Vaqt (soat)" data-y="Masofa (km)" data-xmax="4" data-ymax="48" data-yqadam="12"></div>
+    <p>1 soat → 12 km. Tekshiramiz: 3 soat → 36 km va \(36 : 3 = \nat{12}\) km/soat — bir xil.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">6-qoida · ish tezligini taqqoslash</span>
+    <p>Ikki ishchi, mashina yoki asbobning ish tezligini taqqoslash uchun <b>har birining me'yori</b> (bir birlikdagi ish miqdori) topiladi. Me'yorlar <b>bir xil birlikda</b> bo'lishi shart. Me'yori katta bo'lgani tezroq ishlaydi.</p>
+    <p>Qaysi biri jami nechta ish qilgani yoki qancha vaqt ishlagani bo'yicha xulosa chiqarilmaydi: ko'proq vaqt ishlagan ko'proq ish qilgan bo'lishi mumkin, tezroq bo'lmasa ham.</p>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Bir birlikka o'tishda ikkala sonni bir xil songa bo'lamiz!</div></div>
+  <div class="box">
+    <p><b>Sxema.</b> Pazanda 4 soatda 52 ta non yopdi. Bir soatda necha non yopgan?</p>
+    <div data-meyor="4 soat|52 non"></div>
+    <p><b>Amallar zanjiri.</b></p>
+    <div data-zanjir="52/:4"></div>
+    <p><b>Chiziqli model.</b> Har bir bo'lak — bir soat; 4 ta teng bo'lak — 52 non.</p>
+    <div data-tasma="4 soat:4" data-bolak="13"></div>
+    <p><b>Grafik.</b> Idishga sharbat quyilmoqda. Har minutda necha litr sharbat quyiladi?</p>
+    <div data-grafik="1:5,2:10,3:15,4:20" data-nom="Sharbat quyilishi" data-x="Vaqt (min)" data-y="Hajm (ℓ)" data-xmax="5" data-ymax="25" data-yqadam="5"></div>
+    <p class="chz-cap">Chiziq 0 dan chiqib, har minutda 5 ℓ ga ko'tariladi: me'yor 5 ℓ/min.</p>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar</h2>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · gilam narxi</span>
+    <p>Yuzi 15 m² bo'lgan xonaga sotib olinadigan gilamning narxi 2 400 000 so'm. Bir kvadrat metr gilamning narxini toping.</p>
+    <div class="qadam"><b>1</b><span>15 m² → 2 400 000 so'm; 1 m² → ?</span></div>
+    <div class="qadam"><b>2</b><span>\(2 400 000 : 15 = \nat{160 000}\) so'm.</span></div>
+    <div class="qadam"><b>3</b><span>Javob: <b>160 000 so'm/m²</b>. Tekshiruv: \(160 000 \cdot 15 = 2 400 000\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · benzin sarfi</span>
+    <p>Avtomobil 36 ℓ benzin sarflab, 450 km yo'l yurdi. 1 ℓ benzin bilan u necha kilometr yuradi?</p>
+    <div class="qadam"><b>1</b><span>36 ℓ → 450 km; 1 ℓ → ?</span></div>
+    <div class="qadam"><b>2</b><span>\(450 : 36 = \nat{12,5}\) km.</span></div>
+    <div class="qadam"><b>3</b><span>Javob: <b>12,5 km/ℓ</b>.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · uch xil xarid</span>
+    <p>Do'konda guruch bir kilogrammlik paketda 14 500 so'm, 3 kg li qopda 40 500 so'm, 5 kg li qopda 69 000 so'm. Qaysi xarid eng arzon?</p>
+    <div class="qadam"><b>1</b><span>1 kg li paket: <b>14 500</b> so'm/kg.</span></div>
+    <div class="qadam"><b>2</b><span>3 kg li qop: \(40 500 : 3 = 13 500\) so'm/kg.</span></div>
+    <div class="qadam"><b>3</b><span>5 kg li qop: \(69 000 : 5 = 13 800\) so'm/kg.</span></div>
+    <div class="qadam"><b>4</b><span>Eng kichigi — 13 500: <b>3 kg li qop eng arzon</b>.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 4 · mato narxi</span>
+    <p>A do'konda 3 m matoning narxi 66 000 so'm, B do'konda 4 m matoning narxi 84 000 so'm. Qaysi do'konda mato qimmat?</p>
+    <div class="qadam"><b>1</b><span>A: \(66 000 : 3 = 22 000\) so'm/m.</span></div>
+    <div class="qadam"><b>2</b><span>B: \(84 000 : 4 = 21 000\) so'm/m.</span></div>
+    <div class="qadam"><b>3</b><span>\(22 000 > 21 000\): <b>A do'konda qimmat</b>.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 5 · metr va soniya (birlikni moslash)</span>
+    <p>Jo'mrak 3 ℓ 600 ml li idishni 9 minutda to'ldiradi. Bir minutda necha millilitr suv oqadi?</p>
+    <div class="qadam"><b>1</b><span>Birlikni tenglaymiz: \(3\ \ell\ 600\ \text{ml} = 3600\) ml.</span></div>
+    <div class="qadam"><b>2</b><span>\(3600 : 9 = \nat{400}\) ml.</span></div>
+    <div class="qadam"><b>3</b><span>Javob: <b>400 ml/min</b> (yoki 0,4 ℓ/min).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 6 · kimning ishi tez?</span>
+    <p>Birinchi usta 6 soatda 78 ta detal, ikkinchi usta 9 soatda 108 ta detal yasadi. Qaysi usta tezroq ishlaydi? Soatiga farqi qancha?</p>
+    <div class="qadam"><b>1</b><span>Birinchi: \(78 : 6 = 13\) detal/soat.</span></div>
+    <div class="qadam"><b>2</b><span>Ikkinchi: \(108 : 9 = 12\) detal/soat.</span></div>
+    <div class="qadam"><b>3</b><span>\(13 > 12\): <b>birinchi usta tezroq</b>, soatiga \(13 - 12 = 1\) ta detal ko'p.</span></div>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Jami miqdor har doim bo'linuvchi, birliklar soni — bo'luvchi!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Bo'linuvchi va bo'luvchining o'rnini almashtirish.<br><span class="xato">4 soat — 52 non: 4 : 52</span> &nbsp;→&nbsp; <span class="togri">me'yor = jami : birliklar soni: 52 : 4 = 13 non/soat</span></li>
+      <li>Birligini yozmaslik.<br><span class="xato">Me'yor 195</span> &nbsp;→&nbsp; <span class="togri">195 tugma/min</span></li>
+      <li>Narxlarni taqqoslashda jami narxga qarash.<br><span class="xato">31 000 &lt; 75 000, demak birinchisi arzon</span> &nbsp;→&nbsp; <span class="togri">1 kg narxi: 15 500 va 15 000 — ikkinchisi arzon</span></li>
+      <li>Bo'linma o'nli kasr bo'lishi mumkinligini unutish.<br><span class="xato">14 : 8 = 1 (qoldiq 6)</span> &nbsp;→&nbsp; <span class="togri">14 : 8 = 1,75 (soatiga 1,75 ℓ)</span></li>
+      <li>Ko'p ish qilgan — tezroq deb o'ylash.<br><span class="xato">360 ta — 595 tadan kam, shuning uchun ikkinchisi tezroq</span> &nbsp;→&nbsp; <span class="togri">har birining me'yorini toping va ularni solishtiring</span></li>
+      <li>Grafikdagi oxirgi sonni me'yor deb olish.<br><span class="xato">3 soatda 36 km: me'yor 36</span> &nbsp;→&nbsp; <span class="togri">36 : 3 = 12 km/soat</span></li>
+      <li>Turli birliklardagi me'yorlarni solishtirish.<br><span class="xato">2 sahifa/s va 100 sahifa/min: 100 &gt; 2</span> &nbsp;→&nbsp; <span class="togri">avval bir xil birlikka keltiring: 2 sahifa/s = 120 sahifa/min</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Avval jami miqdorni va birliklar sonini aniqlayman, keyin bo'laman!</div></div>
+
+  <div class="daraja oson"><i></i>Oson — me'yorni toping</div>
+  <div class="misollar qator">
+    <span><b>a)</b> Ishchi 8 soatda 96 000 so'm ishladi. Soatiga necha so'm?</span>
+    <span><b>b)</b> Poyezd 6 soatda 510 km yurdi. Soatiga necha kilometr?</span>
+    <span><b>c)</b> 9 kg shirin yong'oq 117 000 so'm turadi. 1 kg narxi qancha?</span>
+    <span><b>d)</b> Pechka 12 minutda 84 ta non yopdi. Minutiga nechta?</span>
+    <span><b>e)</b> 25 m mato 1 400 000 so'm turadi. 1 m narxi qancha?</span>
+    <span><b>f)</b> Bog'bon 4 kunda 68 ta ko'chat o'tqazdi. Kuniga nechta?</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 12 000 so'm/soat</span><span>b) 85 km/soat</span><span>c) 13 000 so'm/kg</span><span>d) 7 non/min</span><span>e) 56 000 so'm/m</span><span>f) 17 ko'chat/kun</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — me'yor o'nli kasr bo'lishi mumkin</div>
+  <div class="misollar qator">
+    <span><b>a)</b> Jo'mrakdan 5 soatda 12 ℓ suv tomdi. Soatiga necha litr?</span>
+    <span><b>b)</b> 6 kg yong'oq 468 000 so'm turadi. 1 kg narxi qancha?</span>
+    <span><b>c)</b> 8 m lentaning narxi 52 000 so'm. 1 m narxi qancha?</span>
+    <span><b>d)</b> 15 kunda 6 kg un ishlatildi. Kuniga necha kilogramm?</span>
+    <span><b>e)</b> Tez yurgan piyoda 3 soatda 8,4 km yo'l bosdi. Soatiga necha kilometr?</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 2,4 ℓ/soat</span><span>b) 78 000 so'm/kg</span><span>c) 6 500 so'm/m</span><span>d) 0,4 kg/kun</span><span>e) 2,8 km/soat</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — qaysi biri arzon?</div>
+  <div class="misollar qator">
+    <span><b>a)</b> Guruch: A qadoq — 4 kg, 54 000 so'm; B qadoq — 6 kg, 82 800 so'm.</span>
+    <span><b>b)</b> Ip: A do'konda 3 m — 7 500 so'm; B do'konda 5 m — 12 500 so'm.</span>
+    <span><b>c)</b> Sharbat: A paket — 3 ℓ, 27 600 so'm; B paket — 5 ℓ, 47 500 so'm.</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) A: 13 500, B: 13 800 so'm/kg — A arzon</span><span>b) ikkalasida 2 500 so'm/m — narxlar teng</span><span>c) A: 9 200, B: 9 500 so'm/ℓ — A arzon</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — grafikdan me'yorni toping</div>
+  <p><b>a)</b> Sharbat ishlab chiqarish: har minutda necha litr?</p>
+  <div data-grafik="1:5,2:10,3:15,4:20" data-nom="Idishga quyilgan sharbat" data-x="Vaqt (min)" data-y="Hajm (ℓ)" data-xmax="5" data-ymax="25" data-yqadam="5"></div>
+  <p><b>b)</b> Usta ishlagan kunlari bo'yicha olgan ish haqi. Kuniga necha ming so'm?</p>
+  <div data-grafik="1:70,2:140,3:210" data-nom="Usta ish haqi" data-x="Kun" data-y="Ming so'm" data-xmax="4" data-ymax="280" data-yqadam="70"></div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 5 ℓ/min</span><span>b) 70 ming so'm/kun</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — birliklarni moslang</div>
+  <div class="misollar qator">
+    <span><b>a)</b> Skaner 2 minutda 300 sahifa nusxalaydi. Sekundiga nechta sahifa?</span>
+    <span><b>b)</b> Idish 45 minutda 18 ℓ suv bilan to'ldi. Minutiga necha millilitr?</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 2 min = 120 s; \(300 : 120 = 2,5\) sahifa/s</span><span>b) 18 ℓ = 18 000 ml; \(18 000 : 45 = 400\) ml/min</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — ikki ishni taqqoslang</div>
+  <ol>
+    <li>Dilnoza 9 kunda 216 bet, Zarina 7 kunda 182 bet o'qidi (har kuni bir xil). Kim kuniga ko'p o'qigan va qancha ko'p?</li>
+    <li>Madina 4 ta daftar uchun 18 000 so'm, Aziz 6 ta xuddi shunday daftar uchun 25 800 so'm to'ladi. Kim arzon sotib olgan? Bitta daftar narxi qancha farq qiladi?</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) Dilnoza: 24 bet/kun, Zarina: 26 bet/kun — Zarina kuniga 2 bet ko'p</span><span>2) Madina: 4 500, Aziz: 4 300 so'm — Aziz arzon sotib olgan, bitta daftarda 200 so'm farq</span></div>
+  </details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Masalalarni yeching</span>
+    <ol class="masalalar">
+      <li>Yuzi 18 m² bo'lgan polga yotqiziladigan laminat uchun 2 340 000 so'm to'landi. Bir kvadrat metr laminatning narxi qancha?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(2 340 000 : 18 = 130 000\) so'm/m².</details></li>
+      <li>Avtomobil 27 ℓ benzin bilan 405 km yo'l yurdi. 1 ℓ benzin bilan necha kilometr yuradi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(405 : 27 = 15\) km/ℓ.</details></li>
+      <li>Orif avtoturargohga mashinasini 4 soatga qo'ygani uchun 34 000 so'm to'ladi. Bir soatlik narx qancha?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(34 000 : 4 = 8 500\) so'm/soat.</details></li>
+      <li>Sardor kompyuterda 6 minutda 138 ta so'z terdi. Minutiga nechta so'z teradi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(138 : 6 = 23\) so'z/min.</details></li>
+      <li>Skaner 4 minutda 52 ta sahifani nusxalaydi. Uning tezligi minutiga qancha?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(52 : 4 = 13\) sahifa/min.</details></li>
+      <li>Usta 5 soatlik ish uchun 92 500 so'm oldi. Uning bir soatlik ish haqi qancha?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(92 500 : 5 = 18 500\) so'm/soat.</details></li>
+      <li>Teatr uchun 8 kishilik chipta 360 000 so'mga sotildi. Bitta chiptaning narxi qancha?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(360 000 : 8 = 45 000\) so'm.</details></li>
+      <li>Jo'mrak orqali 72 ℓ suv 9 minutda oqadi. Minutiga necha litr suv oqadi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(72 : 9 = 8\) ℓ/min.</details></li>
+      <li>Mebel korxonasi 7 kunda 392 ta shkaf yasadi. Korxona kuniga nechta shkaf yasaydi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(392 : 7 = 56\) shkaf/kun.</details></li>
+      <li>Poyezd dastlabki 2 soatda 150 km, keyingi 3 soatda 255 km yurdi. Butun yo'l bo'yicha o'rtacha soatiga necha kilometr yurgan?
+        <details class="javob"><summary>Javobni ko'rish</summary>Jami yo'l: \(150 + 255 = 405\) km; jami vaqt: \(2 + 3 = 5\) soat; \(405 : 5 = 81\) km/soat. (Eslatma: bu \(75\) va \(85\) ning o'rtachasi \(80\) emas.)</details></li>
+      <li>Hovuzga 6 minutda 450 ℓ suv quyildi. Keyin quyilish tezligi oshirilib, 4 minutda 360 ℓ quyildi. Qaysi paytda quyilish tezroq bo'lgan va farq necha litr/min?
+        <details class="javob"><summary>Javobni ko'rish</summary>Birinchi: \(450 : 6 = 75\) ℓ/min; ikkinchi: \(360 : 4 = 90\) ℓ/min. Ikkinchi paytda tezroq, farq \(90 - 75 = 15\) ℓ/min.</details></li>
+      <li>Dehqon 12 qutida 78 kg uzum terdi. Bitta qutiga o'rtacha necha kilogramm uzum to'g'ri keladi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(78 : 12 = 6,5\) kg/quti.</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Taqqoslashdan oldin ikkala me'yorni bir xil birlikda yozing!</div></div>
+
+  <div class="box qiyin">
+    <span class="tag">Matematika kundaligi · xatoni toping</span>
+    <p>E'londa P va Q printerlarining tezligi berilgan: P printer 4 minutda 360 ta, Q printer 7 minutda 595 ta sahifa chop etadi. Samira shunday yozdi: «Q printer P dan 235 sahifa ko'p chop etadi, 3 minut ko'proq vaqtda. Shuning uchun Q printer tezroq». Samira to'g'ri javob berdimi? Printerlarni qanday taqqoslash kerak?
+    </p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Yo'q, Samira noto'g'ri xulosa chiqardi: Q printer ko'proq vaqt ishlagani uchun ko'proq sahifa chop etgan. Tezlikni taqqoslash uchun har birining me'yorini topamiz: P — \(360 : 4 = 90\) sahifa/min, Q — \(595 : 7 = 85\) sahifa/min. \(90 > 85\), demak <b>P printer tezroq</b> (minutiga 5 sahifa ko'p).</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Muammoli topshiriq · qop tanlash</span>
+    <p>Do'konda un 2 kg li xaltada 22 000 so'm, 5 kg li xaltada 52 500 so'm, 10 kg li xaltada 102 000 so'm turadi. Oilaga 10 kg un kerak. Qaysi variant eng arzon va u 2 kg li xaltalarni olishdan qancha tejaydi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>1 kg narxi: 2 kg li — \(22 000 : 2 = 11 000\); 5 kg li — \(52 500 : 5 = 10 500\); 10 kg li — \(102 000 : 10 = 10 200\) so'm/kg. Eng arzon — 10 kg li xalta. 10 kg ni 2 kg li xaltalarda olsa: \(11 000 \cdot 10 = 110 000\) so'm. Tejash: \(110 000 - 102 000 = 8000\) so'm.</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Amaliy topshiriq · yurak urishi</span>
+    <p>Guruh bo'lib ishlang. Avval bir minutda yuragingiz necha marta urishini sanang (masalan, 20 sekund sanab, 3 ga ko'paytiring). Keyin 2–3 minut sakrang va yana sanang. Natijalarni jadvalga yozing: soni va me'yori (marta/min). Qaysi holatda me'yor katta va qancha farq bor?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Misol: Ali sakrashdan oldin 1 minutda 76 marta, keyin 112 marta sanadi. Me'yor: 76 marta/min va 112 marta/min. Farq: \(112 - 76 = 36\) marta/min — sakrashdan keyin yurak tezroq uradi. O'z natijangiz boshqacha bo'ladi — muhimi, me'yorni jami sonini vaqtga bo'lib topganingiz.</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Amaliy topshiriq · e'lonlardagi narxlar</span>
+    <p>Uyingizda yoki do'konda ikki xil qadoqdagi bir mahsulotni (masalan, sut yoki makaron) toping. Har birining 1 kg (1 ℓ) narxini hisoblang va qaysi biri arzonligini aniqlang. Sizning xulosangiz bilan sinfdoshlaringiz xulosasi mos keladimi?</p>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — belgilab chiqing va testni ishlang!</div></div>
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men me'yor nima ekanini bilaman va uni jami miqdorni birliklar soniga bo'lib topa olaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men me'yorni birligi bilan (masalan, sahifa/min, so'm/kg) to'g'ri yoza olaman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men turli qadoqdagi mahsulotlarning bir birlik narxini topib, qaysi biri arzonligini ayta olaman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men grafikdan me'yorni o'qiy olaman va ikki ishning tezligini me'yorlarini solishtirib baholayman.</label></li>
+    </ul>
+  </div>
+</section>
+<p class="m-foot">Mathlearn · 5-sinf matematika</p>
+</main>
+<script src="chizma.js?v=34"></script>
+<script src="maruza.js?v=4"></script>
+</body>
+</html>

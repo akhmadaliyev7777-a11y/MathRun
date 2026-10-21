@@ -507,7 +507,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 
 ### 8-bob. Me'yor
 
-#### ☐ 29. Me'yorni topish — D2 34–37; M2 41–44
+#### ✅ 29. Me'yorni topish — D2 34–37; M2 41–44
+**Holat (2026-10-21):** tayyor (bulut sessiyasi). Fayl: maruza/5-meyorni-topish.html. O'z testi: `5|matematika|meyorni-topish` (10 savol, izohli); data.js da ma'ruza va test ulandi (simulyator hali yo'q). Yangi chizma turlari: `data-meyor="6 min|1170 tugma"` (me'yor sxemasi: k birlik → jami, 1 birlik → jami : k) va `data-grafik="1:12,2:24,3:36" data-x data-y data-xmax data-ymax data-yqadam data-nom` (0 dan o'tuvchi chiziqli grafik) — chizma.js ?v=34.
+**Kitob bilan solishtirildi (D2 34–37; M2 41–44; M2 64 «Kundalik»):** 4 qoida (me'yor tushunchasi; me'yor = jami : birliklar soni; yozilishi sahifa/min, ℓ/soat, so'm/kg; narxlarni 1 birlikka keltirib taqqoslash; grafikdan o'qish) + qo'shimcha: ish tezligini me'yor bilan taqqoslash ✅. Misol turlari: printer-tipli (stanok), jo'mrak (o'nli me'yor), kukun qadoqlari (shakar, guruch), mebel korxonasi (shkaf), hovuz, grafik (2 ta), atlas narxi (mato, ip), gilam, benzin, avtoturargoh, so'z terish, nusxalash, ish haqi, chipta, jo'mrak (ℓ/min), yurak urishi (amaliy), Kundalik (ikki printer — Samira xatosi) ✅. Kitob sonlari ko'chirilmadi (kitobdan.py: 0 ta mos). Kitobdagi kommunal jadval (miqdor × narx me'yori) — 30-mavzuga (umumiy miqdor) qoldirildi.
+**Tekshiruv:** 36 tenglik Fraction bilan to'g'ri (tenglik.py vergulli o'nli kasrni tushunmaydi — o'nli javoblar Python bilan alohida hisoblandi); barcha masalalar va test javoblari Python bilan hisoblandi (yagona javob); 390 va 1100 px: scrollWidth = ekran, KaTeX xatosiz, pageerror yo'q.
+**Simulyator uchun g'oyalar:** do'kon: jami narx va narsalar soni slayder bilan o'zgaradi → bir birlik narxi (me'yor); ikki qadoq yonma-yon — qaysi biri arzon; grafikda nuqtani sudrab me'yorni ko'rish.
 **Qoidalar ro'yxati:**
 - Me'yor — vaqt (yoki boshqa) birligida bajarilgan ish miqdori: me'yor = umumiy miqdor : birliklar soni.
 - Yozilishi: 120 sahifa/min, 1,5 ℓ/soat, 23 000 so'm/kg.

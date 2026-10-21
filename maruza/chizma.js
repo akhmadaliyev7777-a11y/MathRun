@@ -64,6 +64,10 @@
                                           har qator "nomi:shakli:rangi:soni" (shakl: doira, kvadrat, uchburchak, romb, yulduz;
                                           rang: ko'k, qizil, yashil, sariq, binafsha, to'q sariq; nomi bo'sh bo'lsa — yozilmaydi);
                                           guruh="2" — har qatordagi buyumlar 2 tadan punktir ramkali guruhlarga ajratiladi
+   data-meyor="5 min|600 sahifa" [data-yoz="?"] — me'yor sxemasi: yuqorida k birlik — jami miqdor, pastda 1 birlik — me'yor (jami : k);
+                                          yoz="?" bo'lsa — me'yor o'rniga savol belgisi (mashq uchun)
+   data-grafik="1:12,2:24,3:36" data-x="Vaqt (soat)" data-y="Masofa (km)" [data-xmax="4"] [data-ymax="48"] [data-yqadam="12"] [data-nom="Velosipedchi"] —
+                                          chiziqli grafik: nuqtalar (x:y) va ularni 0 dan o'tuvchi to'g'ri chiziq; tik o'qda yqadam oralig'ida belgilar
 */
 (function () {
   "use strict";
@@ -506,6 +510,61 @@
     el.classList.add("tasma");
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Ustunli diagramma: ' +
       q.map(function (x) { return x.nom + " — " + (x.v === null ? "noma'lum" : x.v); }).join(", ") + '">' + svg + "</svg>";
+  }
+
+  // ---------- me'yor sxemasi ----------
+  function chizMeyor(el) {
+    const p = el.dataset.meyor.split("|");
+    const kb = p[0].trim().match(/^([\d,]+)\s+(.*)$/), jb = p[1].trim().match(/^([\d ,]+?)\s+(\D.*)$/);
+    const k = Number(kb[1].replace(",", ".")), kBirl = kb[2];
+    const jami = Number(jb[1].replace(/ /g, "").replace(",", ".")), jBirl = jb[2];
+    const me = jami / k, savol = el.dataset.yoz === "?";
+    const W = 380, H = 150;
+    let svg = '<defs><marker id="mq" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5b6275"/></marker></defs>';
+    const qator = function (y, a, b, rang) {
+      return '<text x="20" y="' + y + '" font-size="18" font-weight="800" fill="#1f2433">' + a + "</text>" +
+        '<line x1="118" y1="' + (y - 6) + '" x2="170" y2="' + (y - 6) + '" stroke="#5b6275" stroke-width="2.4" marker-end="url(#mq)"/>' +
+        '<text x="184" y="' + y + '" font-size="18" font-weight="800" fill="' + rang + '">' + b + "</text>";
+    };
+    svg += qator(34, onliSon(k) + " " + kBirl, onliSon(jami) + " " + jBirl, "#1f5fd6");
+    svg += qator(128, "1 " + kBirl, (savol ? "?" : onliSon(me)) + " " + jBirl, "#12805c");
+    [[56, 24], [286, 24]].forEach(function (c, i) {
+      svg += '<line x1="' + (i ? 300 : 60) + '" y1="48" x2="' + (i ? 300 : 60) + '" y2="102" stroke="#d4501b" stroke-width="2.4" marker-end="url(#mq)"/>' +
+        '<rect x="' + (i ? 310 : 70) + '" y="64" width="54" height="26" rx="13" fill="#ffe6d6" stroke="#d4501b" stroke-width="1.6"/>' +
+        '<text x="' + (i ? 337 : 97) + '" y="83" text-anchor="middle" font-size="15" font-weight="800" fill="#d4501b">: ' + onliSon(k) + "</text>";
+    });
+    el.classList.add("tasma");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + onliSon(k) + " " + kBirl + " — " + onliSon(jami) + " " + jBirl +
+      "; 1 " + kBirl + " — " + (savol ? "noma'lum" : onliSon(me)) + " " + jBirl + '">' + svg + "</svg>";
+  }
+
+  // ---------- chiziqli grafik ----------
+  function chizGrafik(el) {
+    const n = el.dataset.grafik.split(",").map(function (t) { const q = t.split(":"); return [Number(q[0]), Number(q[1])]; });
+    const xm = Number(el.dataset.xmax) || Math.ceil(n[n.length - 1][0] + 1);
+    const yq = Number(el.dataset.yqadam) || 10;
+    const ym = Number(el.dataset.ymax) || Math.ceil((n[n.length - 1][1] + 1) / yq) * yq;
+    const W = 380, L = 50, R = 18, T = 34, B = 42, H = 250;
+    const iW = W - L - R, iH = H - T - B;
+    const X = function (v) { return L + v / xm * iW; }, Y = function (v) { return T + iH - v / ym * iH; };
+    let svg = "";
+    for (let v = 0; v <= ym + 1e-9; v += yq)
+      svg += '<line x1="' + L + '" y1="' + Y(v) + '" x2="' + (W - R) + '" y2="' + Y(v) + '" stroke="#d5d9e4" stroke-width="1"/>' +
+        '<text x="' + (L - 6) + '" y="' + (Y(v) + 5) + '" text-anchor="end" font-size="13" fill="#5b6275">' + onliSon(v) + "</text>";
+    for (let v = 0; v <= xm; v++)
+      svg += '<line x1="' + X(v) + '" y1="' + T + '" x2="' + X(v) + '" y2="' + Y(0) + '" stroke="#eceff5" stroke-width="1"/>' +
+        '<text x="' + X(v) + '" y="' + (Y(0) + 18) + '" text-anchor="middle" font-size="13" fill="#5b6275">' + v + "</text>";
+    svg += '<line x1="' + L + '" y1="' + T + '" x2="' + L + '" y2="' + Y(0) + '" stroke="#1f2433" stroke-width="2"/>' +
+      '<line x1="' + L + '" y1="' + Y(0) + '" x2="' + (W - R) + '" y2="' + Y(0) + '" stroke="#1f2433" stroke-width="2"/>';
+    const last = n[n.length - 1], k = last[1] / last[0];
+    const xe = Math.min(xm, ym / k, last[0] + 0.45);
+    svg += '<line x1="' + X(0) + '" y1="' + Y(0) + '" x2="' + X(xe) + '" y2="' + Y(k * xe) + '" stroke="#1f5fd6" stroke-width="3" stroke-linecap="round"/>';
+    n.forEach(function (q) { svg += '<circle cx="' + X(q[0]) + '" cy="' + Y(q[1]) + '" r="5" fill="#d4501b" stroke="#fff" stroke-width="1.5"/>'; });
+    if (el.dataset.nom) svg += '<text x="' + (W / 2) + '" y="18" text-anchor="middle" font-size="15" font-weight="800" fill="#1f2433">' + el.dataset.nom + "</text>";
+    if (el.dataset.x) svg += '<text x="' + (L + iW / 2) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="13" fill="#5b6275">' + el.dataset.x + "</text>";
+    if (el.dataset.y) svg += '<text x="13" y="' + (T + iH / 2) + '" text-anchor="middle" font-size="13" fill="#5b6275" transform="rotate(-90 13 ' + (T + iH / 2) + ')">' + el.dataset.y + "</text>";
+    el.classList.add("tasma");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Chiziqli grafik">' + svg + "</svg>";
   }
 
   // ---------- qismlarga bo'lingan to'g'ri to'rtburchak ----------
@@ -1208,6 +1267,8 @@
       root.querySelectorAll("[data-buyum]").forEach(chizBuyum);
       root.querySelectorAll("[data-panjara]").forEach(chizPanjara);
       root.querySelectorAll("[data-korinish]").forEach(chizKorinish);
+      root.querySelectorAll("[data-meyor]").forEach(chizMeyor);
+      root.querySelectorAll("[data-grafik]").forEach(chizGrafik);
     }
   };
 })();
