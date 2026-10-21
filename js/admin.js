@@ -1,4 +1,4 @@
-// Admin panel: umumiy statistika, sinf bo'yicha kontent holati va fayl yuklash ko'rsatmalari.
+// Admin panel: «Bugungi ish», sinf bo'yicha kontent jadvali (filtr, qidiruv), mavzu yon oynasi va fayl joylash ko'rsatmalari.
 
 const UPLOAD_TYPE_INFO = {
   lecture: { label: "Ma'ruza", folder: "presentations/", field: "lecture.embedUrl", hint: "Prezentatsiya yoki PDF fayl" },
@@ -8,12 +8,25 @@ const UPLOAD_TYPE_INFO = {
 
 const FILTERS = [
   { id: "all", label: "Hammasi" },
+  { id: "no-lecture", label: "Ma'ruzasi yo'q" },
   { id: "no-interactive", label: "Ko'rgazmasi yo'q" },
-  { id: "no-test", label: "Testi yo'q" }
+  { id: "no-test", label: "Testi yo'q" },
+  { id: "review", label: "Tekshiruv kutilmoqda" }
 ];
+
+// 5-sinf boblari: bob boshlanadigan mavzu raqami va nomi (mavzular ro'yxati shu boblarga guruhlanadi)
+const CHAPTERS = {
+  "5|matematika": [
+    [1, "Natural sonlar"], [2, "Sonlar ustida to'rt amal"], [5, "Oddiy kasrlar"], [12, "Uchburchakning yuzi"],
+    [15, "Hajm"], [21, "Nisbatlar"], [26, "O'nli kasrlar"], [29, "Me'yor"], [32, "Foizlar"],
+    [36, "O'rtacha qiymat"], [38, "Burchaklar"], [42, "Uchburchakning xossalari"], [45, "Parallelogramm, romb va trapetsiya"]
+  ]
+};
+const FOCUS_GRADE = "5";       // hozir ustida ishlanayotgan sinf («Bugungi ish» shu sinf bo'yicha)
 
 let activeGradeId = null;      // 5–11: "5".."11", 1–4: "p1".."p4"
 let activeFilter = "all";
+let searchText = "";
 let activeChorak = 1;          // 1–4 sinflar uchun
 let activeUploadTarget = null;
 
@@ -66,6 +79,39 @@ function topicStatus(grade, subject, topic) {
   };
 }
 
+function hasOwnQuiz(grade, subject, topic) {
+  return (QUIZ_DATA[grade.id + "|" + subject.id + "|" + topic.id] || []).length > 0;
+}
+
+function reviewState(topic) {
+  if (topic.review === "sariq") return "sariq";
+  return topic.review ? "qizil" : null;
+}
+
+function matchesFilter(grade, subject, topic, filter) {
+  const st = topicStatus(grade, subject, topic);
+  if (filter === "no-lecture") return st.lecture.state !== "ok";
+  if (filter === "no-interactive") return st.interactive.state !== "ok";
+  if (filter === "no-test") return st.test.state !== "ok";
+  if (filter === "review") return !!reviewState(topic);
+  return true;
+}
+
+function escapeHtml(t) {
+  return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+}
+
+// barcha 5–11 mavzular bir ro'yxatda: { grade, subject, topic, index }
+function allTopics() {
+  const out = [];
+  SITE_DATA.grades.forEach(function (grade) {
+    grade.subjects.forEach(function (subject) {
+      subject.topics.forEach(function (topic, i) { out.push({ grade: grade, subject: subject, topic: topic, index: i }); });
+    });
+  });
+  return out;
+}
+
 function gradeSummary(grade) {
   let topics = 0, interactive = 0, test = 0;
   grade.subjects.forEach(function (subject) {
@@ -91,25 +137,72 @@ function statCard(value, label, sub, accent) {
   );
 }
 
+function todayItem(t, extra) {
+  const parts = splitTopicTitle(t.topic.title, t.index);
+  return '<button type="button" class="adm-today-item" data-g="' + t.grade.id + '" data-s="' + t.subject.id + '" data-t="' + t.topic.id + '">' +
+    '<span class="adm-today-num">' + (t.grade.id !== FOCUS_GRADE ? t.grade.id + "-sinf · " : "") + parts.num + '</span>' +
+    '<span class="adm-today-name">' + escapeHtml(parts.title) + '</span>' + (extra || "") + '</button>';
+}
+
+function todayCard(icon, title, count, body, accent) {
+  return '<div class="adm-today-card' + (accent ? " adm-today-card--" + accent : "") + '">' +
+    '<div class="adm-today-head"><span class="adm-today-icon">' + icon + '</span><b>' + title + '</b>' +
+    (count != null ? '<span class="adm-today-count">' + count + '</span>' : "") + '</div>' +
+    '<div class="adm-today-list">' + body + '</div></div>';
+}
+
 function renderStats() {
+  const all = allTopics();
+  const focus = all.filter(function (t) { return t.grade.id === FOCUS_GRADE; });
+
+  // 1) navbatdagi mavzu — 5-sinfda ma'ruzasi hali yo'q birinchi mavzu
+  const next = focus.find(function (t) { return topicStatus(t.grade, t.subject, t.topic).lecture.state !== "ok"; });
+  const left = focus.filter(function (t) { return topicStatus(t.grade, t.subject, t.topic).lecture.state !== "ok"; }).length;
+  const nextBody = next
+    ? todayItem(next) + '<div class="adm-today-sub">' + FOCUS_GRADE + '-sinfda yana ' + left + ' ta mavzuning ma\'ruzasi yozilmagan</div>'
+    : '<div class="adm-today-sub">🎉 ' + FOCUS_GRADE + '-sinfning barcha ma\'ruzalari tayyor</div>';
+
+  // 2) tekshiruvingiz kutilmoqda — qizil (tekshirilmagan) avval, keyin sariq (tasdiq kutilmoqda)
+  const rev = all.filter(function (t) { return reviewState(t.topic); })
+    .sort(function (a, b) { return (reviewState(a.topic) === "qizil" ? 0 : 1) - (reviewState(b.topic) === "qizil" ? 0 : 1); });
+  const revBody = rev.length
+    ? rev.map(function (t) {
+        const r = reviewState(t.topic);
+        return todayItem(t, '<span class="adm-rev adm-rev--' + r + '" title="' + (r === "qizil" ? "Tekshirilmagan" : "Tuzatildi, tasdiq kutilmoqda") + '"></span>');
+      }).join("")
+    : '<div class="adm-today-sub">Hammasi tasdiqlangan ✓</div>';
+
+  // 3) ma'ruzasi bor, lekin o'z testi yo'q mavzular
+  const noQuiz = all.filter(function (t) {
+    return topicStatus(t.grade, t.subject, t.topic).lecture.state === "ok" && t.topic.lecture && t.topic.lecture.embedUrl &&
+      !hasOwnQuiz(t.grade, t.subject, t.topic);
+  });
+  const quizBody = noQuiz.length ? noQuiz.map(function (t) { return todayItem(t); }).join("") : '<div class="adm-today-sub">Hammasida test bor ✓</div>';
+
+  // umumiy sonlar — bitta ixcham qatorda
   let topics = 0, interactive = 0, test = 0;
   SITE_DATA.grades.forEach(function (g) {
     const s = gradeSummary(g);
     topics += s.topics; interactive += s.interactive; test += s.test;
   });
-  const el = document.getElementById("adm-stats");
-  const base =
-    statCard(SITE_DATA.grades.length, "Sinflar", "5–11 sinf") +
-    statCard(topics, "Mavzular", "5–11 sinf") +
-    statCard(interactive, "Ko'rgazmalar", Math.round(interactive / topics * 100) + "% mavzuda", "teal") +
-    statCard(test, "Testlar", Math.round(test / topics * 100) + "% mavzuda", "teal");
-  el.innerHTML = base + statCard("…", "Boshlang'ich sinflar", "1–4 sinf", "green");
-
+  let line = '5–11 sinf: <b>' + topics + '</b> mavzu · <b>' + interactive + '</b> ko\'rgazma · <b>' + test + '</b> test';
   if (PRIMARY) {
     let t = 0, l = 0, q = 0;
     PRIMARY.grades.forEach(function (g) { const s = primarySummary(g); t += s.topics; l += s.lessons; q += s.questions; });
-    el.innerHTML = base + statCard(t + " / " + l, "Boshlang'ich sinflar", "mavzu / dars · " + q + " ta test savoli", "green");
+    line += ' <span class="adm-sep">|</span> 1–4 sinf: <b>' + t + '</b> mavzu · <b>' + l + '</b> dars · <b>' + q + '</b> test savoli';
   }
+
+  const el = document.getElementById("adm-stats");
+  el.innerHTML =
+    '<div class="adm-today">' +
+      todayCard("➡️", "Navbatdagi mavzu", null, nextBody, "next") +
+      todayCard("👀", "Tekshiruvingiz kutilmoqda", rev.length, revBody, "review") +
+      todayCard("📝", "O'z testi yo'q", noQuiz.length, quizBody) +
+    '</div>' +
+    '<div class="adm-totals">' + line + '</div>';
+  el.querySelectorAll(".adm-today-item").forEach(function (b) {
+    b.addEventListener("click", function () { openTopicPanel(b.dataset.g, b.dataset.s, b.dataset.t); });
+  });
 }
 
 // ---------- sinflar ro'yxati (chap tomonda) ----------
@@ -156,6 +249,9 @@ function renderGradeList() {
   el.querySelectorAll(".adm-grade").forEach(function (btn) {
     btn.addEventListener("click", function () {
       activeGradeId = btn.dataset.grade;
+      activeFilter = "all";
+      searchText = "";
+      document.getElementById("adm-search").value = "";
       renderGradeList();
       renderFilter();
       renderTopics();
@@ -184,8 +280,15 @@ function renderFilter() {
     });
     return;
   }
+  const grade = findGrade(activeGradeId);
   el.innerHTML = FILTERS.map(function (f) {
-    return '<button type="button" class="adm-filter-btn' + (f.id === activeFilter ? " active" : "") + '" data-filter="' + f.id + '">' + f.label + '</button>';
+    let n = 0;
+    grade.subjects.forEach(function (subject) {
+      subject.topics.forEach(function (topic) { if (matchesFilter(grade, subject, topic, f.id)) n++; });
+    });
+    if (f.id === "review" && !n) return "";
+    return '<button type="button" class="adm-filter-btn' + (f.id === activeFilter ? " active" : "") + '" data-filter="' + f.id + '">' +
+      f.label + ' <span class="adm-filter-n">' + n + '</span></button>';
   }).join("");
   el.querySelectorAll(".adm-filter-btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
@@ -200,6 +303,7 @@ function renderPrimaryTopics() {
   const g = primaryGrade(activeGradeId);
   const c = g.choraks.find(function (x) { return x.chorak === activeChorak; }) || g.choraks[0];
   const s = primarySummary(g);
+  document.getElementById("adm-search").hidden = true;
   document.getElementById("adm-main-title").textContent = g.grade + "-sinf · " + c.roman + " chorak";
   document.getElementById("adm-progress").innerHTML =
     "Butun sinf: " + s.topics + " mavzu · " + s.lessons + " dars · " + s.questions + " ta test savoli" + (s.soon ? " · " + s.soon + " dars tez orada" : "");
@@ -240,55 +344,155 @@ function renderPrimaryTopics() {
   });
 }
 
+function cell(st, label) {
+  if (st.state === "ok") return '<span class="adm-cell adm-cell--ok" title="' + label + ': ' + st.text + '">' + (/savol/.test(st.text) ? parseInt(st.text, 10) : "✓") + '</span>';
+  if (st.state === "part") return '<span class="adm-cell adm-cell--part" title="' + label + ': ' + st.text + '">' + st.text + '</span>';
+  return '<span class="adm-cell adm-cell--none" title="' + label + ': yo\'q">—</span>';
+}
+
+function topicNumber(title) {
+  const m = /^(\d+)/.exec(title);
+  return m ? Number(m[1]) : null;
+}
+
+// mavzularni guruhlash: 5-sinfda boblar bo'yicha, boshqalarda fan bo'yicha
+function topicGroups(grade) {
+  const groups = [];
+  grade.subjects.forEach(function (subject) {
+    const chapters = CHAPTERS[grade.id + "|" + subject.id];
+    const prefix = grade.subjects.length > 1 ? subject.name : "";
+    if (!chapters) {
+      groups.push({ name: prefix || "Mavzular", subject: subject, items: subject.topics.map(function (t, i) { return { topic: t, index: i }; }) });
+      return;
+    }
+    chapters.forEach(function (c, ci) {
+      groups.push({ name: (ci + 1) + "-bob. " + c[1], from: c[0], to: chapters[ci + 1] ? chapters[ci + 1][0] - 1 : Infinity, subject: subject, items: [] });
+    });
+    subject.topics.forEach(function (t, i) {
+      const n = topicNumber(t.title);
+      const g = groups.find(function (x) { return x.subject === subject && x.from != null && n >= x.from && n <= x.to; });
+      if (g) g.items.push({ topic: t, index: i });
+      else groups.push({ name: subject.name, subject: subject, items: [{ topic: t, index: i }] });
+    });
+  });
+  return groups;
+}
+
 function renderTopics() {
   if (isPrimary(activeGradeId)) return renderPrimaryTopics();
-  document.getElementById("adm-legend-hint").innerHTML = "· Fayl joylash uchun qatordagi <b>Yuklash</b> tugmasini bosing";
+  document.getElementById("adm-legend-hint").innerHTML = "· Batafsil ko'rish uchun mavzuni bosing";
+  document.getElementById("adm-search").hidden = false;
   const grade = findGrade(activeGradeId);
   const s = gradeSummary(grade);
   document.getElementById("adm-main-title").textContent = grade.name;
   document.getElementById("adm-progress").innerHTML =
     s.topics + " mavzu · " + s.interactive + " ta ko'rgazma · " + s.test + " ta test";
 
+  const q = searchText.trim().toLowerCase();
   const el = document.getElementById("adm-topics");
   let shown = 0;
-  el.innerHTML = grade.subjects.map(function (subject) {
-    const rows = subject.topics.map(function (topic, i) {
-      const st = topicStatus(grade, subject, topic);
-      if (activeFilter === "no-interactive" && st.interactive.state === "ok") return "";
-      if (activeFilter === "no-test" && st.test.state === "ok") return "";
+  el.innerHTML = topicGroups(grade).map(function (g) {
+    let done = 0;
+    const rows = g.items.map(function (it) {
+      const topic = it.topic;
+      const st = topicStatus(grade, g.subject, topic);
+      if (st.lecture.state === "ok") done++;
+      if (!matchesFilter(grade, g.subject, topic, activeFilter)) return "";
+      if (q && topic.title.toLowerCase().indexOf(q) === -1) return "";
       shown++;
-      const parts = splitTopicTitle(topic.title, i);
+      const parts = splitTopicTitle(topic.title, it.index);
+      const r = reviewState(topic);
       return (
-        '<li class="adm-row">' +
-          '<span class="adm-row-num">' + parts.num + '</span>' +
-          '<span class="adm-row-body">' +
-            '<a class="adm-row-title" href="' + topicHref(grade.id, subject.id, topic.id) + '" target="_blank" rel="noopener">' + parts.title + '</a>' +
-            '<span class="adm-row-pills">' + pill("Ma'ruza", st.lecture) + pill("Ko'rgazma", st.interactive) + pill("Test", st.test) + '</span>' +
-          '</span>' +
-          '<button type="button" class="adm-upload-btn" data-subject="' + subject.id + '" data-topic="' + topic.id + '">⬆ Yuklash</button>' +
-        '</li>'
+        '<tr class="adm-tr" tabindex="0" data-s="' + g.subject.id + '" data-t="' + topic.id + '">' +
+          '<td class="adm-td-num">' + parts.num + '</td>' +
+          '<td class="adm-td-title">' + escapeHtml(parts.title) +
+            (r ? ' <span class="adm-rev adm-rev--' + r + '" title="' + (r === "qizil" ? "Tekshirilmagan" : "Tasdiq kutilmoqda") + '"></span>' : "") + '</td>' +
+          '<td>' + cell(st.lecture, "Ma'ruza") + '</td>' +
+          '<td>' + cell(st.interactive, "Ko'rgazma") + '</td>' +
+          '<td>' + cell(st.test, "Test") + '</td>' +
+        '</tr>'
       );
     }).join("");
     if (!rows) return "";
     return (
-      '<div class="adm-subject">' +
-        (grade.subjects.length > 1 ? '<div class="adm-subject-name">' + subject.name + '</div>' : "") +
-        '<ol class="adm-list">' + rows + '</ol>' +
-      '</div>'
+      '<details class="adm-group" open>' +
+        '<summary><span>' + escapeHtml(g.name) + '</span><span class="adm-group-meta">ma\'ruza ' + done + '/' + g.items.length + '</span></summary>' +
+        '<table class="adm-table"><thead><tr><th>№</th><th>Mavzu</th><th>Ma\'ruza</th><th>Ko\'rgazma</th><th>Test</th></tr></thead>' +
+        '<tbody>' + rows + '</tbody></table>' +
+      '</details>'
     );
   }).join("");
 
-  if (!shown) el.innerHTML = '<div class="adm-empty">🎉 Bu sinfda filtrga mos mavzu yo\'q — hammasi tayyor.</div>';
+  if (!shown) el.innerHTML = '<div class="adm-empty">' + (q ? "Qidiruvga mos mavzu topilmadi." : "🎉 Bu sinfda filtrga mos mavzu yo'q — hammasi tayyor.") + '</div>';
 
-  el.querySelectorAll(".adm-upload-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      const topic = findTopic(findSubject(grade, btn.dataset.subject), btn.dataset.topic);
-      // birinchi yetishmayotgan turni oldindan tanlab ochish
-      const st = topicStatus(grade, findSubject(grade, btn.dataset.subject), topic);
-      const type = st.interactive.state !== "ok" ? "interactive" : st.test.state !== "ok" ? "test" : "lecture";
-      openUpload(grade.id, btn.dataset.subject, btn.dataset.topic, type);
-    });
+  el.querySelectorAll(".adm-tr").forEach(function (tr) {
+    function open() { openTopicPanel(grade.id, tr.dataset.s, tr.dataset.t); }
+    tr.addEventListener("click", open);
+    tr.addEventListener("keydown", function (e) { if (e.key === "Enter") open(); });
   });
+}
+
+// ---------- mavzu yon oynasi ----------
+
+function panelLink(href, label, icon) {
+  if (!href) return '<span class="adm-plink adm-plink--off">' + icon + ' ' + label + ' <small>yo\'q</small></span>';
+  return '<a class="adm-plink" href="' + href + '" target="_blank" rel="noopener">' + icon + ' ' + label + ' ↗</a>';
+}
+
+function openTopicPanel(gradeId, subjectId, topicId) {
+  const grade = findGrade(gradeId);
+  const subject = findSubject(grade, subjectId);
+  const topic = findTopic(subject, topicId);
+  if (!topic) return;
+  const st = topicStatus(grade, subject, topic);
+  const quiz = QUIZ_DATA[grade.id + "|" + subject.id + "|" + topic.id] || [];
+  const r = reviewState(topic);
+  const lectureUrl = topic.lecture && topic.lecture.embedUrl;
+
+  const statusRow = function (label, s) {
+    return '<div class="adm-pstat"><span>' + label + '</span>' + cell(s, label) + '<span class="muted">' + (s.state === "ok" ? s.text : s.state === "part" ? s.text : "yo'q") + '</span></div>';
+  };
+
+  const quizHtml = quiz.length
+    ? '<ol class="adm-quiz">' + quiz.map(function (qq) {
+        return '<li><div class="adm-q">' + escapeHtml(qq.question) + '</div>' +
+          '<div class="adm-opts">' + (qq.options || []).map(function (o) {
+            return '<span class="adm-opt' + (String(o) === String(qq.answer) ? " adm-opt--ok" : "") + '">' + escapeHtml(o) + '</span>';
+          }).join("") + '</div>' +
+          (qq.explain ? '<div class="adm-explain">' + escapeHtml(qq.explain) + '</div>' : "") + '</li>';
+      }).join("") + '</ol>'
+    : '<p class="muted">Bu mavzuning o\'z testi hali yo\'q' + (topic.test ? " (umumiy test ulangan)." : ".") + '</p>';
+
+  document.getElementById("adm-panel-kicker").textContent = grade.name + " · " + subject.name;
+  document.getElementById("adm-panel-title").textContent = topic.title;
+  document.getElementById("adm-panel-body").innerHTML =
+    (r ? '<div class="adm-pnote adm-pnote--' + r + '">' + (r === "qizil"
+        ? "🔴 Ko'rgazma hali tekshirilmagan yoki kamchiligi bor. Ko'rib chiqing va Claude'ga «tayyor» yoki kamchilikni ayting."
+        : "🟡 Sinab ko'rildi va tuzatildi — sizning tasdig'ingiz kutilmoqda. Ko'rib chiqib, Claude'ga «tayyor» deng.") + '</div>' : "") +
+    '<div class="adm-plinks">' +
+      panelLink(topicHref(grade.id, subject.id, topic.id), "Mavzu sahifasi", "📄") +
+      panelLink(lectureUrl, "Ma'ruza", "📘") +
+      panelLink(topic.interactive, "Ko'rgazma", "🧩") +
+      panelLink(topic.test, "Test", "✅") +
+    '</div>' +
+    '<div class="adm-psec"><h4>Holati</h4>' + statusRow("Ma'ruza", st.lecture) + statusRow("Ko'rgazma", st.interactive) + statusRow("Test", st.test) + '</div>' +
+    (topic.simPlan ? '<details class="adm-psec"><summary><h4>Ko\'rgazma rejasi</h4></summary><p class="adm-ptext">' + escapeHtml(topic.simPlan) + '</p></details>' : "") +
+    '<details class="adm-psec"' + (quiz.length ? "" : " open") + '><summary><h4>Test savollari' + (quiz.length ? " (" + quiz.length + ")" : "") + '</h4></summary>' + quizHtml + '</details>' +
+    '<div class="adm-psec adm-pfoot"><button type="button" class="adm-upload-btn" id="adm-panel-upload">⬆ Fayl joylash ko\'rsatmasi</button></div>';
+
+  document.getElementById("adm-panel-upload").addEventListener("click", function () {
+    const type = st.interactive.state !== "ok" ? "interactive" : st.test.state !== "ok" ? "test" : "lecture";
+    openUpload(grade.id, subject.id, topic.id, type);
+  });
+  const panel = document.getElementById("adm-panel");
+  panel.hidden = false;
+  panel.querySelector(".adm-panel-box").scrollTop = 0;
+  document.body.classList.add("adm-noscroll");
+}
+
+function closeTopicPanel() {
+  document.getElementById("adm-panel").hidden = true;
+  document.body.classList.remove("adm-noscroll");
 }
 
 // ---------- yuklash oynasi ----------
@@ -423,7 +627,13 @@ function showUploadResult(file) {
 function wireUpload() {
   document.getElementById("adm-modal-close").addEventListener("click", closeUpload);
   document.getElementById("adm-modal").addEventListener("click", function (e) { if (e.target.id === "adm-modal") closeUpload(); });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeUpload(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (!document.getElementById("adm-modal").hidden) closeUpload(); else closeTopicPanel();
+  });
+  document.getElementById("adm-panel-close").addEventListener("click", closeTopicPanel);
+  document.getElementById("adm-panel").addEventListener("click", function (e) { if (e.target.id === "adm-panel") closeTopicPanel(); });
+  document.getElementById("adm-search").addEventListener("input", function (e) { searchText = e.target.value; renderTopics(); });
   document.getElementById("adm-file").addEventListener("change", function (e) { showUploadResult(e.target.files[0]); });
 
   const drop = document.getElementById("adm-drop");
@@ -437,7 +647,7 @@ function wireUpload() {
 }
 
 function renderAdminDashboard() {
-  activeGradeId = SITE_DATA.grades[0].id;
+  activeGradeId = FOCUS_GRADE;
   renderStats();
   renderGradeList();
   renderFilter();
