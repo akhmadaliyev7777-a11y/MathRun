@@ -62,8 +62,14 @@ function renderMyResults() {
       '<div><b>' + done.length + '</b><span>ta ko\'rgazma tugatilgan</span></div>' +
     '</div>';
 
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem("mathlearn-saqlangan-v1")) || {}; } catch (e) {}
+  const marks = Object.keys(saved).map(function (id) { return saved[id]; })
+    .filter(function (x) { return x && myTopic(x.k); })
+    .sort(function (a, b) { return (b.t || 0) - (a.t || 0); });
+
   const el = document.getElementById("my-results");
-  if (!tests.length && !done.length) {
+  if (!tests.length && !done.length && !marks.length) {
     el.innerHTML = '<div class="placeholder">Hali natija yo\'q. Biror mavzuni oching, ko\'rgazmani bajaring va testni yeching — natijalaringiz shu yerda chiqadi. ' +
       '<a href="index.html#grades-section">Sinfni tanlash →</a></div>';
     return;
@@ -84,6 +90,16 @@ function renderMyResults() {
           return '<li><a href="' + topicHref(x.t.grade.id, x.t.subject.id, x.t.topic.id) + '#interaktiv">' +
             '<span class="my-topic"><small>' + x.t.grade.name + '</small>' + escapeText(parts.num + " " + parts.title) + '</span>' +
             '<span class="my-score"><b class="my-rate--high">✓</b></span></a></li>';
+        }).join("") + '</ul>'
+      : "") +
+    (marks.length
+      ? '<h2 class="my-h">Saqlangan savollar</h2><ul class="my-list">' + marks.map(function (x) {
+          const t = myTopic(x.k), p = String(x.k).split("|");
+          const parts = splitTopicTitle(t.topic.title, t.index);
+          const href = "test.html?sinf=" + p[0] + "&fan=" + p[1] + "&mavzu=" + p[2] + (p[3] === "qiyin" ? "&tur=qiyin" : "") + "#qz-q" + (x.i + 1);
+          return '<li><a href="' + href + '">' +
+            '<span class="my-topic"><small>' + escapeText(parts.num + " " + parts.title) + ' · ' + (p[3] === "qiyin" ? "2-test" : "1-test") + ', ' + (x.i + 1) + '-savol</small>' + escapeText(x.q) + '</span>' +
+            '<span class="my-score"><small>javob</small><b>' + escapeText(x.a) + '</b></span></a></li>';
         }).join("") + '</ul>'
       : "");
 }

@@ -469,6 +469,25 @@ window.addEventListener("message", function (e) {
     if (f.contentWindow === e.source) f.style.height = Math.max(200, Math.ceil(e.data.h)) + "px";
   });
 });
+// test oynasiga sahifa qancha surilganini yuboradi — testning yuqori paneli (belgilanganlar, «Testni yakunlash») ko'rinib turadi
+(function () {
+  let raf = 0;
+  function send() {
+    raf = 0;
+    const frames = document.querySelectorAll("iframe.embed-frame-test");
+    if (!frames.length) return;
+    const nav = document.getElementById("topic-steps");
+    const navBottom = nav ? Math.max(0, nav.getBoundingClientRect().bottom) : 0;
+    frames.forEach(function (f) {
+      if (!f.contentWindow || f.offsetParent === null) return;
+      try { f.contentWindow.postMessage({ type: "mathrun:scroll", top: navBottom - f.getBoundingClientRect().top }, "*"); } catch (e) {}
+    });
+  }
+  function later() { if (!raf) raf = requestAnimationFrame(send); }
+  window.addEventListener("scroll", later, { passive: true });
+  window.addEventListener("resize", later);
+  window.addEventListener("message", function (e) { if (e.data && e.data.type === "mathrun:height") later(); });
+})();
 // test oynasi so'raganda — sahifa oyna boshiga (yoki oyna ichidagi y joyga) suriladi
 window.addEventListener("message", function (e) {
   if (!e.data || e.data.type !== "mathrun:top") return;
