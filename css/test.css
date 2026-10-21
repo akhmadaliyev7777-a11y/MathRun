@@ -169,3 +169,5 @@
   .qz-actions { grid-template-columns: 1fr; }
   .qz-ring-wrap, .qz-ring { width: 136px; height: 136px; }
 }
+/* ustma-ust kasrlar qo'shni qatorlarga tegib qolmasin */
+.qz-m { display: inline-block; margin: 3px 0; vertical-align: middle; }

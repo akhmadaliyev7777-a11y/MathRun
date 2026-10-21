@@ -26,20 +26,32 @@ const QZ_ICON = {
 // ---------- formulalar ----------
 
 // matndagi oddiy yozuvlarni KaTeX formulaga aylantirish (HTML teglari ichiga tegilmaydi):
-// "2 3/5" → aralash son, "3/8", "a/40" → kasr, "2^3" → daraja. \( ... \) ichidagi formulalar o'zgarmaydi.
+// "2 3/5" → aralash son; "3/8", "a/40", "?/10", "□/7", "0,5/2", "(7 · 5)/(20 · 5)" → kasr; "2^3", "x^2" → daraja.
+// \( ... \) ichidagi formulalar o'zgarmaydi. Tekshiruv: node _reja/tools/testlar.js (chala qolgan kasrni topadi).
+const QZ_TOKEN = "(\\d+(?:,\\d+)?|[a-zA-Z]|\\?|□|\\([^()]{1,40}\\))";
+const QZ_RE_MIXED = new RegExp("(^|[^\\d,\\/])(\\d+) (\\d+)\\/(\\d+)(?![\\d\\/,])", "g");
+const QZ_RE_FRAC = new RegExp("(^|[^\\w,\\/)?□])" + QZ_TOKEN + "\\/" + QZ_TOKEN + "(?![\\w\\/(?□])", "g");
+const QZ_RE_POW = new RegExp("(^|[^\\w])(\\d+|[a-zA-Z]|\\([^()]{1,40}\\))\\^(\\d+|[a-zA-Z])(?!\\w)", "g");
+
+// kasr surati/maxraji yoki daraja asosi uchun TeX: tashqi qavs olinadi, belgilar KaTeX ko'rinishiga
+function qzTexPart(t) {
+  if (t.charAt(0) === "(" && t.charAt(t.length - 1) === ")" && t.indexOf("^") < 0) t = t.slice(1, -1);
+  return t.replace(/·/g, "\\cdot ").replace(/×/g, "\\times ").replace(/−/g, "-").replace(/□/g, "\\square ").replace(/\?/g, "\\,?\\,");
+}
+
 function qzMathText(text) {
   return String(text).split(/(<[^>]*>|\\\([\s\S]*?\\\))/).map(function (part) {
     if (!part || part.charAt(0) === "<") return part;
     if (part.indexOf("\\(") === 0) return '<span class="qz-m" data-tex="' + qzAttr(part.slice(2, -2)) + '">' + part.slice(2, -2) + '</span>';
     return part
-      .replace(/(^|[^\d,\/])(\d+) (\d+)\/(\d+)(?![\d\/,])/g, function (m, pre, w, a, b) {
-        return pre + qzTex(w + "\\frac{" + a + "}{" + b + "}", w + " " + a + "\u2044" + b);
+      .replace(QZ_RE_MIXED, function (m, pre, w, a, b) {
+        return pre + qzTex(w + "\\frac{" + a + "}{" + b + "}", w + " " + a + "⁄" + b);
       })
-      .replace(/(^|[^\w,\/])(\d+|[a-zA-Z])\/(\d+)(?![\d\/,])/g, function (m, pre, a, b) {
-        return pre + qzTex("\\frac{" + a + "}{" + b + "}", a + "\u2044" + b);
+      .replace(QZ_RE_FRAC, function (m, pre, a, b) {
+        return pre + qzTex("\\frac{" + qzTexPart(a) + "}{" + qzTexPart(b) + "}", a + "⁄" + b);
       })
-      .replace(/(^|[^\w])(\d+|[a-zA-Z])\^(\d+|[a-zA-Z])(?!\w)/g, function (m, pre, a, b) {
-        return pre + qzTex(a + "^{" + b + "}", a + "^" + b);
+      .replace(QZ_RE_POW, function (m, pre, a, b) {
+        return pre + qzTex((a.charAt(0) === "(" ? "\\left" + qzTexPart(a).replace(/^/, "(") + "\\right)" : a) + "^{" + b + "}", a + "^" + b);
       });
   }).join("");
 }
