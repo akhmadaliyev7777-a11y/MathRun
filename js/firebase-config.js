@@ -13,12 +13,12 @@
 */
 
 const FIREBASE_CONFIG = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCw8hgMsKdIiIiKFf8LT389ONYcLFtaVAM",
+  authDomain: "mathlearn-bd240.firebaseapp.com",
+  projectId: "mathlearn-bd240",
+  storageBucket: "mathlearn-bd240.firebasestorage.app",
+  messagingSenderId: "336090010860",
+  appId: "1:336090010860:web:39cabc816980ccb74b01c9"
 };
 
 const ADMIN_EMAIL = "sizning-emailingiz@gmail.com";

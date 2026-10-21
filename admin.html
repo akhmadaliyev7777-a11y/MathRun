@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <link rel="stylesheet" href="css/style.css?v=58">
 </head>
-<body>
+<body hidden>
 
 <div id="site-header-root"></div>
 
@@ -16,7 +16,7 @@
   <div class="adm-head">
     <div>
       <h1 class="page-title" style="margin-bottom:6px">Admin panel</h1>
-      <p class="muted" style="margin:0">Saytdagi kontent holati va yangi fayllarni joylash. Hozircha hammaga ochiq — keyinchalik login bilan himoyalanadi.</p>
+      <p class="muted" style="margin:0">Saytdagi kontent holati va yangi fayllarni joylash.</p>
     </div>
     <a class="adm-head-link" href="index.html">Saytni ochish ↗</a>
   </div>
@@ -84,10 +84,10 @@
 <script src="js/main.js?v=40"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
-<script src="js/firebase-config.js?v=5"></script>
-<script src="js/auth.js?v=5"></script>
-<script src="js/layout.js?v=19"></script>
+<script src="js/firebase-config.js?v=7"></script>
+<script src="js/auth.js?v=7"></script>
+<script src="js/layout.js?v=20"></script>
 <script src="js/admin.js?v=9"></script>
-<script>renderSiteHeader(); renderAdminDashboard();</script>
+<script>guardAdminPage(function () { renderSiteHeader(); renderAdminDashboard(); });</script>
 </body>
 </html>

@@ -42,7 +42,7 @@ function renderSiteHeader(base, active) {
         '<a href="' + base + 'settings.html" class="drawer-link">Sozlamalar</a>' +
         '<a href="' + base + 'info.html" class="drawer-link">Ma\'lumot</a>' +
         '<div class="drawer-divider"></div>' +
-        '<a href="' + base + 'admin.html" id="drawer-admin-link" class="drawer-link" target="_blank" rel="noopener">Admin panel</a>' +
+        '<a href="' + base + 'admin.html" id="drawer-admin-link" class="drawer-link" target="_blank" rel="noopener" hidden>Admin panel</a>' +
         '<a href="' + base + 'login.html" id="drawer-login-link" class="drawer-link">Kirish</a>' +
         '<button id="drawer-logout-btn" class="drawer-link drawer-logout" hidden>Chiqish</button>' +
       "</div>" +

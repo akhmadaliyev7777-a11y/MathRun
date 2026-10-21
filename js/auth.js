@@ -28,7 +28,9 @@ function currentIsAdmin(user) {
 }
 
 function updateMenuUI(user) {
-  // Admin panel hozircha parolsiz, hammaga ochiq — shuning uchun bu yerda boshqarilmaydi.
+  // Admin panel havolasi faqat admin kirganda ko'rinadi.
+  const adminLink = document.getElementById("drawer-admin-link");
+  if (adminLink) adminLink.hidden = !currentIsAdmin(user);
   const loginLink = document.getElementById("drawer-login-link");
   const logoutBtn = document.getElementById("drawer-logout-btn");
   if (!loginLink || !logoutBtn) return;
@@ -66,3 +68,19 @@ function wireAuthUI() {
 }
 
 window.onAuthReadyForMenu = wireAuthUI;
+
+// Admin sahifasi: faqat admin kirgan bo'lsa ochiladi, aks holda Kirish sahifasiga.
+function guardAdminPage(onAllowed) {
+  if (!firebaseReady) {
+    window.location.replace("login.html");
+    return;
+  }
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (currentIsAdmin(user)) {
+      document.body.hidden = false;
+      onAllowed();
+    } else {
+      window.location.replace("login.html");
+    }
+  });
+}
