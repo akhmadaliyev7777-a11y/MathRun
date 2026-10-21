@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Me'yorga ko'ra umumiy miqdorni topish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=30">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Me'yorga ko'ra umumiy miqdorni topish</h1>
+<p class="m-lead">Me'yor ma'lum bo'lganda umumiy miqdorni topishni, birliklarni moslashni hamda pochta, avtoturargoh va taksi tariflari bo'yicha to'lovni hisoblashni o'rganamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik — me'yor</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Me'yor — bir birlikka to'g'ri keladigan miqdor. Uni jami miqdorni birliklar soniga bo'lib topgan edik!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li><b>Me'yor</b> = jami miqdor : birliklar soni. Masalan, 4 soatda 52 ta non: \(52 : 4 = 13\) non/soat.</li>
+      <li><b>Yozilishi:</b> 13 non/soat — «har soatda 13 ta non»; 15 000 so'm/kg — «har kilogrammi 15 000 so'm».</li>
+      <li><b>Vaqt birliklari:</b> \(1\ \text{soat} = 60\ \text{min}\); \(1\ \text{min} = 60\ \text{s}\); yarim soat = 30 min.</li>
+      <li><b>O'nli kasrni natural songa ko'paytirish:</b> \(2,5 \cdot 7 = 17,5\).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Me'yor ma'lum bo'lsa, umumiy miqdorni topish uchun uni birliklar soniga ko'paytiramiz!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · umumiy miqdor</span>
+    <p>Me'yor va birliklar soni ma'lum bo'lsa, <b>umumiy miqdor me'yorni birliklar soniga ko'paytirib</b> topiladi:</p>
+    <p><b>umumiy miqdor = me'yor · birliklar soni</b></p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · ish haqi</span>
+    <p>Nigoraning bir soatlik ish haqi 16 000 so'm. U shu me'yorda 8 soat ishlasa, jami qancha oladi?</p>
+    <div data-meyor="1 soat|16 000 so'm" data-kop="8"></div>
+    <p>\(16 000 \cdot 8 = \nat{128 000}\) so'm.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · avval bir birlikka keltiramiz</span>
+    <p>Me'yor berilmagan, lekin <b>bir necha birlikdagi miqdor</b> berilgan bo'lsa, avval <b>bo'lish</b> bilan me'yor (1 birlikdagi miqdor) topiladi, keyin u kerakli birliklar soniga <b>ko'paytiriladi</b>.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · harorat</span>
+    <p>Suyuqlik qizdirilganda uning harorati 3 minutda 12 °C ga ko'tariladi. Shu sur'atda 8 minutda harorat necha gradusga ko'tariladi?</p>
+    <div class="qadam"><b>1</b><span>3 min → 12 °C; 1 min → \(12 : 3 = 4\) °C.</span></div>
+    <div class="qadam"><b>2</b><span>8 min → \(4 \cdot 8 = \nat{32}\) °C.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · birliklarni moslash</span>
+    <p>Me'yor bir birlikda, vaqt (yoki miqdor) boshqa birlikda berilgan bo'lsa, ko'paytirishdan <b>oldin</b> birliklar moslanadi: 1 soat = 60 min, 1 min = 60 s, 1 ℓ = 1000 ml, 1 kg = 1000 g.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · bir soatda nechta?</span>
+    <p>Zavodda 12 minutda 600 ta shisha tayyorlanadi. Shu tezlikda 1 soatda nechta shisha tayyorlanadi?</p>
+    <div class="qadam"><b>1</b><span>1 min: \(600 : 12 = 50\) ta.</span></div>
+    <div class="qadam"><b>2</b><span>1 soat = 60 min: \(50 \cdot 60 = \nat{3000}\) ta.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · «…gacha» jadvali (pochta)</span>
+    <p>Jadvalda narx massaning <b>yuqori chegarasi</b> uchun beriladi. Jo'natmaning narxi — massasidan <b>kichik emas</b> eng yaqin chegaraning narxi. Har bir jo'natma uchun narx <b>alohida</b> topiladi va kerak bo'lsa qo'shiladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · pochta tarifi</span>
+    <p>Pochta xizmatining tarifi:</p>
+    <table class="jad"><tr><th>Massasi (gacha)</th><td>50 g</td><td>150 g</td><td>300 g</td><td>1 kg</td></tr><tr><th>Narxi</th><td>6 000</td><td>9 500</td><td>14 000</td><td>27 000</td></tr></table>
+    <div class="qadam"><b>1</b><span>40 g — 50 g gacha: <b>6 000</b> so'm.</span></div>
+    <div class="qadam"><b>2</b><span>120 g — 50 g dan og'ir, 150 g dan oshmaydi: <b>9 500</b> so'm.</span></div>
+    <div class="qadam"><b>3</b><span>0,8 kg = 800 g — 300 g dan og'ir, 1 kg gacha: <b>27 000</b> so'm.</span></div>
+    <div class="qadam"><b>4</b><span>Birga yoki alohida? 280 g va 700 g jo'natmalar bitta manzilga. Alohida: \(14 000 + 27 000 = 41 000\) so'm. Birga: \(280 + 700 = 980\) g, 1 kg gacha — \(27 000\) so'm. <b>Birga yuborish arzon</b>.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">5-qoida · «dastlabki soat + keyingi har yarim soat»</span>
+    <p>Avtoturargoh va ijara tariflarida to'lov ikki qismdan iborat: <b>dastlabki 1 soat</b> uchun belgilangan narx va <b>keyingi har yarim soat</b> uchun qo'shimcha narx. Hisoblash tartibi:</p>
+    <ol>
+      <li>Boshlanish va tugash vaqti orasidagi muddat topiladi (vaqt chizig'ida).</li>
+      <li>Muddatdan dastlabki 1 soat ayiriladi, qolgani necha <b>yarim soat</b>ga to'g'ri kelishi topiladi (1 soat = 2 yarim soat).</li>
+      <li>To'lov = dastlabki soat narxi + yarim soatlar soni · yarim soat narxi.</li>
+    </ol>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · avtoturargoh</span>
+    <p>Tarif: dastlabki 1 soat — 4 000 so'm, keyingi har yarim soat — 1 500 so'm. Mashina 09:30 dan 12:00 gacha turdi. To'lov qancha?</p>
+    <div data-vaqt="09:30|12:00"></div>
+    <div class="qadam"><b>1</b><span>Muddat: 2 soat 30 min. Dastlabki 1 soat ayirilsa, 1 soat 30 min = 3 ta yarim soat qoladi.</span></div>
+    <div class="qadam"><b>2</b><span>\(4000 + 3 \cdot 1500 = 4000 + 4500 = \nat{8500}\) so'm.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">6-qoida · bosqichli tarif (taksi)</span>
+    <p>Tarifda masofa <b>bosqichlarga</b> bo'linadi va har bosqichning narxi har xil bo'ladi. Har bir bosqich uchun to'lov <b>alohida</b> hisoblanadi, so'ng hammasi qo'shiladi. Masofa har 500 m ga bo'linganda, 1 km = 2 ta 500 m.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · taksi</span>
+    <p>Tarif: buyurtma va 1 km gacha — 3 000 so'm; 1 km dan keyin 8 km gacha har 500 m uchun 800 so'm; 8 km dan keyin har 500 m uchun 600 so'm. 3,5 km va 10 km masofa uchun to'lov qancha?</p>
+    <div class="qadam"><b>1</b><span>3,5 km: birinchi 1 km — 3 000. Qolgan \(3,5 - 1 = 2,5\) km = 5 ta 500 m: \(5 \cdot 800 = 4000\). Jami: \(3000 + 4000 = \nat{7000}\) so'm.</span></div>
+    <div class="qadam"><b>2</b><span>10 km: 3 000 + (1 km dan 8 km gacha: 7 km = 14 ta 500 m) \(14 \cdot 800 = 11 200\) + (8 km dan 10 km gacha: 2 km = 4 ta 500 m) \(4 \cdot 600 = 2400\). Jami: \(3000 + 11 200 + 2400 = \nat{16 600}\) so'm.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">7-qoida · qo'shimcha ish soatlari</span>
+    <p>Ish haqi ikki qismdan iborat bo'lsa — asosiy (kunlik) haq va me'yordan <b>ortiqcha</b> soatlar uchun qo'shimcha haq — jami: <b>asosiy haq + qo'shimcha soatlar · bir soatlik qo'shimcha haq</b>.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · qo'shimcha ish</span>
+    <p>Sardor kuniga 90 000 so'm oladi, me'yordan ortiqcha har soat uchun 12 000 so'm. U 4 kun har kuni 2 soatdan ortiqcha ishladi. Jami qancha oldi?</p>
+    <div class="qadam"><b>1</b><span>Asosiy: \(90 000 \cdot 4 = 360 000\) so'm.</span></div>
+    <div class="qadam"><b>2</b><span>Ortiqcha soatlar: \(4 \cdot 2 = 8\) soat; \(8 \cdot 12 000 = 96 000\) so'm.</span></div>
+    <div class="qadam"><b>3</b><span>Jami: \(360 000 + 96 000 = \nat{456 000}\) so'm.</span></div>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Avval bir birlikka tushamiz, keyin kerakli sonli birlikka chiqamiz!</div></div>
+  <div class="box">
+    <p><b>Bir birlikdan ko'p birlikka.</b> Changyutkich 6 minutda 15 m² maydonni tozalaydi. 30 minutda necha kvadrat metr?</p>
+    <div data-meyor="6 min|15 m²"></div>
+    <div data-meyor="1 min|2,5 m²" data-kop="30"></div>
+    <p class="chz-cap">Avval \(15 : 6 = 2,5\) m²/min, keyin \(2,5 \cdot 30 = 75\) m².</p>
+    <p><b>Vaqt chizig'i.</b> 14:00 dan 16:30 gacha: dastlabki soat va yarim soatlar.</p>
+    <div data-vaqt="14:00|16:30"></div>
+    <p class="chz-cap">2 soat 30 min = 1 soat + 3 ta yarim soat.</p>
+    <p><b>Kechqurun.</b> 18:00 dan 20:30 gacha:</p>
+    <div data-vaqt="18:00|20:30"></div>
+    <p class="chz-cap">1 soat + 3 ta yarim soat.</p>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar</h2>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · idish to'lishi</span>
+    <p>Jo'mrakdan 6 minutda 45 ℓ suv oqadi. 20 minutda necha litr oqadi?</p>
+    <div class="qadam"><b>1</b><span>1 min: \(45 : 6 = 7,5\) ℓ.</span></div>
+    <div class="qadam"><b>2</b><span>20 min: \(7,5 \cdot 20 = \nat{150}\) ℓ.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · retsept</span>
+    <p>Pirog uchun har 6 ta tuxumga 480 g un kerak. 14 ta tuxum uchun necha gramm un kerak?</p>
+    <div class="qadam"><b>1</b><span>1 ta tuxumga: \(480 : 6 = 80\) g.</span></div>
+    <div class="qadam"><b>2</b><span>14 ta tuxumga: \(80 \cdot 14 = \nat{1120}\) g.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · panjara</span>
+    <p>1 m panjaraning narxi 260 000 so'm. Bo'yi 50 m, eni 35 m bo'lgan to'g'ri to'rtburchak maydonni panjara bilan o'rash uchun qancha pul kerak?</p>
+    <div class="qadam"><b>1</b><span>Perimetr: \(2 \cdot (50 + 35) = 170\) m.</span></div>
+    <div class="qadam"><b>2</b><span>Narxi: \(170 \cdot 260 000 = \nat{44 200 000}\) so'm.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 4 · qo'ng'iroq narxi</span>
+    <p>Chiquvchi qo'ng'iroqning 1 minuti 2,15 ming so'm. 9 minut gaplashgan odam qancha to'laydi?</p>
+    <div class="qadam"><b>1</b><span>\(2,15 \cdot 9 = \nat{19,35}\) ming so'm = 19 350 so'm.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 5 · tun va kun (avtoturargoh)</span>
+    <p>Avtoturargoh tarifi: <b>kunduzi (08:00–21:00)</b> — dastlabki 1 soat 4 000 so'm, keyin har yarim soat 1 500 so'm; <b>tun (21:00–08:00)</b> — bir martalik 12 000 so'm (necha soat turishidan qat'i nazar). Kunduzgi va tungi vaqtda turilsa, ikkala to'lov qo'shiladi. Mashina 19:00 dan 22:00 gacha turdi. To'lov qancha?</p>
+    <div class="qadam"><b>1</b><span>Kunduzgi qism: 19:00–21:00 = 2 soat = 1 soat + 2 ta yarim soat: \(4000 + 2 \cdot 1500 = 7000\) so'm.</span></div>
+    <div class="qadam"><b>2</b><span>Tungi qism: 21:00 dan keyin turdi — 12 000 so'm.</span></div>
+    <div class="qadam"><b>3</b><span>Jami: \(7000 + 12 000 = \nat{19 000}\) so'm.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 6 · birgalikdagi me'yor</span>
+    <p>Birinchi jo'mrak minutiga 6 ℓ, ikkinchisi minutiga 4 ℓ suv beradi. Ikkalasi bir vaqtda ochilsa, 15 minutda hovuzga necha litr suv quyiladi?</p>
+    <div class="qadam"><b>1</b><span>Birgalikdagi me'yor: \(6 + 4 = 10\) ℓ/min.</span></div>
+    <div class="qadam"><b>2</b><span>15 min: \(10 \cdot 15 = \nat{150}\) ℓ. (Alohida: \(6 \cdot 15 + 4 \cdot 15 = 90 + 60 = 150\) ℓ — bir xil.)</span></div>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Birinchi — bir birlikka keltirish (bo'lish), keyin — ko'paytirish!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Bo'lish o'rniga to'g'ridan-to'g'ri ko'paytirish.<br><span class="xato">3 min — 12 °C; 8 min: 12 · 8 = 96 °C</span> &nbsp;→&nbsp; <span class="togri">avval 1 min: 12 : 3 = 4 °C; keyin 4 · 8 = 32 °C</span></li>
+      <li>Vaqt birliklarini moslamaslik.<br><span class="xato">1 min — 50 ta; 1 soatda 50 · 1 = 50 ta</span> &nbsp;→&nbsp; <span class="togri">1 soat = 60 min: 50 · 60 = 3000 ta</span></li>
+      <li>Taksi tarifida 500 m o'rniga 1 km narxini olish.<br><span class="xato">3,5 km: 3 000 + 3,5 · 800 = 5 800</span> &nbsp;→&nbsp; <span class="togri">800 so'm — har 500 m uchun: 2,5 km = 5 ta 500 m, 3 000 + 5 · 800 = 7 000</span></li>
+      <li>Avtoturargohda dastlabki soatni ham yarim soat deb olish.<br><span class="xato">2,5 soat = 5 ta yarim soat: 5 · 1 500</span> &nbsp;→&nbsp; <span class="togri">dastlabki 1 soat — 4 000 so'm, qolgan 1,5 soat = 3 ta yarim soat: 4 000 + 3 · 1 500</span></li>
+      <li>Pochta jadvalidagi eng yaqin kichik chegarani olish.<br><span class="xato">120 g — 50 g (kichikroq chegara) → 6 000</span> &nbsp;→&nbsp; <span class="togri">120 g dan kichik emas chegara — 150 g → 9 500</span></li>
+      <li>Alohida jo'natmalarni bitta deb hisoblash (agar ular turli manzillarga bo'lsa).<br><span class="xato">130 g va 80 g turli manzillarga: 210 g uchun bitta narx</span> &nbsp;→&nbsp; <span class="togri">har bir jo'natma uchun alohida narx topiladi va qo'shiladi</span></li>
+      <li>Qo'shimcha soatlar uchun faqat qo'shimcha haqni hisoblash.<br><span class="xato">4 kun, har kuni 2 soat ortiqcha: faqat 8 · 12 000</span> &nbsp;→&nbsp; <span class="togri">asosiy haq (90 000 · 4) + qo'shimcha haq (8 · 12 000)</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Me'yorni toping, keyin birliklar soniga ko'paytiring!</div></div>
+
+  <div class="daraja oson"><i></i>Oson — umumiy miqdorni toping</div>
+  <div class="misollar qator">
+    <span><b>a)</b> Bir soatlik ish haqi 14 000 so'm. 9 soatda necha so'm?</span>
+    <span><b>b)</b> Printer minutiga 45 sahifa chop etadi. 20 minutda necha sahifa?</span>
+    <span><b>c)</b> Pechka minutiga 7 ta non yopadi. 25 minutda nechta non?</span>
+    <span><b>d)</b> 1 kg olma 13 500 so'm. 6 kg olma necha so'm?</span>
+    <span><b>e)</b> 1 ℓ benzin 9 500 so'm. 40 ℓ benzin necha so'm?</span>
+    <span><b>f)</b> Piyoda soatiga 4,5 km yuradi. 6 soatda necha kilometr?</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 126 000 so'm</span><span>b) 900 sahifa</span><span>c) 175 ta non</span><span>d) 81 000 so'm</span><span>e) 380 000 so'm</span><span>f) 27 km</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — avval me'yorni toping</div>
+  <div class="misollar qator">
+    <span><b>a)</b> Ishchi 5 soatda 72 000 so'm ishladi. 8 soatda necha so'm ishlaydi?</span>
+    <span><b>b)</b> Suyuqlik 4 minutda 14 °C ga qiziydi. 10 minutda necha gradusga qiziydi?</span>
+    <span><b>c)</b> Zavodda 8 minutda 640 ta detal tayyorlanadi. 1 soatda nechta detal?</span>
+    <span><b>d)</b> Jo'mrakdan 6 minutda 45 ℓ suv oqadi. 20 minutda necha litr?</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) \(72 000 : 5 = 14 400\); \(14 400 \cdot 8 = 115 200\) so'm</span><span>b) \(14 : 4 = 3,5\); \(3,5 \cdot 10 = 35\) °C</span><span>c) \(640 : 8 = 80\); \(80 \cdot 60 = 4800\) ta</span><span>d) \(45 : 6 = 7,5\); \(7,5 \cdot 20 = 150\) ℓ</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — birliklarni moslang</div>
+  <div class="misollar qator">
+    <span><b>a)</b> Skaner 80 sekundda 240 sahifani nusxalaydi. 1 minutda necha sahifa?</span>
+    <span><b>b)</b> Har 6 ta tuxumga 480 g un kerak. 14 ta tuxumga necha gramm un?</span>
+    <span><b>c)</b> Jo'mrak sekundiga 25 ml suv beradi. 3 minutda necha litr suv?</span>
+    <span><b>d)</b> Changyutkich 6 minutda 15 m² ni tozalaydi. 0,5 soatda necha kvadrat metr?</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 3 sahifa/s · 60 = 180 sahifa</span><span>b) 80 g · 14 = 1120 g</span><span>c) 3 min = 180 s; \(25 \cdot 180 = 4500\) ml = 4,5 ℓ</span><span>d) 0,5 soat = 30 min; \(15 : 6 = 2,5\); \(2,5 \cdot 30 = 75\) m²</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — pochta tarifi</div>
+  <p>Tarif: 50 g gacha — 6 000; 150 g gacha — 9 500; 300 g gacha — 14 000; 1 kg gacha — 27 000 so'm.</p>
+  <ol>
+    <li>Narxini toping: a) 35 g &nbsp; b) 90 g &nbsp; c) 250 g &nbsp; d) 0,6 kg.</li>
+    <li>Bitta shaharning turli manzillariga uchta jo'natma yuboriladi: A — 120 g, B — 300 g, C — 0,9 kg. Jami to'lov qancha?</li>
+    <li>X jo'natma 40 g (2 ta), Y jo'natma 140 g (1 ta) — hammasi alohida manzillarga. Jami to'lov qancha?</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) a) 6 000 &nbsp; b) 9 500 &nbsp; c) 14 000 &nbsp; d) 27 000</span><span>2) \(9500 + 14 000 + 27 000 = 50 500\) so'm</span><span>3) \(2 \cdot 6000 + 9500 = 21 500\) so'm</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — avtoturargoh va ijara</div>
+  <p>Avtoturargoh (kunduzi): dastlabki 1 soat — 4 000 so'm, keyingi har yarim soat — 1 500 so'm.</p>
+  <ol>
+    <li>Mashina: a) 13:00 dan 16:00 gacha &nbsp; b) 08:00 dan 09:00 gacha &nbsp; c) 15:30 dan 19:00 gacha turdi. To'lov qancha?</li>
+    <li>Velosiped ijarasi: dastlabki 1 soat — 18 000, keyingi har yarim soat — 7 000 so'm. Jasur velosipedni 11:00 dan 13:30 gacha oldi. U qancha to'laydi?</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) a) 3 soat: \(4000 + 4 \cdot 1500 = 10 000\) so'm</span><span>b) 1 soat: 4 000 so'm</span><span>c) 3,5 soat: \(4000 + 5 \cdot 1500 = 11 500\) so'm</span><span>2) 2,5 soat: \(18 000 + 3 \cdot 7000 = 39 000\) so'm</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — taksi tarifi</div>
+  <p>Tarif: buyurtma va 1 km gacha — 3 000 so'm; 1 km dan keyin 8 km gacha har 500 m uchun — 800 so'm; 8 km dan keyin har 500 m uchun — 600 so'm. To'lov qancha: a) 0,7 km &nbsp; b) 6 km &nbsp; c) 9 km?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 3 000 so'm</span><span>b) 5 km = 10 ta 500 m: \(3000 + 10 \cdot 800 = 11 000\) so'm</span><span>c) \(3000 + 14 \cdot 800 + 2 \cdot 600 = 15 400\) so'm</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — kun va tun</div>
+  <p>Avtoturargoh: kunduzi (08:00–21:00) — dastlabki 1 soat 4 000 so'm, keyingi har yarim soat 1 500 so'm; tun (21:00–08:00) — bir martalik 12 000 so'm. Mashina 19:30 dan 23:00 gacha turdi. To'lov qancha?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>Kunduzgi qism: 19:30–21:00 = 1 soat 30 min = 1 soat + 1 ta yarim soat: \(4000 + 1500 = 5500\) so'm. Tungi qism: 21:00 dan keyin — 12 000 so'm. Jami: \(5500 + 12 000 = 17 500\) so'm.</details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — ish haqi</div>
+  <p>Nodir kuniga 100 000 so'm oladi, me'yordan ortiqcha har soat uchun 15 000 so'm. U 6 kun har kuni 2 soatdan ortiqcha ishlagan. Jami qancha oldi?</p>
+  <details class="javob"><summary>Javobni ko'rish</summary>Asosiy: \(100 000 \cdot 6 = 600 000\). Ortiqcha: \(6 \cdot 2 = 12\) soat, \(12 \cdot 15 000 = 180 000\). Jami: \(780 000\) so'm.</details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Masalalarni yeching</span>
+    <ol class="masalalar">
+      <li>Hovuzdagi 600 ℓ suv jo'mrak orqali 25 minutda to'liq oqib tugaydi. a) Bir minutda necha litr suv oqadi? b) 7 minutda necha litr oqadi?
+        <details class="javob"><summary>Javobni ko'rish</summary>a) \(600 : 25 = 24\) ℓ/min. b) \(24 \cdot 7 = 168\) ℓ.</details></li>
+      <li>Fabrikada 6 kunda 2190 ta stul ishlab chiqariladi. a) Bir kunda nechta stul tayyorlanadi? b) 11 kunda nechta stul tayyorlanadi?
+        <details class="javob"><summary>Javobni ko'rish</summary>a) \(2190 : 6 = 365\) ta/kun. b) \(365 \cdot 11 = 4015\) ta.</details></li>
+      <li>Zavodda 12 minutda 600 ta shisha tayyorlanadi. Shu tezlikda 1 soatda nechta shisha tayyorlanadi?
+        <details class="javob"><summary>Javobni ko'rish</summary>1 min: \(600 : 12 = 50\) ta. 1 soat = 60 min: \(50 \cdot 60 = 3000\) ta.</details></li>
+      <li>Skaner 80 sekundda 240 sahifani nusxalaydi. U 1 minutda nechta sahifa nusxalaydi?
+        <details class="javob"><summary>Javobni ko'rish</summary>1 s: \(240 : 80 = 3\) sahifa. 1 min = 60 s: \(3 \cdot 60 = 180\) sahifa.</details></li>
+      <li>Tort pishirishda har 6 ta tuxumga 480 g un kerak. 14 ta tuxum uchun necha gramm un kerak?
+        <details class="javob"><summary>Javobni ko'rish</summary>1 tuxumga: \(480 : 6 = 80\) g. 14 tuxumga: \(80 \cdot 14 = 1120\) g.</details></li>
+      <li>1 m panjaraning narxi 260 000 so'm. Bo'yi 50 m, eni 35 m bo'lgan to'g'ri to'rtburchak shaklidagi maydonni panjara bilan o'rash uchun qancha pul kerak?
+        <details class="javob"><summary>Javobni ko'rish</summary>Perimetr: \(2 \cdot (50 + 35) = 170\) m. Narxi: \(170 \cdot 260 000 = 44 200 000\) so'm.</details></li>
+      <li>Mobil aloqa kompaniyasida kiruvchi qo'ng'iroqning 1 minuti 1,8 ming so'm, chiquvchi qo'ng'iroqning 1 minuti 2,15 ming so'm. a) Kiruvchi qo'ng'iroq 7 minut davom etdi. b) Chiquvchi qo'ng'iroq 9 minut davom etdi. Har biri uchun qancha to'landi?
+        <details class="javob"><summary>Javobni ko'rish</summary>a) \(1,8 \cdot 7 = 12,6\) ming so'm. b) \(2,15 \cdot 9 = 19,35\) ming so'm.</details></li>
+      <li>Yurak bir minutda o'rtacha 75 marta uradi. U 1 soatda necha marta uradi? Bir sutkada-chi?
+        <details class="javob"><summary>Javobni ko'rish</summary>1 soatda: \(75 \cdot 60 = 4500\) marta. 1 sutka = 24 soat: \(4500 \cdot 24 = 108 000\) marta.</details></li>
+      <li>Dilnoza 4 kunda 96 bet kitob o'qidi. U shu tezlikda 15 kunda necha bet o'qiydi?
+        <details class="javob"><summary>Javobni ko'rish</summary>1 kunda: \(96 : 4 = 24\) bet. 15 kunda: \(24 \cdot 15 = 360\) bet.</details></li>
+      <li>Zavodda bir smenada (8 soat) har minutda 50 ta detal tayyorlanadi. Bir smenada nechta detal tayyorlanadi?
+        <details class="javob"><summary>Javobni ko'rish</summary>8 soat = \(8 \cdot 60 = 480\) min. \(50 \cdot 480 = 24 000\) ta.</details></li>
+      <li>Velosiped ijarasida dastlabki 1 soat 18 000 so'm, keyingi har yarim soat 7 000 so'm. Jamol velosipedni 15:00 dan 17:30 gacha ijaraga oldi. U qancha to'laydi?
+        <details class="javob"><summary>Javobni ko'rish</summary>2 soat 30 min = 1 soat + 3 ta yarim soat. \(18 000 + 3 \cdot 7 000 = 39 000\) so'm.</details></li>
+      <li>Birinchi usta bir soatda 13 ta detal, ikkinchi usta 12 ta detal yasaydi. Birinchi usta 7 soat, ikkinchisi 9 soat ishladi. Qaysi usta ko'p detal yasadi va qanchaga?
+        <details class="javob"><summary>Javobni ko'rish</summary>Birinchi: \(13 \cdot 7 = 91\); ikkinchi: \(12 \cdot 9 = 108\). Ikkinchi usta \(108 - 91 = 17\) ta ko'p yasadi.</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Tarifda har bir narx nimaga tegishli ekanini aniqlang!</div></div>
+
+  <div class="box qiyin">
+    <span class="tag">Matematika kundaligi · xatoni toping</span>
+    <p>Taksi tarifi: 1 km gacha 3 000 so'm, 1 km dan keyin 8 km gacha har 500 m uchun 800 so'm. Madina 3,5 km masofa uchun shunday hisobladi: \(3000 + 3,5 \cdot 800 = 5800\) so'm. U to'g'ri hisobladimi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Yo'q. 800 so'm <b>har 500 m</b> uchun, 3,5 km uchun emas. Dastlabki 1 km — 3 000 so'm. Qolgan \(3,5 - 1 = 2,5\) km = 5 ta 500 m: \(5 \cdot 800 = 4000\). To'g'ri javob: \(3000 + 4000 = 7000\) so'm.</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Muammoli topshiriq · birga yoki alohida?</span>
+    <p>Pochta tarifi: 50 g gacha — 6 000; 150 g gacha — 9 500; 300 g gacha — 14 000; 1 kg gacha — 27 000 so'm. Ikki jo'natma bir manzilga yuboriladi: 130 g va 150 g. Alohida yuborish arzonmi yoki birgalikdami? Qancha farq?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Alohida: 130 g — 9 500, 150 g — 9 500, jami \(19 000\) so'm. Birga: \(130 + 150 = 280\) g, 300 g gacha — \(14 000\) so'm. Birga yuborish arzon, farq \(19 000 - 14 000 = 5000\) so'm.</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Qiyin masala · ikki jo'mrak</span>
+    <p>Hovuzga bir vaqtda ikki jo'mrak suv quyadi: birinchisi 6 minutda 54 ℓ, ikkinchisi 5 minutda 40 ℓ. 12 minutda hovuzga necha litr suv quyiladi? Hovuz sig'imi 300 ℓ bo'lsa, qancha qismi to'lmaydi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Birinchi: \(54 : 6 = 9\) ℓ/min; ikkinchi: \(40 : 5 = 8\) ℓ/min. Birgalikda: \(9 + 8 = 17\) ℓ/min. 12 min: \(17 \cdot 12 = 204\) ℓ. To'lmagan qism: \(300 - 204 = 96\) ℓ.</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Amaliy topshiriq · kommunal to'lov</span>
+    <p>Oylik hisobda xizmatlarning miqdori va 1 birlik narxi (me'yor) berilgan. Jami xarajatni toping:</p>
+    <table class="jad"><tr><th>Xizmat</th><th>Miqdor</th><th>1 birlik narxi (ming so'm)</th></tr>
+      <tr><td>Elektr</td><td>180 kWh</td><td>0,32</td></tr>
+      <tr><td>Tabiiy gaz</td><td>95 m³</td><td>0,4</td></tr>
+      <tr><td>Sovuq suv</td><td>11 m³</td><td>2,6</td></tr>
+      <tr><td>Chiqindi</td><td>3 kishi</td><td>7,5</td></tr></table>
+    <details class="javob"><summary>Javobni ko'rish</summary>Elektr: \(180 \cdot 0,32 = 57,6\); gaz: \(95 \cdot 0,4 = 38\); suv: \(11 \cdot 2,6 = 28,6\); chiqindi: \(3 \cdot 7,5 = 22,5\). Jami: \(57,6 + 38 + 28,6 + 22,5 = 146,7\) ming so'm = 146 700 so'm.</details>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — belgilab chiqing va testni ishlang!</div></div>
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men me'yor ma'lum bo'lsa, umumiy miqdorni me'yorni birliklar soniga ko'paytirib topaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men avval bir birlikka keltirib (bo'lib), keyin ko'paytirishni va birliklarni moslashni bilaman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men pochta («…gacha») va avtoturargoh («dastlabki soat + yarim soatlar») tariflari bo'yicha to'lovni hisoblay olaman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men bosqichli (taksi) tarifni va qo'shimcha ish soatlari haqini hisoblay olaman.</label></li>
+    </ul>
+  </div>
+</section>
+<p class="m-foot">Mathlearn · 5-sinf matematika</p>
+</main>
+<script src="chizma.js?v=35"></script>
+<script src="maruza.js?v=4"></script>
+</body>
+</html>

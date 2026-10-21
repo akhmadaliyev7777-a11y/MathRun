@@ -66,6 +66,9 @@
                                           guruh="2" — har qatordagi buyumlar 2 tadan punktir ramkali guruhlarga ajratiladi
    data-meyor="5 min|600 sahifa" [data-yoz="?"] — me'yor sxemasi: yuqorida k birlik — jami miqdor, pastda 1 birlik — me'yor (jami : k);
                                           yoz="?" bo'lsa — me'yor o'rniga savol belgisi (mashq uchun)
+   data-meyor="1 soat|16 000 so'm" data-kop="8" [data-yoz="?"] — teskari sxema: 1 birlik — me'yor, k birlik — me'yor × k (k = data-kop)
+   data-vaqt="10:00|12:30" [data-bosh="60"] [data-qadam="30"] — vaqt chizig'i: boshlanish va tugash vaqti; dastlabki bosh daqiqa ko'k,
+                                          keyingi har qadam daqiqa to'q sariq (raqamlangan); yarim soatlar soni pastda yoziladi
    data-grafik="1:12,2:24,3:36" data-x="Vaqt (soat)" data-y="Masofa (km)" [data-xmax="4"] [data-ymax="48"] [data-yqadam="12"] [data-nom="Velosipedchi"] —
                                           chiziqli grafik: nuqtalar (x:y) va ularni 0 dan o'tuvchi to'g'ri chiziq; tik o'qda yqadam oralig'ida belgilar
 */
@@ -518,6 +521,7 @@
     const kb = p[0].trim().match(/^([\d,]+)\s+(.*)$/), jb = p[1].trim().match(/^([\d ,]+?)\s+(\D.*)$/);
     const k = Number(kb[1].replace(",", ".")), kBirl = kb[2];
     const jami = Number(jb[1].replace(/ /g, "").replace(",", ".")), jBirl = jb[2];
+    if (el.dataset.kop) return chizMeyorKop(el, p);
     const me = jami / k, savol = el.dataset.yoz === "?";
     const W = 380, H = 150;
     let svg = '<defs><marker id="mq" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5b6275"/></marker></defs>';
@@ -536,6 +540,58 @@
     el.classList.add("tasma");
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + onliSon(k) + " " + kBirl + " — " + onliSon(jami) + " " + jBirl +
       "; 1 " + kBirl + " — " + (savol ? "noma'lum" : onliSon(me)) + " " + jBirl + '">' + svg + "</svg>";
+  }
+
+  function chizMeyorKop(el, p) {
+    const kb = p[0].trim().match(/^([\d,]+)\s+(.*)$/), jb = p[1].trim().match(/^([\d ,]+?)\s+(\D.*)$/);
+    const birl = kb[2], me = Number(jb[1].replace(/ /g, "").replace(",", ".")), jBirl = jb[2], k = Number(el.dataset.kop);
+    const savol = el.dataset.yoz === "?";
+    const W = 380, H = 150;
+    let svg = '<defs><marker id="mk" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5b6275"/></marker></defs>';
+    const qator = function (y, a, b, rang) {
+      return '<text x="20" y="' + y + '" font-size="18" font-weight="800" fill="#1f2433">' + a + "</text>" +
+        '<line x1="118" y1="' + (y - 6) + '" x2="170" y2="' + (y - 6) + '" stroke="#5b6275" stroke-width="2.4" marker-end="url(#mk)"/>' +
+        '<text x="184" y="' + y + '" font-size="18" font-weight="800" fill="' + rang + '">' + b + "</text>";
+    };
+    svg += qator(34, "1 " + birl, onliSon(me) + " " + jBirl, "#1f5fd6");
+    svg += qator(128, onliSon(k) + " " + birl, (savol ? "?" : onliSon(me * k)) + " " + jBirl, "#12805c");
+    [60, 300].forEach(function (x, i) {
+      svg += '<line x1="' + x + '" y1="48" x2="' + x + '" y2="102" stroke="#d4501b" stroke-width="2.4" marker-end="url(#mk)"/>' +
+        '<rect x="' + (i ? 310 : 70) + '" y="64" width="54" height="26" rx="13" fill="#ffe6d6" stroke="#d4501b" stroke-width="1.6"/>' +
+        '<text x="' + (i ? 337 : 97) + '" y="83" text-anchor="middle" font-size="15" font-weight="800" fill="#d4501b">× ' + onliSon(k) + "</text>";
+    });
+    el.classList.add("tasma");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="1 ' + birl + " — " + onliSon(me) + " " + jBirl + "; " + onliSon(k) + " " + birl + " — " + (savol ? "noma'lum" : onliSon(me * k)) + " " + jBirl + '">' + svg + "</svg>";
+  }
+
+  // ---------- vaqt chizig'i ----------
+  function chizVaqt(el) {
+    const q = el.dataset.vaqt.split("|").map(function (t) { const a = t.split(":"); return Number(a[0]) * 60 + Number(a[1]); });
+    let b = q[0], e = q[1]; if (e <= b) e += 1440;
+    const bosh = Number(el.dataset.bosh) || 60, qadam = Number(el.dataset.qadam) || 30;
+    const W = 380, L = 22, R = 22, Y = 58, iW = W - L - R, jami = e - b;
+    const X = function (m) { return L + (m - b) / jami * iW; };
+    const hhmm = function (m) { m = ((m % 1440) + 1440) % 1440; return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); };
+    let svg = "", n = 0;
+    const b1 = Math.min(e, b + bosh);
+    svg += '<rect x="' + X(b) + '" y="' + (Y - 14) + '" width="' + (X(b1) - X(b)) + '" height="28" fill="#dbe7ff" stroke="#1f5fd6" stroke-width="2"/>' +
+      '<text x="' + ((X(b) + X(b1)) / 2) + '" y="' + (Y + 5) + '" text-anchor="middle" font-size="13" font-weight="800" fill="#1f5fd6">dastlabki ' + (bosh === 60 ? "soat" : bosh + " min") + "</text>";
+    for (let m = b1; m < e; m += qadam) {
+      n++;
+      const m2 = Math.min(e, m + qadam);
+      svg += '<rect x="' + X(m) + '" y="' + (Y - 14) + '" width="' + (X(m2) - X(m)) + '" height="28" fill="#ffe6d6" stroke="#d4501b" stroke-width="2"/>' +
+        '<text x="' + ((X(m) + X(m2)) / 2) + '" y="' + (Y + 5) + '" text-anchor="middle" font-size="14" font-weight="800" fill="#d4501b">' + n + "</text>";
+    }
+    const tiklar = [b];
+    for (let m = b + qadam; m < e; m += qadam) tiklar.push(m);
+    tiklar.push(e);
+    tiklar.forEach(function (m) {
+      svg += '<line x1="' + X(m) + '" y1="' + (Y + 14) + '" x2="' + X(m) + '" y2="' + (Y + 22) + '" stroke="#1f2433" stroke-width="2"/>' +
+        '<text x="' + X(m) + '" y="' + (Y + 38) + '" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2433">' + hhmm(m) + "</text>";
+    });
+    svg += '<text x="' + (W / 2) + '" y="18" text-anchor="middle" font-size="14" font-weight="800" fill="#1f2433">' + hhmm(b) + " dan " + hhmm(e) + " gacha: " + Math.floor(jami / 60) + " soat" + (jami % 60 ? " " + (jami % 60) + " min" : "") + "</text>";
+    el.classList.add("tasma");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' 100" role="img" aria-label="Vaqt chizig\'i ' + hhmm(b) + " – " + hhmm(e) + '">' + svg + "</svg>";
   }
 
   // ---------- chiziqli grafik ----------
@@ -1269,6 +1325,7 @@
       root.querySelectorAll("[data-korinish]").forEach(chizKorinish);
       root.querySelectorAll("[data-meyor]").forEach(chizMeyor);
       root.querySelectorAll("[data-grafik]").forEach(chizGrafik);
+      root.querySelectorAll("[data-vaqt]").forEach(chizVaqt);
     }
   };
 })();

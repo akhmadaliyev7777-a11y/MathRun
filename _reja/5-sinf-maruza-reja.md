@@ -521,7 +521,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** gilam 1 m² narxi; benzin (km/ℓ); avtoturargoh soati; so'z terish; nusxalash; ish haqi; chipta; jo'mrak (ℓ/min); Kundalik: printerlar tezligini taqqoslash (X: 5 min — 400, Y: 8 min — 600) — Akmalning xatosi.
 **Rasmlar:** "5 min → 600 sahifa, 1 min → ?" strelkali sxema; chiziqli grafik.
 
-#### ☐ 30. Me'yorga ko'ra umumiy miqdorni topish — D2 38–42; M2 45–50
+#### ✅ 30. Me'yorga ko'ra umumiy miqdorni topish — D2 38–42; M2 45–50
+**Holat (2026-10-21):** tayyor (bulut sessiyasi). Fayl: maruza/5-meyor-umumiy-miqdor.html. O'z testi: `5|matematika|meyor-umumiy-miqdor` (10 savol, izohli); data.js da ma'ruza va test ulandi (simulyator hali yo'q). Yangi chizma turlari: `data-meyor="1 soat|16 000 so'm" data-kop="8"` (teskari sxema: 1 birlik → me'yor, k birlik → me'yor × k) va `data-vaqt="09:30|12:00"` (vaqt chizig'i: dastlabki soat ko'k, yarim soatlar raqamlangan) — chizma.js ?v=35.
+**Kitob bilan solishtirildi (D2 38–42; M2 45–50):** 7 qoida (umumiy miqdor = me'yor · son; avval 1 birlikka keltirish; birliklarni moslash; «…gacha» jadvali (pochta); dastlabki soat + yarim soatlar (avtoturargoh); bosqichli tarif (taksi); qo'shimcha ish soatlari) ✅. Misol turlari: ish haqi, harorat, banka (shisha), pochta (alohida/birga), avtoturargoh (kunduz/tun), panjara (perimetr × narx), qo'ng'iroq narxi (o'nli me'yor), changyutkich, taksi, hovuz, stul, printer (s → min), retsept (un : tuxum), velosiped ijarasi, qo'shimcha ish soatlari, kommunal jadval (amaliy) ✅. Kitob sonlari ko'chirilmadi (kitobdan.py: faqat soat yozuvlari mos — o'zgartirildi).
+**Tekshiruv:** barcha masala, mashq va test javoblari Python bilan hisoblandi (tarif masalalari funksiya bilan: pochta, avtoturargoh, taksi); tenglik.py'dagi «XATO»lar — vergulli o'nli kasr/birlikli yozuvni tushunmaslik (qo'lda tekshirildi) va atayin xato (taksi 5 800); 390 va 1100 px: scrollWidth = ekran, KaTeX xatosiz, pageerror yo'q.
+**Simulyator uchun g'oyalar:** tarif hisoblagichi: vaqt chizig'ida boshlanish/tugash surilsa, dastlabki soat va yarim soatlar to'lovi o'zgaradi; taksi masofasi slayderi bosqichlar bo'yicha; pochta jadvalida jo'natma massasi.
 **Qoidalar ro'yxati:**
 - Umumiy miqdor = me'yor × birliklar soni.
 - Avval 1 birlikka keltirish, keyin ko'paytirish (2 min → 10 °C, 1 min → 5 °C, 7 min → 35 °C).
