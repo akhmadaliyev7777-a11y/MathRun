@@ -608,6 +608,7 @@ function renderAdminDashboard() {
     PRIMARY_TITLES = res[1];
     renderStats();
     renderGradeList();
+    renderUsersSection();
     ensurePrimaryBanks();
   }).catch(function () {
     document.querySelector(".adm-side-loading") && (document.querySelector(".adm-side-loading").textContent = "1–4 sinf ma'lumotini yuklab bo'lmadi");
@@ -642,7 +643,8 @@ function initDatabase() {
   Promise.all([
     DB.collection("izohlar").orderBy("t", "desc").limit(500).get(),
     DB.collection("natijalar").orderBy("t", "desc").limit(2000).get(),
-    DB.collection("xabarlar").orderBy("t", "desc").limit(500).get().catch(function () { xabarOff = true; return { docs: [] }; })
+    DB.collection("xabarlar").orderBy("t", "desc").limit(500).get().catch(function () { xabarOff = true; return { docs: [] }; }),
+    DB.collection("users").orderBy("t", "desc").limit(300).get().catch(function () { usersOff = true; return { docs: [] }; })
   ]).then(function (res) {
     const toDate = function (x) { return x && x.toDate ? x.toDate() : null; };
     NOTES = res[0].docs.map(function (d) {
@@ -655,6 +657,12 @@ function initDatabase() {
     RESULTS = res[1].docs.map(function (d) {
       const x = d.data();
       return { k: x.k, h: x.h, s: x.s || [], n: x.n || 0, t: x.t && x.t.toDate ? x.t.toDate() : null };
+    });
+    USERS = res[3].docs.map(function (d) {
+      const x = d.data();
+      let r = {};
+      try { r = JSON.parse(x.r || "{}") || {}; } catch (e) {}
+      return { id: d.id, name: (x.name || "").trim(), r: r, t: x.t && x.t.toDate ? x.t.toDate() : null };
     });
     dbState = "ok";
     refreshDbViews();
@@ -669,7 +677,55 @@ function initDatabase() {
 function refreshDbViews() {
   renderStats();
   renderResultsSection();
+  renderUsersSection();
   if (panelTopic && !document.getElementById("adm-panel").hidden) { renderPanelNotes(); renderPanelResults(); }
+}
+
+// ---------- kirgan o'quvchilar (ism va natijalari) ----------
+
+let USERS = [], usersOff = false;
+
+// natija kalitini o'quvchiga tushunarli nomga aylantiradi: «5-sinf · 6. Oddiy kasrni… · 2-test»
+function resultLabel(k) {
+  const t = topicByKey(k);
+  if (t) {
+    const parts = splitTopicTitle(t.topic.title, t.index);
+    return t.grade.id + "-sinf · " + parts.num + " " + parts.title + (/\|qiyin$/.test(k) ? " · 2-test" : "");
+  }
+  const pl = primaryLevelInfo(k);
+  if (pl) return pl.g.grade + "-sinf · " + pl.title + " · " + pl.label;
+  return String(k);
+}
+
+function renderUsersSection() {
+  const el = document.getElementById("adm-users");
+  if (!el) return;
+  const head = '<div class="adm-res-head"><h2>👤 Kirgan o\'quvchilar</h2>';
+  if (dbState !== "ok") { el.innerHTML = head + '</div>' + (dbState === "loading" ? '<p class="muted">Yuklanmoqda…</p>' : dbOffText()); return; }
+  if (usersOff) {
+    el.innerHTML = head + '</div><p class="adm-dboff">Ismli natijalarni ko\'rish uchun Firebase Console → Firestore → Rules ga <code>firestore.rules</code> dagi yangi matnni qo\'ying (<b>users</b> bo\'limida admin o\'qishi yoqilgan).</p>';
+    return;
+  }
+  const rows = USERS.map(function (u) {
+    const ks = Object.keys(u.r).filter(function (k) { return u.r[k] && typeof u.r[k].best === "number"; });
+    const avg = ks.length ? Math.round(ks.reduce(function (s, k) { return s + u.r[k].best; }, 0) / ks.length) : null;
+    return { u: u, ks: ks, avg: avg };
+  });
+  const withTests = rows.filter(function (r) { return r.ks.length; }).length;
+  el.innerHTML = head + '<span class="muted">Jami <b>' + rows.length + '</b> ta o\'quvchi kirgan · test yechgan: <b>' + withTests + '</b></span></div>' +
+    (rows.length
+      ? '<div class="adm-users">' + rows.map(function (r) {
+          const list = r.ks.sort(function (a, b) { return (r.u.r[b].t || 0) - (r.u.r[a].t || 0); }).map(function (k) {
+            const x = r.u.r[k];
+            return '<li><span>' + escapeHtml(resultLabel(k)) + '</span><b class="adm-rate--' + rateClass(x.best) + '">' + x.best + '%</b>' +
+              '<small>oxirgisi ' + (x.last || 0) + '% · ' + (x.count || 1) + ' marta' + (x.t ? ' · ' + fmtDate(new Date(x.t)).split(" ")[0] : "") + '</small></li>';
+          }).join("");
+          return '<details class="adm-user"><summary><b>' + escapeHtml(r.u.name || "Ismsiz foydalanuvchi") + '</b>' +
+            '<span>' + (r.ks.length ? r.ks.length + ' ta test · o\'rtacha <b class="adm-rate--' + rateClass(r.avg) + '">' + r.avg + '%</b>' : "test yechmagan") + '</span>' +
+            '<small>' + (r.u.t ? fmtDate(r.u.t) : "") + '</small></summary>' +
+            (list ? '<ul class="adm-user-list">' + list + '</ul>' : '<p class="muted adm-small">Hali test yechmagan.</p>') + '</details>';
+        }).join("") + '</div>'
+      : '<p class="muted">Hali hech kim Google bilan kirmagan.</p>');
 }
 
 // ---------- izohlar ----------
