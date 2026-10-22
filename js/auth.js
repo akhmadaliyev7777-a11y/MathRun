@@ -91,11 +91,13 @@ function toggleUserMenu(btn) {
     '<div class="site-user-menu-head"><b>' + escapeText(u.displayName || userFirstName(u)) + '</b><span>' + escapeText(u.email || "") + '</span></div>' +
     '<a href="' + base + 'mening.html">📊 Mening natijalarim</a>' +
     (currentIsAdmin(u) ? '<a href="' + base + 'admin.html" target="_blank" rel="noopener">🛠 Admin panel</a>' : "") +
+    '<button type="button" id="site-user-role">' + (getRole(u.uid) ? (getRole(u.uid) === "ustoz" ? "👩‍🏫" : "🎒") + ' ' + ROL_NAME[getRole(u.uid)] + ' · o\'zgartirish' : '🙋 Kimligingizni tanlang') + '</button>' +
     '<button type="button" id="site-user-logout">Chiqish</button>';
   document.body.appendChild(menu);
   const r = btn.getBoundingClientRect();
   menu.style.top = (r.bottom + window.pageYOffset + 8) + "px";
   menu.style.right = Math.max(12, document.documentElement.clientWidth - r.right) + "px";
+  document.getElementById("site-user-role").addEventListener("click", function () { closeUserMenu(); openRoleModal(); });
   document.getElementById("site-user-logout").addEventListener("click", function () {
     closeUserMenu();
     firebase.auth().signOut();
@@ -202,6 +204,51 @@ function mergeResults(a, b) {
   return out;
 }
 
+// ---------- «o'quvchimisiz yoki ustozmi?» ----------
+// Tanlov hisob (uid) bo'yicha saqlanadi va Firestore users/<uid>.role ga yoziladi; admin panelda admin ham belgi qo'ya oladi (arole).
+const ROL_KEY = "mathlearn-rol-v1";
+const ROL_NAME = { oquvchi: "O'quvchi", ustoz: "Ustoz" };
+function getRole(uid) { return readLocalJson(ROL_KEY)[uid] || ""; }
+function setRole(uid, r) { const a = readLocalJson(ROL_KEY); a[uid] = r; writeLocalJson(ROL_KEY, a); }
+
+function openRoleModal() {
+  if (!currentUser) return;
+  let modal = document.getElementById("site-role-modal");
+  if (modal) modal.remove();
+  modal = document.createElement("div");
+  modal.id = "site-role-modal";
+  modal.className = "site-login-modal";
+  const btn = 'display:flex;align-items:center;gap:12px;width:100%;padding:14px 16px;margin:8px 0;font:inherit;font-weight:700;font-size:1.05rem;color:#1e2a78;background:#f3f4fd;border:2px solid #c9cef5;border-radius:14px;cursor:pointer;text-align:left';
+  const cur = getRole(currentUser.uid);
+  modal.innerHTML =
+    '<div class="site-login-box" role="dialog" aria-modal="true" aria-labelledby="site-role-title">' +
+      '<button type="button" class="site-login-close" aria-label="Keyinroq">&times;</button>' +
+      '<div class="site-login-emoji">👋</div>' +
+      '<h2 id="site-role-title">Siz kimsiz?</h2>' +
+      '<p class="site-login-hint" style="margin:0 0 6px">Saytdan kimlar foydalanayotganini bilish uchun.</p>' +
+      '<button type="button" data-role="oquvchi" style="' + btn + (cur === "oquvchi" ? ';border-color:#4f5bd5' : '') + '"><span style="font-size:1.6rem">🎒</span> O\'quvchiman</button>' +
+      '<button type="button" data-role="ustoz" style="' + btn + (cur === "ustoz" ? ';border-color:#4f5bd5' : '') + '"><span style="font-size:1.6rem">👩‍🏫</span> Ustozman</button>' +
+    '</div>';
+  document.body.appendChild(modal);
+  const close = function () { modal.remove(); try { sessionStorage.setItem("mathlearn-rol-asked", "1"); } catch (e) {} };
+  modal.querySelector(".site-login-close").addEventListener("click", close);
+  modal.addEventListener("click", function (e) { if (e.target === modal) close(); });
+  modal.querySelectorAll("[data-role]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      setRole(currentUser.uid, b.dataset.role);
+      close();
+      syncUserData(currentUser);
+      document.dispatchEvent(new Event("mathlearn:role"));
+    });
+  });
+}
+
+let roleKnown = true;
+function askRoleOnce() {
+  try { if (sessionStorage.getItem("mathlearn-rol-asked")) return; } catch (e) {}
+  if (currentUser && !roleKnown) openRoleModal();
+}
+
 let syncBusy = false, syncAgain = false, syncTimer = null;
 
 function syncUserData(user) {
@@ -217,22 +264,26 @@ function syncUserData(user) {
       return r.json();
     }).then(function (doc) {
       const f = (doc && doc.fields) || {};
+      const serverRole = f.role && f.role.stringValue;
+      if (!getRole(user.uid) && serverRole) setRole(user.uid, serverRole);
+      roleKnown = !!(getRole(user.uid) || (f.arole && f.arole.stringValue));
+      const role = getRole(user.uid);
       const p = mergeProgress(readLocalJson(SYNC_KEYS.p), parseJsonField(f.p));
       const res = mergeResults(readLocalJson(SYNC_KEYS.r), parseJsonField(f.r));
       writeLocalJson(SYNC_KEYS.p, p);
       writeLocalJson(SYNC_KEYS.r, res);
       const ps = JSON.stringify(p), rs = JSON.stringify(res);
-      if (doc && f.p && f.p.stringValue === ps && f.r && f.r.stringValue === rs) return;
-      const mask = ["name", "p", "r", "t"].map(function (x) { return "updateMask.fieldPaths=" + x; }).join("&");
+      if (doc && f.p && f.p.stringValue === ps && f.r && f.r.stringValue === rs && (!role || serverRole === role)) return;
+      const mask = ["name", "p", "r", "t"].concat(role ? ["role"] : []).map(function (x) { return "updateMask.fieldPaths=" + x; }).join("&");
       return fetch(url + "?" + mask, {
         method: "PATCH",
         headers: Object.assign({ "Content-Type": "application/json" }, auth),
-        body: JSON.stringify({ fields: {
+        body: JSON.stringify({ fields: Object.assign({
           name: { stringValue: (user.displayName || "").slice(0, 80) },
           p: { stringValue: ps },
           r: { stringValue: rs },
           t: { timestampValue: new Date().toISOString() }
-        } })
+        }, role ? { role: { stringValue: role } } : {}) })
       });
     });
   }).catch(function (e) {
@@ -240,6 +291,7 @@ function syncUserData(user) {
   }).then(function () {
     syncBusy = false;
     document.dispatchEvent(new Event("mathlearn:synced"));
+    askRoleOnce();
     if (syncAgain) { syncAgain = false; syncUserData(user); }
   });
 }

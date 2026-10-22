@@ -1,7 +1,7 @@
 rules_version = '2';
 // Firebase Console → Firestore Database → Rules ga shu matn qo'yiladi.
 // izohlar — faqat admin; natijalar va xabarlar — har kim faqat yangisini qo'sha oladi, o'qish faqat admin;
-// users/<uid> — har o'quvchi o'z yutuqlari va natijalarini o'qiydi/yozadi; admin hammasini o'qiy oladi.
+// users/<uid> — har foydalanuvchi o'z yutuqlari, natijalari va rolini (o'quvchi/ustoz) o'qiydi/yozadi; admin hammasini o'qiydi va rol belgisi (arole) qo'yadi.
 service cloud.firestore {
   match /databases/{database}/documents {
     function isAdmin() {
@@ -20,13 +20,25 @@ service cloud.firestore {
         && request.resource.data.t is timestamp;
     }
     match /users/{uid} {
-      // o'quvchi o'zinikini; admin — hamma kirgan o'quvchilar ismi va natijalarini ko'radi (admin panel)
+      // o'quvchi o'zinikini; admin — hamma kirgan foydalanuvchilarning ismi, roli va natijalarini ko'radi (admin panel)
       allow read: if isAdmin() || (request.auth != null && request.auth.uid == uid);
-      allow create, update: if request.auth != null && request.auth.uid == uid
-        && request.resource.data.keys().hasOnly(['name', 'p', 'r', 't'])
+      // role — foydalanuvchi o'zi tanlagan (oquvchi / ustoz); arole — faqat admin belgilaydi, foydalanuvchi o'zgartira olmaydi
+      allow create: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['name', 'p', 'r', 't', 'role'])
         && request.resource.data.name is string && request.resource.data.name.size() <= 80
         && request.resource.data.p is string && request.resource.data.p.size() < 500000
-        && request.resource.data.r is string && request.resource.data.r.size() < 500000;
+        && request.resource.data.r is string && request.resource.data.r.size() < 500000
+        && (!('role' in request.resource.data) || request.resource.data.role in ['oquvchi', 'ustoz']);
+      allow update: if (request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['name', 'p', 'r', 't', 'role', 'arole'])
+        && request.resource.data.name is string && request.resource.data.name.size() <= 80
+        && request.resource.data.p is string && request.resource.data.p.size() < 500000
+        && request.resource.data.r is string && request.resource.data.r.size() < 500000
+        && (!('role' in request.resource.data) || request.resource.data.role in ['oquvchi', 'ustoz'])
+        && request.resource.data.get('arole', null) == resource.data.get('arole', null))
+        || (isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['arole'])
+        && (!('arole' in request.resource.data) || request.resource.data.arole in ['oquvchi', 'ustoz']));
     }
     match /xabarlar/{id} {
       allow read, update, delete: if isAdmin();

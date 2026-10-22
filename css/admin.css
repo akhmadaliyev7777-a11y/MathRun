@@ -188,3 +188,15 @@ details.adm-psec[open] > summary { margin-bottom: 8px; }
 .adm-user-list li { display: grid; grid-template-columns: 1fr auto; gap: 0 12px; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: .92rem; }
 .adm-user-list li:last-child { border-bottom: 0; }
 .adm-user-list small { grid-column: 1 / -1; color: var(--muted); font-size: .78rem; }
+
+.adm-utabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
+.adm-utab { padding: 7px 14px; font: inherit; font-size: .9rem; font-weight: 600; color: var(--text, #1f2433); background: #fff; border: 1.5px solid var(--border); border-radius: 999px; cursor: pointer; }
+.adm-utab b { margin-left: 4px; color: #4f5bd5; }
+.adm-utab.active { background: #eef0fd; border-color: #4f5bd5; color: #1e2a78; }
+.adm-role { font-style: normal; font-size: .78rem; font-weight: 700; padding: 2px 9px; border-radius: 999px; }
+.adm-role small { font-weight: 500; color: inherit; opacity: .7; }
+.adm-role--oquvchi { background: #e7f6ee; color: #14783f; }
+.adm-role--ustoz { background: #fff1d6; color: #8a5a00; }
+.adm-role--none { background: #eef0f6; color: #5a6072; }
+.adm-user-role { padding: 8px 14px 0; font-size: .88rem; color: var(--muted); }
+.adm-role-sel { margin-left: 6px; padding: 4px 8px; font: inherit; border: 1.5px solid var(--border); border-radius: 8px; background: #fff; }

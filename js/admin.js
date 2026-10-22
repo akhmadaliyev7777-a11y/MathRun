@@ -198,6 +198,11 @@ function renderStats() {
     line += ' <span class="adm-sep">|</span> 1–4 sinf: <b>' + t + '</b> mavzu · <b>' + l + '</b> dars · <b>' + q + '</b> test savoli';
   }
 
+  if (dbState === "ok" && !usersOff) {
+    const c = userCounts();
+    line += ' <span class="adm-sep">|</span> 👤 <b>' + c.all + '</b> foydalanuvchi: <b>' + c.oquvchi + '</b> o\'quvchi · <b>' + c.ustoz + '</b> ustoz';
+  }
+
   const el = document.getElementById("adm-stats");
   el.innerHTML =
     '<div class="adm-today">' +
@@ -662,7 +667,7 @@ function initDatabase() {
       const x = d.data();
       let r = {};
       try { r = JSON.parse(x.r || "{}") || {}; } catch (e) {}
-      return { id: d.id, name: (x.name || "").trim(), r: r, t: x.t && x.t.toDate ? x.t.toDate() : null };
+      return { id: d.id, name: (x.name || "").trim(), role: x.role || "", arole: x.arole || "", r: r, t: x.t && x.t.toDate ? x.t.toDate() : null };
     });
     dbState = "ok";
     refreshDbViews();
@@ -697,22 +702,45 @@ function resultLabel(k) {
   return String(k);
 }
 
+const ROLE_NAME = { oquvchi: "O'quvchi", ustoz: "Ustoz" };
+let usersFilter = "all";   // all | oquvchi | ustoz | none
+
+// foydalanuvchining roli: admin belgisi (arole) birinchi, bo'lmasa o'zi tanlagani (role)
+function userRole(u) { return u.arole || u.role || ""; }
+
+function userCounts() {
+  const c = { all: USERS.length, oquvchi: 0, ustoz: 0, none: 0 };
+  USERS.forEach(function (u) { const r = userRole(u); if (r === "oquvchi") c.oquvchi++; else if (r === "ustoz") c.ustoz++; else c.none++; });
+  return c;
+}
+
 function renderUsersSection() {
   const el = document.getElementById("adm-users");
   if (!el) return;
-  const head = '<div class="adm-res-head"><h2>👤 Kirgan o\'quvchilar</h2>';
+  const head = '<div class="adm-res-head"><h2>👤 Kirgan foydalanuvchilar</h2>';
   if (dbState !== "ok") { el.innerHTML = head + '</div>' + (dbState === "loading" ? '<p class="muted">Yuklanmoqda…</p>' : dbOffText()); return; }
   if (usersOff) {
     el.innerHTML = head + '</div><p class="adm-dboff">Ismli natijalarni ko\'rish uchun Firebase Console → Firestore → Rules ga <code>firestore.rules</code> dagi yangi matnni qo\'ying (<b>users</b> bo\'limida admin o\'qishi yoqilgan).</p>';
     return;
   }
+  const open = {};
+  el.querySelectorAll(".adm-user[open]").forEach(function (d) { open[d.dataset.uid] = true; });
+
+  const cnt = userCounts();
+  const tab = function (key, label) {
+    return '<button type="button" class="adm-utab' + (usersFilter === key ? " active" : "") + '" data-f="' + key + '">' + label + ' <b>' + cnt[key] + '</b></button>';
+  };
   const rows = USERS.map(function (u) {
     const ks = Object.keys(u.r).filter(function (k) { return u.r[k] && typeof u.r[k].best === "number"; });
     const avg = ks.length ? Math.round(ks.reduce(function (s, k) { return s + u.r[k].best; }, 0) / ks.length) : null;
-    return { u: u, ks: ks, avg: avg };
+    return { u: u, ks: ks, avg: avg, role: userRole(u) };
+  }).filter(function (r) {
+    return usersFilter === "all" || (usersFilter === "none" ? !r.role : r.role === usersFilter);
   });
   const withTests = rows.filter(function (r) { return r.ks.length; }).length;
-  el.innerHTML = head + '<span class="muted">Jami <b>' + rows.length + '</b> ta o\'quvchi kirgan · test yechgan: <b>' + withTests + '</b></span></div>' +
+
+  el.innerHTML = head + '<span class="muted">Jami <b>' + cnt.all + '</b> ta foydalanuvchi: <b>' + cnt.oquvchi + '</b> o\'quvchi · <b>' + cnt.ustoz + '</b> ustoz · <b>' + cnt.none + '</b> belgilanmagan</span></div>' +
+    '<div class="adm-utabs">' + tab("all", "Hammasi") + tab("oquvchi", "🎒 O'quvchilar") + tab("ustoz", "👩‍🏫 Ustozlar") + tab("none", "Belgilanmagan") + '</div>' +
     (rows.length
       ? '<div class="adm-users">' + rows.map(function (r) {
           const list = r.ks.sort(function (a, b) { return (r.u.r[b].t || 0) - (r.u.r[a].t || 0); }).map(function (k) {
@@ -720,12 +748,39 @@ function renderUsersSection() {
             return '<li><span>' + escapeHtml(resultLabel(k)) + '</span><b class="adm-rate--' + rateClass(x.best) + '">' + x.best + '%</b>' +
               '<small>oxirgisi ' + (x.last || 0) + '% · ' + (x.count || 1) + ' marta' + (x.t ? ' · ' + fmtDate(new Date(x.t)).split(" ")[0] : "") + '</small></li>';
           }).join("");
-          return '<details class="adm-user"><summary><b>' + escapeHtml(r.u.name || "Ismsiz foydalanuvchi") + '</b>' +
+          const self = !r.u.arole && r.u.role ? ' <small>(o\'zi tanlagan)</small>' : "";
+          return '<details class="adm-user" data-uid="' + r.u.id + '"' + (open[r.u.id] ? " open" : "") + '><summary>' +
+            '<b>' + escapeHtml(r.u.name || "Ismsiz foydalanuvchi") + '</b>' +
+            '<em class="adm-role adm-role--' + (r.role || "none") + '">' + (r.role ? ROLE_NAME[r.role] : "belgisiz") + self + '</em>' +
             '<span>' + (r.ks.length ? r.ks.length + ' ta test · o\'rtacha <b class="adm-rate--' + rateClass(r.avg) + '">' + r.avg + '%</b>' : "test yechmagan") + '</span>' +
             '<small>' + (r.u.t ? fmtDate(r.u.t) : "") + '</small></summary>' +
+            '<div class="adm-user-role">Admin belgisi: <select class="adm-role-sel" data-uid="' + r.u.id + '">' +
+              '<option value="">— qo\'yilmagan —</option>' +
+              '<option value="oquvchi"' + (r.u.arole === "oquvchi" ? " selected" : "") + '>O\'quvchi</option>' +
+              '<option value="ustoz"' + (r.u.arole === "ustoz" ? " selected" : "") + '>Ustoz</option></select></div>' +
             (list ? '<ul class="adm-user-list">' + list + '</ul>' : '<p class="muted adm-small">Hali test yechmagan.</p>') + '</details>';
         }).join("") + '</div>'
-      : '<p class="muted">Hali hech kim Google bilan kirmagan.</p>');
+      : '<p class="muted">' + (usersFilter === "all" ? "Hali hech kim Google bilan kirmagan." : "Bu toifada hech kim yo'q.") + '</p>');
+
+  el.querySelectorAll(".adm-utab").forEach(function (b) {
+    b.addEventListener("click", function () { usersFilter = b.dataset.f; renderUsersSection(); });
+  });
+  el.querySelectorAll(".adm-role-sel").forEach(function (sel) {
+    sel.addEventListener("change", function () {
+      const u = USERS.find(function (x) { return x.id === sel.dataset.uid; });
+      if (!u) return;
+      const v = sel.value;
+      sel.disabled = true;
+      DB.collection("users").doc(u.id).update({ arole: v || firebase.firestore.FieldValue.delete() }).then(function () {
+        u.arole = v;
+        renderUsersSection(); renderStats();
+      }).catch(function (e) {
+        console.warn("Belgi qo'yilmadi:", e);
+        alert("Belgi qo'yib bo'lmadi. Firestore qoidalari yangilanganini tekshiring (firestore.rules).");
+        sel.disabled = false; sel.value = u.arole || "";
+      });
+    });
+  });
 }
 
 // ---------- izohlar ----------
