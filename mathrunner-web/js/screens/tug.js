@@ -6,7 +6,7 @@ import { loadXLSXLib, parseQuestionsWorkbook } from '../xlsxImport.js';
 
 const WIN = 12;        // shu farqda o'yin tugaydi (bir tomon arqonni tortib oladi)
 const STEP_PX = 13;    // farqning har bir birligi uchun arqon siljishi
-const WRONG_PENALTY = 1; // xato javob — jamoa ochkosidan ayiriladi (ochko 0 dan pastga tushmaydi)
+const WRONG_PENALTY = 1; // har xato javob — jamoa ochkosidan ayiriladi (kerak bo'lsa minusga ham tushadi)
 
 function puller(color, facing) {
   // sodda tortayotgan odam figurasi; facing: 1 = o'ngga qarab tortadi, -1 = chapga
@@ -392,8 +392,8 @@ export async function render(root, _params) {
 
     function paintRig() {
       rig.style.transform = `translate(-50%, -50%) translateX(${pos() * STEP_PX}px)`;
-      scoreBlue.textContent = String(state.blue.score);
-      scoreRed.textContent = String(state.red.score);
+      scoreBlue.textContent = fmtScore(state.blue.score);
+      scoreRed.textContent = fmtScore(state.red.score);
     }
 
     function answer(team, optIdx, btn, box, side) {
@@ -404,7 +404,7 @@ export async function render(root, _params) {
       if (ok) { state[team].correct++; state[team].score++; }
       else {
         state[team].wrong++;
-        state[team].score = Math.max(0, state[team].score - WRONG_PENALTY);
+        state[team].score -= WRONG_PENALTY;
         minusFlash(team);
       }
       paintRig();
@@ -425,6 +425,8 @@ export async function render(root, _params) {
       scoreEl.classList.remove('is-minus'); void scoreEl.offsetWidth; scoreEl.classList.add('is-minus');
       setTimeout(() => { fx.remove(); scoreEl.classList.remove('is-minus'); }, 900);
     }
+
+    const fmtScore = (n) => (n < 0 ? '−' + Math.abs(n) : String(n));
 
     let tick = null;
     function startTimer() {
@@ -460,9 +462,9 @@ export async function render(root, _params) {
           el('p', { style: 'font-weight:700;color:var(--muted-soft);margin:-4px 0 4px' },
             reachedGoal ? `${goal} ochkoga birinchi yetdi` : `Maqsad: ${goal} ochko · vaqt tugadi`),
           el('div', { class: 'tug-end__scores' },
-            el('div', { class: 'tug-end__s tug-end__s--blue' }, names.blue, el('b', {}, state.blue.score),
+            el('div', { class: 'tug-end__s tug-end__s--blue' }, names.blue, el('b', {}, fmtScore(state.blue.score)),
               el('small', { class: 'tug-end__detail' }, `✓ ${state.blue.correct} · ✗ ${state.blue.wrong}`)),
-            el('div', { class: 'tug-end__s tug-end__s--red' }, names.red, el('b', {}, state.red.score),
+            el('div', { class: 'tug-end__s tug-end__s--red' }, names.red, el('b', {}, fmtScore(state.red.score)),
               el('small', { class: 'tug-end__detail' }, `✓ ${state.red.correct} · ✗ ${state.red.wrong}`))),
           el('div', { class: 'result__btns' },
             el('button', { class: 'btn', onclick: play }, el('span', { style: 'width:20px;height:20px', html: ICON.replay }), 'Qayta'),
