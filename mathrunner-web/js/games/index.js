@@ -2,49 +2,16 @@
 // Bank schemalari castles_data.dart o'yin sahnalari bilan bir xil.
 import { el, shuffle } from '../util.js';
 import { ICON } from '../icons.js';
-import { nav } from '../app.js';
 
-// ---------- umumiy qobiq ----------
-function shell(ctx, promptText, iconKey) {
-  const bar = el('i', { style: 'width:0%' });
-  const area = el('div');
-  const foot = el('div', { class: 'gcheck' });
-  const root = ctx.root;
-  root.replaceChildren(
-    nav(null),
-    el('div', { class: 'runbar' },
-      el('button', { class: 'linkback', onclick: () => location.hash = ctx.backHash },
-        el('span', { style: 'width:18px;height:18px', html: ICON.arrowLeft }), 'Mavzularga qaytish'),
-      el('div', { class: 'runbar__mid' },
-        `${ctx.grade.grade}-sinf · ${ctx.chorak.roman} chorak · ${ctx.block.blok}-mavzu`),
-      el('div', { class: 'runbar__mid' }, '')),
-    el('main', { class: 'gwrap' },
-      // qaysi mashq, nechanchi topshiriq va jami nechta ekani doim ko'rinib turadi
-      el('div', { class: 'gtop' },
-        el('span', { class: 'gtop__mashq' }, `${ctx.mashq}-mashq`, el('small', {}, ` · jami ${ctx.totalTasks} ta topshiriq, ${ctx.mashqCount} ta mashq`)),
-        el('b', { class: 'gtop__prog', id: 'gprog' }, '')),
-      el('div', { class: 'prompt' },
-        el('span', { style: 'width:22px;height:22px;flex-shrink:0', html: ICON[iconKey] || ICON.spark }),
-        el('span', {}, promptText)),
-      el('div', { class: 'gbar' }, bar),
-      area, foot));
-  return { area, foot, setProg: (i, n) => { bar.style.width = `${(i / n) * 100}%`; document.getElementById('gprog').textContent = `Topshiriq ${Math.min(i + 1, n)} / ${n}`; },
-    setDone: (k, n) => { bar.style.width = `${(k / n) * 100}%`; document.getElementById('gprog').textContent = `Belgilandi ${k} / ${n}`; } };
-}
-
-function checkBtn(label, onClick) {
-  return el('button', { class: 'btn btn--accent', onclick: onClick }, label);
-}
-const flash = (node, ok) => {
-  node.style.transition = 'background .2s';
-  node.style.background = ok ? 'var(--green)' : 'var(--red)';
-};
+import { shell, checkBtn, flash } from './shell.js';
+import { MORE } from './more.js';
+import { netSVG } from './nets.js';
 
 // ================= SET / Venn =================
 function gameSet(ctx) {
   const tasks = ctx.bank;
   let idx = 0, correct = 0, streak = 0, longest = 0;
-  const s = shell(ctx, tasks[0].prompt, 'venn');
+  const s = shell(ctx, tasks[0].prompt, 'venn', true);
 
   function render() {
     const t = tasks[idx];
@@ -55,41 +22,53 @@ function gameSet(ctx) {
     const board = el('div', { class: 'venn' });
     const tray = el('div', { class: 'tray', style: 'justify-content:center' });
 
-    // aylanalar + yorliqlar
-    board.append(
-      el('div', { class: 'venn__circle', style: 'left:70px;border-color:var(--k-accent);background:color-mix(in srgb,var(--k-accent) 8%,transparent)' }),
-      el('div', { class: 'venn__circle', style: 'left:330px;border-color:var(--peri);background:rgba(92,127,245,.08)' }),
-      el('div', { class: 'venn__label', style: 'left:96px;top:22px;color:var(--k-accent-dark)' }, t.setAName),
-      el('div', { class: 'venn__label', style: 'left:430px;top:22px;color:#3f56c4;text-align:right' }, t.setBName));
-
-    // bosiladigan zonalar (shaffof)
-    const region = (z, css) => {
-      const r = el('button', { style: `position:absolute;${css};background:transparent;border:0;cursor:pointer`, onclick: () => place(z) });
-      const box = el('div', { dataset: { z }, style: 'position:absolute;inset:0;display:flex;flex-wrap:wrap;gap:5px;align-content:center;justify-content:center;padding:8px;pointer-events:none' });
-      r.append(box);
+    // aylanalar, yorliqlar va bosiladigan zonalar — taxta kengligiga qarab hisoblanadi (telefonda ham sig'adi)
+    const cA = el('div', { class: 'venn__circle', style: 'border-color:var(--k-accent);background:color-mix(in srgb,var(--k-accent) 8%,transparent)' });
+    const cB = el('div', { class: 'venn__circle', style: 'border-color:var(--peri);background:rgba(92,127,245,.08)' });
+    const lA = el('div', { class: 'venn__label', style: 'color:var(--k-accent-dark)' }, t.setAName);
+    const lB = el('div', { class: 'venn__label', style: 'color:#3f56c4;text-align:right' }, t.setBName);
+    const region = (z) => {
+      const r = el('button', { class: 'venn__zone', onclick: () => place(z) });
+      r.append(el('div', { class: 'venn__tiles', dataset: { z } }));
       return r;
     };
-    board.append(
-      region('onlyA', 'left:78px;top:56px;width:190px;height:250px'),
-      region('both', 'left:300px;top:96px;width:120px;height:170px'),
-      region('onlyB', 'left:452px;top:56px;width:190px;height:250px'),
-      region('neither', 'left:0;top:312px;width:100%;height:48px'));
-    board.append(el('div', { style: 'position:absolute;left:16px;top:322px;font-family:var(--f-head);font-weight:800;font-size:12px;color:var(--muted-soft);pointer-events:none' }, 'Hech qaysisiga'));
+    const zA = region('onlyA'), zAB = region('both'), zB = region('onlyB'), zN = region('neither');
+    const nLabel = el('div', { class: 'venn__none' }, 'Hech qaysisiga');
+    board.append(cA, cB, lA, lB, zA, zAB, zB, zN, nLabel);
+
+    const box = (e, l, t2, w, h) => Object.assign(e.style, { left: l + 'px', top: t2 + 'px', width: w + 'px', height: h + 'px' });
+    function layout() {
+      const W = board.clientWidth || 700;
+      const D = Math.min(300, Math.round(W * 0.6));            // aylana diametri
+      const top = 56, H = top + D + 12 + 56;
+      const c1 = W / 2 - D * 0.25, c2 = W / 2 + D * 0.25;       // aylana markazlari (yarmi ustma-ust)
+      board.style.height = H + 'px';
+      box(cA, c1 - D / 2, top, D, D); box(cB, c2 - D / 2, top, D, D);
+      const lw = Math.max(110, Math.round(W * 0.42));
+      box(lA, 10, 8, lw, 44); box(lB, W - lw - 10, 8, lw, 44);
+      const zt = top + D * 0.14, zh = D * 0.72, half = D * 0.5;
+      box(zA, c1 - D / 2 + 6, zt, half - 8, zh); box(zAB, c2 - D / 2 + 4, zt, half - 8, zh); box(zB, c1 + D / 2 + 2, zt, half - 8, zh);
+      box(zN, 8, top + D + 8, W - 16, 52);
+      nLabel.style.top = (top + D + 12) + 'px';
+      board.classList.toggle('venn--small', W < 520);
+    }
+    const ro = new ResizeObserver(layout); ro.observe(board);
+    addEventListener('hashchange', () => ro.disconnect(), { once: true });
 
     function drawBoard() {
       board.querySelectorAll('[data-z]').forEach(box => {
         const z = box.dataset.z;
         box.replaceChildren(...Object.entries(placed).filter(([, zz]) => zz === z).map(([v]) =>
-          el('button', { class: 'tile', style: 'width:40px;height:40px;font-size:17px;box-shadow:0 3px 0 rgba(22,18,64,.16);pointer-events:auto', onclick: (ev) => { ev.stopPropagation(); delete placed[v]; drawBoard(); drawTray(); } }, v)));
+          el('button', { class: 'tile tile--sm' + (v.length > 3 ? ' tile--wide' : ''), onclick: (ev) => { ev.stopPropagation(); delete placed[v]; drawBoard(); drawTray(); } }, v)));
       });
     }
     function drawTray() {
       const rest = t.elements.filter(e => !(e.value in placed));
       tray.replaceChildren(
         el('b', { style: 'font-family:var(--f-head);font-weight:800;font-size:12px;color:var(--muted-soft);width:100%;text-align:center' },
-          rest.length ? 'Sonni tanlang, so\'ng zonani bosing' : 'Hammasi joylashtirildi'),
+          rest.length ? 'Tanlang, so\'ng zonani bosing' : 'Hammasi joylashtirildi'),
         ...rest.map(e => el('button', {
-          class: 'tile', style: selected === e.value ? 'outline:3px solid var(--k-accent);outline-offset:2px' : '',
+          class: 'tile' + (String(e.value).length > 3 ? ' tile--wide' : ''), style: selected === e.value ? 'outline:3px solid var(--k-accent);outline-offset:2px' : '',
           onclick: () => { selected = selected === e.value ? null : e.value; drawTray(); },
         }, e.value)));
     }
@@ -97,6 +76,7 @@ function gameSet(ctx) {
 
     drawBoard(); drawTray();
     s.area.replaceChildren(board, tray);
+    layout();
     s.foot.replaceChildren(checkBtn('Tekshirish', () => {
       if (Object.keys(placed).length < t.elements.length) return;
       const allOk = t.elements.every(e => placed[e.value] === e.zone);
@@ -113,7 +93,7 @@ function gameSet(ctx) {
 function gameNumberOrder(ctx) {
   const tasks = ctx.bank;
   let idx = 0, correct = 0, streak = 0, longest = 0;
-  const s = shell(ctx, tasks[0].prompt, 'sort');
+  const s = shell(ctx, tasks[0].prompt, 'sort', true);
 
   function render() {
     const t = tasks[idx];
@@ -151,7 +131,7 @@ function gameNumberOrder(ctx) {
 function gamePlaceValue(ctx) {
   const tasks = ctx.bank;
   let idx = 0, correct = 0, streak = 0, longest = 0;
-  const s = shell(ctx, tasks[0].prompt, 'columns');
+  const s = shell(ctx, tasks[0].prompt, 'columns', true);
 
   function render() {
     const t = tasks[idx];
@@ -269,7 +249,7 @@ function gameBalance(ctx) {
 function gameSymmetry(ctx) {
   const tasks = ctx.bank;
   let idx = 0, correct = 0, streak = 0, longest = 0;
-  const s = shell(ctx, tasks[0].prompt, 'mirror');
+  const s = shell(ctx, tasks[0].prompt, 'mirror', true);
 
   function reflect(c, axis, n) {
     if (axis === 'vertical') return { x: n - 1 - c.x, y: c.y };
@@ -286,7 +266,8 @@ function gameSymmetry(ctx) {
     // o'qda yotgan berilgan kataklar aks etib o'ziga tushadi — hisobga olmaymiz
     for (const k of [...want]) if (given.has(k)) want.delete(k);
     const on = new Set();
-    const axisIdx = Math.floor(n / 2);
+    // toq o'lchamda o'q — o'rtadagi katak qatori, juft o'lchamda — katak qatorlari orasidagi chiziq
+    const odd = n % 2 === 1, axisIdx = odd ? Math.floor(n / 2) : -1, half = n / 2;
 
     const grid = el('div', { class: 'symgrid', style: `grid-template-columns:repeat(${n}, 46px)` });
     function draw() {
@@ -295,9 +276,10 @@ function gameSymmetry(ctx) {
         const key = `${x},${y}`;
         const isAxis = t.axis === 'vertical' ? x === axisIdx
           : t.axis === 'diagonalMain' ? x === y
-          : t.axis === 'center' ? (x === axisIdx && y === axisIdx)
+          : t.axis === 'center' ? (odd && x === axisIdx && y === axisIdx)
           : y === axisIdx;
-        const cls = 'symcell' + (given.has(key) ? ' given' : isAxis ? ' axis' : on.has(key) ? ' on' : '');
+        const line = !odd && ((t.axis === 'vertical' && x === half) ? ' line-l' : (t.axis === 'horizontal' && y === half) ? ' line-t' : '');
+        const cls = 'symcell' + (given.has(key) ? ' given' : isAxis ? ' axis' : on.has(key) ? ' on' : '') + (line || '');
         grid.append(el('div', {
           class: cls,
           onclick: () => { if (given.has(key) || isAxis) return; on.has(key) ? on.delete(key) : on.add(key); draw(); },
@@ -325,7 +307,7 @@ const SOLID_UZ = {
 function gameNetFold(ctx) {
   const tasks = ctx.bank;
   let idx = 0, correct = 0, streak = 0, longest = 0, locked = false;
-  const s = shell(ctx, tasks[0].prompt, 'net');
+  const s = shell(ctx, tasks[0].prompt, 'net', true);
 
   function render() {
     const t = tasks[idx];
@@ -345,10 +327,13 @@ function gameNetFold(ctx) {
         else render();
       }, ok ? 520 : 900);
     }
+    // yoyilma rasmi; maslahat — tugma orqali (javobni oldindan ko'rsatib qo'ymaydi)
+    const hint = el('div', { class: 'nf-hint', hidden: true }, t.hint);
     s.area.replaceChildren(
       el('div', { style: 'text-align:center' },
-        el('span', { style: 'display:inline-block;width:64px;height:64px;color:var(--k-accent)', html: ICON.net }),
-        el('div', { style: 'font-weight:700;color:var(--muted);margin-top:8px' }, t.hint)),
+        el('div', { class: 'nf-fig', html: netSVG(t.target) }),
+        el('button', { class: 'btn nf-hintbtn', onclick: (e) => { hint.hidden = !hint.hidden; e.currentTarget.textContent = hint.hidden ? 'Maslahat' : 'Maslahatni yashirish'; } }, 'Maslahat'),
+        hint),
       opts);
     s.foot.replaceChildren();
   }
@@ -359,7 +344,7 @@ function gameNetFold(ctx) {
 function gameEquationGrid(ctx) {
   const tasks = ctx.bank;
   let idx = 0, correct = 0, streak = 0, longest = 0;
-  const s = shell(ctx, tasks[0].prompt, 'grid');
+  const s = shell(ctx, tasks[0].prompt, 'grid', true);
   const blankVal = (e) => e.blankSlot === 'a' ? e.a : e.blankSlot === 'b' ? e.b : e.result;
 
   function render() {
@@ -427,4 +412,5 @@ export const GAMES = {
   netFold: gameNetFold,
   equationGrid: gameEquationGrid,
   algorithmConveyor: gameConveyor,
+  ...MORE,
 };

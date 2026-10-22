@@ -1,75 +1,83 @@
 [
   {
     "id": "s1c1b2l1_01",
-    "question": "Rasmda 3 ta olma bor. Ular nechta?",
+    "question": "Rasmdagi olmalar nechta?",
     "correctAnswer": 3,
     "wrongAnswers": [
       4,
       2
-    ]
+    ],
+    "rasm": "<svg viewBox=\"0 0 250 76\" role=\"img\" aria-label=\"Olmalar\"><circle cx=\"30\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 6)\"/><circle cx=\"74\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 6)\"/><circle cx=\"118\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M118 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"126\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 126 6)\"/></svg>"
   },
   {
     "id": "s1c1b2l1_02",
-    "question": "Rasmda 5 ta olma bor. Ular nechta?",
+    "question": "Rasmdagi olmalar nechta?",
     "correctAnswer": 5,
     "wrongAnswers": [
       6,
       4
-    ]
+    ],
+    "rasm": "<svg viewBox=\"0 0 250 76\" role=\"img\" aria-label=\"Olmalar\"><circle cx=\"30\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 6)\"/><circle cx=\"74\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 6)\"/><circle cx=\"118\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M118 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"126\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 126 6)\"/><circle cx=\"162\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M162 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"170\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 170 6)\"/><circle cx=\"206\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M206 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"214\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 214 6)\"/></svg>"
   },
   {
     "id": "s1c1b2l1_03",
-    "question": "Rasmda 7 ta olma bor. Ular nechta?",
+    "question": "Rasmdagi olmalar nechta?",
     "correctAnswer": 7,
     "wrongAnswers": [
       8,
       6
-    ]
+    ],
+    "rasm": "<svg viewBox=\"0 0 250 122\" role=\"img\" aria-label=\"Olmalar\"><circle cx=\"30\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 6)\"/><circle cx=\"74\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 6)\"/><circle cx=\"118\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M118 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"126\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 126 6)\"/><circle cx=\"162\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M162 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"170\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 170 6)\"/><circle cx=\"206\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M206 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"214\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 214 6)\"/><circle cx=\"30\" cy=\"76\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 59 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"52\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 52)\"/><circle cx=\"74\" cy=\"76\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 59 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"52\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 52)\"/></svg>"
   },
   {
     "id": "s1c1b2l1_04",
-    "question": "Rasmda 2 ta olma bor. Ular nechta?",
+    "question": "Rasmdagi olmalar nechta?",
     "correctAnswer": 2,
     "wrongAnswers": [
       3,
       1
-    ]
+    ],
+    "rasm": "<svg viewBox=\"0 0 250 76\" role=\"img\" aria-label=\"Olmalar\"><circle cx=\"30\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 6)\"/><circle cx=\"74\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 6)\"/></svg>"
   },
   {
     "id": "s1c1b2l1_05",
-    "question": "Rasmda 6 ta olma bor. Ular nechta?",
+    "question": "Rasmdagi olmalar nechta?",
     "correctAnswer": 6,
     "wrongAnswers": [
       7,
       5
-    ]
+    ],
+    "rasm": "<svg viewBox=\"0 0 250 122\" role=\"img\" aria-label=\"Olmalar\"><circle cx=\"30\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 6)\"/><circle cx=\"74\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 6)\"/><circle cx=\"118\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M118 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"126\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 126 6)\"/><circle cx=\"162\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M162 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"170\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 170 6)\"/><circle cx=\"206\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M206 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"214\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 214 6)\"/><circle cx=\"30\" cy=\"76\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 59 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"52\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 52)\"/></svg>"
   },
   {
     "id": "s1c1b2l1_06",
-    "question": "Rasmda 8 ta olma bor. Ular nechta?",
+    "question": "Rasmdagi olmalar nechta?",
     "correctAnswer": 8,
     "wrongAnswers": [
       9,
       7
-    ]
+    ],
+    "rasm": "<svg viewBox=\"0 0 250 122\" role=\"img\" aria-label=\"Olmalar\"><circle cx=\"30\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 6)\"/><circle cx=\"74\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 6)\"/><circle cx=\"118\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M118 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"126\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 126 6)\"/><circle cx=\"162\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M162 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"170\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 170 6)\"/><circle cx=\"206\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M206 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"214\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 214 6)\"/><circle cx=\"30\" cy=\"76\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 59 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"52\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 52)\"/><circle cx=\"74\" cy=\"76\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 59 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"52\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 52)\"/><circle cx=\"118\" cy=\"76\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M118 59 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"126\" cy=\"52\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 126 52)\"/></svg>"
   },
   {
     "id": "s1c1b2l1_07",
-    "question": "Rasmda 4 ta olma bor. Ular nechta?",
+    "question": "Rasmdagi olmalar nechta?",
     "correctAnswer": 4,
     "wrongAnswers": [
       5,
       3
-    ]
+    ],
+    "rasm": "<svg viewBox=\"0 0 250 76\" role=\"img\" aria-label=\"Olmalar\"><circle cx=\"30\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 6)\"/><circle cx=\"74\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 6)\"/><circle cx=\"118\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M118 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"126\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 126 6)\"/><circle cx=\"162\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M162 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"170\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 170 6)\"/></svg>"
   },
   {
     "id": "s1c1b2l1_08",
-    "question": "Rasmda 9 ta olma bor. Ular nechta?",
+    "question": "Rasmdagi olmalar nechta?",
     "correctAnswer": 9,
     "wrongAnswers": [
       10,
       8
-    ]
+    ],
+    "rasm": "<svg viewBox=\"0 0 250 122\" role=\"img\" aria-label=\"Olmalar\"><circle cx=\"30\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 6)\"/><circle cx=\"74\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 6)\"/><circle cx=\"118\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M118 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"126\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 126 6)\"/><circle cx=\"162\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M162 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"170\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 170 6)\"/><circle cx=\"206\" cy=\"30\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M206 13 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"214\" cy=\"6\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 214 6)\"/><circle cx=\"30\" cy=\"76\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M30 59 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"38\" cy=\"52\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 38 52)\"/><circle cx=\"74\" cy=\"76\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M74 59 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"82\" cy=\"52\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 82 52)\"/><circle cx=\"118\" cy=\"76\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M118 59 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"126\" cy=\"52\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 126 52)\"/><circle cx=\"162\" cy=\"76\" r=\"17\" fill=\"#e5484d\" stroke=\"#9b1c20\" stroke-width=\"2\"/><path d=\"M162 59 q2 -8 9 -10\" stroke=\"#2f7d3b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><ellipse cx=\"170\" cy=\"52\" rx=\"6\" ry=\"3.5\" fill=\"#43b05a\" transform=\"rotate(-25 170 52)\"/></svg>"
   },
   {
     "id": "s1c1b2l1_09",

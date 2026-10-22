@@ -33,6 +33,7 @@ const toQuestion = (b) => ({
   options: [String(b.correctAnswer), ...b.wrongAnswers.map(String)],
   answer: String(b.correctAnswer),
   explain: b.explain || '',
+  rasm: b.rasm || '',
 });
 
 const mathOf = (html) => html; // formulalar mathfmt.js orqali tayyor HTML bo'lib keladi
@@ -102,10 +103,10 @@ export async function render(root, [levelId]) {
       `<button type="button" class="qz-opt${picked[i] === oi ? ' picked' : ''}" data-q="${i}" data-o="${oi}">` +
       `<span class="qz-letter">${HARF[pos]}</span><span class="qz-opt-text">${answerHTML(q.options[oi], { compact: true })}</span>` +
       `<span class="qz-tick">${ICON.check}</span></button>`).join('');
-    return `<li class="qz-q" id="qz-q${i + 1}">` +
+    return `<li class="qz-q${q.rasm ? ' qz-q--fig' : ''}" id="qz-q${i + 1}">` +
       `<div class="qz-q-top"><span class="qz-num">${i + 1}</span><div class="qz-text">${questionHTML(q.question, { compact: true })}</div>` +
       `<div class="qz-q-side"><span class="qz-belgi"${picked[i] >= 0 ? '' : ' hidden'}><i></i>Belgilandi</span>${markBtn(i)}</div></div>` +
-      `<div class="qz-q-body"><div class="qz-opts">${opts}</div></div></li>`;
+      `<div class="qz-q-body">${q.rasm ? `<div class="qz-fig">${q.rasm}</div>` : ''}<div class="qz-opts">${opts}</div></div></li>`;
   }
 
   function resultCard(q, i) {
@@ -117,7 +118,7 @@ export async function render(root, [levelId]) {
       : '<span class="qz-badge skip">Javob berilmagan</span>';
     return `<li class="qz-q qz-q--${st}" id="qz-q${i + 1}">` +
       `<div class="qz-q-top"><span class="qz-num">${i + 1}</span>${badge}<div class="qz-q-side">${markBtn(i)}</div></div>` +
-      `<div class="qz-res-body"><div class="qz-res-main"><div class="qz-text">${questionHTML(q.question, { compact: true })}</div>` +
+      `<div class="qz-res-body">${q.rasm ? `<div class="qz-fig">${q.rasm}</div>` : ''}<div class="qz-res-main"><div class="qz-text">${questionHTML(q.question, { compact: true })}</div>` +
       `<div class="qz-answers"><div class="qz-ans"><small>Sizning javobingiz</small>` +
       (picked[i] < 0 ? '<b class="skip">—</b>'
         : `<b class="${st}">${pos(picked[i])}) ${answerHTML(q.options[picked[i]], { compact: true })} ${st === 'ok' ? ICON.check : ICON.cross}</b>`) + '</div>' +

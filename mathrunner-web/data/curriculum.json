@@ -4334,9 +4334,9 @@
          "id": "g3_c2_b33_l1",
          "level": 1,
          "gameKind": "fractionStrip",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c2_b33_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g3_c2_b33_l2",
@@ -4638,9 +4638,9 @@
          "id": "g3_c3_b45_l1",
          "level": 1,
          "gameKind": "fractionStrip",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c3_b45_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g3_c3_b45_l2",
@@ -4662,9 +4662,9 @@
          "id": "g3_c3_b46_l1",
          "level": 1,
          "gameKind": "fractionStrip",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c3_b46_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g3_c3_b46_l2",
@@ -4806,9 +4806,9 @@
          "id": "g3_c3_b52_l1",
          "level": 1,
          "gameKind": "coordinatePath",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c3_b52_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g3_c3_b52_l2",
@@ -5440,9 +5440,9 @@
          "id": "g4_c1_b5_l1",
          "level": 1,
          "gameKind": "coordinatePath",
-         "count": 8,
+         "count": 20,
          "bank": "banks/g4_c1_b5_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         }
        ]
       },
@@ -5672,9 +5672,9 @@
          "id": "g4_c1_b16_l1",
          "level": 1,
          "gameKind": "coordinatePath",
-         "count": 8,
+         "count": 20,
          "bank": "banks/g4_c1_b16_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c1_b16_l2",
@@ -5896,9 +5896,9 @@
          "id": "g4_c2_b26_l1",
          "level": 1,
          "gameKind": "motionLine",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c2_b26_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c2_b26_l2",
@@ -5920,9 +5920,9 @@
          "id": "g4_c2_b27_l1",
          "level": 1,
          "gameKind": "motionLine",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c2_b27_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c2_b27_l2",
@@ -5952,9 +5952,9 @@
          "id": "g4_c2_b28_l1",
          "level": 1,
          "gameKind": "motionLine",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c2_b28_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c2_b28_l2",
@@ -5976,9 +5976,9 @@
          "id": "g4_c2_b29_l1",
          "level": 1,
          "gameKind": "motionLine",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c2_b29_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c2_b29_l2",
@@ -6008,9 +6008,9 @@
          "id": "g4_c2_b30_l1",
          "level": 1,
          "gameKind": "motionLine",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c2_b30_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c2_b30_l2",
@@ -6256,9 +6256,9 @@
          "id": "g4_c3_b41_l1",
          "level": 1,
          "gameKind": "fractionStrip",
-         "count": 8,
+         "count": 20,
          "bank": "banks/g4_c3_b41_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c3_b41_l2",
@@ -6416,9 +6416,9 @@
          "id": "g4_c3_b48_l1",
          "level": 1,
          "gameKind": "fractionStrip",
-         "count": 8,
+         "count": 20,
          "bank": "banks/g4_c3_b48_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c3_b48_l2",
@@ -6616,9 +6616,9 @@
          "id": "g4_c3_b57_l1",
          "level": 1,
          "gameKind": "fractionStrip",
-         "count": 8,
+         "count": 20,
          "bank": "banks/g4_c3_b57_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c3_b57_l2",
@@ -6968,9 +6968,9 @@
          "id": "g4_c4_b72_l1",
          "level": 1,
          "gameKind": "protractor",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c4_b72_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c4_b72_l2",
@@ -6992,9 +6992,9 @@
          "id": "g4_c4_b73_l1",
          "level": 1,
          "gameKind": "protractor",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c4_b73_l1_tasks.json",
-         "webSupported": false
+         "webSupported": true
         },
         {
          "id": "g4_c4_b73_l2",

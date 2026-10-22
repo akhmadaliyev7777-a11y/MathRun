@@ -1,8 +1,402 @@
 [
-  {"id": "sinf4_chorak2_blok27_level1_birga_01", "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?", "hint": "Slayderni ikki mashina uchrashadigan soatga suring", "roadLength": 60, "maxHours": 3, "answerHour": 2, "runnerA": {"label": "Ko'k mashina", "startPosition": 0, "speed": 20, "direction": 1}, "runnerB": {"label": "Qizil mashina", "startPosition": 60, "speed": 10, "direction": -1}},
-  {"id": "sinf4_chorak2_blok27_level1_birga_02", "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?", "hint": "Slayderni ikki piyoda uchrashadigan soatga suring", "roadLength": 90, "maxHours": 4, "answerHour": 3, "runnerA": {"label": "Anvar", "startPosition": 0, "speed": 15, "direction": 1}, "runnerB": {"label": "Bek", "startPosition": 90, "speed": 15, "direction": -1}},
-  {"id": "sinf4_chorak2_blok27_level1_birga_03", "prompt": "Ikki velosipedchi bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?", "hint": "Slayderni ular uchrashadigan soatga suring", "roadLength": 60, "maxHours": 6, "answerHour": 5, "runnerA": {"label": "1-velosipedchi", "startPosition": 0, "speed": 6, "direction": 1}, "runnerB": {"label": "2-velosipedchi", "startPosition": 60, "speed": 6, "direction": -1}},
-  {"id": "sinf4_chorak2_blok27_level1_birga_04", "prompt": "Ikki avtomobil bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?", "hint": "Slayderni ikki avtomobil uchrashadigan soatga suring", "roadLength": 150, "maxHours": 4, "answerHour": 3, "runnerA": {"label": "1-avtomobil", "startPosition": 0, "speed": 30, "direction": 1}, "runnerB": {"label": "2-avtomobil", "startPosition": 150, "speed": 20, "direction": -1}},
-  {"id": "sinf4_chorak2_blok27_level1_birga_05", "prompt": "Ikki poyezd bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?", "hint": "Slayderni ikki poyezd uchrashadigan soatga suring", "roadLength": 100, "maxHours": 5, "answerHour": 4, "runnerA": {"label": "1-poyezd", "startPosition": 0, "speed": 10, "direction": 1}, "runnerB": {"label": "2-poyezd", "startPosition": 100, "speed": 15, "direction": -1}},
-  {"id": "sinf4_chorak2_blok27_level1_birga_06", "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?", "hint": "Slayderni ular uchrashadigan soatga suring", "roadLength": 110, "maxHours": 3, "answerHour": 2, "runnerA": {"label": "Sariq mashina", "startPosition": 0, "speed": 22, "direction": 1}, "runnerB": {"label": "Yashil mashina", "startPosition": 110, "speed": 33, "direction": -1}}
+  {
+    "id": "sinf4_chorak2_blok27_level1_birga_01",
+    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ikki mashina uchrashadigan soatga suring",
+    "roadLength": 60,
+    "maxHours": 3,
+    "answerHour": 2,
+    "runnerA": {
+      "label": "Ko'k mashina",
+      "startPosition": 0,
+      "speed": 20,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Qizil mashina",
+      "startPosition": 60,
+      "speed": 10,
+      "direction": -1
+    }
+  },
+  {
+    "id": "sinf4_chorak2_blok27_level1_birga_02",
+    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ikki piyoda uchrashadigan soatga suring",
+    "roadLength": 90,
+    "maxHours": 4,
+    "answerHour": 3,
+    "runnerA": {
+      "label": "Anvar",
+      "startPosition": 0,
+      "speed": 15,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Bek",
+      "startPosition": 90,
+      "speed": 15,
+      "direction": -1
+    }
+  },
+  {
+    "id": "sinf4_chorak2_blok27_level1_birga_03",
+    "prompt": "Ikki velosipedchi bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 60,
+    "maxHours": 6,
+    "answerHour": 5,
+    "runnerA": {
+      "label": "1-velosipedchi",
+      "startPosition": 0,
+      "speed": 6,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "2-velosipedchi",
+      "startPosition": 60,
+      "speed": 6,
+      "direction": -1
+    }
+  },
+  {
+    "id": "sinf4_chorak2_blok27_level1_birga_04",
+    "prompt": "Ikki avtomobil bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ikki avtomobil uchrashadigan soatga suring",
+    "roadLength": 150,
+    "maxHours": 4,
+    "answerHour": 3,
+    "runnerA": {
+      "label": "1-avtomobil",
+      "startPosition": 0,
+      "speed": 30,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "2-avtomobil",
+      "startPosition": 150,
+      "speed": 20,
+      "direction": -1
+    }
+  },
+  {
+    "id": "sinf4_chorak2_blok27_level1_birga_05",
+    "prompt": "Ikki poyezd bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ikki poyezd uchrashadigan soatga suring",
+    "roadLength": 100,
+    "maxHours": 5,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "1-poyezd",
+      "startPosition": 0,
+      "speed": 10,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "2-poyezd",
+      "startPosition": 100,
+      "speed": 15,
+      "direction": -1
+    }
+  },
+  {
+    "id": "sinf4_chorak2_blok27_level1_birga_06",
+    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 110,
+    "maxHours": 3,
+    "answerHour": 2,
+    "runnerA": {
+      "label": "Sariq mashina",
+      "startPosition": 0,
+      "speed": 22,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Yashil mashina",
+      "startPosition": 110,
+      "speed": 33,
+      "direction": -1
+    }
+  },
+  {
+    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 192,
+    "maxHours": 8,
+    "answerHour": 6,
+    "runnerA": {
+      "label": "Sariq mashina",
+      "startPosition": 0,
+      "speed": 26,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Yashil mashina",
+      "startPosition": 192,
+      "speed": 6,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x01"
+  },
+  {
+    "prompt": "Ikki poyezd bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 300,
+    "maxHours": 7,
+    "answerHour": 6,
+    "runnerA": {
+      "label": "1-poyezd",
+      "startPosition": 0,
+      "speed": 27,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "2-poyezd",
+      "startPosition": 300,
+      "speed": 23,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x02"
+  },
+  {
+    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 228,
+    "maxHours": 6,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Ko'k mashina",
+      "startPosition": 0,
+      "speed": 27,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Qizil mashina",
+      "startPosition": 228,
+      "speed": 30,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x03"
+  },
+  {
+    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 72,
+    "maxHours": 4,
+    "answerHour": 2,
+    "runnerA": {
+      "label": "Sardor",
+      "startPosition": 0,
+      "speed": 5,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Jasur",
+      "startPosition": 72,
+      "speed": 31,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x04"
+  },
+  {
+    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 168,
+    "maxHours": 5,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Anvar",
+      "startPosition": 0,
+      "speed": 21,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Bek",
+      "startPosition": 168,
+      "speed": 21,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x05"
+  },
+  {
+    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 70,
+    "maxHours": 3,
+    "answerHour": 2,
+    "runnerA": {
+      "label": "Sardor",
+      "startPosition": 0,
+      "speed": 20,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Jasur",
+      "startPosition": 70,
+      "speed": 15,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x06"
+  },
+  {
+    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 155,
+    "maxHours": 6,
+    "answerHour": 5,
+    "runnerA": {
+      "label": "Sardor",
+      "startPosition": 0,
+      "speed": 22,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Jasur",
+      "startPosition": 155,
+      "speed": 9,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x07"
+  },
+  {
+    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 60,
+    "maxHours": 6,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Sardor",
+      "startPosition": 0,
+      "speed": 6,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Jasur",
+      "startPosition": 60,
+      "speed": 9,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x08"
+  },
+  {
+    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 164,
+    "maxHours": 5,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Sardor",
+      "startPosition": 0,
+      "speed": 10,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Jasur",
+      "startPosition": 164,
+      "speed": 31,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x09"
+  },
+  {
+    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 288,
+    "maxHours": 8,
+    "answerHour": 6,
+    "runnerA": {
+      "label": "Ko'k mashina",
+      "startPosition": 0,
+      "speed": 35,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Qizil mashina",
+      "startPosition": 288,
+      "speed": 13,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x10"
+  },
+  {
+    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 234,
+    "maxHours": 8,
+    "answerHour": 6,
+    "runnerA": {
+      "label": "Oq mashina",
+      "startPosition": 0,
+      "speed": 7,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Qora mashina",
+      "startPosition": 234,
+      "speed": 32,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x11"
+  },
+  {
+    "prompt": "Ikki poyezd bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 100,
+    "maxHours": 7,
+    "answerHour": 5,
+    "runnerA": {
+      "label": "1-poyezd",
+      "startPosition": 0,
+      "speed": 5,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "2-poyezd",
+      "startPosition": 100,
+      "speed": 15,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x12"
+  },
+  {
+    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 135,
+    "maxHours": 5,
+    "answerHour": 3,
+    "runnerA": {
+      "label": "Oq mashina",
+      "startPosition": 0,
+      "speed": 23,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Qora mashina",
+      "startPosition": 135,
+      "speed": 22,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x13"
+  },
+  {
+    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
+    "hint": "Slayderni ular uchrashadigan soatga suring",
+    "roadLength": 94,
+    "maxHours": 3,
+    "answerHour": 2,
+    "runnerA": {
+      "label": "Anvar",
+      "startPosition": 0,
+      "speed": 34,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Bek",
+      "startPosition": 94,
+      "speed": 13,
+      "direction": -1
+    },
+    "id": "sinf4_chorak2_blok27_level1_birga_x14"
+  }
 ]

@@ -25,6 +25,10 @@ export const ICON = {
   map: s('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/>'),
   clock: s('<circle cx="12" cy="13" r="8"/><path d="M12 13V9M12 5V3M9 3h6"/>'),
   flame: s('<path d="M12 2c1.5 3 4 4.5 4 8a4 4 0 0 1-8 0c0-1.2.4-2 1-3-.2 2 1 3 1 3s-.5-4 2-8Z"/><path d="M8 14c0 3 1.8 6 4 6s4-3 4-6"/>'),
+  frac: s('<rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M9 8v8M15 8v8"/>'),
+  axes: s('<path d="M4 3v17h17"/><circle cx="9" cy="14" r="1.6"/><circle cx="15" cy="8" r="1.6"/><path d="M9 14l6-6"/>'),
+  motion: s('<path d="M3 17h18"/><path d="M5 14l2-5h8l3 5"/><circle cx="8" cy="17" r="1.5"/><circle cx="16" cy="17" r="1.5"/>'),
+  angle: s('<path d="M4 19h16"/><path d="M4 19L16 7"/><path d="M11 19a7 7 0 0 0-2.5-5.3"/>'),
   search: s('<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>'),
   chevronDown: s('<path d="M6 9l6 6 6-6"/>'),
 };

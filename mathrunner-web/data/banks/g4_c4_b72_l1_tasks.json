@@ -1,8 +1,142 @@
 [
-  {"id": "sinf4_chorak4_blok72_level1_olch_01", "mode": "measure", "prompt": "Chizilgan burchakni transportir bilan o'lchang.", "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring", "targetDegrees": 30},
-  {"id": "sinf4_chorak4_blok72_level1_olch_02", "mode": "measure", "prompt": "Chizilgan burchakni transportir bilan o'lchang.", "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring", "targetDegrees": 60},
-  {"id": "sinf4_chorak4_blok72_level1_olch_03", "mode": "measure", "prompt": "Chizilgan burchakni transportir bilan o'lchang.", "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring", "targetDegrees": 90},
-  {"id": "sinf4_chorak4_blok72_level1_olch_04", "mode": "measure", "prompt": "Chizilgan burchakni transportir bilan o'lchang.", "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring", "targetDegrees": 120},
-  {"id": "sinf4_chorak4_blok72_level1_olch_05", "mode": "measure", "prompt": "Chizilgan burchakni transportir bilan o'lchang.", "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring", "targetDegrees": 45},
-  {"id": "sinf4_chorak4_blok72_level1_olch_06", "mode": "measure", "prompt": "Chizilgan burchakni transportir bilan o'lchang.", "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring", "targetDegrees": 150}
+  {
+    "id": "sinf4_chorak4_blok72_level1_olch_01",
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 30
+  },
+  {
+    "id": "sinf4_chorak4_blok72_level1_olch_02",
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 60
+  },
+  {
+    "id": "sinf4_chorak4_blok72_level1_olch_03",
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 90
+  },
+  {
+    "id": "sinf4_chorak4_blok72_level1_olch_04",
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 120
+  },
+  {
+    "id": "sinf4_chorak4_blok72_level1_olch_05",
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 45
+  },
+  {
+    "id": "sinf4_chorak4_blok72_level1_olch_06",
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 150
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 145,
+    "id": "sinf4_chorak4_blok72_level1_olch_x01"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 50,
+    "id": "sinf4_chorak4_blok72_level1_olch_x02"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 20,
+    "id": "sinf4_chorak4_blok72_level1_olch_x03"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 130,
+    "id": "sinf4_chorak4_blok72_level1_olch_x04"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 160,
+    "id": "sinf4_chorak4_blok72_level1_olch_x05"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 40,
+    "id": "sinf4_chorak4_blok72_level1_olch_x06"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 80,
+    "id": "sinf4_chorak4_blok72_level1_olch_x07"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 140,
+    "id": "sinf4_chorak4_blok72_level1_olch_x08"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 75,
+    "id": "sinf4_chorak4_blok72_level1_olch_x09"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 170,
+    "id": "sinf4_chorak4_blok72_level1_olch_x10"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 70,
+    "id": "sinf4_chorak4_blok72_level1_olch_x11"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 10,
+    "id": "sinf4_chorak4_blok72_level1_olch_x12"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 110,
+    "id": "sinf4_chorak4_blok72_level1_olch_x13"
+  },
+  {
+    "mode": "measure",
+    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
+    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
+    "targetDegrees": 100,
+    "id": "sinf4_chorak4_blok72_level1_olch_x14"
+  }
 ]

@@ -216,5 +216,207 @@
         "y": 2
       }
     ]
+  },
+  {
+    "prompt": "Koordinatalarni ko'rsatilgan tartibda bosing",
+    "gridSize": 5,
+    "points": [
+      {
+        "x": 0,
+        "y": 1
+      },
+      {
+        "x": 1,
+        "y": 1
+      },
+      {
+        "x": 1,
+        "y": 4
+      },
+      {
+        "x": 0,
+        "y": 4
+      }
+    ],
+    "id": "g3c3b52l1_coord_x01"
+  },
+  {
+    "prompt": "Koordinatalarni ko'rsatilgan tartibda bosing",
+    "gridSize": 5,
+    "points": [
+      {
+        "x": 2,
+        "y": 2
+      },
+      {
+        "x": 1,
+        "y": 2
+      },
+      {
+        "x": 3,
+        "y": 4
+      }
+    ],
+    "id": "g3c3b52l1_coord_x02"
+  },
+  {
+    "prompt": "Koordinatalarni ko'rsatilgan tartibda bosing",
+    "gridSize": 5,
+    "points": [
+      {
+        "x": 0,
+        "y": 2
+      },
+      {
+        "x": 2,
+        "y": 4
+      },
+      {
+        "x": 3,
+        "y": 0
+      }
+    ],
+    "id": "g3c3b52l1_coord_x03"
+  },
+  {
+    "prompt": "Koordinatalarni ko'rsatilgan tartibda bosing",
+    "gridSize": 5,
+    "points": [
+      {
+        "x": 0,
+        "y": 2
+      },
+      {
+        "x": 3,
+        "y": 2
+      },
+      {
+        "x": 3,
+        "y": 3
+      }
+    ],
+    "id": "g3c3b52l1_coord_x04"
+  },
+  {
+    "prompt": "Koordinatalarni ko'rsatilgan tartibda bosing",
+    "gridSize": 5,
+    "points": [
+      {
+        "x": 0,
+        "y": 2
+      },
+      {
+        "x": 2,
+        "y": 2
+      },
+      {
+        "x": 2,
+        "y": 3
+      },
+      {
+        "x": 0,
+        "y": 3
+      }
+    ],
+    "id": "g3c3b52l1_coord_x05"
+  },
+  {
+    "prompt": "Koordinatalarni ko'rsatilgan tartibda bosing",
+    "gridSize": 5,
+    "points": [
+      {
+        "x": 3,
+        "y": 2
+      },
+      {
+        "x": 0,
+        "y": 3
+      },
+      {
+        "x": 2,
+        "y": 4
+      }
+    ],
+    "id": "g3c3b52l1_coord_x06"
+  },
+  {
+    "prompt": "Koordinatalarni ko'rsatilgan tartibda bosing",
+    "gridSize": 5,
+    "points": [
+      {
+        "x": 1,
+        "y": 3
+      },
+      {
+        "x": 0,
+        "y": 4
+      },
+      {
+        "x": 2,
+        "y": 2
+      }
+    ],
+    "id": "g3c3b52l1_coord_x07"
+  },
+  {
+    "prompt": "Koordinatalarni ko'rsatilgan tartibda bosing",
+    "gridSize": 5,
+    "points": [
+      {
+        "x": 1,
+        "y": 3
+      },
+      {
+        "x": 2,
+        "y": 3
+      },
+      {
+        "x": 2,
+        "y": 2
+      }
+    ],
+    "id": "g3c3b52l1_coord_x08"
+  },
+  {
+    "prompt": "Koordinatalarni ko'rsatilgan tartibda bosing",
+    "gridSize": 5,
+    "points": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 3,
+        "y": 0
+      },
+      {
+        "x": 3,
+        "y": 2
+      },
+      {
+        "x": 0,
+        "y": 2
+      }
+    ],
+    "id": "g3c3b52l1_coord_x09"
+  },
+  {
+    "prompt": "Koordinatalarni ko'rsatilgan tartibda bosing",
+    "gridSize": 5,
+    "points": [
+      {
+        "x": 3,
+        "y": 1
+      },
+      {
+        "x": 4,
+        "y": 2
+      },
+      {
+        "x": 1,
+        "y": 0
+      }
+    ],
+    "id": "g3c3b52l1_coord_x10"
   }
 ]

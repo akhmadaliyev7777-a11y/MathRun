@@ -184,10 +184,6 @@
       {
         "value": "90",
         "zone": "neither"
-      },
-      {
-        "value": "1000",
-        "zone": "both"
       }
     ]
   },

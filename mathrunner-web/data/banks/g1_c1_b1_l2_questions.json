@@ -1,12 +1,13 @@
 [
   {
     "id": "s1c1b1l2_01",
-    "question": "Rasmda quyosh tepada, o't pastda. Quyosh qayerda?",
+    "question": "Rasmga qarang. Quyosh qayerda?",
     "correctAnswer": "tepada",
     "wrongAnswers": [
       "pastda",
       "chapda"
-    ]
+    ],
+    "rasm": "<svg viewBox=\"0 0 240 150\" role=\"img\" aria-label=\"Quyosh va o't\"><rect width=\"240\" height=\"150\" fill=\"#dff1ff\" rx=\"10\"/><circle cx=\"120\" cy=\"38\" r=\"20\" fill=\"#ffc933\"/><line x1=\"150.0\" y1=\"38.0\" x2=\"158.0\" y2=\"38.0\" stroke=\"#ffc933\" stroke-width=\"3\" stroke-linecap=\"round\"/><line x1=\"141.221648075016\" y1=\"59.20475543316098\" x2=\"146.8807542283536\" y2=\"64.85935688200391\" stroke=\"#ffc933\" stroke-width=\"3\" stroke-linecap=\"round\"/><line x1=\"120.023889801322\" y1=\"67.99999048795505\" x2=\"120.03026041500786\" y2=\"75.99998795140971\" stroke=\"#ffc933\" stroke-width=\"3\" stroke-linecap=\"round\"/><line x1=\"98.81215065539985\" y1=\"59.238527259452965\" x2=\"93.16205749683981\" y2=\"64.90213452864042\" stroke=\"#ffc933\" stroke-width=\"3\" stroke-linecap=\"round\"/><line x1=\"90.00003804817382\" y1=\"38.0477795874946\" x2=\"82.0000481943535\" y2=\"38.060520810826496\" stroke=\"#ffc933\" stroke-width=\"3\" stroke-linecap=\"round\"/><line x1=\"98.74460702423181\" y1=\"16.8290701799457\" x2=\"93.07650223069363\" y2=\"11.183488894597886\" stroke=\"#ffc933\" stroke-width=\"3\" stroke-linecap=\"round\"/><line x1=\"119.92833065663156\" y1=\"8.000085608368462\" x2=\"119.9092188317333\" y2=\"0.0001084372667179423\" stroke=\"#ffc933\" stroke-width=\"3\" stroke-linecap=\"round\"/><line x1=\"141.15399687025268\" y1=\"16.727754786733495\" x2=\"146.79506270232008\" y2=\"11.05515606319576\" stroke=\"#ffc933\" stroke-width=\"3\" stroke-linecap=\"round\"/><rect y=\"110\" width=\"240\" height=\"40\" fill=\"#5cb85c\"/><path d=\"M20 150 l3 -20 l4 20\" fill=\"#3f9a3f\"/><path d=\"M48 150 l3 -20 l4 20\" fill=\"#3f9a3f\"/><path d=\"M76 150 l3 -20 l4 20\" fill=\"#3f9a3f\"/><path d=\"M104 150 l3 -20 l4 20\" fill=\"#3f9a3f\"/><path d=\"M132 150 l3 -20 l4 20\" fill=\"#3f9a3f\"/><path d=\"M160 150 l3 -20 l4 20\" fill=\"#3f9a3f\"/><path d=\"M188 150 l3 -20 l4 20\" fill=\"#3f9a3f\"/><path d=\"M216 150 l3 -20 l4 20\" fill=\"#3f9a3f\"/><path d=\"M244 150 l3 -20 l4 20\" fill=\"#3f9a3f\"/></svg>"
   },
   {
     "id": "s1c1b1l2_02",
@@ -37,12 +38,13 @@
   },
   {
     "id": "s1c1b1l2_05",
-    "question": "Rasmda it uyning oldida, mushuk uyning orqasida. Kim orqada?",
+    "question": "Rasmga qarang. Uyning orqasida kim turibdi?",
     "correctAnswer": "mushuk",
     "wrongAnswers": [
       "it",
       "ikkalasi"
-    ]
+    ],
+    "rasm": "<svg viewBox=\"0 0 260 160\" role=\"img\" aria-label=\"Uy, it va mushuk\"><rect width=\"260\" height=\"160\" fill=\"#dff1ff\" rx=\"10\"/><rect y=\"128\" width=\"260\" height=\"32\" fill=\"#7ccf7c\"/><path d=\"M178 70 l7 -16 l8 12 l12 0 l8 -12 l7 16 v16 a22 22 0 0 1 -42 0 z\" fill=\"#f2a650\" stroke=\"#9b5b13\" stroke-width=\"2\"/><circle cx=\"190\" cy=\"82\" r=\"2.5\" fill=\"#222\"/><circle cx=\"206\" cy=\"82\" r=\"2.5\" fill=\"#222\"/><rect x=\"70\" y=\"72\" width=\"120\" height=\"68\" fill=\"#fbe3b6\" stroke=\"#8a5a1d\" stroke-width=\"3\"/><polygon points=\"60,74 130,26 200,74\" fill=\"#d64545\" stroke=\"#8a2121\" stroke-width=\"3\" stroke-linejoin=\"round\"/><rect x=\"118\" y=\"100\" width=\"24\" height=\"40\" fill=\"#8a5a1d\"/><rect x=\"82\" y=\"86\" width=\"22\" height=\"20\" fill=\"#bfe3ff\" stroke=\"#8a5a1d\" stroke-width=\"2\"/><ellipse cx=\"40\" cy=\"130\" rx=\"26\" ry=\"14\" fill=\"#c98c4b\" stroke=\"#6a4417\" stroke-width=\"2\"/><circle cx=\"62\" cy=\"116\" r=\"12\" fill=\"#c98c4b\" stroke=\"#6a4417\" stroke-width=\"2\"/><path d=\"M56 106 l-4 -10 l10 4 z M70 108 l6 -8 l2 10 z\" fill=\"#6a4417\"/><circle cx=\"66\" cy=\"114\" r=\"2\" fill=\"#222\"/><circle cx=\"73\" cy=\"118\" r=\"3\" fill=\"#222\"/></svg>"
   },
   {
     "id": "s1c1b1l2_06",

@@ -298,6 +298,12 @@ def fix_set_seeds(seeds):
     shartsiz (ismli yoki ma'nosiz sonli) topshiriqlarga to'plam a'zolari promptga yoziladi."""
     fixed = []
     for s in seeds:
+        seen, uniq = set(), []
+        for e in s['elements']:                       # bir xil qiymat ikki marta bo'lsa o'yin tugamay qoladi
+            if e['value'] in seen:
+                fixed.append((s['id'], e['value'], 'takror element olib tashlandi')); continue
+            seen.add(e['value']); uniq.append(e)
+        s['elements'] = uniq
         pa, pb = pred_of(s['setAName']), pred_of(s['setBName'])
         if pa and pb:
             for e in s['elements']:
@@ -511,8 +517,219 @@ def gen_net(seeds, need, rng, lid):
     return out if len(out) == need else None
 
 
+
+# ---------------------------------------------------------------- kasr tasmasi
+def gen_fraction(seeds, need, rng, lid):
+    p0 = seeds[0]['prompt']
+    used = {s['prompt'] for s in seeds}
+    out = []
+    if '+' in p0 or '−' in p0:                      # kasrlarni qo'shish / ayirish
+        tries = 0
+        while len(out) < need and tries < 2000:
+            tries += 1
+            d = rng.randint(3, 10); plus = len(out) % 2 == 0
+            if plus:
+                a = rng.randint(1, d - 2); b = rng.randint(1, d - 1 - a); r = a + b; sign = '+'
+            else:
+                a = rng.randint(2, d - 1); b = rng.randint(1, a - 1); r = a - b; sign = '−'
+            prompt = f'{a}/{d} {sign} {b}/{d} = ? Tasmada javobni bo\'yang'
+            if prompt in used: continue
+            used.add(prompt); out.append({'prompt': prompt, 'denominator': d, 'numerator': r})
+    elif '%' in p0:                                 # foizlar
+        opts = [(p, 10) for p in range(10, 101, 10)] + [(25, 4), (50, 4), (75, 4), (20, 5), (40, 5), (60, 5), (80, 5)] + [(p, 20) for p in range(5, 100, 10)]
+        rng.shuffle(opts)
+        for pct, d in opts:
+            prompt = f"{pct}% ni bo'yang (tasma {d} bo'lakka bo'lingan)"
+            if prompt in used: continue
+            used.add(prompt); out.append({'prompt': prompt, 'denominator': d, 'numerator': pct * d // 100})
+            if len(out) == need: break
+    else:                                           # oddiy ulush
+        maxn = max(s['numerator'] for s in seeds)
+        cand = [(n, d) for d in range(2, 11) for n in range(1, (d if maxn > 1 else 3))
+                if n < d and f"Tasmaning {n}/{d} qismini bo'yang" not in used]
+        rng.shuffle(cand)
+        for n, d in cand[:need]:
+            out.append({'prompt': f"Tasmaning {n}/{d} qismini bo'yang", 'denominator': d, 'numerator': n})
+    return out if len(out) == need else None
+
+
+# ---------------------------------------------------------------- koordinata yo'li
+def gen_coord(seeds, need, rng, lid):
+    sizes = sorted({s['gridSize'] for s in seeds})
+    top = max(p[k] for s in seeds for p in s['points'] for k in ('x', 'y'))
+    inclusive = top >= max(sizes)                   # g4: nuqtalar 0..gridSize; g3: 0..gridSize-1
+    g3 = lid.startswith('g3')
+    used = {tuple((p['x'], p['y']) for p in s['points']) for s in seeds}
+    kinds = ['rect', 'tri', 'zig', 'hv'] if g3 else ['vseg', 'hseg', 'diag', 'tri', 'square', 'rect', 'path']
+    out = []; tries = 0
+    while len(out) < need and tries < 8000:
+        tries += 1
+        n = rng.choice(sizes); m = n if inclusive else n - 1      # eng katta koordinata
+        kind = kinds[len(out) % len(kinds)]
+        r = lambda a=0, b=None: rng.randint(a, m if b is None else b)
+        if kind == 'vseg':
+            x = r(); y1, y2 = sorted(rng.sample(range(0, m + 1), 2)); pts = [(x, y1), (x, y2)]; pr = 'Nuqtalarni bosib tik kesma torting'
+        elif kind == 'hseg':
+            y = r(); x1, x2 = sorted(rng.sample(range(0, m + 1), 2)); pts = [(x1, y), (x2, y)]; pr = 'Nuqtalarni bosib yotiq kesma torting'
+        elif kind == 'diag':
+            L = rng.randint(2, m); x0 = r(0, m - L); y0 = r(0, m - L); pts = [(x0 + i * (L // 2 or 1), y0 + i * (L // 2 or 1)) for i in range(3)]
+            if pts[2][0] > m or pts[2][1] > m: continue
+            pr = "Nuqtalarni ketma-ket bosing — qiya chiziq hosil bo'ladi"
+        elif kind in ('tri',):
+            a = (r(), r()); b = (r(), r()); c = (r(), r())
+            if len({a, b, c}) < 3 or (b[0] - a[0]) * (c[1] - a[1]) == (c[0] - a[0]) * (b[1] - a[1]): continue
+            pts = [a, b, c] + ([] if g3 else [a]); pr = 'Koordinatalarni ko\'rsatilgan tartibda bosing' if g3 else 'Koordinatalarni bosib uchburchak yasang'
+        elif kind == 'square':
+            L = rng.randint(2, m); x0 = r(0, m - L); y0 = r(0, m - L)
+            pts = [(x0, y0), (x0 + L, y0), (x0 + L, y0 + L), (x0, y0 + L), (x0, y0)]; pr = "Koordinatalarni ketma-ket bosing — kvadrat hosil bo'ladi"
+        elif kind == 'rect':
+            w = rng.randint(1, m); h = rng.randint(1, m)
+            if w == h: continue
+            x0 = r(0, m - w); y0 = r(0, m - h)
+            pts = [(x0, y0), (x0 + w, y0), (x0 + w, y0 + h), (x0, y0 + h)] + ([] if g3 else [(x0, y0)])
+            pr = "Koordinatalarni ko'rsatilgan tartibda bosing" if g3 else "Koordinatalarni bosib to'g'ri to'rtburchak yasang"
+        elif kind == 'zig':
+            pts = [(r(), r()) for _ in range(rng.choice([3, 4]))]
+            if any(pts[i] == pts[i + 1] for i in range(len(pts) - 1)) or len(set(pts)) < len(pts): continue
+            pr = "Koordinatalarni ko'rsatilgan tartibda bosing"
+        elif kind == 'hv':
+            a = (r(), r()); b = (r(), a[1]); c = (b[0], r())
+            if len({a, b, c}) < 3: continue
+            pts = [a, b, c]; pr = "Koordinatalarni ko'rsatilgan tartibda bosing"
+        else:  # path
+            a = (r(), r()); b = (a[0], r()); c = (r(), b[1])
+            if len({a, b, c}) < 3: continue
+            pts = [a, b, c]; pr = 'Koordinatalarni ketma-ket bosing'
+        if any(x > m or y > m or x < 0 or y < 0 for x, y in pts): continue
+        key = tuple(pts)
+        if key in used: continue
+        used.add(key)
+        out.append({'prompt': pr, 'gridSize': n, 'points': [{'x': x, 'y': y} for x, y in pts]})
+    return out if len(out) == need else None
+
+
+# ---------------------------------------------------------------- harakat chizig'i
+MOVE_PAIRS = [("Ko'k mashina", "Qizil mashina"), ('Anvar', 'Bek'), ('1-velosipedchi', '2-velosipedchi'), ('1-avtomobil', '2-avtomobil'),
+              ('1-poyezd', '2-poyezd'), ('Sariq mashina', 'Yashil mashina'), ('Sardor', 'Jasur'), ('Oq mashina', 'Qora mashina')]
+CHASE_PAIRS = [('Oldingi mashina', 'Orqadagi mashina'), ('Piyoda', 'Velosipedchi'), ('Sekin mashina', 'Tez mashina'),
+               ('Yuk mashinasi', 'Yengil mashina'), ('Oldingi poyezd', 'Orqadagi poyezd'), ('Sekin poyezd', 'Tez poyezd')]
+CEIL10 = lambda x: int(math.ceil(x / 10.0) * 10)
+
+
+def pos_at(r, h):
+    return r['startPosition'] + r['direction'] * r['speed'] * max(0, h - r.get('startHour', 0))
+
+
+def gen_motion(seeds, need, rng, lid):
+    kind = lid.split('_')[2]            # b26 ... b30
+    used = {(s['prompt'], s['runnerA']['speed'], s['runnerB']['speed'], s['runnerA']['startPosition'], s['answerHour']) for s in seeds}
+    out = []; tries = 0
+    while len(out) < need and tries < 8000:
+        tries += 1
+        t = rng.randint(2, 6)
+        mh = t + rng.randint(1, 2)
+        if kind == 'b26':
+            v = rng.choice([8, 10, 12, 15, 20, 25, 30, 40, 45, 50]); s0 = rng.choice([0, 0, 0, 10, 20])
+            L = s0 + v * t
+            who = rng.choice(['Mashina', 'Poyezd', 'Avtobus', 'Velosipedchi'])
+            if s0 == 0:
+                prompt = f"{who} {v} km/soat tezlikda {L} km yo'lga chiqdi. U necha soatda manzilga yetadi?"
+                hint = f'Slayderni {who.lower()} {L} km manzilga yetadigan soatga suring'
+            else:
+                prompt = f"{who} {s0}-chi kilometrdan boshlab {v} km/soat tezlikda yuradi. U {L}-chi kilometrga necha soatda yetadi?"
+                hint = f'Slayderni {who.lower()} {L} km belgisiga yetadigan soatga suring'
+            vb = rng.choice([x for x in (5, 8, 10, 12, 15) if x != v])
+            A = {'label': who, 'startPosition': s0, 'speed': v, 'direction': 1}
+            B = {'label': 'Hamroh', 'startPosition': rng.choice([0, 0, 5]), 'speed': vb, 'direction': 1}
+        elif kind == 'b27':
+            a, b = rng.randint(5, 35), rng.randint(5, 35); L = (a + b) * t
+            if L > 300: continue
+            la, lb = rng.choice(MOVE_PAIRS)
+            word = 'mashina' if 'mashina' in la or 'avtomobil' in la else 'piyoda' if la in ('Anvar', 'Sardor') else 'velosipedchi' if 'velosiped' in la else 'poyezd'
+            prompt = f'Ikki {word} bir-biriga qarab yo\'lga chiqdi. Ular necha soatdan keyin uchrashadi?'
+            hint = 'Slayderni ular uchrashadigan soatga suring'
+            A = {'label': la, 'startPosition': 0, 'speed': a, 'direction': 1}
+            B = {'label': lb, 'startPosition': L, 'speed': b, 'direction': -1}
+        elif kind == 'b28':
+            a, b = rng.randint(10, 30), rng.randint(10, 30); D = (a + b) * t
+            if D > 250: continue
+            who, sing = rng.choice([('mashina', 'bir joydan qarama-qarshi tomonga jo\'nadi'), ('velosipedchi', "bir joydan qarama-qarshi yo'nalishda yo'lga chiqdi"),
+                                    ('piyoda', "bir nuqtadan qarama-qarshi yo'nalishda yurdi"), ('avtomobil', 'bir shahardan qarama-qarshi tomonga jo\'nadi')])
+            prompt = f"Ikki {who} {sing} ({a} va {b} km/soat). Necha soatdan keyin ular orasidagi masofa {D} km bo'ladi?"
+            hint = f'Slayderni ular orasidagi masofa {D} km bo\'ladigan soatga suring'
+            S0 = CEIL10(max(a, b) * mh)
+            L = CEIL10(S0 + max(a, b) * mh)
+            la, lb = (f'1-{who}', f'2-{who}')
+            A = {'label': la, 'startPosition': S0, 'speed': a, 'direction': -1}
+            B = {'label': lb, 'startPosition': S0, 'speed': b, 'direction': 1}
+        elif kind == 'b29':
+            a = rng.randint(5, 20); b = a + rng.randint(5, 20); gap = (b - a) * t
+            if gap > 120: continue
+            la, lb = rng.choice(CHASE_PAIRS)
+            prompt = f'{lb} {la.lower()}ni necha soatdan keyin quvib yetadi?'
+            hint = 'Slayderni quvib yetadigan soatga suring'
+            L = CEIL10(max(b * mh, gap + a * mh))
+            A = {'label': la, 'startPosition': gap, 'speed': a, 'direction': 1}
+            B = {'label': lb, 'startPosition': 0, 'speed': b, 'direction': 1}
+        else:  # b30 kechikishli
+            h = rng.choice([1, 2, 2, 3]); a = rng.randint(8, 30); b = a + rng.randint(4, 20)
+            if (b * h) % (b - a): continue
+            t = b * h // (b - a)
+            if t < h + 1 or t > 9: continue
+            mh = t + rng.randint(1, 2)
+            L = CEIL10(max(a * mh, b * (mh - h)))
+            prompt = f"Birinchi mashina {h} soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?"
+            hint = 'Slayderni quvib yetadigan soatga suring'
+            A = {'label': '1-mashina', 'startPosition': 0, 'speed': a, 'direction': 1}
+            B = {'label': '2-mashina', 'startPosition': 0, 'speed': b, 'direction': 1, 'startHour': h}
+        task = {'prompt': prompt, 'hint': hint, 'roadLength': L, 'maxHours': mh, 'answerHour': t, 'runnerA': A, 'runnerB': B}
+        key = (prompt, A['speed'], B['speed'], A['startPosition'], t)
+        if key in used or not verify_motion(task, kind):
+            continue
+        used.add(key)
+        out.append(task)
+    return out if len(out) == need else None
+
+
+def verify_motion(t, kind):
+    A, B, ans, mh, L = t['runnerA'], t['runnerB'], t['answerHour'], t['maxHours'], t['roadLength']
+    if not (1 <= ans < mh): return False
+    hours = range(0, mh + 1)
+    if kind == 'b26':
+        first = next((h for h in hours if pos_at(A, h) >= L), None)
+        ok = first == ans and pos_at(A, ans) == L
+    elif kind == 'b28':
+        D = int(re.search(r'masofa (\d+) km', t['prompt']).group(1))
+        first = next((h for h in hours if abs(pos_at(A, h) - pos_at(B, h)) == D), None)
+        ok = first == ans
+    else:
+        first = next((h for h in hours if h > 0 and pos_at(A, h) == pos_at(B, h)), None)
+        ok = first == ans
+    # barcha pozitsiyalar yo'l ichida (yoki chegaradan chiqmasin)
+    inside = all(-0.001 <= pos_at(r, h) <= L + 0.001 for r in (A, B) for h in range(0, ans + 1))
+    return ok and inside
+
+
+# ---------------------------------------------------------------- transportir
+def gen_protractor(seeds, need, rng, lid):
+    mode = seeds[0]['mode']
+    used = {s['targetDegrees'] for s in seeds}
+    pool = [d for d in range(10, 171, 5) if d not in used and (d % 10 == 0 or rng.random() < 0.55)]
+    rng.shuffle(pool)
+    if len(pool) < need: return None
+    out = []
+    for d in pool[:need]:
+        if mode == 'measure':
+            out.append({'mode': 'measure', 'prompt': "Chizilgan burchakni transportir bilan o'lchang.", 'hint': "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring", 'targetDegrees': d})
+        else:
+            kind = "to'g'ri burchak" if d == 90 else "o'tkir burchak" if d < 90 else "o'tmas burchak"
+            out.append({'mode': 'construct', 'prompt': f"Transportir yordamida {d}° li {kind} yasang.", 'hint': f'Nurni {d}° ga qo\'ying', 'targetDegrees': d})
+    return out
+
+
 GENS = {'numberOrder': gen_order, 'placeValue': gen_place, 'algorithmConveyor': gen_conv, 'set': gen_set,
-        'balanceScale': gen_balance, 'equationGrid': gen_grid, 'symmetry': gen_sym, 'netFold': gen_net}
+        'balanceScale': gen_balance, 'equationGrid': gen_grid, 'symmetry': gen_sym, 'netFold': gen_net,
+        'fractionStrip': gen_fraction, 'coordinatePath': gen_coord, 'motionLine': gen_motion, 'protractor': gen_protractor}
 
 
 # ---------------------------------------------------------------- tekshiruv
@@ -533,6 +750,19 @@ def verify(kind, t, lid):
         return t['target'] in t['options'] and len(set(t['options'])) == 3
     if kind == 'algorithmConveyor':
         return verify_conv(t, lid)
+    if kind == 'fractionStrip':
+        m = re.match(r'^(\d+)/(\d+) ([+−]) (\d+)/(\d+) =', t['prompt'])
+        if m:
+            a, d, op, b = int(m.group(1)), int(m.group(2)), m.group(3), int(m.group(4))
+            return d == int(m.group(5)) == t['denominator'] and t['numerator'] == (a + b if op == '+' else a - b) and 0 < t['numerator'] < d
+        return 0 < t['numerator'] <= t['denominator']
+    if kind == 'coordinatePath':
+        pts = [(p['x'], p['y']) for p in t['points']]
+        return len(pts) >= 2 and all(a != b for a, b in zip(pts, pts[1:]))
+    if kind == 'motionLine':
+        return verify_motion(t, lid.split('_')[2])
+    if kind == 'protractor':
+        return 0 < t['targetDegrees'] < 180
     return True
 
 
@@ -540,7 +770,7 @@ def main():
     done = failed = 0
     for lid, (l, b, grade) in LV.items():
         kind = l['gameKind']
-        if kind == 'test' or not l['webSupported']:
+        if kind == 'test' or kind not in GENS:
             continue
         path = 'data/' + l['bank']
         bank = json.load(open(path))
@@ -567,6 +797,7 @@ def main():
                 print('XATO: tekshiruvdan o\'tmadi', lid, t); sys.exit(1)
         save(path, seeds + new)
         l['count'] = len(seeds) + len(new)
+        l['webSupported'] = True
         done += 1
     save('data/curriculum.json', CUR, 1)
     print('yangilandi:', done, 'daraja; yaratilmadi:', failed)

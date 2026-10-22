@@ -1,8 +1,402 @@
 [
-  {"id": "sinf4_chorak2_blok29_level1_quvlama_01", "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?", "hint": "Slayderni orqadagi mashina oldingisini quvib yetadigan soatga suring", "roadLength": 150, "maxHours": 6, "answerHour": 4, "runnerA": {"label": "Oldingi mashina", "startPosition": 40, "speed": 15, "direction": 1}, "runnerB": {"label": "Orqadagi mashina", "startPosition": 0, "speed": 25, "direction": 1}},
-  {"id": "sinf4_chorak2_blok29_level1_quvlama_02", "prompt": "Orqadagi mashina oldingisini necha soatdan keyin quvib yetadi?", "hint": "Slayderni quvib yetadigan soatga suring", "roadLength": 120, "maxHours": 5, "answerHour": 2, "runnerA": {"label": "Oldingi mashina", "startPosition": 30, "speed": 10, "direction": 1}, "runnerB": {"label": "Orqadagi mashina", "startPosition": 0, "speed": 25, "direction": 1}},
-  {"id": "sinf4_chorak2_blok29_level1_quvlama_03", "prompt": "Orqadagi poyezd oldingi poyezdni necha soatdan keyin quvib yetadi?", "hint": "Slayderni quvib yetadigan soatga suring", "roadLength": 150, "maxHours": 7, "answerHour": 5, "runnerA": {"label": "Oldingi poyezd", "startPosition": 60, "speed": 10, "direction": 1}, "runnerB": {"label": "Orqadagi poyezd", "startPosition": 0, "speed": 22, "direction": 1}},
-  {"id": "sinf4_chorak2_blok29_level1_quvlama_04", "prompt": "Yengil mashina yuk mashinasini necha soatdan keyin quvib yetadi?", "hint": "Slayderni quvib yetadigan soatga suring", "roadLength": 150, "maxHours": 6, "answerHour": 3, "runnerA": {"label": "Yuk mashinasi", "startPosition": 45, "speed": 15, "direction": 1}, "runnerB": {"label": "Yengil mashina", "startPosition": 0, "speed": 30, "direction": 1}},
-  {"id": "sinf4_chorak2_blok29_level1_quvlama_05", "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?", "hint": "Slayderni quvib yetadigan soatga suring", "roadLength": 100, "maxHours": 5, "answerHour": 1, "runnerA": {"label": "Piyoda", "startPosition": 12, "speed": 8, "direction": 1}, "runnerB": {"label": "Velosipedchi", "startPosition": 0, "speed": 20, "direction": 1}},
-  {"id": "sinf4_chorak2_blok29_level1_quvlama_06", "prompt": "Tez mashina sekin mashinani necha soatdan keyin quvib yetadi?", "hint": "Slayderni quvib yetadigan soatga suring", "roadLength": 180, "maxHours": 8, "answerHour": 6, "runnerA": {"label": "Sekin mashina", "startPosition": 90, "speed": 5, "direction": 1}, "runnerB": {"label": "Tez mashina", "startPosition": 0, "speed": 20, "direction": 1}}
+  {
+    "id": "sinf4_chorak2_blok29_level1_quvlama_01",
+    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni orqadagi mashina oldingisini quvib yetadigan soatga suring",
+    "roadLength": 150,
+    "maxHours": 6,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Oldingi mashina",
+      "startPosition": 40,
+      "speed": 15,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Orqadagi mashina",
+      "startPosition": 0,
+      "speed": 25,
+      "direction": 1
+    }
+  },
+  {
+    "id": "sinf4_chorak2_blok29_level1_quvlama_02",
+    "prompt": "Orqadagi mashina oldingisini necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 120,
+    "maxHours": 5,
+    "answerHour": 2,
+    "runnerA": {
+      "label": "Oldingi mashina",
+      "startPosition": 30,
+      "speed": 10,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Orqadagi mashina",
+      "startPosition": 0,
+      "speed": 25,
+      "direction": 1
+    }
+  },
+  {
+    "id": "sinf4_chorak2_blok29_level1_quvlama_03",
+    "prompt": "Orqadagi poyezd oldingi poyezdni necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 150,
+    "maxHours": 7,
+    "answerHour": 5,
+    "runnerA": {
+      "label": "Oldingi poyezd",
+      "startPosition": 60,
+      "speed": 10,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Orqadagi poyezd",
+      "startPosition": 0,
+      "speed": 22,
+      "direction": 1
+    }
+  },
+  {
+    "id": "sinf4_chorak2_blok29_level1_quvlama_04",
+    "prompt": "Yengil mashina yuk mashinasini necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 150,
+    "maxHours": 6,
+    "answerHour": 3,
+    "runnerA": {
+      "label": "Yuk mashinasi",
+      "startPosition": 45,
+      "speed": 15,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Yengil mashina",
+      "startPosition": 0,
+      "speed": 30,
+      "direction": 1
+    }
+  },
+  {
+    "id": "sinf4_chorak2_blok29_level1_quvlama_05",
+    "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 100,
+    "maxHours": 5,
+    "answerHour": 1,
+    "runnerA": {
+      "label": "Piyoda",
+      "startPosition": 12,
+      "speed": 8,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Velosipedchi",
+      "startPosition": 0,
+      "speed": 20,
+      "direction": 1
+    }
+  },
+  {
+    "id": "sinf4_chorak2_blok29_level1_quvlama_06",
+    "prompt": "Tez mashina sekin mashinani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 180,
+    "maxHours": 8,
+    "answerHour": 6,
+    "runnerA": {
+      "label": "Sekin mashina",
+      "startPosition": 90,
+      "speed": 5,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Tez mashina",
+      "startPosition": 0,
+      "speed": 20,
+      "direction": 1
+    }
+  },
+  {
+    "prompt": "Yengil mashina yuk mashinasini necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 50,
+    "maxHours": 3,
+    "answerHour": 2,
+    "runnerA": {
+      "label": "Yuk mashinasi",
+      "startPosition": 12,
+      "speed": 8,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Yengil mashina",
+      "startPosition": 0,
+      "speed": 14,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x01"
+  },
+  {
+    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 110,
+    "maxHours": 5,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Oldingi mashina",
+      "startPosition": 28,
+      "speed": 15,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Orqadagi mashina",
+      "startPosition": 0,
+      "speed": 22,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x02"
+  },
+  {
+    "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 150,
+    "maxHours": 5,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Piyoda",
+      "startPosition": 52,
+      "speed": 16,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Velosipedchi",
+      "startPosition": 0,
+      "speed": 29,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x03"
+  },
+  {
+    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 100,
+    "maxHours": 4,
+    "answerHour": 3,
+    "runnerA": {
+      "label": "Oldingi mashina",
+      "startPosition": 24,
+      "speed": 16,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Orqadagi mashina",
+      "startPosition": 0,
+      "speed": 24,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x04"
+  },
+  {
+    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 100,
+    "maxHours": 4,
+    "answerHour": 2,
+    "runnerA": {
+      "label": "Oldingi mashina",
+      "startPosition": 26,
+      "speed": 12,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Orqadagi mashina",
+      "startPosition": 0,
+      "speed": 25,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x05"
+  },
+  {
+    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 100,
+    "maxHours": 4,
+    "answerHour": 2,
+    "runnerA": {
+      "label": "Oldingi mashina",
+      "startPosition": 40,
+      "speed": 5,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Orqadagi mashina",
+      "startPosition": 0,
+      "speed": 25,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x06"
+  },
+  {
+    "prompt": "Tez mashina sekin mashinani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 210,
+    "maxHours": 8,
+    "answerHour": 6,
+    "runnerA": {
+      "label": "Sekin mashina",
+      "startPosition": 72,
+      "speed": 14,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Tez mashina",
+      "startPosition": 0,
+      "speed": 26,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x07"
+  },
+  {
+    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 120,
+    "maxHours": 5,
+    "answerHour": 3,
+    "runnerA": {
+      "label": "Oldingi mashina",
+      "startPosition": 18,
+      "speed": 18,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Orqadagi mashina",
+      "startPosition": 0,
+      "speed": 24,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x08"
+  },
+  {
+    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 180,
+    "maxHours": 7,
+    "answerHour": 5,
+    "runnerA": {
+      "label": "Oldingi mashina",
+      "startPosition": 65,
+      "speed": 12,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Orqadagi mashina",
+      "startPosition": 0,
+      "speed": 25,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x09"
+  },
+  {
+    "prompt": "Tez poyezd sekin poyezdni necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 100,
+    "maxHours": 5,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Sekin poyezd",
+      "startPosition": 24,
+      "speed": 14,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Tez poyezd",
+      "startPosition": 0,
+      "speed": 20,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x10"
+  },
+  {
+    "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 150,
+    "maxHours": 6,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Piyoda",
+      "startPosition": 20,
+      "speed": 19,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Velosipedchi",
+      "startPosition": 0,
+      "speed": 24,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x11"
+  },
+  {
+    "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 100,
+    "maxHours": 4,
+    "answerHour": 3,
+    "runnerA": {
+      "label": "Piyoda",
+      "startPosition": 57,
+      "speed": 6,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Velosipedchi",
+      "startPosition": 0,
+      "speed": 25,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x12"
+  },
+  {
+    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 110,
+    "maxHours": 5,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Oldingi mashina",
+      "startPosition": 60,
+      "speed": 6,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Orqadagi mashina",
+      "startPosition": 0,
+      "speed": 21,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x13"
+  },
+  {
+    "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?",
+    "hint": "Slayderni quvib yetadigan soatga suring",
+    "roadLength": 130,
+    "maxHours": 6,
+    "answerHour": 4,
+    "runnerA": {
+      "label": "Piyoda",
+      "startPosition": 36,
+      "speed": 12,
+      "direction": 1
+    },
+    "runnerB": {
+      "label": "Velosipedchi",
+      "startPosition": 0,
+      "speed": 21,
+      "direction": 1
+    },
+    "id": "sinf4_chorak2_blok29_level1_quvlama_x14"
+  }
 ]
