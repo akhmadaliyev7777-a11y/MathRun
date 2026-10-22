@@ -47,7 +47,7 @@ Bu fayl har sessiya boshida o'qiladi. Ish shu yerdan davom etadi.
 | Umumiy andoza | `maruza/maruza.css`, `maruza/maruza.js` (KaTeX, javob tugmalari, iframe balandligi), `maruza/chizma.js` (chizmalar — ro'yxati fayl boshida) |
 | Personajlar | `maruza/personaj/*.webp` (aziz, madina, ustoz + holatlari — `_reja/CLAUDE-ish-tartibi.md` 3a) |
 | Mavzular ro'yxati | `js/data.js` → `SITE_DATA` (5-sinf matematika `topics`) |
-| Testlar | `js/quizzes.js` → `QUIZ_DATA` |
+| Testlar | `js/quizzes.js` → `QUIZ_DATA`; test dvigateli — `js/quiz-core.js` (umumiy, 1–4-sinf ham), `js/quiz-engine.js` (5–11 adapteri) |
 
 ### Kitoblar (foydalanuvchi yuklaydi)
 Foydalanuvchi PDF'larni sessiyaga yuklaydi. Ularni **`_kitob/`** papkasiga shu nomlar bilan qo'ying:
