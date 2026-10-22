@@ -14,8 +14,14 @@ function quizSets(key) {
   return ["oson", "qiyin"].filter(function (t) { return d[t] && d[t].length; }).map(function (t) { return { tur: t, q: d[t] }; });
 }
 function quizStatKey(key, tur) { return tur === "qiyin" ? key + "|qiyin" : key; }
+// 1–4-sinf testlari (mathrunner-web): kalit "<sinf>|boshlangich|<daraja id>"; savollari kerak bo'lganda admin sahifasi MW_QUIZ ga yuklaydi
+var MW_QUIZ = window.MW_QUIZ || (window.MW_QUIZ = {});
+function mwToQuestion(b) {
+  return { question: b.question, options: [String(b.correctAnswer)].concat(b.wrongAnswers.map(String)), answer: String(b.correctAnswer) };
+}
 function quizByStatKey(statKey) {
   const p = String(statKey).split("|");
+  if (p[1] === "boshlangich") return MW_QUIZ[statKey] || [];
   const tur = p[3] === "qiyin" ? "qiyin" : "oson";
   const set = quizSets(p.slice(0, 3).join("|")).find(function (s) { return s.tur === tur; });
   return set ? set.q : [];

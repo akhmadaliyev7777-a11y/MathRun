@@ -334,7 +334,7 @@ function renderPrimaryTopics() {
         '<span class="adm-row-num">' + b.blok + '.</span>' +
         '<span class="adm-row-body">' +
           (first
-            ? '<a class="adm-row-title" href="mathrunner-web/index.html#/play/' + first.id + '" target="_blank" rel="noopener">' + primaryTitle(g, c, b) + '</a>'
+            ? '<a class="adm-row-title" href="mathrunner-web/index.html#/' + (first.gameKind === "test" ? "test/" : "play/") + first.id + '" target="_blank" rel="noopener">' + primaryTitle(g, c, b) + '</a>'
             : '<span class="adm-row-title">' + primaryTitle(g, c, b) + '</span>') +
           '<span class="adm-row-pills">' + pills + '</span>' +
         '</span>' +
@@ -608,6 +608,7 @@ function renderAdminDashboard() {
     PRIMARY_TITLES = res[1];
     renderStats();
     renderGradeList();
+    ensurePrimaryBanks();
   }).catch(function () {
     document.querySelector(".adm-side-loading") && (document.querySelector(".adm-side-loading").textContent = "1–4 sinf ma'lumotini yuklab bo'lmadi");
   });
@@ -657,6 +658,7 @@ function initDatabase() {
     });
     dbState = "ok";
     refreshDbViews();
+    ensurePrimaryBanks();
   }).catch(function (e) {
     console.warn("Firestore:", e);
     dbState = "off";
@@ -760,6 +762,33 @@ function renderPanelNotes() {
 
 // ---------- o'quvchilar natijalari ----------
 
+// 1–4-sinf testi natijalari: kalit "<sinf>|boshlangich|<daraja id>"; savollari mathrunner-web banklaridan olinadi
+function primaryLevelInfo(k) {
+  const p = String(k).split("|");
+  if (p[1] !== "boshlangich" || !PRIMARY) return null;
+  for (const g of PRIMARY.grades) for (const c of g.choraks) for (const b of c.blocks) {
+    const tests = b.levels.filter(function (l) { return l.gameKind === "test"; });
+    const l = tests.find(function (x) { return x.id === p[2]; });
+    if (l) return { g: g, c: c, b: b, l: l, title: b.blok + ". " + primaryTitle(g, c, b), label: tests.indexOf(l) + 1 + "-test" };
+  }
+  return null;
+}
+
+// natijalarda uchragan 1–4-sinf testlarining savollarini yuklaydi (bir marta), so'ng ro'yxatni yangilaydi
+function ensurePrimaryBanks() {
+  if (!PRIMARY || dbState !== "ok") return;
+  const need = {};
+  RESULTS.forEach(function (r) { if (String(r.k).split("|")[1] === "boshlangich" && !MW_QUIZ[r.k]) need[r.k] = true; });
+  const keys = Object.keys(need);
+  if (!keys.length) return;
+  Promise.all(keys.map(function (k) {
+    const info = primaryLevelInfo(k);
+    if (!info) return null;
+    return fetch("mathrunner-web/data/" + info.l.bank + "?v=3").then(function (r) { return r.json(); })
+      .then(function (bank) { MW_QUIZ[k] = bank.map(mwToQuestion); }).catch(function () {});
+  })).then(function () { renderResultsSection(); });
+}
+
 // mavzu testi bo'yicha yig'indi: faqat savollari hozirgisi bilan bir xil bo'lgan urinishlar hisoblanadi
 function quizStats(k) {
   const questions = quizByStatKey(k);
@@ -823,7 +852,7 @@ function renderResultsSection() {
   const weekAgo = Date.now() - 7 * 864e5;
   const week = RESULTS.filter(function (r) { return r.t && r.t.getTime() > weekAgo; }).length;
   const rows = Object.keys(keys).map(function (k) {
-    const t = topicByKey(k);
+    const t = topicByKey(k) || primaryLevelInfo(k);
     if (!t || !quizByStatKey(k).length) return null;
     const st = quizStats(k);
     if (!st.count) return null;
@@ -838,8 +867,13 @@ function renderResultsSection() {
     (rows.length
       ? '<table class="adm-table adm-res-table"><thead><tr><th>Mavzu</th><th>Yechildi</th><th>O\'rtacha</th><th>Eng qiyin savol</th></tr></thead><tbody>' +
         rows.map(function (r) {
-          const parts = splitTopicTitle(r.t.topic.title, r.t.index);
           const hp = Math.round(r.st.per[r.hard].rate * 100);
+          if (r.t.l) {
+            return '<tr class="adm-tr-static"><td class="adm-td-title">' + r.t.g.grade + '-sinf · ' + escapeHtml(r.t.title) + ' <span class="adm-tag">' + r.t.label + '</span></td>' +
+              '<td>' + r.st.count + '</td><td><b class="adm-rate--' + rateClass(r.st.avg) + '">' + r.st.avg + '%</b></td>' +
+              '<td>' + (r.hard + 1) + '-savol · <b class="adm-rate--' + rateClass(hp) + '">' + hp + '%</b></td></tr>';
+          }
+          const parts = splitTopicTitle(r.t.topic.title, r.t.index);
           return '<tr class="adm-tr" data-g="' + r.t.grade.id + '" data-s="' + r.t.subject.id + '" data-t="' + r.t.topic.id + '">' +
             '<td class="adm-td-title">' + (r.t.grade.id !== FOCUS_GRADE ? r.t.grade.id + "-sinf · " : "") + parts.num + ' ' + escapeHtml(parts.title) +
               (/\|qiyin$/.test(r.k) ? ' <span class="adm-tag">2-test</span>' : "") + '</td>' +

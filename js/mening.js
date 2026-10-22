@@ -9,6 +9,38 @@ function myTopic(key) {
   return topic ? { grade: grade, subject: subject, topic: topic, index: subject.topics.indexOf(topic) } : null;
 }
 
+// 1–4-sinf testlari: kalit "<sinf>|boshlangich|<daraja id>". Nomlar mathrunner-web ma'lumotidan olinadi (faqat shunday natija bo'lsa yuklanadi).
+let MWINFO = null, mwLoading = false;
+function myPrimary(k) {
+  const p = String(k).split("|");
+  return p[1] === "boshlangich" && MWINFO ? MWINFO[p[2]] || null : null;
+}
+function mwLoad(keys) {
+  if (MWINFO || mwLoading || !keys.some(function (k) { return String(k).split("|")[1] === "boshlangich"; })) return;
+  mwLoading = true;
+  Promise.all([
+    fetch("mathrunner-web/data/curriculum.json?v=3").then(function (r) { return r.json(); }),
+    import("../mathrunner-web/js/topicTitles.js")
+  ]).then(function (res) {
+    const cur = res[0], tt = res[1];
+    MWINFO = {};
+    cur.grades.forEach(function (g) {
+      g.choraks.forEach(function (c) {
+        c.blocks.forEach(function (b) {
+          b.levels.forEach(function (l) {
+            if (l.gameKind !== "test") return;
+            MWINFO[l.id] = {
+              id: l.id, grade: g.grade, title: b.blok + ". " + tt.topicTitle(g, c, b),
+              sub: g.grade + "-sinf · " + tt.testLabel(b, l), href: "mathrunner-web/index.html#/test/" + l.id
+            };
+          });
+        });
+      });
+    });
+    renderMyResults();
+  }).catch(function () { mwLoading = false; });
+}
+
 function myDate(ms) {
   if (!ms) return "";
   const d = new Date(ms), z = function (n) { return (n < 10 ? "0" : "") + n; };
@@ -48,8 +80,9 @@ function renderMyResults() {
   try { results = JSON.parse(localStorage.getItem("mathlearn-natijalar-v1")) || {}; } catch (e) {}
   try { progress = JSON.parse(localStorage.getItem("mathrun-progress-v1")) || {}; } catch (e) {}
 
-  const tests = Object.keys(results).map(function (k) { return { k: k, r: results[k], t: myTopic(k) }; })
-    .filter(function (x) { return x.t; })
+  mwLoad(Object.keys(results).concat(Object.keys(JSON.parse(localStorage.getItem("mathlearn-saqlangan-v1") || "{}")).map(function (id) { return id.split("#")[0]; })));
+  const tests = Object.keys(results).map(function (k) { return { k: k, r: results[k], t: myTopic(k), mw: myPrimary(k) }; })
+    .filter(function (x) { return x.t || x.mw; })
     .sort(function (a, b) { return (b.r.t || 0) - (a.r.t || 0); });
   const done = Object.keys(progress).filter(function (k) { return progress[k] && progress[k].done; })
     .map(function (k) { return { k: k, t: myTopic(k) }; }).filter(function (x) { return x.t; });
@@ -65,7 +98,7 @@ function renderMyResults() {
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem("mathlearn-saqlangan-v1")) || {}; } catch (e) {}
   const marks = Object.keys(saved).map(function (id) { return saved[id]; })
-    .filter(function (x) { return x && myTopic(x.k); })
+    .filter(function (x) { return x && (myTopic(x.k) || myPrimary(x.k)); })
     .sort(function (a, b) { return (b.t || 0) - (a.t || 0); });
 
   const el = document.getElementById("my-results");
@@ -77,6 +110,12 @@ function renderMyResults() {
   el.innerHTML =
     (tests.length
       ? '<h2 class="my-h">Testlar</h2><ul class="my-list">' + tests.map(function (x) {
+          if (x.mw) {
+            return '<li><a href="' + x.mw.href + '">' +
+              '<span class="my-topic"><small>' + escapeText(x.mw.sub) + '</small>' + escapeText(x.mw.title) + '</span>' +
+              '<span class="my-score"><b class="my-rate--' + myRateClass(x.r.best || 0) + '">' + (x.r.best || 0) + '%</b>' +
+              '<small>oxirgisi ' + (x.r.last || 0) + '% · ' + (x.r.count || 1) + ' marta · ' + myDate(x.r.t) + '</small></span></a></li>';
+          }
           const parts = splitTopicTitle(x.t.topic.title, x.t.index);
           return '<li><a href="' + topicHref(x.t.grade.id, x.t.subject.id, x.t.topic.id) + '#test">' +
             '<span class="my-topic"><small>' + x.t.grade.name + (/\|qiyin$/.test(x.k) ? " · 2-test" : "") + '</small>' + escapeText(parts.num + " " + parts.title) + '</span>' +
@@ -94,6 +133,11 @@ function renderMyResults() {
       : "") +
     (marks.length
       ? '<h2 class="my-h">Saqlangan savollar</h2><ul class="my-list">' + marks.map(function (x) {
+          const mw = myPrimary(x.k);
+          if (mw) {
+            return '<li><a href="' + mw.href + '"><span class="my-topic"><small>' + escapeText(mw.title) + ' · ' + escapeText(mw.sub) + ', ' + (x.i + 1) + '-savol</small>' + escapeText(x.q) + '</span>' +
+              '<span class="my-score"><small>javob</small><b>' + escapeText(x.a) + '</b></span></a></li>';
+          }
           const t = myTopic(x.k), p = String(x.k).split("|");
           const parts = splitTopicTitle(t.topic.title, t.index);
           const href = "test.html?sinf=" + p[0] + "&fan=" + p[1] + "&mavzu=" + p[2] + (p[3] === "qiyin" ? "&tur=qiyin" : "") + "#qz-q" + (x.i + 1);

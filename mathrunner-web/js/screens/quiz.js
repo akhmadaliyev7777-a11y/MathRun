@@ -72,7 +72,9 @@ export async function render(root, [levelId]) {
 
   const correctOf = (q) => q.options.indexOf(q.answer);
   const answered = () => picked.filter(p => p >= 0).length;
-  const savedId = (i) => `${cur.id}#${i}`;
+  // umumiy natijalar tizimidagi kalit: <sinf>|boshlangich|<daraja id> (js/natija.js, Mening natijalarim, admin)
+  const statKey = () => `${grade.grade}|boshlangich|${cur.id}`;
+  const savedId = (i) => `${statKey()}#${i}`;
   const scrollTop = (y = 0) => window.scrollTo({ top: Math.max(0, y - 70), behavior: 'smooth' });
 
   function renderTabs() {
@@ -222,7 +224,7 @@ export async function render(root, [levelId]) {
   function wireMarks() {
     card.querySelectorAll('[data-mark]').forEach(b => b.addEventListener('click', () => {
       const i = Number(b.dataset.mark), q = questions[i];
-      const on = savedToggle(savedId(i), { k: cur.id, i, q: q.question, a: q.answer, t: Date.now() });
+      const on = savedToggle(savedId(i), { k: statKey(), i, q: q.question, a: q.answer, t: Date.now() });
       b.classList.toggle('on', on);
       b.setAttribute('aria-pressed', on);
       b.querySelector('span').textContent = on ? 'Saqlandi' : 'Saqlash';
@@ -251,6 +253,9 @@ export async function render(root, [levelId]) {
     spent = Math.round((Date.now() - startedAt) / 1000);
     const ok = questions.filter((q, i) => picked[i] === correctOf(q)).length;
     saveBest(cur.id, starsFor(ok, questions.length), ok * 10);
+    // umumiy tizimga: shu qurilmadagi natija (kirgan bo'lsa hisobga ham ko'chadi) va nomsiz javoblar statistikasi
+    if (typeof sendQuizResult === 'function') sendQuizResult(statKey(), questions, picked, ok);
+    if (typeof saveLocalResult === 'function') saveLocalResult(statKey(), ok, questions.length);
     paint();
     scrollTop();
   }
