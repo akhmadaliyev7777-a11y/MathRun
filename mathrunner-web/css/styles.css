@@ -560,6 +560,15 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .tug-teamlabel--blue { color: var(--peri); }
 .tug-teamlabel--red { color: var(--red); }
 .tug-teamlabel .tug-score { font-size: clamp(26px,3vw,44px); }
+.tug-teamlabel { position: relative; }
+/* xato javob: ochko qizarib silkinadi, yonida «−1» ko'tarilib yo'qoladi */
+.tug-score.is-minus { color: var(--red); animation: tugShake .4s; }
+.tug-minus { position: absolute; top: -6px; font-family: var(--f-head); font-weight: 800; font-size: clamp(18px,2vw,26px); color: var(--red); pointer-events: none; animation: tugMinus .9s ease-out forwards; }
+.tug-teamlabel--blue .tug-minus { right: -34px; }
+.tug-teamlabel--red .tug-minus { left: -34px; }
+@keyframes tugMinus { from { opacity: 1; transform: translateY(6px); } to { opacity: 0; transform: translateY(-22px); } }
+@keyframes tugShake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+.tug-end__detail { display: block; margin-top: 2px; font-size: 12px; font-weight: 700; opacity: .8; }
 
 .tug-main { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.9fr) minmax(0,1fr); gap: clamp(16px,2vw,36px); width: min(1720px, 95vw); margin: 0 auto; padding: clamp(18px,2.4vw,40px) clamp(18px,3vw,48px) 60px; align-items: start; }
 .tug-panel { border-radius: var(--r-xl); background: #fff; border: 3px solid; box-shadow: var(--shadow-card); padding: clamp(18px,1.8vw,32px); display: flex; flex-direction: column; }

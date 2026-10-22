@@ -6,7 +6,7 @@ import { loadXLSXLib, parseQuestionsWorkbook } from '../xlsxImport.js';
 
 const WIN = 12;        // shu farqda o'yin tugaydi (bir tomon arqonni tortib oladi)
 const STEP_PX = 13;    // farqning har bir birligi uchun arqon siljishi
-const WRONG_PULL = 0.34; // xato javob raqib foydasiga
+const WRONG_PENALTY = 1; // xato javob — jamoa ochkosidan ayiriladi (ochko 0 dan pastga tushmaydi)
 
 function puller(color, facing) {
   // sodda tortayotgan odam figurasi; facing: 1 = o'ngga qarab tortadi, -1 = chapga
@@ -246,7 +246,7 @@ export async function render(root, _params) {
           el('h2', {}, 'Arqon tortish'),
           el('p', { class: 'section__lead' },
             'Ikki jamoa yonma-yon o\'ynaydi. Har jamoaga o\'z savoli va A–D variantlari. ' +
-            'To\'g\'ri javob — arqonni o\'z tomoningga tortadi; xato — raqibga biroz yon beradi. ' +
+            'To\'g\'ri javob — +1 ochko, arqon o\'z tomoningga tortiladi; xato javob — ochkodan 1 ayiriladi. ' +
             'Birinchi bo\'lib maqsad ochkoga yetgan jamoa g\'olib; vaqt tugasa ochkosi ko\'p jamoa yutadi. ' +
             'Ikkala jamoaga har raundda bir xil qiyinlikdagi misollar beriladi.'),
           el('div', { class: 'tug-setup__grid' },
@@ -326,8 +326,8 @@ export async function render(root, _params) {
     }
     let rounds = buildRounds(30);
     const state = {
-      blue: { correct: 0, wrong: 0, q: null, i: 0 },
-      red: { correct: 0, wrong: 0, q: null, i: 0 },
+      blue: { score: 0, correct: 0, wrong: 0, q: null, i: 0 },
+      red: { score: 0, correct: 0, wrong: 0, q: null, i: 0 },
       left: durationSec, over: false, starting: true, locked: { blue: false, red: false },
     };
     const nextQ = (team) => {
@@ -337,8 +337,8 @@ export async function render(root, _params) {
     nextQ('blue'); nextQ('red');
 
     const pos = () => {
-      let p = (state.red.correct - state.blue.correct)
-            + WRONG_PULL * (state.blue.wrong - state.red.wrong);
+      // arqon ochkolar farqiga qarab siljiydi (xato ochkoni kamaytiradi — arqon ham raqib tomonga ketadi)
+      const p = state.red.score - state.blue.score;
       return Math.max(-WIN, Math.min(WIN, p));
     };
 
@@ -392,8 +392,8 @@ export async function render(root, _params) {
 
     function paintRig() {
       rig.style.transform = `translate(-50%, -50%) translateX(${pos() * STEP_PX}px)`;
-      scoreBlue.textContent = String(state.blue.correct);
-      scoreRed.textContent = String(state.red.correct);
+      scoreBlue.textContent = String(state.blue.score);
+      scoreRed.textContent = String(state.red.score);
     }
 
     function answer(team, optIdx, btn, box, side) {
@@ -401,15 +401,29 @@ export async function render(root, _params) {
       state.locked[team] = true;
       const ok = optIdx === state[team].q.correct;
       btn.classList.add(ok ? 'is-correct' : 'is-wrong');
-      if (ok) state[team].correct++; else state[team].wrong++;
+      if (ok) { state[team].correct++; state[team].score++; }
+      else {
+        state[team].wrong++;
+        state[team].score = Math.max(0, state[team].score - WRONG_PENALTY);
+        minusFlash(team);
+      }
       paintRig();
-      if (state[team].correct >= goal) return finish(team);
+      if (state[team].score >= goal) return finish(team);
       if (Math.abs(pos()) >= WIN) return finish();
       setTimeout(() => {
         state.locked[team] = false;
         nextQ(team);
         redrawPanel(box, team, side);
       }, ok ? 320 : 600);
+    }
+
+    // xato javobda jamoa ochkosi yonida qizil «−1» chiqadi
+    function minusFlash(team) {
+      const scoreEl = team === 'blue' ? scoreBlue : scoreRed;
+      const fx = el('span', { class: 'tug-minus' }, '−' + WRONG_PENALTY);
+      scoreEl.parentNode.appendChild(fx);
+      scoreEl.classList.remove('is-minus'); void scoreEl.offsetWidth; scoreEl.classList.add('is-minus');
+      setTimeout(() => { fx.remove(); scoreEl.classList.remove('is-minus'); }, 900);
     }
 
     let tick = null;
@@ -431,8 +445,8 @@ export async function render(root, _params) {
       // g'olib: 1) maqsad ochkoga birinchi yetgan; 2) ochkosi ko'p; 3) arqon holati
       let winner = reachedGoal || null;
       if (!winner) {
-        if (state.blue.correct !== state.red.correct) {
-          winner = state.blue.correct > state.red.correct ? 'blue' : 'red';
+        if (state.blue.score !== state.red.score) {
+          winner = state.blue.score > state.red.score ? 'blue' : 'red';
         } else {
           winner = p < -0.001 ? 'blue' : p > 0.001 ? 'red' : null;
         }
@@ -446,8 +460,10 @@ export async function render(root, _params) {
           el('p', { style: 'font-weight:700;color:var(--muted-soft);margin:-4px 0 4px' },
             reachedGoal ? `${goal} ochkoga birinchi yetdi` : `Maqsad: ${goal} ochko · vaqt tugadi`),
           el('div', { class: 'tug-end__scores' },
-            el('div', { class: 'tug-end__s tug-end__s--blue' }, names.blue, el('b', {}, state.blue.correct)),
-            el('div', { class: 'tug-end__s tug-end__s--red' }, names.red, el('b', {}, state.red.correct))),
+            el('div', { class: 'tug-end__s tug-end__s--blue' }, names.blue, el('b', {}, state.blue.score),
+              el('small', { class: 'tug-end__detail' }, `✓ ${state.blue.correct} · ✗ ${state.blue.wrong}`)),
+            el('div', { class: 'tug-end__s tug-end__s--red' }, names.red, el('b', {}, state.red.score),
+              el('small', { class: 'tug-end__detail' }, `✓ ${state.red.correct} · ✗ ${state.red.wrong}`))),
           el('div', { class: 'result__btns' },
             el('button', { class: 'btn', onclick: play }, el('span', { style: 'width:20px;height:20px', html: ICON.replay }), 'Qayta'),
             el('button', { class: 'btn btn--ink', onclick: config }, 'Chiqish')))));
