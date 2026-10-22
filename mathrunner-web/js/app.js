@@ -98,5 +98,6 @@ async function main() {
   }
   addEventListener('hashchange', route);
   route();
+  mathReady(); // formulalar kutubxonasini darrov yuklashni boshlaymiz (testga kirganda kutilmasin)
 }
 main();

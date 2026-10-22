@@ -23,6 +23,9 @@ export function mathReady() {
   return Promise.race([katexPromise, new Promise(r => setTimeout(r, 4000))]);
 }
 
+// KaTeX to'liq yuklanganda bajariladi (mathReady kabi 4 soniyada tashlab ketmaydi) — sekin tarmoqda sahifani keyin qayta chizish uchun
+export function mathLoaded() { mathReady(); return katexPromise.then(() => !!window.katex); }
+
 const OP_TEX = {
   '+': '+', '-': '-', '−': '-', '*': '\\cdot', '×': '\\cdot', '·': '\\cdot',
   ':': ':', '÷': ':', '=': '=', '<': '<', '>': '>', '≤': '\\le', '≥': '\\ge', '≠': '\\ne',

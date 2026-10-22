@@ -3,7 +3,7 @@
 // Dizayn: ../css/test.css (qz-* sinflari). Manzil: #/test/<levelId>
 import { el, shuffle, loadJSON, saveBest, starsFor } from '../util.js';
 import { levelById, footer, nav, applyKingdom } from '../app.js';
-import { questionHTML, answerHTML, mathReady } from '../mathfmt.js';
+import { questionHTML, answerHTML, mathLoaded } from '../mathfmt.js';
 import { topicTitle, testNo, testLabel, testsOf } from '../topicTitles.js';
 
 const HARF = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -51,7 +51,8 @@ export async function render(root, [levelId]) {
     if (!cache[lv.id]) cache[lv.id] = (await loadJSON(`data/${lv.bank}`)).map(toQuestion);
     return cache[lv.id];
   }
-  try { await Promise.all([bankOf(level), mathReady()]); }
+  // savollar darrov chiqadi; formulalar kutubxonasi (KaTeX) kelgach sahifa o'zi qayta chiziladi
+  try { await bankOf(level); }
   catch (e) { root.innerHTML = '<div class="boot">Testni yuklab bo\'lmadi.</div>'; console.error(e); return; }
 
   const backHash = `#/g/${grade.grade}/c/${chorak.chorak}`;
@@ -255,4 +256,5 @@ export async function render(root, [levelId]) {
   }
 
   start();
+  if (!window.katex) mathLoaded().then((ok) => { if (ok && card.isConnected) paint(); });
 }

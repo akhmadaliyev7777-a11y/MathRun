@@ -2,7 +2,6 @@ import { el, loadJSON, saveBest, starsFor } from '../util.js';
 import { levelById, applyKingdom, nav, footer } from '../app.js';
 import { renderResult } from './result.js';
 import { GAMES } from '../games/index.js';
-import { mathReady } from '../mathfmt.js';
 import { MASHQ_SIZE } from '../topicTitles.js';
 
 export async function render(root, [levelId, mashqStr]) {
@@ -24,7 +23,7 @@ export async function render(root, [levelId, mashqStr]) {
 
   root.innerHTML = '<div class="boot">Yuklanmoqda…</div>';
   let bank;
-  try { [bank] = await Promise.all([loadJSON(`data/${level.bank}`), mathReady()]); }
+  try { bank = await loadJSON(`data/${level.bank}`); }
   catch (e) { root.innerHTML = '<div class="boot">Bankni yuklab bo\'lmadi.</div>'; console.error(e); return; }
 
   // o'yin 2 ta mashqqa bo'linadi: har biri 10 ta topshiriq (jami 20)
