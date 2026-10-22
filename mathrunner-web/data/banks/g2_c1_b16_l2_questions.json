@@ -87,6 +87,7 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 90 - (40 + 20) = 30, 30 = 30.<br>30 = 30, demak javob: <b>=</b>"
   }
 ]

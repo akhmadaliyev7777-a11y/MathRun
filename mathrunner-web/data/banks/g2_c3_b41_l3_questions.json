@@ -69,7 +69,8 @@
     "wrongAnswers": [
       1,
       16
-    ]
+    ],
+    "explain": "15 × 1 = 15"
   },
   {
     "id": "s2c3b41l3_09",
@@ -78,7 +79,8 @@
     "wrongAnswers": [
       1,
       10
-    ]
+    ],
+    "explain": "1 × 9 = 9"
   },
   {
     "id": "s2c3b41l3_10",

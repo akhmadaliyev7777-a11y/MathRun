@@ -51,7 +51,8 @@
     "wrongAnswers": [
       85,
       25
-    ]
+    ],
+    "explain": "50 − (20 + 15) = 50 − 35 = 15<br>Javob: <b>15</b>"
   },
   {
     "id": "s1c3b44l2_07",
@@ -69,7 +70,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 30 + 20 = 50, 40 + 10 = 50.<br>50 = 50, demak javob: <b>=</b>"
   },
   {
     "id": "s1c3b44l2_09",

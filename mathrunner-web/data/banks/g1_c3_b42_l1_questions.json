@@ -6,7 +6,8 @@
     "wrongAnswers": [
       60,
       0
-    ]
+    ],
+    "explain": "20 + 30 − 10 = 50 − 10 = 40<br>Javob: <b>40</b>"
   },
   {
     "id": "s1c3b42l1_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       90,
       0
-    ]
+    ],
+    "explain": "(40 + 20) − 30 = 60 − 30 = 30<br>Javob: <b>30</b>"
   },
   {
     "id": "s1c3b42l1_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       90,
       30
-    ]
+    ],
+    "explain": "50 − (20 + 20) = 50 − 40 = 10<br>Javob: <b>10</b>"
   },
   {
     "id": "s1c3b42l1_04",
@@ -42,7 +45,8 @@
     "wrongAnswers": [
       50,
       0
-    ]
+    ],
+    "explain": "60 − 20 − 10 = 40 − 10 = 30<br>Javob: <b>30</b>"
   },
   {
     "id": "s1c3b42l1_06",
@@ -51,7 +55,8 @@
     "wrongAnswers": [
       30,
       40
-    ]
+    ],
+    "explain": "(15 + 15) + 20 = 30 + 20 = 50<br>Javob: <b>50</b>"
   },
   {
     "id": "s1c3b42l1_07",
@@ -60,7 +65,8 @@
     "wrongAnswers": [
       110,
       30
-    ]
+    ],
+    "explain": "80 − (40 − 10) = 80 − 30 = 50<br>Javob: <b>50</b>"
   },
   {
     "id": "s1c3b42l1_08",
@@ -69,7 +75,8 @@
     "wrongAnswers": [
       80,
       0
-    ]
+    ],
+    "explain": "25 + 25 − 30 = 50 − 30 = 20<br>Javob: <b>20</b>"
   },
   {
     "id": "s1c3b42l1_09",

@@ -6,7 +6,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "30 = 30, demak javob: <b>=</b>"
   },
   {
     "id": "s1c4b59l1_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "25 < 40, demak javob: <b><</b>"
   },
   {
     "id": "s1c4b59l1_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "60 > 15, demak javob: <b>></b>"
   },
   {
     "id": "s1c4b59l1_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "18 = 18, demak javob: <b>=</b>"
   },
   {
     "id": "s1c4b59l1_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "45 < 54, demak javob: <b><</b>"
   },
   {
     "id": "s1c4b59l1_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "70 = 70, demak javob: <b>=</b>"
   },
   {
     "id": "s1c4b59l1_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "12 < 21, demak javob: <b><</b>"
   },
   {
     "id": "s1c4b59l1_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "90 > 9, demak javob: <b>></b>"
   },
   {
     "id": "s1c4b59l1_09",
@@ -78,7 +86,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 20 + 10 = 30, 40 - 5 = 35.<br>30 < 35, demak javob: <b><</b>"
   },
   {
     "id": "s1c4b59l1_10",

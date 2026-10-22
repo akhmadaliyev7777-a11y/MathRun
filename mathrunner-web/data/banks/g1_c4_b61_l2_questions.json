@@ -60,7 +60,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 15 + 5 = 20, 30 - 5 = 25.<br>20 < 25, demak javob: <b><</b>"
   },
   {
     "id": "s1c4b61l2_08",

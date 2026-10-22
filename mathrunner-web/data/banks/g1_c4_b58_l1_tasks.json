@@ -108,5 +108,115 @@
       "cube",
       "cylinder"
     ]
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
+    "target": "cube",
+    "options": [
+      "cone",
+      "cube",
+      "squarePyramid"
+    ],
+    "id": "g1c4b58l1_nf_x01"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "cube",
+      "cuboid",
+      "squarePyramid"
+    ],
+    "id": "g1c4b58l1_nf_x02"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
+    "target": "cube",
+    "options": [
+      "cylinder",
+      "cube",
+      "squarePyramid"
+    ],
+    "id": "g1c4b58l1_nf_x03"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "squarePyramid",
+      "cuboid",
+      "triangularPrism"
+    ],
+    "id": "g1c4b58l1_nf_x04"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
+    "target": "cube",
+    "options": [
+      "cone",
+      "cube",
+      "cuboid"
+    ],
+    "id": "g1c4b58l1_nf_x05"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Parallelepipedda 6 ta yoq bor, ular to'g'ri to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "squarePyramid",
+      "cuboid",
+      "cone"
+    ],
+    "id": "g1c4b58l1_nf_x06"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
+    "target": "cube",
+    "options": [
+      "cone",
+      "cylinder",
+      "cube"
+    ],
+    "id": "g1c4b58l1_nf_x07"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Parallelepipedda 12 ta qirra va 8 ta uch bor",
+    "target": "cuboid",
+    "options": [
+      "squarePyramid",
+      "cuboid",
+      "triangularPrism"
+    ],
+    "id": "g1c4b58l1_nf_x08"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
+    "target": "cube",
+    "options": [
+      "cone",
+      "triangularPrism",
+      "cube"
+    ],
+    "id": "g1c4b58l1_nf_x09"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "cuboid",
+      "cylinder",
+      "triangularPrism"
+    ],
+    "id": "g1c4b58l1_nf_x10"
   }
 ]

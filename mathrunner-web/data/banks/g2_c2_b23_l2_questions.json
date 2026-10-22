@@ -6,7 +6,8 @@
     "wrongAnswers": [
       479,
       679
-    ]
+    ],
+    "explain": "345 + 234 = 579"
   },
   {
     "id": "s2c2b23l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       789,
       989
-    ]
+    ],
+    "explain": "528 + 361 = 889"
   },
   {
     "id": "s2c2b23l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       587,
       787
-    ]
+    ],
+    "explain": "207 + 480 = 687"
   },
   {
     "id": "s2c2b23l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       789,
       989
-    ]
+    ],
+    "explain": "614 + 275 = 889"
   },
   {
     "id": "s2c2b23l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       690,
       890
-    ]
+    ],
+    "explain": "450 + 340 = 790"
   },
   {
     "id": "s2c2b23l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       589,
       789
-    ]
+    ],
+    "explain": "163 + 526 = 689"
   },
   {
     "id": "s2c2b23l2_07",
@@ -78,7 +84,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 234 + 300 = 534, 500 = 500.<br>534 > 500, demak javob: <b>></b>"
   },
   {
     "id": "s2c2b23l2_10",

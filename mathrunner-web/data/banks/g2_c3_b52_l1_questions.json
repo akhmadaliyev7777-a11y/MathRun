@@ -6,7 +6,8 @@
     "wrongAnswers": [
       24,
       40
-    ]
+    ],
+    "explain": "8 × 4 = 32"
   },
   {
     "id": "s2c3b52l1_02",
@@ -24,7 +25,8 @@
     "wrongAnswers": [
       21,
       27
-    ]
+    ],
+    "explain": "3 × 8 = 24"
   },
   {
     "id": "s2c3b52l1_04",
@@ -33,7 +35,8 @@
     "wrongAnswers": [
       0,
       16
-    ]
+    ],
+    "explain": "8 × 1 = 8"
   },
   {
     "id": "s2c3b52l1_05",
@@ -51,7 +54,8 @@
     "wrongAnswers": [
       14,
       18
-    ]
+    ],
+    "explain": "2 × 8 = 16"
   },
   {
     "id": "s2c3b52l1_07",
@@ -60,7 +64,8 @@
     "wrongAnswers": [
       49,
       63
-    ]
+    ],
+    "explain": "7 × 8 = 56"
   },
   {
     "id": "s2c3b52l1_08",
@@ -69,7 +74,8 @@
     "wrongAnswers": [
       72,
       88
-    ]
+    ],
+    "explain": "8 × 10 = 80"
   },
   {
     "id": "s2c3b52l1_09",
@@ -78,7 +84,8 @@
     "wrongAnswers": [
       32,
       48
-    ]
+    ],
+    "explain": "8 × 5 = 40"
   },
   {
     "id": "s2c3b52l1_10",
@@ -87,6 +94,7 @@
     "wrongAnswers": [
       56,
       72
-    ]
+    ],
+    "explain": "8 × 8 = 64"
   }
 ]

@@ -1,8 +1,222 @@
 [
-  {"id": "sinf4_chorak4_blok63_level1_yoy_01", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Kub 6 ta bir xil kvadratdan iborat", "target": "cube", "options": ["cube", "squarePyramid", "cylinder"]},
-  {"id": "sinf4_chorak4_blok63_level1_yoy_02", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Parallelepiped yoqlari to'g'ri to'rtburchaklar", "target": "cuboid", "options": ["cube", "cuboid", "cylinder"]},
-  {"id": "sinf4_chorak4_blok63_level1_yoy_03", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Uchburchakli prizmada 2 ta uchburchak va 3 ta to'rtburchak bor", "target": "triangularPrism", "options": ["triangularPrism", "cube", "squarePyramid"]},
-  {"id": "sinf4_chorak4_blok63_level1_yoy_04", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Kub yoqlari kvadrat", "target": "cube", "options": ["cube", "cuboid", "cone"]},
-  {"id": "sinf4_chorak4_blok63_level1_yoy_05", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Prizmada 2 ta teng uchburchak asos bor", "target": "triangularPrism", "options": ["triangularPrism", "cuboid", "cylinder"]},
-  {"id": "sinf4_chorak4_blok63_level1_yoy_06", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Parallelepiped — 6 ta to'g'ri to'rtburchak", "target": "cuboid", "options": ["cuboid", "squarePyramid", "triangularPrism"]}
+  {
+    "id": "sinf4_chorak4_blok63_level1_yoy_01",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kub 6 ta bir xil kvadratdan iborat",
+    "target": "cube",
+    "options": [
+      "cube",
+      "squarePyramid",
+      "cylinder"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok63_level1_yoy_02",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Parallelepiped yoqlari to'g'ri to'rtburchaklar",
+    "target": "cuboid",
+    "options": [
+      "cube",
+      "cuboid",
+      "cylinder"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok63_level1_yoy_03",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Uchburchakli prizmada 2 ta uchburchak va 3 ta to'rtburchak bor",
+    "target": "triangularPrism",
+    "options": [
+      "triangularPrism",
+      "cube",
+      "squarePyramid"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok63_level1_yoy_04",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kub yoqlari kvadrat",
+    "target": "cube",
+    "options": [
+      "cube",
+      "cuboid",
+      "cone"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok63_level1_yoy_05",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Prizmada 2 ta teng uchburchak asos bor",
+    "target": "triangularPrism",
+    "options": [
+      "triangularPrism",
+      "cuboid",
+      "cylinder"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok63_level1_yoy_06",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Parallelepiped — 6 ta to'g'ri to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "cuboid",
+      "squarePyramid",
+      "triangularPrism"
+    ]
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kub yoqlari kvadrat",
+    "target": "cube",
+    "options": [
+      "triangularPrism",
+      "cube",
+      "cuboid"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x01"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Parallelepipedda 12 ta qirra va 8 ta uch bor",
+    "target": "cuboid",
+    "options": [
+      "cylinder",
+      "cuboid",
+      "cube"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x02"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Prizmada 2 ta teng uchburchak asos bor",
+    "target": "triangularPrism",
+    "options": [
+      "cuboid",
+      "triangularPrism",
+      "cube"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x03"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
+    "target": "cube",
+    "options": [
+      "cone",
+      "cube",
+      "squarePyramid"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x04"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Parallelepiped — 6 ta to'g'ri to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "cuboid",
+      "cube",
+      "cone"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x05"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Prizmada 2 ta teng uchburchak asos bor",
+    "target": "triangularPrism",
+    "options": [
+      "triangularPrism",
+      "cylinder",
+      "cone"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x06"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kub 6 ta bir xil kvadratdan iborat",
+    "target": "cube",
+    "options": [
+      "cuboid",
+      "cone",
+      "cube"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x07"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Parallelepipedda 6 ta yoq bor, ular to'g'ri to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "cuboid",
+      "triangularPrism",
+      "squarePyramid"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x08"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Prizmada 2 ta teng uchburchak asos bor",
+    "target": "triangularPrism",
+    "options": [
+      "cone",
+      "triangularPrism",
+      "squarePyramid"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x09"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kubning barcha yoqlari bir xil kvadrat",
+    "target": "cube",
+    "options": [
+      "triangularPrism",
+      "squarePyramid",
+      "cube"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x10"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Parallelepiped yoqlari to'g'ri to'rtburchaklar",
+    "target": "cuboid",
+    "options": [
+      "cone",
+      "cuboid",
+      "cube"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x11"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Prizmada 2 ta teng uchburchak asos bor",
+    "target": "triangularPrism",
+    "options": [
+      "cylinder",
+      "triangularPrism",
+      "cube"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x12"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
+    "target": "cube",
+    "options": [
+      "cuboid",
+      "cylinder",
+      "cube"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x13"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Parallelepiped — 6 ta to'g'ri to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "cube",
+      "triangularPrism",
+      "cuboid"
+    ],
+    "id": "sinf4_chorak4_blok63_level1_yoy_x14"
+  }
 ]

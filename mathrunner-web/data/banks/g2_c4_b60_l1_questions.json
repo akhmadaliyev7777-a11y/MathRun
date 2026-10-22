@@ -15,7 +15,8 @@
     "wrongAnswers": [
       20,
       9
-    ]
+    ],
+    "explain": "2 + 3 × 4 = 2 + 12 = 14<br>Javob: <b>14</b>"
   },
   {
     "id": "s2c4b60l1_03",
@@ -24,7 +25,8 @@
     "wrongAnswers": [
       2,
       4
-    ]
+    ],
+    "explain": "10 − 6 : 2 = 10 − 3 = 7<br>Javob: <b>7</b>"
   },
   {
     "id": "s2c4b60l1_04",
@@ -33,7 +35,8 @@
     "wrongAnswers": [
       35,
       12
-    ]
+    ],
+    "explain": "5 × 3 + 4 = 15 + 4 = 19<br>Javob: <b>19</b>"
   },
   {
     "id": "s2c4b60l1_05",
@@ -42,7 +45,8 @@
     "wrongAnswers": [
       3,
       9
-    ]
+    ],
+    "explain": "20 : 4 + 5 = 5 + 5 = 10<br>Javob: <b>10</b>"
   },
   {
     "id": "s2c4b60l1_06",
@@ -51,7 +55,8 @@
     "wrongAnswers": [
       50,
       15
-    ]
+    ],
+    "explain": "8 + 2 × 5 = 8 + 10 = 18<br>Javob: <b>18</b>"
   },
   {
     "id": "s2c4b60l1_07",
@@ -60,7 +65,8 @@
     "wrongAnswers": [
       75,
       15
-    ]
+    ],
+    "explain": "18 − 3 × 5 = 18 − 15 = 3<br>Javob: <b>3</b>"
   },
   {
     "id": "s2c4b60l1_08",
@@ -69,7 +75,8 @@
     "wrongAnswers": [
       20,
       4
-    ]
+    ],
+    "explain": "6 × 2 − 4 = 12 − 4 = 8<br>Javob: <b>8</b>"
   },
   {
     "id": "s2c4b60l1_09",
@@ -87,6 +94,7 @@
     "wrongAnswers": [
       12,
       6
-    ]
+    ],
+    "explain": "12 : 3 + 2 × 2 = 4 + 2 × 2 = 4 + 4 = 8<br>Javob: <b>8</b>"
   }
 ]

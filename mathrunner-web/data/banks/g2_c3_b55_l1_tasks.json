@@ -48,5 +48,55 @@
     "id": "g2c3b55l1_bk_10",
     "text": "8 soni 21 ning bo'luvchisi",
     "isTrue": false
+  },
+  {
+    "text": "8 soni 64 ning bo'luvchisi",
+    "isTrue": true,
+    "id": "g2c3b55l1_bk_x01"
+  },
+  {
+    "text": "9 soni 16 ning bo'luvchisi",
+    "isTrue": false,
+    "id": "g2c3b55l1_bk_x02"
+  },
+  {
+    "text": "8 soni 40 ning bo'luvchisi",
+    "isTrue": true,
+    "id": "g2c3b55l1_bk_x03"
+  },
+  {
+    "text": "12 soni 9 ga karrali",
+    "isTrue": false,
+    "id": "g2c3b55l1_bk_x04"
+  },
+  {
+    "text": "24 soni 8 ga karrali",
+    "isTrue": true,
+    "id": "g2c3b55l1_bk_x05"
+  },
+  {
+    "text": "35 soni 8 ga karrali",
+    "isTrue": false,
+    "id": "g2c3b55l1_bk_x06"
+  },
+  {
+    "text": "9 soni 45 ning bo'luvchisi",
+    "isTrue": true,
+    "id": "g2c3b55l1_bk_x07"
+  },
+  {
+    "text": "9 soni 39 ning bo'luvchisi",
+    "isTrue": false,
+    "id": "g2c3b55l1_bk_x08"
+  },
+  {
+    "text": "27 soni 3 ga karrali",
+    "isTrue": true,
+    "id": "g2c3b55l1_bk_x09"
+  },
+  {
+    "text": "9 soni 12 ning bo'luvchisi",
+    "isTrue": false,
+    "id": "g2c3b55l1_bk_x10"
   }
 ]

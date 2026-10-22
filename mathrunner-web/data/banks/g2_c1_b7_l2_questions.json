@@ -6,7 +6,8 @@
     "wrongAnswers": [
       50,
       70
-    ]
+    ],
+    "explain": "28 + 32 = 60"
   },
   {
     "id": "s2c1b7l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       60,
       80
-    ]
+    ],
+    "explain": "47 + 23 = 70"
   },
   {
     "id": "s2c1b7l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       60,
       80
-    ]
+    ],
+    "explain": "56 + 14 = 70"
   },
   {
     "id": "s2c1b7l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       70,
       90
-    ]
+    ],
+    "explain": "39 + 41 = 80"
   },
   {
     "id": "s2c1b7l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       70,
       90
-    ]
+    ],
+    "explain": "65 + 15 = 80"
   },
   {
     "id": "s2c1b7l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       50,
       70
-    ]
+    ],
+    "explain": "33 + 27 = 60"
   },
   {
     "id": "s2c1b7l2_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       45,
       65
-    ]
+    ],
+    "explain": "12 + 18 + 25 = 30 + 25 = 55<br>Javob: <b>55</b>"
   },
   {
     "id": "s2c1b7l2_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       63,
       83
-    ]
+    ],
+    "explain": "24 + 16 + 33 = 40 + 33 = 73<br>Javob: <b>73</b>"
   },
   {
     "id": "s2c1b7l2_09",
@@ -78,7 +86,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 37 + 13 = 50, 45 = 45.<br>50 > 45, demak javob: <b>></b>"
   },
   {
     "id": "s2c1b7l2_10",

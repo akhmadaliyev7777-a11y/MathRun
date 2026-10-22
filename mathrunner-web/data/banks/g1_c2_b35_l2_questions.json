@@ -6,7 +6,8 @@
     "wrongAnswers": [
       60,
       0
-    ]
+    ],
+    "explain": "(20 + 30) − 10 = 50 − 10 = 40<br>Javob: <b>40</b>"
   },
   {
     "id": "s1c2b35l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       100,
       40
-    ]
+    ],
+    "explain": "60 − (20 + 20) = 60 − 40 = 20<br>Javob: <b>20</b>"
   },
   {
     "id": "s1c2b35l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       40,
       100
-    ]
+    ],
+    "explain": "(50 − 20) + 30 = 30 + 30 = 60<br>Javob: <b>60</b>"
   },
   {
     "id": "s1c2b35l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       170,
       70
-    ]
+    ],
+    "explain": "100 − (40 + 30) = 100 − 70 = 30<br>Javob: <b>30</b>"
   },
   {
     "id": "s1c2b35l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       30,
       40
-    ]
+    ],
+    "explain": "(15 + 15) + (10 + 10) = 30 + (10 + 10) = 30 + 20 = 50<br>Javob: <b>50</b>"
   },
   {
     "id": "s1c2b35l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       110,
       10
-    ]
+    ],
+    "explain": "80 − (50 − 20) = 80 − 30 = 50<br>Javob: <b>50</b>"
   },
   {
     "id": "s1c2b35l2_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: (30 + 20) - 10 = 40, 50 = 50.<br>40 < 50, demak javob: <b><</b>"
   },
   {
     "id": "s1c2b35l2_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       80,
       30
-    ]
+    ],
+    "explain": "(40 + 10) − (20 + 10) = 50 − (20 + 10) = 50 − 30 = 20<br>Javob: <b>20</b>"
   },
   {
     "id": "s1c2b35l2_09",

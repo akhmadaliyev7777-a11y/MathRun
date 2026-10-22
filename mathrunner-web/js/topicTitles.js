@@ -327,3 +327,18 @@ export function topicTitle(grade, chorak, block) {
 
 // mavzu ichidagi dars tartib raqami (1-dars, 2-dars ...)
 export const lessonNo = (block, level) => block.levels.indexOf(level) + 1;
+
+// ---- testlar va mashqlar (1–4 sinf) ----
+// Mavzudagi test darajalari (o'yin darajasi bundan tashqari)
+export const testsOf = (block) => block.levels.filter(l => l.gameKind === 'test' && l.webSupported);
+export const gamesOf = (block) => block.levels.filter(l => l.gameKind !== 'test' && l.webSupported);
+// darajasi (oson/qiyin) aniq ajratilgan testlar: kalit — daraja id'si. Hozircha ajratilmagan: 1-test, 2-test...
+export const TEST_DARAJA = {};
+export const testNo = (block, level) => testsOf(block).indexOf(level) + 1;
+export function testLabel(block, level) {
+  const d = TEST_DARAJA[level.id];
+  if (d) return d === 'qiyin' ? 'Qiyin test' : 'Oson test';
+  return `${testNo(block, level)}-test`;
+}
+// har bir mashq — 10 ta topshiriq
+export const MASHQ_SIZE = 10;

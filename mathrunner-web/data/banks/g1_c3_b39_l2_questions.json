@@ -60,7 +60,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 8 + 3 = 11, 15 - 6 = 9.<br>11 > 9, demak javob: <b>></b>"
   },
   {
     "id": "s1c3b39l2_08",

@@ -6,7 +6,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "46 < 64, demak javob: <b><</b>"
   },
   {
     "id": "s2c1b1l1_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "38 < 83, demak javob: <b><</b>"
   },
   {
     "id": "s2c1b1l1_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "70 > 7, demak javob: <b>></b>"
   },
   {
     "id": "s2c1b1l1_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "90 = 90, demak javob: <b>=</b>"
   },
   {
     "id": "s2c1b1l1_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "52 > 25, demak javob: <b>></b>"
   },
   {
     "id": "s2c1b1l1_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "19 < 91, demak javob: <b><</b>"
   },
   {
     "id": "s2c1b1l1_07",

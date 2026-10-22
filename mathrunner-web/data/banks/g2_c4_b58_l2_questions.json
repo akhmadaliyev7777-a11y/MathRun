@@ -15,7 +15,8 @@
     "wrongAnswers": [
       30,
       13
-    ]
+    ],
+    "explain": "5 × 6 × 2 = 30 × 2 = 60<br>Javob: <b>60</b>"
   },
   {
     "id": "s2c4b58l2_03",
@@ -24,7 +25,8 @@
     "wrongAnswers": [
       60,
       25
-    ]
+    ],
+    "explain": "20 × 3 × 2 = 60 × 2 = 120<br>Javob: <b>120</b>"
   },
   {
     "id": "s2c4b58l2_04",
@@ -42,7 +44,8 @@
     "wrongAnswers": [
       16,
       20
-    ]
+    ],
+    "explain": "(10 × 2) × 4 = 20 × 4 = 80<br>Javob: <b>80</b>"
   },
   {
     "id": "s2c4b58l2_06",
@@ -51,7 +54,8 @@
     "wrongAnswers": [
       45,
       16
-    ]
+    ],
+    "explain": "9 × 2 × 5 = 18 × 5 = 90<br>Javob: <b>90</b>"
   },
   {
     "id": "s2c4b58l2_07",
@@ -87,6 +91,7 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 2 * 5 * 4 = 40, 5 * 2 * 3 = 30.<br>40 > 30, demak javob: <b>></b>"
   }
 ]

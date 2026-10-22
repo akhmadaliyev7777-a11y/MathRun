@@ -118,5 +118,125 @@
       255
     ],
     "ascending": false
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      961,
+      163,
+      951,
+      218,
+      89
+    ],
+    "ascending": true,
+    "id": "g2c2b22l1_ord_x01"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      959,
+      778,
+      41,
+      131,
+      231
+    ],
+    "ascending": false,
+    "id": "g2c2b22l1_ord_x02"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      50,
+      240,
+      850,
+      58,
+      602
+    ],
+    "ascending": true,
+    "id": "g2c2b22l1_ord_x03"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      453,
+      545,
+      847,
+      769,
+      903
+    ],
+    "ascending": false,
+    "id": "g2c2b22l1_ord_x04"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      632,
+      322,
+      660,
+      437,
+      451
+    ],
+    "ascending": true,
+    "id": "g2c2b22l1_ord_x05"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      974,
+      674,
+      123,
+      575,
+      926
+    ],
+    "ascending": false,
+    "id": "g2c2b22l1_ord_x06"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      841,
+      633,
+      149,
+      619,
+      738
+    ],
+    "ascending": true,
+    "id": "g2c2b22l1_ord_x07"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      448,
+      935,
+      517,
+      312,
+      707
+    ],
+    "ascending": false,
+    "id": "g2c2b22l1_ord_x08"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      191,
+      245,
+      570,
+      695,
+      913
+    ],
+    "ascending": true,
+    "id": "g2c2b22l1_ord_x09"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      700,
+      884,
+      868,
+      752,
+      102
+    ],
+    "ascending": false,
+    "id": "g2c2b22l1_ord_x10"
   }
 ]

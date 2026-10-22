@@ -6,7 +6,8 @@
     "wrongAnswers": [
       36,
       25
-    ]
+    ],
+    "explain": "34 − 8 = 26"
   },
   {
     "id": "s2c1b10l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       47,
       36
-    ]
+    ],
+    "explain": "42 − 5 = 37"
   },
   {
     "id": "s2c1b10l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       66,
       55
-    ]
+    ],
+    "explain": "63 − 7 = 56"
   },
   {
     "id": "s2c1b10l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       95,
       84
-    ]
+    ],
+    "explain": "91 − 6 = 85"
   },
   {
     "id": "s2c1b10l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       57,
       46
-    ]
+    ],
+    "explain": "56 − 9 = 47"
   },
   {
     "id": "s2c1b10l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       72,
       61
-    ]
+    ],
+    "explain": "70 − 8 = 62"
   },
   {
     "id": "s2c1b10l2_07",

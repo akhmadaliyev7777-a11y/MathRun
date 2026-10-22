@@ -78,7 +78,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 2 + 7 = 9, 7 + 2 = 9.<br>9 = 9, demak javob: <b>=</b>"
   },
   {
     "id": "s1c1b18l2_10",

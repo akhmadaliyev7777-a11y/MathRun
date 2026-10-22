@@ -6,7 +6,8 @@
     "wrongAnswers": [
       4,
       27
-    ]
+    ],
+    "explain": "(20 + 4) : 6 + 3 = 24 : 6 + 3 = 4 + 3 = 7<br>Javob: <b>7</b>"
   },
   {
     "id": "s2c4b61l3_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       35,
       45
-    ]
+    ],
+    "explain": "5 × (3 + 4) − 10 = 5 × 7 − 10 = 35 − 10 = 25<br>Javob: <b>25</b>"
   },
   {
     "id": "s2c4b61l3_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       56,
       156
-    ]
+    ],
+    "explain": "100 − (7 × 8) = 100 − 56 = 44<br>Javob: <b>44</b>"
   },
   {
     "id": "s2c4b61l3_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       20,
       40
-    ]
+    ],
+    "explain": "(6 + 6) × 2 + 8 = 12 × 2 + 8 = 24 + 8 = 32<br>Javob: <b>32</b>"
   },
   {
     "id": "s2c4b61l3_05",
@@ -60,7 +64,8 @@
     "wrongAnswers": [
       24,
       18
-    ]
+    ],
+    "explain": "(40 − 16) : 3 = 24 : 3 = 8<br>Javob: <b>8</b>"
   },
   {
     "id": "s2c4b61l3_08",
@@ -69,7 +74,8 @@
     "wrongAnswers": [
       30,
       15
-    ]
+    ],
+    "explain": "9 + (24 : 4) × 2 = 9 + 6 × 2 = 9 + 12 = 21<br>Javob: <b>21</b>"
   },
   {
     "id": "s2c4b61l3_09",
@@ -78,7 +84,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: (5 + 3) * 4 = 32, 5 + 3 * 4 = 17.<br>32 > 17, demak javob: <b>></b>"
   },
   {
     "id": "s2c4b61l3_10",

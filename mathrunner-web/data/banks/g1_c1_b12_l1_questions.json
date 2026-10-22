@@ -6,7 +6,8 @@
     "wrongAnswers": [
       0,
       6
-    ]
+    ],
+    "explain": "5 + 0 = 5"
   },
   {
     "id": "s1c1b12l1_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       0,
       6
-    ]
+    ],
+    "explain": "7 − 0 = 7"
   },
   {
     "id": "s1c1b12l1_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       0,
       9
-    ]
+    ],
+    "explain": "0 + 8 = 8"
   },
   {
     "id": "s1c1b12l1_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       6,
       1
-    ]
+    ],
+    "explain": "6 − 6 = 0"
   },
   {
     "id": "s1c1b12l1_05",
@@ -51,7 +55,8 @@
     "wrongAnswers": [
       9,
       1
-    ]
+    ],
+    "explain": "9 − 9 = 0"
   },
   {
     "id": "s1c1b12l1_07",
@@ -78,7 +83,8 @@
     "wrongAnswers": [
       0,
       5
-    ]
+    ],
+    "explain": "4 + 0 = 4"
   },
   {
     "id": "s1c1b12l1_10",

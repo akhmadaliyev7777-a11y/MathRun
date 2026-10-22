@@ -12,7 +12,7 @@
   },
   {
     "id": "g3c3b49l1_ord_02",
-    "prompt": "Sonlarni koordinata nuridagi tartibda (o'sish bo'yicha) joylashtiring",
+    "prompt": "Sonlarni koordinata nuridagi tartibda (kamayish bo'yicha) joylashtiring",
     "numbers": [
       120,
       95,
@@ -34,7 +34,7 @@
   },
   {
     "id": "g3c3b49l1_ord_04",
-    "prompt": "Sonlarni koordinata nuridagi tartibda (o'sish bo'yicha) joylashtiring",
+    "prompt": "Sonlarni koordinata nuridagi tartibda (kamayish bo'yicha) joylashtiring",
     "numbers": [
       340,
       304,
@@ -56,7 +56,7 @@
   },
   {
     "id": "g3c3b49l1_ord_06",
-    "prompt": "Sonlarni koordinata nuridagi tartibda (o'sish bo'yicha) joylashtiring",
+    "prompt": "Sonlarni koordinata nuridagi tartibda (kamayish bo'yicha) joylashtiring",
     "numbers": [
       1200,
       2100,
@@ -78,7 +78,7 @@
   },
   {
     "id": "g3c3b49l1_ord_08",
-    "prompt": "Sonlarni koordinata nuridagi tartibda (o'sish bo'yicha) joylashtiring",
+    "prompt": "Sonlarni koordinata nuridagi tartibda (kamayish bo'yicha) joylashtiring",
     "numbers": [
       999,
       1001,
@@ -100,7 +100,7 @@
   },
   {
     "id": "g3c3b49l1_ord_10",
-    "prompt": "Sonlarni koordinata nuridagi tartibda (o'sish bo'yicha) joylashtiring",
+    "prompt": "Sonlarni koordinata nuridagi tartibda (kamayish bo'yicha) joylashtiring",
     "numbers": [
       305,
       350,
@@ -108,5 +108,115 @@
       355
     ],
     "ascending": false
+  },
+  {
+    "prompt": "Sonlarni koordinata nuridagi tartibda (o'sish bo'yicha) joylashtiring",
+    "numbers": [
+      817,
+      929,
+      790,
+      1009
+    ],
+    "ascending": true,
+    "id": "g3c3b49l1_ord_x01"
+  },
+  {
+    "prompt": "Sonlarni koordinata nuridagi tartibda (kamayish bo'yicha) joylashtiring",
+    "numbers": [
+      1764,
+      451,
+      521,
+      767
+    ],
+    "ascending": false,
+    "id": "g3c3b49l1_ord_x02"
+  },
+  {
+    "prompt": "Sonlarni koordinata nuridagi tartibda (o'sish bo'yicha) joylashtiring",
+    "numbers": [
+      1302,
+      1813,
+      1723,
+      685
+    ],
+    "ascending": true,
+    "id": "g3c3b49l1_ord_x03"
+  },
+  {
+    "prompt": "Sonlarni koordinata nuridagi tartibda (kamayish bo'yicha) joylashtiring",
+    "numbers": [
+      1780,
+      1778,
+      634,
+      1532
+    ],
+    "ascending": false,
+    "id": "g3c3b49l1_ord_x04"
+  },
+  {
+    "prompt": "Sonlarni koordinata nuridagi tartibda (o'sish bo'yicha) joylashtiring",
+    "numbers": [
+      898,
+      1670,
+      818,
+      1918
+    ],
+    "ascending": true,
+    "id": "g3c3b49l1_ord_x05"
+  },
+  {
+    "prompt": "Sonlarni koordinata nuridagi tartibda (kamayish bo'yicha) joylashtiring",
+    "numbers": [
+      955,
+      705,
+      496,
+      130
+    ],
+    "ascending": false,
+    "id": "g3c3b49l1_ord_x06"
+  },
+  {
+    "prompt": "Sonlarni koordinata nuridagi tartibda (o'sish bo'yicha) joylashtiring",
+    "numbers": [
+      935,
+      846,
+      676,
+      1046
+    ],
+    "ascending": true,
+    "id": "g3c3b49l1_ord_x07"
+  },
+  {
+    "prompt": "Sonlarni koordinata nuridagi tartibda (kamayish bo'yicha) joylashtiring",
+    "numbers": [
+      1829,
+      272,
+      973,
+      1231
+    ],
+    "ascending": false,
+    "id": "g3c3b49l1_ord_x08"
+  },
+  {
+    "prompt": "Sonlarni koordinata nuridagi tartibda (o'sish bo'yicha) joylashtiring",
+    "numbers": [
+      813,
+      1804,
+      494,
+      894
+    ],
+    "ascending": true,
+    "id": "g3c3b49l1_ord_x09"
+  },
+  {
+    "prompt": "Sonlarni koordinata nuridagi tartibda (kamayish bo'yicha) joylashtiring",
+    "numbers": [
+      924,
+      362,
+      1716,
+      2035
+    ],
+    "ascending": false,
+    "id": "g3c3b49l1_ord_x10"
   }
 ]

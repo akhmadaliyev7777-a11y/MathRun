@@ -60,7 +60,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 10 + 8 = 18, 19 = 19.<br>18 < 19, demak javob: <b><</b>"
   },
   {
     "id": "s1c2b23l3_08",
@@ -69,7 +70,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 12 + 6 = 18, 20 - 2 = 18.<br>18 = 18, demak javob: <b>=</b>"
   },
   {
     "id": "s1c2b23l3_09",

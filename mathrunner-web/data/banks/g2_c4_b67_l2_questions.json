@@ -51,7 +51,8 @@
     "wrongAnswers": [
       70,
       90
-    ]
+    ],
+    "explain": "16 × 5 = 80"
   },
   {
     "id": "s2c4b67l2_07",
@@ -60,7 +61,8 @@
     "wrongAnswers": [
       90,
       108
-    ]
+    ],
+    "explain": "11 × 9 = 99"
   },
   {
     "id": "s2c4b67l2_08",
@@ -78,7 +80,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 13 * 4 = 52, 12 * 5 = 60.<br>52 < 60, demak javob: <b><</b>"
   },
   {
     "id": "s2c4b67l2_10",
@@ -87,6 +90,7 @@
     "wrongAnswers": [
       41,
       61
-    ]
+    ],
+    "explain": "17 × 3 = 51"
   }
 ]

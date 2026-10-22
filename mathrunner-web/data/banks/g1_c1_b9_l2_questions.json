@@ -6,7 +6,8 @@
     "wrongAnswers": [
       4,
       6
-    ]
+    ],
+    "explain": "2 + 3 = 5"
   },
   {
     "id": "s1c1b9l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       2,
       4
-    ]
+    ],
+    "explain": "5 − 2 = 3"
   },
   {
     "id": "s1c1b9l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       4,
       6
-    ]
+    ],
+    "explain": "1 + 4 = 5"
   },
   {
     "id": "s1c1b9l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       2,
       0
-    ]
+    ],
+    "explain": "4 − 3 = 1"
   },
   {
     "id": "s1c1b9l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       4,
       6
-    ]
+    ],
+    "explain": "3 + 2 = 5"
   },
   {
     "id": "s1c1b9l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       1,
       5
-    ]
+    ],
+    "explain": "5 − 5 = 0"
   },
   {
     "id": "s1c1b9l2_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 2 + 2 = 4, 5 = 5.<br>4 < 5, demak javob: <b><</b>"
   },
   {
     "id": "s1c1b9l2_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 1 + 4 = 5, 3 + 2 = 5.<br>5 = 5, demak javob: <b>=</b>"
   },
   {
     "id": "s1c1b9l2_09",

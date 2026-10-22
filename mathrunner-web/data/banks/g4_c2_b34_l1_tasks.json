@@ -1,12 +1,102 @@
 [
-  {"id": "sinf4_chorak2_blok34_level1_chama_01", "text": "34 × 6 > 150?", "isTrue": true},
-  {"id": "sinf4_chorak2_blok34_level1_chama_02", "text": "62 × 18 < 1000?", "isTrue": false},
-  {"id": "sinf4_chorak2_blok34_level1_chama_03", "text": "288 ÷ 4 < 100?", "isTrue": true},
-  {"id": "sinf4_chorak2_blok34_level1_chama_04", "text": "864 ÷ 8 > 150?", "isTrue": false},
-  {"id": "sinf4_chorak2_blok34_level1_chama_05", "text": "245 + 358 > 500?", "isTrue": true},
-  {"id": "sinf4_chorak2_blok34_level1_chama_06", "text": "412 + 189 > 700?", "isTrue": false},
-  {"id": "sinf4_chorak2_blok34_level1_chama_07", "text": "700 − 265 < 500?", "isTrue": true},
-  {"id": "sinf4_chorak2_blok34_level1_chama_08", "text": "620 − 180 > 500?", "isTrue": false},
-  {"id": "sinf4_chorak2_blok34_level1_chama_09", "text": "48 × 5 > 200?", "isTrue": true},
-  {"id": "sinf4_chorak2_blok34_level1_chama_10", "text": "150 ÷ 3 > 60?", "isTrue": false}
+  {
+    "id": "sinf4_chorak2_blok34_level1_chama_01",
+    "text": "34 × 6 > 150?",
+    "isTrue": true
+  },
+  {
+    "id": "sinf4_chorak2_blok34_level1_chama_02",
+    "text": "62 × 18 < 1000?",
+    "isTrue": false
+  },
+  {
+    "id": "sinf4_chorak2_blok34_level1_chama_03",
+    "text": "288 ÷ 4 < 100?",
+    "isTrue": true
+  },
+  {
+    "id": "sinf4_chorak2_blok34_level1_chama_04",
+    "text": "864 ÷ 8 > 150?",
+    "isTrue": false
+  },
+  {
+    "id": "sinf4_chorak2_blok34_level1_chama_05",
+    "text": "245 + 358 > 500?",
+    "isTrue": true
+  },
+  {
+    "id": "sinf4_chorak2_blok34_level1_chama_06",
+    "text": "412 + 189 > 700?",
+    "isTrue": false
+  },
+  {
+    "id": "sinf4_chorak2_blok34_level1_chama_07",
+    "text": "700 − 265 < 500?",
+    "isTrue": true
+  },
+  {
+    "id": "sinf4_chorak2_blok34_level1_chama_08",
+    "text": "620 − 180 > 500?",
+    "isTrue": false
+  },
+  {
+    "id": "sinf4_chorak2_blok34_level1_chama_09",
+    "text": "48 × 5 > 200?",
+    "isTrue": true
+  },
+  {
+    "id": "sinf4_chorak2_blok34_level1_chama_10",
+    "text": "150 ÷ 3 > 60?",
+    "isTrue": false
+  },
+  {
+    "text": "23 × 14 < 350?",
+    "isTrue": true,
+    "id": "sinf4_chorak2_blok34_level1_chama_x01"
+  },
+  {
+    "text": "666 + 182 > 900?",
+    "isTrue": false,
+    "id": "sinf4_chorak2_blok34_level1_chama_x02"
+  },
+  {
+    "text": "625 + 370 > 900?",
+    "isTrue": true,
+    "id": "sinf4_chorak2_blok34_level1_chama_x03"
+  },
+  {
+    "text": "672 ÷ 7 > 150?",
+    "isTrue": false,
+    "id": "sinf4_chorak2_blok34_level1_chama_x04"
+  },
+  {
+    "text": "517 − 142 < 400?",
+    "isTrue": true,
+    "id": "sinf4_chorak2_blok34_level1_chama_x05"
+  },
+  {
+    "text": "587 + 222 > 900?",
+    "isTrue": false,
+    "id": "sinf4_chorak2_blok34_level1_chama_x06"
+  },
+  {
+    "text": "655 ÷ 5 < 150?",
+    "isTrue": true,
+    "id": "sinf4_chorak2_blok34_level1_chama_x07"
+  },
+  {
+    "text": "478 − 218 < 250?",
+    "isTrue": false,
+    "id": "sinf4_chorak2_blok34_level1_chama_x08"
+  },
+  {
+    "text": "748 − 229 < 600?",
+    "isTrue": true,
+    "id": "sinf4_chorak2_blok34_level1_chama_x09"
+  },
+  {
+    "text": "595 − 248 > 400?",
+    "isTrue": false,
+    "id": "sinf4_chorak2_blok34_level1_chama_x10"
+  }
 ]

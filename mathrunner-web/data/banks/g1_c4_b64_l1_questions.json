@@ -6,7 +6,8 @@
     "wrongAnswers": [
       5,
       25
-    ]
+    ],
+    "explain": "7 + 8 = 15"
   },
   {
     "id": "s1c4b64l1_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       49,
       69
-    ]
+    ],
+    "explain": "34 + 25 = 59"
   },
   {
     "id": "s1c4b64l1_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       42,
       62
-    ]
+    ],
+    "explain": "46 + 6 = 52"
   },
   {
     "id": "s1c4b64l1_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       16,
       5
-    ]
+    ],
+    "explain": "15 − 9 = 6"
   },
   {
     "id": "s1c4b64l1_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       35,
       24
-    ]
+    ],
+    "explain": "70 − 45 = 25"
   },
   {
     "id": "s1c4b64l1_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "45 < 54, demak javob: <b><</b>"
   },
   {
     "id": "s1c4b64l1_07",

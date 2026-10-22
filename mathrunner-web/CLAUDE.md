@@ -15,3 +15,9 @@ Foydalanuvchi fundamental dasturlashni bilmaydi, faqat prompt orqali ishlaydi. S
 - Bu — o'zbek tilidagi bolalar uchun matematik ta'lim o'yini (arqon tortish, va boshqa mini-o'yinlar).
 - Matnlar, savollar bazasi va UI o'zbek tilida bo'lishi kerak.
 - `assets/` papkasida rasm resurslari bor (masalan personajlar uchun PNG rasmlar).
+
+## 1–4-sinf test va mashq formati (2026-10-22, foydalanuvchi qarori)
+- **Test darajalari** (mavzuda 1–3 ta, har biri 10 savol) mavzular ro'yxatida «1-test», «2-test», «3-test» tugmasi. Bosilsa `#/test/<levelId>` — yuqori sinflardagidek bitta sahifa (`js/screens/quiz.js`, dizayn `../css/test.css`): «Belgilandi n/10» + «Testni yakunlash», natijada doira, To'g'ri/Xato/Vaqt, «Sizning javobingiz / To'g'ri javob», «Yechimni ko'rish». Darajasi aniq ajratilgan testlar bo'lsa — `js/topicTitles.js` dagi `TEST_DARAJA` ga `"<levelId>": "oson" | "qiyin"` yoziladi, tugma «Oson test» / «Qiyin test» bo'lib chiqadi (hozircha ajratilmagan).
+- **Yechimlar:** `explain` maydoni bank faylida; hisoblab topiladigan savollarga (misol, taqqoslash — ~1200 ta) `python3 tools/add_explain.py` o'zi yozadi. Qolgan savollarda faqat to'g'ri javob ko'rsatiladi — yechim matnlari hali yo'q (keyingi ish).
+- **O'yinlar** test formatiga ko'chirilmaydi; har o'yin darajasi 20 topshiriq = «1-mashq» + «2-mashq» (har biri 10). `#/play/<levelId>/<mashq>`. O'yin tepasida «N-mashq · Topshiriq i / 10» doim ko'rinadi. Banklarni 20 taga yetkazish: `python3 tools/gen_games.py` (asl topshiriqlar qoladi, yangilari `_x01…` id bilan; qayta ishlatish xavfsiz; `export_curriculum.py` banklarni qayta yozsa — shundan keyin ishga tushiring). Veb-da hali ishlamaydigan o'yin turlari (fractionStrip, coordinatePath, motionLine, protractor — 16 daraja) o'zgarmagan.
+- Ma'lumot fayllari o'zgarsa `js/util.js` dagi `DATA_VER` va `index.html` dagi `curriculum.json?v=` ni oshiring.

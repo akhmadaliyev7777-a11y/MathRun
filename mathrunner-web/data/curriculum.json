@@ -146,7 +146,7 @@
          "id": "g1_c1_b6_l1",
          "level": 1,
          "gameKind": "numberOrder",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c1_b6_l1_tasks.json",
          "webSupported": true
         },
@@ -306,7 +306,7 @@
          "id": "g1_c1_b13_l1",
          "level": 1,
          "gameKind": "numberOrder",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c1_b13_l1_tasks.json",
          "webSupported": true
         },
@@ -330,7 +330,7 @@
          "id": "g1_c1_b14_l1",
          "level": 1,
          "gameKind": "algorithmConveyor",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c1_b14_l1_tasks.json",
          "webSupported": true
         },
@@ -402,7 +402,7 @@
          "id": "g1_c1_b17_l1",
          "level": 1,
          "gameKind": "balanceScale",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c1_b17_l1_tasks.json",
          "webSupported": true
         },
@@ -458,7 +458,7 @@
          "id": "g1_c1_b19_l1",
          "level": 1,
          "gameKind": "equationGrid",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c1_b19_l1_tasks.json",
          "webSupported": true
         },
@@ -538,7 +538,7 @@
          "id": "g1_c2_b22_l1",
          "level": 1,
          "gameKind": "placeValue",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c2_b22_l1_tasks.json",
          "webSupported": true
         },
@@ -722,7 +722,7 @@
          "id": "g1_c2_b29_l1",
          "level": 1,
          "gameKind": "placeValue",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c2_b29_l1_tasks.json",
          "webSupported": true
         },
@@ -754,7 +754,7 @@
          "id": "g1_c2_b30_l1",
          "level": 1,
          "gameKind": "numberOrder",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c2_b30_l1_tasks.json",
          "webSupported": true
         },
@@ -778,7 +778,7 @@
          "id": "g1_c2_b31_l1",
          "level": 1,
          "gameKind": "equationGrid",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c2_b31_l1_tasks.json",
          "webSupported": true
         },
@@ -1098,7 +1098,7 @@
          "id": "g1_c3_b43_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c3_b43_l1_tasks.json",
          "webSupported": true
         },
@@ -1466,7 +1466,7 @@
          "id": "g1_c4_b57_l1",
          "level": 1,
          "gameKind": "symmetry",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c4_b57_l1_tasks.json",
          "webSupported": true
         },
@@ -1490,7 +1490,7 @@
          "id": "g1_c4_b58_l1",
          "level": 1,
          "gameKind": "netFold",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c4_b58_l1_tasks.json",
          "webSupported": true
         },
@@ -1586,7 +1586,7 @@
          "id": "g1_c4_b62_l1",
          "level": 1,
          "gameKind": "balanceScale",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g1_c4_b62_l1_tasks.json",
          "webSupported": true
         },
@@ -2116,7 +2116,7 @@
          "id": "g2_c1_b19_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c1_b19_l1_tasks.json",
          "webSupported": true
         },
@@ -2148,7 +2148,7 @@
          "id": "g2_c2_b20_l1",
          "level": 1,
          "gameKind": "placeValue",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c2_b20_l1_tasks.json",
          "webSupported": true
         },
@@ -2196,7 +2196,7 @@
          "id": "g2_c2_b22_l1",
          "level": 1,
          "gameKind": "numberOrder",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c2_b22_l1_tasks.json",
          "webSupported": true
         },
@@ -2412,7 +2412,7 @@
          "id": "g2_c2_b30_l1",
          "level": 1,
          "gameKind": "balanceScale",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c2_b30_l1_tasks.json",
          "webSupported": true
         },
@@ -2484,7 +2484,7 @@
          "id": "g2_c2_b33_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c2_b33_l1_tasks.json",
          "webSupported": true
         },
@@ -2716,7 +2716,7 @@
          "id": "g2_c3_b42_l1",
          "level": 1,
          "gameKind": "equationGrid",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c3_b42_l1_tasks.json",
          "webSupported": true
         },
@@ -2772,7 +2772,7 @@
          "id": "g2_c3_b44_l1",
          "level": 1,
          "gameKind": "algorithmConveyor",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c3_b44_l1_tasks.json",
          "webSupported": true
         },
@@ -3012,7 +3012,7 @@
          "id": "g2_c3_b54_l1",
          "level": 1,
          "gameKind": "equationGrid",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c3_b54_l1_tasks.json",
          "webSupported": true
         },
@@ -3036,7 +3036,7 @@
          "id": "g2_c3_b55_l1",
          "level": 1,
          "gameKind": "algorithmConveyor",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c3_b55_l1_tasks.json",
          "webSupported": true
         },
@@ -3092,7 +3092,7 @@
          "id": "g2_c3_b57_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c3_b57_l1_tasks.json",
          "webSupported": true
         }
@@ -3188,7 +3188,7 @@
          "id": "g2_c4_b61_l1",
          "level": 1,
          "gameKind": "equationGrid",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c4_b61_l1_tasks.json",
          "webSupported": true
         },
@@ -3220,7 +3220,7 @@
          "id": "g2_c4_b62_l1",
          "level": 1,
          "gameKind": "balanceScale",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c4_b62_l1_tasks.json",
          "webSupported": true
         },
@@ -3412,7 +3412,7 @@
          "id": "g2_c4_b69_l1",
          "level": 1,
          "gameKind": "netFold",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c4_b69_l1_tasks.json",
          "webSupported": true
         },
@@ -3492,7 +3492,7 @@
          "id": "g2_c4_b72_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g2_c4_b72_l1_tasks.json",
          "webSupported": true
         }
@@ -3670,7 +3670,7 @@
          "id": "g3_c1_b7_l1",
          "level": 1,
          "gameKind": "numberOrder",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c1_b7_l1_tasks.json",
          "webSupported": true
         },
@@ -3870,7 +3870,7 @@
          "id": "g3_c1_b15_l1",
          "level": 1,
          "gameKind": "equationGrid",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c1_b15_l1_tasks.json",
          "webSupported": true
         },
@@ -4238,7 +4238,7 @@
          "id": "g3_c2_b29_l1",
          "level": 1,
          "gameKind": "algorithmConveyor",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c2_b29_l1_tasks.json",
          "webSupported": true
         },
@@ -4310,7 +4310,7 @@
          "id": "g3_c2_b32_l1",
          "level": 1,
          "gameKind": "symmetry",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c2_b32_l1_tasks.json",
          "webSupported": true
         },
@@ -4390,7 +4390,7 @@
          "id": "g3_c2_b35_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c2_b35_l1_tasks.json",
          "webSupported": true
         }
@@ -4590,7 +4590,7 @@
          "id": "g3_c3_b43_l1",
          "level": 1,
          "gameKind": "netFold",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c3_b43_l1_tasks.json",
          "webSupported": true
         },
@@ -4734,7 +4734,7 @@
          "id": "g3_c3_b49_l1",
          "level": 1,
          "gameKind": "numberOrder",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c3_b49_l1_tasks.json",
          "webSupported": true
         },
@@ -4782,7 +4782,7 @@
          "id": "g3_c3_b51_l1",
          "level": 1,
          "gameKind": "balanceScale",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c3_b51_l1_tasks.json",
          "webSupported": true
         },
@@ -4830,7 +4830,7 @@
          "id": "g3_c3_b53_l1",
          "level": 1,
          "gameKind": "symmetry",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c3_b53_l1_tasks.json",
          "webSupported": true
         },
@@ -4854,7 +4854,7 @@
          "id": "g3_c3_b54_l1",
          "level": 1,
          "gameKind": "balanceScale",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c3_b54_l1_tasks.json",
          "webSupported": true
         },
@@ -5118,7 +5118,7 @@
          "id": "g3_c4_b64_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c4_b64_l1_tasks.json",
          "webSupported": true
         },
@@ -5142,7 +5142,7 @@
          "id": "g3_c4_b65_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c4_b65_l1_tasks.json",
          "webSupported": true
         },
@@ -5166,7 +5166,7 @@
          "id": "g3_c4_b66_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c4_b66_l1_tasks.json",
          "webSupported": true
         },
@@ -5310,7 +5310,7 @@
          "id": "g3_c4_b71_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g3_c4_b71_l1_tasks.json",
          "webSupported": true
         }
@@ -5376,7 +5376,7 @@
          "id": "g4_c1_b2_l1",
          "level": 1,
          "gameKind": "equationGrid",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g4_c1_b2_l1_tasks.json",
          "webSupported": true
         }
@@ -5416,7 +5416,7 @@
          "id": "g4_c1_b4_l1",
          "level": 1,
          "gameKind": "equationGrid",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g4_c1_b4_l1_tasks.json",
          "webSupported": true
         },
@@ -5496,7 +5496,7 @@
          "id": "g4_c1_b8_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c1_b8_l1_tasks.json",
          "webSupported": true
         },
@@ -5520,7 +5520,7 @@
          "id": "g4_c1_b9_l1",
          "level": 1,
          "gameKind": "algorithmConveyor",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g4_c1_b9_l1_tasks.json",
          "webSupported": true
         },
@@ -5528,7 +5528,7 @@
          "id": "g4_c1_b9_l2",
          "level": 2,
          "gameKind": "algorithmConveyor",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g4_c1_b9_l2_tasks.json",
          "webSupported": true
         },
@@ -5576,7 +5576,7 @@
          "id": "g4_c1_b11_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 5,
+         "count": 20,
          "bank": "banks/g4_c1_b11_l1_tasks.json",
          "webSupported": true
         },
@@ -5744,7 +5744,7 @@
          "id": "g4_c1_b19_l1",
          "level": 1,
          "gameKind": "set",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c1_b19_l1_tasks.json",
          "webSupported": true
         }
@@ -5768,7 +5768,7 @@
          "id": "g4_c1_b20_l2",
          "level": 2,
          "gameKind": "numberOrder",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c1_b20_l2_tasks.json",
          "webSupported": true
         }
@@ -5864,7 +5864,7 @@
          "id": "g4_c2_b24_l2",
          "level": 2,
          "gameKind": "numberOrder",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c2_b24_l2_tasks.json",
          "webSupported": true
         }
@@ -6096,7 +6096,7 @@
          "id": "g4_c2_b34_l1",
          "level": 1,
          "gameKind": "algorithmConveyor",
-         "count": 10,
+         "count": 20,
          "bank": "banks/g4_c2_b34_l1_tasks.json",
          "webSupported": true
         },
@@ -6320,7 +6320,7 @@
          "id": "g4_c3_b43_l2",
          "level": 2,
          "gameKind": "numberOrder",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c3_b43_l2_tasks.json",
          "webSupported": true
         }
@@ -6696,7 +6696,7 @@
          "id": "g4_c4_b60_l1",
          "level": 1,
          "gameKind": "symmetry",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c4_b60_l1_tasks.json",
          "webSupported": true
         },
@@ -6776,7 +6776,7 @@
          "id": "g4_c4_b63_l1",
          "level": 1,
          "gameKind": "netFold",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c4_b63_l1_tasks.json",
          "webSupported": true
         },
@@ -6824,7 +6824,7 @@
          "id": "g4_c4_b65_l1",
          "level": 1,
          "gameKind": "netFold",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c4_b65_l1_tasks.json",
          "webSupported": true
         },
@@ -6872,7 +6872,7 @@
          "id": "g4_c4_b67_l1",
          "level": 1,
          "gameKind": "netFold",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c4_b67_l1_tasks.json",
          "webSupported": true
         },
@@ -6896,7 +6896,7 @@
          "id": "g4_c4_b68_l1",
          "level": 1,
          "gameKind": "netFold",
-         "count": 6,
+         "count": 20,
          "bank": "banks/g4_c4_b68_l1_tasks.json",
          "webSupported": true
         },

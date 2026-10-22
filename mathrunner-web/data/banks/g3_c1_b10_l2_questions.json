@@ -42,7 +42,8 @@
     "wrongAnswers": [
       290,
       310
-    ]
+    ],
+    "explain": "25 + 137 + 75 + 63 = 162 + 75 + 63 = 237 + 63 = 300<br>Javob: <b>300</b>"
   },
   {
     "id": "s3c1b10l2_06",
@@ -51,7 +52,8 @@
     "wrongAnswers": [
       5900,
       6100
-    ]
+    ],
+    "explain": "1 200 + 3 456 + 800 + 544 = 4 656 + 800 + 544 = 5 456 + 544 = 6 000<br>Javob: <b>6 000</b>"
   },
   {
     "id": "s3c1b10l2_07",
@@ -78,7 +80,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 125 * 8 = 1 000, 100 * 8 + 25 * 8 = 1 000.<br>1 000 = 1 000, demak javob: <b>=</b>"
   },
   {
     "id": "s3c1b10l2_10",

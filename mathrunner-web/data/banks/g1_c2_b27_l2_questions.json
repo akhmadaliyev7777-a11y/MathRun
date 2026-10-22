@@ -6,7 +6,8 @@
     "wrongAnswers": [
       18,
       9
-    ]
+    ],
+    "explain": "14 − 6 = 8"
   },
   {
     "id": "s1c2b27l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       18,
       9
-    ]
+    ],
+    "explain": "15 − 7 = 8"
   },
   {
     "id": "s1c2b27l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       18,
       9
-    ]
+    ],
+    "explain": "16 − 8 = 8"
   },
   {
     "id": "s1c2b27l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       13,
       4
-    ]
+    ],
+    "explain": "12 − 9 = 3"
   },
   {
     "id": "s1c2b27l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       18,
       9
-    ]
+    ],
+    "explain": "17 − 9 = 8"
   },
   {
     "id": "s1c2b27l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       15,
       6
-    ]
+    ],
+    "explain": "13 − 8 = 5"
   },
   {
     "id": "s1c2b27l2_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       19,
       10
-    ]
+    ],
+    "explain": "18 − 9 = 9"
   },
   {
     "id": "s1c2b27l2_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       15,
       6
-    ]
+    ],
+    "explain": "11 − 6 = 5"
   },
   {
     "id": "s1c2b27l2_09",
@@ -78,7 +86,8 @@
     "wrongAnswers": [
       16,
       13
-    ]
+    ],
+    "explain": "20 − 6 = 14"
   },
   {
     "id": "s1c2b27l2_10",

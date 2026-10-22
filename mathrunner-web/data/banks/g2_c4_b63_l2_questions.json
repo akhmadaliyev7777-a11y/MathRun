@@ -6,7 +6,8 @@
     "wrongAnswers": [
       62,
       8
-    ]
+    ],
+    "explain": "7 × 8 − 6 = 56 − 6 = 50<br>Javob: <b>50</b>"
   },
   {
     "id": "s2c4b63l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       855,
       45
-    ]
+    ],
+    "explain": "100 − 5 × 9 = 100 − 45 = 55<br>Javob: <b>55</b>"
   },
   {
     "id": "s2c4b63l2_03",
@@ -51,7 +53,8 @@
     "wrongAnswers": [
       20,
       16
-    ]
+    ],
+    "explain": "(12 + 8) : 5 = 20 : 5 = 4<br>Javob: <b>4</b>"
   },
   {
     "id": "s2c4b63l2_07",
@@ -69,7 +72,8 @@
     "wrongAnswers": [
       63,
       15
-    ]
+    ],
+    "explain": "8 × 7 = 56"
   },
   {
     "id": "s2c4b63l2_09",
@@ -87,6 +91,7 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 9 * 3 = 27, 5 * 5 = 25.<br>27 > 25, demak javob: <b>></b>"
   }
 ]

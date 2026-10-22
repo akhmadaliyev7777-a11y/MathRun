@@ -1,20 +1,662 @@
 [
-  {"id": "sinf4_chorak1_blok19_level1_venn_01", "prompt": "Har bir o'quvchini to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "Futbolni yoqtiradiganlar", "setBName": "Basketbolni yoqtiradiganlar", "elements": [
-    {"value": "Aziz", "zone": "onlyA"}, {"value": "Bek", "zone": "both"}, {"value": "Dilnoza", "zone": "onlyB"}, {"value": "Karim", "zone": "neither"}
-  ]},
-  {"id": "sinf4_chorak1_blok19_level1_venn_02", "prompt": "Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "It boqadiganlar", "setBName": "Mushuk boqadiganlar", "elements": [
-    {"value": "Ali", "zone": "both"}, {"value": "Vali", "zone": "onlyA"}, {"value": "Guli", "zone": "onlyB"}, {"value": "Nodir", "zone": "neither"}, {"value": "Sami", "zone": "both"}, {"value": "Laylo", "zone": "onlyA"}
-  ]},
-  {"id": "sinf4_chorak1_blok19_level1_venn_03", "prompt": "Har bir o'quvchini to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "Matematikani yaxshi ko'radiganlar", "setBName": "Ona tilini yaxshi ko'radiganlar", "elements": [
-    {"value": "Anvar", "zone": "onlyA"}, {"value": "Bahrom", "zone": "onlyB"}, {"value": "Diyor", "zone": "both"}, {"value": "Elyor", "zone": "neither"}, {"value": "Farrux", "zone": "both"}, {"value": "Gavhar", "zone": "onlyA"}, {"value": "Hilola", "zone": "onlyB"}, {"value": "Islom", "zone": "neither"}
-  ]},
-  {"id": "sinf4_chorak1_blok19_level1_venn_04", "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "5 ga karrali sonlar", "setBName": "6 ga karrali sonlar", "elements": [
-    {"value": "10", "zone": "onlyA"}, {"value": "12", "zone": "onlyB"}, {"value": "30", "zone": "both"}, {"value": "18", "zone": "onlyB"}, {"value": "25", "zone": "onlyA"}, {"value": "7", "zone": "neither"}
-  ]},
-  {"id": "sinf4_chorak1_blok19_level1_venn_05", "prompt": "Har bir o'quvchini to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "Sport bo'limiga qatnaydiganlar", "setBName": "Musiqa maktabiga qatnaydiganlar", "elements": [
-    {"value": "Olim", "zone": "onlyA"}, {"value": "Salim", "zone": "both"}, {"value": "Kamola", "zone": "onlyB"}, {"value": "Jasur", "zone": "neither"}
-  ]},
-  {"id": "sinf4_chorak1_blok19_level1_venn_06", "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "3 ga karrali sonlar", "setBName": "5 ga karrali sonlar", "elements": [
-    {"value": "9", "zone": "onlyA"}, {"value": "15", "zone": "both"}, {"value": "20", "zone": "onlyB"}, {"value": "30", "zone": "both"}, {"value": "12", "zone": "onlyA"}, {"value": "25", "zone": "onlyB"}, {"value": "7", "zone": "neither"}, {"value": "45", "zone": "both"}
-  ]}
+  {
+    "id": "sinf4_chorak1_blok19_level1_venn_01",
+    "prompt": "Futbolni yoqtiradiganlar: Aziz, Bek. Basketbolni yoqtiradiganlar: Bek, Dilnoza. Har bir o'quvchini to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Futbolni yoqtiradiganlar",
+    "setBName": "Basketbolni yoqtiradiganlar",
+    "elements": [
+      {
+        "value": "Aziz",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Bek",
+        "zone": "both"
+      },
+      {
+        "value": "Dilnoza",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Karim",
+        "zone": "neither"
+      }
+    ]
+  },
+  {
+    "id": "sinf4_chorak1_blok19_level1_venn_02",
+    "prompt": "It boqadiganlar: Ali, Vali, Sami, Laylo. Mushuk boqadiganlar: Ali, Guli, Sami. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "It boqadiganlar",
+    "setBName": "Mushuk boqadiganlar",
+    "elements": [
+      {
+        "value": "Ali",
+        "zone": "both"
+      },
+      {
+        "value": "Vali",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Guli",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Nodir",
+        "zone": "neither"
+      },
+      {
+        "value": "Sami",
+        "zone": "both"
+      },
+      {
+        "value": "Laylo",
+        "zone": "onlyA"
+      }
+    ]
+  },
+  {
+    "id": "sinf4_chorak1_blok19_level1_venn_03",
+    "prompt": "Matematikani yaxshi ko'radiganlar: Anvar, Diyor, Farrux, Gavhar. Ona tilini yaxshi ko'radiganlar: Bahrom, Diyor, Farrux, Hilola. Har bir o'quvchini to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Matematikani yaxshi ko'radiganlar",
+    "setBName": "Ona tilini yaxshi ko'radiganlar",
+    "elements": [
+      {
+        "value": "Anvar",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Bahrom",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Diyor",
+        "zone": "both"
+      },
+      {
+        "value": "Elyor",
+        "zone": "neither"
+      },
+      {
+        "value": "Farrux",
+        "zone": "both"
+      },
+      {
+        "value": "Gavhar",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Hilola",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Islom",
+        "zone": "neither"
+      }
+    ]
+  },
+  {
+    "id": "sinf4_chorak1_blok19_level1_venn_04",
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "5 ga karrali sonlar",
+    "setBName": "6 ga karrali sonlar",
+    "elements": [
+      {
+        "value": "10",
+        "zone": "onlyA"
+      },
+      {
+        "value": "12",
+        "zone": "onlyB"
+      },
+      {
+        "value": "30",
+        "zone": "both"
+      },
+      {
+        "value": "18",
+        "zone": "onlyB"
+      },
+      {
+        "value": "25",
+        "zone": "onlyA"
+      },
+      {
+        "value": "7",
+        "zone": "neither"
+      }
+    ]
+  },
+  {
+    "id": "sinf4_chorak1_blok19_level1_venn_05",
+    "prompt": "Sport bo'limiga qatnaydiganlar: Olim, Salim. Musiqa maktabiga qatnaydiganlar: Salim, Kamola. Har bir o'quvchini to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Sport bo'limiga qatnaydiganlar",
+    "setBName": "Musiqa maktabiga qatnaydiganlar",
+    "elements": [
+      {
+        "value": "Olim",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Salim",
+        "zone": "both"
+      },
+      {
+        "value": "Kamola",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Jasur",
+        "zone": "neither"
+      }
+    ]
+  },
+  {
+    "id": "sinf4_chorak1_blok19_level1_venn_06",
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "3 ga karrali sonlar",
+    "setBName": "5 ga karrali sonlar",
+    "elements": [
+      {
+        "value": "9",
+        "zone": "onlyA"
+      },
+      {
+        "value": "15",
+        "zone": "both"
+      },
+      {
+        "value": "20",
+        "zone": "onlyB"
+      },
+      {
+        "value": "30",
+        "zone": "both"
+      },
+      {
+        "value": "12",
+        "zone": "onlyA"
+      },
+      {
+        "value": "25",
+        "zone": "onlyB"
+      },
+      {
+        "value": "7",
+        "zone": "neither"
+      },
+      {
+        "value": "45",
+        "zone": "both"
+      }
+    ]
+  },
+  {
+    "prompt": "Kitob o'qishni yoqtiradiganlar: Aziz, Gulnoza, Doniyor, Ulugbek, Karim, Madina. Rasm chizishni yoqtiradiganlar: Aziz, Doniyor, Malika, Karim, Madina. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Kitob o'qishni yoqtiradiganlar",
+    "setBName": "Rasm chizishni yoqtiradiganlar",
+    "elements": [
+      {
+        "value": "Anvar",
+        "zone": "neither"
+      },
+      {
+        "value": "Aziz",
+        "zone": "both"
+      },
+      {
+        "value": "Gulnoza",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Doniyor",
+        "zone": "both"
+      },
+      {
+        "value": "Ulugbek",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Malika",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Karim",
+        "zone": "both"
+      },
+      {
+        "value": "Madina",
+        "zone": "both"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x01"
+  },
+  {
+    "prompt": "Rasm to'garagiga qatnaydiganlar: Karim, Behruz. Musiqa to'garagiga qatnaydiganlar: Karim, Lola, Madina. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Rasm to'garagiga qatnaydiganlar",
+    "setBName": "Musiqa to'garagiga qatnaydiganlar",
+    "elements": [
+      {
+        "value": "Karim",
+        "zone": "both"
+      },
+      {
+        "value": "Lola",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Madina",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Bek",
+        "zone": "neither"
+      },
+      {
+        "value": "Behruz",
+        "zone": "onlyA"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x02"
+  },
+  {
+    "prompt": "Bog'da ishlaganlar: Zilola, Gulnoza, Sevara, Malika. Kutubxonaga borganlar: Zilola, Aziz, Gulnoza, Sevara, Rustam. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Bog'da ishlaganlar",
+    "setBName": "Kutubxonaga borganlar",
+    "elements": [
+      {
+        "value": "Zilola",
+        "zone": "both"
+      },
+      {
+        "value": "Aziz",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Gulnoza",
+        "zone": "both"
+      },
+      {
+        "value": "Sevara",
+        "zone": "both"
+      },
+      {
+        "value": "Malika",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Rustam",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Sardor",
+        "zone": "neither"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x03"
+  },
+  {
+    "prompt": "Futbolni yoqtiradiganlar: Doniyor, Dilnoza, Karim, Jasur. Basketbolni yoqtiradiganlar: Doniyor, Karim, Otabek. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Futbolni yoqtiradiganlar",
+    "setBName": "Basketbolni yoqtiradiganlar",
+    "elements": [
+      {
+        "value": "Doniyor",
+        "zone": "both"
+      },
+      {
+        "value": "Dilnoza",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Karim",
+        "zone": "both"
+      },
+      {
+        "value": "Jasur",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Mohira",
+        "zone": "neither"
+      },
+      {
+        "value": "Otabek",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x04"
+  },
+  {
+    "prompt": "Olma yoqtiradiganlar: Malika, Nigora. Nok yoqtiradiganlar: Nigora, Timur. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Olma yoqtiradiganlar",
+    "setBName": "Nok yoqtiradiganlar",
+    "elements": [
+      {
+        "value": "Lola",
+        "zone": "neither"
+      },
+      {
+        "value": "Malika",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Nigora",
+        "zone": "both"
+      },
+      {
+        "value": "Farhod",
+        "zone": "neither"
+      },
+      {
+        "value": "Timur",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x05"
+  },
+  {
+    "prompt": "Matematika to'garagiga qatnaydiganlar: Shahlo, Kamola, Mohira. Ona tili to'garagiga qatnaydiganlar: Shahlo, Aziz, Doniyor, Kamola, Behruz. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Matematika to'garagiga qatnaydiganlar",
+    "setBName": "Ona tili to'garagiga qatnaydiganlar",
+    "elements": [
+      {
+        "value": "Shahlo",
+        "zone": "both"
+      },
+      {
+        "value": "Aziz",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Doniyor",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Kamola",
+        "zone": "both"
+      },
+      {
+        "value": "Behruz",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Mohira",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Anvar",
+        "zone": "neither"
+      },
+      {
+        "value": "Nigora",
+        "zone": "neither"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x06"
+  },
+  {
+    "prompt": "Ingliz tilini biladiganlar: Otabek, Timur, Shahlo, Farhod. Rus tilini biladiganlar: Otabek, Jasur, Shahlo, Rustam. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Ingliz tilini biladiganlar",
+    "setBName": "Rus tilini biladiganlar",
+    "elements": [
+      {
+        "value": "Otabek",
+        "zone": "both"
+      },
+      {
+        "value": "Lola",
+        "zone": "neither"
+      },
+      {
+        "value": "Timur",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Sevara",
+        "zone": "neither"
+      },
+      {
+        "value": "Jasur",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Shahlo",
+        "zone": "both"
+      },
+      {
+        "value": "Rustam",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Farhod",
+        "zone": "onlyA"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x07"
+  },
+  {
+    "prompt": "It boqadiganlar: Farhod, Sardor, Jasur. Mushuk boqadiganlar: Farhod, Malika, Sardor. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "It boqadiganlar",
+    "setBName": "Mushuk boqadiganlar",
+    "elements": [
+      {
+        "value": "Farhod",
+        "zone": "both"
+      },
+      {
+        "value": "Malika",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Bek",
+        "zone": "neither"
+      },
+      {
+        "value": "Sardor",
+        "zone": "both"
+      },
+      {
+        "value": "Jasur",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Nigora",
+        "zone": "neither"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x08"
+  },
+  {
+    "prompt": "Choy ichadiganlar: Sardor, Bek, Mohira. Sut ichadiganlar: Sardor, Sevara, Gulnoza. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Choy ichadiganlar",
+    "setBName": "Sut ichadiganlar",
+    "elements": [
+      {
+        "value": "Sardor",
+        "zone": "both"
+      },
+      {
+        "value": "Timur",
+        "zone": "neither"
+      },
+      {
+        "value": "Farhod",
+        "zone": "neither"
+      },
+      {
+        "value": "Bek",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Behruz",
+        "zone": "neither"
+      },
+      {
+        "value": "Sevara",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Gulnoza",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Mohira",
+        "zone": "onlyA"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x09"
+  },
+  {
+    "prompt": "Shaxmat o'ynaydiganlar: Zilola, Farhod. Shashka o'ynaydiganlar: Zilola, Dilnoza. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Shaxmat o'ynaydiganlar",
+    "setBName": "Shashka o'ynaydiganlar",
+    "elements": [
+      {
+        "value": "Zilola",
+        "zone": "both"
+      },
+      {
+        "value": "Shahlo",
+        "zone": "neither"
+      },
+      {
+        "value": "Dilnoza",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Bek",
+        "zone": "neither"
+      },
+      {
+        "value": "Farhod",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Karim",
+        "zone": "neither"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x10"
+  },
+  {
+    "prompt": "Tennis o'ynaydiganlar: Doniyor, Lola. Stol tennisi o'ynaydiganlar: Doniyor, Otabek, Nigora. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Tennis o'ynaydiganlar",
+    "setBName": "Stol tennisi o'ynaydiganlar",
+    "elements": [
+      {
+        "value": "Malika",
+        "zone": "neither"
+      },
+      {
+        "value": "Doniyor",
+        "zone": "both"
+      },
+      {
+        "value": "Otabek",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Nigora",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Lola",
+        "zone": "onlyA"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x11"
+  },
+  {
+    "prompt": "Suzishni biladiganlar: Aziz, Timur, Zilola. Velosiped haydashni biladiganlar: Nigora, Timur. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Suzishni biladiganlar",
+    "setBName": "Velosiped haydashni biladiganlar",
+    "elements": [
+      {
+        "value": "Aziz",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Lola",
+        "zone": "neither"
+      },
+      {
+        "value": "Nigora",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Madina",
+        "zone": "neither"
+      },
+      {
+        "value": "Timur",
+        "zone": "both"
+      },
+      {
+        "value": "Zilola",
+        "zone": "onlyA"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x12"
+  },
+  {
+    "prompt": "Kitob o'qishni yoqtiradiganlar: Shahlo, Sevara, Dilnoza. Rasm chizishni yoqtiradiganlar: Zilola, Sevara, Dilnoza. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Kitob o'qishni yoqtiradiganlar",
+    "setBName": "Rasm chizishni yoqtiradiganlar",
+    "elements": [
+      {
+        "value": "Behruz",
+        "zone": "neither"
+      },
+      {
+        "value": "Shahlo",
+        "zone": "onlyA"
+      },
+      {
+        "value": "Zilola",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Sevara",
+        "zone": "both"
+      },
+      {
+        "value": "Dilnoza",
+        "zone": "both"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x13"
+  },
+  {
+    "prompt": "Rasm to'garagiga qatnaydiganlar: Ulugbek, Gulnoza. Musiqa to'garagiga qatnaydiganlar: Lola, Ulugbek. Har bir bolani to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Rasm to'garagiga qatnaydiganlar",
+    "setBName": "Musiqa to'garagiga qatnaydiganlar",
+    "elements": [
+      {
+        "value": "Sardor",
+        "zone": "neither"
+      },
+      {
+        "value": "Otabek",
+        "zone": "neither"
+      },
+      {
+        "value": "Karim",
+        "zone": "neither"
+      },
+      {
+        "value": "Lola",
+        "zone": "onlyB"
+      },
+      {
+        "value": "Ulugbek",
+        "zone": "both"
+      },
+      {
+        "value": "Gulnoza",
+        "zone": "onlyA"
+      }
+    ],
+    "id": "sinf4_chorak1_blok19_level1_venn_x14"
+  }
 ]

@@ -6,7 +6,8 @@
     "wrongAnswers": [
       1338,
       1448
-    ]
+    ],
+    "explain": "9 436 : 7 = 1 348"
   },
   {
     "id": "s3c2b23l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       504,
       614
-    ]
+    ],
+    "explain": "3 084 : 6 = 514"
   },
   {
     "id": "s3c2b23l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       10596,
       10706
-    ]
+    ],
+    "explain": "84 848 : 8 = 10 606"
   },
   {
     "id": "s3c2b23l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       22321,
       22431
-    ]
+    ],
+    "explain": "66 993 : 3 = 22 331"
   },
   {
     "id": "s3c2b23l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       12515,
       12625
-    ]
+    ],
+    "explain": "75 150 : 6 = 12 525"
   },
   {
     "id": "s3c2b23l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       265,
       285
-    ]
+    ],
+    "explain": "825 : 3 = 275"
   },
   {
     "id": "s3c2b23l2_07",
@@ -69,7 +75,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 6 396 : 6 = 1 066, 8 408 : 8 = 1 051.<br>1 066 > 1 051, demak javob: <b>></b>"
   },
   {
     "id": "s3c2b23l2_09",
@@ -87,6 +94,7 @@
     "wrongAnswers": [
       922,
       942
-    ]
+    ],
+    "explain": "3 728 : 4 = 932"
   }
 ]

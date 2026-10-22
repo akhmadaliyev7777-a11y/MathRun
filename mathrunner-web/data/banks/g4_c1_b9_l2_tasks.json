@@ -1,12 +1,102 @@
 [
-  {"id": "sinf4_chorak1_blok9_level2_alomat_01", "text": "5 274 soni 3 ga bo'linadimi?", "isTrue": true},
-  {"id": "sinf4_chorak1_blok9_level2_alomat_02", "text": "1 000 soni 3 ga bo'linadimi?", "isTrue": false},
-  {"id": "sinf4_chorak1_blok9_level2_alomat_03", "text": "6 543 soni 9 ga bo'linadimi?", "isTrue": true},
-  {"id": "sinf4_chorak1_blok9_level2_alomat_04", "text": "742 soni 3 ga bo'linadimi?", "isTrue": false},
-  {"id": "sinf4_chorak1_blok9_level2_alomat_05", "text": "9 018 soni 9 ga bo'linadimi?", "isTrue": true},
-  {"id": "sinf4_chorak1_blok9_level2_alomat_06", "text": "3 331 soni 3 ga bo'linadimi?", "isTrue": false},
-  {"id": "sinf4_chorak1_blok9_level2_alomat_07", "text": "2 451 soni 3 ga bo'linadimi?", "isTrue": true},
-  {"id": "sinf4_chorak1_blok9_level2_alomat_08", "text": "8 100 soni 9 ga bo'linadimi?", "isTrue": true},
-  {"id": "sinf4_chorak1_blok9_level2_alomat_09", "text": "5 555 soni 9 ga bo'linadimi?", "isTrue": false},
-  {"id": "sinf4_chorak1_blok9_level2_alomat_10", "text": "1 237 soni 3 ga bo'linadimi?", "isTrue": false}
+  {
+    "id": "sinf4_chorak1_blok9_level2_alomat_01",
+    "text": "5 274 soni 3 ga bo'linadimi?",
+    "isTrue": true
+  },
+  {
+    "id": "sinf4_chorak1_blok9_level2_alomat_02",
+    "text": "1 000 soni 3 ga bo'linadimi?",
+    "isTrue": false
+  },
+  {
+    "id": "sinf4_chorak1_blok9_level2_alomat_03",
+    "text": "6 543 soni 9 ga bo'linadimi?",
+    "isTrue": true
+  },
+  {
+    "id": "sinf4_chorak1_blok9_level2_alomat_04",
+    "text": "742 soni 3 ga bo'linadimi?",
+    "isTrue": false
+  },
+  {
+    "id": "sinf4_chorak1_blok9_level2_alomat_05",
+    "text": "9 018 soni 9 ga bo'linadimi?",
+    "isTrue": true
+  },
+  {
+    "id": "sinf4_chorak1_blok9_level2_alomat_06",
+    "text": "3 331 soni 3 ga bo'linadimi?",
+    "isTrue": false
+  },
+  {
+    "id": "sinf4_chorak1_blok9_level2_alomat_07",
+    "text": "2 451 soni 3 ga bo'linadimi?",
+    "isTrue": true
+  },
+  {
+    "id": "sinf4_chorak1_blok9_level2_alomat_08",
+    "text": "8 100 soni 9 ga bo'linadimi?",
+    "isTrue": true
+  },
+  {
+    "id": "sinf4_chorak1_blok9_level2_alomat_09",
+    "text": "5 555 soni 9 ga bo'linadimi?",
+    "isTrue": false
+  },
+  {
+    "id": "sinf4_chorak1_blok9_level2_alomat_10",
+    "text": "1 237 soni 3 ga bo'linadimi?",
+    "isTrue": false
+  },
+  {
+    "text": "1 728 soni 3 ga bo'linadimi?",
+    "isTrue": true,
+    "id": "sinf4_chorak1_blok9_level2_alomat_x01"
+  },
+  {
+    "text": "6 862 soni 9 ga bo'linadimi?",
+    "isTrue": false,
+    "id": "sinf4_chorak1_blok9_level2_alomat_x02"
+  },
+  {
+    "text": "1 488 soni 3 ga bo'linadimi?",
+    "isTrue": true,
+    "id": "sinf4_chorak1_blok9_level2_alomat_x03"
+  },
+  {
+    "text": "5 710 soni 9 ga bo'linadimi?",
+    "isTrue": false,
+    "id": "sinf4_chorak1_blok9_level2_alomat_x04"
+  },
+  {
+    "text": "3 357 soni 3 ga bo'linadimi?",
+    "isTrue": true,
+    "id": "sinf4_chorak1_blok9_level2_alomat_x05"
+  },
+  {
+    "text": "7 393 soni 3 ga bo'linadimi?",
+    "isTrue": false,
+    "id": "sinf4_chorak1_blok9_level2_alomat_x06"
+  },
+  {
+    "text": "8 733 soni 3 ga bo'linadimi?",
+    "isTrue": true,
+    "id": "sinf4_chorak1_blok9_level2_alomat_x07"
+  },
+  {
+    "text": "1 538 soni 3 ga bo'linadimi?",
+    "isTrue": false,
+    "id": "sinf4_chorak1_blok9_level2_alomat_x08"
+  },
+  {
+    "text": "8 934 soni 3 ga bo'linadimi?",
+    "isTrue": true,
+    "id": "sinf4_chorak1_blok9_level2_alomat_x09"
+  },
+  {
+    "text": "3 923 soni 3 ga bo'linadimi?",
+    "isTrue": false,
+    "id": "sinf4_chorak1_blok9_level2_alomat_x10"
+  }
 ]

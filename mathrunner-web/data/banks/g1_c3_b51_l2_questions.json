@@ -15,7 +15,8 @@
     "wrongAnswers": [
       14,
       16
-    ]
+    ],
+    "explain": "8 + 7 = 15"
   },
   {
     "id": "s1c3b51l2_03",
@@ -24,7 +25,8 @@
     "wrongAnswers": [
       24,
       20
-    ]
+    ],
+    "explain": "63 − 41 = 22"
   },
   {
     "id": "s1c3b51l2_04",
@@ -33,7 +35,8 @@
     "wrongAnswers": [
       65,
       25
-    ]
+    ],
+    "explain": "(30 + 20) − 15 = 50 − 15 = 35<br>Javob: <b>35</b>"
   },
   {
     "id": "s1c3b51l2_05",
@@ -78,7 +81,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 40 - 25 = 15, 10 + 5 = 15.<br>15 = 15, demak javob: <b>=</b>"
   },
   {
     "id": "s1c3b51l2_10",

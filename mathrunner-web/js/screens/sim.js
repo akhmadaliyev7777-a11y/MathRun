@@ -3,6 +3,7 @@ import { nav, footer, gradeData, applyKingdom } from '../app.js';
 import { readBest } from '../util.js';
 import { TOPIC_TITLES } from '../topicTitles.js';
 import { simFor, SIM_VER } from '../sims.js';
+import { lessonButtons } from '../lessonBtns.js';
 
 // Mavzu simulyatori: tepada interaktiv simulyator, ostida shu mavzuning testlari (darslar)
 export function render(root, [gradeStr, chorakStr, blokStr]) {
@@ -23,13 +24,6 @@ export function render(root, [gradeStr, chorakStr, blokStr]) {
   addEventListener('message', onMsg);
   addEventListener('hashchange', () => removeEventListener('message', onMsg), { once: true });
 
-  const testBtn = (lv, i) => {
-    const done = best[lv.id]?.stars || 0;
-    return lv.webSupported
-      ? el('a', { class: 'tbtn' + (i === 0 ? ' tbtn--primary' : ''), href: `#/play/${lv.id}` }, `${i + 1}-dars`, done ? el('span', { class: 'tbtn__star' }, '★'.repeat(done)) : null)
-      : el('span', { class: 'tbtn tbtn--soon' }, `${i + 1}-dars`);
-  };
-
   root.replaceChildren(
     nav('mavzular'),
     el('main', { class: 'wrap' },
@@ -47,6 +41,6 @@ export function render(root, [gradeStr, chorakStr, blokStr]) {
         el('div', {},
           el('b', {}, 'Endi o\'zingizni sinang'),
           el('span', {}, ' — mavzu bo\'yicha testlar:')),
-        el('div', { class: 'trow__levels' }, ...block.levels.map(testBtn)))),
+        el('div', { class: 'trow__levels' }, ...lessonButtons(block, best)))),
     footer());
 }

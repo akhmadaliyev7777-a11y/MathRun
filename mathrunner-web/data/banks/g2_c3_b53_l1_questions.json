@@ -6,7 +6,8 @@
     "wrongAnswers": [
       9,
       27
-    ]
+    ],
+    "explain": "9 × 2 = 18"
   },
   {
     "id": "s2c3b53l1_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       56,
       70
-    ]
+    ],
+    "explain": "7 × 9 = 63"
   },
   {
     "id": "s2c3b53l1_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       24,
       30
-    ]
+    ],
+    "explain": "3 × 9 = 27"
   },
   {
     "id": "s2c3b53l1_04",
@@ -51,7 +54,8 @@
     "wrongAnswers": [
       40,
       50
-    ]
+    ],
+    "explain": "5 × 9 = 45"
   },
   {
     "id": "s2c3b53l1_07",
@@ -69,7 +73,8 @@
     "wrongAnswers": [
       64,
       80
-    ]
+    ],
+    "explain": "8 × 9 = 72"
   },
   {
     "id": "s2c3b53l1_09",
@@ -78,7 +83,8 @@
     "wrongAnswers": [
       72,
       90
-    ]
+    ],
+    "explain": "9 × 9 = 81"
   },
   {
     "id": "s2c3b53l1_10",
@@ -87,6 +93,7 @@
     "wrongAnswers": [
       81,
       99
-    ]
+    ],
+    "explain": "9 × 10 = 90"
   }
 ]

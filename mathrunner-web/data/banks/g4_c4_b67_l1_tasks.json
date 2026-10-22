@@ -1,8 +1,222 @@
 [
-  {"id": "sinf4_chorak4_blok67_level1_syoy_01", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Silindr yoyilmasi — to'g'ri to'rtburchak va 2 ta doira", "target": "cylinder", "options": ["cylinder", "cone", "cuboid"]},
-  {"id": "sinf4_chorak4_blok67_level1_syoy_02", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Silindrning ikki asosi — teng doiralar", "target": "cylinder", "options": ["cone", "cylinder", "squarePyramid"]},
-  {"id": "sinf4_chorak4_blok67_level1_syoy_03", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Silindr yon sirti yozilganda to'g'ri to'rtburchak", "target": "cylinder", "options": ["cylinder", "cube", "cone"]},
-  {"id": "sinf4_chorak4_blok67_level1_syoy_04", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Konus yoyilmasi — doira sektori va kichik doira", "target": "cone", "options": ["cone", "cylinder", "cuboid"]},
-  {"id": "sinf4_chorak4_blok67_level1_syoy_05", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Silindr — 2 ta doira va to'g'ri to'rtburchak", "target": "cylinder", "options": ["cylinder", "triangularPrism", "cone"]},
-  {"id": "sinf4_chorak4_blok67_level1_syoy_06", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Kub — 6 ta kvadrat, silindr esa doiralar bilan", "target": "cube", "options": ["cube", "cylinder", "cone"]}
+  {
+    "id": "sinf4_chorak4_blok67_level1_syoy_01",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindr yoyilmasi — to'g'ri to'rtburchak va 2 ta doira",
+    "target": "cylinder",
+    "options": [
+      "cylinder",
+      "cone",
+      "cuboid"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok67_level1_syoy_02",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindrning ikki asosi — teng doiralar",
+    "target": "cylinder",
+    "options": [
+      "cone",
+      "cylinder",
+      "squarePyramid"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok67_level1_syoy_03",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindr yon sirti yozilganda to'g'ri to'rtburchak",
+    "target": "cylinder",
+    "options": [
+      "cylinder",
+      "cube",
+      "cone"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok67_level1_syoy_04",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konus yoyilmasi — doira sektori va kichik doira",
+    "target": "cone",
+    "options": [
+      "cone",
+      "cylinder",
+      "cuboid"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok67_level1_syoy_05",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindr — 2 ta doira va to'g'ri to'rtburchak",
+    "target": "cylinder",
+    "options": [
+      "cylinder",
+      "triangularPrism",
+      "cone"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok67_level1_syoy_06",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kub — 6 ta kvadrat, silindr esa doiralar bilan",
+    "target": "cube",
+    "options": [
+      "cube",
+      "cylinder",
+      "cone"
+    ]
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindr yoyilmasi — to'g'ri to'rtburchak va 2 ta doira",
+    "target": "cylinder",
+    "options": [
+      "cylinder",
+      "triangularPrism",
+      "cuboid"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x01"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konusning bitta cho'qqisi va bitta doira asosi bor",
+    "target": "cone",
+    "options": [
+      "triangularPrism",
+      "cone",
+      "cylinder"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x02"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
+    "target": "cube",
+    "options": [
+      "squarePyramid",
+      "cube",
+      "triangularPrism"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x03"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindrning ikki asosi — teng doiralar",
+    "target": "cylinder",
+    "options": [
+      "cone",
+      "triangularPrism",
+      "cylinder"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x04"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konusning bitta cho'qqisi va bitta doira asosi bor",
+    "target": "cone",
+    "options": [
+      "cone",
+      "cylinder",
+      "cuboid"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x05"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kubning barcha yoqlari bir xil kvadrat",
+    "target": "cube",
+    "options": [
+      "cylinder",
+      "cube",
+      "squarePyramid"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x06"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindr yoyilmasi — to'g'ri to'rtburchak va 2 ta doira",
+    "target": "cylinder",
+    "options": [
+      "squarePyramid",
+      "triangularPrism",
+      "cylinder"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x07"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konusda faqat 1 ta doira asos bor",
+    "target": "cone",
+    "options": [
+      "cylinder",
+      "triangularPrism",
+      "cone"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x08"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kub — 6 ta kvadrat, silindr esa doiralar bilan",
+    "target": "cube",
+    "options": [
+      "cuboid",
+      "cube",
+      "cylinder"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x09"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindr yon sirti yozilganda to'g'ri to'rtburchak bo'ladi",
+    "target": "cylinder",
+    "options": [
+      "cuboid",
+      "cylinder",
+      "squarePyramid"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x10"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konus yoyilmasi — doira sektori va kichik doira",
+    "target": "cone",
+    "options": [
+      "triangularPrism",
+      "cube",
+      "cone"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x11"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
+    "target": "cube",
+    "options": [
+      "cylinder",
+      "cuboid",
+      "cube"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x12"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindr yoyilmasi — to'g'ri to'rtburchak va 2 ta doira",
+    "target": "cylinder",
+    "options": [
+      "cube",
+      "cylinder",
+      "cone"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x13"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konusda faqat 1 ta doira asos bor",
+    "target": "cone",
+    "options": [
+      "cone",
+      "cuboid",
+      "triangularPrism"
+    ],
+    "id": "sinf4_chorak4_blok67_level1_syoy_x14"
+  }
 ]

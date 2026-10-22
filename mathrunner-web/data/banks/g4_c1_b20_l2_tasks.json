@@ -1,8 +1,225 @@
 [
-  {"id": "sinf4_chorak1_blok20_level2_tart_01", "prompt": "Algoritm natijalarini o'sish tartibida joylashtiring", "numbers": [3, 9, 27, 1], "ascending": true},
-  {"id": "sinf4_chorak1_blok20_level2_tart_02", "prompt": "Sonlarni kamayish tartibida joylashtiring", "numbers": [45, 12, 78, 30, 6], "ascending": false},
-  {"id": "sinf4_chorak1_blok20_level2_tart_03", "prompt": "Sonlarni o'sish tartibida joylashtiring", "numbers": [100, 25, 50, 75], "ascending": true},
-  {"id": "sinf4_chorak1_blok20_level2_tart_04", "prompt": "Yarimlash algoritmi natijalarini kamayish tartibida joylashtiring", "numbers": [64, 8, 32, 16, 4], "ascending": false},
-  {"id": "sinf4_chorak1_blok20_level2_tart_05", "prompt": "Sonlarni o'sish tartibida joylashtiring", "numbers": [7, 3, 11, 5, 9], "ascending": true},
-  {"id": "sinf4_chorak1_blok20_level2_tart_06", "prompt": "Sonlarni kamayish tartibida joylashtiring", "numbers": [90, 60, 120, 30], "ascending": false}
+  {
+    "id": "sinf4_chorak1_blok20_level2_tart_01",
+    "prompt": "Algoritm natijalarini o'sish tartibida joylashtiring",
+    "numbers": [
+      3,
+      9,
+      27,
+      1
+    ],
+    "ascending": true
+  },
+  {
+    "id": "sinf4_chorak1_blok20_level2_tart_02",
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      45,
+      12,
+      78,
+      30,
+      6
+    ],
+    "ascending": false
+  },
+  {
+    "id": "sinf4_chorak1_blok20_level2_tart_03",
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      100,
+      25,
+      50,
+      75
+    ],
+    "ascending": true
+  },
+  {
+    "id": "sinf4_chorak1_blok20_level2_tart_04",
+    "prompt": "Yarimlash algoritmi natijalarini kamayish tartibida joylashtiring",
+    "numbers": [
+      64,
+      8,
+      32,
+      16,
+      4
+    ],
+    "ascending": false
+  },
+  {
+    "id": "sinf4_chorak1_blok20_level2_tart_05",
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      7,
+      3,
+      11,
+      5,
+      9
+    ],
+    "ascending": true
+  },
+  {
+    "id": "sinf4_chorak1_blok20_level2_tart_06",
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      90,
+      60,
+      120,
+      30
+    ],
+    "ascending": false
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      54,
+      9,
+      107,
+      13
+    ],
+    "ascending": true,
+    "id": "sinf4_chorak1_blok20_level2_tart_x01"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      91,
+      27,
+      96,
+      7
+    ],
+    "ascending": false,
+    "id": "sinf4_chorak1_blok20_level2_tart_x02"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      61,
+      76,
+      67,
+      46
+    ],
+    "ascending": true,
+    "id": "sinf4_chorak1_blok20_level2_tart_x03"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      71,
+      13,
+      22,
+      44
+    ],
+    "ascending": false,
+    "id": "sinf4_chorak1_blok20_level2_tart_x04"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      105,
+      115,
+      8,
+      30
+    ],
+    "ascending": true,
+    "id": "sinf4_chorak1_blok20_level2_tart_x05"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      101,
+      65,
+      99,
+      21
+    ],
+    "ascending": false,
+    "id": "sinf4_chorak1_blok20_level2_tart_x06"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      51,
+      1,
+      102,
+      21
+    ],
+    "ascending": true,
+    "id": "sinf4_chorak1_blok20_level2_tart_x07"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      86,
+      66,
+      84,
+      101
+    ],
+    "ascending": false,
+    "id": "sinf4_chorak1_blok20_level2_tart_x08"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      51,
+      63,
+      79,
+      76
+    ],
+    "ascending": true,
+    "id": "sinf4_chorak1_blok20_level2_tart_x09"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      5,
+      98,
+      41,
+      44
+    ],
+    "ascending": false,
+    "id": "sinf4_chorak1_blok20_level2_tart_x10"
+  },
+  {
+    "prompt": "Algoritm natijalarini o'sish tartibida joylashtiring",
+    "numbers": [
+      14,
+      89,
+      27,
+      13
+    ],
+    "ascending": true,
+    "id": "sinf4_chorak1_blok20_level2_tart_x11"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      1,
+      22,
+      19,
+      33
+    ],
+    "ascending": false,
+    "id": "sinf4_chorak1_blok20_level2_tart_x12"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      78,
+      76,
+      51,
+      16
+    ],
+    "ascending": true,
+    "id": "sinf4_chorak1_blok20_level2_tart_x13"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      35,
+      33,
+      14,
+      97
+    ],
+    "ascending": false,
+    "id": "sinf4_chorak1_blok20_level2_tart_x14"
+  }
 ]

@@ -6,7 +6,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "456 < 465, demak javob: <b><</b>"
   },
   {
     "id": "s2c2b22l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "738 = 738, demak javob: <b>=</b>"
   },
   {
     "id": "s2c2b22l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "509 < 590, demak javob: <b><</b>"
   },
   {
     "id": "s2c2b22l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "900 > 899, demak javob: <b>></b>"
   },
   {
     "id": "s2c2b22l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "270 > 207, demak javob: <b>></b>"
   },
   {
     "id": "s2c2b22l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "614 < 641, demak javob: <b><</b>"
   },
   {
     "id": "s2c2b22l2_07",

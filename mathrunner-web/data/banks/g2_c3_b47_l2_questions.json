@@ -6,7 +6,8 @@
     "wrongAnswers": [
       9,
       7
-    ]
+    ],
+    "explain": "40 : 5 = 8"
   },
   {
     "id": "s2c3b47l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       2,
       3
-    ]
+    ],
+    "explain": "5 : 5 = 1"
   },
   {
     "id": "s2c3b47l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       3,
       1
-    ]
+    ],
+    "explain": "10 : 5 = 2"
   },
   {
     "id": "s2c3b47l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       7,
       5
-    ]
+    ],
+    "explain": "30 : 5 = 6"
   },
   {
     "id": "s2c3b47l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       8,
       6
-    ]
+    ],
+    "explain": "35 : 5 = 7"
   },
   {
     "id": "s2c3b47l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       6,
       4
-    ]
+    ],
+    "explain": "25 : 5 = 5"
   },
   {
     "id": "s2c3b47l2_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       10,
       8
-    ]
+    ],
+    "explain": "45 : 5 = 9"
   },
   {
     "id": "s2c3b47l2_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       4,
       2
-    ]
+    ],
+    "explain": "15 : 5 = 3"
   },
   {
     "id": "s2c3b47l2_09",
@@ -78,7 +86,8 @@
     "wrongAnswers": [
       11,
       9
-    ]
+    ],
+    "explain": "50 : 5 = 10"
   },
   {
     "id": "s2c3b47l2_10",
@@ -87,6 +96,7 @@
     "wrongAnswers": [
       5,
       3
-    ]
+    ],
+    "explain": "20 : 5 = 4"
   }
 ]

@@ -6,7 +6,8 @@
     "wrongAnswers": [
       80,
       800
-    ]
+    ],
+    "explain": "80 : 10 = 8"
   },
   {
     "id": "s2c4b64l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       70,
       700
-    ]
+    ],
+    "explain": "700 : 100 = 7"
   },
   {
     "id": "s2c4b64l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       15,
       60
-    ]
+    ],
+    "explain": "6 × 10 + 5 = 60 + 5 = 65<br>Javob: <b>65</b>"
   },
   {
     "id": "s2c4b64l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       3,
       1200
-    ]
+    ],
+    "explain": "300 : 100 × 4 = 3 × 4 = 12<br>Javob: <b>12</b>"
   },
   {
     "id": "s2c4b64l2_05",
@@ -60,7 +64,8 @@
     "wrongAnswers": [
       20,
       1000
-    ]
+    ],
+    "explain": "10 × 10 = 100"
   },
   {
     "id": "s2c4b64l2_08",
@@ -69,7 +74,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 7 * 10 = 70, 800 : 100 = 8.<br>70 > 8, demak javob: <b>></b>"
   },
   {
     "id": "s2c4b64l2_09",

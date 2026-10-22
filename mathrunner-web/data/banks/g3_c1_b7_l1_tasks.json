@@ -12,7 +12,7 @@
   },
   {
     "id": "g3c1b7l1_ord_02",
-    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
     "numbers": [
       123456,
       132456,
@@ -34,7 +34,7 @@
   },
   {
     "id": "g3c1b7l1_ord_04",
-    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
     "numbers": [
       89076,
       89706,
@@ -56,7 +56,7 @@
   },
   {
     "id": "g3c1b7l1_ord_06",
-    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
     "numbers": [
       12345,
       21345,
@@ -78,7 +78,7 @@
   },
   {
     "id": "g3c1b7l1_ord_08",
-    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
     "numbers": [
       95000,
       950000,
@@ -100,7 +100,7 @@
   },
   {
     "id": "g3c1b7l1_ord_10",
-    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
     "numbers": [
       74100,
       74010,
@@ -108,5 +108,115 @@
       74110
     ],
     "ascending": false
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      24617,
+      21647,
+      26174,
+      26741
+    ],
+    "ascending": true,
+    "id": "g3c1b7l1_ord_x01"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      941386,
+      631984,
+      816934,
+      648913
+    ],
+    "ascending": false,
+    "id": "g3c1b7l1_ord_x02"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      69252,
+      26295,
+      92562,
+      29265
+    ],
+    "ascending": true,
+    "id": "g3c1b7l1_ord_x03"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      820118,
+      180812,
+      881210,
+      820811
+    ],
+    "ascending": false,
+    "id": "g3c1b7l1_ord_x04"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      71623,
+      63217,
+      32761,
+      17326
+    ],
+    "ascending": true,
+    "id": "g3c1b7l1_ord_x05"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      460294,
+      426904,
+      402469,
+      942046
+    ],
+    "ascending": false,
+    "id": "g3c1b7l1_ord_x06"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      37905,
+      75390,
+      93570,
+      59037
+    ],
+    "ascending": true,
+    "id": "g3c1b7l1_ord_x07"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      857300,
+      805037,
+      305078,
+      500783
+    ],
+    "ascending": false,
+    "id": "g3c1b7l1_ord_x08"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      424261,
+      422146,
+      624241,
+      624421
+    ],
+    "ascending": true,
+    "id": "g3c1b7l1_ord_x09"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      86055,
+      68505,
+      55806,
+      55086
+    ],
+    "ascending": false,
+    "id": "g3c1b7l1_ord_x10"
   }
 ]

@@ -60,7 +60,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 45 - 30 = 15, 20 = 20.<br>15 < 20, demak javob: <b><</b>"
   },
   {
     "id": "s1c3b41l2_08",

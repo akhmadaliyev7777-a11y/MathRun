@@ -60,7 +60,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 20 + 30 = 50, 60 = 60.<br>50 < 60, demak javob: <b><</b>"
   },
   {
     "id": "s1c3b38l2_08",

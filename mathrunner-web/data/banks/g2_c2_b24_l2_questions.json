@@ -6,7 +6,8 @@
     "wrongAnswers": [
       366,
       166
-    ]
+    ],
+    "explain": "500 − 234 = 266"
   },
   {
     "id": "s2c2b24l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       375,
       175
-    ]
+    ],
+    "explain": "620 − 345 = 275"
   },
   {
     "id": "s2c2b24l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       635,
       435
-    ]
+    ],
+    "explain": "703 − 168 = 535"
   },
   {
     "id": "s2c2b24l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       473,
       273
-    ]
+    ],
+    "explain": "800 − 427 = 373"
   },
   {
     "id": "s2c2b24l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       247,
       47
-    ]
+    ],
+    "explain": "415 − 268 = 147"
   },
   {
     "id": "s2c2b24l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       445,
       245
-    ]
+    ],
+    "explain": "900 − 555 = 345"
   },
   {
     "id": "s2c2b24l2_07",
@@ -78,7 +84,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 700 - 250 = 450, 500 = 500.<br>450 < 500, demak javob: <b><</b>"
   },
   {
     "id": "s2c2b24l2_10",

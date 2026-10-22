@@ -3,7 +3,6 @@
 import { el, shuffle } from '../util.js';
 import { ICON } from '../icons.js';
 import { nav } from '../app.js';
-import { lessonNo } from '../topicTitles.js';
 
 // ---------- umumiy qobiq ----------
 function shell(ctx, promptText, iconKey) {
@@ -17,15 +16,20 @@ function shell(ctx, promptText, iconKey) {
       el('button', { class: 'linkback', onclick: () => location.hash = ctx.backHash },
         el('span', { style: 'width:18px;height:18px', html: ICON.arrowLeft }), 'Mavzularga qaytish'),
       el('div', { class: 'runbar__mid' },
-        `${ctx.grade.grade}-sinf · ${ctx.chorak.roman} chorak · ${ctx.block.blok}-mavzu · ${lessonNo(ctx.block, ctx.level)}-dars`),
-      el('div', { class: 'runbar__mid', id: 'gprog' }, '')),
+        `${ctx.grade.grade}-sinf · ${ctx.chorak.roman} chorak · ${ctx.block.blok}-mavzu`),
+      el('div', { class: 'runbar__mid' }, '')),
     el('main', { class: 'gwrap' },
+      // qaysi mashq, nechanchi topshiriq va jami nechta ekani doim ko'rinib turadi
+      el('div', { class: 'gtop' },
+        el('span', { class: 'gtop__mashq' }, `${ctx.mashq}-mashq`, el('small', {}, ` · jami ${ctx.totalTasks} ta topshiriq, ${ctx.mashqCount} ta mashq`)),
+        el('b', { class: 'gtop__prog', id: 'gprog' }, '')),
       el('div', { class: 'prompt' },
         el('span', { style: 'width:22px;height:22px;flex-shrink:0', html: ICON[iconKey] || ICON.spark }),
         el('span', {}, promptText)),
       el('div', { class: 'gbar' }, bar),
       area, foot));
-  return { area, foot, setProg: (i, n) => { bar.style.width = `${(i / n) * 100}%`; document.getElementById('gprog').textContent = `${i} / ${n}`; } };
+  return { area, foot, setProg: (i, n) => { bar.style.width = `${(i / n) * 100}%`; document.getElementById('gprog').textContent = `Topshiriq ${Math.min(i + 1, n)} / ${n}`; },
+    setDone: (k, n) => { bar.style.width = `${(k / n) * 100}%`; document.getElementById('gprog').textContent = `Belgilandi ${k} / ${n}`; } };
 }
 
 function checkBtn(label, onClick) {
@@ -207,9 +211,9 @@ function genBalance(bank, hard) {
 }
 let balHard = false;   // tanlangan rejim (Oson / Qiyin) — sahifa ochiq turganda eslab qolinadi
 function gameBalance(ctx) {
-  // oson: bankdagi misollar + yana shuncha yangi misol; qiyin: hammasi yangi, katta sonlar bilan
-  const N = ctx.bank.length * 2;
-  const make = () => balHard ? Array.from({ length: N }, () => genBalance(ctx.bank, true)) : [...ctx.bank, ...Array.from({ length: ctx.bank.length }, () => genBalance(ctx.bank))];
+  // oson: bankdagi misollar; qiyin: hammasi yangi, katta sonlar bilan (mashqdagi topshiriqlar soni o'zgarmaydi)
+  const N = ctx.bank.length;
+  const make = () => balHard ? Array.from({ length: N }, () => genBalance(ctx.bank, true)) : [...ctx.bank];
   let tasks = make();
   let idx = 0, correct = 0, streak = 0, longest = 0, locked = false;
   const s = shell(ctx, 'Tarozi muvozanatda. Noma\'lumni toping.', 'scale');
@@ -268,7 +272,10 @@ function gameSymmetry(ctx) {
   const s = shell(ctx, tasks[0].prompt, 'mirror');
 
   function reflect(c, axis, n) {
-    return axis === 'vertical' ? { x: n - 1 - c.x, y: c.y } : { x: c.x, y: n - 1 - c.y };
+    if (axis === 'vertical') return { x: n - 1 - c.x, y: c.y };
+    if (axis === 'diagonalMain') return { x: c.y, y: c.x };
+    if (axis === 'center') return { x: n - 1 - c.x, y: n - 1 - c.y };
+    return { x: c.x, y: n - 1 - c.y };
   }
   function render() {
     const t = tasks[idx];
@@ -286,7 +293,10 @@ function gameSymmetry(ctx) {
       grid.replaceChildren();
       for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
         const key = `${x},${y}`;
-        const isAxis = t.axis === 'vertical' ? x === axisIdx : y === axisIdx;
+        const isAxis = t.axis === 'vertical' ? x === axisIdx
+          : t.axis === 'diagonalMain' ? x === y
+          : t.axis === 'center' ? (x === axisIdx && y === axisIdx)
+          : y === axisIdx;
         const cls = 'symcell' + (given.has(key) ? ' given' : isAxis ? ' axis' : on.has(key) ? ' on' : '');
         grid.append(el('div', {
           class: cls,
@@ -386,11 +396,12 @@ function gameEquationGrid(ctx) {
 function gameConveyor(ctx) {
   const items = ctx.bank; // [{text, isTrue}]
   const s = shell(ctx, 'Har bir mulohaza uchun "Ha" yoki "Yo\'q" ni tanlang', 'spark');
-  s.setProg(0, items.length);
+  s.setDone(0, items.length);
   const picks = new Array(items.length).fill(null);
 
   const list = el('div', { class: 'conv' });
   function draw() {
+    s.setDone(picks.filter(p => p !== null).length, items.length);
     list.replaceChildren(...items.map((it, i) => el('div', { class: 'conv__item' },
       el('span', {}, it.text),
       el('div', { class: 'conv__btns' },

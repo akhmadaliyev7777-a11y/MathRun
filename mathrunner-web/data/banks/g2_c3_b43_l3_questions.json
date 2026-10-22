@@ -6,7 +6,8 @@
     "wrongAnswers": [
       6,
       10
-    ]
+    ],
+    "explain": "16 : 2 = 8"
   },
   {
     "id": "s2c3b43l3_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       5,
       12
-    ]
+    ],
+    "explain": "20 : 2 = 10"
   },
   {
     "id": "s2c3b43l3_03",
@@ -51,7 +53,8 @@
     "wrongAnswers": [
       5,
       11
-    ]
+    ],
+    "explain": "10 : 2 + 3 = 5 + 3 = 8<br>Javob: <b>8</b>"
   },
   {
     "id": "s2c3b43l3_07",
@@ -60,7 +63,8 @@
     "wrongAnswers": [
       4,
       8
-    ]
+    ],
+    "explain": "12 : 2 = 6"
   },
   {
     "id": "s2c3b43l3_08",
@@ -69,7 +73,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 16 : 2 = 8, 7 = 7.<br>8 > 7, demak javob: <b>></b>"
   },
   {
     "id": "s2c3b43l3_09",

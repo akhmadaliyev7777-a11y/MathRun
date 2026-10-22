@@ -48,5 +48,55 @@
     "id": "g2c3b44l1_jt_10",
     "text": "11 juft son",
     "isTrue": false
+  },
+  {
+    "text": "14 juft son",
+    "isTrue": true,
+    "id": "g2c3b44l1_jt_x01"
+  },
+  {
+    "text": "20 toq son",
+    "isTrue": false,
+    "id": "g2c3b44l1_jt_x02"
+  },
+  {
+    "text": "17 toq son",
+    "isTrue": true,
+    "id": "g2c3b44l1_jt_x03"
+  },
+  {
+    "text": "30 toq son",
+    "isTrue": false,
+    "id": "g2c3b44l1_jt_x04"
+  },
+  {
+    "text": "21 toq son",
+    "isTrue": true,
+    "id": "g2c3b44l1_jt_x05"
+  },
+  {
+    "text": "23 juft son",
+    "isTrue": false,
+    "id": "g2c3b44l1_jt_x06"
+  },
+  {
+    "text": "26 juft son",
+    "isTrue": true,
+    "id": "g2c3b44l1_jt_x07"
+  },
+  {
+    "text": "27 juft son",
+    "isTrue": false,
+    "id": "g2c3b44l1_jt_x08"
+  },
+  {
+    "text": "19 toq son",
+    "isTrue": true,
+    "id": "g2c3b44l1_jt_x09"
+  },
+  {
+    "text": "18 toq son",
+    "isTrue": false,
+    "id": "g2c3b44l1_jt_x10"
   }
 ]

@@ -6,7 +6,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "12 < 17, demak javob: <b><</b>"
   },
   {
     "id": "s1c2b24l1_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "20 > 14, demak javob: <b>></b>"
   },
   {
     "id": "s1c2b24l1_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "15 = 15, demak javob: <b>=</b>"
   },
   {
     "id": "s1c2b24l1_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "11 < 19, demak javob: <b><</b>"
   },
   {
     "id": "s1c2b24l1_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "18 > 8, demak javob: <b>></b>"
   },
   {
     "id": "s1c2b24l1_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "13 < 16, demak javob: <b><</b>"
   },
   {
     "id": "s1c2b24l1_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "9 < 12, demak javob: <b><</b>"
   },
   {
     "id": "s1c2b24l1_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "16 = 16, demak javob: <b>=</b>"
   },
   {
     "id": "s1c2b24l1_09",

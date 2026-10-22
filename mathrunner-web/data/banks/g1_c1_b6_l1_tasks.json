@@ -118,5 +118,125 @@
       1
     ],
     "ascending": false
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      3,
+      7,
+      10,
+      5,
+      1
+    ],
+    "ascending": true,
+    "id": "g1c1b6l1_ord_x01"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      7,
+      10,
+      4,
+      1,
+      6
+    ],
+    "ascending": false,
+    "id": "g1c1b6l1_ord_x02"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      10,
+      5,
+      3,
+      2,
+      4
+    ],
+    "ascending": true,
+    "id": "g1c1b6l1_ord_x03"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      10,
+      8,
+      6,
+      4,
+      9
+    ],
+    "ascending": false,
+    "id": "g1c1b6l1_ord_x04"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      8,
+      10,
+      2,
+      9,
+      7
+    ],
+    "ascending": true,
+    "id": "g1c1b6l1_ord_x05"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      1,
+      9,
+      3,
+      6,
+      2
+    ],
+    "ascending": false,
+    "id": "g1c1b6l1_ord_x06"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      2,
+      1,
+      8,
+      7,
+      3
+    ],
+    "ascending": true,
+    "id": "g1c1b6l1_ord_x07"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      8,
+      4,
+      5,
+      7,
+      3
+    ],
+    "ascending": false,
+    "id": "g1c1b6l1_ord_x08"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      5,
+      4,
+      6,
+      7,
+      8
+    ],
+    "ascending": true,
+    "id": "g1c1b6l1_ord_x09"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      10,
+      6,
+      4,
+      9,
+      2
+    ],
+    "ascending": false,
+    "id": "g1c1b6l1_ord_x10"
   }
 ]

@@ -3,15 +3,9 @@ import { ICON, KINGDOM_ICON } from '../icons.js';
 import { nav, footer, curriculum, gradeData, applyKingdom } from '../app.js';
 import { readBest } from '../util.js';
 import { TOPIC_TITLES } from '../topicTitles.js';
+import { lessonButtons, GAME_LABEL } from '../lessonBtns.js';
 import { simFor } from '../sims.js';
 
-const GAME_LABEL = {
-  set: 'To\'plamlar o\'yini', numberOrder: 'Tartiblash o\'yini', placeValue: 'Xona tarkibi o\'yini',
-  balanceScale: 'Tarozi o\'yini', symmetry: 'Simmetriya o\'yini', netFold: 'Yoyilma o\'yini',
-  equationGrid: 'Jadval o\'yini', algorithmConveyor: 'Saralash o\'yini',
-  fractionStrip: 'Ulush o\'yini', coordinatePath: 'Koordinata o\'yini',
-  motionLine: 'Harakat o\'yini', protractor: 'Transportir o\'yini',
-};
 
 export function render(root, [gradeStr, chorakStr]) {
   const grade = Number(gradeStr);
@@ -47,7 +41,7 @@ export function render(root, [gradeStr, chorakStr]) {
       : (lv.gameKind === 'algorithmConveyor' || lv.gameKind === 'set' ? 'O\'yin' : 'O\'yin');
     return el('button', {
       class: 'lchip ' + (idx === 0 ? 'lchip--primary' : 'lchip--ghost'),
-      onclick: () => { location.hash = `#/play/${lv.id}`; },
+      onclick: () => { location.hash = lv.gameKind === 'test' ? `#/test/${lv.id}` : `#/play/${lv.id}`; },
       title: done ? `${done} yulduz` : '',
     }, label + (done ? ' ★'.repeat(done) : ''));
   };
@@ -68,29 +62,19 @@ export function render(root, [gradeStr, chorakStr]) {
 
   // ro'yxat ko'rinishi: shu chorak uchun sodda nomlar bo'lsa
   const titles = TOPIC_TITLES[`g${grade}_c${chorakNo}`];
-  // ro'yxatdagi dars tugmasi: "1-dars", "2-dars"...
-  const lessonBtn = (lv, i, levels) => {
-    const done = best[lv.id]?.stars || 0;
-    const game = lv.gameKind !== 'test';
-    const attrs = lv.webSupported
-      ? { class: 'tbtn' + (lv === levels.find(l => l.webSupported) ? ' tbtn--primary' : ''), onclick: () => { location.hash = `#/play/${lv.id}`; },
-          title: (game ? (GAME_LABEL[lv.gameKind] || 'O\'yin') : 'Test') + (done ? ` · ${done} yulduz` : '') }
-      : { class: 'tbtn tbtn--soon', disabled: true, title: 'Web versiyada tez orada' };
-    return el('button', attrs,
-      `${i + 1}-dars`, done ? el('span', { class: 'tbtn__star' }, '★'.repeat(done)) : null);
-  };
+  const lessonBtns = (b) => lessonButtons(b, best);
   // simulyatori bor mavzu: nomi bosilsa — avval simulyator ochiladi (testlar uning ostida)
   const trow = (b, idx) => {
     const first = b.levels.find(l => l.webSupported);
     const sim = simFor(grade, chorakNo, b.blok);
-    const href = sim ? `#/sim/${grade}/${chorakNo}/${b.blok}` : first ? `#/play/${first.id}` : null;
+    const href = sim ? `#/sim/${grade}/${chorakNo}/${b.blok}` : first ? (first.gameKind === 'test' ? `#/test/${first.id}` : `#/play/${first.id}`) : null;
     return el('li', { class: 'trow' + (sim ? ' trow--sim' : '') },
       el(href ? 'a' : 'span', { class: 'trow__main', href },
         el('span', { class: 'trow__icon' }, el('span', { class: 'trow__num' }, String(b.blok))),
         el('span', { class: 'trow__title' }, titles[idx] || b.name, sim && sim.review ? el('span', { class: 'review-dot', title: 'Tekshirish kerak — kamchiligi bor yoki hali tekshirilmagan' }) : null)),
       el('div', { class: 'trow__levels' },
         sim ? el('a', { class: 'tbtn tbtn--sim', href, title: 'Interaktiv simulyator' }, 'Simulyator') : null,
-        ...b.levels.map(lessonBtn)));
+        ...lessonBtns(b)));
   };
   const topics = titles
     ? el('ol', { class: 'tlist' }, ...chorak.blocks.map(trow))

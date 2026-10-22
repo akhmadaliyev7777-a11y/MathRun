@@ -15,7 +15,8 @@
     "wrongAnswers": [
       48,
       28
-    ]
+    ],
+    "explain": "(30 + 18) − 10 = 48 − 10 = 38<br>Javob: <b>38</b>"
   },
   {
     "id": "s2c1b15l1_03",
@@ -24,7 +25,8 @@
     "wrongAnswers": [
       76,
       60
-    ]
+    ],
+    "explain": "(50 + 26) − 6 = 76 − 6 = 70<br>Javob: <b>70</b>"
   },
   {
     "id": "s2c1b15l1_04",
@@ -33,7 +35,8 @@
     "wrongAnswers": [
       75,
       25
-    ]
+    ],
+    "explain": "(60 + 15) − 40 = 75 − 40 = 35<br>Javob: <b>35</b>"
   },
   {
     "id": "s2c1b15l1_05",
@@ -42,7 +45,8 @@
     "wrongAnswers": [
       57,
       29
-    ]
+    ],
+    "explain": "(24 + 33) − 4 = 57 − 4 = 53<br>Javob: <b>53</b>"
   },
   {
     "id": "s2c1b15l1_06",
@@ -51,7 +55,8 @@
     "wrongAnswers": [
       57,
       40
-    ]
+    ],
+    "explain": "(45 + 12) − 5 = 57 − 5 = 52<br>Javob: <b>52</b>"
   },
   {
     "id": "s2c1b15l1_07",
@@ -60,7 +65,8 @@
     "wrongAnswers": [
       89,
       19
-    ]
+    ],
+    "explain": "(70 + 19) − 50 = 89 − 50 = 39<br>Javob: <b>39</b>"
   },
   {
     "id": "s2c1b15l1_08",
@@ -69,7 +75,8 @@
     "wrongAnswers": [
       72,
       36
-    ]
+    ],
+    "explain": "(28 + 44) − 8 = 72 − 8 = 64<br>Javob: <b>64</b>"
   },
   {
     "id": "s2c1b15l1_09",

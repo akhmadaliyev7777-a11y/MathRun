@@ -108,5 +108,115 @@
       "cuboid",
       "cube"
     ]
+  },
+  {
+    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
+    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
+    "target": "cube",
+    "options": [
+      "cube",
+      "cone",
+      "cuboid"
+    ],
+    "id": "g3c3b43l1_net_x01"
+  },
+  {
+    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
+    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
+    "target": "cuboid",
+    "options": [
+      "squarePyramid",
+      "triangularPrism",
+      "cuboid"
+    ],
+    "id": "g3c3b43l1_net_x02"
+  },
+  {
+    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
+    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
+    "target": "cube",
+    "options": [
+      "cylinder",
+      "cube",
+      "triangularPrism"
+    ],
+    "id": "g3c3b43l1_net_x03"
+  },
+  {
+    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
+    "hint": "Parallelepipedda 12 ta qirra va 8 ta uch bor",
+    "target": "cuboid",
+    "options": [
+      "cuboid",
+      "cone",
+      "cube"
+    ],
+    "id": "g3c3b43l1_net_x04"
+  },
+  {
+    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
+    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
+    "target": "cube",
+    "options": [
+      "triangularPrism",
+      "cube",
+      "cylinder"
+    ],
+    "id": "g3c3b43l1_net_x05"
+  },
+  {
+    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
+    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
+    "target": "cuboid",
+    "options": [
+      "cuboid",
+      "cone",
+      "squarePyramid"
+    ],
+    "id": "g3c3b43l1_net_x06"
+  },
+  {
+    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
+    "hint": "Kubning barcha yoqlari bir xil kvadrat",
+    "target": "cube",
+    "options": [
+      "cube",
+      "squarePyramid",
+      "triangularPrism"
+    ],
+    "id": "g3c3b43l1_net_x07"
+  },
+  {
+    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
+    "hint": "Parallelepipedda 12 ta qirra va 8 ta uch bor",
+    "target": "cuboid",
+    "options": [
+      "cube",
+      "triangularPrism",
+      "cuboid"
+    ],
+    "id": "g3c3b43l1_net_x08"
+  },
+  {
+    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
+    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
+    "target": "cube",
+    "options": [
+      "cuboid",
+      "cube",
+      "triangularPrism"
+    ],
+    "id": "g3c3b43l1_net_x09"
+  },
+  {
+    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
+    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
+    "target": "cuboid",
+    "options": [
+      "triangularPrism",
+      "cuboid",
+      "cone"
+    ],
+    "id": "g3c3b43l1_net_x10"
   }
 ]

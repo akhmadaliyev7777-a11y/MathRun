@@ -48,5 +48,55 @@
     "id": "g1c1b14l1_jt_10",
     "text": "1 juft son",
     "isTrue": false
+  },
+  {
+    "text": "5 toq son",
+    "isTrue": true,
+    "id": "g1c1b14l1_jt_x01"
+  },
+  {
+    "text": "6 toq son",
+    "isTrue": false,
+    "id": "g1c1b14l1_jt_x02"
+  },
+  {
+    "text": "1 toq son",
+    "isTrue": true,
+    "id": "g1c1b14l1_jt_x03"
+  },
+  {
+    "text": "10 toq son",
+    "isTrue": false,
+    "id": "g1c1b14l1_jt_x04"
+  },
+  {
+    "text": "9 toq son",
+    "isTrue": true,
+    "id": "g1c1b14l1_jt_x05"
+  },
+  {
+    "text": "2 toq son",
+    "isTrue": false,
+    "id": "g1c1b14l1_jt_x06"
+  },
+  {
+    "text": "7 toq son",
+    "isTrue": true,
+    "id": "g1c1b14l1_jt_x07"
+  },
+  {
+    "text": "4 toq son",
+    "isTrue": false,
+    "id": "g1c1b14l1_jt_x08"
+  },
+  {
+    "text": "3 toq son",
+    "isTrue": true,
+    "id": "g1c1b14l1_jt_x09"
+  },
+  {
+    "text": "8 toq son",
+    "isTrue": false,
+    "id": "g1c1b14l1_jt_x10"
   }
 ]

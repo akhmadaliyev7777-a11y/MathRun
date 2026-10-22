@@ -108,5 +108,115 @@
       "cube",
       "cylinder"
     ]
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
+    "target": "cube",
+    "options": [
+      "cone",
+      "cube",
+      "triangularPrism"
+    ],
+    "id": "g2c4b69l1_nf_x01"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Parallelepipedning qarama-qarshi yoqlari teng to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "triangularPrism",
+      "cone",
+      "cuboid"
+    ],
+    "id": "g2c4b69l1_nf_x02"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
+    "target": "cube",
+    "options": [
+      "cube",
+      "triangularPrism",
+      "squarePyramid"
+    ],
+    "id": "g2c4b69l1_nf_x03"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Parallelepipedda 6 ta yoq bor, ular to'g'ri to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "squarePyramid",
+      "triangularPrism",
+      "cuboid"
+    ],
+    "id": "g2c4b69l1_nf_x04"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kubning barcha yoqlari bir xil kvadrat",
+    "target": "cube",
+    "options": [
+      "triangularPrism",
+      "cylinder",
+      "cube"
+    ],
+    "id": "g2c4b69l1_nf_x05"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Parallelepipedda 6 ta yoq bor, ular to'g'ri to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "triangularPrism",
+      "cuboid",
+      "cube"
+    ],
+    "id": "g2c4b69l1_nf_x06"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
+    "target": "cube",
+    "options": [
+      "cuboid",
+      "cube",
+      "squarePyramid"
+    ],
+    "id": "g2c4b69l1_nf_x07"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Parallelepipedning qarama-qarshi yoqlari teng to'rtburchak",
+    "target": "cuboid",
+    "options": [
+      "triangularPrism",
+      "cube",
+      "cuboid"
+    ],
+    "id": "g2c4b69l1_nf_x08"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Kubning barcha yoqlari bir xil kvadrat",
+    "target": "cube",
+    "options": [
+      "cube",
+      "cuboid",
+      "triangularPrism"
+    ],
+    "id": "g2c4b69l1_nf_x09"
+  },
+  {
+    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
+    "hint": "Parallelepipedda 12 ta qirra va 8 ta uch bor",
+    "target": "cuboid",
+    "options": [
+      "cone",
+      "squarePyramid",
+      "cuboid"
+    ],
+    "id": "g2c4b69l1_nf_x10"
   }
 ]

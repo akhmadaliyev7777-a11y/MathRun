@@ -6,7 +6,8 @@
     "wrongAnswers": [
       425,
       727
-    ]
+    ],
+    "explain": "175 + 550 = 725"
   },
   {
     "id": "s3c1b1l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       154,
       156
-    ]
+    ],
+    "explain": "441 − 286 = 155"
   },
   {
     "id": "s3c1b1l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       473,
       593
-    ]
+    ],
+    "explain": "884 − 391 = 493"
   },
   {
     "id": "s3c1b1l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       789,
       760
-    ]
+    ],
+    "explain": "203 + 556 = 759"
   },
   {
     "id": "s3c1b1l2_05",
@@ -51,7 +55,8 @@
     "wrongAnswers": [
       470,
       460
-    ]
+    ],
+    "explain": "(574 + 66) − 150 = 640 − 150 = 490<br>Javob: <b>490</b>"
   },
   {
     "id": "s3c1b1l2_07",
@@ -69,7 +74,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 399 + 344 = 743, 399 + 314 = 713.<br>743 > 713, demak javob: <b>></b>"
   },
   {
     "id": "s3c1b1l2_09",

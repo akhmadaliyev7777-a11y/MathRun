@@ -6,7 +6,8 @@
     "wrongAnswers": [
       3500,
       350000
-    ]
+    ],
+    "explain": "50 × 700 = 35 000"
   },
   {
     "id": "s3c1b12l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       4800,
       480000
-    ]
+    ],
+    "explain": "80 × 600 = 48 000"
   },
   {
     "id": "s3c1b12l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       4,
       400
-    ]
+    ],
+    "explain": "2 400 : 60 = 40"
   },
   {
     "id": "s3c1b12l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       1,
       50
-    ]
+    ],
+    "explain": "4 500 : 900 = 5"
   },
   {
     "id": "s3c1b12l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       9,
       900
-    ]
+    ],
+    "explain": "63 000 : 700 = 90"
   },
   {
     "id": "s3c1b12l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       4,
       400
-    ]
+    ],
+    "explain": "3 200 : 80 = 40"
   },
   {
     "id": "s3c1b12l2_07",
@@ -69,7 +75,8 @@
     "wrongAnswers": [
       50,
       45
-    ]
+    ],
+    "explain": "4 500 : 900 = 5"
   },
   {
     "id": "s3c1b12l2_09",
@@ -78,7 +85,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 600 * 40 = 24 000, 800 * 30 = 24 000.<br>24 000 = 24 000, demak javob: <b>=</b>"
   },
   {
     "id": "s3c1b12l2_10",
@@ -87,6 +95,7 @@
     "wrongAnswers": [
       5600,
       560000
-    ]
+    ],
+    "explain": "70 × 800 = 56 000"
   }
 ]

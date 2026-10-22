@@ -6,7 +6,8 @@
     "wrongAnswers": [
       58,
       67
-    ]
+    ],
+    "explain": "23 + 45 = 68"
   },
   {
     "id": "s2c1b5l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       76,
       85
-    ]
+    ],
+    "explain": "54 + 32 = 86"
   },
   {
     "id": "s2c1b5l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       58,
       67
-    ]
+    ],
+    "explain": "61 + 7 = 68"
   },
   {
     "id": "s2c1b5l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       78,
       87
-    ]
+    ],
+    "explain": "48 + 40 = 88"
   },
   {
     "id": "s2c1b5l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       13,
       22
-    ]
+    ],
+    "explain": "17 + 6 = 23"
   },
   {
     "id": "s2c1b5l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       80,
       89
-    ]
+    ],
+    "explain": "35 + 55 = 90"
   },
   {
     "id": "s2c1b5l2_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       72,
       61
-    ]
+    ],
+    "explain": "87 − 25 = 62"
   },
   {
     "id": "s2c1b5l2_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       36,
       25
-    ]
+    ],
+    "explain": "66 − 40 = 26"
   },
   {
     "id": "s2c1b5l2_09",
@@ -78,7 +86,8 @@
     "wrongAnswers": [
       61,
       50
-    ]
+    ],
+    "explain": "59 − 8 = 51"
   },
   {
     "id": "s2c1b5l2_10",
@@ -87,6 +96,7 @@
     "wrongAnswers": [
       65,
       54
-    ]
+    ],
+    "explain": "100 − 45 = 55"
   }
 ]

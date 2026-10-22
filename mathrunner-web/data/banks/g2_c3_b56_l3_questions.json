@@ -6,7 +6,8 @@
     "wrongAnswers": [
       35,
       48
-    ]
+    ],
+    "explain": "7 × 6 = 42"
   },
   {
     "id": "s2c3b56l3_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       64,
       81
-    ]
+    ],
+    "explain": "8 × 9 = 72"
   },
   {
     "id": "s2c3b56l3_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       28,
       40
-    ]
+    ],
+    "explain": "4 × 8 = 32"
   },
   {
     "id": "s2c3b56l3_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       36,
       50
-    ]
+    ],
+    "explain": "9 × 5 = 45"
   },
   {
     "id": "s2c3b56l3_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       9,
       7
-    ]
+    ],
+    "explain": "48 : 6 = 8"
   },
   {
     "id": "s2c3b56l3_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       9,
       7
-    ]
+    ],
+    "explain": "56 : 7 = 8"
   },
   {
     "id": "s2c3b56l3_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       10,
       8
-    ]
+    ],
+    "explain": "81 : 9 = 9"
   },
   {
     "id": "s2c3b56l3_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       9,
       7
-    ]
+    ],
+    "explain": "64 : 8 = 8"
   },
   {
     "id": "s2c3b56l3_09",

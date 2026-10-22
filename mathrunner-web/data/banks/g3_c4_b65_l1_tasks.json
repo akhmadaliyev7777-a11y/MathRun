@@ -318,5 +318,373 @@
         "zone": "neither"
       }
     ]
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Bir xonali",
+    "setBName": "Toq sonlar",
+    "elements": [
+      {
+        "value": "1",
+        "zone": "both"
+      },
+      {
+        "value": "28",
+        "zone": "neither"
+      },
+      {
+        "value": "4",
+        "zone": "onlyA"
+      },
+      {
+        "value": "32",
+        "zone": "neither"
+      },
+      {
+        "value": "37",
+        "zone": "onlyB"
+      },
+      {
+        "value": "22",
+        "zone": "neither"
+      },
+      {
+        "value": "10",
+        "zone": "neither"
+      }
+    ],
+    "id": "g3c4b65l1_set_x01"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "3 ga karrali",
+    "setBName": "2 ga bo'linadigan",
+    "elements": [
+      {
+        "value": "17",
+        "zone": "neither"
+      },
+      {
+        "value": "28",
+        "zone": "onlyB"
+      },
+      {
+        "value": "31",
+        "zone": "neither"
+      },
+      {
+        "value": "16",
+        "zone": "onlyB"
+      },
+      {
+        "value": "27",
+        "zone": "onlyA"
+      },
+      {
+        "value": "15",
+        "zone": "onlyA"
+      },
+      {
+        "value": "30",
+        "zone": "both"
+      },
+      {
+        "value": "9",
+        "zone": "onlyA"
+      }
+    ],
+    "id": "g3c4b65l1_set_x02"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "15 dan kichik",
+    "setBName": "4 ga bo'linadigan",
+    "elements": [
+      {
+        "value": "16",
+        "zone": "onlyB"
+      },
+      {
+        "value": "8",
+        "zone": "both"
+      },
+      {
+        "value": "19",
+        "zone": "neither"
+      },
+      {
+        "value": "22",
+        "zone": "neither"
+      },
+      {
+        "value": "6",
+        "zone": "onlyA"
+      },
+      {
+        "value": "24",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "g3c4b65l1_set_x03"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "9 ga karrali",
+    "setBName": "Toq sonlar",
+    "elements": [
+      {
+        "value": "17",
+        "zone": "onlyB"
+      },
+      {
+        "value": "18",
+        "zone": "onlyA"
+      },
+      {
+        "value": "27",
+        "zone": "both"
+      },
+      {
+        "value": "20",
+        "zone": "neither"
+      },
+      {
+        "value": "14",
+        "zone": "neither"
+      },
+      {
+        "value": "1",
+        "zone": "onlyB"
+      },
+      {
+        "value": "10",
+        "zone": "neither"
+      }
+    ],
+    "id": "g3c4b65l1_set_x04"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "3 ga karrali",
+    "setBName": "Juft bir xonali",
+    "elements": [
+      {
+        "value": "6",
+        "zone": "both"
+      },
+      {
+        "value": "5",
+        "zone": "neither"
+      },
+      {
+        "value": "10",
+        "zone": "neither"
+      },
+      {
+        "value": "35",
+        "zone": "neither"
+      },
+      {
+        "value": "16",
+        "zone": "neither"
+      },
+      {
+        "value": "26",
+        "zone": "neither"
+      },
+      {
+        "value": "4",
+        "zone": "onlyB"
+      },
+      {
+        "value": "18",
+        "zone": "onlyA"
+      }
+    ],
+    "id": "g3c4b65l1_set_x05"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "8 ga karrali",
+    "setBName": "Bir xonali",
+    "elements": [
+      {
+        "value": "12",
+        "zone": "neither"
+      },
+      {
+        "value": "16",
+        "zone": "onlyA"
+      },
+      {
+        "value": "34",
+        "zone": "neither"
+      },
+      {
+        "value": "18",
+        "zone": "neither"
+      },
+      {
+        "value": "9",
+        "zone": "onlyB"
+      },
+      {
+        "value": "8",
+        "zone": "both"
+      },
+      {
+        "value": "35",
+        "zone": "neither"
+      }
+    ],
+    "id": "g3c4b65l1_set_x06"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "10 ga karrali",
+    "setBName": "4 ga bo'linadigan",
+    "elements": [
+      {
+        "value": "4",
+        "zone": "onlyB"
+      },
+      {
+        "value": "32",
+        "zone": "onlyB"
+      },
+      {
+        "value": "20",
+        "zone": "both"
+      },
+      {
+        "value": "30",
+        "zone": "onlyA"
+      },
+      {
+        "value": "6",
+        "zone": "neither"
+      },
+      {
+        "value": "5",
+        "zone": "neither"
+      },
+      {
+        "value": "7",
+        "zone": "neither"
+      },
+      {
+        "value": "16",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "g3c4b65l1_set_x07"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "2 ga bo'linadigan",
+    "setBName": "10 dan kichik sonlar",
+    "elements": [
+      {
+        "value": "23",
+        "zone": "neither"
+      },
+      {
+        "value": "3",
+        "zone": "onlyB"
+      },
+      {
+        "value": "29",
+        "zone": "neither"
+      },
+      {
+        "value": "25",
+        "zone": "neither"
+      },
+      {
+        "value": "20",
+        "zone": "onlyA"
+      },
+      {
+        "value": "2",
+        "zone": "both"
+      },
+      {
+        "value": "35",
+        "zone": "neither"
+      },
+      {
+        "value": "22",
+        "zone": "onlyA"
+      }
+    ],
+    "id": "g3c4b65l1_set_x08"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "15 dan kichik",
+    "setBName": "8 ga karrali",
+    "elements": [
+      {
+        "value": "25",
+        "zone": "neither"
+      },
+      {
+        "value": "8",
+        "zone": "both"
+      },
+      {
+        "value": "9",
+        "zone": "onlyA"
+      },
+      {
+        "value": "15",
+        "zone": "neither"
+      },
+      {
+        "value": "34",
+        "zone": "neither"
+      },
+      {
+        "value": "11",
+        "zone": "onlyA"
+      },
+      {
+        "value": "32",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "g3c4b65l1_set_x09"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Juft bir xonali",
+    "setBName": "6 ga karrali",
+    "elements": [
+      {
+        "value": "9",
+        "zone": "neither"
+      },
+      {
+        "value": "37",
+        "zone": "neither"
+      },
+      {
+        "value": "34",
+        "zone": "neither"
+      },
+      {
+        "value": "8",
+        "zone": "onlyA"
+      },
+      {
+        "value": "18",
+        "zone": "onlyB"
+      },
+      {
+        "value": "6",
+        "zone": "both"
+      }
+    ],
+    "id": "g3c4b65l1_set_x10"
   }
 ]

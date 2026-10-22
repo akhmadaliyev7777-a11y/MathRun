@@ -6,7 +6,8 @@
     "wrongAnswers": [
       320,
       3280
-    ]
+    ],
+    "explain": "80 × 40 = 3 200"
   },
   {
     "id": "s3c1b3l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       480,
       4860
-    ]
+    ],
+    "explain": "60 × 80 = 4 800"
   },
   {
     "id": "s3c1b3l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       560,
       5680
-    ]
+    ],
+    "explain": "80 × 70 = 5 600"
   },
   {
     "id": "s3c1b3l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       80,
       1
-    ]
+    ],
+    "explain": "800 : 100 = 8"
   },
   {
     "id": "s3c1b3l2_05",
@@ -51,7 +55,8 @@
     "wrongAnswers": [
       60,
       96
-    ]
+    ],
+    "explain": "(5 + 6) × 6 = 11 × 6 = 66<br>Javob: <b>66</b>"
   },
   {
     "id": "s3c1b3l2_07",
@@ -60,7 +65,8 @@
     "wrongAnswers": [
       550,
       810
-    ]
+    ],
+    "explain": "90 × 8 + 210 : 7 = 720 + 210 : 7 = 720 + 30 = 750<br>Javob: <b>750</b>"
   },
   {
     "id": "s3c1b3l2_08",
@@ -69,7 +75,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 50 * 7 = 350, 35 * 10 = 350.<br>350 = 350, demak javob: <b>=</b>"
   },
   {
     "id": "s3c1b3l2_09",
@@ -87,6 +94,7 @@
     "wrongAnswers": [
       74,
       84
-    ]
+    ],
+    "explain": "7 × (10 + 4) = 7 × 14 = 98<br>Javob: <b>98</b>"
   }
 ]

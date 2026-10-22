@@ -15,7 +15,8 @@
     "wrongAnswers": [
       5,
       7
-    ]
+    ],
+    "explain": "10 − 4 = 6"
   },
   {
     "id": "s1c1b21l2_03",
@@ -78,7 +79,8 @@
     "wrongAnswers": [
       5,
       7
-    ]
+    ],
+    "explain": "1 + 2 + 3 = 3 + 3 = 6<br>Javob: <b>6</b>"
   },
   {
     "id": "s1c1b21l2_10",

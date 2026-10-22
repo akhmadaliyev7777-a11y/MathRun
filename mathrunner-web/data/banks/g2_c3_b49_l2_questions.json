@@ -6,7 +6,8 @@
     "wrongAnswers": [
       20,
       30
-    ]
+    ],
+    "explain": "5 × 5 = 25"
   },
   {
     "id": "s2c3b49l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       18,
       36
-    ]
+    ],
+    "explain": "3 × 9 = 27"
   },
   {
     "id": "s2c3b49l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       18,
       30
-    ]
+    ],
+    "explain": "4 × 6 = 24"
   },
   {
     "id": "s2c3b49l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       10,
       30
-    ]
+    ],
+    "explain": "2 × 10 = 20"
   },
   {
     "id": "s2c3b49l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       7,
       9
-    ]
+    ],
+    "explain": "40 : 5 = 8"
   },
   {
     "id": "s2c3b49l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       5,
       7
-    ]
+    ],
+    "explain": "24 : 4 = 6"
   },
   {
     "id": "s2c3b49l2_07",

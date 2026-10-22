@@ -1,8 +1,222 @@
 [
-  {"id": "sinf4_chorak4_blok68_level1_kyoy_01", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Konus yoyilmasi — doira sektori va kichik doira", "target": "cone", "options": ["cone", "cylinder", "cube"]},
-  {"id": "sinf4_chorak4_blok68_level1_kyoy_02", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Konusning bitta cho'qqisi va bitta doira asosi bor", "target": "cone", "options": ["cylinder", "cone", "squarePyramid"]},
-  {"id": "sinf4_chorak4_blok68_level1_kyoy_03", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Konus — muzqaymoq rojkasi shaklida", "target": "cone", "options": ["cone", "cuboid", "triangularPrism"]},
-  {"id": "sinf4_chorak4_blok68_level1_kyoy_04", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Silindrda 2 ta doira, konusda 1 ta doira", "target": "cylinder", "options": ["cylinder", "cone", "cube"]},
-  {"id": "sinf4_chorak4_blok68_level1_kyoy_05", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Konus asosi — bitta doira", "target": "cone", "options": ["cone", "squarePyramid", "cylinder"]},
-  {"id": "sinf4_chorak4_blok68_level1_kyoy_06", "prompt": "Bu shaklning yoyilmasi qaysi?", "hint": "Piramida asosi ko'pburchak, konusniki doira", "target": "squarePyramid", "options": ["squarePyramid", "cone", "cylinder"]}
+  {
+    "id": "sinf4_chorak4_blok68_level1_kyoy_01",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konus yoyilmasi — doira sektori va kichik doira",
+    "target": "cone",
+    "options": [
+      "cone",
+      "cylinder",
+      "cube"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok68_level1_kyoy_02",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konusning bitta cho'qqisi va bitta doira asosi bor",
+    "target": "cone",
+    "options": [
+      "cylinder",
+      "cone",
+      "squarePyramid"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok68_level1_kyoy_03",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konus — muzqaymoq rojkasi shaklida",
+    "target": "cone",
+    "options": [
+      "cone",
+      "cuboid",
+      "triangularPrism"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok68_level1_kyoy_04",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindrda 2 ta doira, konusda 1 ta doira",
+    "target": "cylinder",
+    "options": [
+      "cylinder",
+      "cone",
+      "cube"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok68_level1_kyoy_05",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konus asosi — bitta doira",
+    "target": "cone",
+    "options": [
+      "cone",
+      "squarePyramid",
+      "cylinder"
+    ]
+  },
+  {
+    "id": "sinf4_chorak4_blok68_level1_kyoy_06",
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Piramida asosi ko'pburchak, konusniki doira",
+    "target": "squarePyramid",
+    "options": [
+      "squarePyramid",
+      "cone",
+      "cylinder"
+    ]
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konusning bitta cho'qqisi va bitta doira asosi bor",
+    "target": "cone",
+    "options": [
+      "squarePyramid",
+      "cone",
+      "triangularPrism"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x01"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindrning ikki asosi — teng doiralar",
+    "target": "cylinder",
+    "options": [
+      "squarePyramid",
+      "cuboid",
+      "cylinder"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x02"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Piramidada 1 ta kvadrat asos va 4 ta uchburchak yon yoq bor",
+    "target": "squarePyramid",
+    "options": [
+      "cylinder",
+      "squarePyramid",
+      "cuboid"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x03"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konus yoyilmasi — doira sektori va kichik doira",
+    "target": "cone",
+    "options": [
+      "squarePyramid",
+      "cone",
+      "cylinder"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x04"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindr yon sirti yozilganda to'g'ri to'rtburchak bo'ladi",
+    "target": "cylinder",
+    "options": [
+      "cylinder",
+      "cube",
+      "triangularPrism"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x05"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Piramidada 1 ta kvadrat asos va 4 ta uchburchak yon yoq bor",
+    "target": "squarePyramid",
+    "options": [
+      "cylinder",
+      "cone",
+      "squarePyramid"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x06"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konusda faqat 1 ta doira asos bor",
+    "target": "cone",
+    "options": [
+      "triangularPrism",
+      "squarePyramid",
+      "cone"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x07"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindr yon sirti yozilganda to'g'ri to'rtburchak bo'ladi",
+    "target": "cylinder",
+    "options": [
+      "cuboid",
+      "triangularPrism",
+      "cylinder"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x08"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Piramidaning hamma yon yoqlari bitta cho'qqida birlashadi",
+    "target": "squarePyramid",
+    "options": [
+      "triangularPrism",
+      "squarePyramid",
+      "cone"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x09"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konus — muzqaymoq rojkasi shaklida",
+    "target": "cone",
+    "options": [
+      "squarePyramid",
+      "cone",
+      "cube"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x10"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindrning ikki asosi — teng doiralar",
+    "target": "cylinder",
+    "options": [
+      "squarePyramid",
+      "cylinder",
+      "triangularPrism"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x11"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Piramidada 1 ta kvadrat asos va 4 ta uchburchak yon yoq bor",
+    "target": "squarePyramid",
+    "options": [
+      "cone",
+      "cuboid",
+      "squarePyramid"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x12"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Konusning bitta cho'qqisi va bitta doira asosi bor",
+    "target": "cone",
+    "options": [
+      "cuboid",
+      "cone",
+      "cube"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x13"
+  },
+  {
+    "prompt": "Bu shaklning yoyilmasi qaysi?",
+    "hint": "Silindr yoyilmasi — to'g'ri to'rtburchak va 2 ta doira",
+    "target": "cylinder",
+    "options": [
+      "cuboid",
+      "cone",
+      "cylinder"
+    ],
+    "id": "sinf4_chorak4_blok68_level1_kyoy_x14"
+  }
 ]

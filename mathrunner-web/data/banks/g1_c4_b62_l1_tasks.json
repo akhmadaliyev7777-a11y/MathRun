@@ -168,5 +168,175 @@
       6
     ],
     "unit": "kg"
+  },
+  {
+    "prompt": "Bitta yulduzcha necha kg?",
+    "hint": "Tarozida 2 ta bir xil yulduzcha turibdi",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 2,
+    "knownWeight": 0,
+    "total": 10,
+    "options": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "unit": "kg",
+    "id": "g1c4b62l1_bal_x01"
+  },
+  {
+    "prompt": "Bitta doira necha kg?",
+    "hint": "Tarozida 2 ta bir xil doira va 1 kg li tosh turibdi",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 2,
+    "knownWeight": 1,
+    "total": 11,
+    "options": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "unit": "kg",
+    "id": "g1c4b62l1_bal_x02"
+  },
+  {
+    "prompt": "Bitta uchburchak necha kg?",
+    "hint": "Tarozida 1 ta bir xil uchburchak va 5 kg li tosh turibdi",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 1,
+    "knownWeight": 5,
+    "total": 11,
+    "options": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "unit": "kg",
+    "id": "g1c4b62l1_bal_x03"
+  },
+  {
+    "prompt": "Bitta kvadrat necha kg?",
+    "hint": "Tarozida 1 ta bir xil kvadrat va 6 kg li tosh turibdi",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 1,
+    "knownWeight": 6,
+    "total": 12,
+    "options": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "unit": "kg",
+    "id": "g1c4b62l1_bal_x04"
+  },
+  {
+    "prompt": "Bitta kvadrat necha kg?",
+    "hint": "Tarozida 2 ta bir xil kvadrat va 2 kg li tosh turibdi",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 2,
+    "knownWeight": 2,
+    "total": 14,
+    "options": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "unit": "kg",
+    "id": "g1c4b62l1_bal_x05"
+  },
+  {
+    "prompt": "Bitta uchburchak necha kg?",
+    "hint": "Tarozida 1 ta bir xil uchburchak va 6 kg li tosh turibdi",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 1,
+    "knownWeight": 6,
+    "total": 12,
+    "options": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "unit": "kg",
+    "id": "g1c4b62l1_bal_x06"
+  },
+  {
+    "prompt": "Bitta kvadrat necha kg?",
+    "hint": "Tarozida 1 ta bir xil kvadrat va 6 kg li tosh turibdi",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 1,
+    "knownWeight": 6,
+    "total": 14,
+    "options": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "unit": "kg",
+    "id": "g1c4b62l1_bal_x07"
+  },
+  {
+    "prompt": "Bitta yulduzcha necha kg?",
+    "hint": "Tarozida 1 ta bir xil yulduzcha va 2 kg li tosh turibdi",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 1,
+    "knownWeight": 2,
+    "total": 9,
+    "options": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "unit": "kg",
+    "id": "g1c4b62l1_bal_x08"
+  },
+  {
+    "prompt": "Bitta yulduzcha necha kg?",
+    "hint": "Tarozida 1 ta bir xil yulduzcha va 6 kg li tosh turibdi",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 1,
+    "knownWeight": 6,
+    "total": 15,
+    "options": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "unit": "kg",
+    "id": "g1c4b62l1_bal_x09"
+  },
+  {
+    "prompt": "Bitta doira necha kg?",
+    "hint": "Tarozida 1 ta bir xil doira va 6 kg li tosh turibdi",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 1,
+    "knownWeight": 6,
+    "total": 11,
+    "options": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "unit": "kg",
+    "id": "g1c4b62l1_bal_x10"
   }
 ]

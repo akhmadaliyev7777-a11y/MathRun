@@ -118,5 +118,125 @@
       40
     ],
     "ascending": false
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      63,
+      73,
+      87,
+      79,
+      75
+    ],
+    "ascending": true,
+    "id": "g1c2b30l1_ord_x01"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      51,
+      23,
+      5,
+      7,
+      40
+    ],
+    "ascending": false,
+    "id": "g1c2b30l1_ord_x02"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      30,
+      54,
+      47,
+      46,
+      25
+    ],
+    "ascending": true,
+    "id": "g1c2b30l1_ord_x03"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      34,
+      23,
+      18,
+      68,
+      8
+    ],
+    "ascending": false,
+    "id": "g1c2b30l1_ord_x04"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      64,
+      25,
+      58,
+      99,
+      19
+    ],
+    "ascending": true,
+    "id": "g1c2b30l1_ord_x05"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      12,
+      85,
+      20,
+      61,
+      37
+    ],
+    "ascending": false,
+    "id": "g1c2b30l1_ord_x06"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      75,
+      27,
+      63,
+      55,
+      96
+    ],
+    "ascending": true,
+    "id": "g1c2b30l1_ord_x07"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      21,
+      32,
+      82,
+      46,
+      53
+    ],
+    "ascending": false,
+    "id": "g1c2b30l1_ord_x08"
+  },
+  {
+    "prompt": "Sonlarni o'sish tartibida joylashtiring",
+    "numbers": [
+      33,
+      60,
+      50,
+      42,
+      8
+    ],
+    "ascending": true,
+    "id": "g1c2b30l1_ord_x09"
+  },
+  {
+    "prompt": "Sonlarni kamayish tartibida joylashtiring",
+    "numbers": [
+      10,
+      75,
+      84,
+      97,
+      13
+    ],
+    "ascending": false,
+    "id": "g1c2b30l1_ord_x10"
   }
 ]

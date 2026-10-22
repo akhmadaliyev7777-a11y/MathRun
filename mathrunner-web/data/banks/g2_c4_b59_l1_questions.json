@@ -33,7 +33,8 @@
     "wrongAnswers": [
       1,
       9
-    ]
+    ],
+    "explain": "8 × 1 = 8"
   },
   {
     "id": "s2c4b59l1_05",
@@ -42,7 +43,8 @@
     "wrongAnswers": [
       15,
       1
-    ]
+    ],
+    "explain": "15 × 0 = 0"
   },
   {
     "id": "s2c4b59l1_06",
@@ -51,7 +53,8 @@
     "wrongAnswers": [
       1,
       0
-    ]
+    ],
+    "explain": "7 : 1 = 7"
   },
   {
     "id": "s2c4b59l1_07",
@@ -60,7 +63,8 @@
     "wrongAnswers": [
       9,
       1
-    ]
+    ],
+    "explain": "0 : 9 = 0"
   },
   {
     "id": "s2c4b59l1_08",
@@ -87,6 +91,7 @@
     "wrongAnswers": [
       12,
       0
-    ]
+    ],
+    "explain": "12 × 1 : 12 = 12 : 12 = 1<br>Javob: <b>1</b>"
   }
 ]

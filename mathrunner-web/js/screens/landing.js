@@ -14,7 +14,7 @@ export function render(root, _params) {
     el('div', { class: 'showcase__blob' }),
     el('div', { class: 'sc-card' },
       el('div', { class: 'sc-card__top' },
-        el('span', {}, '1-sinf · 7-mavzu · 1-dars'), el('b', {}, '4 / 10')),
+        el('span', {}, '1-sinf · 7-mavzu · 1-test'), el('b', {}, '4 / 10')),
       el('div', { class: 'sc-bar' }, el('i', {})),
       el('div', { class: 'sc-q' },
         el('div', { class: 'sc-q__kicker' }, 'SAVOL'),

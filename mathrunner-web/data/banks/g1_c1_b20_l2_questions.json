@@ -69,7 +69,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 3 + 4 = 7, 9 - 1 = 8.<br>7 < 8, demak javob: <b><</b>"
   },
   {
     "id": "s1c1b20l2_09",

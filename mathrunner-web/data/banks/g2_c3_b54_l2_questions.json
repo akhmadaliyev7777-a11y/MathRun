@@ -15,7 +15,8 @@
     "wrongAnswers": [
       72,
       90
-    ]
+    ],
+    "explain": "9 × 9 = 81"
   },
   {
     "id": "s2c3b54l2_03",
@@ -42,7 +43,8 @@
     "wrongAnswers": [
       7,
       9
-    ]
+    ],
+    "explain": "56 : 7 = 8"
   },
   {
     "id": "s2c3b54l2_06",
@@ -51,7 +53,8 @@
     "wrongAnswers": [
       8,
       6
-    ]
+    ],
+    "explain": "63 : 9 = 7"
   },
   {
     "id": "s2c3b54l2_07",

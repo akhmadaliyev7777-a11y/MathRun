@@ -60,7 +60,8 @@
     "wrongAnswers": [
       35,
       15
-    ]
+    ],
+    "explain": "(20 + 10) − 5 = 30 − 5 = 25<br>Javob: <b>25</b>"
   },
   {
     "id": "s1c3b44l1_08",

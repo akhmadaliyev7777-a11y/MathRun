@@ -51,7 +51,8 @@
     "wrongAnswers": [
       5,
       7
-    ]
+    ],
+    "explain": "10 − 4 = 6"
   },
   {
     "id": "s1c1b12l2_07",
@@ -60,7 +61,8 @@
     "wrongAnswers": [
       2,
       4
-    ]
+    ],
+    "explain": "10 − 7 = 3"
   },
   {
     "id": "s1c1b12l2_08",
@@ -78,7 +80,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 10 = 10, 6 + 3 = 9.<br>10 > 9, demak javob: <b>></b>"
   },
   {
     "id": "s1c1b12l2_10",

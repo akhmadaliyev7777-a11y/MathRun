@@ -1,17 +1,666 @@
 [
-  {"id": "sinf4_chorak1_blok11_level1_top_01", "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "Juft sonlar", "setBName": "10 dan katta sonlar", "elements": [
-    {"value": "4", "zone": "onlyA"}, {"value": "12", "zone": "both"}, {"value": "15", "zone": "onlyB"}, {"value": "7", "zone": "neither"}
-  ]},
-  {"id": "sinf4_chorak1_blok11_level1_top_02", "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "Uch xonali sonlar", "setBName": "5 ga karrali sonlar", "elements": [
-    {"value": "120", "zone": "both"}, {"value": "45", "zone": "onlyB"}, {"value": "300", "zone": "both"}, {"value": "78", "zone": "onlyA"}, {"value": "9", "zone": "neither"}, {"value": "250", "zone": "both"}
-  ]},
-  {"id": "sinf4_chorak1_blok11_level1_top_03", "prompt": "Har bir shaklni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "To'g'ri to'rtburchaklar", "setBName": "Kvadratlar", "elements": [
-    {"value": "Kvadrat 5×5", "zone": "both"}, {"value": "To'rtburchak 6×3", "zone": "onlyA"}, {"value": "To'rtburchak 4×4", "zone": "both"}, {"value": "Uchburchak", "zone": "neither"}
-  ]},
-  {"id": "sinf4_chorak1_blok11_level1_top_04", "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "100 dan kichik sonlar", "setBName": "Toq sonlar", "elements": [
-    {"value": "50", "zone": "onlyA"}, {"value": "35", "zone": "both"}, {"value": "101", "zone": "neither"}, {"value": "77", "zone": "both"}, {"value": "88", "zone": "onlyA"}, {"value": "205", "zone": "neither"}
-  ]},
-  {"id": "sinf4_chorak1_blok11_level1_top_05", "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring", "setAName": "3 ga bo'linadigan sonlar", "setBName": "9 ga bo'linadigan sonlar", "elements": [
-    {"value": "9", "zone": "both"}, {"value": "12", "zone": "onlyA"}, {"value": "18", "zone": "both"}, {"value": "15", "zone": "onlyA"}, {"value": "27", "zone": "both"}, {"value": "10", "zone": "neither"}, {"value": "6", "zone": "onlyA"}, {"value": "45", "zone": "both"}
-  ]}
+  {
+    "id": "sinf4_chorak1_blok11_level1_top_01",
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Juft sonlar",
+    "setBName": "10 dan katta sonlar",
+    "elements": [
+      {
+        "value": "4",
+        "zone": "onlyA"
+      },
+      {
+        "value": "12",
+        "zone": "both"
+      },
+      {
+        "value": "15",
+        "zone": "onlyB"
+      },
+      {
+        "value": "7",
+        "zone": "neither"
+      }
+    ]
+  },
+  {
+    "id": "sinf4_chorak1_blok11_level1_top_02",
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Uch xonali sonlar",
+    "setBName": "5 ga karrali sonlar",
+    "elements": [
+      {
+        "value": "120",
+        "zone": "both"
+      },
+      {
+        "value": "45",
+        "zone": "onlyB"
+      },
+      {
+        "value": "300",
+        "zone": "both"
+      },
+      {
+        "value": "78",
+        "zone": "neither"
+      },
+      {
+        "value": "9",
+        "zone": "neither"
+      },
+      {
+        "value": "250",
+        "zone": "both"
+      }
+    ]
+  },
+  {
+    "id": "sinf4_chorak1_blok11_level1_top_03",
+    "prompt": "To'g'ri to'rtburchaklar: Kvadrat 5×5, To'rtburchak 6×3, To'rtburchak 4×4. Kvadratlar: Kvadrat 5×5, To'rtburchak 4×4. Har bir shaklni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "To'g'ri to'rtburchaklar",
+    "setBName": "Kvadratlar",
+    "elements": [
+      {
+        "value": "Kvadrat 5×5",
+        "zone": "both"
+      },
+      {
+        "value": "To'rtburchak 6×3",
+        "zone": "onlyA"
+      },
+      {
+        "value": "To'rtburchak 4×4",
+        "zone": "both"
+      },
+      {
+        "value": "Uchburchak",
+        "zone": "neither"
+      }
+    ]
+  },
+  {
+    "id": "sinf4_chorak1_blok11_level1_top_04",
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "100 dan kichik sonlar",
+    "setBName": "Toq sonlar",
+    "elements": [
+      {
+        "value": "50",
+        "zone": "onlyA"
+      },
+      {
+        "value": "35",
+        "zone": "both"
+      },
+      {
+        "value": "101",
+        "zone": "onlyB"
+      },
+      {
+        "value": "77",
+        "zone": "both"
+      },
+      {
+        "value": "88",
+        "zone": "onlyA"
+      },
+      {
+        "value": "205",
+        "zone": "onlyB"
+      }
+    ]
+  },
+  {
+    "id": "sinf4_chorak1_blok11_level1_top_05",
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "3 ga bo'linadigan sonlar",
+    "setBName": "9 ga bo'linadigan sonlar",
+    "elements": [
+      {
+        "value": "9",
+        "zone": "both"
+      },
+      {
+        "value": "12",
+        "zone": "onlyA"
+      },
+      {
+        "value": "18",
+        "zone": "both"
+      },
+      {
+        "value": "15",
+        "zone": "onlyA"
+      },
+      {
+        "value": "27",
+        "zone": "both"
+      },
+      {
+        "value": "10",
+        "zone": "neither"
+      },
+      {
+        "value": "6",
+        "zone": "onlyA"
+      },
+      {
+        "value": "45",
+        "zone": "both"
+      }
+    ]
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Juft sonlar",
+    "setBName": "3 ga bo'linadigan sonlar",
+    "elements": [
+      {
+        "value": "164",
+        "zone": "onlyA"
+      },
+      {
+        "value": "216",
+        "zone": "both"
+      },
+      {
+        "value": "165",
+        "zone": "onlyB"
+      },
+      {
+        "value": "100",
+        "zone": "onlyA"
+      },
+      {
+        "value": "16",
+        "zone": "onlyA"
+      },
+      {
+        "value": "240",
+        "zone": "both"
+      },
+      {
+        "value": "284",
+        "zone": "onlyA"
+      },
+      {
+        "value": "265",
+        "zone": "neither"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x01"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "100 dan kichik sonlar",
+    "setBName": "Juft sonlar",
+    "elements": [
+      {
+        "value": "7",
+        "zone": "onlyA"
+      },
+      {
+        "value": "70",
+        "zone": "both"
+      },
+      {
+        "value": "98",
+        "zone": "both"
+      },
+      {
+        "value": "229",
+        "zone": "neither"
+      },
+      {
+        "value": "100",
+        "zone": "onlyB"
+      },
+      {
+        "value": "264",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x02"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "5 ga karrali sonlar",
+    "setBName": "3 ga bo'linadigan sonlar",
+    "elements": [
+      {
+        "value": "304",
+        "zone": "neither"
+      },
+      {
+        "value": "230",
+        "zone": "onlyA"
+      },
+      {
+        "value": "195",
+        "zone": "both"
+      },
+      {
+        "value": "105",
+        "zone": "both"
+      },
+      {
+        "value": "165",
+        "zone": "both"
+      },
+      {
+        "value": "162",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x03"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "100 dan kichik sonlar",
+    "setBName": "5 ga karrali sonlar",
+    "elements": [
+      {
+        "value": "212",
+        "zone": "neither"
+      },
+      {
+        "value": "10",
+        "zone": "both"
+      },
+      {
+        "value": "7",
+        "zone": "onlyA"
+      },
+      {
+        "value": "205",
+        "zone": "onlyB"
+      },
+      {
+        "value": "165",
+        "zone": "onlyB"
+      },
+      {
+        "value": "214",
+        "zone": "neither"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x04"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Uch xonali sonlar",
+    "setBName": "Juft sonlar",
+    "elements": [
+      {
+        "value": "6",
+        "zone": "onlyB"
+      },
+      {
+        "value": "215",
+        "zone": "onlyA"
+      },
+      {
+        "value": "55",
+        "zone": "neither"
+      },
+      {
+        "value": "153",
+        "zone": "onlyA"
+      },
+      {
+        "value": "282",
+        "zone": "both"
+      },
+      {
+        "value": "188",
+        "zone": "both"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x05"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Toq sonlar",
+    "setBName": "Uch xonali sonlar",
+    "elements": [
+      {
+        "value": "275",
+        "zone": "both"
+      },
+      {
+        "value": "85",
+        "zone": "onlyA"
+      },
+      {
+        "value": "50",
+        "zone": "neither"
+      },
+      {
+        "value": "252",
+        "zone": "onlyB"
+      },
+      {
+        "value": "20",
+        "zone": "neither"
+      },
+      {
+        "value": "217",
+        "zone": "both"
+      },
+      {
+        "value": "293",
+        "zone": "both"
+      },
+      {
+        "value": "6",
+        "zone": "neither"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x06"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Uch xonali sonlar",
+    "setBName": "Toq sonlar",
+    "elements": [
+      {
+        "value": "59",
+        "zone": "onlyB"
+      },
+      {
+        "value": "30",
+        "zone": "neither"
+      },
+      {
+        "value": "71",
+        "zone": "onlyB"
+      },
+      {
+        "value": "303",
+        "zone": "both"
+      },
+      {
+        "value": "86",
+        "zone": "neither"
+      },
+      {
+        "value": "19",
+        "zone": "onlyB"
+      },
+      {
+        "value": "130",
+        "zone": "onlyA"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x07"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Toq sonlar",
+    "setBName": "5 ga karrali sonlar",
+    "elements": [
+      {
+        "value": "165",
+        "zone": "both"
+      },
+      {
+        "value": "210",
+        "zone": "onlyB"
+      },
+      {
+        "value": "220",
+        "zone": "onlyB"
+      },
+      {
+        "value": "41",
+        "zone": "onlyA"
+      },
+      {
+        "value": "247",
+        "zone": "onlyA"
+      },
+      {
+        "value": "192",
+        "zone": "neither"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x08"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "5 ga karrali sonlar",
+    "setBName": "10 dan katta sonlar",
+    "elements": [
+      {
+        "value": "47",
+        "zone": "onlyB"
+      },
+      {
+        "value": "301",
+        "zone": "onlyB"
+      },
+      {
+        "value": "10",
+        "zone": "onlyA"
+      },
+      {
+        "value": "220",
+        "zone": "both"
+      },
+      {
+        "value": "6",
+        "zone": "neither"
+      },
+      {
+        "value": "117",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x09"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "100 dan kichik sonlar",
+    "setBName": "3 ga bo'linadigan sonlar",
+    "elements": [
+      {
+        "value": "170",
+        "zone": "neither"
+      },
+      {
+        "value": "215",
+        "zone": "neither"
+      },
+      {
+        "value": "154",
+        "zone": "neither"
+      },
+      {
+        "value": "20",
+        "zone": "onlyA"
+      },
+      {
+        "value": "21",
+        "zone": "both"
+      },
+      {
+        "value": "135",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x10"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "10 dan katta sonlar",
+    "setBName": "3 ga bo'linadigan sonlar",
+    "elements": [
+      {
+        "value": "11",
+        "zone": "onlyA"
+      },
+      {
+        "value": "105",
+        "zone": "both"
+      },
+      {
+        "value": "160",
+        "zone": "onlyA"
+      },
+      {
+        "value": "70",
+        "zone": "onlyA"
+      },
+      {
+        "value": "240",
+        "zone": "both"
+      },
+      {
+        "value": "10",
+        "zone": "neither"
+      },
+      {
+        "value": "6",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x11"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "9 ga bo'linadigan sonlar",
+    "setBName": "100 dan kichik sonlar",
+    "elements": [
+      {
+        "value": "210",
+        "zone": "neither"
+      },
+      {
+        "value": "300",
+        "zone": "neither"
+      },
+      {
+        "value": "279",
+        "zone": "onlyA"
+      },
+      {
+        "value": "244",
+        "zone": "neither"
+      },
+      {
+        "value": "5",
+        "zone": "onlyB"
+      },
+      {
+        "value": "99",
+        "zone": "both"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x12"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Uch xonali sonlar",
+    "setBName": "9 ga bo'linadigan sonlar",
+    "elements": [
+      {
+        "value": "241",
+        "zone": "onlyA"
+      },
+      {
+        "value": "49",
+        "zone": "neither"
+      },
+      {
+        "value": "40",
+        "zone": "neither"
+      },
+      {
+        "value": "189",
+        "zone": "both"
+      },
+      {
+        "value": "188",
+        "zone": "onlyA"
+      },
+      {
+        "value": "27",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x13"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "9 ga bo'linadigan sonlar",
+    "setBName": "5 ga karrali sonlar",
+    "elements": [
+      {
+        "value": "96",
+        "zone": "neither"
+      },
+      {
+        "value": "130",
+        "zone": "onlyB"
+      },
+      {
+        "value": "30",
+        "zone": "onlyB"
+      },
+      {
+        "value": "64",
+        "zone": "neither"
+      },
+      {
+        "value": "90",
+        "zone": "both"
+      },
+      {
+        "value": "205",
+        "zone": "onlyB"
+      },
+      {
+        "value": "162",
+        "zone": "onlyA"
+      },
+      {
+        "value": "155",
+        "zone": "onlyB"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x14"
+  },
+  {
+    "prompt": "Har bir sonni to'g'ri to'plamga (yoki hech qaysisiga) joylashtiring",
+    "setAName": "Juft sonlar",
+    "setBName": "5 ga karrali sonlar",
+    "elements": [
+      {
+        "value": "156",
+        "zone": "onlyA"
+      },
+      {
+        "value": "279",
+        "zone": "neither"
+      },
+      {
+        "value": "44",
+        "zone": "onlyA"
+      },
+      {
+        "value": "190",
+        "zone": "both"
+      },
+      {
+        "value": "75",
+        "zone": "onlyB"
+      },
+      {
+        "value": "99",
+        "zone": "neither"
+      }
+    ],
+    "id": "sinf4_chorak1_blok11_level1_top_x15"
+  }
 ]

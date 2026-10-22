@@ -87,6 +87,7 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 90 - 9 * 3 = 63, 60 - 36 : 6 = 54.<br>63 > 54, demak javob: <b>></b>"
   }
 ]

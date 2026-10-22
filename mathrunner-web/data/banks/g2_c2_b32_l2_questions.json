@@ -69,7 +69,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 630 - 280 = 350, 350 = 350.<br>350 = 350, demak javob: <b>=</b>"
   },
   {
     "id": "s2c2b32l2_09",

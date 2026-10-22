@@ -24,7 +24,8 @@
     "wrongAnswers": [
       14,
       20
-    ]
+    ],
+    "explain": "(5 + 5) × 4 = 10 × 4 = 40<br>Javob: <b>40</b>"
   },
   {
     "id": "s2c4b67l1_04",
@@ -33,7 +34,8 @@
     "wrongAnswers": [
       15,
       30
-    ]
+    ],
+    "explain": "(10 + 2) × 3 = 12 × 3 = 36<br>Javob: <b>36</b>"
   },
   {
     "id": "s2c4b67l1_05",
@@ -42,7 +44,8 @@
     "wrongAnswers": [
       16,
       30
-    ]
+    ],
+    "explain": "(3 + 7) × 6 = 10 × 6 = 60<br>Javob: <b>60</b>"
   },
   {
     "id": "s2c4b67l1_06",
@@ -51,7 +54,8 @@
     "wrongAnswers": [
       14,
       40
-    ]
+    ],
+    "explain": "(8 + 1) × 5 = 9 × 5 = 45<br>Javob: <b>45</b>"
   },
   {
     "id": "s2c4b67l1_07",
@@ -87,6 +91,7 @@
     "wrongAnswers": [
       17,
       46
-    ]
+    ],
+    "explain": "(6 + 4) × 7 = 10 × 7 = 70<br>Javob: <b>70</b>"
   }
 ]

@@ -28,8 +28,10 @@ export function shuffle(arr) {
   return a;
 }
 
+// ma'lumot fayllari (curriculum, banklar) o'zgarganda DATA_VER oshiriladi — brauzer eskisini ushlab qolmasin
+export const DATA_VER = 2;
 export async function loadJSON(path) {
-  const res = await fetch(path);
+  const res = await fetch(`${path}?v=${DATA_VER}`);
   if (!res.ok) throw new Error(`${path}: ${res.status}`);
   return res.json();
 }

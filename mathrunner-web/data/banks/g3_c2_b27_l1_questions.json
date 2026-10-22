@@ -6,7 +6,8 @@
     "wrongAnswers": [
       9,
       11
-    ]
+    ],
+    "explain": "(50 + 30) : 8 = 80 : 8 = 10<br>Javob: <b>10</b>"
   },
   {
     "id": "s3c2b27l1_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       22,
       24
-    ]
+    ],
+    "explain": "92 : 4 = 23"
   },
   {
     "id": "s3c2b27l1_03",
@@ -42,7 +44,8 @@
     "wrongAnswers": [
       1056,
       1076
-    ]
+    ],
+    "explain": "6 396 : 6 = 1 066"
   },
   {
     "id": "s3c2b27l1_06",
@@ -51,7 +54,8 @@
     "wrongAnswers": [
       30,
       3000
-    ]
+    ],
+    "explain": "9 000 : 30 = 300"
   },
   {
     "id": "s3c2b27l1_07",
@@ -69,7 +73,8 @@
     "wrongAnswers": [
       ">",
       "<"
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 84 : 4 = 21, 105 : 5 = 21.<br>21 = 21, demak javob: <b>=</b>"
   },
   {
     "id": "s3c2b27l1_09",

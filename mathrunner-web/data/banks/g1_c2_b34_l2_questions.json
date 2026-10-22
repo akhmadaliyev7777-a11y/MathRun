@@ -15,7 +15,8 @@
     "wrongAnswers": [
       30,
       60
-    ]
+    ],
+    "explain": "15 + 15 + 15 = 30 + 15 = 45<br>Javob: <b>45</b>"
   },
   {
     "id": "s1c2b34l2_03",
@@ -24,7 +25,8 @@
     "wrongAnswers": [
       40,
       60
-    ]
+    ],
+    "explain": "34 + 6 + 10 = 40 + 10 = 50<br>Javob: <b>50</b>"
   },
   {
     "id": "s1c2b34l2_04",
@@ -33,7 +35,8 @@
     "wrongAnswers": [
       50,
       70
-    ]
+    ],
+    "explain": "(12 + 18) + 30 = 30 + 30 = 60<br>Javob: <b>60</b>"
   },
   {
     "id": "s1c2b34l2_05",
@@ -42,7 +45,8 @@
     "wrongAnswers": [
       40,
       60
-    ]
+    ],
+    "explain": "9 + 1 + 40 + 0 = 10 + 40 + 0 = 50 + 0 = 50<br>Javob: <b>50</b>"
   },
   {
     "id": "s1c2b34l2_06",
@@ -51,7 +55,8 @@
     "wrongAnswers": [
       70,
       90
-    ]
+    ],
+    "explain": "50 + 25 + 5 = 75 + 5 = 80<br>Javob: <b>80</b>"
   },
   {
     "id": "s1c2b34l2_07",
@@ -60,7 +65,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 10 + 20 + 30 = 60, 70 = 70.<br>60 < 70, demak javob: <b><</b>"
   },
   {
     "id": "s1c2b34l2_08",

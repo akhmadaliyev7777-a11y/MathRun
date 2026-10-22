@@ -6,7 +6,8 @@
     "wrongAnswers": [
       27,
       47
-    ]
+    ],
+    "explain": "28 + 9 = 37"
   },
   {
     "id": "s2c1b9l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       45,
       65
-    ]
+    ],
+    "explain": "47 + 8 = 55"
   },
   {
     "id": "s2c1b9l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       32,
       52
-    ]
+    ],
+    "explain": "36 + 6 = 42"
   },
   {
     "id": "s2c1b9l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       16,
       36
-    ]
+    ],
+    "explain": "19 + 7 = 26"
   },
   {
     "id": "s2c1b9l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       84,
       104
-    ]
+    ],
+    "explain": "85 + 9 = 94"
   },
   {
     "id": "s2c1b9l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       53,
       73
-    ]
+    ],
+    "explain": "58 + 5 = 63"
   },
   {
     "id": "s2c1b9l2_07",
@@ -78,7 +84,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 46 + 8 = 54, 52 = 52.<br>54 > 52, demak javob: <b>></b>"
   },
   {
     "id": "s2c1b9l2_10",

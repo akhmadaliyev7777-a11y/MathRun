@@ -6,7 +6,8 @@
     "wrongAnswers": [
       43,
       30
-    ]
+    ],
+    "explain": "34 400 : (566 + 234) − 17 = 34 400 : 800 − 17 = 43 − 17 = 26<br>Javob: <b>26</b>"
   },
   {
     "id": "s3c2b26l2_02",
@@ -60,7 +61,8 @@
     "wrongAnswers": [
       80,
       4
-    ]
+    ],
+    "explain": "800 : (25 × 4) = 800 : 100 = 8<br>Javob: <b>8</b>"
   },
   {
     "id": "s3c2b26l2_08",
@@ -87,6 +89,7 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 144 : 8 = 18, 20 = 20.<br>18 < 20, demak javob: <b><</b>"
   }
 ]

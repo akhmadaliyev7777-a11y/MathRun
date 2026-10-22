@@ -6,7 +6,8 @@
     "wrongAnswers": [
       36,
       49
-    ]
+    ],
+    "explain": "6 × 7 = 42"
   },
   {
     "id": "s2c4b59l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       32,
       45
-    ]
+    ],
+    "explain": "8 × 5 = 40"
   },
   {
     "id": "s2c4b59l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       27,
       40
-    ]
+    ],
+    "explain": "9 × 4 = 36"
   },
   {
     "id": "s2c4b59l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       49,
       64
-    ]
+    ],
+    "explain": "7 × 8 = 56"
   },
   {
     "id": "s2c4b59l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       8,
       6
-    ]
+    ],
+    "explain": "42 : 6 = 7"
   },
   {
     "id": "s2c4b59l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       6,
       4
-    ]
+    ],
+    "explain": "40 : 8 = 5"
   },
   {
     "id": "s2c4b59l2_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       7,
       5
-    ]
+    ],
+    "explain": "54 : 9 = 6"
   },
   {
     "id": "s2c4b59l2_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       6,
       4
-    ]
+    ],
+    "explain": "35 : 7 = 5"
   },
   {
     "id": "s2c4b59l2_09",
@@ -78,7 +86,8 @@
     "wrongAnswers": [
       16,
       0
-    ]
+    ],
+    "explain": "9 × 0 + 7 = 0 + 7 = 7<br>Javob: <b>7</b>"
   },
   {
     "id": "s2c4b59l2_10",
@@ -87,6 +96,7 @@
     "wrongAnswers": [
       5,
       13
-    ]
+    ],
+    "explain": "8 : 8 + 5 = 1 + 5 = 6<br>Javob: <b>6</b>"
   }
 ]

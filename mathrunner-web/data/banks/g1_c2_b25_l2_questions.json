@@ -6,7 +6,8 @@
     "wrongAnswers": [
       10,
       20
-    ]
+    ],
+    "explain": "(7 + 3) + 5 = 10 + 5 = 15<br>Javob: <b>15</b>"
   },
   {
     "id": "s1c2b25l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       30,
       18
-    ]
+    ],
+    "explain": "20 − (6 + 4) = 20 − 10 = 10<br>Javob: <b>10</b>"
   },
   {
     "id": "s1c2b25l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       19,
       5
-    ]
+    ],
+    "explain": "(9 − 2) + 8 = 7 + 8 = 15<br>Javob: <b>15</b>"
   },
   {
     "id": "s1c2b25l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       22,
       12
-    ]
+    ],
+    "explain": "16 − (3 + 3) = 16 − 6 = 10<br>Javob: <b>10</b>"
   },
   {
     "id": "s1c2b25l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       10,
       15
-    ]
+    ],
+    "explain": "(5 + 5) + (5 + 5) = 10 + (5 + 5) = 10 + 10 = 20<br>Javob: <b>20</b>"
   },
   {
     "id": "s1c2b25l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       19,
       3
-    ]
+    ],
+    "explain": "(8 + 4) − 7 = 12 − 7 = 5<br>Javob: <b>5</b>"
   },
   {
     "id": "s1c2b25l2_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: (6 + 4) + 2 = 12, 15 = 15.<br>12 < 15, demak javob: <b><</b>"
   },
   {
     "id": "s1c2b25l2_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       33,
       13
-    ]
+    ],
+    "explain": "18 − (10 + 5) = 18 − 15 = 3<br>Javob: <b>3</b>"
   },
   {
     "id": "s1c2b25l2_09",

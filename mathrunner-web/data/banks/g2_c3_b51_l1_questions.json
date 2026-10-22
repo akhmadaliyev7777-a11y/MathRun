@@ -6,7 +6,8 @@
     "wrongAnswers": [
       48,
       64
-    ]
+    ],
+    "explain": "8 × 7 = 56"
   },
   {
     "id": "s2c3b51l1_02",
@@ -24,7 +25,8 @@
     "wrongAnswers": [
       12,
       16
-    ]
+    ],
+    "explain": "2 × 7 = 14"
   },
   {
     "id": "s2c3b51l1_04",
@@ -51,7 +53,8 @@
     "wrongAnswers": [
       42,
       56
-    ]
+    ],
+    "explain": "7 × 7 = 49"
   },
   {
     "id": "s2c3b51l1_07",
@@ -78,7 +81,8 @@
     "wrongAnswers": [
       54,
       72
-    ]
+    ],
+    "explain": "9 × 7 = 63"
   },
   {
     "id": "s2c3b51l1_10",
@@ -87,6 +91,7 @@
     "wrongAnswers": [
       60,
       80
-    ]
+    ],
+    "explain": "10 × 7 = 70"
   }
 ]

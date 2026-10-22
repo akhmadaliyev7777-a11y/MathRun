@@ -6,7 +6,8 @@
     "wrongAnswers": [
       50,
       70
-    ]
+    ],
+    "explain": "21 + 39 = 60"
   },
   {
     "id": "s2c1b7l1_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       50,
       70
-    ]
+    ],
+    "explain": "34 + 26 = 60"
   },
   {
     "id": "s2c1b7l1_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       50,
       70
-    ]
+    ],
+    "explain": "43 + 17 = 60"
   },
   {
     "id": "s2c1b7l1_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       60,
       80
-    ]
+    ],
+    "explain": "58 + 12 = 70"
   },
   {
     "id": "s2c1b7l1_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       50,
       70
-    ]
+    ],
+    "explain": "25 + 35 = 60"
   },
   {
     "id": "s2c1b7l1_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       60,
       80
-    ]
+    ],
+    "explain": "46 + 24 = 70"
   },
   {
     "id": "s2c1b7l1_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       60,
       80
-    ]
+    ],
+    "explain": "27 + 3 + 40 = 30 + 40 = 70<br>Javob: <b>70</b>"
   },
   {
     "id": "s2c1b7l1_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       68,
       72
-    ]
+    ],
+    "explain": "18 + 2 + 50 = 20 + 50 = 70<br>Javob: <b>70</b>"
   },
   {
     "id": "s2c1b7l1_09",
@@ -78,7 +86,8 @@
     "wrongAnswers": [
       75,
       70
-    ]
+    ],
+    "explain": "45 + 5 + 30 = 50 + 30 = 80<br>Javob: <b>80</b>"
   },
   {
     "id": "s2c1b7l1_10",
@@ -87,6 +96,7 @@
     "wrongAnswers": [
       82,
       92
-    ]
+    ],
+    "explain": "62 + 8 + 20 = 70 + 20 = 90<br>Javob: <b>90</b>"
   }
 ]

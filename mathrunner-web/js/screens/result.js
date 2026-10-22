@@ -1,7 +1,7 @@
 import { el } from '../util.js';
 import { ICON } from '../icons.js';
 import { footer } from '../app.js';
-import { topicTitle, lessonNo } from '../topicTitles.js';
+import { topicTitle, testLabel } from '../topicTitles.js';
 
 function nextLevel(grade, curLevelId) {
   const flat = [];
@@ -14,6 +14,7 @@ function nextLevel(grade, curLevelId) {
 export function renderResult(ctx, r) {
   const { root, grade, block, level, backHash } = ctx;
   const nx = nextLevel(grade, level.id);
+  const hrefOf = (x) => x.lv.gameKind === 'test' ? `#/test/${x.lv.id}` : `#/play/${x.lv.id}/1`;
 
   const star = (on) => el('span', {
     style: `width:52px;height:52px;color:${on ? 'var(--yellow)' : 'transparent'}`,
@@ -26,7 +27,7 @@ export function renderResult(ctx, r) {
 
   root.replaceChildren(el('div', { class: 'result' },
     el('div', { class: 'result__inner' },
-      el('h1', {}, r.stars > 0 ? 'Dars tugadi!' : 'Yana urinib ko\'ring!'),
+      el('h1', {}, r.stars > 0 ? `${ctx.mashq}-mashq tugadi!` : 'Yana urinib ko\'ring!'),
       el('div', { class: 'stars' }, star(r.stars >= 1), star(r.stars >= 2), star(r.stars >= 3)),
       el('div', {},
         el('div', { class: 'result__score' }, `Ochko: ${r.score}`),
@@ -37,12 +38,14 @@ export function renderResult(ctx, r) {
         rstat(ICON.flame, '×' + (r.longestStreak ?? 0), 'Eng uzun ketma-ketlik'),
         rstat(ICON.clock, r.avgMs ? (r.avgMs / 1000).toFixed(1) + 's' : '—', 'O\'rtacha vaqt')),
       el('div', { class: 'result__btns' },
-        el('button', { class: 'btn', onclick: () => { location.hash = '#/_'; setTimeout(() => location.hash = `#/play/${level.id}`, 0); } },
+        el('button', { class: 'btn', onclick: () => { location.hash = '#/_'; setTimeout(() => location.hash = `#/play/${level.id}/${ctx.mashq}`, 0); } },
           el('span', { style: 'width:20px;height:20px', html: ICON.replay }), 'Yana urinish'),
         el('button', { class: 'btn btn--ink', onclick: () => location.hash = backHash },
           el('span', { style: 'width:20px;height:20px', html: ICON.map }), 'Mavzularga qaytish')),
-      nx && el('div', { class: 'result__next' },
-        el('a', { href: `#/play/${nx.lv.id}` }, nx.b === block
-          ? `Keyingi: ${lessonNo(nx.b, nx.lv)}-dars →`
+      ctx.mashq < ctx.mashqCount && el('div', { class: 'result__next' },
+        el('a', { href: `#/play/${level.id}/${ctx.mashq + 1}` }, `Keyingi: ${ctx.mashq + 1}-mashq →`)),
+      !(ctx.mashq < ctx.mashqCount) && nx && el('div', { class: 'result__next' },
+        el('a', { href: hrefOf(nx) }, nx.b === block
+          ? (nx.lv.gameKind === 'test' ? `Keyingi: ${testLabel(nx.b, nx.lv)} →` : 'Keyingi: 1-mashq →')
           : `Keyingi mavzu: "${topicTitle(grade, nx.c, nx.b)}" →`)))));
 }

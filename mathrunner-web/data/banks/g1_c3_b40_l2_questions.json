@@ -69,7 +69,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 20 + 15 = 35, 50 - 10 = 40.<br>35 < 40, demak javob: <b><</b>"
   },
   {
     "id": "s1c3b40l2_09",

@@ -6,7 +6,8 @@
     "wrongAnswers": [
       54,
       61
-    ]
+    ],
+    "explain": "171 : 3 = 57"
   },
   {
     "id": "s3c2b21l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       29,
       36
-    ]
+    ],
+    "explain": "128 : 4 = 32"
   },
   {
     "id": "s3c2b21l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       48,
       55
-    ]
+    ],
+    "explain": "255 : 5 = 51"
   },
   {
     "id": "s3c2b21l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       33,
       40
-    ]
+    ],
+    "explain": "216 : 6 = 36"
   },
   {
     "id": "s3c2b21l2_05",
@@ -60,7 +64,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 126 : 6 = 21, 96 : 6 = 16.<br>21 > 16, demak javob: <b>></b>"
   },
   {
     "id": "s3c2b21l2_08",
@@ -87,6 +92,7 @@
     "wrongAnswers": [
       110,
       120
-    ]
+    ],
+    "explain": "(400 + 60) : 4 = 460 : 4 = 115<br>Javob: <b>115</b>"
   }
 ]

@@ -42,7 +42,8 @@
     "wrongAnswers": [
       "<",
       "="
-    ]
+    ],
+    "explain": "7 > 4, demak javob: <b>></b>"
   },
   {
     "id": "s1c1b13l2_06",
@@ -51,7 +52,8 @@
     "wrongAnswers": [
       ">",
       "="
-    ]
+    ],
+    "explain": "5 < 9, demak javob: <b><</b>"
   },
   {
     "id": "s1c1b13l2_07",

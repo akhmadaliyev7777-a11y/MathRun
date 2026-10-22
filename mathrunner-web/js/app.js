@@ -55,7 +55,8 @@ export function applyKingdom(g) {
 const routes = [
   { re: /^#\/?$/, load: () => import('./screens/landing.js'), name: 'landing' },
   { re: /^#\/g\/(\d)(?:\/c\/(\d))?$/, load: () => import('./screens/mavzular.js'), name: 'mavzular' },
-  { re: /^#\/play\/([\w-]+)$/, load: () => import('./screens/play.js'), name: 'play' },
+  { re: /^#\/test\/([\w-]+)$/, load: () => import('./screens/quiz.js'), name: 'quiz' },
+  { re: /^#\/play\/([\w-]+)(?:\/(\d))?$/, load: () => import('./screens/play.js'), name: 'play' },
   { re: /^#\/sim\/(\d)\/(\d)\/(\d+)$/, load: () => import('./screens/sim.js'), name: 'sim' },
   { re: /^#\/tug$/, load: () => import('./screens/tug.js'), name: 'tug' },
   { re: /^#\/(games|about)$/, load: () => import('./screens/info.js'), name: 'info' },

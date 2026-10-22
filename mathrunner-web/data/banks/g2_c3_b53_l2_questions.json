@@ -6,7 +6,8 @@
     "wrongAnswers": [
       5,
       3
-    ]
+    ],
+    "explain": "36 : 9 = 4"
   },
   {
     "id": "s2c3b53l2_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       6,
       4
-    ]
+    ],
+    "explain": "45 : 9 = 5"
   },
   {
     "id": "s2c3b53l2_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       11,
       9
-    ]
+    ],
+    "explain": "90 : 9 = 10"
   },
   {
     "id": "s2c3b53l2_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       2,
       3
-    ]
+    ],
+    "explain": "9 : 9 = 1"
   },
   {
     "id": "s2c3b53l2_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       3,
       1
-    ]
+    ],
+    "explain": "18 : 9 = 2"
   },
   {
     "id": "s2c3b53l2_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       10,
       8
-    ]
+    ],
+    "explain": "81 : 9 = 9"
   },
   {
     "id": "s2c3b53l2_07",
@@ -60,7 +66,8 @@
     "wrongAnswers": [
       8,
       6
-    ]
+    ],
+    "explain": "63 : 9 = 7"
   },
   {
     "id": "s2c3b53l2_08",
@@ -69,7 +76,8 @@
     "wrongAnswers": [
       4,
       2
-    ]
+    ],
+    "explain": "27 : 9 = 3"
   },
   {
     "id": "s2c3b53l2_09",
@@ -78,7 +86,8 @@
     "wrongAnswers": [
       9,
       7
-    ]
+    ],
+    "explain": "72 : 9 = 8"
   },
   {
     "id": "s2c3b53l2_10",
@@ -87,6 +96,7 @@
     "wrongAnswers": [
       7,
       5
-    ]
+    ],
+    "explain": "54 : 9 = 6"
   }
 ]

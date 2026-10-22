@@ -60,7 +60,8 @@
     "wrongAnswers": [
       47,
       36
-    ]
+    ],
+    "explain": "40 − 3 = 37"
   },
   {
     "id": "s2c1b6l1_08",
@@ -69,7 +70,8 @@
     "wrongAnswers": [
       64,
       53
-    ]
+    ],
+    "explain": "60 − 6 = 54"
   },
   {
     "id": "s2c1b6l1_09",
@@ -78,7 +80,8 @@
     "wrongAnswers": [
       92,
       81
-    ]
+    ],
+    "explain": "90 − 8 = 82"
   },
   {
     "id": "s2c1b6l1_10",
@@ -87,6 +90,7 @@
     "wrongAnswers": [
       53,
       42
-    ]
+    ],
+    "explain": "50 − 7 = 43"
   }
 ]

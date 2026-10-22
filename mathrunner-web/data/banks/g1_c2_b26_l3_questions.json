@@ -6,7 +6,8 @@
     "wrongAnswers": [
       7,
       18
-    ]
+    ],
+    "explain": "8 + 9 = 17"
   },
   {
     "id": "s1c2b26l3_02",
@@ -15,7 +16,8 @@
     "wrongAnswers": [
       5,
       16
-    ]
+    ],
+    "explain": "9 + 6 = 15"
   },
   {
     "id": "s1c2b26l3_03",
@@ -24,7 +26,8 @@
     "wrongAnswers": [
       6,
       17
-    ]
+    ],
+    "explain": "7 + 9 = 16"
   },
   {
     "id": "s1c2b26l3_04",
@@ -33,7 +36,8 @@
     "wrongAnswers": [
       6,
       17
-    ]
+    ],
+    "explain": "8 + 8 = 16"
   },
   {
     "id": "s1c2b26l3_05",
@@ -42,7 +46,8 @@
     "wrongAnswers": [
       5,
       16
-    ]
+    ],
+    "explain": "6 + 9 = 15"
   },
   {
     "id": "s1c2b26l3_06",
@@ -51,7 +56,8 @@
     "wrongAnswers": [
       6,
       17
-    ]
+    ],
+    "explain": "9 + 7 = 16"
   },
   {
     "id": "s1c2b26l3_07",
@@ -78,7 +84,8 @@
     "wrongAnswers": [
       13,
       15
-    ]
+    ],
+    "explain": "7 + 4 + 3 = 11 + 3 = 14<br>Javob: <b>14</b>"
   },
   {
     "id": "s1c2b26l3_10",
