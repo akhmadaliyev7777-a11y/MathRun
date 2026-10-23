@@ -723,7 +723,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** bo'sh joyni to'ldirish (teng tomonli — 60°, teng yonli — teng tomon); tomon/burchak o'lchamlariga qarab jadvalga joylash (5 tur); kvadrat va to'g'ri to'rtburchakni diagonal bo'yicha bo'lganda hosil bo'lgan uchburchak turlari (✓); Kundalik: "ikkita to'g'ri burchakli uchburchak bo'ladimi? bitta to'g'ri + bitta o'tmas?"
 **Rasmlar:** turlar jadvali, teng tomon belgilari (shtrixlar), yoy belgilari.
 
-#### ☐ 43. Uchburchaklarni chizish — D2 118–122; M2 155–156
+#### ✅ 43. Uchburchaklarni chizish — D2 118–122; M2 155–156
 **Qoidalar ro'yxati:**
 - Katakli daftarda: to'g'ri burchakli (AC ⊥ BC), teng yonli (DE = DF), o'tkir, o'tmas.
 - Bir tomon va ikki burchak bo'yicha (BC = 5 cm, ∠B = 50°, ∠C = 45°): kesma → transportir B da → transportir C da → kesishish nuqtasi A.
@@ -733,8 +733,12 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Misol turlari:** 3 xil chizish; berilgan o'lchamlar bo'yicha.
 **Mashq daftaridan (qo'shimcha):** BC = 6 cm, 40°, 55°; teng tomonli 5 cm; to'g'ri burchakli 6 va 3 cm; teng yonli 4 cm, 135°; xomaki chizma → aniq chizma; WY = 10, WX = 7, ∠W = 75° (amaliy).
 **Rasmlar:** bosqichma-bosqich chizish (1-qadam, 2-qadam ...).
+**Holat (2026-10-23):** tayyor va push qilindi. Fayl: maruza/5-uchburchaklarni-chizish.html. Yangi chizma: `data-yasash` (chizma.js) — uchburchakni qadamma-qadam chizish: "bb" (tomon va ikki burchak, transportir ikki uchda), "tbt" (ikki tomon va orasidagi burchak), "tik" (uchburchakli chizg'ich), "xomaki":1 (qo'lda chizilgandek). O'z testi: `5|matematika|uchburchaklarni-chizish` 20+20, 18 savolda chizma (qadamlar, katakli daftar, xomaki chizma).
+**Kitob bilan solishtirildi:** katakli daftarda 4 tur ✅; tomon va 2 burchak (4 qadam) ✅; 2 tomon va orasidagi burchak (3 qadam) ✅; to'g'ri burchakli teng yonli uchburchakli chizg'ich bilan ✅; xomaki → aniq ✅. Daftar turlari: tomon + 2 burchak ✅ (O'rta 1), teng tomonli ✅ (Namuna 1, O'rta 2), to'g'ri burchakli 2 tomon ✅ (Namuna 3, O'rta 4), teng yonli o'tmas ✅ (Namuna 2, O'rta 5), xomaki → aniq ✅, amaliy (masshtab) ✅ (Matnli 1–3). Kitob sonlari almashtirilgan (5/50/45, 6/5/60, 5/5/90, 7/50/70, 8/5/90, 6/40/55, 4/4/135 ishlatilmadi).
+**Tekshiruv:** javoblar Python bilan (kosinuslar bilan o'lchov qiymatlari: 5,2; 7,2; 6,3; 3,4; 6,9; 2,3; 3,9; 4,4), 390/1100 px, node --check, barcha ma'ruzalar qayta tekshirildi (chizma.js o'zgardi).
+**Simulyator uchun g'oyalar:** virtual chizg'ich va transportir: o'quvchi nurni sudrab burchakni o'zi o'rnatadi, kesishish nuqtasi o'zi topiladi; «bu ma'lumot bilan chizib bo'ladimi?» (yig'indi ≥ 180°) o'yini.
 
-#### ☐ 44. Uchburchakning burchaklari (yig'indisi 180°) — D2 123–131; M2 157–164
+#### ✅ 44. Uchburchakning burchaklari (yig'indisi 180°) — D2 123–131; M2 157–164
 **Qoidalar ro'yxati:**
 - Uchburchak burchaklari yig'indisi 180° (buklab ko'rsatish: 3 burchak to'g'ri chiziqda).
 - Noma'lum burchak = 180° − ikki burchak.
@@ -745,6 +749,10 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** bir nechta uchburchakli shakllar: teng tomonli + to'g'ri chiziq; ikki to'g'ri burchak; PS = RS; teng tomonli + teng yonli; ikki teng yonli (JKL, MKL); uch teng burchak (∠VSW = ∠VSU = ∠UST).
 **Qiyin masala:** teng yonli ABC + teng tomonli DBC → ∠ACD.
 **Rasmlar:** uchburchak burchaklarini "yirtib" to'g'ri chiziqqa qo'yish.
+**Holat (2026-10-23):** tayyor va push qilindi. Fayl: maruza/5-uchburchak-burchaklari.html. `data-shakl` kengaytirildi: "shakllar" (bir nechta ko'pburchak), "yoy" (istalgan burchak, rang, radius), "tik":["BAC"], "diag" togri, "joy". O'z testi: `5|matematika|uchburchak-burchaklari` 20+20, 18 savolda chizma.
+**Kitob bilan solishtirildi:** 180° (buklash/yirtish, to'g'ri chiziq) ✅; noma'lum burchak ✅; teng yonli (uchidagi → asosdagi, asosdagi → uchidagi) ✅; to'g'ri burchakli teng yonli 45° ✅; teng tomonli 60° ✅; to'g'ri chiziq + uchburchak 2 usul ✅ (6-qoida); balandlik bilan ikki uchburchak ✅; ikki uchburchakli to'rtburchak ✅; teng yonli + teng tomonli qiyin masala ✅ (O'ylab ko'ring); «qaysi uchburchak bor» kundaligi ✅. Kitob sonlari (30/50, 120/35, 68, 42, 66, 72/48/26, 38, 40, 36) ishlatilmadi.
+**Tekshiruv:** tenglik.py 39/0, barcha chizmalardagi burchaklar koordinatalardan Python bilan tekshirildi, 390/1100 px, barcha ma'ruzalar qayta tekshirildi (chizma.js o'zgardi).
+**Simulyator uchun g'oyalar:** uchburchak uchlarini sudrash — uchala burchak o'zgaradi, yig'indisi doim 180°; «burchaklarni yirtish» animatsiyasi; teng yonli rejimida bitta burchakni o'zgartirsa qolganlari o'zi hisoblanadi.
 
 ### 13-bob. Parallelogramm, romb va trapetsiya
 
