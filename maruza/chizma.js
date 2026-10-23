@@ -663,7 +663,7 @@
     const qadam = Number(el.dataset.qadam) || 10;
     const maxV = Math.max.apply(null, q.map(function (x) { return x.v || 0; }));
     const top = Math.ceil((maxV + 1) / qadam) * qadam;
-    const W = 380, L = 54, R = 12, T = 16, B = 34, H = 220;
+    const W = 380, L = 54, R = 12, T = el.dataset.ortacha ? 34 : 16, B = 34, H = el.dataset.ortacha ? 238 : 220;
     const iH = H - T - B, iW = W - L - R, bw = iW / q.length * 0.5, g = iW / q.length;
     const Y = function (v) { return T + iH - v / top * iH; };
     let svg = "";
@@ -690,7 +690,8 @@
     if (el.dataset.ortacha) {
       const o = Number(el.dataset.ortacha);
       svg += '<line x1="' + L + '" y1="' + Y(o) + '" x2="' + (W - R) + '" y2="' + Y(o) + '" stroke="#d6454f" stroke-width="2.5" stroke-dasharray="7 5"/>' +
-        '<text x="' + (L + 4) + '" y="' + (Y(o) - 6) + '" text-anchor="start" font-size="13" font-weight="800" fill="#d6454f" stroke="#fff" stroke-width="4" paint-order="stroke">o\'rtacha: ' + String(o).replace(".", ",") + "</text>";
+        '<line x1="' + (W - R - 128) + '" y1="12" x2="' + (W - R - 104) + '" y2="12" stroke="#d6454f" stroke-width="2.5" stroke-dasharray="7 5"/>' +
+        '<text x="' + (W - R) + '" y="17" text-anchor="end" font-size="13" font-weight="800" fill="#d6454f">o\'rtacha: ' + String(o).replace(".", ",") + "</text>";
     }
     el.classList.add("tasma");
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Ustunli diagramma: ' +

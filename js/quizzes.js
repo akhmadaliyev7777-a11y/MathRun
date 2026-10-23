@@ -741,6 +741,53 @@ const QUIZ_DATA = {
     ]
   },
 
+  "5|matematika|ortacha-jami-soni": {
+    oson: [
+      { question: "3 ta sonning o'rtachasi 10. Ularning yig'indisi nechaga teng?", options: ["30", "13", "7", "10"], answer: "30", explain: "Jami = o'rtacha · soni = 10 · 3 = <b>30</b>." },
+      { question: "4 ta sonning o'rtachasi 25. Ularning yig'indisi nechaga teng?", options: ["100", "29", "21", "6,25"], answer: "100", explain: "Jami = 25 · 4 = <b>100</b>." },
+      { question: "Sonlarning yig'indisi 60, o'rtachasi 12. Nechta son bor?", options: ["5", "72", "48", "720"], answer: "5", explain: "Soni = jami : o'rtacha = 60 : 12 = <b>5</b>." },
+      { question: "Jami qiymat qanday topiladi?", options: ["O'rtacha · soni", "O'rtacha : soni", "Soni : o'rtacha", "O'rtacha + soni"], answer: "O'rtacha · soni", explain: "O'rtacha = jami : soni bo'lgani uchun <b>jami = o'rtacha · soni</b>." },
+      { question: "Miqdorlar soni qanday topiladi?", options: ["Jami : o'rtacha", "Jami · o'rtacha", "O'rtacha : jami", "Jami − o'rtacha"], answer: "Jami : o'rtacha", explain: "Jami — o'rtachaning necha marta olingani: <b>soni = jami : o'rtacha</b>." },
+      { question: "5 ta qalamning o'rtacha narxi 3000 so'm. Jami narxi qancha?", options: ["15 000 so'm", "600 so'm", "3005 so'm", "8000 so'm"], answer: "15 000 so'm", explain: "3000 · 5 = <b>15 000 so'm</b>." },
+      { question: "Kitoblarning jami narxi 40 000 so'm, o'rtacha narxi 8000 so'm. Nechta kitob?", options: ["5", "32 000", "48 000", "8"], answer: "5", explain: "40 000 : 8000 = <b>5</b> ta." },
+      { question: "Ikki sonning o'rtachasi 10. Ulardan biri 7. Ikkinchisi nechaga teng?", options: ["13", "3", "10", "17"], answer: "13", explain: "1) Jami: 10 · 2 = 20.<br>2) Ikkinchisi: 20 − 7 = <b>13</b>." },
+      { question: "Uch sonning o'rtachasi 6. Ikkitasi 4 va 8. Uchinchisi nechaga teng?", options: ["6", "12", "18", "2"], answer: "6", explain: "1) Jami: 6 · 3 = 18.<br>2) 18 − 4 − 8 = <b>6</b>." },
+      { question: "6 ta tarvuzning o'rtacha massasi 5 kg. Jami massa qancha?", options: ["30 kg", "11 kg", "1 kg", "56 kg"], answer: "30 kg", explain: "5 · 6 = <b>30 kg</b>." },
+      { question: "To'rt sonning o'rtachasi 5: 3, 4, 6, ?. So'roq o'rniga qaysi son yoziladi?", options: ["7", "5", "20", "13"], answer: "7", explain: "1) Jami: 5 · 4 = 20.<br>2) 20 − (3 + 4 + 6) = 20 − 13 = <b>7</b>." },
+      { question: "8 o'quvchi o'rtacha 3 tadan kitob o'qidi. Jami nechta kitob o'qilgan?", options: ["24", "11", "5", "83"], answer: "24", explain: "3 · 8 = <b>24</b> ta." },
+      { question: "Testlardan jami 90 ball, o'rtacha 30 ball olindi. Nechta test topshirilgan?", options: ["3", "60", "120", "2700"], answer: "3", explain: "90 : 30 = <b>3</b> ta test." },
+      { question: "Aka-ukaning o'rtacha yoshi 10. Akasi 13 yoshda. Ukasi necha yoshda?", options: ["7", "3", "10", "23"], answer: "7", explain: "1) Jami: 10 · 2 = 20.<br>2) Ukasi: 20 − 13 = <b>7</b> yosh." },
+      { question: "Laylo 3 kunda kuniga o'rtacha 20 bet o'qidi. Jami necha bet o'qigan?", options: ["60", "23", "17", "203"], answer: "60", explain: "20 · 3 = <b>60</b> bet." },
+      { question: "3 kunda kuniga o'rtacha 20 bet o'qildi: 18, 25 va ? bet. Uchinchi kuni necha bet o'qilgan?", options: ["17", "20", "60", "43"], answer: "17", explain: "1) Jami: 20 · 3 = 60.<br>2) 60 − 18 − 25 = <b>17</b> bet." },
+      { question: "5 ta sumkaning jami narxi 250 000 so'm. Bitta sumkaning o'rtacha narxi qancha?", options: ["50 000 so'm", "1 250 000 so'm", "245 000 so'm", "255 000 so'm"], answer: "50 000 so'm", explain: "O'rtacha = jami : soni = 250 000 : 5 = <b>50 000 so'm</b>." },
+      { question: "4 ta qutida o'rtacha 12 tadan sharcha bor. Jami nechta sharcha?", options: ["48", "16", "3", "8"], answer: "48", explain: "12 · 4 = <b>48</b> ta." },
+      { question: "7 ta xaltada jami 63 ta yong'oq bor. Bitta xaltada o'rtacha nechta?", options: ["9", "56", "70", "441"], answer: "9", explain: "63 : 7 = <b>9</b> ta." },
+      { question: "To'rt sonning o'rtachasi 10: 12, 8 va ikkita teng son. Teng sonlarning har biri nechaga teng?", options: ["10", "20", "40", "5"], answer: "10", explain: "1) Jami: 10 · 4 = 40.<br>2) Teng ikkitasiga: 40 − 12 − 8 = 20.<br>3) Har biri: 20 : 2 = <b>10</b>." }
+    ],
+    qiyin: [
+      { question: "5 ta qopning o'rtacha massasi 12,4 kg. Jami massa qancha?", options: ["62 kg", "17,4 kg", "60 kg", "2,48 kg"], answer: "62 kg", explain: "12,4 · 5 = <b>62 kg</b>." },
+      { question: "Lentalarning jami uzunligi 19,5 m, o'rtacha uzunligi 1,3 m. Nechta lenta bor?", options: ["15", "25,35", "18", "13"], answer: "15", explain: "19,5 : 1,3 = 195 : 13 = <b>15</b> ta." },
+      { question: "To'rt sonning o'rtachasi 8,5: 6,2; 9,4; 7,1; ?. To'rtinchi son nechaga teng?", options: ["11,3", "8,5", "10,3", "22,7"], answer: "11,3", explain: "1) Jami: 8,5 · 4 = 34.<br>2) Ma'lumlar: 6,2 + 9,4 + 7,1 = 22,7.<br>3) 34 − 22,7 = <b>11,3</b>." },
+      { question: "5 kunda kuniga o'rtacha 22 000 so'm xayriya yig'ildi: 20 000, 30 000, 15 000, 28 000 va juma kuni ?. Juma kuni qancha yig'ilgan?", options: ["17 000 so'm", "22 000 so'm", "93 000 so'm", "27 000 so'm"], answer: "17 000 so'm", explain: "1) Jami: 22 000 · 5 = 110 000.<br>2) Ma'lumlar: 93 000.<br>3) Juma: 110 000 − 93 000 = <b>17 000 so'm</b>." },
+      { question: "4 kunda o'rtacha 560 ta non sotildi: 500, 620, ? va 590. Uchinchi kuni nechta non sotilgan?", options: ["530", "560", "1710", "590"], answer: "530", explain: "1) Jami: 560 · 4 = 2240.<br>2) 2240 − (500 + 620 + 590) = 2240 − 1710 = <b>530</b>." },
+      { question: "Muzeyga 5 kunda kuniga o'rtacha 40 kishi keldi. Shanbani qo'shib 6 kunda o'rtacha 42 kishi bo'ldi. Shanba kuni nechta kishi kelgan?", options: ["52", "42", "2", "40"], answer: "52", explain: "1) 5 kun: 40 · 5 = 200.<br>2) 6 kun: 42 · 6 = 252.<br>3) Shanba: 252 − 200 = <b>52</b>." },
+      { question: "5 testdan o'rtacha 86 ball: 82, 90, 84 va oxirgi ikkitasi teng. Oxirgi testlarning har biridan necha ball olingan?", options: ["87", "174", "86", "88"], answer: "87", explain: "1) Jami: 86 · 5 = 430.<br>2) 430 − (82 + 90 + 84) = 430 − 256 = 174.<br>3) Har biri: 174 : 2 = <b>87</b>." },
+      { question: "3 ta sonning o'rtachasi 8, boshqa 5 ta sonning o'rtachasi 16. Barcha 8 ta sonning o'rtachasi nechaga teng?", options: ["13", "12", "24", "104"], answer: "13", explain: "1) Jamilar: 8 · 3 = 24 va 16 · 5 = 80; birga 104.<br>2) 104 : 8 = <b>13</b>.<br>(12 — (8 + 16) : 2, bu noto'g'ri.)" },
+      { question: "6 ta sonning o'rtachasi 15. Ulardan biri o'chirilgach, qolgan 5 tasining o'rtachasi 14 bo'ldi. Qaysi son o'chirilgan?", options: ["20", "15", "1", "14"], answer: "20", explain: "1) 6 son: 15 · 6 = 90.<br>2) 5 son: 14 · 5 = 70.<br>3) O'chirilgan: 90 − 70 = <b>20</b>." },
+      { question: "Kartochkada: 81, 84, 85, 87, 90, 92, 95. Ali 81, 90 va 92 ni tanladi. U yana qaysi sonni tanlasa, to'rt sonning o'rtachasi 87 bo'ladi?", options: ["85", "87", "84", "90"], answer: "85", explain: "1) Jami: 87 · 4 = 348.<br>2) Tanlanganlar: 81 + 90 + 92 = 263.<br>3) 348 − 263 = <b>85</b> — kartochkada bor." },
+      { question: "Basketbolda 4 chorakda o'rtacha 22 ochko: 25, 19, 24 va ?. To'rtinchi chorakda necha ochko?", options: ["20", "22", "68", "88"], answer: "20", explain: "1) Jami: 22 · 4 = 88.<br>2) 88 − (25 + 19 + 24) = 88 − 68 = <b>20</b>." },
+      { question: "4 fandan o'rtacha 90 ball: 95, 86, 91 va ?. To'rtinchi fandan necha ball?", options: ["88", "90", "272", "92"], answer: "88", explain: "1) Jami: 90 · 4 = 360.<br>2) 360 − (95 + 86 + 91) = 360 − 272 = <b>88</b>." },
+      { question: "3 ta chamadonning o'rtacha massasi 21,5 kg. Samolyotda 70 kg gacha yuk olish mumkin. Qancha zaxira qoladi?", options: ["5,5 kg", "64,5 kg", "48,5 kg", "6,5 kg"], answer: "5,5 kg", explain: "1) Jami: 21,5 · 3 = 64,5 kg.<br>2) Zaxira: 70 − 64,5 = <b>5,5 kg</b>." },
+      { question: "30 o'quvchi 4 guruhga bo'lindi: I guruhda 7, II da 9, III da 8 o'quvchi. IV guruhda nechta o'quvchi bor?", options: ["6", "24", "8", "5"], answer: "6", explain: "30 − (7 + 9 + 8) = 30 − 24 = <b>6</b>." },
+      { question: "6 o'quvchidan iborat guruh 126 ta ko'chat ekdi. Har bir o'quvchi o'rtacha nechta ko'chat ekkan?", options: ["21", "126", "18", "20"], answer: "21", explain: "126 : 6 = <b>21</b> ta." },
+      { question: "3 fandan o'rtacha 88 ball. Ingliz tili — 85, matematika — 9▢, tarix — ▢9. Matematikadan necha ball olingan?", options: ["90", "89", "99", "94"], answer: "90", explain: "1) Jami: 88 · 3 = 264; ikki fanga: 264 − 85 = 179.<br>2) Tarix 9 bilan tugaydi, yig'indi ham 9 bilan — matematika 0 bilan tugaydi: <b>90</b>.<br>3) Tarix: 179 − 90 = 89." },
+      { question: "Uzunlikka sakrash: Ali 3,1; 3,4; 3,2 m. Vali 3,3; 3,2; 3,3 m. Soli 3,5; 3,0; 3,2 m. Kimning o'rtachasi eng katta?", options: ["Vali", "Ali", "Soli", "Hammasi teng"], answer: "Vali", explain: "Sakrashlar soni bir xil — jamini solishtiramiz:<br>Ali 9,7; Vali 9,8; Soli 9,7 m.<br>Eng katta — <b>Vali</b>." },
+      { question: "5 oyda oyiga o'rtacha 400 ta tort sotildi. 6 oyda o'rtacha 410 ta bo'ldi. 6-oyda nechta tort sotilgan?", options: ["460", "410", "10", "2460"], answer: "460", explain: "1) 5 oy: 400 · 5 = 2000.<br>2) 6 oy: 410 · 6 = 2460.<br>3) 6-oy: 2460 − 2000 = <b>460</b>." },
+      { question: "3, 7, 11 sonlarining o'rtachasi 7. Ulardan 7 olib tashlansa, qolgan ikkitasining o'rtachasi nechaga teng?", options: ["7", "14", "3,5", "10"], answer: "7", explain: "(3 + 11) : 2 = 14 : 2 = <b>7</b>.<br>O'rtachaga teng sonni olib tashlash o'rtachani o'zgartirmaydi." },
+      { question: "10 ta sonning o'rtachasi 20. Har bir songa 3 qo'shilsa, yangi o'rtacha nechaga teng bo'ladi?", options: ["23", "50", "20", "30"], answer: "23", explain: "1) Eski jami: 20 · 10 = 200; har biriga 3 qo'shilsa jami 30 ga oshadi: 230.<br>2) 230 : 10 = <b>23</b>." }
+    ]
+  },
+
   "5|matematika|foizlar": [
     { level: 1, question: "1% qanday kasrga teng?", options: ["1/100", "1/10", "10/100", "1/1000"], answer: "1/100" },
     { level: 2, question: "50% ni oddiy kasr ko'rinishida yozing.", options: ["1/2", "1/4", "1/5", "2/1"], answer: "1/2" },

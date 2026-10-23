@@ -630,7 +630,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** 0 qatnashgan to'plam o'rtachasi (9, 17, 0, 14); o'nli kasrli uzunlik va ml; kunlik kulcha savdosi; ovqat narxi; jadvaldan massa; ustunli diagrammadan ball va somsalar.
 **Rasmlar:** likopchalar (ko'chirish strelkasi), ustunli diagramma va o'rtacha chizig'i.
 
-#### ☐ 37. O'rtacha qiymat, jami qiymat va son orasidagi bog'lanish — D2 83–89; M2 119–130
+#### ✅ 37. O'rtacha qiymat, jami qiymat va son orasidagi bog'lanish — D2 83–89; M2 119–130
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-ortacha-jami-soni.html. O'z testi: `5|matematika|ortacha-jami-soni` — 20 + 20 (avval test yo'q edi). 10-bob «O'rtacha qiymat» tugadi.
+**Kitob bilan solishtirildi (D2 83–89; M2 119–130):** 6 qoida (jami = o'rtacha · soni; soni = jami : o'rtacha; uch miqdor bog'liq — uchburchak sxemasi; noma'lum bitta qiymat; yangi kun/test qo'shilganda yangi jami; bir nechta teng noma'lum) ✅. Misol turlari: lentalar, massalar (o'nli), kitoblar soni, yoshlar, diagrammadan noma'lum ball, kunlar (dushanba–shanba), siyoh to'kilgan varaq (oxirgi raqam mantig'i), jadval (soni — o'rtacha — jami), xayriya, non, ikki guruh birga; daftardan: jami qiymat va soni (o'nli bilan), 4 sonning o'rtachasidan noma'lum son, basketbol choraklari, 4- va 5-test teng ball, ko'chat ekish guruhlari jadvali, tortlar (6-oy), yirtilgan diagramma (aprel), kartochkadan son tanlash, uzunlikka sakrash, ip bilan o'rtacha bo'y (amaliy), Kundalik «oyiga o'rtacha 5 ta»; Qiyin: farq eng ko'pi va eng kami ✅. Yirtilgan chek masalasi (aniq javobsiz, kitobda ham taxminiy) o'rniga siyoh/raqam mantiqli masalalar berildi. Kitob sonlari ko'chirilmadi (kitobdan.py: 0; 45 · 6 almashtirildi).
+**Tekshiruv:** barcha javoblar Python bilan (siyoh masalasida yagona javob tekshirildi); tenglik.py — 0 xato; testlar.js — 0 xato; 390/1100 px — 38 ma'ruza xatosiz. chizma.js: o'rtacha chizig'i yozuvi diagramma tepasiga ko'chirildi (ustunlarga tegmaydi).
+**Simulyator uchun g'oyalar:** «o'rtacha — jami — soni» uchburchagi: ikkitasini surgich bilan berib, uchinchisi chiqadi; yirtilgan diagramma o'yini — o'rtacha berilgan, yetishmagan ustunni sudrab to'g'ri balandlikka qo'yish.
 **Qoidalar ro'yxati:**
 - Jami qiymat = o'rtacha qiymat × miqdorlar soni.
 - Miqdorlar soni = jami qiymat : o'rtacha qiymat.
