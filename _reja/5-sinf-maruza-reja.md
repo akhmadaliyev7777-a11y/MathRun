@@ -598,7 +598,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** "necha foizi" (320 so'mning necha foizi 80 so'm); piyoda qatnaydiganlar, mevali tortlar, marafon, so'rovnoma; tayoqning bo'yalgan qismi; test natijasi; tortlar (soni va foizi aralash); bog' maydoni 160 qism; 24 soatlik kun rejimi (o'ndan birgacha yaxlitlash); ikki yuguruvchi farqi (m da); maoshdan tejalgan; jadvaldan oq munchoqlar foizi; "4 marta ko'p" → necha foiz; 25% olmali, farq 90 → qulupnayli; 20% ko'k = 60 ta → qizillar (qismiga ko'ra butun).
 **Rasmlar:** foiz tasmasi bilan bar model (0% — 100%).
 
-#### ☐ 35. QQS, chegirma va omonat foizi + matnli masalalar — D2 69–77; M2 85–96
+#### ✅ 35. QQS, chegirma va omonat foizi + matnli masalalar — D2 69–77; M2 85–96
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-qqs-chegirma-omonat.html. O'z testi: `5|matematika|qqs-chegirma-omonat` — 20 + 20. 9-bob «Foizlar» tugadi.
+**Kitob bilan solishtirildi (D2 69–77; M2 85–96):** 6 qoida (QQS 12%: miqdori va jami = 112%; chegirma: miqdori va yangi narx = (100 − a)%; omonat: yillik foyda va yil oxiri = (100 + a)%; jadvaldagi oraliqqa qarab foiz; xarid cheki; takliflarni solishtirish — foizdagi va so'mdagi chegirma) ✅. Misol turlari: QQS miqdori va jami narx, chegirma va yangi narx (ikki usul), omonat (A/B bank jadvali), ikki do'kon chegirmasi, ish kunlari chegirmasi (oshxona, sartaroshxona), omonatni ikki bankka bo'lish; daftardan: QQS/chegirma/omonat jadvallari, 15% vs 100 000 so'm chegirma, Kundalik (alohida yoki birdaniga — farq yo'q), Muammoli (qismiga ko'ra butun: ko'k ko'ylaklar), Qiyin (guldon → lampa: ikki chegirma farqi) ✅. Omonatlar so'mda (kitobda $) — hayotiy. Kitob sonlari ko'chirilmadi (kitobdan.py: 0 ta).
+**Tekshiruv:** barcha javoblar Python bilan; tenglik.py — faqat «=» va «:» aralash zanjir yozuvlari; testlar.js — 0 xato; 390/1100 px — 36 ma'ruza xatosiz. chizma.js: `data-chek` (xarid cheki, chegirma va QQS o'zi hisoblanadi), `data-foizbar` 100% dan oshadigan tasma (112%).
+**Simulyator uchun g'oyalar:** do'kon cheki: narx, chegirma % va QQS % slayderlari — yakuniy summa chekda o'zgaradi; bank: omonat va foiz slayderi, jadvaldan oraliq avtomatik tanlanadi, 1–3 yil foydasi.
 **Qoidalar ro'yxati:**
 - QQS — mahsulot/xizmatga qo'shiladigan soliq (darslikda 12%). QQS miqdori = narxning 12%; jami = narx + QQS (= narxning 112%).
 - Chegirma = narxning a%; yangi narx = narx − chegirma (= narxning (100 − a)%).
@@ -993,7 +997,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** "necha foizi" (320 so'mning necha foizi 80 so'm); piyoda qatnaydiganlar, mevali tortlar, marafon, so'rovnoma; tayoqning bo'yalgan qismi; test natijasi; tortlar (soni va foizi aralash); bog' maydoni 160 qism; 24 soatlik kun rejimi (o'ndan birgacha yaxlitlash); ikki yuguruvchi farqi (m da); maoshdan tejalgan; jadvaldan oq munchoqlar foizi; "4 marta ko'p" → necha foiz; 25% olmali, farq 90 → qulupnayli; 20% ko'k = 60 ta → qizillar (qismiga ko'ra butun).
 **Rasmlar:** foiz tasmasi bilan bar model (0% — 100%).
 
-#### ☐ 35. QQS, chegirma va omonat foizi + matnli masalalar — D2 69–77; M2 85–96
+#### ✅ 35. QQS, chegirma va omonat foizi + matnli masalalar — D2 69–77; M2 85–96
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-qqs-chegirma-omonat.html. O'z testi: `5|matematika|qqs-chegirma-omonat` — 20 + 20. 9-bob «Foizlar» tugadi.
+**Kitob bilan solishtirildi (D2 69–77; M2 85–96):** 6 qoida (QQS 12%: miqdori va jami = 112%; chegirma: miqdori va yangi narx = (100 − a)%; omonat: yillik foyda va yil oxiri = (100 + a)%; jadvaldagi oraliqqa qarab foiz; xarid cheki; takliflarni solishtirish — foizdagi va so'mdagi chegirma) ✅. Misol turlari: QQS miqdori va jami narx, chegirma va yangi narx (ikki usul), omonat (A/B bank jadvali), ikki do'kon chegirmasi, ish kunlari chegirmasi (oshxona, sartaroshxona), omonatni ikki bankka bo'lish; daftardan: QQS/chegirma/omonat jadvallari, 15% vs 100 000 so'm chegirma, Kundalik (alohida yoki birdaniga — farq yo'q), Muammoli (qismiga ko'ra butun: ko'k ko'ylaklar), Qiyin (guldon → lampa: ikki chegirma farqi) ✅. Omonatlar so'mda (kitobda $) — hayotiy. Kitob sonlari ko'chirilmadi (kitobdan.py: 0 ta).
+**Tekshiruv:** barcha javoblar Python bilan; tenglik.py — faqat «=» va «:» aralash zanjir yozuvlari; testlar.js — 0 xato; 390/1100 px — 36 ma'ruza xatosiz. chizma.js: `data-chek` (xarid cheki, chegirma va QQS o'zi hisoblanadi), `data-foizbar` 100% dan oshadigan tasma (112%).
+**Simulyator uchun g'oyalar:** do'kon cheki: narx, chegirma % va QQS % slayderlari — yakuniy summa chekda o'zgaradi; bank: omonat va foiz slayderi, jadvaldan oraliq avtomatik tanlanadi, 1–3 yil foydasi.
 **Qoidalar ro'yxati:**
 - QQS — mahsulot/xizmatga qo'shiladigan soliq (darslikda 12%). QQS miqdori = narxning 12%; jami = narx + QQS (= narxning 112%).
 - Chegirma = narxning a%; yangi narx = narx − chegirma (= narxning (100 − a)%).

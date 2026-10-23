@@ -84,6 +84,9 @@
    data-foizbar="Qizlar:55|O'g'il bolalar:45" [data-jami="600 o'quvchi"] [data-qiymat="?|"] — foizli tasma modeli: butun tasma = 100%,
                                           har bo'lak "nomi:foizi" (o'z rangida, nomi ichida, foizi ostida); jami — tepada butun tasma ustida qavs bilan;
                                           qiymat — har bo'lak ustidagi yozuv ("|" bilan, bo'sh — yozilmaydi; "?" — so'roq)
+       (foizbar: bo'laklar yig'indisi 100 dan oshsa — masalan "Narx:100|QQS:12" — tasma 112% ga cho'ziladi, 100% joyida punktir)
+   data-chek="Kurtka:420000|Shim:180000" [data-qqs="12"] [data-chegirma="10"] [data-nom="Kiyim do'koni"] — xarid cheki:
+                                          mahsulotlar va narxlari, jami; chegirma va/yoki QQS foizi berilsa — miqdori va yakuniy summa o'zi hisoblanadi
 */
 (function () {
   "use strict";
@@ -248,11 +251,12 @@
     const qiy = (el.dataset.qiymat || "").split("|");
     const jami = el.dataset.jami || "";
     const RANG = ["#1f5fd6", "#e07b39", "#12805c", "#8b5cf6", "#d6454f"];
-    const W = 560, x0 = 20, x1 = 540, k = (x1 - x0) / 100, top = jami ? 46 : 0, y0 = top + 46, y1 = y0 + 58;
+    const jamiF = bol.reduce(function (t, b) { return t + b[1]; }, 0);
+    const W = 560, x0 = 20, x1 = 540, k = (x1 - x0) / Math.max(100, jamiF), top = jami ? 46 : 0, y0 = top + 46, y1 = y0 + 58;
     let h = '<svg viewBox="0 0 ' + W + " " + (y1 + 44) + '" width="' + W + '" role="img" aria-label="Foizli tasma modeli">';
     if (jami) {
-      h += '<path d="M' + x0 + ' 46 v-9 H' + x1 + ' v9" fill="none" stroke="#1f2433" stroke-width="2"/>';
-      h += '<text x="' + (x0 + x1) / 2 + '" y="28" text-anchor="middle" font-size="25" font-weight="800" fill="#1f2433">' + jami + " = 100%</text>";
+      h += '<path d="M' + x0 + ' 46 v-9 H' + (x0 + jamiF * k) + ' v9" fill="none" stroke="#1f2433" stroke-width="2"/>';
+      h += '<text x="' + (x0 + jamiF * k / 2) + '" y="28" text-anchor="middle" font-size="25" font-weight="800" fill="#1f2433">' + jami + " = " + jamiF + "%</text>";
     }
     let x = x0;
     bol.forEach(function (b, i) {
@@ -268,9 +272,44 @@
       }
       x += w;
     });
-    h += '<rect x="' + x0 + '" y="' + y0 + '" width="' + (x1 - x0) + '" height="' + (y1 - y0) + '" fill="none" stroke="#1f2433" stroke-width="2"/></svg>';
+    h += '<rect x="' + x0 + '" y="' + y0 + '" width="' + (jamiF * k) + '" height="' + (y1 - y0) + '" fill="none" stroke="#1f2433" stroke-width="2"/>';
+    if (jamiF > 100) h += '<line x1="' + (x0 + 100 * k) + '" y1="' + (y0 - 6) + '" x2="' + (x0 + 100 * k) + '" y2="' + (y1 + 6) + '" stroke="#1f2433" stroke-width="3" stroke-dasharray="5 4"/>';
+    h += "</svg>";
     el.classList.add("chz");
     el.innerHTML = h;
+  }
+
+  // ---------- xarid cheki ----------
+  function chizChek(el) {
+    const satr = el.dataset.chek.split("|").map(function (q) { const i = q.lastIndexOf(":"); return [q.slice(0, i), Number(q.slice(i + 1))]; });
+    const qqs = Number(el.dataset.qqs || 0), cheg = Number(el.dataset.chegirma || 0), nom = el.dataset.nom || "Xarid cheki";
+    const pul = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " so'm"; };
+    const W = 360, L = 22, R = W - 22;
+    let y = 0, h = "";
+    const qator = function (chap, ong, opt) {
+      y += opt && opt.oraliq ? opt.oraliq : 30;
+      const fw = opt && opt.qalin ? 800 : 600, c = (opt && opt.rang) || "#1f2433", fs = (opt && opt.fs) || 17;
+      h += '<text x="' + L + '" y="' + y + '" font-size="' + fs + '" font-weight="' + fw + '" fill="' + c + '">' + chap + "</text>";
+      if (ong) h += '<text x="' + R + '" y="' + y + '" text-anchor="end" font-size="' + fs + '" font-weight="' + fw + '" fill="' + c + '">' + ong + "</text>";
+    };
+    const chiziq = function () { y += 14; h += '<line x1="' + L + '" y1="' + y + '" x2="' + R + '" y2="' + y + '" stroke="#9aa3b5" stroke-width="1.5" stroke-dasharray="4 4"/>'; };
+    y = 6; qator(nom, "", { qalin: true, fs: 19, oraliq: 32 });
+    chiziq();
+    let jami = 0;
+    satr.forEach(function (q) { jami += q[1]; qator(q[0], pul(q[1])); });
+    chiziq();
+    qator(cheg || qqs ? "Jami" : "Jami:", pul(jami), { qalin: true });
+    let ox = jami;
+    if (cheg) { const c = jami * cheg / 100; qator("Chegirma " + cheg + "%", "− " + pul(c), { rang: "#d6454f" }); ox = jami - c; if (qqs) qator("Chegirmadan keyin", pul(ox)); }
+    if (qqs) { const q = ox * qqs / 100; qator("QQS " + qqs + "%", "+ " + pul(q), { rang: "#1f5fd6" }); ox += q; }
+    if (cheg || qqs) { chiziq(); qator("To'lanadi", pul(ox), { qalin: true, rang: "#12805c", fs: 19 }); }
+    y += 22;
+    /* chekning pastki tishli cheti: o'ngdan chapga 12 px li tishlar */
+    const tish = function (xo, xc, yy) { let d = "", x = xo, past = true; while (x - 12 > xc) { x -= 12; d += " L" + x + " " + (past ? yy + 8 : yy); past = !past; } return d + " L" + xc + " " + yy; };
+    const svg = '<svg viewBox="0 0 ' + W + " " + y + '" width="' + W + '" role="img" aria-label="Xarid cheki">' +
+      '<path d="M4 4 H' + (W - 4) + " V" + (y - 10) + tish(W - 4, 4, y - 10) + " Z" + '" fill="#fffdf6" stroke="#c9ced8" stroke-width="1.5"/>' + h + "</svg>";
+    el.classList.add("chz");
+    el.innerHTML = svg;
   }
 
   // ---------- son o'qi 0..1 ----------
@@ -1442,6 +1481,7 @@
       root.querySelectorAll("[data-uchburchak]").forEach(chizUchburchak);
       root.querySelectorAll("[data-foiz]").forEach(chizFoiz);
       root.querySelectorAll("[data-foizbar]").forEach(chizFoizbar);
+      root.querySelectorAll("[data-chek]").forEach(chizChek);
     }
   };
 })();
