@@ -90,6 +90,11 @@
        data-ustunli ga: [data-qiymat="1"] — har ustun ustida qiymati; [data-ortacha="240"] — o'rtacha qiymat qizil punktir chiziq bilan
    data-likop="2,7,6" [data-nom="shirinlik"] — likopchalardagi buyumlar (o'rtacha qiymat): tepada berilgan holat, ortiqchalari ajratilgan;
                                           jami likopchalar soniga bo'linsa — pastda teng taqsimlangan holat (ko'chirilganlari to'q sariq)
+   data-nurlar='{"nur":{"A":180,"B":0,"C":90},"yoy":[["A","C","90°"],["C","B","?"]],"markaz":"O"}' — bir nuqtadan chiqqan nurlar:
+       "nur": nom → yo'nalish (gradus, 0 — o'ngga, 90 — tepaga, soat strelkasiga teskari); nomi bo'sh ("") bo'lsa yozilmaydi;
+       "yoy": [nur1, nur2, yozuv, (rang)] — nur1 dan nur2 gacha (soat strelkasiga teskari) yoy va yozuv; yozuv "90°" va "tik":1 bo'lsa — kvadratcha;
+       "markaz": markaz nomi; "transportir": 1 — markazga transportir qo'yiladi (asosi 0°–180° chizig'ida, ichki va tashqi shkala);
+       "olcham": nur uzunligi (px, odatda 120)
 */
 (function () {
   "use strict";
@@ -348,6 +353,72 @@
     }
     el.classList.add("chz");
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" width="' + W + '" role="img" aria-label="' + n + " ta likopchada " + v.join(", ") + (nom ? " ta " + nom : "") + (butun ? "; teng taqsimlansa har birida " + urt : "") + '">' + h + "</svg>";
+  }
+
+  // ---------- nurlar va burchaklar (transportir bilan) ----------
+  function chizNurlar(el) {
+    const g = JSON.parse(el.dataset.nurlar);
+    const R = Number(g.olcham || 135), YOY = ["#1f5fd6", "#e07b39", "#12805c", "#8b5cf6", "#d6454f", "#0e9aa7"];
+    const nur = g.nur || {}, yoy = g.yoy || [], tr = !!g.transportir;
+    const rad = function (d) { return d * Math.PI / 180; };
+    /* chegaralar: nurlar uchlari, transportir bo'lsa yuqori yarim aylana */
+    let xs = [0, -30, 30], ys = [-30, 30];
+    Object.keys(nur).forEach(function (k) { xs.push(Math.cos(rad(nur[k])) * (R + 22)); ys.push(-Math.sin(rad(nur[k])) * (R + 22)); });
+    if (tr) { xs.push(-(R + 4), R + 4); ys.push(-(R + 4)); }
+    const pad = 16, minX = Math.min.apply(null, xs) - pad, maxX = Math.max.apply(null, xs) + pad;
+    const minY = Math.min.apply(null, ys) - pad, maxY = Math.max.apply(null, ys) + pad + 8;
+    const W = maxX - minX, H = maxY - minY, cx = -minX, cy = -minY;
+    const P = function (d, r) { return [cx + Math.cos(rad(d)) * r, cy - Math.sin(rad(d)) * r]; };
+    let h = "";
+    if (tr) {
+      const r0 = R * 0.8;
+      h += '<path d="M' + (cx - r0) + " " + cy + " A " + r0 + " " + r0 + " 0 0 1 " + (cx + r0) + " " + cy + ' Z" fill="#eef4ff" fill-opacity=".85" stroke="#7a93c9" stroke-width="1.5"/>';
+      for (let d = 0; d <= 180; d += 5) {
+        const big = d % 10 === 0, a = P(d, r0), b = P(d, r0 - (big ? 10 : 6));
+        h += '<line x1="' + a[0] + '" y1="' + a[1] + '" x2="' + b[0] + '" y2="' + b[1] + '" stroke="#7a93c9" stroke-width="' + (big ? 1.4 : 1) + '"/>';
+        if (big && d % 20 === 0) {
+          const t1 = P(d, r0 + 12), t2 = P(d, r0 - 22);
+          h += '<text x="' + t1[0] + '" y="' + (t1[1] + 4) + '" text-anchor="middle" font-size="11.5" fill="#5b6577">' + (180 - d) + "</text>";
+          h += '<text x="' + t2[0] + '" y="' + (t2[1] + 4) + '" text-anchor="middle" font-size="11.5" fill="#1f5fd6">' + d + "</text>";
+        }
+      }
+    }
+    /* yoylar */
+    yoy.forEach(function (y, i) {
+      const a1 = nur[y[0]], a2 = nur[y[1]];
+      let d = a2 - a1; while (d <= 0) d += 360; while (d > 360) d -= 360;
+      const c = y[3] || YOY[i % YOY.length], ry = 28 + (i % 3) * 10, mid = a1 + d / 2;
+      if (y[2] === "90°" && g.tik !== 0) {
+        const q = 16, u = P(a1, q), v = P(a2, q), w = [u[0] + v[0] - cx, u[1] + v[1] - cy];
+        h += '<path d="M' + u[0] + " " + u[1] + " L" + w[0] + " " + w[1] + " L" + v[0] + " " + v[1] + '" fill="none" stroke="' + c + '" stroke-width="2"/>';
+      } else {
+        const s1 = P(a1, ry), s2 = P(a2, ry);
+        h += '<path d="M' + cx + " " + cy + " L" + s1[0] + " " + s1[1] + " A " + ry + " " + ry + " 0 " + (d > 180 ? 1 : 0) + " 0 " + s2[0] + " " + s2[1] + ' Z" fill="' + c + '" fill-opacity=".14" stroke="' + c + '" stroke-width="2"/>';
+      }
+      const t = P(mid, ry + (d < 40 ? 26 : 18));
+      if (y[2]) h += '<text x="' + t[0] + '" y="' + (t[1] + 5) + '" text-anchor="middle" font-size="18" font-weight="800" fill="' + c + '" stroke="#fff" stroke-width="4" paint-order="stroke">' + y[2] + "</text>";
+    });
+    /* nurlar va nomlari */
+    Object.keys(nur).forEach(function (k) {
+      const e = P(nur[k], R), t = P(nur[k], R + 14);
+      h += '<line x1="' + cx + '" y1="' + cy + '" x2="' + e[0] + '" y2="' + e[1] + '" stroke="#1f2433" stroke-width="2.4" stroke-linecap="round"/>';
+      h += '<circle cx="' + e[0] + '" cy="' + e[1] + '" r="3" fill="#1f2433"/>';
+      if (k && k.charAt(0) !== "_") h += '<text x="' + t[0] + '" y="' + (t[1] + 6) + '" text-anchor="middle" font-size="18" font-weight="800" fill="#1f2433">' + k + "</text>";
+    });
+    h += '<circle cx="' + cx + '" cy="' + cy + '" r="4" fill="#1f2433"/>';
+    if (g.markaz) {
+      /* markaz nomi — nurlar orasidagi eng katta bo'shliq o'rtasida */
+      const ay = Object.keys(nur).map(function (k) { return ((nur[k] % 360) + 360) % 360; }).sort(function (p, q) { return p - q; });
+      let best = 270, gap = -1;
+      ay.forEach(function (a, i) { const nx = i + 1 < ay.length ? ay[i + 1] : ay[0] + 360, gp = nx - a; if (gp > gap) { gap = gp; best = a + gp / 2; } });
+      if (ay.length && Math.abs(gap - 180) < 1e-6 && ay.some(function (a) { return Math.abs(a - 180) < 1e-6; })) best = 270;
+      /* bo'shliqda yoy bo'lsa — markazga yaqinroq va oq hoshiya bilan */
+      const yoyda = yoy.some(function (y) { let a1 = nur[y[0]], d = nur[y[1]] - a1, x = best - a1; while (d <= 0) d += 360; while (x < 0) x += 360; x %= 360; return x < d; });
+      const m = P(best, yoyda ? 15 : 20);
+      h += '<text x="' + m[0] + '" y="' + (m[1] + 5) + '" text-anchor="middle" font-size="18" font-weight="800" fill="#1f2433" stroke="#fff" stroke-width="4" paint-order="stroke">' + g.markaz + "</text>";
+    }
+    el.classList.add("chz");
+    el.innerHTML = '<svg viewBox="0 0 ' + W.toFixed(1) + " " + H.toFixed(1) + '" width="' + Math.round(W) + '" role="img" aria-label="Burchaklar chizmasi">' + h + "</svg>";
   }
 
   // ---------- son o'qi 0..1 ----------
@@ -1530,6 +1601,7 @@
       root.querySelectorAll("[data-foizbar]").forEach(chizFoizbar);
       root.querySelectorAll("[data-chek]").forEach(chizChek);
       root.querySelectorAll("[data-likop]").forEach(chizLikop);
+      root.querySelectorAll("[data-nurlar]").forEach(chizNurlar);
     }
   };
 })();

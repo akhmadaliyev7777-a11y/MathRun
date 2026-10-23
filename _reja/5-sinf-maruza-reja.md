@@ -647,7 +647,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 
 ### 11-bob. Burchaklar
 
-#### ☐ 38. To'g'ri chiziqdagi burchaklar (+ Eslang: burchakning gradus o'lchovi) — D2 91–95; M2 131–136
+#### ✅ 38. To'g'ri chiziqdagi burchaklar (+ Eslang: burchakning gradus o'lchovi) — D2 91–95; M2 131–136
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-togri-chiziqdagi-burchaklar.html. O'z testi: `5|matematika|togri-chiziqdagi-burchaklar` — 20 + 20.
+**Kitob bilan solishtirildi (D2 91–95; M2 131–136):** 6 qoida + Eslang (transportir: 0° dan boshlanadigan shkala, ichki/tashqi; nomlash ∠BOC; o'tkir/to'g'ri/o'tmas/yoyiq; to'g'ri chiziqdagi burchaklar yig'indisi 180°; qo'shni burchaklar; uch va undan ko'p burchak; noma'lum burchak = 180° − ma'lumlar; teng burchaklar — bo'lish; «to'g'ri chiziqmi?» — yig'indi 180° mi) ✅. Misol turlari: transportirda o'lchash (o'tkir va o'tmas), noma'lum burchak (1, 2, 3 ta), teng burchaklar, nomlar bilan tenglik yozish, JKL to'g'ri chiziqmi; qo'shimcha: nisbat 1 : 2 : 3, «biri 3 marta katta», bissektrisalar, hayotiy (darvoza, shlagbaum, soat, pitsa) ✅. Kitob xatosi «30° + 1500°» ko'chirilmadi. Kitob/daftar sonlari ko'chirilmadi (70°/110° va 35°/145° juftlari daftarga mos chiqqani uchun 68°/112°, 25°/155° ga almashtirildi).
+**Tekshiruv:** barcha javoblar Python bilan; tenglik.py endi «°» va «∠» ni tushunadi — faqat atayin xato; testlar.js — 0 xato; 390/1100 px — 39 ma'ruza xatosiz. chizma.js: yangi `data-nurlar` (bir nuqtadan chiqqan nurlar, yoylar, to'g'ri burchak belgisi, transportir).
+**Simulyator uchun g'oyalar:** interaktiv transportir: nurni surib burchakni o'lchash, ichki/tashqi shkala tanlash; to'g'ri chiziqda 2–4 nur — biri surilganda qolganlari va yig'indi 180° yangilanadi.
 **Qoidalar ro'yxati:**
 - Eslang: burchak transportir bilan o'lchanadi (0° dan, ichki yoki tashqi shkala); o'tkir (< 90°), to'g'ri (= 90°), o'tmas (90° dan katta, 180° dan kichik).
 - To'g'ri chiziqdagi burchaklar yig'indisi 180°.

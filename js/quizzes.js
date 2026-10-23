@@ -788,6 +788,53 @@ const QUIZ_DATA = {
     ]
   },
 
+  "5|matematika|togri-chiziqdagi-burchaklar": {
+    oson: [
+      { question: "To'g'ri chiziqdagi burchaklar yig'indisi necha gradus?", options: ["180°", "90°", "360°", "100°"], answer: "180°", explain: "To'g'ri chiziqdagi burchaklar birgalikda yoyiq burchakni tashkil qiladi: <b>180°</b>." },
+      { question: "Qo'shni burchaklardan biri 75°. Ikkinchisi necha gradus?", options: ["105°", "15°", "285°", "75°"], answer: "105°", explain: "Qo'shni burchaklar yig'indisi 180°: 180° − 75° = <b>105°</b>." },
+      { question: "Qo'shni burchaklardan biri 90°. Ikkinchisi necha gradus?", options: ["90°", "180°", "0°", "270°"], answer: "90°", explain: "180° − 90° = <b>90°</b> — ikkalasi ham to'g'ri burchak." },
+      { question: "Qo'shni burchaklardan biri 125°. Ikkinchisi necha gradus?", options: ["55°", "65°", "235°", "45°"], answer: "55°", explain: "180° − 125° = <b>55°</b>." },
+      { question: "Qo'shni burchaklardan biri 33°. Ikkinchisi necha gradus?", options: ["147°", "157°", "57°", "327°"], answer: "147°", explain: "180° − 33° = <b>147°</b>." },
+      { question: "Qaysi burchak o'tkir?", options: ["40°", "90°", "120°", "180°"], answer: "40°", explain: "O'tkir burchak 90° dan kichik: <b>40°</b>." },
+      { question: "Qaysi burchak o'tmas?", options: ["135°", "45°", "90°", "180°"], answer: "135°", explain: "O'tmas burchak 90° dan katta va 180° dan kichik: <b>135°</b>." },
+      { question: "Yoyiq burchak necha gradus?", options: ["180°", "90°", "360°", "0°"], answer: "180°", explain: "Yoyiq burchakning tomonlari bir to'g'ri chiziqda yotadi: <b>180°</b>." },
+      { question: "To'g'ri chiziqdagi uch burchakdan ikkitasi 50° va 60°. Uchinchisi necha gradus?", options: ["70°", "110°", "10°", "250°"], answer: "70°", explain: "180° − 50° − 60° = <b>70°</b>." },
+      { question: "To'g'ri chiziqning bir tomonida uchta teng burchak bor. Har biri necha gradus?", options: ["60°", "90°", "30°", "120°"], answer: "60°", explain: "180° : 3 = <b>60°</b>." },
+      { question: "Ikki qo'shni burchak teng. Har biri necha gradus?", options: ["90°", "180°", "45°", "60°"], answer: "90°", explain: "180° : 2 = <b>90°</b>." },
+      { question: "To'g'ri chiziqdagi burchaklar: 40°, 40° va ?. Noma'lum burchak necha gradus?", options: ["100°", "80°", "140°", "40°"], answer: "100°", explain: "180° − 40° − 40° = <b>100°</b>." },
+      { question: "Qaysi juftlik qo'shni burchaklar bo'la oladi?", options: ["65° va 115°", "60° va 130°", "90° va 80°", "100° va 100°"], answer: "65° va 115°", explain: "Qo'shni burchaklar yig'indisi 180° bo'lishi kerak: 65° + 115° = <b>180°</b>. Qolganlari 190°, 170°, 200°." },
+      { question: "Transportirda OB tomon 0° da, OC tomon shu shkalada 75° ni ko'rsatadi. ∠BOC necha gradus?", options: ["75°", "105°", "165°", "15°"], answer: "75°", explain: "0° dan boshlangan shkaladan o'qiymiz: <b>∠BOC = 75°</b>.<br>(105° — ikkinchi shkala, bu ∠AOC.)" },
+      { question: "∠MKN burchakning uchi qaysi nuqta?", options: ["K", "M", "N", "MN"], answer: "K", explain: "Uch harfli nomda burchak uchi — <b>o'rtadagi harf</b>: K." },
+      { question: "To'g'ri chiziqdagi ikki burchakdan biri 66°. Ikkinchisi necha gradus?", options: ["114°", "124°", "24°", "294°"], answer: "114°", explain: "180° − 66° = <b>114°</b>." },
+      { question: "To'g'ri chiziqning bir tomonida 4 ta teng burchak bor. Har biri necha gradus?", options: ["45°", "90°", "60°", "40°"], answer: "45°", explain: "180° : 4 = <b>45°</b>." },
+      { question: "To'g'ri chiziqdagi burchaklar: 20°, 30°, ? va 40°. Noma'lum burchak necha gradus?", options: ["90°", "80°", "100°", "270°"], answer: "90°", explain: "180° − 20° − 30° − 40° = <b>90°</b>." },
+      { question: "Qo'shni burchaklardan biri o'tkir. Ikkinchisi qanday burchak?", options: ["O'tmas", "O'tkir", "To'g'ri", "Yoyiq"], answer: "O'tmas", explain: "Ularning yig'indisi 180°. Biri 90° dan kichik bo'lsa, ikkinchisi 90° dan katta — <b>o'tmas</b>." },
+      { question: "Soat 6:00 ni ko'rsatganda soat va minut millari orasidagi burchak necha gradus?", options: ["180°", "90°", "60°", "360°"], answer: "180°", explain: "Millar qarama-qarshi tomonga qaragan — bitta to'g'ri chiziqda: <b>180°</b>." }
+    ],
+    qiyin: [
+      { question: "To'g'ri chiziqdagi burchaklar: 28°, 47° va ?. Noma'lum burchak necha gradus?", options: ["105°", "75°", "115°", "95°"], answer: "105°", explain: "180° − 28° − 47° = 180° − 75° = <b>105°</b>." },
+      { question: "To'g'ri chiziqdagi burchaklar: x, 36° va y, bunda x = y. x necha gradus?", options: ["72°", "144°", "36°", "54°"], answer: "72°", explain: "1) x + y = 180° − 36° = 144°.<br>2) x = 144° : 2 = <b>72°</b>." },
+      { question: "To'g'ri chiziqdagi to'rt burchakdan biri 30°, qolgan uchtasi o'zaro teng. Teng burchaklarning har biri necha gradus?", options: ["50°", "150°", "60°", "45°"], answer: "50°", explain: "1) Uchtasiga: 180° − 30° = 150°.<br>2) Har biri: 150° : 3 = <b>50°</b>." },
+      { question: "Ikki qo'shni burchakdan biri ikkinchisidan 4 marta katta. Kichigi necha gradus?", options: ["36°", "45°", "144°", "30°"], answer: "36°", explain: "1) 1 + 4 = 5 qism = 180°.<br>2) 1 qism: 180° : 5 = <b>36°</b> (kattasi 144°)." },
+      { question: "Ikki qo'shni burchakdan biri ikkinchisidan 20° katta. Kattasi necha gradus?", options: ["100°", "80°", "110°", "90°"], answer: "100°", explain: "1) 180° − 20° = 160°; kichigi 160° : 2 = 80°.<br>2) Kattasi: 80° + 20° = <b>100°</b>." },
+      { question: "To'g'ri chiziqdagi uch burchak 1 : 2 : 3 nisbatda. Eng kattasi necha gradus?", options: ["90°", "60°", "30°", "120°"], answer: "90°", explain: "1) 1 + 2 + 3 = 6 qism = 180°; 1 qism = 30°.<br>2) Eng kattasi: 3 · 30° = <b>90°</b>." },
+      { question: "To'g'ri chiziqdagi uch burchak 2 : 3 : 4 nisbatda. Eng kichigi necha gradus?", options: ["40°", "20°", "60°", "80°"], answer: "40°", explain: "1) 2 + 3 + 4 = 9 qism = 180°; 1 qism = 20°.<br>2) Eng kichigi: 2 · 20° = <b>40°</b>." },
+      { question: "Bir nuqtadan chiqqan nurlar orasidagi ketma-ket burchaklar 58°, 64° va 59°. Chetki nurlar to'g'ri chiziq hosil qiladimi?", options: ["Yo'q, yig'indi 181°", "Ha, yig'indi 180°", "Yo'q, yig'indi 179°", "Ha, yig'indi 181°"], answer: "Yo'q, yig'indi 181°", explain: "58° + 64° + 59° = 181° — 180° emas, demak <b>to'g'ri chiziq emas</b>." },
+      { question: "Ketma-ket burchaklar 46°, 71° va 63°. Chetki nurlar to'g'ri chiziq hosil qiladimi?", options: ["Ha, yig'indi 180°", "Yo'q, yig'indi 170°", "Yo'q, yig'indi 190°", "Ha, yig'indi 170°"], answer: "Ha, yig'indi 180°", explain: "46° + 71° + 63° = <b>180°</b> — chetki nurlar to'g'ri chiziq hosil qiladi." },
+      { question: "AOB to'g'ri chiziq, ∠BOC = 70°. ∠BOC va ∠COA ni teng ikkiga bo'luvchi nurlar orasidagi burchak necha gradus?", options: ["90°", "70°", "55°", "125°"], answer: "90°", explain: "1) ∠COA = 110°. Yarimlari: 35° va 55°.<br>2) 35° + 55° = <b>90°</b>." },
+      { question: "Ikki qo'shni burchakning farqi 50°. Kichigi necha gradus?", options: ["65°", "115°", "50°", "130°"], answer: "65°", explain: "1) 180° − 50° = 130°.<br>2) Kichigi: 130° : 2 = <b>65°</b> (kattasi 115°)." },
+      { question: "AOB to'g'ri chiziq. Transportirning A tomonda 0° bo'lgan shkalasida OC 128° ni ko'rsatadi. ∠BOC necha gradus?", options: ["52°", "128°", "38°", "142°"], answer: "52°", explain: "1) ∠AOC = 128°.<br>2) ∠BOC = 180° − 128° = <b>52°</b>." },
+      { question: "To'g'ri chiziqdagi burchaklar: x, x, 50° va 30°. x necha gradus?", options: ["50°", "100°", "25°", "80°"], answer: "50°", explain: "1) 2x = 180° − 50° − 30° = 100°.<br>2) x = <b>50°</b>." },
+      { question: "Darvoza tabaqasi devor bilan 48° burchak hosil qilib ochildi. Tabaqa devorning davomi bilan qanday burchak hosil qiladi?", options: ["132°", "42°", "48°", "312°"], answer: "132°", explain: "Devor va uning davomi — to'g'ri chiziq: 180° − 48° = <b>132°</b>." },
+      { question: "Ikki o'tkir burchak qo'shni bo'la oladimi?", options: ["Yo'q", "Ha", "Faqat ikkalasi 45° bo'lsa", "Faqat teng bo'lsa"], answer: "Yo'q", explain: "Ikki o'tkir burchak yig'indisi 180° dan kichik, qo'shni burchaklar yig'indisi esa 180°. <b>Yo'q</b>." },
+      { question: "AOB to'g'ri chiziq, ∠AOC = 3x, ∠COB = 2x. ∠AOC necha gradus?", options: ["108°", "72°", "36°", "90°"], answer: "108°", explain: "1) 3x + 2x = 5x = 180°, x = 36°.<br>2) ∠AOC = 3 · 36° = <b>108°</b>." },
+      { question: "To'g'ri chiziqdagi uch burchakning har biri oldingisidan 10° katta. Eng kattasi necha gradus?", options: ["70°", "60°", "50°", "80°"], answer: "70°", explain: "1) a + (a + 10°) + (a + 20°) = 180°, 3a = 150°, a = 50°.<br>2) Eng kattasi: 50° + 20° = <b>70°</b>." },
+      { question: "Pitsaning yarmi 3 bo'lakka bo'lindi: 55°, 65° va qolgani. Uchinchi bo'lak necha gradus?", options: ["60°", "70°", "120°", "240°"], answer: "60°", explain: "Yarim pitsa — 180°: 180° − 55° − 65° = <b>60°</b>." },
+      { question: "Shlagbaum gorizontal holatdan 74° ko'tarildi. U yerning narigi tomoni bilan qanday burchak hosil qiladi?", options: ["106°", "16°", "74°", "286°"], answer: "106°", explain: "180° − 74° = <b>106°</b>." },
+      { question: "To'g'ri chiziqning bir tomonida 5 ta teng burchak bor. Har biri necha gradus?", options: ["36°", "45°", "30°", "72°"], answer: "36°", explain: "180° : 5 = <b>36°</b>." }
+    ]
+  },
+
   "5|matematika|foizlar": [
     { level: 1, question: "1% qanday kasrga teng?", options: ["1/100", "1/10", "10/100", "1/1000"], answer: "1/100" },
     { level: 2, question: "50% ni oddiy kasr ko'rinishida yozing.", options: ["1/2", "1/4", "1/5", "2/1"], answer: "1/2" },
