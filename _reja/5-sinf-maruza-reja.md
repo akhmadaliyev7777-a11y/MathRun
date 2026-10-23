@@ -771,7 +771,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Tekshiruv:** tenglik.py 25/0, chizmalardagi burchaklar koordinatadan tekshirildi, 390/1100 px, barcha ma'ruzalar qayta tekshirildi.
 **Simulyator uchun g'oyalar:** to'rtburchak uchlarini sudrash — shakl nomi (parallelogramm/romb/trapetsiya/...) va xossalar jadvalidagi ✓ jonli o'zgaradi; burchaklar yig'indisi doim 360°.
 
-#### ☐ 46. To'rtburchaklarni chizish — D2 144–149; M2 173–176
+#### ✅ 46. To'rtburchaklarni chizish — D2 144–149; M2 173–176
 **Qoidalar ro'yxati:**
 - Katakli daftarda: parallelogramm (AD = BC = 6 cm, AD ∥ BC), romb, trapetsiya (PS = 5, QR = 8, PS ∥ QR).
 - Berilgan o'lchamlar bo'yicha: parallelogramm (AB = 3, BC = 5, ∠B = 50°); trapetsiya (WX = XY = 4, ∠X = 110°, ∠Y = 120°); rombni parallelogramm kabi chizish.
@@ -779,6 +779,10 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Misol turlari:** kesmalarni to'ldirib shaklni chizish; o'lcham bo'yicha chizish.
 **Mashq daftaridan (qo'shimcha):** ikki tomoni chizilgan shaklni to'ldirish (parallelogramm 5 va 7 cm, 60°; romb 4,5 cm, 40°; trapetsiya 12, 5, 5 cm, 125°, 134°); o'lcham bo'yicha 5 ta shakl (xomaki nusxa bilan).
 **Rasmlar:** bosqichma-bosqich chizish.
+**Holat (2026-10-23):** tayyor va push qilindi. Fayl: maruza/5-tortburchaklarni-chizish.html. `data-yasash` ga "pg" (parallelogramm/romb) va "tr" (trapetsiya) turlari qo'shildi (4 qadam, xomaki); o'nli uzunliklar vergul bilan (3,5 cm). O'z testi: `5|matematika|tortburchaklarni-chizish` 20+20, 19 savolda chizma.
+**Kitob bilan solishtirildi:** katakli daftarda parallelogramm, romb, trapetsiya ✅; parallel kesma (chizg'ich + uchburchakli chizg'ich) ✅; parallelogramm 2 tomon + burchak ✅; trapetsiya asos + 2 burchak + yon tomon ✅; romb parallelogramm kabi ✅; xomaki → aniq ✅; ikki tomoni chizilgan shaklni to'ldirish ✅ (Qiyin); o'lcham bo'yicha 5 tur ✅ (O'rta 1–4, Namunalar). Kitob sonlari (6; 5/8; 3/5/50; 4/4/110/120; 5/4/45; 4/60; 6/4/80/110; 5/7/60; 4,5/40; 12/5/5/125/134; 4/5/35; 3/4/130; 4/140; 3/6/60/40; 5/5,5/7,5/90) ishlatilmadi.
+**Tekshiruv:** o'lchov javoblari Python bilan (4,6; 8,7; 4,6; 3,3; 5; 4,2; 5,1; 3,5; 6,1), 390/1100 px, barcha ma'ruzalar qayta tekshirildi.
+**Simulyator uchun g'oyalar:** virtual uchburchakli chizg'ichni chizg'ich bo'ylab surib parallel chiziq chizish; o'quvchi uchlarni katakka qo'yadi — shakl nomi o'zi aniqlanadi.
 
 #### ☐ 47. To'rtburchakning noma'lum burchaklarini topish — D2 150–156; M2 177–182
 **Qoidalar ro'yxati:**

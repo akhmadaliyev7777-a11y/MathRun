@@ -108,6 +108,9 @@
        tur "tik" — to'g'ri burchak chap uchda ("tomon":5; 2-qadamda uchburchakli chizg'ich); nom — [chap uch, o'ng uch, uchinchi uch];
        asos/tomon — cm; "qadam" — nechanchi qadam (bo'lmasa — tayyor); "xomaki":1 — qo'lda chamalab chizilgan (to'lqinli) chizma;
        "yozuv":["5 cm","?"] — asos va tomon yozuvini almashtirish; "olcham": 1 cm necha px (odatda 40). Yangi qadam chizig'i to'q sariq.
+       To'rtburchak: tur "pg" — parallelogramm/romb (nom: [chap past, o'ng past, o'ng yuqori, chap yuqori], "asos", "tomon", "burchak":50 — chap pastki uchda;
+       4 qadam: asos, burchak+tomon, parallel tomon, tutashtirish); tur "tr" — trapetsiya ("burchak":[chap, o'ng], "tomon" — chap yon tomon;
+       4 qadam: asos, chap burchak+tomon, o'ng burchak nuri, asosga parallel kesma). "qadam" yo'q — tayyor chizma.
 */
 (function () {
   "use strict";
@@ -528,9 +531,91 @@
     el.innerHTML = '<svg viewBox="0 0 ' + f(W) + " " + f(H) + '" width="' + Math.round(W) + '" role="img" aria-label="Shakl chizmasi">' + h + "</svg>";
   }
 
+  // ---------- to'rtburchakni qadamma-qadam chizish: parallelogramm/romb ("pg") va trapetsiya ("tr") ----------
+  function chizYasash4(el, g) {
+    const tur = g.tur, nom = g.nom || ["A", "B", "C", "D"], L = Number(g.asos), b = Number(g.tomon), k = Number(g.olcham || 40);
+    const maxQ = 4, q = Math.min(Number(g.qadam || 5), 5), xom = !!g.xomaki, tayyor = xom || q > maxQ;
+    const rad = function (d) { return d * Math.PI / 180; }, f = function (v) { return v.toFixed(1); };
+    const KOK = "#1f5fd6", SARIQ = "#e07b39", QORA = "#1f2433", YASHIL = "#12805c";
+    const al = Number(tur === "pg" ? g.burchak : g.burchak[0]);
+    /* V0 — chap pastki, V1 — o'ng pastki, V2 — o'ng yuqori, V3 — chap yuqori (model, cm) */
+    const v3 = [b * Math.cos(rad(al)), b * Math.sin(rad(al))];
+    let v2, be;
+    if (tur === "pg") { v2 = [L + v3[0], v3[1]]; be = 180 - al; }
+    else { be = Number(g.burchak[1]); const t = v3[1] / Math.sin(rad(be)); v2 = [L + t * Math.cos(rad(180 - be)), v3[1]]; }
+    const S = function (p) { return [p[0] * k, -p[1] * k]; };
+    const V0 = S([0, 0]), V1 = S([L, 0]), V2 = S(v2), V3 = S(v3);
+    const xs = [], ys = [], nuq = function (p) { xs.push(p[0]); ys.push(p[1]); };
+    [V0, V1].forEach(nuq);
+    let past = "", ust = "";
+    const chiziq = function (p, r, c, w, dash) { nuq(p); nuq(r); return '<line x1="' + f(p[0]) + '" y1="' + f(p[1]) + '" x2="' + f(r[0]) + '" y2="' + f(r[1]) + '" stroke="' + c + '" stroke-width="' + w + '" stroke-linecap="round"' + (dash ? ' stroke-dasharray="6 5"' : "") + "/>"; };
+    const yoz = function (p, t, c, anc) { nuq([p[0] - 24, p[1] - 14]); nuq([p[0] + 24, p[1] + 8]); return '<text x="' + f(p[0]) + '" y="' + f(p[1]) + '" text-anchor="' + (anc || "middle") + '" font-size="16" font-weight="800" fill="' + c + '" stroke="#fff" stroke-width="4" paint-order="stroke">' + t + "</text>"; };
+    const nurUch = function (v, deg, uz) { return [v[0] + Math.cos(rad(deg)) * uz, v[1] - Math.sin(rad(deg)) * uz]; };
+    const transportir = function (v, d, oqish) {
+      const r0 = Math.min(78, L * k * 0.4);
+      let h = '<path d="M' + f(v[0] - r0) + " " + f(v[1]) + " A " + f(r0) + " " + f(r0) + " 0 0 1 " + f(v[0] + r0) + " " + f(v[1]) + ' Z" fill="#eef4ff" fill-opacity=".8" stroke="#7a93c9" stroke-width="1.4"/>';
+      nuq([v[0] - r0 - 14, v[1]]); nuq([v[0] + r0 + 14, v[1] - r0 - 16]);
+      for (let t = 0; t <= 180; t += 10) {
+        const a = nurUch(v, t, r0), c = nurUch(v, t, r0 - (t % 30 === 0 ? 10 : 6));
+        h += '<line x1="' + f(a[0]) + '" y1="' + f(a[1]) + '" x2="' + f(c[0]) + '" y2="' + f(c[1]) + '" stroke="#7a93c9" stroke-width="1.2"/>';
+        if (t % 30 === 0) { const e = nurUch(v, t, r0 + 10); h += '<text x="' + f(e[0]) + '" y="' + f(e[1] + 4) + '" text-anchor="middle" font-size="10.5" fill="#5b6577">' + (oqish === "chap" ? t : 180 - t) + "</text>"; }
+      }
+      const m = nurUch(v, d, r0);
+      return h + '<circle cx="' + f(m[0]) + '" cy="' + f(m[1]) + '" r="4.5" fill="' + SARIQ + '"/>';
+    };
+    const yoyB = function (v, a1, a2, t, c) {
+      const r = 24, s1 = nurUch(v, a1, r), s2 = nurUch(v, a2, r), m = nurUch(v, (a1 + a2) / 2, 46);
+      return '<path d="M' + f(v[0]) + " " + f(v[1]) + " L" + f(s1[0]) + " " + f(s1[1]) + " A " + r + " " + r + " 0 0 0 " + f(s2[0]) + " " + f(s2[1]) + ' Z" fill="' + c + '" fill-opacity=".16" stroke="' + c + '" stroke-width="1.8"/>' + yoz([m[0], m[1] + 6], t, c);
+    };
+    const nuqta = function (p, c) { return '<circle cx="' + f(p[0]) + '" cy="' + f(p[1]) + '" r="4" fill="' + (c || QORA) + '"/>'; };
+    const nomYoz = function (p, t, dx, dy) { nuq([p[0] + dx - 12, p[1] + dy - 16]); nuq([p[0] + dx + 12, p[1] + dy + 4]); return '<text x="' + f(p[0] + dx) + '" y="' + f(p[1] + dy) + '" text-anchor="middle" font-size="18" font-weight="800" fill="' + QORA + '">' + t + "</text>"; };
+    const yozuv = g.yozuv || [];
+    const cm = function (x) { return String(x).replace(".", ",") + " cm"; };
+    const asosYoz = yoz([L * k / 2, 26], yozuv[0] || cm(L), KOK);
+    const tomonYoz = function () { const t = 0.86, m = [V0[0] + (V3[0] - V0[0]) * t - 16, V0[1] + (V3[1] - V0[1]) * t + 6]; return yoz(m, yozuv[1] || cm(b), KOK, "end"); };
+    if (xom) {
+      const tol = function (p, r) {
+        let d = "M" + f(p[0]) + " " + f(p[1]); const n = 6, L2 = Math.hypot(r[0] - p[0], r[1] - p[1]) || 1;
+        for (let i = 1; i <= n; i++) { const t = i / n, x = p[0] + (r[0] - p[0]) * t, y = p[1] + (r[1] - p[1]) * t, o = i < n ? (i % 2 ? 2.2 : -2.2) : 0; d += " L" + f(x - (r[1] - p[1]) / L2 * o) + " " + f(y + (r[0] - p[0]) / L2 * o); }
+        nuq(p); nuq(r);
+        return '<path d="' + d + '" fill="none" stroke="' + QORA + '" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>';
+      };
+      past += tol(V0, V1) + tol(V1, V2) + tol(V2, V3) + tol(V3, V0);
+      ust += yoyB(V0, 0, al, al + "°", SARIQ) + asosYoz + tomonYoz();
+      if (tur === "tr") ust += yoyB(V1, 180 - be, 180, be + "°", YASHIL);
+    } else {
+      const yangi = function (n) { return q === n ? SARIQ : QORA; };
+      past += chiziq(V0, V1, yangi(1), 3);
+      ust += asosYoz;
+      if (q === 2) past += transportir(V0, al, "chap");
+      if (q >= 2) { past += chiziq(V0, V3, yangi(2), 3); ust += yoyB(V0, 0, al, al + "°", SARIQ) + tomonYoz() + nuqta(V3, q === 2 ? SARIQ : QORA); }
+      if (tur === "pg") {
+        if (q === 3) past += chiziq([V3[0] - 30, V3[1]], [V2[0] + 40, V2[1]], "#9aa3b5", 1.5, true);
+        if (q >= 3) { past += chiziq(V3, V2, yangi(3), 3); ust += nuqta(V2, q === 3 ? SARIQ : QORA) + yoz([(V3[0] + V2[0]) / 2, V3[1] - 12], yozuv[0] || cm(L), q === 3 ? SARIQ : "#5b6577"); }
+        if (q >= 4) past += chiziq(V1, V2, yangi(4), 3);
+      } else {
+        const uz = Math.hypot(V2[0] - V1[0], V2[1] - V1[1]);
+        if (q === 3) past += transportir(V1, 180 - be, "ong");
+        if (q === 3) past += chiziq(V1, nurUch(V1, 180 - be, uz + 46), SARIQ, 2);
+        if (q >= 3) ust += yoyB(V1, 180 - be, 180, be + "°", YASHIL);
+        if (q === 4) { past += chiziq(V1, nurUch(V1, 180 - be, uz + 46), QORA, 2); past += chiziq([V3[0] - 30, V3[1]], [V2[0] + 40, V2[1]], "#9aa3b5", 1.5, true); }
+        if (q >= 4) { past += chiziq(V3, V2, yangi(4), 3); ust += nuqta(V2, q === 4 ? SARIQ : QORA); }
+        if (q > 4) past += chiziq(V1, V2, QORA, 3);
+      }
+      if (q > maxQ) { past = past.split(SARIQ).join(QORA); ust = ust.split('fill="' + SARIQ + '"/>').join('fill="' + QORA + '"/>'); }
+    }
+    ust += nuqta(V0) + nuqta(V1) + nomYoz(V0, nom[0], -14, 8) + nomYoz(V1, nom[1], 14, 8);
+    if (tayyor || q >= 3) ust += nomYoz(V2, nom[2], 12, -10);
+    if (tayyor || q >= 2) ust += nomYoz(V3, nom[3], -12, -10);
+    const pad = 14, mnx = Math.min.apply(null, xs) - pad, mxx = Math.max.apply(null, xs) + pad, mny = Math.min.apply(null, ys) - pad, mxy = Math.max.apply(null, ys) + pad;
+    el.classList.add("chz");
+    el.innerHTML = '<svg viewBox="' + f(mnx) + " " + f(mny) + " " + f(mxx - mnx) + " " + f(mxy - mny) + '" width="' + Math.round(mxx - mnx) + '" role="img" aria-label="To\'rtburchak chizish">' + past + ust + "</svg>";
+  }
+
   // ---------- uchburchakni qadamma-qadam chizish (chizg'ich, transportir, uchburchakli chizg'ich) ----------
   function chizYasash(el) {
     const g = JSON.parse(el.dataset.yasash);
+    if (g.tur === "pg" || g.tur === "tr") return chizYasash4(el, g);
     const tur = g.tur || "bb", nom = g.nom || ["A", "B", "C"], L = Number(g.asos), k = Number(g.olcham || 40);
     const maxQ = tur === "bb" ? 4 : 3, q = Math.min(Number(g.qadam || maxQ), maxQ), xom = !!g.xomaki;
     const rad = function (d) { return d * Math.PI / 180; }, f = function (v) { return v.toFixed(1); };
@@ -571,7 +656,7 @@
       return '<path d="M' + f(v[0]) + " " + f(v[1]) + " L" + f(s1[0]) + " " + f(s1[1]) + " A " + r + " " + r + " 0 0 0 " + f(s2[0]) + " " + f(s2[1]) + ' Z" fill="' + c + '" fill-opacity=".16" stroke="' + c + '" stroke-width="1.8"/>' + (t ? yoz([m[0], m[1] + 6], t, c, 15) : "");
     };
     const tikBelgi = function (v) { return '<path d="M' + f(v[0] + 13) + " " + f(v[1]) + " L" + f(v[0] + 13) + " " + f(v[1] - 13) + " L" + f(v[0]) + " " + f(v[1] - 13) + '" fill="none" stroke="#d6454f" stroke-width="2"/>'; };
-    const asosYoz = yoz([L * k / 2, 26], (g.yozuv && g.yozuv[0]) || L + " cm", KOK);
+    const asosYoz = yoz([L * k / 2, 26], (g.yozuv && g.yozuv[0]) || String(L).replace(".", ",") + " cm", KOK);
     const nomYoz = function (p, t, dx, dy) { nuq([p[0] + dx - 12, p[1] + dy - 16]); nuq([p[0] + dx + 12, p[1] + dy + 4]); return '<text x="' + f(p[0] + dx) + '" y="' + f(p[1] + dy) + '" text-anchor="middle" font-size="18" font-weight="800" fill="' + QORA + '">' + t + "</text>"; };
     const nuqta = function (p, c) { return '<circle cx="' + f(p[0]) + '" cy="' + f(p[1]) + '" r="4" fill="' + (c || QORA) + '"/>'; };
     const burB = function (d) { return d + "°"; };
@@ -586,7 +671,7 @@
       if (tur === "tik") ust += tikBelgi(V0); else ust += yoyB(V0, 0, al, burB(al), SARIQ);
       if (tur === "bb") ust += yoyB(V1, 180 - be, 180, burB(be), YASHIL);
       ust += asosYoz;
-      if (tur !== "bb") { const m = [A[0] / 2 - 26, A[1] / 2]; ust += yoz(m, (g.yozuv && g.yozuv[1]) || g.tomon + " cm", KOK, 16, "end"); }
+      if (tur !== "bb") { const m = [A[0] / 2 - 26, A[1] / 2]; ust += yoz(m, (g.yozuv && g.yozuv[1]) || String(g.tomon).replace(".", ",") + " cm", KOK, 16, "end"); }
     } else {
       past += chiziq(V0, V1, q === 1 ? SARIQ : QORA, 3);
       ust += asosYoz;
@@ -610,7 +695,7 @@
         if (q === 3) {
           past += chiziq(A, V1, SARIQ, 3);
           const m = [A[0] / 2 - (tur === "tik" ? 10 : 22), A[1] / 2 + 5];
-          ust += yoz(m, (g.yozuv && g.yozuv[1]) || g.tomon + " cm", KOK, 16, "end") + nuqta(A, SARIQ);
+          ust += yoz(m, (g.yozuv && g.yozuv[1]) || String(g.tomon).replace(".", ",") + " cm", KOK, 16, "end") + nuqta(A, SARIQ);
         }
       }
     }
