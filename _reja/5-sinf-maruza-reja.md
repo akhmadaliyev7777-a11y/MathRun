@@ -691,7 +691,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** nuqta atrofida 204°, 222° kabi katta burchaklar bilan noma'lum.
 **Rasmlar:** nuqta atrofida rangli sektorlar.
 
-#### ☐ 41. Noma'lum burchaklarni topish — D2 105–109; M2 143–150
+#### ✅ 41. Noma'lum burchaklarni topish — D2 105–109; M2 143–150
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-nomalum-burchaklarni-topish.html. O'z testi: `5|matematika|nomalum-burchaklarni-topish` — 20 + 20, 16 ta savolda chizma. 11-bob «Burchaklar» tugadi. Shu kuni 38- va 39-mavzu testlariga ham chizmalar qo'shildi (13 va 15 savol).
+**Kitob bilan solishtirildi (D2 105–109; M2 143–150):** 5 qoida (uch xossa jadvali va reja — har qadamda xossani yozish; vertikal burchakni «ko'chirish»; to'g'ri burchak va teng burchaklar; ustma-ust tushgan burchaklar (MON, ∠MOP + ∠NOQ − 180°); nuqta atrofi bilan) ✅. Misol turlari: 3 ta to'g'ri chiziq kesishgan, to'g'ri burchak + teng burchaklar, LOM/POQ va ∠LOP = ∠LON, POQ va ikki yirik burchak (∠ROS), kvadrat diagonali (45°), Kundalik «qaysi tartibda topamiz» (Akmal va Sardor), qog'oz buklash (amaliy), Qiyin: MON — ∠w ✅. Kitob/daftar sonlari ko'chirilmadi (vertikal 110° → 116°, «90° + uchta teng = 30°» → «36° + uchta teng = 48°»; chalkash qog'oz buklash masalasi aniq masalaga almashtirildi).
+**Tekshiruv:** barcha javoblar Python bilan; tenglik.py — faqat matn bo'lagi; testlar.js — 0 xato; 390/1100 px — ma'ruzalar xatosiz, test rasmlari telefonda va kompyuterda ko'rildi.
+**Simulyator uchun g'oyalar:** «burchak detektivi»: murakkab chizmada bitta burchak beriladi, o'quvchi qaysi xossa bilan qaysi burchakni topishini tanlaydi va zanjir bo'ylab yuradi.
 **Qoidalar ro'yxati:**
 - Uch xossani birga qo'llash: to'g'ri chiziqdagi (180°), vertikal (teng), nuqta atrofidagi (360°).
 - Har qadamda qaysi xossa ishlatilganini yozish.
