@@ -835,6 +835,53 @@ const QUIZ_DATA = {
     ]
   },
 
+  "5|matematika|vertikal-burchaklar": {
+    oson: [
+      { question: "Vertikal burchaklar haqida qaysi gap to'g'ri?", options: ["Ular o'zaro teng", "Ularning yig'indisi 180°", "Ularning yig'indisi 90°", "Ular doim to'g'ri burchak"], answer: "Ular o'zaro teng", explain: "Ikki to'g'ri chiziq kesishganda qarama-qarshi burchaklar — vertikal burchaklar — <b>o'zaro teng</b>." },
+      { question: "Ikki to'g'ri chiziq kesishdi. Bir burchak 70°. Unga vertikal burchak necha gradus?", options: ["70°", "110°", "20°", "290°"], answer: "70°", explain: "Vertikal burchaklar teng: <b>70°</b>." },
+      { question: "Ikki to'g'ri chiziq kesishdi. Bir burchak 70°. Uning yonidagi (qo'shni) burchak necha gradus?", options: ["110°", "70°", "20°", "290°"], answer: "110°", explain: "Qo'shni burchaklar yig'indisi 180°: 180° − 70° = <b>110°</b>." },
+      { question: "Kesishgan chiziqlarda bir burchak 145°. Unga vertikal burchak necha gradus?", options: ["145°", "35°", "45°", "215°"], answer: "145°", explain: "Vertikal burchaklar teng: <b>145°</b>." },
+      { question: "Kesishgan chiziqlarda bir burchak 145°. Uning yonidagi burchak necha gradus?", options: ["35°", "145°", "45°", "55°"], answer: "35°", explain: "180° − 145° = <b>35°</b>." },
+      { question: "Ikki to'g'ri chiziq kesishganda nechta burchak hosil bo'ladi?", options: ["4", "2", "3", "6"], answer: "4", explain: "Kesishish nuqtasidan 4 ta nur chiqadi — <b>4 ta</b> burchak." },
+      { question: "Ikki to'g'ri chiziq kesishganda nechta juft vertikal burchak hosil bo'ladi?", options: ["2", "1", "4", "3"], answer: "2", explain: "4 ta burchak qarama-qarshi juftlarga bo'linadi: <b>2 juft</b>." },
+      { question: "Kesishgan chiziqlarda bir burchak 90°. Qolgan uchtasi qanday?", options: ["90°, 90°, 90°", "90°, 180°, 90°", "45°, 90°, 45°", "90°, 0°, 90°"], answer: "90°, 90°, 90°", explain: "Qo'shnisi: 180° − 90° = 90°, vertikali ham 90°. Hammasi <b>90°</b>." },
+      { question: "Vertikal burchaklar hosil bo'lishi uchun nima kerak?", options: ["Ikki kesishuvchi to'g'ri chiziq", "Bitta to'g'ri chiziq", "Ikki parallel chiziq", "Uchta parallel chiziq"], answer: "Ikki kesishuvchi to'g'ri chiziq", explain: "Vertikal burchaklarning tomonlari bir-birining davomi — bu faqat <b>ikki to'g'ri chiziq kesishganda</b> bo'ladi." },
+      { question: "Ikki vertikal burchakning yig'indisi 100°. Har biri necha gradus?", options: ["50°", "100°", "80°", "130°"], answer: "50°", explain: "Vertikal burchaklar teng: 100° : 2 = <b>50°</b>." },
+      { question: "Kesishgan chiziqlarda yonma-yon (qo'shni) ikki burchak yig'indisi necha gradus?", options: ["180°", "90°", "360°", "Ular teng"], answer: "180°", explain: "Ularning chetki tomonlari bir to'g'ri chiziq — yig'indi <b>180°</b>." },
+      { question: "Kesishgan chiziqlarda bir burchak 25°. To'rttala burchak qanday?", options: ["25°, 155°, 25°, 155°", "25°, 25°, 25°, 25°", "25°, 65°, 25°, 65°", "25°, 135°, 25°, 135°"], answer: "25°, 155°, 25°, 155°", explain: "Qo'shnisi 180° − 25° = 155°; qarshisidagilar teng: <b>25°, 155°, 25°, 155°</b>." },
+      { question: "AB va CD to'g'ri chiziqlar O da kesishadi, ∠AOC = 110°. ∠BOD necha gradus?", options: ["110°", "70°", "180°", "250°"], answer: "110°", explain: "∠BOD — ∠AOC ga vertikal: <b>110°</b>." },
+      { question: "AB va CD to'g'ri chiziqlar O da kesishadi, ∠AOC = 110°. ∠COB necha gradus?", options: ["70°", "110°", "90°", "250°"], answer: "70°", explain: "∠COB — ∠AOC ga qo'shni: 180° − 110° = <b>70°</b>." },
+      { question: "Qaychi tig'lari orasidagi burchak 40°. Dastalari orasidagi burchak necha gradus?", options: ["40°", "140°", "80°", "320°"], answer: "40°", explain: "Tig'lar va dastalar — kesishgan ikki chiziq; bu burchaklar vertikal: <b>40°</b>." },
+      { question: "Uch to'g'ri chiziq bir nuqtada kesishsa, nechta burchak hosil bo'ladi?", options: ["6", "3", "4", "9"], answer: "6", explain: "Nuqtadan 6 ta nur chiqadi — <b>6 ta</b> burchak (3 juft vertikal)." },
+      { question: "Ikki burchak teng bo'lsa, ular albatta vertikal burchaklarmi?", options: ["Yo'q", "Ha", "Faqat 90° bo'lsa", "Faqat o'tkir bo'lsa"], answer: "Yo'q", explain: "Teng burchaklar boshqa joyda ham bo'lishi mumkin. Vertikal bo'lishi uchun tomonlari bir-birining davomi bo'lishi kerak — <b>yo'q</b>." },
+      { question: "Ikki ko'cha chorrahada kesishadi, ular orasidagi bir burchak 85°. Qolgan burchaklar qanday?", options: ["95°, 85°, 95°", "85°, 85°, 85°", "95°, 95°, 95°", "5°, 85°, 5°"], answer: "95°, 85°, 95°", explain: "Qo'shnisi 180° − 85° = 95°, qarshisi 85°: <b>95°, 85°, 95°</b>." },
+      { question: "Vertikal burchaklardan biri o'tmas. Ikkinchisi qanday?", options: ["O'tmas", "O'tkir", "To'g'ri", "Yoyiq"], answer: "O'tmas", explain: "Vertikal burchaklar teng — ikkinchisi ham <b>o'tmas</b>." },
+      { question: "Ikki kesishgan to'g'ri chiziq hosil qilgan to'rt burchak yig'indisi necha gradus?", options: ["360°", "180°", "90°", "270°"], answer: "360°", explain: "Ikki juft qo'shni burchak: 180° + 180° = <b>360°</b>." }
+    ],
+    qiyin: [
+      { question: "Uch to'g'ri chiziq bir nuqtada kesishdi. Bir chiziq bo'yida yonma-yon burchaklar 48° va 57°. Shu tomondagi uchinchi burchak necha gradus?", options: ["75°", "105°", "57°", "48°"], answer: "75°", explain: "To'g'ri chiziqdagi uch burchak yig'indisi 180°: 180° − 48° − 57° = <b>75°</b>." },
+      { question: "Uch chiziq kesishganda bir burchak 75°. Unga vertikal burchak necha gradus?", options: ["75°", "105°", "15°", "285°"], answer: "75°", explain: "Vertikal burchaklar teng: <b>75°</b>." },
+      { question: "Ikki to'g'ri chiziq kesishganda hosil bo'lgan uchta burchak yig'indisi 290°. To'rtinchi burchak necha gradus?", options: ["70°", "110°", "290°", "180°"], answer: "70°", explain: "To'rt burchak yig'indisi 360°: 360° − 290° = <b>70°</b>." },
+      { question: "Ikki vertikal burchak yig'indisi 136°. Ularning qo'shnisi necha gradus?", options: ["112°", "68°", "136°", "44°"], answer: "112°", explain: "1) Har biri: 136° : 2 = 68°.<br>2) Qo'shnisi: 180° − 68° = <b>112°</b>." },
+      { question: "Kesishgan chiziqlardagi ikki qo'shni burchak 1 : 4 nisbatda. Kichigi necha gradus?", options: ["36°", "45°", "144°", "72°"], answer: "36°", explain: "1 + 4 = 5 qism = 180°; 1 qism = <b>36°</b>." },
+      { question: "Kesishgan chiziqlardagi ikki qo'shni burchak 4 : 5 nisbatda. Kattasi necha gradus?", options: ["100°", "80°", "90°", "125°"], answer: "100°", explain: "4 + 5 = 9 qism = 180°; 1 qism = 20°; kattasi 5 · 20° = <b>100°</b>." },
+      { question: "Kesishgan chiziqlarda bir burchak qo'shnisidan 40° katta. Kichigi necha gradus?", options: ["70°", "110°", "40°", "140°"], answer: "70°", explain: "(180° − 40°) : 2 = <b>70°</b> (kattasi 110°)." },
+      { question: "AB va CD to'g'ri chiziqlar O da kesishadi, OE — nur. ∠BOE = 35°, ∠EOC = 80°. ∠COA necha gradus?", options: ["65°", "115°", "80°", "35°"], answer: "65°", explain: "AB to'g'ri chiziq: 180° − 35° − 80° = <b>65°</b>." },
+      { question: "AB va CD to'g'ri chiziqlar O da kesishadi, ∠COA = 65°. ∠DOB necha gradus?", options: ["65°", "115°", "25°", "295°"], answer: "65°", explain: "∠DOB — ∠COA ga vertikal: <b>65°</b>." },
+      { question: "POQ va ROS — to'g'ri chiziqlar, ∠POS = 136°. OT nur ∠ROQ ni teng ikkiga bo'ladi. ∠ROT necha gradus?", options: ["68°", "136°", "22°", "44°"], answer: "68°", explain: "1) ∠ROQ — ∠POS ga vertikal: 136°.<br>2) ∠ROT = 136° : 2 = <b>68°</b>." },
+      { question: "Kesishgan chiziqlardagi to'rt burchakdan biri qolgan uchtasining yig'indisidan 5 marta kichik. U necha gradus?", options: ["60°", "72°", "45°", "30°"], answer: "60°", explain: "Burchak — 1 qism, qolgani — 5 qism; jami 6 qism = 360°.<br>1 qism = <b>60°</b>." },
+      { question: "Kesishgan chiziqlarda bir burchak qo'shnisidan 3 marta katta. Kattasi necha gradus?", options: ["135°", "45°", "120°", "90°"], answer: "135°", explain: "1 + 3 = 4 qism = 180°; 1 qism = 45°; kattasi <b>135°</b>." },
+      { question: "WOX va YOZ — to'g'ri chiziqlar, OV — nur. ∠XOV = 42°, ∠VOY = 63°. ∠YOW necha gradus?", options: ["75°", "105°", "63°", "42°"], answer: "75°", explain: "WOX to'g'ri chiziq: 180° − 42° − 63° = <b>75°</b>." },
+      { question: "WOX va YOZ — to'g'ri chiziqlar, ∠XOY = 105°. ∠ZOW necha gradus?", options: ["105°", "75°", "255°", "15°"], answer: "105°", explain: "∠ZOW — ∠XOY ga vertikal: <b>105°</b>." },
+      { question: "Uch to'g'ri chiziq kesishdi. Bir tomonda yonma-yon burchaklar 40° va 75°. Oltita burchakdan eng kattasi necha gradus?", options: ["75°", "65°", "140°", "115°"], answer: "75°", explain: "Uchinchisi: 180° − 40° − 75° = 65°. Oltita burchak: 40°, 75°, 65° va ularning vertikallari. Eng kattasi — <b>75°</b>." },
+      { question: "Qaysi juftlik vertikal burchaklar bo'la oladi?", options: ["57° va 57°", "57° va 123°", "60° va 120°", "90° va 180°"], answer: "57° va 57°", explain: "Vertikal burchaklar teng bo'lishi shart: <b>57° va 57°</b>. (57° va 123° — qo'shni bo'la oladi.)" },
+      { question: "∠a va ∠b — vertikal burchaklar, ∠a = 3x, ∠b = 72°. x necha gradus?", options: ["24°", "72°", "36°", "216°"], answer: "24°", explain: "Vertikal burchaklar teng: 3x = 72°, x = <b>24°</b>." },
+      { question: "Vertikal burchaklardan biri 2x + 10°, ikkinchisi 3x − 20°. Bu burchak necha gradus?", options: ["70°", "30°", "50°", "110°"], answer: "70°", explain: "1) Teng: 2x + 10° = 3x − 20°, x = 30°.<br>2) Burchak: 2 · 30° + 10° = <b>70°</b>." },
+      { question: "Kesishgan chiziqlarda bir burchak qo'shnisidan 3 marta katta. Ikki o'tkir burchakning yig'indisi necha gradus?", options: ["90°", "45°", "180°", "270°"], answer: "90°", explain: "Kichigi 45°, kattasi 135°. O'tkir burchaklar — ikki vertikal 45°: 45° + 45° = <b>90°</b>." },
+      { question: "Uch to'g'ri chiziq bir nuqtada kesishdi va hosil bo'lgan oltita burchak teng. Har biri necha gradus?", options: ["60°", "30°", "45°", "90°"], answer: "60°", explain: "Oltita burchak yig'indisi 360°: 360° : 6 = <b>60°</b>." }
+    ]
+  },
+
   "5|matematika|foizlar": [
     { level: 1, question: "1% qanday kasrga teng?", options: ["1/100", "1/10", "10/100", "1/1000"], answer: "1/100" },
     { level: 2, question: "50% ni oddiy kasr ko'rinishida yozing.", options: ["1/2", "1/4", "1/5", "2/1"], answer: "1/2" },

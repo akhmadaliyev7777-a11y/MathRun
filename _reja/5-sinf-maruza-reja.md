@@ -663,7 +663,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 ⚠ Kitob xatosi: "30° + 1500°" (to'g'risi 150°).
 **Rasmlar:** transportir (interaktiv emas, aniq SVG), to'g'ri chiziqda nurlar.
 
-#### ☐ 39. Vertikal burchaklar — D2 96–99; M2 137–140
+#### ✅ 39. Vertikal burchaklar — D2 96–99; M2 137–140
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-vertikal-burchaklar.html. O'z testi: `5|matematika|vertikal-burchaklar` — 20 + 20.
+**Kitob bilan solishtirildi (D2 96–99; M2 137–140):** 5 qoida (vertikal burchaklar ta'rifi; vertikal burchaklar teng — nima uchun; kesishgan chiziqlarda bitta burchakka ko'ra qolgan uchtasi; uch to'g'ri chiziq — 6 burchak, 3 juft; teng, lekin vertikal emas) ✅. Misol turlari: noma'lum burchaklar (2 va 3 to'g'ri chiziq), qaysi burchak teng / juftlarni nomlash, «∠a = ∠b o'rinlimi?» (Ha/Yo'q), qo'shimcha nur bilan (WOX, YOZ, OV), vertikal burchak ichida bissektrisa (∠ROT = ∠TOQ), ikki tayoq tajribasi, hayotiy (qaychi, dazmol taxtasi, chorraha) ✅. Kitob/daftar sonlari ko'chirilmadi (120°/60° va 76° daftarga mos chiqqani uchun 128°/52° va 82° ga almashtirildi).
+**Tekshiruv:** barcha javoblar Python bilan; tenglik.py — faqat atayin xato; testlar.js — 0 xato; 390/1100 px — 40 ma'ruza xatosiz. chizma.js: yoylar bir xil radiusda (teng burchaklar teng ko'rinadi).
+**Simulyator uchun g'oyalar:** ikki to'g'ri chiziqni burish — to'rt burchak va ranglar (vertikal juftlar bir rangda) jonli yangilanadi; uchinchi chiziq qo'shish tugmasi.
 **Qoidalar ro'yxati:**
 - Ikki to'g'ri chiziq kesishganda qarama-qarshi hosil bo'lgan burchaklar — vertikal burchaklar.
 - Vertikal burchaklar o'zaro teng.

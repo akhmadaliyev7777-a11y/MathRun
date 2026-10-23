@@ -387,7 +387,7 @@
     yoy.forEach(function (y, i) {
       const a1 = nur[y[0]], a2 = nur[y[1]];
       let d = a2 - a1; while (d <= 0) d += 360; while (d > 360) d -= 360;
-      const c = y[3] || YOY[i % YOY.length], ry = 28 + (i % 3) * 10, mid = a1 + d / 2;
+      const c = y[3] || YOY[i % YOY.length], ry = d < 35 ? 44 : 32, mid = a1 + d / 2;
       if (y[2] === "90°" && g.tik !== 0) {
         const q = 16, u = P(a1, q), v = P(a2, q), w = [u[0] + v[0] - cx, u[1] + v[1] - cy];
         h += '<path d="M' + u[0] + " " + u[1] + " L" + w[0] + " " + w[1] + " L" + v[0] + " " + v[1] + '" fill="none" stroke="' + c + '" stroke-width="2"/>';
