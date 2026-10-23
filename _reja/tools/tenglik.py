@@ -1,4 +1,4 @@
-# Ma'ruza sahifasidagi tenglik zanjirlarini (+ − · : qavs, \frac, aralash son) Fraction bilan hisoblab tekshiradi.
+# Ma'ruza sahifasidagi tenglik zanjirlarini (+ − · : qavs, \frac, aralash son, foiz %) Fraction bilan hisoblab tekshiradi.
 # Foydalanish: python3 _reja/tools/tenglik.py maruza/5-<id>.html
 # «XATO» chiqqanlar: atayin xato misollar (Diqqat, Xatoni toping), □ topshiriqlar, qoldiqli bo'lish — qo'lda ko'rib chiqiladi.
 import re, sys, html
@@ -14,6 +14,10 @@ t = re.sub(r"\\(nat|sur|mx)\{([^{}]*)\}", r"\2", t)
 for a, b in [("\\cdot", "*"), ("·", "*"), ("×", "*"), ("\\,", ""), ("\\;", " "), ("\u00a0", " "), ("−", "-"), ("\\approx", "≈"), ("\\dots", "…")]:
     t = t.replace(a, b)
 t = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", t)
+# o'nli kasr: 0,67 -> (067/100)
+t = re.sub(r"(\d+),(\d+)", lambda m: "(" + m.group(1) + m.group(2) + "/1" + "0" * len(m.group(2)) + ")", t)
+# foiz: 47% -> (47/100)
+t = re.sub(r"(\d+)\s*\\?%", r"(\1/100)", t)
 # kasrlar: 2\frac{1}{3} -> (2+1/3), \frac{3}{5} -> (3/5)
 t = re.sub(r"(\d+)\s*\\frac\{\s*(\d+)\s*\}\{\s*(\d+)\s*\}", r"(\1+\2/\3)", t)
 t = re.sub(r"\\frac\{\s*(\d+)\s*\}\{\s*(\d+)\s*\}", r"(\1/\2)", t)

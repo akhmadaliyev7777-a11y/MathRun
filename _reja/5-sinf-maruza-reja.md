@@ -553,7 +553,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 
 ### 9-bob. Foizlar
 
-#### ☐ 32. Foiz tushunchasi (+ Eslang: bir butunning qismlari) — D2 52–55; M2 65–68
+#### ✅ 32. Foiz tushunchasi (+ Eslang: bir butunning qismlari) — D2 52–55; M2 65–68
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-foiz-tushunchasi.html. O'z testi: `5|matematika|foiz-tushunchasi` — 20 + 20 (yangi format, har savolda qadamma-qadam yechim).
+**Kitob bilan solishtirildi (D2 52–55; M2 65–68):** 6 qoida (1% = 1/100, a% = a/100; butun = 100%, qolgan qism 100% − a%; oddiy kasrni maxraji 100 ga keltirib foizga; o'nli kasr → foiz (0,3 = 30%); foiz → oddiy va o'nli kasr; hayotda foiz — «har 100 tadan») ✅. Misol turlari: Eslang (100 katakda qism, qisqarmas va o'nli kasr, maxraji 100 ga keltirish), bo'yalgan/bo'yalmagan kataklar foizi, bir necha rangli kvadrat (Juftlikda), tomoshabinlar (o'g'il/qiz), kasr → foiz, o'nli → foiz, pulning necha foizi sarflangan/qolgan, hayotiy e'lonlar (chegirma, omonat), diagonal bo'yicha yarmi; daftardan: □/4 = □/100, 0,7 = □/100, berilgan foizni bo'yash (nechta katak), «100 dan 85 = □%», jadval (foiz — kasr — o'nli kasr), 100 ta narsadan nechtasi ✅. Kitob sonlari ko'chirilmadi (kitobdan.py: 0 ta mos).
+**Tekshiruv:** barcha mashq, masala va test javoblari Python bilan hisoblandi; tenglik.py (foiz va o'nli kasrni ham tushunadigan qilindi) — faqat atayin xato misollar; testlar.js — 0 xato; 390/1100 px — xato yo'q. chizma.js: data-kataklar ga ko'p rang (data-ranglar) va joylashuv (data-joylash="ustun|aralash") qo'shildi — 33 ma'ruza qayta tekshirildi.
+**Simulyator uchun g'oyalar:** 100 katakli kvadratda bir nechta rang bilan bo'yash — har rangning foizi va bo'yalmagan qism avtomatik; o'nli kasr / kasr / foiz uchlik ko'rinishi.
 **Qoidalar ro'yxati:**
 - Eslang: 100 katakli kvadratda qism: 25/100 = 0,25 = 1/4; kasrni maxraji 100 bo'lgan kasrga keltirish.
 - 1% = 1/100 (yuzdan bir). a% = a/100. Belgisi: %.
@@ -936,7 +940,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 
 ### 9-bob. Foizlar
 
-#### ☐ 32. Foiz tushunchasi (+ Eslang: bir butunning qismlari) — D2 52–55; M2 65–68
+#### ✅ 32. Foiz tushunchasi (+ Eslang: bir butunning qismlari) — D2 52–55; M2 65–68
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-foiz-tushunchasi.html. O'z testi: `5|matematika|foiz-tushunchasi` — 20 + 20 (yangi format, har savolda qadamma-qadam yechim).
+**Kitob bilan solishtirildi (D2 52–55; M2 65–68):** 6 qoida (1% = 1/100, a% = a/100; butun = 100%, qolgan qism 100% − a%; oddiy kasrni maxraji 100 ga keltirib foizga; o'nli kasr → foiz (0,3 = 30%); foiz → oddiy va o'nli kasr; hayotda foiz — «har 100 tadan») ✅. Misol turlari: Eslang (100 katakda qism, qisqarmas va o'nli kasr, maxraji 100 ga keltirish), bo'yalgan/bo'yalmagan kataklar foizi, bir necha rangli kvadrat (Juftlikda), tomoshabinlar (o'g'il/qiz), kasr → foiz, o'nli → foiz, pulning necha foizi sarflangan/qolgan, hayotiy e'lonlar (chegirma, omonat), diagonal bo'yicha yarmi; daftardan: □/4 = □/100, 0,7 = □/100, berilgan foizni bo'yash (nechta katak), «100 dan 85 = □%», jadval (foiz — kasr — o'nli kasr), 100 ta narsadan nechtasi ✅. Kitob sonlari ko'chirilmadi (kitobdan.py: 0 ta mos).
+**Tekshiruv:** barcha mashq, masala va test javoblari Python bilan hisoblandi; tenglik.py (foiz va o'nli kasrni ham tushunadigan qilindi) — faqat atayin xato misollar; testlar.js — 0 xato; 390/1100 px — xato yo'q. chizma.js: data-kataklar ga ko'p rang (data-ranglar) va joylashuv (data-joylash="ustun|aralash") qo'shildi — 33 ma'ruza qayta tekshirildi.
+**Simulyator uchun g'oyalar:** 100 katakli kvadratda bir nechta rang bilan bo'yash — har rangning foizi va bo'yalmagan qism avtomatik; o'nli kasr / kasr / foiz uchlik ko'rinishi.
 **Qoidalar ro'yxati:**
 - Eslang: 100 katakli kvadratda qism: 25/100 = 0,25 = 1/4; kasrni maxraji 100 bo'lgan kasrga keltirish.
 - 1% = 1/100 (yuzdan bir). a% = a/100. Belgisi: %.

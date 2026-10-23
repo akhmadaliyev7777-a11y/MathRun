@@ -4,6 +4,9 @@
    data-ld="a/b" [data-x="3"]     — burchak usulida bo'lish a : b, verguldan keyin ko'pi bilan x xona
    data-xk="a/b/c/d/k"             — a/b = c/d, surat va maxraj k ga ko'paytiriladi (strelkali sxema)
    data-kataklar="n" [data-jami]   — 10×10 (yoki 10×jami/10) katak, n tasi bo'yalgan; [data-ustun="6"] — bir qatordagi kataklar soni (bo'lmasa 10)
+       [data-ranglar="ko'k:24,sariq:31"] — bir nechta rang: har rangdan shuncha katak ketma-ket (kataklar="n" e'tiborga olinmaydi);
+                                          ranglar: ko'k, sariq, yashil, qizil, binafsha, to'q sariq, pushti
+       [data-joylash="ustun"] — ustunma-ustun bo'yaladi; [data-joylash="aralash"] — kataklar tarqoq (har safar bir xil joylashuv)
    data-sonoqi="bo'lak/nuqta" [data-yozuv="0,6"] — 0 dan 1 gacha son o'qi, bo'lak ga bo'lingan, nuqta-chi bo'lakda belgi
    data-xona="3594627" [data-bosh="1"]  — xona jadvali (sinflar bilan); bosh="1" — raqamlarsiz bo'sh jadval
    data-tugma="3594627"            — sonli tugmalar: har xonada raqamcha tugma (1 000 000, 100 000, ...)
@@ -163,15 +166,31 @@
   }
 
   // ---------- 10×10 katak ----------
+  const KATAK_RANG = { "ko'k": "#1f5fd6", sariq: "#f2b705", yashil: "#12805c", qizil: "#d6454f", binafsha: "#8b5cf6", "to'q sariq": "#e07b39", pushti: "#e879a6" };
   function chizKataklar(el) {
-    const n = Number(el.dataset.kataklar);
     const jami = Number(el.dataset.jami || 100);
     const u = Number(el.dataset.ustun || 10), qatorlar = Math.ceil(jami / u), s = 22, g = 2;
     const W = u * s + 2 * g, H = qatorlar * s + 2 * g;
+    /* har katakning rangi: ketma-ket ranglar ro'yxati, keyin tartib bo'yicha joylashtiriladi */
+    const ranglar = el.dataset.ranglar
+      ? el.dataset.ranglar.split(",").map(function (q) { const i = q.lastIndexOf(":"); return [KATAK_RANG[q.slice(0, i).trim()] || "#12805c", Number(q.slice(i + 1))]; })
+      : [["#12805c", Number(el.dataset.kataklar)]];
+    const ketma = [];
+    ranglar.forEach(function (r) { for (let k = 0; k < r[1]; k++) ketma.push(r[0]); });
+    const n = ketma.length;
+    let joy = [];
+    for (let i = 0; i < jami; i++) joy.push(i);
+    if (el.dataset.joylash === "ustun") joy = joy.map(function (i) { return (i % qatorlar) * u + Math.floor(i / qatorlar); }).filter(function (i) { return i < jami; });
+    if (el.dataset.joylash === "aralash") {
+      let t = 12345 + n * 7;
+      for (let i = joy.length - 1; i > 0; i--) { t = (t * 1103515245 + 12345) % 2147483648; const j = t % (i + 1); const v = joy[i]; joy[i] = joy[j]; joy[j] = v; }
+    }
+    const rang = new Array(jami).fill(null);
+    for (let k = 0; k < n && k < joy.length; k++) rang[joy[k]] = ketma[k];
     let h = '<svg viewBox="0 0 ' + W + " " + H + '" width="' + W + '" role="img" aria-label="' + jami + " ta katakdan " + n + ' tasi bo\'yalgan">';
     for (let i = 0; i < jami; i++) {
       const x = g + (i % u) * s, y = g + Math.floor(i / u) * s;
-      h += '<rect x="' + x + '" y="' + y + '" width="' + s + '" height="' + s + '" fill="' + (i < n ? "#12805c" : "#fff") + '" fill-opacity="' + (i < n ? 0.75 : 1) + '" stroke="#9aa3b5" stroke-width="1"/>';
+      h += '<rect x="' + x + '" y="' + y + '" width="' + s + '" height="' + s + '" fill="' + (rang[i] || "#fff") + '" fill-opacity="' + (rang[i] ? 0.78 : 1) + '" stroke="#9aa3b5" stroke-width="1"/>';
     }
     h += '<rect x="' + g + '" y="' + g + '" width="' + u * s + '" height="' + qatorlar * s + '" fill="none" stroke="#1f2433" stroke-width="2"/></svg>';
     el.classList.add("chz");

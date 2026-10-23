@@ -506,6 +506,53 @@ const QUIZ_DATA = {
     { level: 20, question: "1 kg olma narxi 12 500 so'm. 2,5 kg olma narxi qancha bo'ladi?", options: ["31 250 so'm", "30 000 so'm", "25 000 so'm", "32 500 so'm"], answer: "31 250 so'm" }
   ],
 
+  "5|matematika|foiz-tushunchasi": {
+    oson: [
+      { question: "1% qanday kasrga teng?", options: ["1/100", "1/10", "1/1000", "100"], answer: "1/100", explain: "Foiz — yuzdan bir qism.<br>Demak <b>1% = 1/100</b>." },
+      { question: "100 katakli kvadratning 41 tasi bo'yalgan. Kvadratning necha foizi bo'yalgan?", options: ["41%", "59%", "4,1%", "0,41%"], answer: "41%", explain: "100 tadan 41 tasi: 41/100.<br>Maxraj 100 — suratiga % qo'yamiz: <b>41%</b>." },
+      { question: "Kvadratning 26% i bo'yalgan. Kvadratning necha foizi bo'yalmagan?", options: ["74%", "26%", "84%", "64%"], answer: "74%", explain: "Butun kvadrat — 100%.<br>Bo'yalmagan qism: 100% − 26% = <b>74%</b>." },
+      { question: "37/100 kasrni foiz ko'rinishida yozing.", options: ["37%", "3,7%", "0,37%", "63%"], answer: "37%", explain: "Maxraji 100 bo'lgan kasr: suratini olib, % qo'yamiz.<br>37/100 = <b>37%</b>." },
+      { question: "Bir butun necha foizga teng?", options: ["100%", "1%", "10%", "0%"], answer: "100%", explain: "Bir butun 100 ta yuzdan birdan iborat: 1 = 100/100.<br>Demak butun — <b>100%</b>." },
+      { question: "0,53 ni foiz ko'rinishida yozing.", options: ["53%", "5,3%", "0,53%", "530%"], answer: "53%", explain: "1) 0,53 = 53/100.<br>2) 53/100 = <b>53%</b>." },
+      { question: "0,06 ni foiz ko'rinishida yozing.", options: ["6%", "60%", "0,6%", "0,06%"], answer: "6%", explain: "1) 0,06 — yuzdan olti: 0,06 = 6/100.<br>2) 6/100 = <b>6%</b>." },
+      { question: "0,9 ni foiz ko'rinishida yozing.", options: ["90%", "9%", "0,9%", "900%"], answer: "90%", explain: "1) Verguldan keyin bitta raqam — 0 qo'shib ikki xona qilamiz: 0,9 = 0,90.<br>2) 0,90 = 90/100 = <b>90%</b> (9% emas!)." },
+      { question: "19% ni oddiy kasr ko'rinishida yozing.", options: ["19/100", "19/10", "1/19", "100/19"], answer: "19/100", explain: "a% = a/100.<br>Demak <b>19% = 19/100</b>." },
+      { question: "27% ni o'nli kasr ko'rinishida yozing.", options: ["0,27", "2,7", "0,027", "27,1"], answer: "0,27", explain: "1) 27% = 27/100.<br>2) Maxraj 100 — verguldan keyin ikki xona: <b>0,27</b>." },
+      { question: "3% ni o'nli kasr ko'rinishida yozing.", options: ["0,03", "0,3", "3,1", "0,003"], answer: "0,03", explain: "1) 3% = 3/100.<br>2) Verguldan keyin ikki xona bo'lishi kerak: <b>0,03</b> (0,3 — bu 30%)." },
+      { question: "1/4 = ?/100. So'roq o'rniga qaysi son yoziladi?", options: ["25", "4", "40", "75"], answer: "25", explain: "1) 100 : 4 = 25 — surat va maxrajni 25 ga ko'paytiramiz.<br>2) 1 · 25 = <b>25</b>: 1/4 = 25/100." },
+      { question: "2/5 ni foiz ko'rinishida yozing.", options: ["40%", "25%", "20%", "52%"], answer: "40%", explain: "1) 100 : 5 = 20.<br>2) 2/5 = (2 · 20)/(5 · 20) = 40/100.<br>3) 40/100 = <b>40%</b>." },
+      { question: "9/20 ni foiz ko'rinishida yozing.", options: ["45%", "9%", "20%", "92%"], answer: "45%", explain: "1) 100 : 20 = 5.<br>2) 9/20 = (9 · 5)/(20 · 5) = 45/100.<br>3) 45/100 = <b>45%</b>." },
+      { question: "«100 dan 62» necha foiz?", options: ["62%", "38%", "6,2%", "162%"], answer: "62%", explain: "Foiz — har 100 tadan nechta.<br>100 dan 62 = 62/100 = <b>62%</b>." },
+      { question: "100 o'quvchidan 48 tasi qizlar, qolganlari o'g'il bolalar. O'quvchilarning necha foizi o'g'il bolalar?", options: ["52%", "48%", "62%", "58%"], answer: "52%", explain: "1) Qizlar: 48/100 = 48%.<br>2) O'g'il bolalar: 100% − 48% = <b>52%</b>." },
+      { question: "100 katakli kvadratda 15 ta katak qizil, 20 ta katak ko'k. Kvadratning necha foizi bo'yalgan?", options: ["35%", "20%", "15%", "65%"], answer: "35%", explain: "1) Bo'yalgan kataklar: 15 + 20 = 35 ta.<br>2) 35/100 = <b>35%</b>." },
+      { question: "Hamyonda 100 000 so'm bor edi. 45 000 so'm sarflandi. Pulning necha foizi sarflangan?", options: ["45%", "55%", "4,5%", "450%"], answer: "45%", explain: "1) 100 000 so'm — 100 ta 1 000 so'm.<br>2) 45 000 so'm — shulardan 45 tasi: 45/100 = <b>45%</b>." },
+      { question: "Quyidagilardan qaysi biri 50% ga teng?", options: ["1/2", "5/100", "0,05", "1/5"], answer: "1/2", explain: "50% = 50/100.<br>50 ga qisqartiramiz: 50/100 = <b>1/2</b>.<br>(5/100 va 0,05 — bu 5%, 1/5 — 20%.)" },
+      { question: "7/10 ni foiz ko'rinishida yozing.", options: ["70%", "7%", "17%", "0,7%"], answer: "70%", explain: "1) 100 : 10 = 10.<br>2) 7/10 = (7 · 10)/(10 · 10) = 70/100 = <b>70%</b>." }
+    ],
+    qiyin: [
+      { question: "13/25 ni foiz ko'rinishida yozing.", options: ["52%", "13%", "26%", "38%"], answer: "52%", explain: "1) 100 : 25 = 4.<br>2) 13/25 = (13 · 4)/(25 · 4) = 52/100.<br>3) 52/100 = <b>52%</b>." },
+      { question: "0,4 ni foiz ko'rinishida yozing.", options: ["40%", "4%", "0,4%", "400%"], answer: "40%", explain: "1) 0,4 = 0,40 — ikki xona qilamiz.<br>2) 0,40 = 40/100 = <b>40%</b>." },
+      { question: "12% ni qisqarmas oddiy kasr ko'rinishida yozing.", options: ["3/25", "1/12", "6/25", "12/10"], answer: "3/25", explain: "1) 12% = 12/100.<br>2) 4 ga qisqartiramiz: 12 : 4 = 3, 100 : 4 = 25.<br>3) <b>3/25</b>." },
+      { question: "85% ni qisqarmas oddiy kasr ko'rinishida yozing.", options: ["17/20", "85/10", "5/8", "8/5"], answer: "17/20", explain: "1) 85% = 85/100.<br>2) 5 ga qisqartiramiz: 85 : 5 = 17, 100 : 5 = 20.<br>3) <b>17/20</b>." },
+      { question: "Kvadratning 3/4 qismi bo'yalgan. Kvadratning necha foizi bo'yalmagan?", options: ["25%", "75%", "34%", "43%"], answer: "25%", explain: "1) 3/4 = 75/100 = 75% bo'yalgan.<br>2) Bo'yalmagan: 100% − 75% = <b>25%</b>." },
+      { question: "100 katakli kvadratning 0,12 qismi qizil, 1/4 qismi ko'k, qolgani bo'yalmagan. Necha foizi bo'yalmagan?", options: ["63%", "37%", "75%", "88%"], answer: "63%", explain: "1) Qizil: 0,12 = 12%. Ko'k: 1/4 = 25/100 = 25%.<br>2) Bo'yalgan: 12% + 25% = 37%.<br>3) Bo'yalmagan: 100% − 37% = <b>63%</b>." },
+      { question: "Sinfda 20 o'quvchi bor, ulardan 7 tasi a'lochi. O'quvchilarning necha foizi a'lochi?", options: ["35%", "7%", "20%", "27%"], answer: "35%", explain: "1) A'lochilar — 7/20 qism.<br>2) 100 : 20 = 5: 7/20 = 35/100.<br>3) <b>35%</b>." },
+      { question: "Savatdagi 50 ta olmadan 18 tasi qizil. Olmalarning necha foizi qizil?", options: ["36%", "18%", "32%", "68%"], answer: "36%", explain: "1) Qizil olmalar — 18/50 qism.<br>2) 100 : 50 = 2: 18/50 = 36/100.<br>3) <b>36%</b>." },
+      { question: "Qaysi son eng katta?", options: ["0,45", "43%", "11/25", "2/5"], answer: "0,45", explain: "Hammasini foizga aylantiramiz:<br>0,45 = 45%; 43%; 11/25 = 44/100 = 44%; 2/5 = 40/100 = 40%.<br>Eng kattasi — <b>0,45</b>." },
+      { question: "Qaysi son eng kichik?", options: ["3/20", "0,2", "18%", "0,16"], answer: "3/20", explain: "Foizga aylantiramiz:<br>3/20 = 15/100 = 15%; 0,2 = 20%; 18%; 0,16 = 16%.<br>Eng kichigi — <b>3/20</b>." },
+      { question: "Quyidagilardan qaysi biri 7% ga teng EMAS?", options: ["0,7", "0,07", "7/100", "14/200"], answer: "0,7", explain: "7% = 7/100 = 0,07; 14/200 ni 2 ga qisqartirsak ham 7/100.<br><b>0,7</b> esa 70/100 = 70%." },
+      { question: "Telefon batareyasining 3/5 qismi to'la. To'liq zaryadlanishi uchun yana necha foiz quvvat kerak?", options: ["40%", "60%", "35%", "25%"], answer: "40%", explain: "1) 3/5 = 60/100 = 60% to'la.<br>2) Yetishmaydi: 100% − 60% = <b>40%</b>." },
+      { question: "Nilufar 25 savollik testning 21 tasiga to'g'ri javob berdi. U savollarning necha foiziga to'g'ri javob bergan?", options: ["84%", "21%", "79%", "4%"], answer: "84%", explain: "1) To'g'ri javoblar — 21/25 qism.<br>2) 100 : 25 = 4: 21/25 = 84/100.<br>3) <b>84%</b>." },
+      { question: "«? dan 33 = 33%». So'roq o'rniga qaysi son yoziladi?", options: ["100", "33", "67", "133"], answer: "100", explain: "Foiz har doim 100 ga nisbatan olinadi: 33% = 33/100.<br>Demak <b>100</b> dan 33." },
+      { question: "Kvadratning 0,3 qismi yashil, 45% i sariq, qolgani ko'k. Kvadratning necha foizi ko'k?", options: ["25%", "55%", "15%", "70%"], answer: "25%", explain: "1) Yashil: 0,3 = 0,30 = 30%.<br>2) Yashil va sariq: 30% + 45% = 75%.<br>3) Ko'k: 100% − 75% = <b>25%</b>." },
+      { question: "Kitob 200 betdan iborat. Laziz 90 betini o'qidi. U kitobning necha foizini o'qigan?", options: ["45%", "90%", "55%", "9%"], answer: "45%", explain: "1) O'qilgan qism: 90/200.<br>2) 2 ga qisqartiramiz: 90/200 = 45/100.<br>3) <b>45%</b>." },
+      { question: "Do'konda 20% chegirma e'lon qilindi. Narxi 100 000 so'm bo'lgan ko'ylakka necha so'm chegirma qilinadi?", options: ["20 000 so'm", "80 000 so'm", "2 000 so'm", "200 so'm"], answer: "20 000 so'm", explain: "20% — har 100 so'mdan 20 so'm.<br>100 000 so'mda 1 000 ta 100 so'm bor: 1 000 · 20 = <b>20 000 so'm</b>.<br>(80 000 so'm — chegirmadan keyingi narx.)" },
+      { question: "Ali «0,3 = 3%» deb yozdi. To'g'ri javob qaysi?", options: ["30%", "3%", "0,3%", "300%"], answer: "30%", explain: "Ali verguldan keyingi xonani unutgan.<br>0,3 = 0,30 = 30/100 = <b>30%</b>." },
+      { question: "100 katakli kvadratning 1/5 qismi va yana 8 ta katak bo'yaldi. Kvadratning necha foizi bo'yalgan?", options: ["28%", "13%", "25%", "58%"], answer: "28%", explain: "1) 1/5 = 20/100 — 20 ta katak.<br>2) Jami bo'yalgan: 20 + 8 = 28 ta.<br>3) 28/100 = <b>28%</b>." },
+      { question: "Bog'dagi daraxtlarning 45% i olma. O'riklar olmadan 15% kam, qolgani gilos. Daraxtlarning necha foizi gilos?", options: ["25%", "40%", "55%", "10%"], answer: "25%", explain: "1) O'rik: 45% − 15% = 30%.<br>2) Olma va o'rik: 45% + 30% = 75%.<br>3) Gilos: 100% − 75% = <b>25%</b>." }
+    ]
+  },
+
   "5|matematika|foizlar": [
     { level: 1, question: "1% qanday kasrga teng?", options: ["1/100", "1/10", "10/100", "1/1000"], answer: "1/100" },
     { level: 2, question: "50% ni oddiy kasr ko'rinishida yozing.", options: ["1/2", "1/4", "1/5", "2/1"], answer: "1/2" },
