@@ -584,7 +584,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** kasrlarni tasmada bo'yash va foizda yozish (30%, 7%); foiz ↔ kasr ↔ o'nli kasr juftlarini chiziq bilan tutashtirish; 400 katakli xarita — hayvon qafaslari foizi (amaliy).
 **Rasmlar:** foiz tasmasi (o'lchov tasmasi), uchburchak kasr ↔ o'nli ↔ foiz.
 
-#### ☐ 34. Miqdorning foizi + matnli masalalar — D2 62–68; M2 73–84
+#### ✅ 34. Miqdorning foizi + matnli masalalar — D2 62–68; M2 73–84
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-miqdorning-foizi.html. O'z testi: `5|matematika|miqdorning-foizi` — 20 + 20.
+**Kitob bilan solishtirildi (D2 62–68; M2 73–84):** 6 qoida (sonning a% i — 1-usul kasr orqali, 2-usul 1% orqali; bir son ikkinchisining necha foizi, birliklarni tenglash; qolgan qism foizi va miqdori — ikki yo'l; foizlar farqi orqali; noma'lum qismni topib foizi (jadval); foizi ma'lum qismga ko'ra butun) ✅. Misol turlari: maktabdagi qizlar, kitoblar foizi, kg/ml foizi (62,5%), sport anjomi (sarflangan/qolgan), hayvonlar ko'rgazmasi (farq), jadvaldan sinf foizi, javon ulushlari, konsert/festival, basketbol (futbol) tomoshabinlari, maosh sarfi, chiptalar (kasr + foiz), o'g'il/qiz farqi; daftardan: «necha foizi», piyoda/marafon/so'rovnoma turlari, tayoqning bo'yalgan qismi, test natijasi, bog' maydoni (80 bo'lakli gulzor), 24 soatlik kun rejimi (o'ndan birgacha yaxlitlash), ikki yuguruvchi farqi (m), maoshdan tejalgan, jadvaldan oq munchoqlar, «3 marta ko'p» → foiz, olmali/qulupnayli (bananli/shokoladli) farq, qismiga ko'ra butun ✅. Kitob sonlari ko'chirilmadi (kitobdan.py: 0 ta; 80 hayvon, festival, 5 km, 35% ko'k, 3/8 — almashtirildi).
+**Tekshiruv:** barcha javoblar Python bilan; tenglik.py — faqat qadam raqami va atayin xato yozuvlar; testlar.js — 0 xato; 390/1100 px — 35 ma'ruza xatosiz. chizma.js: yangi `data-foizbar` (foizli tasma modeli).
+**Simulyator uchun g'oyalar:** ikki qatorli foiz tasmasi: yuqorida 0–miqdor, pastda 0%–100%; slayder foizni tanlaydi, qiymat va «1% = miqdor : 100» ko'rinadi; bo'laklarni qo'shib-ayirib farqni ko'rsatish.
 **Qoidalar ro'yxati:**
 - Sonning a% ini topish: 1-usul — a/100 · son; 2-usul — 1% = son : 100, keyin × a.
 - Bir son ikkinchisining necha foizi: (qism : butun) · 100% (60 : 200 · 100% = 30%).
@@ -975,7 +979,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** kasrlarni tasmada bo'yash va foizda yozish (30%, 7%); foiz ↔ kasr ↔ o'nli kasr juftlarini chiziq bilan tutashtirish; 400 katakli xarita — hayvon qafaslari foizi (amaliy).
 **Rasmlar:** foiz tasmasi (o'lchov tasmasi), uchburchak kasr ↔ o'nli ↔ foiz.
 
-#### ☐ 34. Miqdorning foizi + matnli masalalar — D2 62–68; M2 73–84
+#### ✅ 34. Miqdorning foizi + matnli masalalar — D2 62–68; M2 73–84
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-miqdorning-foizi.html. O'z testi: `5|matematika|miqdorning-foizi` — 20 + 20.
+**Kitob bilan solishtirildi (D2 62–68; M2 73–84):** 6 qoida (sonning a% i — 1-usul kasr orqali, 2-usul 1% orqali; bir son ikkinchisining necha foizi, birliklarni tenglash; qolgan qism foizi va miqdori — ikki yo'l; foizlar farqi orqali; noma'lum qismni topib foizi (jadval); foizi ma'lum qismga ko'ra butun) ✅. Misol turlari: maktabdagi qizlar, kitoblar foizi, kg/ml foizi (62,5%), sport anjomi (sarflangan/qolgan), hayvonlar ko'rgazmasi (farq), jadvaldan sinf foizi, javon ulushlari, konsert/festival, basketbol (futbol) tomoshabinlari, maosh sarfi, chiptalar (kasr + foiz), o'g'il/qiz farqi; daftardan: «necha foizi», piyoda/marafon/so'rovnoma turlari, tayoqning bo'yalgan qismi, test natijasi, bog' maydoni (80 bo'lakli gulzor), 24 soatlik kun rejimi (o'ndan birgacha yaxlitlash), ikki yuguruvchi farqi (m), maoshdan tejalgan, jadvaldan oq munchoqlar, «3 marta ko'p» → foiz, olmali/qulupnayli (bananli/shokoladli) farq, qismiga ko'ra butun ✅. Kitob sonlari ko'chirilmadi (kitobdan.py: 0 ta; 80 hayvon, festival, 5 km, 35% ko'k, 3/8 — almashtirildi).
+**Tekshiruv:** barcha javoblar Python bilan; tenglik.py — faqat qadam raqami va atayin xato yozuvlar; testlar.js — 0 xato; 390/1100 px — 35 ma'ruza xatosiz. chizma.js: yangi `data-foizbar` (foizli tasma modeli).
+**Simulyator uchun g'oyalar:** ikki qatorli foiz tasmasi: yuqorida 0–miqdor, pastda 0%–100%; slayder foizni tanlaydi, qiymat va «1% = miqdor : 100» ko'rinadi; bo'laklarni qo'shib-ayirib farqni ko'rsatish.
 **Qoidalar ro'yxati:**
 - Sonning a% ini topish: 1-usul — a/100 · son; 2-usul — 1% = son : 100, keyin × a.
 - Bir son ikkinchisining necha foizi: (qism : butun) · 100% (60 : 200 · 100% = 30%).

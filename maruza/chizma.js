@@ -81,6 +81,9 @@
                                           pastda o'nli kasrlar: odatda 0; 0,5; 1 — pastki="hammasi" bo'lsa 0; 0,1; …; 1,0;
                                           sor — shu foizlar ostida o'nli kasr o'rniga «?» katakcha; mayda="1" — har 1% da kichik chiziq;
                                           belgi="1" — bo'yalgan qism oxirida uchburchak va «60%» yozuvi
+   data-foizbar="Qizlar:55|O'g'il bolalar:45" [data-jami="600 o'quvchi"] [data-qiymat="?|"] — foizli tasma modeli: butun tasma = 100%,
+                                          har bo'lak "nomi:foizi" (o'z rangida, nomi ichida, foizi ostida); jami — tepada butun tasma ustida qavs bilan;
+                                          qiymat — har bo'lak ustidagi yozuv ("|" bilan, bo'sh — yozilmaydi; "?" — so'roq)
 */
 (function () {
   "use strict";
@@ -235,6 +238,37 @@
       h += '<text x="' + X(p) + '" y="' + (yT - 46) + '" text-anchor="middle" font-size="20" font-weight="800" fill="#12805c">' + p + "%</text>";
     }
     h += "</g></svg>";
+    el.classList.add("chz");
+    el.innerHTML = h;
+  }
+
+  // ---------- foizli tasma modeli ----------
+  function chizFoizbar(el) {
+    const bol = el.dataset.foizbar.split("|").map(function (q) { const i = q.lastIndexOf(":"); return [q.slice(0, i), Number(q.slice(i + 1))]; });
+    const qiy = (el.dataset.qiymat || "").split("|");
+    const jami = el.dataset.jami || "";
+    const RANG = ["#1f5fd6", "#e07b39", "#12805c", "#8b5cf6", "#d6454f"];
+    const W = 560, x0 = 20, x1 = 540, k = (x1 - x0) / 100, top = jami ? 46 : 0, y0 = top + 46, y1 = y0 + 58;
+    let h = '<svg viewBox="0 0 ' + W + " " + (y1 + 44) + '" width="' + W + '" role="img" aria-label="Foizli tasma modeli">';
+    if (jami) {
+      h += '<path d="M' + x0 + ' 46 v-9 H' + x1 + ' v9" fill="none" stroke="#1f2433" stroke-width="2"/>';
+      h += '<text x="' + (x0 + x1) / 2 + '" y="28" text-anchor="middle" font-size="25" font-weight="800" fill="#1f2433">' + jami + " = 100%</text>";
+    }
+    let x = x0;
+    bol.forEach(function (b, i) {
+      const w = b[1] * k, c = RANG[i % RANG.length];
+      h += '<rect x="' + x + '" y="' + y0 + '" width="' + w + '" height="' + (y1 - y0) + '" fill="' + c + '" fill-opacity=".8" stroke="#fff" stroke-width="2"/>';
+      const fs = w > b[0].length * 13 + 10 ? 22 : (w > b[0].length * 9.5 + 6 ? 16 : 0);
+      if (fs) h += '<text x="' + (x + w / 2) + '" y="' + (y0 + (fs === 22 ? 37 : 35)) + '" text-anchor="middle" font-size="' + fs + '" font-weight="800" fill="#fff">' + b[0] + "</text>";
+      h += '<text x="' + (x + w / 2) + '" y="' + (y1 + 30) + '" text-anchor="middle" font-size="24" font-weight="800" fill="' + c + '">' + b[1] + "%</text>";
+      const q = (qiy[i] || "").trim();
+      if (q) {
+        h += '<path d="M' + (x + 4) + " " + (y0 - 4) + " v-8 H" + (x + w - 4) + " v8" + '" fill="none" stroke="' + c + '" stroke-width="2"/>';
+        h += '<text x="' + (x + w / 2) + '" y="' + (y0 - 18) + '" text-anchor="middle" font-size="25" font-weight="800" fill="' + c + '">' + q + "</text>";
+      }
+      x += w;
+    });
+    h += '<rect x="' + x0 + '" y="' + y0 + '" width="' + (x1 - x0) + '" height="' + (y1 - y0) + '" fill="none" stroke="#1f2433" stroke-width="2"/></svg>';
     el.classList.add("chz");
     el.innerHTML = h;
   }
@@ -1407,6 +1441,7 @@
       root.querySelectorAll("[data-vaqt]").forEach(chizVaqt);
       root.querySelectorAll("[data-uchburchak]").forEach(chizUchburchak);
       root.querySelectorAll("[data-foiz]").forEach(chizFoiz);
+      root.querySelectorAll("[data-foizbar]").forEach(chizFoizbar);
     }
   };
 })();

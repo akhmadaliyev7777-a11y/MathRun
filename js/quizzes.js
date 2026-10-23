@@ -600,6 +600,53 @@ const QUIZ_DATA = {
     ]
   },
 
+  "5|matematika|miqdorning-foizi": {
+    oson: [
+      { question: "200 ning 30% ini toping.", options: ["60", "30", "170", "6"], answer: "60", explain: "1) 1% — 200 : 100 = 2.<br>2) 30% — 2 · 30 = <b>60</b>." },
+      { question: "500 ning 14% ini toping.", options: ["70", "14", "35", "700"], answer: "70", explain: "1) 1% — 500 : 100 = 5.<br>2) 14% — 5 · 14 = <b>70</b>." },
+      { question: "80 ning 25% ini toping.", options: ["20", "25", "55", "4"], answer: "20", explain: "25% = 25/100 = 1/4.<br>80 : 4 = <b>20</b>." },
+      { question: "300 ning 1% i nechaga teng?", options: ["3", "30", "1", "300"], answer: "3", explain: "1% — sonning yuzdan biri: 300 : 100 = <b>3</b>." },
+      { question: "120 kg ning 50% ini toping.", options: ["60 kg", "50 kg", "120 kg", "70 kg"], answer: "60 kg", explain: "50% — yarmi: 120 : 2 = <b>60 kg</b>." },
+      { question: "40 ning necha foizi 10 ga teng?", options: ["25%", "10%", "40%", "4%"], answer: "25%", explain: "Qismni butunga bo'lib, 100% ga ko'paytiramiz:<br>10/40 · 100% = 1/4 · 100% = <b>25%</b>." },
+      { question: "200 ning necha foizi 50 ga teng?", options: ["25%", "50%", "4%", "150%"], answer: "25%", explain: "50/200 · 100% = 1/4 · 100% = <b>25%</b>." },
+      { question: "20 ning necha foizi 7 ga teng?", options: ["35%", "7%", "20%", "13%"], answer: "35%", explain: "7/20 · 100% = (700 : 20)% = <b>35%</b>." },
+      { question: "600 so'mning 10% ini toping.", options: ["60 so'm", "10 so'm", "6 so'm", "600 so'm"], answer: "60 so'm", explain: "10% = 1/10.<br>600 : 10 = <b>60 so'm</b>." },
+      { question: "Sinfda 30 o'quvchi bor, ularning 40% i qizlar. Sinfda nechta qiz bor?", options: ["12", "18", "40", "10"], answer: "12", explain: "1) 1% — 30 : 100 = 0,3.<br>2) 40% — 0,3 · 40 = <b>12</b>." },
+      { question: "Testdagi 50 ta savoldan 45 tasiga to'g'ri javob berildi. Necha foiz savolga to'g'ri javob berilgan?", options: ["90%", "45%", "5%", "95%"], answer: "90%", explain: "45/50 · 100% = (4500 : 50)% = <b>90%</b>." },
+      { question: "Zuhrada 20 000 so'm bor edi. U pulining 25% ini sarfladi. U qancha pul sarfladi?", options: ["5000 so'm", "15 000 so'm", "2500 so'm", "25 000 so'm"], answer: "5000 so'm", explain: "25% = 1/4.<br>20 000 : 4 = <b>5000 so'm</b>." },
+      { question: "Sardorda 20 000 so'm bor edi. U pulining 30% ini sarfladi. Uning qancha puli qoldi?", options: ["14 000 so'm", "6000 so'm", "17 000 so'm", "19 970 so'm"], answer: "14 000 so'm", explain: "1) Qoldi: 100% − 30% = 70%.<br>2) 1% — 200 so'm; 70% — 200 · 70 = <b>14 000 so'm</b>." },
+      { question: "250 ning 20% ini toping.", options: ["50", "20", "230", "125"], answer: "50", explain: "20% = 1/5.<br>250 : 5 = <b>50</b>." },
+      { question: "1 m ning necha foizi 25 cm ga teng?", options: ["25%", "4%", "75%", "2,5%"], answer: "25%", explain: "1) Birliklarni tenglaymiz: 1 m = 100 cm.<br>2) 25/100 · 100% = <b>25%</b>." },
+      { question: "400 ning 75% ini toping.", options: ["300", "75", "100", "325"], answer: "300", explain: "75% = 3/4.<br>400 : 4 · 3 = <b>300</b>." },
+      { question: "60 o'quvchidan 15 tasi a'lochi. O'quvchilarning necha foizi a'lochi?", options: ["25%", "15%", "45%", "4%"], answer: "25%", explain: "15/60 = 1/4.<br>1/4 · 100% = <b>25%</b>." },
+      { question: "Kitob 300 betdan iborat. Uning 40% i o'qildi. Necha bet o'qilmay qoldi?", options: ["180", "120", "260", "60"], answer: "180", explain: "1) Qoldi: 100% − 40% = 60%.<br>2) 1% — 3 bet; 60% — 3 · 60 = <b>180</b> bet." },
+      { question: "Quyidagi sonlardan qaysi biri 80 ning 50% iga teng?", options: ["40", "30", "50", "130"], answer: "40", explain: "50% — yarmi: 80 : 2 = <b>40</b>." },
+      { question: "90 ning 10% ini toping.", options: ["9", "10", "90", "81"], answer: "9", explain: "10% = 1/10.<br>90 : 10 = <b>9</b>." }
+    ],
+    qiyin: [
+      { question: "360 ning 35% ini toping.", options: ["126", "35", "103", "234"], answer: "126", explain: "1) 1% — 360 : 100 = 3,6.<br>2) 35% — 3,6 · 35 = <b>126</b>." },
+      { question: "750 ning 44% ini toping.", options: ["330", "44", "420", "375"], answer: "330", explain: "1) 1% — 750 : 100 = 7,5.<br>2) 44% — 7,5 · 44 = <b>330</b>." },
+      { question: "2 kg ning necha foizi 300 g ga teng?", options: ["15%", "150%", "6%", "1,5%"], answer: "15%", explain: "1) 2 kg = 2000 g.<br>2) 300/2000 · 100% = (30000 : 2000)% = <b>15%</b>." },
+      { question: "75 ning necha foizi 30 ga teng?", options: ["40%", "30%", "45%", "25%"], answer: "40%", explain: "30/75 = 2/5.<br>2/5 · 100% = <b>40%</b>." },
+      { question: "1200 ml ning necha foizi 150 ml ga teng?", options: ["12,5%", "15%", "8%", "1,5%"], answer: "12,5%", explain: "150/1200 = 1/8.<br>1/8 · 100% = (100 : 8)% = <b>12,5%</b>." },
+      { question: "Oylik maosh 3 600 000 so'm. Uning 30% i jamg'arildi. Qancha pul jamg'arilgan?", options: ["1 080 000 so'm", "2 520 000 so'm", "120 000 so'm", "108 000 so'm"], answer: "1 080 000 so'm", explain: "1) 1% — 3 600 000 : 100 = 36 000.<br>2) 30% — 36 000 · 30 = <b>1 080 000 so'm</b>." },
+      { question: "Akbarda 1 800 000 so'm bor edi. U pulining 45% ini sarfladi. Uning qancha puli qoldi?", options: ["990 000 so'm", "810 000 so'm", "1 755 000 so'm", "900 000 so'm"], answer: "990 000 so'm", explain: "1) Qoldi: 100% − 45% = 55%.<br>2) 1% — 18 000; 55% — 18 000 · 55 = <b>990 000 so'm</b>." },
+      { question: "Fermadagi 140 ta hayvonning 60% i qo'ylar, 25% i echkilar, qolgani sigirlar. Nechta sigir bor?", options: ["21", "35", "84", "15"], answer: "21", explain: "1) Sigirlar: 100% − 60% − 25% = 15%.<br>2) 1% — 1,4; 15% — 1,4 · 15 = <b>21</b>." },
+      { question: "Fermadagi 140 ta hayvonning 60% i qo'ylar, 25% i echkilar. Qo'ylar echkilardan nechta ko'p?", options: ["49", "35", "84", "119"], answer: "49", explain: "1) Foizlar farqi: 60% − 25% = 35%.<br>2) 140 : 100 · 35 = <b>49</b> (qo'ylar 84, echkilar 35)." },
+      { question: "To'rtta sinfda jami 180 o'quvchi: birinchisida 44, ikkinchisida 46, uchinchisida 45 nafar. To'rtinchi sinfda o'quvchilarning necha foizi o'qiydi?", options: ["25%", "45%", "20%", "30%"], answer: "25%", explain: "1) To'rtinchi sinf: 180 − (44 + 46 + 45) = 45.<br>2) 45/180 = 1/4 = <b>25%</b>." },
+      { question: "Mevalarning 20% i — 36 ta olma. Jami nechta meva bor?", options: ["180", "56", "720", "7,2"], answer: "180", explain: "1) 1% — 36 : 20 = 1,8.<br>2) 100% — 1,8 · 100 = <b>180</b>." },
+      { question: "Qopdagi unning 40% i 28 kg. Qopda jami necha kilogramm un bor?", options: ["70 kg", "112 kg", "68 kg", "11,2 kg"], answer: "70 kg", explain: "1) 1% — 28 : 40 = 0,7 kg.<br>2) 100% — 0,7 · 100 = <b>70 kg</b>." },
+      { question: "Piroglarning 25% i olmali, qolgani qulupnayli. Qulupnayli piroglar olmalilardan 60 taga ko'p. Nechta qulupnayli pirog bor?", options: ["90", "60", "120", "30"], answer: "90", explain: "1) Qulupnayli 75%; farq 75% − 25% = 50% — bu 60 ta.<br>2) 1% — 60 : 50 = 1,2; jami 120 ta.<br>3) Qulupnayli: 1,2 · 75 = <b>90</b>." },
+      { question: "Kitob 200 betdan iborat. Birinchi kuni uning 18% i, ikkinchi kuni 32% i o'qildi. Necha bet qoldi?", options: ["100", "50", "150", "68"], answer: "100", explain: "1) O'qildi: 18% + 32% = 50%; qoldi 50%.<br>2) 200 ning 50% i — <b>100</b> bet." },
+      { question: "Ko'rgazmaga kelganlarning 7/20 qismi bolalar, qolgani kattalar. Kattalar necha foiz?", options: ["65%", "35%", "72%", "13%"], answer: "65%", explain: "1) Bolalar: 7/20 = 35/100 = 35%.<br>2) Kattalar: 100% − 35% = <b>65%</b>." },
+      { question: "5000 ta chiptadan 1500 tasi kassada, 2/5 qismi internetda sotildi. Chiptalarning necha foizi sotilmadi?", options: ["30%", "70%", "40%", "60%"], answer: "30%", explain: "1) Kassa: 1500/5000 = 3/10 = 30%. Internet: 2/5 = 40%.<br>2) Sotildi 70%; sotilmadi 100% − 70% = <b>30%</b>." },
+      { question: "6 km yo'lning A 75% ini, B 60% ini bosib o'tdi. Ular bosib o'tgan masofalar farqi necha metr?", options: ["900 m", "150 m", "1500 m", "90 m"], answer: "900 m", explain: "1) 6 km = 6000 m; farq 75% − 60% = 15%.<br>2) 6000 : 100 · 15 = <b>900 m</b>." },
+      { question: "Sutkaning 6 soati necha foiz?", options: ["25%", "6%", "4%", "18%"], answer: "25%", explain: "Sutka — 24 soat.<br>6/24 = 1/4 = <b>25%</b>." },
+      { question: "50 ning 30% i va 30 ning 50% ini solishtiring.", options: ["Teng", "Birinchisi katta", "Ikkinchisi katta", "Aniqlab bo'lmaydi"], answer: "Teng", explain: "50 ning 30% i: 50 · 30 : 100 = 15.<br>30 ning 50% i: 30 · 50 : 100 = 15.<br>Ular <b>teng</b>." },
+      { question: "Zarina olgan pul Yorqin olganidan 3 marta ko'p. Ular jami pulni bo'lishdi. Zarina pulning necha foizini oldi?", options: ["75%", "25%", "33%", "300%"], answer: "75%", explain: "1) Yorqin — 1 qism, Zarina — 3 qism, jami 4 qism.<br>2) Zarina: 3/4 = <b>75%</b>." }
+    ]
+  },
+
   "5|matematika|foizlar": [
     { level: 1, question: "1% qanday kasrga teng?", options: ["1/100", "1/10", "10/100", "1/1000"], answer: "1/100" },
     { level: 2, question: "50% ni oddiy kasr ko'rinishida yozing.", options: ["1/2", "1/4", "1/5", "2/1"], answer: "1/2" },
