@@ -21,6 +21,8 @@ t = re.sub(r"(\d+)\s*\\?%", r"(\1/100)", t)
 # kasrlar: 2\frac{1}{3} -> (2+1/3), \frac{3}{5} -> (3/5)
 t = re.sub(r"(\d+)\s*\\frac\{\s*(\d+)\s*\}\{\s*(\d+)\s*\}", r"(\1+\2/\3)", t)
 t = re.sub(r"\\frac\{\s*(\d+)\s*\}\{\s*(\d+)\s*\}", r"(\1/\2)", t)
+# qavsdan keyingi foiz: (1100/25)% -> (1100/25)*(1/100)
+t = re.sub(r"\)\s*\\?%", ")*(1/100)", t)
 part = r"[\d(][\d\s+\-*:()/]*[\d)]"
 ok = bad = 0
 def val(p):

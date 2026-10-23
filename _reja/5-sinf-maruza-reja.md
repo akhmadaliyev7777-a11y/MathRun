@@ -567,7 +567,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** bo'yalgan/bo'yalmagan qismni oddiy va o'nli kasrda; maxraji 100 bo'lgan kasrga keltirish (□/4 = □/100); 0,7 = □/100; berilgan foizni bo'yash (9%, 73%); "100 dan 85 = □%"; jadval (foiz — oddiy kasr — o'nli kasr).
 **Rasmlar:** 100 katakli kvadrat (bir nechta rang).
 
-#### ☐ 33. Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish — D2 56–61; M2 69–72
+#### ✅ 33. Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish — D2 56–61; M2 69–72
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-kasr-onli-kasr-foiz.html. O'z testi: `5|matematika|kasr-onli-kasr-foiz` — 20 + 20.
+**Kitob bilan solishtirildi (D2 56–61; M2 69–72):** 8 qoida (kasr → foiz: 1-usul maxrajni 100 ga keltirish, 2-usul 100% ga ko'paytirish; maxraj 100 dan katta — qisqartirish; bo'linmasa — yuzdan birlargacha yaxlitlash; o'nli kasr → foiz; foiz → qisqarmas oddiy kasr; foiz → o'nli kasr; foiz tasmasi 0% ↔ 0, 50% ↔ 0,5, 100% ↔ 1) ✅. Misol turlari: 3 yo'nalishli almashtirish, 100 va 200 katakli to'r (30% qizil + ko'k turi), foiz tasmasida o'qish va bo'yash, tasmadagi tushib qolgan o'nli kasrlar, «aholining necha foizi shaharda» (amaliy topshiriq); daftardan: kasrlarni tasmada bo'yash va yozish, foiz ↔ kasr ↔ o'nli kasr juftlarini topish, 400 katakli xarita (hayvonot bog'i) ✅. Kitob sonlari ko'chirilmadi (kitobdan.py: 0 ta mos; 0,7 = 70%, 3/5 kvadrati, tasmada 30%, 3/4 = 75% — o'zimiznikiga almashtirildi).
+**Tekshiruv:** barcha javoblar Python bilan; tenglik.py — faqat atayin xato va taqribiy (…) yozuvlar; testlar.js — 0 xato; 390/1100 px — 34 ma'ruza xatosiz. chizma.js: yangi `data-foiz` (foiz tasmasi).
+**Simulyator uchun g'oyalar:** foiz tasmasi slayderi: surilganda foiz, o'nli kasr va qisqarmas oddiy kasr bir vaqtda o'zgaradi; 100/200/400 katakli to'r — bitta katak necha foiz ekanini ko'rsatish.
 **Qoidalar ro'yxati:**
 - Kasr → foiz: 1-usul — maxraji 100 bo'lgan kasrga keltirish; 2-usul — kasrni 100% ga ko'paytirish (3/5 · 100% = 60%).
 - Maxraj 100 dan katta bo'lsa — qisqartirish (16/200 = 8/100 = 8%).
@@ -954,7 +958,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** bo'yalgan/bo'yalmagan qismni oddiy va o'nli kasrda; maxraji 100 bo'lgan kasrga keltirish (□/4 = □/100); 0,7 = □/100; berilgan foizni bo'yash (9%, 73%); "100 dan 85 = □%"; jadval (foiz — oddiy kasr — o'nli kasr).
 **Rasmlar:** 100 katakli kvadrat (bir nechta rang).
 
-#### ☐ 33. Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish — D2 56–61; M2 69–72
+#### ✅ 33. Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish — D2 56–61; M2 69–72
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-kasr-onli-kasr-foiz.html. O'z testi: `5|matematika|kasr-onli-kasr-foiz` — 20 + 20.
+**Kitob bilan solishtirildi (D2 56–61; M2 69–72):** 8 qoida (kasr → foiz: 1-usul maxrajni 100 ga keltirish, 2-usul 100% ga ko'paytirish; maxraj 100 dan katta — qisqartirish; bo'linmasa — yuzdan birlargacha yaxlitlash; o'nli kasr → foiz; foiz → qisqarmas oddiy kasr; foiz → o'nli kasr; foiz tasmasi 0% ↔ 0, 50% ↔ 0,5, 100% ↔ 1) ✅. Misol turlari: 3 yo'nalishli almashtirish, 100 va 200 katakli to'r (30% qizil + ko'k turi), foiz tasmasida o'qish va bo'yash, tasmadagi tushib qolgan o'nli kasrlar, «aholining necha foizi shaharda» (amaliy topshiriq); daftardan: kasrlarni tasmada bo'yash va yozish, foiz ↔ kasr ↔ o'nli kasr juftlarini topish, 400 katakli xarita (hayvonot bog'i) ✅. Kitob sonlari ko'chirilmadi (kitobdan.py: 0 ta mos; 0,7 = 70%, 3/5 kvadrati, tasmada 30%, 3/4 = 75% — o'zimiznikiga almashtirildi).
+**Tekshiruv:** barcha javoblar Python bilan; tenglik.py — faqat atayin xato va taqribiy (…) yozuvlar; testlar.js — 0 xato; 390/1100 px — 34 ma'ruza xatosiz. chizma.js: yangi `data-foiz` (foiz tasmasi).
+**Simulyator uchun g'oyalar:** foiz tasmasi slayderi: surilganda foiz, o'nli kasr va qisqarmas oddiy kasr bir vaqtda o'zgaradi; 100/200/400 katakli to'r — bitta katak necha foiz ekanini ko'rsatish.
 **Qoidalar ro'yxati:**
 - Kasr → foiz: 1-usul — maxraji 100 bo'lgan kasrga keltirish; 2-usul — kasrni 100% ga ko'paytirish (3/5 · 100% = 60%).
 - Maxraj 100 dan katta bo'lsa — qisqartirish (16/200 = 8/100 = 8%).

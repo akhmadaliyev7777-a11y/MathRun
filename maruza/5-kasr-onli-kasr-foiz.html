@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=30">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish</h1>
+<p class="m-lead">Bitta qismni uch xil yozish mumkin: oddiy kasr, o'nli kasr va foiz. Ularni biridan ikkinchisiga o'tkazishning ikki usulini, katta maxrajli va bo'linmaydigan kasrlarni, foiz tasmasini o'rganamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Foiz — maxraji 100 bo'lgan kasrning boshqacha yozilishi!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>\(1\% = \frac{1}{100}\), \(a\% = \frac{a}{100}\); bir butun — 100%.</li>
+      <li>Maxraji 100 bo'lgan kasr: \(\frac{39}{100} = 0,39 = 39\%\).</li>
+      <li>Kasrni qisqartirish: surat va maxraj bir xil songa bo'linadi: \(\frac{36}{100} = \frac{36 : 4}{100 : 4} = \frac{9}{25}\).</li>
+      <li>O'nli kasrni 100 ga ko'paytirsak, vergul <b>ikki xona o'ngga</b> suriladi: \(0,27 \cdot 100 = 27\); \(0,4 \cdot 100 = 40\).</li>
+      <li>Sonni 100 ga bo'lsak, vergul <b>ikki xona chapga</b> suriladi: \(38 : 100 = 0,38\); \(5 : 100 = 0,05\).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Kasrni foizga aylantirishning ikki yo'li bor — qaysi biri qulay bo'lsa, shunisini tanlang!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · kasr → foiz, 1-usul</span>
+    <p>Kasrning maxrajini <b>100 ga keltiramiz</b>: surat va maxrajni \(100 : \text{maxraj}\) ga ko'paytiramiz. Hosil bo'lgan kasrning surati — izlangan foiz.</p>
+  </div>
+  <div class="box qoida">
+    <span class="tag">2-qoida · kasr → foiz, 2-usul</span>
+    <p>Kasrni <b>100% ga ko'paytiramiz</b>: \(\frac{a}{b} \cdot 100\% = (a \cdot 100 : b)\%\). Bu usul har qanday maxraj uchun ishlaydi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · ikki usul bilan</span>
+    <p>\(\frac{11}{25}\) ni foiz ko'rinishida yozing.</p>
+    <div data-xk="11/25/44/100/4"></div>
+    <div class="qadam"><b>1</b><span>1-usul: \(100 : 25 = 4\); \(\frac{11}{25} = \frac{11 \cdot 4}{25 \cdot 4} = \frac{44}{100} = \nat{44\%}\).</span></div>
+    <div class="qadam"><b>2</b><span>2-usul: \(\frac{11}{25} \cdot 100\% = \frac{1100}{25}\% = \nat{44\%}\).</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · maxraj 100 dan katta bo'lsa</span>
+    <p>Maxraj 100 dan katta bo'lsa (200, 300, 500, …), kasrni <b>qisqartirib</b> maxrajni 100 ga keltiramiz: surat va maxrajni \(\text{maxraj} : 100\) ga bo'lamiz. Yoki 2-usul — 100% ga ko'paytiramiz.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · maxraji 200</span>
+    <p>\(\frac{42}{200}\) ni foiz ko'rinishida yozing.</p>
+    <div class="qadam"><b>1</b><span>1-usul: \(200 : 100 = 2\); \(\frac{42}{200} = \frac{42 : 2}{200 : 2} = \frac{21}{100} = \nat{21\%}\).</span></div>
+    <div class="qadam"><b>2</b><span>2-usul: \(\frac{42}{200} \cdot 100\% = \frac{4200}{200}\% = \nat{21\%}\).</span></div>
+    <div data-kataklar="0" data-jami="200" data-ustun="20" data-ranglar="ko'k:42"></div>
+    <p class="chz-cap">200 katakdan 42 tasi — 100 katakdan 21 tasi bilan bir xil qism.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · bo'linmasa — yaxlitlaymiz</span>
+    <p>Maxrajni 100 ga keltirib bo'lmasa (masalan, maxraj 3, 6, 7, 12), kasrni <b>100% ga ko'paytiramiz</b> va bo'lishni davom ettirib, natijani <b>yuzdan birlar xonasigacha yaxlitlaymiz</b>. Taqribiy tenglik \(\approx\) belgisi bilan yoziladi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · yaxlitlash</span>
+    <p>\(\frac{5}{12}\) ni foiz ko'rinishida yozing (yuzdan birlargacha yaxlitlang).</p>
+    <div class="qadam"><b>1</b><span>\(\frac{5}{12} \cdot 100\% = (500 : 12)\% = 41,666…\%\).</span></div>
+    <div class="qadam"><b>2</b><span>Yuzdan birlar xonasidan keyingi raqam 6 (5 dan katta) — oldingi raqamni 1 ga oshiramiz: \(\nat{\approx 41,67\%}\).</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">5-qoida · o'nli kasr → foiz</span>
+    <p>O'nli kasrni <b>100% ga ko'paytiramiz</b> — vergulni ikki xona o'ngga suramiz va % qo'yamiz. Yoki o'nli kasrni maxraji 100 bo'lgan kasr qilib yozamiz.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · o'nli kasr → foiz</span>
+    <div class="qadam"><b>1</b><span>\(0,35 \cdot 100\% = \nat{35\%}\).</span></div>
+    <div class="qadam"><b>2</b><span>\(0,6 = \frac{6}{10} = \frac{60}{100} = \nat{60\%}\).</span></div>
+    <div class="qadam"><b>3</b><span>\(0,125 \cdot 100\% = \nat{12,5\%}\) — foiz kasr son bo'lishi ham mumkin.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">6-qoida · foiz → oddiy kasr</span>
+    <p>\(a\%\) ni \(\frac{a}{100}\) ko'rinishida yozamiz va <b>qisqarmas kasrgacha qisqartiramiz</b> (surat va maxrajning umumiy bo'luvchisiga bo'lamiz).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · qisqarmas kasr</span>
+    <div class="qadam"><b>1</b><span>\(65\% = \frac{65}{100} = \frac{65 : 5}{100 : 5} = \nat{\frac{13}{20}}\).</span></div>
+    <div class="qadam"><b>2</b><span>\(24\% = \frac{24}{100} = \frac{24 : 4}{100 : 4} = \nat{\frac{6}{25}}\).</span></div>
+    <div class="qadam"><b>3</b><span>\(2\% = \frac{2}{100} = \nat{\frac{1}{50}}\).</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">7-qoida · foiz → o'nli kasr</span>
+    <p>Foiz sonini <b>100 ga bo'lamiz</b> — vergulni ikki xona chapga suramiz (kerak bo'lsa oldiga 0 qo'shamiz).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · foiz → o'nli kasr</span>
+    <div class="qadam"><b>1</b><span>\(38\% = 38 : 100 = \nat{0,38}\).</span></div>
+    <div class="qadam"><b>2</b><span>\(4\% = 4 : 100 = \nat{0,04}\) (0,4 emas!).</span></div>
+    <div class="qadam"><b>3</b><span>\(30\% = 30 : 100 = \nat{0,3}\).</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">8-qoida · foiz tasmasi</span>
+    <p>Foiz tasmasida tepada foizlar (0% dan 100% gacha), pastda ularga teng o'nli kasrlar (0 dan 1 gacha) yoziladi: \(0\% = 0\), \(50\% = 0,5\), \(100\% = 1\). Har 10% — tasmaning bitta bo'lagi, ya'ni \(\frac{1}{10} = 0,1\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · tasmadan o'qiymiz</span>
+    <div data-foiz="40" data-pastki="hammasi" data-belgi="1"></div>
+    <p>Tasmaning 4 ta bo'lagi bo'yalgan: \(40\% = \frac{40}{100} = \frac{2}{5} = 0,4\).</p>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Bir xil qismni kvadratda, tasmada va sonlarda ko'rib turibmiz!</div></div>
+  <div class="box">
+    <p><b>Kasr → kataklar.</b> 5 ta teng bo'lakka bo'lingan kvadratning 2 bo'lagi o'rniga 100 katakli kvadratning 40 katagi bo'yaladi — har bo'lakda 20 katak:</p>
+    <div data-kataklar="0" data-ranglar="binafsha:40" data-joylash="ustun"></div>
+    <p class="chz-cap">\(\frac{2}{5} = \frac{40}{100} = 0,4 = 40\%\).</p>
+    <p><b>200 katakli to'r.</b> Maydonning 35% i qizil va 12% i ko'k. 200 katakda 1% — 2 ta katak:</p>
+    <div data-kataklar="0" data-jami="200" data-ustun="20" data-ranglar="qizil:70,ko'k:24"></div>
+    <p class="chz-cap">Qizil: \(35 \cdot 2 = 70\) katak; ko'k: \(12 \cdot 2 = 24\) katak.</p>
+    <p><b>Foiz tasmasi.</b> 73% — 7 ta to'liq bo'lak va yana 3 ta kichik bo'linma:</p>
+    <div data-foiz="73" data-mayda="1" data-belgi="1"></div>
+    <p class="chz-cap">\(73\% = \frac{73}{100} = 0,73\).</p>
+  </div>
+  <div class="box">
+    <p><b>Uch ko'rinish — bitta son.</b> \(\frac{3}{8} = 0,375 = 37,5\%\).</p>
+    <ul>
+      <li><b>Oddiy kasr → o'nli kasr:</b> suratni maxrajga bo'lamiz: \(3 : 8 = 0,375\).</li>
+      <li><b>O'nli kasr → foiz:</b> 100% ga ko'paytiramiz: \(0,375 \cdot 100\% = 37,5\%\).</li>
+      <li><b>Foiz → o'nli kasr:</b> 100 ga bo'lamiz: \(37,5 : 100 = 0,375\).</li>
+      <li><b>Foiz → oddiy kasr:</b> \(\frac{a}{100}\) qilib yozib qisqartiramiz: \(45\% = \frac{45}{100} = \frac{9}{20}\).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar</h2>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · uch yo'nalish</span>
+    <p>\(\frac{17}{20}\) ni o'nli kasr va foiz ko'rinishida yozing.</p>
+    <div class="qadam"><b>1</b><span>\(\frac{17}{20} = \frac{17 \cdot 5}{20 \cdot 5} = \frac{85}{100}\).</span></div>
+    <div class="qadam"><b>2</b><span>\(\frac{85}{100} = \nat{0,85} = \nat{85\%}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · maxraji 500</span>
+    <p>\(\frac{90}{500}\) ni foizda yozing.</p>
+    <div class="qadam"><b>1</b><span>\(500 : 100 = 5\): \(\frac{90}{500} = \frac{90 : 5}{500 : 5} = \frac{18}{100} = \nat{18\%}\).</span></div>
+    <div class="qadam"><b>2</b><span>Tekshiramiz: \(\frac{90}{500} \cdot 100\% = \frac{9000}{500}\% = 18\%\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · qaysi biri katta?</span>
+    <p>\(\frac{7}{20}\), 0,32 va 34% sonlarini o'sish tartibida yozing.</p>
+    <div class="qadam"><b>1</b><span>Hammasini foizga aylantiramiz: \(\frac{7}{20} = \frac{35}{100} = 35\%\); \(0,32 = 32\%\); 34%.</span></div>
+    <div class="qadam"><b>2</b><span>\(32\% \lt 34\% \lt 35\%\): \(\nat{0,32;\ 34\%;\ \frac{7}{20}}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 4 · tasmada bo'yash</span>
+    <p>Tasmada 90% ni ko'rsating va oddiy hamda o'nli kasrda yozing.</p>
+    <div data-foiz="90" data-belgi="1"></div>
+    <div class="qadam"><b>1</b><span>10 ta bo'lakdan 9 tasini bo'yaymiz.</span></div>
+    <div class="qadam"><b>2</b><span>\(90\% = \frac{90}{100} = \nat{\frac{9}{10}} = \nat{0,9}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna 5 · yaxlitlash</span>
+    <p>Sinfdagi 30 o'quvchidan 7 tasi shaxmat to'garagiga qatnaydi. Sinfning necha foizi shaxmatchi (yuzdan birlargacha yaxlitlang)?</p>
+    <div class="qadam"><b>1</b><span>\(\frac{7}{30} \cdot 100\% = (700 : 30)\% = 23,333…\%\).</span></div>
+    <div class="qadam"><b>2</b><span>Yuzdan birlardan keyingi raqam 3 — o'zgartirmaymiz: \(\nat{\approx 23,33\%}\).</span></div>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Vergulni surishda xonalarni sanayman — ikki xona!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Surat va maxrajni yonma-yon yozib, foiz deb olish.<br><span class="xato">4/5 = 45%</span> &nbsp;→&nbsp; <span class="togri">4/5 = 80/100 = 80%</span></li>
+      <li>O'nli kasrni foizga aylantirishda bitta xona surish.<br><span class="xato">0,9 = 9%</span> &nbsp;→&nbsp; <span class="togri">0,9 · 100% = 90%</span></li>
+      <li>Foizni o'nli kasrga aylantirishda 0 ni unutish.<br><span class="xato">4% = 0,4</span> &nbsp;→&nbsp; <span class="togri">4% = 4 : 100 = 0,04</span></li>
+      <li>Maxraj 200 bo'lsa ham suratni foiz deb olish.<br><span class="xato">18/200 = 18%</span> &nbsp;→&nbsp; <span class="togri">18/200 = 9/100 = 9%</span></li>
+      <li>Foizni kasrga aylantirib qisqartirmaslik.<br><span class="xato">45% = 45/100 (javob)</span> &nbsp;→&nbsp; <span class="togri">45% = 45/100 = 9/20 (qisqarmas)</span></li>
+      <li>Yaxlitlashda yuzdan birlarni tashlab yuborish.<br><span class="xato">2/3 ≈ 66%</span> &nbsp;→&nbsp; <span class="togri">2/3 ≈ 66,67%</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Maxraj 100 ga keltirilmasa — 100% ga ko'paytiraman!</div></div>
+
+  <div class="daraja oson"><i></i>Oson — kasrlarni foiz ko'rinishida yozing</div>
+  <div class="misollar">
+    <span><b>a)</b> \(\frac{6}{10}\)</span>
+    <span><b>b)</b> \(\frac{1}{4}\)</span>
+    <span><b>c)</b> \(\frac{7}{25}\)</span>
+    <span><b>d)</b> \(\frac{19}{20}\)</span>
+    <span><b>e)</b> \(\frac{41}{50}\)</span>
+    <span><b>f)</b> \(\frac{1}{25}\)</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 60%</span><span>b) 25%</span><span>c) 28%</span><span>d) 95%</span><span>e) 82%</span><span>f) 4%</span></div>
+  </details>
+
+  <div class="daraja oson"><i></i>Oson — o'nli kasrlarni foiz ko'rinishida yozing</div>
+  <div class="misollar">
+    <span><b>a)</b> 0,07</span>
+    <span><b>b)</b> 0,44</span>
+    <span><b>c)</b> 0,5</span>
+    <span><b>d)</b> 0,91</span>
+    <span><b>e)</b> 0,15</span>
+    <span><b>f)</b> 1</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 7%</span><span>b) 44%</span><span>c) 50%</span><span>d) 91%</span><span>e) 15%</span><span>f) 100%</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — maxraj 100 dan katta</div>
+  <div class="misollar">
+    <span><b>a)</b> \(\frac{18}{200}\)</span>
+    <span><b>b)</b> \(\frac{45}{300}\)</span>
+    <span><b>c)</b> \(\frac{120}{400}\)</span>
+    <span><b>d)</b> \(\frac{35}{500}\)</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) \(\frac{9}{100} = 9\%\)</span><span>b) \(\frac{15}{100} = 15\%\)</span><span>c) \(\frac{30}{100} = 30\%\)</span><span>d) \(\frac{7}{100} = 7\%\)</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — foizlarni qisqarmas oddiy kasrga aylantiring</div>
+  <div class="misollar">
+    <span><b>a)</b> 2%</span>
+    <span><b>b)</b> 16%</span>
+    <span><b>c)</b> 45%</span>
+    <span><b>d)</b> 50%</span>
+    <span><b>e)</b> 64%</span>
+    <span><b>f)</b> 92%</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) \(\frac{1}{50}\)</span><span>b) \(\frac{4}{25}\)</span><span>c) \(\frac{9}{20}\)</span><span>d) \(\frac{1}{2}\)</span><span>e) \(\frac{16}{25}\)</span><span>f) \(\frac{23}{25}\)</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — foizlarni o'nli kasrga aylantiring</div>
+  <div class="misollar">
+    <span><b>a)</b> 8%</span>
+    <span><b>b)</b> 41%</span>
+    <span><b>c)</b> 60%</span>
+    <span><b>d)</b> 17%</span>
+    <span><b>e)</b> 100%</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 0,08</span><span>b) 0,41</span><span>c) 0,6</span><span>d) 0,17</span><span>e) 1</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — tasmadagi o'nli kasrlarni toping</div>
+  <div data-foiz="0" data-pastki="hammasi" data-sor="20,40,70,90"></div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>20% = 0,2</span><span>40% = 0,4</span><span>70% = 0,7</span><span>90% = 0,9</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — mos juftlarni toping</div>
+  <p>Har bir foizga teng oddiy kasr va o'nli kasrni toping.</p>
+  <table class="jad">
+    <tr><th>Foiz</th><th>Oddiy kasr</th><th>O'nli kasr</th></tr>
+    <tr><td>20%</td><td>\(\frac{3}{4}\)</td><td>0,45</td></tr>
+    <tr><td>75%</td><td>\(\frac{1}{5}\)</td><td>0,2</td></tr>
+    <tr><td>6%</td><td>\(\frac{9}{20}\)</td><td>0,06</td></tr>
+    <tr><td>45%</td><td>\(\frac{2}{25}\)</td><td>0,75</td></tr>
+    <tr><td>50%</td><td>\(\frac{1}{2}\)</td><td>0,08</td></tr>
+    <tr><td>8%</td><td>\(\frac{3}{50}\)</td><td>0,5</td></tr>
+  </table>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>20% = \(\frac{1}{5}\) = 0,2</span><span>75% = \(\frac{3}{4}\) = 0,75</span><span>6% = \(\frac{3}{50}\) = 0,06</span><span>45% = \(\frac{9}{20}\) = 0,45</span><span>50% = \(\frac{1}{2}\) = 0,5</span><span>8% = \(\frac{2}{25}\) = 0,08</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — yuzdan birlargacha yaxlitlang</div>
+  <div class="misollar">
+    <span><b>a)</b> \(\frac{2}{3}\)</span>
+    <span><b>b)</b> \(\frac{5}{7}\)</span>
+    <span><b>c)</b> \(\frac{1}{6}\)</span>
+    <span><b>d)</b> \(\frac{7}{9}\)</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) \(200 : 3 = 66,666…\), \(\approx 66,67\%\)</span><span>b) \(500 : 7 = 71,428…\), \(\approx 71,43\%\)</span><span>c) \(100 : 6 = 16,666…\), \(\approx 16,67\%\)</span><span>d) \(700 : 9 = 77,777…\), \(\approx 77,78\%\)</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — 400 katakli xarita</div>
+  <p>Hayvonot bog'i xaritasi 400 ta teng katakka bo'lingan. Sherlar maydoni 48 katak, fillar — 60 katak, maymunlar — 36 katak. Har bir maydon xaritaning necha foizi? Qolgan qismi necha foiz?</p>
+  <div data-kataklar="0" data-jami="400" data-ustun="20" data-ranglar="sariq:48,ko'k:60,yashil:36"></div>
+  <details class="javob"><summary>Javobni ko'rish</summary>400 katakda 1% — 4 ta katak. Sherlar: \(48 : 4 = 12\%\); fillar: \(60 : 4 = 15\%\); maymunlar: \(36 : 4 = 9\%\). Qolgan: \(100\% - (12\% + 15\% + 9\%) = 64\%\).</details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Masalalarni yeching</span>
+    <ol class="masalalar">
+      <li>Velosiped poygasidagi 25 ishtirokchidan 9 tasi qizlar. Ishtirokchilarning necha foizi qizlar?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(\frac{9}{25} = \frac{36}{100} = 36\%\).</details></li>
+      <li>Sharbat tarkibining \(\frac{3}{20}\) qismi shakar. Shakar sharbatning necha foizini tashkil etadi? O'nli kasrda yozing.
+        <details class="javob"><summary>Javobni ko'rish</summary>\(\frac{3}{20} = \frac{15}{100} = 15\% = 0,15\).</details></li>
+      <li>Futbolchi 40 ta zarbadan 26 tasini darvozaga yo'naltirdi. Zarbalarning necha foizi darvozaga yo'nalgan?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(\frac{26}{40} \cdot 100\% = \frac{2600}{40}\% = 65\%\).</details></li>
+      <li>Do'kon mahsulotlarining 0,35 qismi ichimliklar. Ichimliklar necha foiz? Qolgan mahsulotlar-chi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(0,35 = 35\%\); qolgani \(100\% - 35\% = 65\%\).</details></li>
+      <li>Uch o'quvchi bir xil test yechdi. Alisher savollarning \(\frac{17}{20}\) qismiga, Bekzod 0,82 qismiga, Dilnoza 84% iga to'g'ri javob berdi. Kim eng yaxshi natija ko'rsatdi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Foizda: Alisher \(\frac{17}{20} = \frac{85}{100} = 85\%\); Bekzod \(0,82 = 82\%\); Dilnoza 84%. Eng yaxshisi — <b>Alisher</b>.</details></li>
+      <li>Fermer maydonining 30% iga bug'doy, \(\frac{1}{4}\) qismiga paxta, 0,2 qismiga sabzavot ekildi, qolgani bog'. Bog' maydonning necha foizi?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(\frac{1}{4} = 25\%\); \(0,2 = 20\%\). Ekilgan: \(30\% + 25\% + 20\% = 75\%\). Bog': \(100\% - 75\% = 25\%\).</details></li>
+      <li>200 o'rinli zalga 154 nafar tomoshabin keldi. Zal o'rinlarining necha foizi band?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(\frac{154}{200} = \frac{77}{100} = 77\%\).</details></li>
+      <li>Kutubxonadagi kitoblarning 0,08 qismi ertaklar. Ertaklar necha foiz? Qisqarmas oddiy kasrda yozing.
+        <details class="javob"><summary>Javobni ko'rish</summary>\(0,08 = 8\% = \frac{8}{100} = \frac{2}{25}\).</details></li>
+      <li>Jamoa 12 ta o'yindan 5 tasida g'alaba qozondi. G'alabalar necha foiz (yuzdan birlargacha yaxlitlang)?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(\frac{5}{12} \cdot 100\% = 41,666…\% \approx 41,67\%\).</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Taqribiy va aniq qiymatning farqiga e'tibor bering!</div></div>
+
+  <div class="box qiyin">
+    <span class="tag">Matematika kundaligi · kim to'g'ri?</span>
+    <p>Madina: «\(\frac{1}{3} = 33\%\)». Jasur: «\(\frac{1}{3} \approx 33,33\%\)». Kim to'g'ri yozgan? \(\frac{1}{3}\) ni foizda aniq yozish mumkinmi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>\(\frac{1}{3} \cdot 100\% = (100 : 3)\% = 33,333…\%\) — bo'lish tugamaydi. Madina «=» belgisini noto'g'ri qo'ygan: 33% aniq qiymat emas. Jasur to'g'ri: yuzdan birlargacha yaxlitlab, \(\approx\) belgisi bilan yozgan. Aniq qiymat — \(33\frac{1}{3}\%\).</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Muammoli topshiriq · yarim foiz</span>
+    <p>200 katakli to'rda bitta katak necha foiz? 400 katakli to'rda-chi? 200 katakli to'rda 13 ta katak bo'yalsa, necha foiz bo'ladi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>200 katakda 1% — 2 katak, demak 1 katak — \(0,5\%\). 400 katakda 1 katak — \(0,25\%\). 13 katak: \(13 \cdot 0,5\% = 6,5\%\) (tekshiruv: \(\frac{13}{200} \cdot 100\% = 6,5\%\)).</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Qiyin masala · uch ko'rinishda tenglik</span>
+    <p>\(\frac{a}{40} = 0,35\) bo'lsa, a ni toping va bu sonni foizda yozing.</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>\(0,35 = 35\%\). \(\frac{a}{40} = \frac{35}{100}\): \(a = 40 \cdot 0,35 = 14\). Tekshiruv: \(\frac{14}{40} = \frac{35}{100} = 35\%\).</details>
+  </div>
+
+  <div class="box qiyin">
+    <span class="tag">Amaliy topshiriq · turmushda matematika</span>
+    <p>Kattalar yordamida rasmiy statistika manbasidan O'zbekiston aholisining qancha qismi shaharlarda yashashini toping. Bu qismni foiz, o'nli kasr va taqribiy oddiy kasr ko'rinishida yozing. Viloyatingiz uchun ham shunday qiling.</p>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — belgilab chiqing va testni ishlang!</div></div>
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men oddiy kasrni foizga ikki usulda (maxrajni 100 ga keltirib va 100% ga ko'paytirib) aylantira olaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men maxraji 100 dan katta kasrni qisqartirib, bo'linmaydigan kasrni yaxlitlab foizda yoza olaman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men o'nli kasrni foizga va foizni qisqarmas oddiy kasrga hamda o'nli kasrga aylantira olaman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men foiz tasmasidan foiz va o'nli kasrni o'qiy olaman, ularni taqqoslay olaman.</label></li>
+    </ul>
+  </div>
+</section>
+<p class="m-foot">Mathlearn · 5-sinf matematika</p>
+</main>
+<script src="chizma.js?v=39"></script>
+<script src="maruza.js?v=4"></script>
+</body>
+</html>

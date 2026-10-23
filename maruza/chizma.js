@@ -76,6 +76,11 @@
                                           yopib topiladigan qoida (jami = me'yor · soni; me'yor = jami : soni; soni = jami : me'yor) pastda yoziladi
    data-grafik="1:12,2:24,3:36" data-x="Vaqt (soat)" data-y="Masofa (km)" [data-xmax="4"] [data-ymax="48"] [data-yqadam="12"] [data-xqadam="1"] [data-bosh="30"] [data-nom="Velosipedchi"] —
                                           chiziqli grafik: nuqtalar (x:y) va ularni to'g'ri chiziq (0 dan; bosh berilsa — tik o'qdagi shu nuqtadan); tik o'qda yqadam, gorizontal o'qda xqadam oralig'ida belgilar
+   data-foiz="60" [data-pastki="hammasi"] [data-sor="20,40"] [data-mayda="1"] [data-belgi="1"] — foiz tasmasi (o'lchov tasmasi):
+                                          tepada 0%…100% (har 10%), tasma 10 bo'lakka bo'lingan, 60% gacha yashil bo'yalgan (0 — bo'yalmaydi);
+                                          pastda o'nli kasrlar: odatda 0; 0,5; 1 — pastki="hammasi" bo'lsa 0; 0,1; …; 1,0;
+                                          sor — shu foizlar ostida o'nli kasr o'rniga «?» katakcha; mayda="1" — har 1% da kichik chiziq;
+                                          belgi="1" — bo'yalgan qism oxirida uchburchak va «60%» yozuvi
 */
 (function () {
   "use strict";
@@ -193,6 +198,43 @@
       h += '<rect x="' + x + '" y="' + y + '" width="' + s + '" height="' + s + '" fill="' + (rang[i] || "#fff") + '" fill-opacity="' + (rang[i] ? 0.78 : 1) + '" stroke="#9aa3b5" stroke-width="1"/>';
     }
     h += '<rect x="' + g + '" y="' + g + '" width="' + u * s + '" height="' + qatorlar * s + '" fill="none" stroke="#1f2433" stroke-width="2"/></svg>';
+    el.classList.add("chz");
+    el.innerHTML = h;
+  }
+
+  // ---------- foiz tasmasi ----------
+  function chizFoiz(el) {
+    const p = Number(el.dataset.foiz) || 0;
+    const sor = (el.dataset.sor || "").split(",").filter(Boolean).map(Number);
+    const hammasi = el.dataset.pastki === "hammasi", mayda = el.dataset.mayda === "1", belgi = el.dataset.belgi === "1";
+    const W = 560, x0 = 30, x1 = 530, k = (x1 - x0) / 100, yT = 50, yB = 92, top = belgi ? 26 : 0;
+    const X = function (v) { return x0 + v * k; };
+    let h = '<svg viewBox="0 0 ' + W + " " + (136 + top) + '" width="' + W + '" role="img" aria-label="Foiz tasmasi: 0% dan 100% gacha, ' + p + '% bo\'yalgan">';
+    h += '<g transform="translate(0,' + top + ')">';
+    if (p > 0) h += '<rect x="' + x0 + '" y="' + yT + '" width="' + p * k + '" height="' + (yB - yT) + '" fill="#12805c" fill-opacity=".55"/>';
+    h += '<line x1="' + x0 + '" y1="' + (yT - 8) + '" x2="' + x1 + '" y2="' + (yT - 8) + '" stroke="#1f2433" stroke-width="1.6"/>';
+    if (mayda) for (let v = 0; v <= 100; v++) if (v % 10) h += '<line x1="' + X(v) + '" y1="' + (yT - 12) + '" x2="' + X(v) + '" y2="' + (yT - 8) + '" stroke="#5b6577" stroke-width="1"/>';
+    for (let v = 0; v <= 100; v += 10) {
+      h += '<line x1="' + X(v) + '" y1="' + (yT - 16) + '" x2="' + X(v) + '" y2="' + (yT - 8) + '" stroke="#1f2433" stroke-width="1.6"/>';
+      h += '<text x="' + X(v) + '" y="' + (yT - 20) + '" text-anchor="middle" font-size="19" font-weight="800" fill="#1f5fd6">' + v + "%</text>";
+      if (v > 0 && v < 100) h += '<line x1="' + X(v) + '" y1="' + yT + '" x2="' + X(v) + '" y2="' + yB + '" stroke="#1f2433" stroke-width="1.2"/>';
+    }
+    h += '<rect x="' + x0 + '" y="' + yT + '" width="' + (x1 - x0) + '" height="' + (yB - yT) + '" fill="none" stroke="#1f2433" stroke-width="2"/>';
+    const past = hammasi ? [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100] : [0, 50, 100];
+    past.forEach(function (v) {
+      if (sor.indexOf(v) >= 0) {
+        h += '<rect x="' + (X(v) - 22) + '" y="' + (yB + 6) + '" width="44" height="30" rx="6" fill="#fff4e5" stroke="#e07b39" stroke-width="1.5"/>';
+        h += '<text x="' + X(v) + '" y="' + (yB + 28) + '" text-anchor="middle" font-size="20" font-weight="800" fill="#e07b39">?</text>';
+      } else {
+        const t = v === 0 ? "0" : v === 100 ? (hammasi ? "1,0" : "1") : (v % 10 === 0 && hammasi ? "0," + v / 10 : "0," + v / 10);
+        h += '<text x="' + X(v) + '" y="' + (yB + 28) + '" text-anchor="middle" font-size="20" font-weight="800" fill="#e07b39">' + t + "</text>";
+      }
+    });
+    if (belgi && p > 0) {
+      h += '<path d="M' + X(p) + " " + (yT - 26) + " l-7 -12 h14 z" + '" fill="#12805c" transform="translate(0,-8)"/>';
+      h += '<text x="' + X(p) + '" y="' + (yT - 46) + '" text-anchor="middle" font-size="20" font-weight="800" fill="#12805c">' + p + "%</text>";
+    }
+    h += "</g></svg>";
     el.classList.add("chz");
     el.innerHTML = h;
   }
@@ -1364,6 +1406,7 @@
       root.querySelectorAll("[data-grafik]").forEach(chizGrafik);
       root.querySelectorAll("[data-vaqt]").forEach(chizVaqt);
       root.querySelectorAll("[data-uchburchak]").forEach(chizUchburchak);
+      root.querySelectorAll("[data-foiz]").forEach(chizFoiz);
     }
   };
 })();

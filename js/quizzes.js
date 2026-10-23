@@ -553,6 +553,53 @@ const QUIZ_DATA = {
     ]
   },
 
+  "5|matematika|kasr-onli-kasr-foiz": {
+    oson: [
+      { question: "3/10 ni foiz ko'rinishida yozing.", options: ["30%", "3%", "13%", "310%"], answer: "30%", explain: "1) 100 : 10 = 10 — surat va maxrajni 10 ga ko'paytiramiz.<br>2) 3/10 = 30/100 = <b>30%</b>." },
+      { question: "21/25 ni foiz ko'rinishida yozing.", options: ["84%", "21%", "25%", "46%"], answer: "84%", explain: "1) 100 : 25 = 4.<br>2) 21/25 = (21 · 4)/(25 · 4) = 84/100 = <b>84%</b>." },
+      { question: "9/20 ni maxraji 100 bo'lgan kasrga keltirish uchun surat va maxraj nechaga ko'paytiriladi?", options: ["5", "20", "9", "100"], answer: "5", explain: "Kerakli maxraj — 100. 100 : 20 = <b>5</b>.<br>9/20 = 45/100 = 45%." },
+      { question: "4/5 · 100% nechaga teng?", options: ["80%", "45%", "40%", "54%"], answer: "80%", explain: "4/5 · 100% = (4 · 100 : 5)% = (400 : 5)% = <b>80%</b>." },
+      { question: "0,62 ni foiz ko'rinishida yozing.", options: ["62%", "6,2%", "0,62%", "620%"], answer: "62%", explain: "0,62 · 100% — vergul ikki xona o'ngga suriladi: <b>62%</b>." },
+      { question: "0,3 ni foiz ko'rinishida yozing.", options: ["30%", "3%", "0,3%", "300%"], answer: "30%", explain: "1) 0,3 = 0,30 — ikki xona qilamiz.<br>2) 0,30 · 100% = <b>30%</b> (3% emas!)." },
+      { question: "0,05 ni foiz ko'rinishida yozing.", options: ["5%", "50%", "0,5%", "0,05%"], answer: "5%", explain: "0,05 · 100% — vergul ikki xona o'ngga: 005 → <b>5%</b>." },
+      { question: "43% ni o'nli kasr ko'rinishida yozing.", options: ["0,43", "4,3", "0,043", "43,1"], answer: "0,43", explain: "Foizni 100 ga bo'lamiz: 43 : 100 = <b>0,43</b>." },
+      { question: "9% ni o'nli kasr ko'rinishida yozing.", options: ["0,09", "0,9", "9,1", "0,009"], answer: "0,09", explain: "9 : 100 — vergul ikki xona chapga, oldiga 0 qo'shamiz: <b>0,09</b>." },
+      { question: "50% ni o'nli kasr ko'rinishida yozing.", options: ["0,5", "0,05", "5", "0,005"], answer: "0,5", explain: "50 : 100 = 0,50 = <b>0,5</b>.<br>Foiz tasmasida ham 50% ostida 0,5 turadi." },
+      { question: "25% ni qisqarmas oddiy kasr ko'rinishida yozing.", options: ["1/4", "25/10", "1/25", "2/5"], answer: "1/4", explain: "1) 25% = 25/100.<br>2) 25 ga qisqartiramiz: <b>1/4</b>." },
+      { question: "30% ni qisqarmas oddiy kasr ko'rinishida yozing.", options: ["3/10", "30/10", "1/3", "3/100"], answer: "3/10", explain: "1) 30% = 30/100.<br>2) 10 ga qisqartiramiz: <b>3/10</b>." },
+      { question: "4% ni qisqarmas oddiy kasr ko'rinishida yozing.", options: ["1/25", "4/10", "1/4", "2/5"], answer: "1/25", explain: "1) 4% = 4/100.<br>2) 4 ga qisqartiramiz: <b>1/25</b>." },
+      { question: "14/200 ni foiz ko'rinishida yozing.", options: ["7%", "14%", "28%", "70%"], answer: "7%", explain: "1) Maxraj 200 — 2 ga qisqartiramiz: 14/200 = 7/100.<br>2) 7/100 = <b>7%</b>." },
+      { question: "Foiz tasmasining 10 ta teng bo'lagidan 7 tasi bo'yalgan. Necha foiz bo'yalgan?", options: ["70%", "7%", "0,7%", "17%"], answer: "70%", explain: "Har bo'lak — 10%.<br>7 ta bo'lak: 7 · 10% = <b>70%</b>." },
+      { question: "Foiz tasmasida 0,8 qaysi foiz ostida turadi?", options: ["80%", "8%", "0,8%", "18%"], answer: "80%", explain: "0,8 = 0,80 = 80/100 = <b>80%</b>." },
+      { question: "Qaysi tenglik to'g'ri?", options: ["0,25 = 25%", "0,25 = 2,5%", "0,25 = 250%", "0,25 = 0,25%"], answer: "0,25 = 25%", explain: "0,25 · 100% = 25%.<br>Demak <b>0,25 = 25%</b>." },
+      { question: "100% qaysi songa teng?", options: ["1", "0,1", "100", "0,01"], answer: "1", explain: "100% = 100/100 = <b>1</b> — bir butun." },
+      { question: "Sinfdagi 25 o'quvchidan 8 tasi sport to'garagiga qatnaydi. Necha foizi sportchi?", options: ["32%", "8%", "25%", "17%"], answer: "32%", explain: "1) 8/25 — maxrajni 100 ga keltiramiz (×4).<br>2) 8/25 = 32/100 = <b>32%</b>." },
+      { question: "12/40 ni foiz ko'rinishida yozing.", options: ["30%", "12%", "40%", "3%"], answer: "30%", explain: "12/40 · 100% = (1200 : 40)% = <b>30%</b>.<br>(Yoki 12/40 = 3/10 = 30/100.)" }
+    ],
+    qiyin: [
+      { question: "36/300 ni foiz ko'rinishida yozing.", options: ["12%", "36%", "3%", "18%"], answer: "12%", explain: "1) 300 : 100 = 3 — surat va maxrajni 3 ga bo'lamiz.<br>2) 36/300 = 12/100 = <b>12%</b>." },
+      { question: "7/8 ni foiz ko'rinishida yozing.", options: ["87,5%", "78%", "8,75%", "70%"], answer: "87,5%", explain: "7/8 · 100% = (700 : 8)% = <b>87,5%</b>." },
+      { question: "1/3 ni foizda yozing (yuzdan birlargacha yaxlitlang).", options: ["33,33%", "33%", "3,33%", "30%"], answer: "33,33%", explain: "1) 1/3 · 100% = (100 : 3)% = 33,333…%.<br>2) Yuzdan birlardan keyingi raqam 3 — o'zgarmaydi: <b>≈ 33,33%</b>." },
+      { question: "5/6 ni foizda yozing (yuzdan birlargacha yaxlitlang).", options: ["83,33%", "56%", "83%", "8,33%"], answer: "83,33%", explain: "1) 5/6 · 100% = (500 : 6)% = 83,333…%.<br>2) Yuzdan birlargacha: <b>≈ 83,33%</b>." },
+      { question: "2/7 ni foizda yozing (yuzdan birlargacha yaxlitlang).", options: ["28,57%", "27%", "28,6%", "2,86%"], answer: "28,57%", explain: "1) 2/7 · 100% = (200 : 7)% = 28,571…%.<br>2) Yuzdan birlardan keyingi raqam 1 — o'zgarmaydi: <b>≈ 28,57%</b>." },
+      { question: "0,375 ni foiz ko'rinishida yozing.", options: ["37,5%", "375%", "3,75%", "0,375%"], answer: "37,5%", explain: "0,375 · 100% — vergul ikki xona o'ngga: <b>37,5%</b>." },
+      { question: "1,2 ni foiz ko'rinishida yozing.", options: ["120%", "12%", "1,2%", "0,12%"], answer: "120%", explain: "1,2 · 100% = 120%.<br>Bir butundan katta son 100% dan katta bo'ladi: <b>120%</b>." },
+      { question: "12,5% ni o'nli kasr ko'rinishida yozing.", options: ["0,125", "1,25", "0,0125", "12,5"], answer: "0,125", explain: "12,5 : 100 — vergul ikki xona chapga: <b>0,125</b>." },
+      { question: "35% ni qisqarmas oddiy kasr ko'rinishida yozing.", options: ["7/20", "35/10", "3/5", "7/2"], answer: "7/20", explain: "1) 35% = 35/100.<br>2) 5 ga qisqartiramiz: <b>7/20</b>." },
+      { question: "8% ni qisqarmas oddiy kasr ko'rinishida yozing.", options: ["2/25", "8/10", "4/5", "1/8"], answer: "2/25", explain: "1) 8% = 8/100.<br>2) 4 ga qisqartiramiz: <b>2/25</b>." },
+      { question: "0,45 ni qisqarmas oddiy kasr ko'rinishida yozing.", options: ["9/20", "45/10", "4/5", "9/2"], answer: "9/20", explain: "1) 0,45 = 45/100.<br>2) 5 ga qisqartiramiz: <b>9/20</b>." },
+      { question: "3/10, 0,28 va 31% sonlarini o'sish tartibida yozing.", options: ["0,28; 3/10; 31%", "3/10; 0,28; 31%", "31%; 3/10; 0,28", "0,28; 31%; 3/10"], answer: "0,28; 3/10; 31%", explain: "Foizga aylantiramiz: 3/10 = 30%; 0,28 = 28%; 31%.<br>28% < 30% < 31%: <b>0,28; 3/10; 31%</b>." },
+      { question: "Qaysi biri qolgan uchtasiga teng EMAS?", options: ["6%", "0,6", "3/5", "60%"], answer: "6%", explain: "0,6 = 60/100 = 60%; 3/5 = 60/100 = 60%.<br><b>6%</b> esa 0,06 ga teng." },
+      { question: "200 katakli to'rning 46 ta katagi bo'yalgan. To'rning necha foizi bo'yalgan?", options: ["23%", "46%", "92%", "54%"], answer: "23%", explain: "200 katakda 1% — 2 katak.<br>46 : 2 = 23, ya'ni <b>23%</b> (46/200 = 23/100)." },
+      { question: "400 katakli to'rda bitta katak necha foiz bo'ladi?", options: ["0,25%", "0,4%", "4%", "25%"], answer: "0,25%", explain: "1/400 · 100% = (100 : 400)% = <b>0,25%</b>.<br>(1% — 4 ta katak.)" },
+      { question: "a/50 = 0,34 bo'lsa, a nechaga teng?", options: ["17", "34", "68", "3,4"], answer: "17", explain: "1) 0,34 = 34/100.<br>2) 2 ga qisqartiramiz: 34/100 = 17/50.<br>3) Demak <b>a = 17</b>." },
+      { question: "Maydonning 1/4 qismiga va yana 0,3 qismiga ekin ekildi. Maydonning necha foizi bo'sh qoldi?", options: ["45%", "55%", "70%", "25%"], answer: "45%", explain: "1) 1/4 = 25%; 0,3 = 30%.<br>2) Ekilgan: 25% + 30% = 55%.<br>3) Bo'sh: 100% − 55% = <b>45%</b>." },
+      { question: "Alisher testning 19/25 qismiga, Bek 0,77 qismiga, Doniyor 75% iga to'g'ri javob berdi. Kimning natijasi eng yuqori?", options: ["Bek", "Alisher", "Doniyor", "Hammasi teng"], answer: "Bek", explain: "Foizda: Alisher 19/25 = 76/100 = 76%; Bek 0,77 = 77%; Doniyor 75%.<br>Eng yuqori — <b>Bek</b>." },
+      { question: "7/12 ni foizda yozing (yuzdan birlargacha yaxlitlang).", options: ["58,33%", "7,12%", "58%", "71,2%"], answer: "58,33%", explain: "1) 7/12 · 100% = (700 : 12)% = 58,333…%.<br>2) Yuzdan birlargacha: <b>≈ 58,33%</b>." },
+      { question: "Jamoa 16 ta o'yindan 12 tasida g'alaba qozondi. G'alabalar necha foiz?", options: ["75%", "12%", "16%", "25%"], answer: "75%", explain: "12/16 · 100% = (1200 : 16)% = <b>75%</b>.<br>(12/16 = 3/4 = 75/100.)" }
+    ]
+  },
+
   "5|matematika|foizlar": [
     { level: 1, question: "1% qanday kasrga teng?", options: ["1/100", "1/10", "10/100", "1/1000"], answer: "1/100" },
     { level: 2, question: "50% ni oddiy kasr ko'rinishida yozing.", options: ["1/2", "1/4", "1/5", "2/1"], answer: "1/2" },
