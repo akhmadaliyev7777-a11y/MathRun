@@ -707,7 +707,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 
 ### 12-bob. Uchburchakning xossalari
 
-#### ☐ 42. Uchburchakning turlari — D2 111–117; M2 151–154
+#### ✅ 42. Uchburchakning turlari — D2 111–117; M2 151–154
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-uchburchak-turlari.html. O'z testi: `5|matematika|uchburchak-turlari` — 20 + 20, 16 ta savolda uchburchak chizmasi (`_reja/tools/shakl_svg.py`).
+**Kitob bilan solishtirildi (D2 111–117; M2 151–154):** 6 qoida (teng tomonli — 3 teng tomon, 60° dan; teng yonli — yon tomonlar, asos, teng tomonlar qarshisidagi burchaklar teng; to'g'ri burchakli — o'tkir burchaklar yig'indisi 90°; o'tkir burchakli — uchalasi o'tkir; o'tmas burchakli — bittasi o'tmas; ikki nom — tomonlari va burchaklari bo'yicha) + qo'shimcha: turli tomonli ✅. Misol turlari: teng tomon/burchaklarni yozish (bo'sh joy), burchaklarga qarab tur, tomonlarga qarab tur, jadval (3 × 3), qog'oz buklash, kvadrat va to'g'ri to'rtburchakni diagonal bo'yicha bo'lish, «mos» uchburchaklar, «teng yonli doim o'tkirmi?», Kundalik «ikkita to'g'ri burchak bo'ladimi?» ✅. Kitob sonlari ko'chirilmadi.
+**Tekshiruv:** barcha javoblar Python bilan (chizmalardagi burchaklar koordinatalardan qayta hisoblandi — 9, 9, 6 cm li chizmadagi «70°» xatosi topilib, harf bilan almashtirildi; testdagi 47° li chizma tuzatildi); testlar.js — 0 xato; 390/1100 px. chizma.js: yangi `data-shakl` (ko'pburchak: uchlar, teng tomon shtrixlari, burchak yoylari, to'g'ri burchak, diagonal).
+**Simulyator uchun g'oyalar:** uchburchak uchlarini sudrash — tomonlar va burchaklar o'lchami hamda ikki nomi (teng yonli o'tkir burchakli va h.k.) jonli o'zgaradi.
 **Qoidalar ro'yxati:**
 - Teng tomonli: 3 tomoni teng, 3 burchagi teng, har biri 60°.
 - Teng yonli: 2 tomoni teng, teng tomonlar qarshisidagi 2 burchagi teng.

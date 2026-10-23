@@ -95,6 +95,10 @@
        "yoy": [nur1, nur2, yozuv, (rang)] — nur1 dan nur2 gacha (soat strelkasiga teskari) yoy va yozuv; yozuv "90°" va "tik":1 bo'lsa — kvadratcha;
        "markaz": markaz nomi; "transportir": 1 — markazga transportir qo'yiladi (asosi 0°–180° chizig'ida, ichki va tashqi shkala);
        "olcham": nur uzunligi (px, odatda 120)
+   data-shakl='{"nuqta":{"A":[0,0],"B":[6,0],"C":[3,5]},"tomon":{"AB":"6 cm"},"belgi":{"AB":1,"AC":1},"burchak":{"A":"60°"},"tik":["B"]}' —
+       ko'pburchak (uchburchak, to'rtburchak): nuqta — uchlar tartibda (y tepaga); tomon — tashqarida yozuv; belgi — teng tomon shtrixlari (1/2/3);
+       burchak — ichkarida yoy va yozuv; tik — to'g'ri burchak belgisi; "diag":[["A","C"]] — qo'shimcha kesma; "olcham": 260 (eng uzun o'lcham, px).
+       Test rasmlari uchun aynan shu chizmani _reja/tools/shakl_svg.py yasaydi.
 */
 (function () {
   "use strict";
@@ -427,6 +431,61 @@
     }
     el.classList.add("chz");
     el.innerHTML = '<svg viewBox="0 0 ' + W.toFixed(1) + " " + H.toFixed(1) + '" width="' + Math.round(W) + '" role="img" aria-label="Burchaklar chizmasi">' + h + "</svg>";
+  }
+
+  // ---------- ko'pburchak: uchlar, teng tomon belgilari, burchaklar ----------
+  function chizShakl(el) {
+    const g = JSON.parse(el.dataset.shakl);
+    const nq = g.nuqta, tomon = g.tomon || {}, belgi = g.belgi || {}, burchak = g.burchak || {}, tik = g.tik || [], diag = g.diag || [];
+    const nom = Object.keys(nq), n = nom.length, olcham = Number(g.olcham || 260), RANG = "#1f5fd6";
+    const xs = nom.map(function (k) { return nq[k][0]; }), ys = nom.map(function (k) { return nq[k][1]; });
+    const mnx = Math.min.apply(null, xs), mxx = Math.max.apply(null, xs), mny = Math.min.apply(null, ys), mxy = Math.max.apply(null, ys);
+    const w = (mxx - mnx) || 1, hh = (mxy - mny) || 1, k = olcham / Math.max(w, hh), pad = 44;
+    const W = w * k + 2 * pad, H = hh * k + 2 * pad;
+    const P = {}; nom.forEach(function (v) { P[v] = [pad + (nq[v][0] - mnx) * k, pad + (mxy - nq[v][1]) * k]; });
+    const gx = nom.reduce(function (t, v) { return t + P[v][0]; }, 0) / n, gy = nom.reduce(function (t, v) { return t + P[v][1]; }, 0) / n;
+    const f = function (v) { return v.toFixed(1); };
+    let h = '<polygon points="' + nom.map(function (v) { return f(P[v][0]) + "," + f(P[v][1]); }).join(" ") + '" fill="' + RANG + '" fill-opacity=".1" stroke="#1f2433" stroke-width="2.4" stroke-linejoin="round"/>';
+    diag.forEach(function (d) { h += '<line x1="' + f(P[d[0]][0]) + '" y1="' + f(P[d[0]][1]) + '" x2="' + f(P[d[1]][0]) + '" y2="' + f(P[d[1]][1]) + '" stroke="#1f2433" stroke-width="1.8"/>'; });
+    nom.forEach(function (v, i) {
+      if (!(v in burchak) && tik.indexOf(v) < 0) return;
+      const pv = P[nom[(i - 1 + n) % n]], nx = P[nom[(i + 1) % n]], vx = P[v][0], vy = P[v][1];
+      let a1 = Math.atan2(pv[1] - vy, pv[0] - vx), a2 = Math.atan2(nx[1] - vy, nx[0] - vx);
+      let d = ((a2 - a1) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+      if (d > Math.PI) { const t = a1; a1 = a2; a2 = t; d = 2 * Math.PI - d; }
+      if (tik.indexOf(v) >= 0) {
+        const q = 13, u = [vx + Math.cos(a1) * q, vy + Math.sin(a1) * q], t = [vx + Math.cos(a2) * q, vy + Math.sin(a2) * q], c = [u[0] + t[0] - vx, u[1] + t[1] - vy];
+        h += '<path d="M' + f(u[0]) + " " + f(u[1]) + " L" + f(c[0]) + " " + f(c[1]) + " L" + f(t[0]) + " " + f(t[1]) + '" fill="none" stroke="#d6454f" stroke-width="2"/>';
+      } else {
+        const r = 22, s1 = [vx + Math.cos(a1) * r, vy + Math.sin(a1) * r], s2 = [vx + Math.cos(a2) * r, vy + Math.sin(a2) * r];
+        h += '<path d="M' + f(vx) + " " + f(vy) + " L" + f(s1[0]) + " " + f(s1[1]) + " A " + r + " " + r + " 0 0 1 " + f(s2[0]) + " " + f(s2[1]) + ' Z" fill="#e07b39" fill-opacity=".18" stroke="#e07b39" stroke-width="1.8"/>';
+      }
+      if (burchak[v]) {
+        const m = a1 + d / 2, rr = d > 0.9 ? 42 : 52;
+        h += '<text x="' + f(vx + Math.cos(m) * rr) + '" y="' + f(vy + Math.sin(m) * rr + 6) + '" text-anchor="middle" font-size="16" font-weight="800" fill="#c2410c" stroke="#fff" stroke-width="4" paint-order="stroke">' + burchak[v] + "</text>";
+      }
+    });
+    for (let i = 0; i < n; i++) {
+      const a = nom[i], b = nom[(i + 1) % n], key = (a + b) in tomon || (a + b) in belgi ? a + b : b + a;
+      const ax = P[a][0], ay = P[a][1], bx = P[b][0], by = P[b][1], mx = (ax + bx) / 2, my = (ay + by) / 2;
+      const L = Math.hypot(bx - ax, by - ay) || 1, ux = (bx - ax) / L, uy = (by - ay) / L;
+      let nx = -uy, ny = ux;
+      if ((mx - gx) * nx + (my - gy) * ny < 0) { nx = -nx; ny = -ny; }
+      const cnt = belgi[key] || 0;
+      for (let j = 0; j < cnt; j++) {
+        const o = (j - (cnt - 1) / 2) * 6, cx = mx + ux * o, cy = my + uy * o;
+        h += '<line x1="' + f(cx - nx * 7) + '" y1="' + f(cy - ny * 7) + '" x2="' + f(cx + nx * 7) + '" y2="' + f(cy + ny * 7) + '" stroke="#12805c" stroke-width="2.4"/>';
+      }
+      const ot = cnt ? 30 : 20;
+      if (tomon[key]) h += '<text x="' + f(mx + nx * ot) + '" y="' + f(my + ny * ot + 6) + '" text-anchor="middle" font-size="16" font-weight="800" fill="' + RANG + '" stroke="#fff" stroke-width="4" paint-order="stroke">' + tomon[key] + "</text>";
+    }
+    nom.forEach(function (v) {
+      const vx = P[v][0], vy = P[v][1], dx = vx - gx, dy = vy - gy, L = Math.hypot(dx, dy) || 1;
+      h += '<circle cx="' + f(vx) + '" cy="' + f(vy) + '" r="3" fill="#1f2433"/>';
+      if (v.charAt(0) !== "_") h += '<text x="' + f(vx + dx / L * 18) + '" y="' + f(vy + dy / L * 18 + 6) + '" text-anchor="middle" font-size="17" font-weight="800" fill="#1f2433">' + v + "</text>";
+    });
+    el.classList.add("chz");
+    el.innerHTML = '<svg viewBox="0 0 ' + f(W) + " " + f(H) + '" width="' + Math.round(W) + '" role="img" aria-label="Shakl chizmasi">' + h + "</svg>";
   }
 
   // ---------- son o'qi 0..1 ----------
@@ -1610,6 +1669,7 @@
       root.querySelectorAll("[data-chek]").forEach(chizChek);
       root.querySelectorAll("[data-likop]").forEach(chizLikop);
       root.querySelectorAll("[data-nurlar]").forEach(chizNurlar);
+      root.querySelectorAll("[data-shakl]").forEach(chizShakl);
     }
   };
 })();
