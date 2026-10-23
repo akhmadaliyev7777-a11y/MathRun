@@ -100,7 +100,8 @@
        burchak — ichkarida yoy va yozuv; tik — to'g'ri burchak belgisi; "diag":[["A","C"]] — qo'shimcha kesma; "olcham": 260 (eng uzun o'lcham, px).
        Test rasmlari uchun aynan shu chizmani _reja/tools/shakl_svg.py yasaydi.
        Bir nechta uchburchak: "shakllar":["ABC","ACD"]; "diag":[["B","D","togri"]] — qalin to'g'ri chiziq; "yoy":[["B","A","C","40°",(rang),(radius)]] — A uchida
-       AB va AC orasidagi burchak (yozuv "90°" — kvadratcha); "tik":["BAC"] — istalgan to'g'ri burchak; "joy":{"A":[dx,dy]} — nom joyini qo'lda berish (px).
+       AB va AC orasidagi burchak (yozuv "90°" — kvadratcha); "tik":["BAC"] — istalgan to'g'ri burchak; "joy":{"A":[dx,dy]} — nom joyini qo'lda berish (px);
+       "par":{"AB":1,"DC":1} — parallel tomonlar strelkasi (a → b yo'nalishda; 2 — ikkinchi juft, qo'sh strelka).
    data-yasash='{"tur":"bb","nom":["B","C","A"],"asos":5,"burchak":[50,45],"qadam":2}' — uchburchakni qadamma-qadam chizish:
        tur "bb" — asos va unga yopishgan ikki burchak (4 qadam: kesma, chap uchda transportir, o'ng uchda transportir, kesishish nuqtasi);
        tur "tbt" — ikki tomon va ular orasidagi burchak ("burchak":60, "tomon":5; 3 qadam: kesma, transportir, tomonni o'lchab tutashtirish);
@@ -505,6 +506,16 @@
       if (tomon[key]) h += '<text x="' + f(mx + nx * ot) + '" y="' + f(my + ny * ot + 6) + '" text-anchor="middle" font-size="16" font-weight="800" fill="' + RANG + '" stroke="#fff" stroke-width="4" paint-order="stroke">' + tomon[key] + "</text>";
     };
     shakllar.forEach(function (sh) { const m = markaz(sh); sh.forEach(function (a, i) { tomonChiz(a, sh[(i + 1) % sh.length], m); }); });
+    /* parallel tomonlar: "par":{"AB":1,"DC":1} — tomon o'rtasida a dan b tomonga qaragan strelka (1 yoki 2 ta) */
+    Object.keys(g.par || {}).forEach(function (key) {
+      const a = key[0], b = key[1], cnt = g.par[key];
+      const ax = P[a][0], ay = P[a][1], bx = P[b][0], by = P[b][1], mx = (ax + bx) / 2, my = (ay + by) / 2;
+      const L = Math.hypot(bx - ax, by - ay) || 1, ux = (bx - ax) / L, uy = (by - ay) / L, nx = -uy, ny = ux;
+      for (let j = 0; j < cnt; j++) {
+        const o = (j - (cnt - 1) / 2) * 8 + Math.min(22, L * 0.22), cx = mx + ux * o, cy = my + uy * o;
+        h += '<path d="M' + f(cx - ux * 8 + nx * 6) + " " + f(cy - uy * 8 + ny * 6) + " L" + f(cx) + " " + f(cy) + " L" + f(cx - ux * 8 - nx * 6) + " " + f(cy - uy * 8 - ny * 6) + '" fill="none" stroke="#8b5cf6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>';
+      }
+    });
     diag.forEach(function (d) { tomonChiz(d[0], d[1], [gx, gy]); });
     const joy = g.joy || {};
     nom.forEach(function (v) {

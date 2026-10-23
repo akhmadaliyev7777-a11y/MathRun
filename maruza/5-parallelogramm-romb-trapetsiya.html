@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parallelogramm, romb va trapetsiya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=30">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Parallelogramm, romb va trapetsiyaning xossalari</h1>
+<p class="m-lead">Kvadrat va to'g'ri to'rtburchakni bilamiz. Endi yana uchta to'rtburchak bilan tanishamiz: parallelogramm, romb va trapetsiya. Har birining tomonlari va burchaklari qanday xossaga ega ekanini o'rganib, noma'lum tomon va burchaklarni topamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Parallel chiziqlar hech qachon kesishmaydi — xuddi temir yo'l relslari kabi!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li><b>Parallel</b> tomonlar qancha davom ettirilsa ham kesishmaydi. Belgisi: \(AB \parallel DC\). Chizmada parallel tomonlarga bir xil <b>strelka</b> qo'yiladi (ikkinchi juftga — qo'sh strelka).</li>
+      <li>Teng tomonlar bir xil sondagi <b>shtrix</b> bilan, to'g'ri burchak <b>kvadratcha</b> bilan belgilanadi.</li>
+      <li>To'g'ri chiziqdagi qo'shni burchaklar yig'indisi 180°; uchburchak burchaklari yig'indisi 180°.</li>
+    </ul>
+  </div>
+  <div class="box eslab">
+    <span class="tag">Eslang · kvadrat va to'g'ri to'rtburchak</span>
+    <div class="usullar">
+      <div><div data-shakl='{"nuqta": {"A": [0, 0], "B": [4, 0], "C": [4, 4], "D": [0, 4]}, "tik": ["A", "B", "C", "D"], "belgi": {"AB": 1, "BC": 1, "CD": 1, "DA": 1}, "par": {"AB": 1, "DC": 1, "AD": 2, "BC": 2}, "olcham": 170}'></div><p class="chz-cap"><b>Kvadrat:</b> 4 ta to'g'ri burchak; 4 ta teng tomon; qarama-qarshi tomonlari parallel.</p></div>
+      <div><div data-shakl='{"nuqta": {"E": [0, 0], "F": [7, 0], "G": [7, 4], "H": [0, 4]}, "tik": ["E", "F", "G", "H"], "belgi": {"EF": 1, "GH": 1, "FG": 2, "HE": 2}, "par": {"EF": 1, "HG": 1, "EH": 2, "FG": 2}, "olcham": 220}'></div><p class="chz-cap"><b>To'g'ri to'rtburchak:</b> 4 ta to'g'ri burchak; qarama-qarshi tomonlari teng va parallel.</p></div>
+    </div>
+    <p>To'g'ri to'rtburchakni diagonal ikki burchakka bo'lsa, ularning yig'indisi 90° bo'ladi:</p>
+    <div data-shakl='{"nuqta": {"K": [0, 0], "L": [8, 0], "M": [8, 5.396], "N": [0, 5.396]}, "diag": [["K", "M"]], "tik": ["L", "N"], "yoy": [["L", "K", "M", "34°"], ["M", "K", "N", "?", "#1f5fd6", 34]], "olcham": 240}'></div>
+    <p>\(\angle MKN = 90° - 34° = \nat{56°}\). Kvadratda diagonal to'g'ri burchakni teng ikkiga bo'ladi: 45° va 45°.</p>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Har shaklda to'rtta savol: tomonlari teng(mi)? parallel(mi)? burchaklari teng(mi)? yig'indisi 180°(mi)?</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · parallelogramm</span>
+    <p><b>Parallelogramm</b> — qarama-qarshi tomonlari juft-juft parallel bo'lgan to'rtburchak. ABCD parallelogrammda:</p>
+    <ul>
+      <li>qarama-qarshi tomonlari <b>teng</b>: AB = DC, AD = BC;</li>
+      <li>qarama-qarshi tomonlari <b>parallel</b>: \(AB \parallel DC\), \(AD \parallel BC\);</li>
+      <li>qarama-qarshi burchaklari <b>teng</b>: ∠a = ∠c, ∠b = ∠d;</li>
+      <li>bitta tomonga yopishgan ikki burchak yig'indisi <b>180°</b>: ∠a + ∠b = 180°, ∠b + ∠c = 180°, ∠c + ∠d = 180°, ∠d + ∠a = 180°.</li>
+    </ul>
+    <div data-shakl='{"nuqta": {"A": [0, 0], "B": [7, 0], "C": [8.878, 3.532], "D": [1.878, 3.532]}, "par": {"AB": 1, "DC": 1, "AD": 2, "BC": 2}, "yoy": [["B", "A", "D", "a"], ["A", "B", "C", "b", "#1f5fd6"], ["B", "C", "D", "c", "#12805c"], ["C", "D", "A", "d", "#8b5cf6"]], "olcham": 230}'></div>
+    <p>Buni qog'ozda tekshirsa bo'ladi: parallelogrammni diagonal bo'yicha qirqib, bir bo'lagini aylantirsak, a burchak c ning ustiga, b burchak d ning ustiga aniq tushadi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · AB = 7 cm, AD = 4 cm, ∠A = 62°</span>
+    <div data-shakl='{"nuqta": {"A": [0, 0], "B": [7, 0], "C": [8.878, 3.532], "D": [1.878, 3.532]}, "belgi": {"AB": 1, "DC": 1, "AD": 2, "BC": 2}, "par": {"AB": 1, "DC": 1, "AD": 2, "BC": 2}, "tomon": {"AB": "7 cm", "AD": "4 cm"}, "yoy": [["B", "A", "D", "62°"], ["A", "B", "C", "?", "#1f5fd6"], ["B", "C", "D", "?", "#12805c"], ["C", "D", "A", "?", "#8b5cf6"]], "olcham": 250}'></div>
+    <div class="qadam"><b>1</b><span>DC = AB = <b>7 cm</b>, BC = AD = <b>4 cm</b>.</span></div>
+    <div class="qadam"><b>2</b><span>∠C = ∠A = <b>62°</b> (qarama-qarshi).</span></div>
+    <div class="qadam"><b>3</b><span>∠B = 180° − 62° = <b>118°</b> (AB tomonga yopishgan); ∠D = ∠B = <b>118°</b>.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · romb</span>
+    <p><b>Romb</b> — to'rtala tomoni teng bo'lgan to'rtburchak. Romb — parallelogrammning bir turi, shuning uchun:</p>
+    <ul>
+      <li><b>4 ta tomoni teng</b>;</li>
+      <li>qarama-qarshi tomonlari <b>parallel</b>;</li>
+      <li>qarama-qarshi burchaklari <b>teng</b>;</li>
+      <li>bitta tomonga yopishgan burchaklar yig'indisi <b>180°</b>.</li>
+    </ul>
+    <p>Rombni diagonal bo'yicha buklasak, ikki yarmi ustma-ust tushadi — qarama-qarshi burchaklar tengligi shunda ko'rinadi.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · KL = 5 cm, ∠K = 70°</span>
+    <div data-shakl='{"nuqta": {"K": [0, 0], "L": [5, 0], "M": [6.71, 4.698], "N": [1.71, 4.698]}, "belgi": {"KL": 1, "LM": 1, "MN": 1, "NK": 1}, "par": {"KL": 1, "NM": 1, "KN": 2, "LM": 2}, "tomon": {"KL": "5 cm"}, "yoy": [["L", "K", "N", "70°"], ["K", "L", "M", "?", "#1f5fd6"]], "olcham": 230}'></div>
+    <div class="qadam"><b>1</b><span>LM = MN = NK = KL = <b>5 cm</b>.</span></div>
+    <div class="qadam"><b>2</b><span>∠M = ∠K = <b>70°</b>; ∠L = 180° − 70° = <b>110°</b>; ∠N = ∠L = <b>110°</b>.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · trapetsiya</span>
+    <p><b>Trapetsiya</b> — faqat <b>bir juft</b> qarama-qarshi tomoni parallel bo'lgan to'rtburchak. Parallel tomonlar — <b>asoslar</b>, qolgan ikkitasi — <b>yon tomonlar</b>.</p>
+    <p>Har bir <b>yon tomonga</b> yopishgan ikki burchak yig'indisi <b>180°</b>.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · \(PQ \parallel SR\), ∠P = 58°, ∠Q = 75°</span>
+    <div data-shakl='{"nuqta": {"P": [0, 0], "Q": [8, 0], "R": [7.062, 3.5], "S": [2.187, 3.5]}, "par": {"PQ": 1, "SR": 1}, "yoy": [["Q", "P", "S", "58°"], ["P", "Q", "R", "75°", "#12805c"], ["Q", "R", "S", "?", "#1f5fd6"], ["R", "S", "P", "?", "#8b5cf6"]], "olcham": 250}'></div>
+    <div class="qadam"><b>1</b><span>PS yon tomon: ∠S = 180° − 58° = <b>122°</b>.</span></div>
+    <div class="qadam"><b>2</b><span>QR yon tomon: ∠R = 180° − 75° = <b>105°</b>.</span></div>
+    <div class="qadam"><b>3</b><span>Diqqat: trapetsiyada qarama-qarshi burchaklar teng <b>emas</b> (58° ≠ 105°).</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · ikki to'g'ri burchakli va teng yonli trapetsiya</span>
+    <div class="usullar">
+      <div><div data-shakl='{"nuqta": {"A": [0, 0], "B": [8, 0], "C": [5.691, 4], "D": [0.0, 4]}, "par": {"AB": 1, "DC": 1}, "tik": ["A", "D"], "yoy": [["A", "B", "C", "60°", "#12805c"], ["B", "C", "D", "?", "#1f5fd6"]], "olcham": 240}'></div><p class="chz-cap">∠A = ∠D = 90°; ∠C = 180° − 60° = <b>120°</b></p></div>
+      <div><div data-shakl='{"nuqta": {"E": [0, 0], "F": [8, 0], "G": [6.293, 3.5], "H": [1.707, 3.5]}, "par": {"EF": 1, "HG": 1}, "belgi": {"EH": 1, "FG": 1}, "yoy": [["F", "E", "H", "64°"], ["E", "F", "G", "?", "#12805c"], ["F", "G", "H", "?", "#1f5fd6"], ["G", "H", "E", "?", "#8b5cf6"]], "olcham": 240}'></div><p class="chz-cap">EH = FG (teng yonli): ∠F = ∠E = 64°; ∠H = ∠G = 180° − 64° = <b>116°</b></p></div>
+    </div>
+    <p>Teng yonli trapetsiyani o'rtasidan buklasak, ikki yarmi ustma-ust tushadi — shuning uchun bitta asosdagi ikki burchak teng.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · to'rtburchak burchaklari yig'indisi</span>
+    <p>Har qanday to'rtburchakni diagonal <b>ikkita uchburchakka</b> bo'ladi. Shuning uchun to'rtburchak burchaklari yig'indisi \(180° \cdot 2 = \nat{360°}\).</p>
+    <div data-shakl='{"nuqta": {"A": [0, 0], "B": [7, 0], "C": [7.4699, 5.3705], "D": [1.2941, 4.8296]}, "diag": [["A", "C", "togri"]], "yoy": [["B", "A", "D", "75°"], ["A", "B", "C", "95°", "#12805c"], ["B", "C", "D", "80°", "#1f5fd6"], ["C", "D", "A", "110°", "#8b5cf6"]], "olcham": 230}'></div>
+    <p>\(75° + 95° + 80° + 110° = 360°\).</p>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Jadvalga qarang: kvadratda hamma xossa bor!</div></div>
+  <div class="box">
+    <ol>
+      <li>Barcha tomonlari teng</li>
+      <li>Qarama-qarshi tomonlari teng</li>
+      <li>Faqat bir juft tomoni parallel</li>
+      <li>Qarama-qarshi tomonlari parallel</li>
+      <li>4 ta burchagi to'g'ri</li>
+      <li>Qarama-qarshi burchaklari teng</li>
+    </ol>
+    <div class="jad-wrap">
+    <table class="jad">
+      <tr><th>Shakl</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+      <tr><td>To'g'ri to'rtburchak</td><td></td><td>✓</td><td></td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Kvadrat</td><td>✓</td><td>✓</td><td></td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Parallelogramm</td><td></td><td>✓</td><td></td><td>✓</td><td></td><td>✓</td></tr>
+      <tr><td>Romb</td><td>✓</td><td>✓</td><td></td><td>✓</td><td></td><td>✓</td></tr>
+      <tr><td>Trapetsiya</td><td></td><td></td><td>✓</td><td></td><td></td><td></td></tr>
+    </table>
+    </div>
+    <p>Kvadrat — ham to'g'ri to'rtburchak, ham romb, ham parallelogramm. To'g'ri to'rtburchak va romb — parallelogrammning turlari. Trapetsiya — alohida: unda faqat bir juft parallel tomon bor.</p>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar</h2>
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · bo'sh joylarni to'ldiramiz</span>
+    <p>RSTU — parallelogramm, RS = 9 cm, ST = 5 cm, ∠R = 78°.</p>
+    <div class="qadam"><b>1</b><span>TU = RS = 9 cm; UR = ST = 5 cm.</span></div>
+    <div class="qadam"><b>2</b><span>\(RS \parallel TU\), \(ST \parallel UR\).</span></div>
+    <div class="qadam"><b>3</b><span>∠T = ∠R = 78°; ∠S = ∠U = 180° − 78° = 102°.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · teng yonli trapetsiyada bitta burchak</span>
+    <p>Teng yonli trapetsiyaning bitta burchagi 108°. Qolgan burchaklari?</p>
+    <div class="qadam"><b>1</b><span>Shu asosdagi ikkinchi burchak ham 108°.</span></div>
+    <div class="qadam"><b>2</b><span>Yon tomonga yopishgan qo'shni burchak: 180° − 108° = 72°; ikkinchi asosda ikkala burchak 72°.</span></div>
+    <div class="qadam"><b>3</b><span>Tekshiruv: 108° + 108° + 72° + 72° = 360° ✓</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · to'rtburchakning to'rtinchi burchagi</span>
+    <p>To'rtburchakning uch burchagi 88°, 97° va 105°. To'rtinchisi: \(360° - 88° - 97° - 105° = \nat{70°}\).</p>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Trapetsiyada qarama-qarshi burchaklar teng emas!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Qo'shni burchakni ham teng deb olish.<br><span class="xato">parallelogrammda ∠A = 62°, demak ∠B = 62°</span> &nbsp;→&nbsp; <span class="togri">∠B = 180° − 62° = 118°</span></li>
+      <li>Trapetsiyada qarama-qarshi burchaklarni tenglash.<br><span class="xato">∠P = 58°, demak ∠R = 58°</span> &nbsp;→&nbsp; <span class="togri">yon tomondagi juftlar: ∠P + ∠S = 180°, ∠Q + ∠R = 180°</span></li>
+      <li>Trapetsiyada asosga yopishgan burchaklarni qo'shib 180° deyish.<br><span class="xato">∠P + ∠Q = 180°</span> &nbsp;→&nbsp; <span class="togri">180° faqat yon tomonga yopishgan burchaklarda</span></li>
+      <li>Rombda faqat ikki tomonni teng deb o'ylash.<br><span class="xato">KL = MN, LM boshqacha</span> &nbsp;→&nbsp; <span class="togri">rombda 4 ta tomon teng</span></li>
+      <li>To'rtburchak burchaklari yig'indisini 180° deb olish.<br><span class="xato">180° − 88° − 97° − 105°</span> &nbsp;→&nbsp; <span class="togri">360° − 88° − 97° − 105° = 70°</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Avval shaklni aniqlayman, keyin uning xossasini qo'llayman!</div></div>
+  <div class="daraja oson"><i></i>Oson — bo'sh joylarni to'ldiring</div>
+  <ol>
+    <li>FGHI — to'g'ri to'rtburchak, FG = 14 m, GH = 8 m. HI = ?, IF = ?</li>
+    <li>ABCD — romb, AB = 7 cm, ∠A = 64°. BC = ?, ∠C = ?, ∠B = ?</li>
+    <li>VWXY — trapetsiya, \(VW \parallel YX\). Qaysi tomonlar asoslar, qaysilari yon tomonlar?</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) HI = 14 m, IF = 8 m</span><span>2) BC = 7 cm, ∠C = 64°, ∠B = 116°</span><span>3) asoslar VW va YX; yon tomonlar WX va YV</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — chizmadagi noma'lum burchaklarni toping</div>
+  <div class="usullar">
+    <div><div data-shakl='{"nuqta": {"W": [0, 0], "X": [6, 0], "Y": [8.728, 2.925], "Z": [2.728, 2.925]}, "par": {"WX": 1, "ZY": 1, "WZ": 2, "XY": 2}, "yoy": [["X", "W", "Z", "47°"], ["W", "X", "Y", "a", "#1f5fd6"], ["X", "Y", "Z", "b", "#12805c"]], "olcham": 220}'></div><p class="chz-cap">WXYZ — parallelogramm</p></div>
+    <div><div data-shakl='{"nuqta": {"E": [0, 0], "F": [4.5, 0], "G": [6.613, 3.973], "H": [2.113, 3.973]}, "belgi": {"EF": 1, "FG": 1, "GH": 1, "HE": 1}, "par": {"EF": 1, "HG": 1, "EH": 2, "FG": 2}, "yoy": [["E", "F", "G", "118°"], ["F", "G", "H", "c", "#1f5fd6"], ["G", "H", "E", "d", "#12805c"]], "olcham": 210}'></div><p class="chz-cap">EFGH — romb</p></div>
+    <div><div data-shakl='{"nuqta": {"J": [0, 0], "K": [8, 0], "L": [4.849, 3.5], "M": [1.558, 3.5]}, "par": {"JK": 1, "ML": 1}, "yoy": [["K", "J", "M", "66°"], ["J", "K", "L", "48°", "#12805c"], ["K", "L", "M", "x", "#1f5fd6"], ["L", "M", "J", "y", "#8b5cf6"]], "olcham": 250}'></div><p class="chz-cap">JKLM — trapetsiya, \(JK \parallel ML\)</p></div>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a = 180° − 47° = 133°; b = 47°</span><span>c = 180° − 118° = 62°; d = 118°</span><span>x = 180° − 48° = 132°; y = 180° − 66° = 114°</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — diagonallar va amaliy topshiriq</div>
+  <div class="usullar">
+    <div><div data-shakl='{"nuqta": {"P": [0, 0], "Q": [7, 0], "R": [7, 2.971], "S": [0, 2.971]}, "diag": [["P", "R"]], "tik": ["Q", "S"], "yoy": [["Q", "P", "R", "23°"], ["R", "P", "S", "e", "#1f5fd6", 34], ["P", "R", "Q", "f", "#12805c", 30]], "olcham": 240}'></div><p class="chz-cap">PQRS — to'g'ri to'rtburchak. e = ?, f = ?</p></div>
+    <div><div data-shakl='{"nuqta": {"A": [0, 0], "B": [5, 0], "C": [5, 5], "D": [0, 5]}, "diag": [["B", "D"]], "tik": ["A", "C"], "belgi": {"AB": 1, "BC": 1, "CD": 1, "DA": 1}, "yoy": [["A", "B", "D", "g", "#1f5fd6", 30], ["B", "D", "A", "k", "#12805c", 30]], "olcham": 190}'></div><p class="chz-cap">ABCD — kvadrat. g = ?, k = ?</p></div>
+  </div>
+  <ol>
+    <li>Ikkita bir xil to'g'ri burchakli uchburchakdan qanday to'rtburchaklar yasash mumkin? Uchtasidan-chi?</li>
+    <li>Trapetsiyaning ikki burchagi 70° va 125°, ular bitta asosda. Qolgan ikkitasi?</li>
+  </ol>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>e = 90° − 23° = 67°; f = 180° − 90° − 23° = 67°</span><span>g = k = 45° (kvadrat diagonali)</span><span>1) ikkitasidan — to'g'ri to'rtburchak yoki parallelogramm; uchtasidan — trapetsiya</span><span>2) 180° − 70° = 110° va 180° − 125° = 55°</span></div>
+  </details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Masalalarni yeching</span>
+    <ol class="masalalar">
+      <li>Zinapoya panjarasining bir bo'lagi parallelogramm shaklida, bitta burchagi 52°. Qolgan burchaklari?
+        <details class="javob"><summary>Javobni ko'rish</summary>52°, 128°, 52°, 128° (qarama-qarshilari teng, qo'shnilari yig'indisi 180°).</details></li>
+      <li>Romb shaklidagi plitkaning bir tomoni 15 cm. Plitkaning perimetri qancha?
+        <details class="javob"><summary>Javobni ko'rish</summary>4 tomoni teng: \(15 \cdot 4 = 60\) cm.</details></li>
+      <li>Daryo ko'prigining tayanchi teng yonli trapetsiya shaklida, pastki asosdagi burchaklari 66° dan. Yuqori asosdagi burchaklari?
+        <details class="javob"><summary>Javobni ko'rish</summary>180° − 66° = 114° dan.</details></li>
+      <li>Parallelogramm shaklidagi gulzorning ikki qo'shni tomoni 12 m va 7 m. Uni o'rash uchun necha metr panjara kerak?
+        <details class="javob"><summary>Javobni ko'rish</summary>\((12 + 7) \cdot 2 = 38\) m.</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Bir shakl bir necha nomga ega bo'la oladimi?</div></div>
+  <div class="box qiyin">
+    <span class="tag">Muammoli topshiriq · kvadrat va romb</span>
+    <p>«Har qanday kvadrat — romb» va «har qanday romb — kvadrat» gaplaridan qaysi biri to'g'ri?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Birinchisi to'g'ri: kvadratning 4 tomoni teng — u romb. Ikkinchisi noto'g'ri: rombning burchaklari 90° bo'lmasligi mumkin (masalan 70° va 110°).</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Matematika kundaligi · 360°</span>
+    <p>Nima uchun har qanday to'rtburchak burchaklari yig'indisi 360°? Parallelogramm misolida tekshiring: ∠A = 62° bo'lsa, to'rtala burchak yig'indisi qancha?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Diagonal to'rtburchakni ikki uchburchakka bo'ladi: \(180° \cdot 2 = 360°\). Tekshiruv: \(62° + 118° + 62° + 118° = 360°\).</details>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — testga o'ting!</div></div>
+  <div class="box tekshir">
+    <ul>
+      <li>Kvadrat va to'g'ri to'rtburchak xossalarini bilaman.</li>
+      <li>Parallelogramm, romb va trapetsiyani bir-biridan ajrata olaman.</li>
+      <li>Ularning noma'lum tomon va burchaklarini xossalar yordamida topa olaman.</li>
+      <li>To'rtburchak burchaklari yig'indisi 360° ekanini bilaman.</li>
+    </ul>
+  </div>
+</section>
+
+<p class="m-foot">Mathlearn · 5-sinf matematika</p>
+</main>
+<script src="chizma.js?v=51"></script>
+<script src="maruza.js?v=4"></script>
+</body>
+</html>

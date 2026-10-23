@@ -756,7 +756,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 
 ### 13-bob. Parallelogramm, romb va trapetsiya
 
-#### ☐ 45. Parallelogramm, romb va trapetsiyaning xossalari (+ Eslang: kvadrat va to'g'ri to'rtburchak) — D2 133–143; M2 165–172
+#### ✅ 45. Parallelogramm, romb va trapetsiyaning xossalari (+ Eslang: kvadrat va to'g'ri to'rtburchak) — D2 133–143; M2 165–172
 **Qoidalar ro'yxati:**
 - Eslang: kvadrat — 4 to'g'ri burchak, 4 teng tomon, qarama-qarshi tomonlari parallel; to'g'ri to'rtburchak — 4 to'g'ri burchak, qarama-qarshi tomonlari teng va parallel.
 - Parallelogramm: qarama-qarshi tomonlari teng va parallel (AB = DC, AB ∥ DC); qarama-qarshi burchaklari teng; bir tomoniga yopishgan burchaklari yig'indisi 180°.
@@ -766,6 +766,10 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Misol turlari:** tomon/burchak tengliklarini to'ldirish; ikki to'g'ri burchakli trapetsiya; teng yonli trapetsiya; xossalar jadvali; tangram.
 **Mashq daftaridan (qo'shimcha):** Eslang: kvadrat/to'g'ri to'rtburchak noma'lum tomonlari; diagonal bilan noma'lum burchak (51°, 45°, 44° va 15°); parallelogramm/romb tomon va burchaklarini to'ldirish; trapetsiyada parallel juftni yozish (||); 4 ta to'g'ri burchakli uchburchakdan parallelogramm, 3 tasidan trapetsiya (amaliy); Kundalik: to'rtburchak burchaklari yig'indisi 180° × 2 = 360°.
 **Rasmlar:** har shakl uchun belgilangan teng tomon / parallel strelkalar / burchak yoylari.
+**Holat (2026-10-23):** tayyor va push qilindi. Fayl: maruza/5-parallelogramm-romb-trapetsiya.html. `data-shakl` ga "par" (parallel tomon strelkalari) qo'shildi. Xossalar jadvali telefonga sig'ishi uchun: xossalar raqamlangan ro'yxat, jadvalda shakl × 1–6. «∥» belgisi KaTeX bilan (\parallel) — oddiy shriftda chiqmaydi. O'z testi: `5|matematika|parallelogramm-romb-trapetsiya` 20+20, 18 savolda chizma.
+**Kitob bilan solishtirildi:** Eslang (kvadrat, to'g'ri to'rtburchak, diagonal bilan burchak) ✅; parallelogramm 4 xossa + qirqib tekshirish ✅; romb 4 xossa + buklash ✅; trapetsiya (asos, yon tomon, 180°) ✅; ikki to'g'ri burchakli va teng yonli trapetsiya ✅; xossalar jadvali ✅; to'ldirish mashqlari ✅; parallel juftni yozish ✅; uchburchaklardan to'rtburchak yasash (amaliy) ✅; 360° (kundalik) ✅. Tangram — amaliy topshiriq sifatida uchburchaklardan yasash bilan berildi. Kitob sonlari (12; 20/11; 51, 45, 72, 68, 44/15, 75; 55/6/3; 130/4/3; 49, 115, 105/75, 140, 135, 60; 148/5; 150/3; 33, 125/55, 74, 42, 110, 50; 65, 54; 120, 50/75, 88/138, 85) ishlatilmadi.
+**Tekshiruv:** tenglik.py 25/0, chizmalardagi burchaklar koordinatadan tekshirildi, 390/1100 px, barcha ma'ruzalar qayta tekshirildi.
+**Simulyator uchun g'oyalar:** to'rtburchak uchlarini sudrash — shakl nomi (parallelogramm/romb/trapetsiya/...) va xossalar jadvalidagi ✓ jonli o'zgaradi; burchaklar yig'indisi doim 360°.
 
 #### ☐ 46. To'rtburchaklarni chizish — D2 144–149; M2 173–176
 **Qoidalar ro'yxati:**
