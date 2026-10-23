@@ -365,6 +365,14 @@
     let xs = [0, -30, 30], ys = [-30, 30];
     Object.keys(nur).forEach(function (k) { xs.push(Math.cos(rad(nur[k])) * (R + 22)); ys.push(-Math.sin(rad(nur[k])) * (R + 22)); });
     if (tr) { xs.push(-(R + 4), R + 4); ys.push(-(R + 4)); }
+    /* yoy yozuvlari ham chizma ichida qolsin */
+    yoy.forEach(function (y) {
+      if (!y[2]) return;
+      let d = nur[y[1]] - nur[y[0]]; while (d <= 0) d += 360; while (d > 360) d -= 360;
+      const ry = d < 35 ? 44 : 32, r = ry + (d < 40 ? 26 : d > 180 ? 36 : 18), m = rad(nur[y[0]] + d / 2);
+      const lx = Math.cos(m) * r, ly = -Math.sin(m) * r;
+      xs.push(lx - 24, lx + 24); ys.push(ly - 14, ly + 10);
+    });
     const pad = 16, minX = Math.min.apply(null, xs) - pad, maxX = Math.max.apply(null, xs) + pad;
     const minY = Math.min.apply(null, ys) - pad, maxY = Math.max.apply(null, ys) + pad + 8;
     const W = maxX - minX, H = maxY - minY, cx = -minX, cy = -minY;
@@ -395,7 +403,7 @@
         const s1 = P(a1, ry), s2 = P(a2, ry);
         h += '<path d="M' + cx + " " + cy + " L" + s1[0] + " " + s1[1] + " A " + ry + " " + ry + " 0 " + (d > 180 ? 1 : 0) + " 0 " + s2[0] + " " + s2[1] + ' Z" fill="' + c + '" fill-opacity=".14" stroke="' + c + '" stroke-width="2"/>';
       }
-      const t = P(mid, ry + (d < 40 ? 26 : 18));
+      const t = P(mid, ry + (d < 40 ? 26 : d > 180 ? 36 : 18));
       if (y[2]) h += '<text x="' + t[0] + '" y="' + (t[1] + 5) + '" text-anchor="middle" font-size="18" font-weight="800" fill="' + c + '" stroke="#fff" stroke-width="4" paint-order="stroke">' + y[2] + "</text>";
     });
     /* nurlar va nomlari */

@@ -677,7 +677,11 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** "∠a = ∠b o'rinlimi? Ha / Yo'q" (vertikal yoki emas); vertikal juftlarni nomlash; 3 ta to'g'ri chiziq kesishgan; ∠ROT = ∠TOQ.
 **Rasmlar:** kesishuvchi chiziqlar, teng burchaklar bir xil rangda.
 
-#### ☐ 40. Nuqta atrofidagi burchaklar — D2 100–104; M2 141–142
+#### ✅ 40. Nuqta atrofidagi burchaklar — D2 100–104; M2 141–142
+**Holat (2026-10-23):** tayyor. Fayl: maruza/5-nuqta-atrofidagi-burchaklar.html. O'z testi: `5|matematika|nuqta-atrofidagi-burchaklar` — 20 + 20, **16 ta savolda chizma** (`rasm`, `_reja/tools/burchak_svg.py`).
+**Kitob bilan solishtirildi (D2 100–104; M2 141–142):** 6 qoida (to'liq aylanish 360°; nuqta atrofidagi burchaklar yig'indisi 360°; perpendikulyar chiziqlar 4 · 90°; noma'lum = 360° − ma'lumlar; 180° dan katta burchak; teng burchaklar — bo'lish) ✅. Misol turlari: noma'lum burchak (to'g'ri burchak belgisi bilan, 1–2 ta), kesishgan chiziqlar atrofida yig'indi (∠w berilgan), aylanada 4 radius (amaliy), uch xossa bir chizmada (Muammoli), hayotiy (tort, g'ildirak, soat, parrak, aylanma diagramma); daftardan: 284°, 287° kabi katta burchak bilan noma'lum, teng burchaklar (∠p = ∠q = ∠r) ✅. Kitob/daftar sonlari ko'chirilmadi (100° li namuna 110° ga almashtirildi).
+**Tekshiruv:** barcha javoblar Python bilan; tenglik.py — 0 haqiqiy xato; testlar.js — 0 xato; 390/1100 px — 41 ma'ruza xatosiz, test rasmlari telefonda va kompyuterda tekshirildi. chizma.js: katta yoy yozuvi uzoqroqda, chizma chegarasi yozuvlarni ham hisobga oladi.
+**Simulyator uchun g'oyalar:** nuqta atrofida nurlarni sudrash — burchaklar va yig'indi 360° jonli; soat millari bilan burchak.
 **Qoidalar ro'yxati:**
 - Nuqta atrofida bir marta to'liq aylanish — 360°.
 - Nuqta atrofidagi burchaklar yig'indisi 360°.
