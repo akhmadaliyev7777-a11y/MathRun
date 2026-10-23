@@ -86,16 +86,16 @@ PDF beti = kitob beti + 4. Agar nomlar boshqacha bo'lsa — faylni qayta nomlang
 | 9. Kasrni kasrga ko'paytirish | ✅ | ✅ |
 | 10. Aralash sonni natural songa ko'paytirish | ✅ | ✅ |
 | 11. Qolgan qismning qismi + matnli masalalar | ✅ | ✅ |
-| 12. Uchburchakning asosi va balandligi | ✅ | ✅ |
-| 13. Uchburchakning yuzini topish | ✅ | ✅ |
-| 14. To'g'ri to'rtburchak va uchburchaklardan tuzilgan shakllarning yuzi | ✅ | ✅ |
-| 15. Fazoviy jismlarning hajmi | ✅ | ✅ |
-| 16. Uch o'lchamli panjarada fazoviy jismlarni chizish | ✅ | ✅ |
-| 17. Jismning turli ko'rinishlari (old, yon, ust) | ✅ | ✅ |
-| 18. Hajmni cm³ va m³ da o'lchash | ✅ | ✅ |
-| 19.1. Kuboid hajmi | ✅ | ✅ |
-| 19.2. Kub hajmi | ✅ | ✅ |
-| 20. Suyuqlik hajmi | ✅ | ✅ |
+| 12. Uchburchakning asosi va balandligi | ✅ | ✅ 20+20 (chizmali) |
+| 13. Uchburchakning yuzini topish | ✅ | ✅ 20+20 (chizmali) |
+| 14. To'g'ri to'rtburchak va uchburchaklardan tuzilgan shakllarning yuzi | ✅ | ✅ 20+20 (chizmali) |
+| 15. Fazoviy jismlarning hajmi | ✅ | ✅ 20+20 (chizmali) |
+| 16. Uch o'lchamli panjarada fazoviy jismlarni chizish | ✅ | ✅ 20+20 (chizmali) |
+| 17. Jismning turli ko'rinishlari (old, yon, ust) | ✅ | ✅ 20+20 (chizmali) |
+| 18. Hajmni cm³ va m³ da o'lchash | ✅ | ✅ 20+20 (chizmali) |
+| 19.1. Kuboid hajmi | ✅ | ✅ 20+20 (chizmali) |
+| 19.2. Kub hajmi | ✅ | ✅ 20+20 (chizmali) |
+| 20. Suyuqlik hajmi | ✅ | ✅ 20+20 (chizmali) |
 | 21. Nisbat tushunchasi | ✅ | ✅ |
 | 22. Teng kuchli nisbatlar | ✅ | ✅ |
 | 23. Miqdor va nisbatga ko'ra boshqa miqdorni topish | ✅ | ✅ |
