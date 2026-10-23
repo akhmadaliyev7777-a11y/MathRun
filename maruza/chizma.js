@@ -87,6 +87,9 @@
        (foizbar: bo'laklar yig'indisi 100 dan oshsa — masalan "Narx:100|QQS:12" — tasma 112% ga cho'ziladi, 100% joyida punktir)
    data-chek="Kurtka:420000|Shim:180000" [data-qqs="12"] [data-chegirma="10"] [data-nom="Kiyim do'koni"] — xarid cheki:
                                           mahsulotlar va narxlari, jami; chegirma va/yoki QQS foizi berilsa — miqdori va yakuniy summa o'zi hisoblanadi
+       data-ustunli ga: [data-qiymat="1"] — har ustun ustida qiymati; [data-ortacha="240"] — o'rtacha qiymat qizil punktir chiziq bilan
+   data-likop="2,7,6" [data-nom="shirinlik"] — likopchalardagi buyumlar (o'rtacha qiymat): tepada berilgan holat, ortiqchalari ajratilgan;
+                                          jami likopchalar soniga bo'linsa — pastda teng taqsimlangan holat (ko'chirilganlari to'q sariq)
 */
 (function () {
   "use strict";
@@ -310,6 +313,41 @@
       '<path d="M4 4 H' + (W - 4) + " V" + (y - 10) + tish(W - 4, 4, y - 10) + " Z" + '" fill="#fffdf6" stroke="#c9ced8" stroke-width="1.5"/>' + h + "</svg>";
     el.classList.add("chz");
     el.innerHTML = svg;
+  }
+
+  // ---------- likopchalar: teng taqsimlash (o'rtacha qiymat) ----------
+  function chizLikop(el) {
+    const v = el.dataset.likop.split(",").map(Number), n = v.length;
+    const jami = v.reduce(function (t, x) { return t + x; }, 0), urt = jami / n, butun = jami % n === 0;
+    const nom = el.dataset.nom || "";
+    const maxv = Math.max.apply(null, v.concat([urt])), qat = Math.ceil(maxv / 3);
+    const d = 18, pw = 3 * d + 22, gap = 18, Wq = n * pw + (n - 1) * gap, W = Math.max(Wq + 20, 340), x00 = (W - Wq) / 2, hQ = qat * d + 34;
+    const H = butun ? hQ * 2 + 66 : hQ + 20;
+    const plita = function (x0, y0, son, rang, ajrat) {
+      let h = '<ellipse cx="' + (x0 + pw / 2) + '" cy="' + (y0 + hQ - 14) + '" rx="' + (pw / 2) + '" ry="10" fill="#eef1f8" stroke="#9aa3b5" stroke-width="1.5"/>';
+      for (let k = 0; k < son; k++) {
+        const r = Math.floor(k / 3), c = k % 3;
+        const cx = x0 + 11 + c * d + d / 2, cy = y0 + hQ - 24 - r * d;
+        const f = rang(k);
+        h += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (d / 2 - 1.5) + '" fill="' + f + '" stroke="#fff" stroke-width="1.5"' + (ajrat(k) ? ' stroke-dasharray="3 2"' : "") + "/>";
+      }
+      h += '<text x="' + (x0 + pw / 2) + '" y="' + (y0 + hQ + 12) + '" text-anchor="middle" font-size="16" font-weight="800" fill="#1f2433">' + son + "</text>";
+      return h;
+    };
+    let h = "";
+    v.forEach(function (son, i) {
+      const x0 = x00 + i * (pw + gap);
+      h += plita(x0, 0, son, function (k) { return butun && k >= urt ? "#e07b39" : "#1f5fd6"; }, function (k) { return butun && k >= urt; });
+    });
+    if (butun) {
+      h += '<text x="' + W / 2 + '" y="' + (hQ + 34) + '" text-anchor="middle" font-size="15" font-weight="800" fill="#e07b39">↓ teng taqsimlaymiz: ' + jami + " : " + n + " = " + urt + "</text>";
+      v.forEach(function (son, i) {
+        const x0 = x00 + i * (pw + gap);
+        h += plita(x0, hQ + 46, urt, function (k) { return k >= son ? "#e07b39" : "#1f5fd6"; }, function () { return false; });
+      });
+    }
+    el.classList.add("chz");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" width="' + W + '" role="img" aria-label="' + n + " ta likopchada " + v.join(", ") + (nom ? " ta " + nom : "") + (butun ? "; teng taqsimlansa har birida " + urt : "") + '">' + h + "</svg>";
   }
 
   // ---------- son o'qi 0..1 ----------
@@ -646,6 +684,14 @@
       svg += '<text x="' + cx + '" y="' + (Y(0) + 20) + '" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2433">' + x.nom + "</text>";
     });
     if (el.dataset.yozuv) svg += '<text x="14" y="' + (T + iH / 2) + '" text-anchor="middle" font-size="12" fill="#5b6275" transform="rotate(-90 14 ' + (T + iH / 2) + ')">' + el.dataset.yozuv + "</text>";
+    if (el.dataset.qiymat === "1") q.forEach(function (x, i) {
+      if (x.v !== null) svg += '<text x="' + (L + g * i + g / 2) + '" y="' + (Y(x.v) - 6) + '" text-anchor="middle" font-size="13" font-weight="800" fill="#1f2433">' + String(x.v).replace(".", ",") + "</text>";
+    });
+    if (el.dataset.ortacha) {
+      const o = Number(el.dataset.ortacha);
+      svg += '<line x1="' + L + '" y1="' + Y(o) + '" x2="' + (W - R) + '" y2="' + Y(o) + '" stroke="#d6454f" stroke-width="2.5" stroke-dasharray="7 5"/>' +
+        '<text x="' + (L + 4) + '" y="' + (Y(o) - 6) + '" text-anchor="start" font-size="13" font-weight="800" fill="#d6454f" stroke="#fff" stroke-width="4" paint-order="stroke">o\'rtacha: ' + String(o).replace(".", ",") + "</text>";
+    }
     el.classList.add("tasma");
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Ustunli diagramma: ' +
       q.map(function (x) { return x.nom + " — " + (x.v === null ? "noma'lum" : x.v); }).join(", ") + '">' + svg + "</svg>";
@@ -1482,6 +1528,7 @@
       root.querySelectorAll("[data-foiz]").forEach(chizFoiz);
       root.querySelectorAll("[data-foizbar]").forEach(chizFoizbar);
       root.querySelectorAll("[data-chek]").forEach(chizChek);
+      root.querySelectorAll("[data-likop]").forEach(chizLikop);
     }
   };
 })();

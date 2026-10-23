@@ -694,6 +694,53 @@ const QUIZ_DATA = {
     ]
   },
 
+  "5|matematika|ortacha-qiymat-tushunchasi": {
+    oson: [
+      { question: "4, 6, 8 sonlarining o'rtachasini toping.", options: ["6", "18", "4", "8"], answer: "6", explain: "1) Jami: 4 + 6 + 8 = 18.<br>2) Sonlar 3 ta: 18 : 3 = <b>6</b>." },
+      { question: "10, 20, 30, 40 sonlarining o'rtachasini toping.", options: ["25", "100", "20", "30"], answer: "25", explain: "1) Jami: 10 + 20 + 30 + 40 = 100.<br>2) 100 : 4 = <b>25</b>." },
+      { question: "O'rtacha qiymat qanday topiladi?", options: ["Jami qiymat : miqdorlar soni", "Jami qiymat · miqdorlar soni", "Eng katta − eng kichik", "Eng katta qiymat : miqdorlar soni"], answer: "Jami qiymat : miqdorlar soni", explain: "Miqdorlarni qo'shamiz va ularning soniga bo'lamiz:<br><b>o'rtacha = jami : soni</b>." },
+      { question: "7 va 9 sonlarining o'rtachasini toping.", options: ["8", "16", "2", "9"], answer: "8", explain: "(7 + 9) : 2 = 16 : 2 = <b>8</b>." },
+      { question: "5, 0, 7 sonlarining o'rtachasini toping.", options: ["4", "6", "12", "3"], answer: "4", explain: "1) Jami: 5 + 0 + 7 = 12.<br>2) 0 ham son — sonlar 3 ta: 12 : 3 = <b>4</b>.<br>(6 — 0 ni sanamay 12 : 2 qilingan.)" },
+      { question: "12, 15, 18 sonlarining o'rtachasini toping.", options: ["15", "45", "18", "12"], answer: "15", explain: "(12 + 15 + 18) : 3 = 45 : 3 = <b>15</b>." },
+      { question: "Uch likopchada 3 ta, 8 ta va 7 ta olxo'ri bor. Teng taqsimlansa, har birida nechtadan bo'ladi?", options: ["6", "18", "7", "5"], answer: "6", explain: "1) Jami: 3 + 8 + 7 = 18.<br>2) 18 : 3 = <b>6</b> tadan." },
+      { question: "2, 4, 9 sonlarining o'rtachasini toping.", options: ["5", "15", "4", "9"], answer: "5", explain: "(2 + 4 + 9) : 3 = 15 : 3 = <b>5</b>." },
+      { question: "100, 200, 300 sonlarining o'rtachasini toping.", options: ["200", "600", "300", "150"], answer: "200", explain: "(100 + 200 + 300) : 3 = 600 : 3 = <b>200</b>." },
+      { question: "1,5 va 2,5 sonlarining o'rtachasini toping.", options: ["2", "4", "1", "3"], answer: "2", explain: "(1,5 + 2,5) : 2 = 4 : 2 = <b>2</b>." },
+      { question: "Ikki savatda 4 ta va 10 ta olma bor. Olmalar teng bo'lishi uchun ikkinchi savatdan nechta olma ko'chirish kerak?", options: ["3", "6", "7", "4"], answer: "3", explain: "1) O'rtacha: (4 + 10) : 2 = 7.<br>2) Ikkinchi savatda 10 − 7 = <b>3</b> ta ortiqcha — shularni ko'chiramiz." },
+      { question: "Laylo 3 kunda 15, 20 va 25 bet kitob o'qidi. U kuniga o'rtacha necha bet o'qigan?", options: ["20", "60", "25", "15"], answer: "20", explain: "(15 + 20 + 25) : 3 = 60 : 3 = <b>20</b> bet." },
+      { question: "5 ta sonning yig'indisi 40 ga teng. Ularning o'rtachasi nechaga teng?", options: ["8", "35", "45", "200"], answer: "8", explain: "O'rtacha = jami : soni = 40 : 5 = <b>8</b>." },
+      { question: "6, 8, 10, 12 sonlarining o'rtachasini toping.", options: ["9", "36", "8", "10"], answer: "9", explain: "(6 + 8 + 10 + 12) : 4 = 36 : 4 = <b>9</b>." },
+      { question: "O'rtacha qiymat haqida qaysi gap to'g'ri?", options: ["U eng kichik va eng katta qiymat orasida bo'ladi", "U har doim eng katta qiymatga teng", "U har doim eng kichik qiymatdan kichik", "U har doim butun son"], answer: "U eng kichik va eng katta qiymat orasida bo'ladi", explain: "Teng taqsimlaganda kattalari kamayadi, kichiklari ko'payadi — natija <b>eng kichik va eng katta qiymat orasida</b> bo'ladi." },
+      { question: "20, 0, 10 sonlarining o'rtachasini toping.", options: ["10", "15", "30", "0"], answer: "10", explain: "1) Jami: 20 + 0 + 10 = 30.<br>2) Sonlar 3 ta: 30 : 3 = <b>10</b>." },
+      { question: "4 nafar do'st jami 48 000 so'm to'ladi. Bir kishiga o'rtacha qancha to'g'ri keladi?", options: ["12 000 so'm", "48 000 so'm", "4000 so'm", "52 000 so'm"], answer: "12 000 so'm", explain: "48 000 : 4 = <b>12 000 so'm</b>." },
+      { question: "Uch qovunning massasi 2 kg, 3 kg va 4 kg. Bitta qovunning o'rtacha massasi qancha?", options: ["3 kg", "9 kg", "2 kg", "4 kg"], answer: "3 kg", explain: "(2 + 3 + 4) : 3 = 9 : 3 = <b>3 kg</b>." },
+      { question: "11 va 13 sonlarining o'rtachasini toping.", options: ["12", "24", "2", "13"], answer: "12", explain: "(11 + 13) : 2 = 24 : 2 = <b>12</b>." },
+      { question: "7, 7, 7, 7 sonlarining o'rtachasini toping.", options: ["7", "28", "4", "14"], answer: "7", explain: "Barcha sonlar teng bo'lsa, o'rtachasi ham o'shanga teng: 28 : 4 = <b>7</b>." }
+    ],
+    qiyin: [
+      { question: "15, 0, 9, 8 sonlarining o'rtachasini toping.", options: ["8", "32", "10", "6"], answer: "8", explain: "1) Jami: 15 + 0 + 9 + 8 = 32.<br>2) Sonlar 4 ta (0 ham sanaladi): 32 : 4 = <b>8</b>." },
+      { question: "Jasur to'rt testdan 87, 93, 78, 90 ball oldi. O'rtacha balli qancha?", options: ["87", "348", "90", "85"], answer: "87", explain: "1) Jami: 87 + 93 + 78 + 90 = 348.<br>2) 348 : 4 = <b>87</b>." },
+      { question: "76, 81, 90, 84 sonlarining o'rtachasini toping.", options: ["82,75", "82", "83", "331"], answer: "82,75", explain: "1) Jami: 76 + 81 + 90 + 84 = 331.<br>2) 331 : 4 = <b>82,75</b> (butun son chiqmadi — o'nli kasr bilan yozamiz)." },
+      { question: "2,4; 3,6; 5,1 sonlarining o'rtachasini toping.", options: ["3,7", "11,1", "3,6", "5,55"], answer: "3,7", explain: "1) Jami: 2,4 + 3,6 + 5,1 = 11,1.<br>2) 11,1 : 3 = <b>3,7</b>." },
+      { question: "To'rtta tayoq: 1,25 m; 0,75 m; 1,1 m; 0,9 m. O'rtacha uzunlik qancha?", options: ["1 m", "4 m", "1,1 m", "0,9 m"], answer: "1 m", explain: "1) Jami: 1,25 + 0,75 + 1,1 + 0,9 = 4 m.<br>2) 4 : 4 = <b>1 m</b>." },
+      { question: "Uchta lenta: 1 m 20 cm, 90 cm va 1 m 5 cm. O'rtacha uzunlik qancha?", options: ["105 cm", "72 cm", "315 cm", "1,05 cm"], answer: "105 cm", explain: "1) Santimetrda: 120, 90, 105 cm.<br>2) (120 + 90 + 105) : 3 = 315 : 3 = <b>105 cm</b>." },
+      { question: "Idishlarda 425 ml, 380 ml, 515 ml va 280 ml suv bor. O'rtacha hajm qancha?", options: ["400 ml", "1600 ml", "380 ml", "425 ml"], answer: "400 ml", explain: "1) Jami: 425 + 380 + 515 + 280 = 1600 ml.<br>2) 1600 : 4 = <b>400 ml</b>." },
+      { question: "Bir haftada kuniga 14, 16, 0, 12, 18, 20, 4 ta xabar keldi. Kuniga o'rtacha nechta xabar kelgan?", options: ["12", "14", "13", "84"], answer: "12", explain: "1) Jami: 84 ta.<br>2) Kunlar 7 ta (xabar kelmagan kun ham sanaladi): 84 : 7 = <b>12</b>.<br>(14 — 84 : 6, ya'ni 0 sanalmagan.)" },
+      { question: "Do'kon 5 kunda 80, 120, 100, 60 va 140 ta somsa sotdi. Kuniga o'rtacha nechta somsa sotilgan?", options: ["100", "500", "120", "80"], answer: "100", explain: "1) Jami: 80 + 120 + 100 + 60 + 140 = 500.<br>2) 500 : 5 = <b>100</b> ta." },
+      { question: "Fabrika 5 kunda 3150 ta o'yinchoq tayyorladi. Kuniga o'rtacha nechta o'yinchoq tayyorlangan?", options: ["630", "3155", "315", "6300"], answer: "630", explain: "3150 : 5 = <b>630</b> ta." },
+      { question: "8 kishilik oila bayram dasturxoniga 344 000 so'm sarfladi. Bir kishiga o'rtacha qancha to'g'ri keladi?", options: ["43 000 so'm", "42 000 so'm", "344 000 so'm", "34 400 so'm"], answer: "43 000 so'm", explain: "344 000 : 8 = <b>43 000 so'm</b>." },
+      { question: "A to'plam: 5, 9, 13. B to'plam: 4, 8, 10, 14. Qaysi to'plamning o'rtachasi katta?", options: ["Teng", "A", "B", "Aniqlab bo'lmaydi"], answer: "Teng", explain: "A: 27 : 3 = 9.<br>B: 36 : 4 = 9.<br>O'rtachalar <b>teng</b>." },
+      { question: "Uch qutida 9, 4 va 11 ta qalam bor. Hamma qutida teng bo'lishi uchun kamida nechta qalam ko'chirish kerak?", options: ["4", "8", "3", "5"], answer: "4", explain: "1) O'rtacha: 24 : 3 = 8.<br>2) Ortiqcha: 9 − 8 = 1 va 11 − 8 = 3 — jami <b>4</b> ta (ular 4 ta yetishmagan qutiga o'tadi)." },
+      { question: "4, 7, 10 sonlariga qaysi sonni qo'shsak, to'rt sonning o'rtachasi 8 bo'ladi?", options: ["11", "8", "9", "7"], answer: "11", explain: "1) To'rt sonning jami: 8 · 4 = 32 bo'lishi kerak.<br>2) 32 − (4 + 7 + 10) = 32 − 21 = <b>11</b>." },
+      { question: "Uch bolaning massasi 36,5 kg, 41,2 kg va 39,6 kg. O'rtacha massa qancha?", options: ["39,1 kg", "117,3 kg", "41,2 kg", "39 kg"], answer: "39,1 kg", explain: "1) Jami: 36,5 + 41,2 + 39,6 = 117,3 kg.<br>2) 117,3 : 3 = <b>39,1 kg</b>." },
+      { question: "Jamoa 5 ta o'yinda 2, 0, 3, 1, 4 ta gol urdi. O'yin boshiga o'rtacha nechta gol?", options: ["2", "10", "2,5", "3"], answer: "2", explain: "1) Jami: 10 ta gol.<br>2) O'yinlar 5 ta (golsiz o'yin ham sanaladi): 10 : 5 = <b>2</b>." },
+      { question: "Qaysi to'plamning o'rtachasi 10 ga teng?", options: ["6, 10, 14", "5, 10, 20", "2, 8, 30", "10, 10, 20"], answer: "6, 10, 14", explain: "6 + 10 + 14 = 30, 30 : 3 = <b>10</b>.<br>Qolganlari: 35 : 3, 40 : 3, 40 : 3 — 10 emas." },
+      { question: "Bir haftada havo harorati: 15°, 17°, 16°, 19°, 18°, 14°, 20°. O'rtacha harorat qancha?", options: ["17°", "16°", "18°", "119°"], answer: "17°", explain: "1) Jami: 119.<br>2) 119 : 7 = <b>17°</b>." },
+      { question: "To'rt oyda jamg'arma: 35, 70, 45 va 90 ming so'm. Oyiga o'rtacha qancha jamg'arilgan?", options: ["60 ming so'm", "240 ming so'm", "62,5 ming so'm", "55 ming so'm"], answer: "60 ming so'm", explain: "1) Jami: 35 + 70 + 45 + 90 = 240 ming so'm.<br>2) 240 : 4 = <b>60 ming so'm</b>." },
+      { question: "Sinf o'quvchilarining o'rtacha bo'yi 142 cm. Qaysi xulosa to'g'ri?", options: ["Ba'zi o'quvchilar 142 cm dan baland, ba'zilari past bo'lishi mumkin", "Hamma o'quvchining bo'yi 142 cm", "Hech kim 142 cm dan baland emas", "Eng baland o'quvchining bo'yi 142 cm"], answer: "Ba'zi o'quvchilar 142 cm dan baland, ba'zilari past bo'lishi mumkin", explain: "O'rtacha — teng taqsimlab olingan son. Haqiqiy bo'ylar undan katta ham, kichik ham bo'lishi mumkin; o'rtacha esa <b>eng kichik va eng katta qiymat orasida</b>." }
+    ]
+  },
+
   "5|matematika|foizlar": [
     { level: 1, question: "1% qanday kasrga teng?", options: ["1/100", "1/10", "10/100", "1/1000"], answer: "1/100" },
     { level: 2, question: "50% ni oddiy kasr ko'rinishida yozing.", options: ["1/2", "1/4", "1/5", "2/1"], answer: "1/2" },
