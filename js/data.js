@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 101;
+const LESSON_VER = 102;
 
 function sec(title) {
   return { title: title, text: null };
@@ -108,7 +108,7 @@ const SITE_DATA = {
             { id: "uchburchak-burchaklari", icon: "img/mavzu/5-uchburchak-burchaklari.webp", title: "44. Uchburchakning burchaklari (yig'indisi 180°)", page: "2-qism, 123-bet", lecture: { text: null, embedUrl: "maruza/5-uchburchak-burchaklari.html" }, interactive: null, test: "test.html?sinf=5&fan=matematika&mavzu=uchburchak-burchaklari", simPlan: "Uchburchakning uchta burchagi «yirtib» olinib, bitta nuqtada yonma-yon qo'yiladi — to'g'ri chiziq (180°) hosil bo'ladi. Uchlar surilsa ham yig'indi 180° qoladi. Topshiriq: ikki burchakdan uchinchisini topish." },
             { id: "parallelogramm-romb-trapetsiya", icon: "img/mavzu/5-parallelogramm-romb-trapetsiya.webp", title: "45. Parallelogramm, romb va trapetsiyaning xossalari", page: "2-qism, 134-bet", lecture: { text: null, embedUrl: "maruza/5-parallelogramm-romb-trapetsiya.html" }, interactive: null, test: "test.html?sinf=5&fan=matematika&mavzu=parallelogramm-romb-trapetsiya", simPlan: "Shakl tanlanadi: parallelogramm, romb yoki trapetsiya. Uchlari sudraladi, lekin shakl o'z turini saqlaydi; parallel tomonlar, teng tomonlar, teng burchaklar va diagonallar xossalari belgilar bilan ko'rsatiladi." },
             { id: "tortburchaklarni-chizish", icon: "img/mavzu/5-tortburchaklarni-chizish.webp", title: "46. To'rtburchaklarni chizish", page: "2-qism, 144-bet", lecture: { text: null, embedUrl: "maruza/5-tortburchaklarni-chizish.html" }, interactive: null, test: "test.html?sinf=5&fan=matematika&mavzu=tortburchaklarni-chizish", simPlan: "Lineyka, transportir va katakli fon yordamida berilgan o'lchamdagi to'rtburchak (parallelogramm, romb, trapetsiya) qadamma-qadam chiziladi, har bir qadam tekshiriladi." },
-            { id: "tortburchak-nomalum-burchaklari", icon: "img/mavzu/5-tortburchak-nomalum-burchaklari.webp", title: "47. To'rtburchakning noma'lum burchaklarini topish", page: "2-qism, 150-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "To'rtburchak chizmasida ba'zi burchaklar berilgan. Yig'indi 360° va shakl xossalari (qarama-qarshi burchaklar teng, qo'shni burchaklar yig'indisi 180°) yordamida noma'lum burchak topiladi; qo'llangan xossa chizmada yonib turadi." }
+            { id: "tortburchak-nomalum-burchaklari", icon: "img/mavzu/5-tortburchak-nomalum-burchaklari.webp", title: "47. To'rtburchakning noma'lum burchaklarini topish", page: "2-qism, 150-bet", lecture: { text: null, embedUrl: "maruza/5-tortburchak-nomalum-burchaklari.html" }, interactive: null, test: "test.html?sinf=5&fan=matematika&mavzu=tortburchak-nomalum-burchaklari", simPlan: "To'rtburchak chizmasida ba'zi burchaklar berilgan. Yig'indi 360° va shakl xossalari (qarama-qarshi burchaklar teng, qo'shni burchaklar yig'indisi 180°) yordamida noma'lum burchak topiladi; qo'llangan xossa chizmada yonib turadi." }
           ]
         }
       ]

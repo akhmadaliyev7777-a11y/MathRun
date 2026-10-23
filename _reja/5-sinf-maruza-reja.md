@@ -784,7 +784,7 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Tekshiruv:** o'lchov javoblari Python bilan (4,6; 8,7; 4,6; 3,3; 5; 4,2; 5,1; 3,5; 6,1), 390/1100 px, barcha ma'ruzalar qayta tekshirildi.
 **Simulyator uchun g'oyalar:** virtual uchburchakli chizg'ichni chizg'ich bo'ylab surib parallel chiziq chizish; o'quvchi uchlarni katakka qo'yadi — shakl nomi o'zi aniqlanadi.
 
-#### ☐ 47. To'rtburchakning noma'lum burchaklarini topish — D2 150–156; M2 177–182
+#### ✅ 47. To'rtburchakning noma'lum burchaklarini topish — D2 150–156; M2 177–182
 **Qoidalar ro'yxati:**
 - Parallelogramm/romb: qarama-qarshi burchaklar teng; qo'shni burchaklar yig'indisi 180°.
 - Trapetsiya: yon tomonga yopishgan burchaklar yig'indisi 180°.
@@ -794,6 +794,10 @@ Belgilar: ☐ — qilinmagan, ✅ — tayyor va tekshirilgan.
 **Mashq daftaridan (qo'shimcha):** parallelogramm diagonali bilan (55°, 52°); romb (65°, 138°); 5 burchakli shakl (PQRST) ichidagi trapetsiya; trapetsiya + teng tomonli uchburchak; parallelogramm + to'g'ri chiziq; trapetsiya + teng yonli + to'g'ri chiziq; romb + teng yonli (34°, 160°).
 **Qiyin masala:** trapetsiya + teng yonli ADG → ∠x.
 **Rasmlar:** diagonalli shakllar, rangli burchaklar.
+**Holat (2026-10-23):** tayyor va push qilindi. Fayl: maruza/5-tortburchak-nomalum-burchaklari.html. O'z testi: `5|matematika|tortburchak-nomalum-burchaklari` 20+20, 20 savolda chizma. **5-sinf ma'ruzalari (47 mavzu) shu bilan tugadi.**
+**Kitob bilan solishtirildi:** parallelogramm/romb (qarama-qarshi teng, qo'shni 180°) ✅; trapetsiya (yon tomon 180°) ✅; diagonal bilan (uchburchak 180°, rombda teng yonli) ✅; 360° (uch burchak yig'indisi berilgan) ✅; trapetsiya + teng yonli uchburchak ✅; parallelogramm + to'g'ri chiziq ✅; romb + teng yonli (tashqi) ✅; trapetsiya + teng yonli ADG qiyin masala ✅ (O'ylab ko'ring); kundalik 360° ✅. To'g'ri burchakli uchburchaklardan shakl yasash amaliy topshirig'i 45-mavzuda berilgan. Kitob sonlari (65, 120, 135, 78/125, 51, 40, 100/74, 126/30, 280, 50/25, 48/24, 110, 118/147, 137, 55, 148, 75/130, 125, 65/23/50, 78/88; M2 55/52, 70/60, 65, 138, 45/85, 120/140/20, 42/85, 60/70, 140/120, 92/118, 34/160) to'plamlari ishlatilmadi.
+**Tekshiruv:** tenglik.py 37/0, chizmalardagi burchaklar koordinatadan tekshirildi, 390/1100 px.
+**Simulyator uchun g'oyalar:** to'rtburchakda bitta burchakni sudrasa qolganlari xossaga ko'ra o'zi o'zgaradi; diagonal qo'shish/olib tashlash va teng yonli uchburchakni ajratib ko'rsatish.
 
 ---
 
