@@ -39,6 +39,7 @@ Foydalanuvchi: «ma'ruza qismi juda ko'p, qoidalar ko'payib ketyapti, qo'shimcha
   3. **Mustahkamlash** — mashqlar (osondan qiyinga).
   4. **Mustaqil ish** — o'quvchi o'zi yechadigan topshiriqlar.
   5. **Javoblar** — 3 va 4-qism javoblari (qisqa yechim bilan), alohida qismda.
+- **Sahifada ichki reja/izoh so'zlari bo'lmaydi (foydalanuvchi, 2026-10-24):** qism sarlavhasi faqat «1-qism · Mavzu» kabi; ostiga «Qoidalar va har biriga bitta misol», «Osondan qiyinga» kabi tushuntirish yozilmaydi — bu sun'iy intellekt rejasi bo'lib ko'rinadi. O'quvchiga faqat mazmun ko'rinsin.
 - **Ikki tekshiruvchi (rol):** tayyor sahifani avval **Jumavoy** (past o'zlashtiruvchi 6-sinf o'quvchisi — qayerda tushunmaydi, qayerda qotib qoladi) tekshiradi, keyin **Ibrohim ustoz** (20 yillik tajribali matematika o'qituvchisi — to'g'rilik, soddalik, ketma-ketlik, kitobga mosligi). Ularning izohlari tuzatiladi, hisobotda qisqa aytiladi.
 
 ## Yengil ish tartibi — token va vaqtni tejash (foydalanuvchi qarori, 2026-10-24)
