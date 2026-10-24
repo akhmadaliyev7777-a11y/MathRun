@@ -26,9 +26,17 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-kasrni-natural-songa-bolish.html. Yangi chizma: `data-ulush="a/b:n"` (doira: kasr qism n kishiga rangli bo'linadi, punktir — b·n mayda bo'lak). O'z testi 20+20, 5 savolda chizma (doira, to'g'ri to'rtburchak modeli).
 **Kitob bilan solishtirildi:** Eslang (ko'paytirish, bo'linma — kasr) ✅; a/b : n = a/b · 1/n ✅; surat bo'linsa ✅; qisqartirish ✅; to'g'ri to'rtburchak modeli ✅; kasr miqdorni taqsimlash (sim, sharbat, kvadrat perimetri) ✅; daftardagi ikki qadamli masalalar ✅. Kitob misollari (1/2 : 2, 1/4 : 2, 4/5 : 4, 3/4 : 2, 3/4 : 5, 2/3 : 4 va daftar ro'yxati) ishlatilmadi.
 
-#### ☐ 6. Natural sonni to'g'ri kasrga bo'lish — D1 33–35; M1 41–48
+#### ✅ 6. Natural sonni to'g'ri kasrga bo'lish — D1 33–35; M1 41–48
+**Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-natural-sonni-kasrga-bolish.html. Yangi chizma: `data-sigim="3:2/5"` (butunlar tasmada, bo'laklar bo'luvchi kattaligida guruhlanadi, chala guruh kasri yoziladi). O'z testi 20+20, 4 savolda chizma.
+**Kitob bilan solishtirildi:** 1 butunda 1/b dan b ta ✅; n : 1/b = n·b ✅; n : a/b — bo'laklarni a tadan guruhlash ✅; bo'lish va ko'paytirish juftliklari (nimani payqadingiz) ✅; teskari kasr, n : a/b = n · b/a ✅; javob aralash son ✅; masalalar: nechta bolaga, necha bo'lak, nechta idish ✅; vaqt (soatdan soatgacha) ✅; «ko'pi bilan nechta» va «qancha qoladi» ✅; ikki chetida chiroq bor yo'l (oraliq − 1) ✅. kitobdan.py: 0 ta mos (3 : 3/4, 4 : 1/3, 4 : 3/5, 6 : 2/3, 13:00 almashtirildi).
+**Tekshiruv:** tenglik.py (faqat atayin xato misollar), testlar.js 0 xato, 390/1100 px, KaTeX xatosiz.
+**Simulyator uchun g'oyalar:** data.js simPlan (tasmalarni guruhlash).
 
-#### ☐ 7. To'g'ri kasrni to'g'ri kasrga bo'lish (+ matnli masalalar) — D1 36–48; M1 49–66
+#### ✅ 7. To'g'ri kasrni to'g'ri kasrga bo'lish (+ matnli masalalar) — D1 36–48; M1 49–66
+**Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-kasrni-kasrga-bolish.html. Chizmalar: `data-sigim` (kasr : kasr), `data-model` (bo'laklar usuli). O'z testi 20+20, 5 savolda chizma.
+**Kitob bilan solishtirildi:** bir xil maxraj — suratlarni bo'lish ✅; umumiy maxrajga keltirib bo'lish ✅; a/b : c/d = a/b · d/c ✅; javob 1 dan kichik / katta / aralash son ✅; juftliklar (nimani payqadingiz) ✅; masalalar: qadoqlash, vaqt oralig'i, yuz : en = bo'y, ko'pi bilan va qoldiq, qolganini bo'laklarga bo'lish ✅; matnli masalalar 2 usulda (bo'laklar va kasrlar): qolganining qismi + qolgan miqdor ✅, idish to'ldirish (oldin/keyin) ✅, ikki turdan bir xil sotildi ✅, qismning qismi yig'indisi ✅, idish+suv massasi ✅, pul zanjiri ✅; Matematika kundaligi (xatoni toping, chizma bilan) ✅; O'ylab ko'ring (ko'zoynakli o'g'il/qizlar) ✅. Qog'oz buklash amaliy topshirig'i kiritilmadi (qog'oz kerak). kitobdan.py: 0 ta mos (1/2 : 1/6, 2/5 : 1/10, 3/4 : 1/8 almashtirildi; «6 : 2» — oddiy juft).
+**Tekshiruv:** tenglik.py (faqat atayin xato misollar va 2 ta o'qish xatosi), testlar.js 0 xato, 390/1100 px, KaTeX xatosiz.
+**Simulyator uchun g'oyalar:** data.js simPlan (ikki tasma ustma-ust).
 
 #### ☐ 8. Nisbat va kasr (+ matnli masalalar) — D1 52–66; M1 73–86
 

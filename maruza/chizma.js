@@ -103,6 +103,9 @@
        AB va AC orasidagi burchak (yozuv "90°" — kvadratcha); "tik":["BAC"] — istalgan to'g'ri burchak; "joy":{"A":[dx,dy]} — nom joyini qo'lda berish (px);
        "par":{"AB":1,"DC":1} — parallel tomonlar strelkasi (a → b yo'nalishda; 2 — ikkinchi juft, qo'sh strelka).
    data-ulush="2/3:4" — kasrni natural songa bo'lish doirada: b ta qalin bo'lak, a tasi n kishiga rangli bo'linadi; punktir — b·n mayda bo'lak.
+   data-sigim="2:3/4" yoki "3/4:1/8" — bo'luvchi bo'linuvchida necha marta bor (tasma): har butun — alohida tasma, umumiy maxrajgacha
+       mayda kataklar (asl bo'laklar chegarasi qalin); bo'linuvchi qismi bo'luvchi kattaligidagi guruhlarga bo'yaladi (1, 2, 3 ...),
+       chala qolgan guruh yashil va uning kasri (masalan 2/3) yoziladi.
    data-tarozi="2x + 4|20" — pallali tarozi (tenglama): chapda va o'ngda harfli qutilar va birlik toshlar (24 dan katta son yoki data-dona dan katta — bitta katta tosh).
    data-plitka="3y + 2y − 4" [data-kesish="1"] — algebraik plitkalar: harfli had — uzun plitka, son — kichik kvadratlar, orasida belgilar;
        kesish="1" — o'xshash hadlar bitta qatorda, ayrilganlari ustidan qizil chiziq (6y − 4y: 6 ta, 4 tasi chizilgan).
@@ -1163,6 +1166,53 @@
     el.innerHTML = '<svg viewBox="0 0 320 210" width="320" role="img" aria-label="' + a + "/" + b + " qism " + n + ' kishiga">' + svg + leg + "</svg>";
   }
 
+  // ---------- bo'luvchi necha marta sig'adi (tasma): "2:3/4", "3/4:1/8" ----------
+  function chizSigim(el) {
+    const ekub = function (x, y) { return y ? ekub(y, x % y) : x; };
+    const kasr = function (t) { const p = t.trim().split("/"); return [+p[0], p.length > 1 ? +p[1] : 1]; };
+    const qism = el.dataset.sigim.split(":"), A = kasr(qism[0]), C = kasr(qism[1]);
+    const D = A[1] * C[1] / ekub(A[1], C[1]);
+    const uA = A[0] * D / A[1], uC = C[0] * D / C[1];
+    const W = Math.max(1, Math.ceil(A[0] / A[1])), jami = W * D, gap = W > 1 ? 14 : 0;
+    const cw = Math.max(9, Math.min(42, (520 - gap * (W - 1)) / jami)), h = 40, X0 = 10, Y0 = 26;
+    const f = function (v) { return v.toFixed(1); };
+    const x = function (i) { return X0 + Math.floor(i / D) * (D * cw + gap) + (i % D) * cw; };
+    const RANG = [["#cfe0ff", "#1f5fd6"], ["#ffe1c9", "#c2410c"]], QOL = ["#d9f2e6", "#12805c"];
+    const toliq = Math.floor(uA / uC), qoldiq = uA - toliq * uC;
+    const kasrYoz = function (cx, y, s, m, rang) {
+      return '<text x="' + f(cx) + '" y="' + y + '" text-anchor="middle" font-size="13" font-weight="800" fill="' + rang + '">' + s + "</text>" +
+        '<line x1="' + f(cx - 8) + '" y1="' + (y + 4) + '" x2="' + f(cx + 8) + '" y2="' + (y + 4) + '" stroke="' + rang + '" stroke-width="1.6"/>' +
+        '<text x="' + f(cx) + '" y="' + (y + 18) + '" text-anchor="middle" font-size="13" font-weight="800" fill="' + rang + '">' + m + "</text>";
+    };
+    let svg = "";
+    for (let i = 0; i < jami; i++) {
+      let fill = "#fff";
+      if (i < uA) { const g = Math.floor(i / uC); fill = g < toliq ? RANG[g % 2][0] : QOL[0]; }
+      svg += '<rect x="' + f(x(i)) + '" y="' + Y0 + '" width="' + f(cw) + '" height="' + h + '" fill="' + fill + '"/>';
+      if (i % D) {
+        const asosiy = (i % (D / A[1]) === 0) && A[1] > 1;
+        svg += '<line x1="' + f(x(i)) + '" y1="' + Y0 + '" x2="' + f(x(i)) + '" y2="' + (Y0 + h) + '" stroke="' + (asosiy ? "#1f2433" : "#8a93a8") + '" stroke-width="' + (asosiy ? 1.8 : 1) + '"' + (asosiy ? "" : ' stroke-dasharray="3 3"') + "/>";
+      }
+    }
+    for (let k = 0; k < W; k++) {
+      const x1 = X0 + k * (D * cw + gap);
+      svg += '<rect x="' + f(x1) + '" y="' + Y0 + '" width="' + f(D * cw) + '" height="' + h + '" fill="none" stroke="#1f2433" stroke-width="2.4" rx="2"/>';
+      if (W > 1) svg += '<text x="' + f(x1 + D * cw / 2) + '" y="' + (Y0 - 8) + '" text-anchor="middle" font-size="12" fill="#5b6275">' + (k + 1) + "-butun</text>";
+    }
+    const guruhlar = toliq + (qoldiq ? 1 : 0);
+    for (let g = 0; g < guruhlar; g++) {
+      const i1 = g * uC, i2 = Math.min(uA, (g + 1) * uC) - 1, xa = x(i1) + 2, xb = x(i2) + cw - 2, yb = Y0 + h + 6;
+      const rang = g < toliq ? RANG[g % 2][1] : QOL[1];
+      svg += '<path d="M' + f(xa) + " " + yb + " v6 H" + f(xb) + " v-6" + '" fill="none" stroke="' + rang + '" stroke-width="2"/>';
+      const cx = (xa + xb) / 2;
+      if (g < toliq) svg += '<text x="' + f(cx) + '" y="' + (yb + 24) + '" text-anchor="middle" font-size="15" font-weight="800" fill="' + rang + '">' + (g + 1) + "</text>";
+      else { const e = ekub(qoldiq, uC); svg += kasrYoz(cx, yb + 22, qoldiq / e, uC / e, rang); }
+    }
+    const Wd = X0 * 2 + jami * cw + gap * (W - 1), Hd = Y0 + h + (qoldiq ? 56 : 42);
+    el.classList.add("chz");
+    el.innerHTML = '<svg viewBox="0 0 ' + f(Wd) + " " + Hd + '" width="' + Math.round(Wd) + '" role="img" aria-label="' + qism[0] + " ichida " + qism[1] + ' necha marta bor">' + svg + "</svg>";
+  }
+
   // ---------- ustunli diagramma ----------
   function chizUstunli(el) {
     const q = el.dataset.ustunli.split("|").map(function (t) { const p = t.split(":"); return { nom: p[0], v: p[1] === "?" ? null : Number(p[1]) }; });
@@ -2043,6 +2093,7 @@
       root.querySelectorAll("[data-plitka]").forEach(chizPlitka);
       root.querySelectorAll("[data-tarozi]").forEach(chizTarozi);
       root.querySelectorAll("[data-ulush]").forEach(chizUlush);
+      root.querySelectorAll("[data-sigim]").forEach(chizSigim);
     }
   };
 })();
