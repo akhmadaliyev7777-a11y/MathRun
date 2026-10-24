@@ -10,9 +10,13 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Tekshiruv:** testlar.js 0 xato, 390/1100 px, KaTeX xatosiz.
 **Simulyator uchun g'oyalar:** data.js simPlan (qutilar va kubiklar).
 
-#### ☐ 2. Algebraik ifodalarni soddalashtirish — D1 10–12; M1 9–10
+#### ✅  2. Algebraik ifodalarni soddalashtirish — D1 10–12; M1 9–10
+**Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-ifodalarni-soddalashtirish.html. Yangi chizma: `data-plitka` (algebraik plitkalar: harfli had — uzun plitka, son — kvadrat; `data-kesish="1"` — ayrilganlari ustidan chiziladi). O'z testi 20+20 (javoblar harf o'rniga son qo'yib dastur bilan tekshirildi).
+**Kitob bilan solishtirildi:** 2 usul (qutilar soni / hadlar yig'indisi) ✅; o'xshash hadlarni qo'shish, ayirish ✅; q = 1q ✅; 6y − 6y = 0 ✅; aralash ifoda (guruhlash, belgi bilan ko'chirish) ✅; plitkalar va chizma-model ✅; tushirib qoldirilgan had ✅; daftardagi barcha turlar ✅. Kitob misollari (6 va 3 quti, 2q + 2q, 5q + 3 − 2q + 2, 8h + 4 − 3h − 1, 3y + 2y − 4) ishlatilmadi.
 
-#### ☐ 3. Algebraik ifodaning qiymatini topish — D1 13–18; M1 11–18
+#### ✅  3. Algebraik ifodaning qiymatini topish — D1 13–18; M1 11–18
+**Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-ifoda-qiymatini-topish.html. O'z testi 20+20.
+**Kitob bilan solishtirildi:** harf o'rniga son ✅; yashirin ko'paytirish ✅; jadval (bir ifoda — har xil qiymat) ✅; kasr ko'rinishidagi ifoda ✅; avval soddalashtirish ✅; masala: ifoda + qiymat (tasma farqi, uch quti, 5 marta ko'p — bo'laklar, o'rta arifmetik, shakl yuzi, yosh, qaytim, perimetr, stiker, hamyon, pechenye) ✅. Kitob sonlari (z = 8, y = 5, m = 3, Halima 8 tugma, 78 000, f = 140, 5 cm va w) ishlatilmadi.
 
 #### ☐ 4. Tenglamalarni yechish — D1 19–24; M1 19–32
 

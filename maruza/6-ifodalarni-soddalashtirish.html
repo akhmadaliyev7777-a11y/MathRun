@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ifodalarni soddalashtirish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=30">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Algebraik ifodalarni soddalashtirish</h1>
+<p class="m-lead">Uzun ifodani qisqa va qulay ko'rinishga keltirish — soddalashtirish deyiladi. Buning uchun bir xil harfli hadlarni birlashtiramiz, sonlarni esa alohida hisoblaymiz: \(4y + 2y + 7 - 3\) o'rniga \(6y + 4\) yozamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">4n — bu 4 ta n degani edi!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>\(n + n + n + n = 4 \cdot n = 4n\); \(1 \cdot n\) qisqacha \(n\) deb yoziladi.</li>
+      <li>Algebraik ifodada harf noma'lum sonni bildiradi: \(x + 5\), \(30 - k\), \(3y\), \(\frac{p}{4}\).</li>
+      <li>Qo'shishda qo'shiluvchilar o'rnini almashtirish va guruhlash mumkin: \(12 + 9 + 8 = 12 + 8 + 9 = 29\).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Olmani olmaga, nokni nokka qo'shamiz!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · o'xshash hadlarni qo'shish</span>
+    <p>Harfi bir xil hadlar (\(3y\), \(5y\), \(y\)) <b>o'xshash hadlar</b> deyiladi. Ularni qo'shish uchun harf oldidagi sonlar qo'shiladi, harf o'zgarmaydi:</p>
+    <p class="chz-cap">\(3y + 5y = (3 + 5)y = \nat{8y}\)</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · plitkalar bilan</span>
+    <div data-plitka="3y + 5y"></div>
+    <p>3 ta \(y\) va yana 5 ta \(y\) — jami 8 ta \(y\): \(\nat{8y}\).</p>
+    <p>Hayotiy misol: Bekzodda 4 quti, Shahzodada 5 quti qalam bor, har qutida \(n\) tadan qalam. Jami: \(4n + 5n = \nat{9n}\) ta qalam (yoki avval qutilar: \(4 + 5 = 9\) quti, \(9 \cdot n = 9n\)).</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · o'xshash hadlarni ayirish</span>
+    <p>O'xshash hadlarni ayirishda harf oldidagi sonlar ayriladi: \(7a - 3a = (7 - 3)a = \nat{4a}\). Esda tuting: \(a = 1a\), shuning uchun \(6a - a = \nat{5a}\); \(5a - 5a = \nat{0}\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · 7a − 3a</span>
+    <div data-plitka="7a − 3a" data-kesish="1"></div>
+    <p>7 ta \(a\) dan 3 tasini olib tashlasak, 4 tasi qoladi: \(\nat{4a}\).</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · harfli va harfsiz hadlar</span>
+    <p>Harfli had (\(4q\)) va son (\(3\)) — o'xshash emas, ularni qo'shib bitta had qilib bo'lmaydi: \(4q + 3\) shundayligicha qoladi. Turli harfli hadlar ham qo'shilmaydi: \(2a + 5b\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · 2x + 3</span>
+    <div data-plitka="2x + 3"></div>
+    <p>Uzun plitka (\(x\)) va kichik kvadrat (1) bir xil emas — \(2x + 3 \ne 5x\) va \(2x + 3 \ne 5\).</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · aralash ifodani soddalashtirish</span>
+    <ol>
+      <li>Harfli hadlarni yonma-yon, sonlarni yonma-yon to'playmiz. Har bir had <b>oldidagi belgisi bilan</b> ko'chadi.</li>
+      <li>Harfli hadlarni hisoblaymiz.</li>
+      <li>Sonlarni hisoblaymiz.</li>
+      <li>Javob odatda «harfli had + son» ko'rinishida yoziladi.</li>
+    </ol>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · 4b + 5 − 2b − 3</span>
+    <div class="qadam"><b>1</b><span>Guruhlaymiz: \(4b - 2b + 5 - 3\) (\(-2b\) va \(-3\) o'z belgisi bilan ko'chdi).</span></div>
+    <div class="qadam"><b>2</b><span>\(4b - 2b = 2b\); \(5 - 3 = 2\).</span></div>
+    <div class="qadam"><b>3</b><span>Javob: \(\nat{2b + 2}\).</span></div>
+    <div data-plitka="4b + 5 − 2b − 3" data-kesish="1"></div>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Plitkalarni sanasam — javob tayyor!</div></div>
+  <div class="box">
+    <p><b>Plitkalar:</b> uzun plitka — bitta \(y\), kichik kvadrat — bitta birlik (1).</p>
+    <div data-plitka="2y + 4y − 5"></div>
+    <p>\(2y + 4y - 5 = \nat{6y - 5}\):</p>
+    <div data-plitka="6y − 5"></div>
+    <p><b>Chizmali model:</b> tasmada \(2y\) va \(4y\) bo'laklari birgalikda \(6y\) ni beradi, undan 5 kesib olinadi.</p>
+    <div data-model='{"q":[["",[["2y",2],["4y",4]]],["",[["6y − 5",5,2],["5",1,1]]]],"jami":{"0":"6y"}}'></div>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar</h2>
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · uchta had</span>
+    <p>\(9c - c + 4c\)</p>
+    <div class="qadam"><b>1</b><span>\(9c - c = 9c - 1c = 8c\).</span></div>
+    <div class="qadam"><b>2</b><span>\(8c + 4c = \nat{12c}\).</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · son va harf aralash</span>
+    <p>\(15 + 7m - 6 + 2m\)</p>
+    <div class="qadam"><b>1</b><span>Guruhlaymiz: \(7m + 2m + 15 - 6\).</span></div>
+    <div class="qadam"><b>2</b><span>\(9m + 9\). Javob: \(\nat{9m + 9}\).</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · harfli hadlar yo'qolib ketadi</span>
+    <p>\(k + 12 - k + 5 = (k - k) + (12 + 5) = 0 + 17 = \nat{17}\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 4 · hayotiy masala</span>
+    <p>Do'konda \(8p\) ta daftar bor edi. Ertalab \(3p\) ta sotildi, kechqurun yana \(5p\) ta keltirildi. Endi nechta daftar bor?</p>
+    <div class="qadam"><b>1</b><span>\(8p - 3p + 5p\).</span></div>
+    <div class="qadam"><b>2</b><span>\(8p - 3p = 5p\); \(5p + 5p = \nat{10p}\) ta daftar.</span></div>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Minus belgisi o'z hadi bilan birga yuradi!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Harfli had bilan sonni qo'shib yuborish.<br><span class="xato">\(4q + 3 = 7q\)</span> &nbsp;→&nbsp; <span class="togri">\(4q + 3\) — soddalashmaydi</span></li>
+      <li>Yolg'iz harfni 0 deb hisoblash.<br><span class="xato">\(6a - a = 6a\)</span> &nbsp;→&nbsp; <span class="togri">\(a = 1a\): \(6a - a = 5a\)</span></li>
+      <li>Ayirilgan hadning belgisini yo'qotish.<br><span class="xato">\(9y - 2 - 4y + 6 = 13y + 8\)</span> &nbsp;→&nbsp; <span class="togri">\(9y - 4y - 2 + 6 = 5y + 4\)</span></li>
+      <li>Harflarni ham qo'shish.<br><span class="xato">\(3y + 2y = 5y^2\) yoki \(5yy\)</span> &nbsp;→&nbsp; <span class="togri">\(5y\)</span></li>
+      <li>Turli harfli hadlarni birlashtirish.<br><span class="xato">\(2a + 5b = 7ab\)</span> &nbsp;→&nbsp; <span class="togri">\(2a + 5b\) — soddalashmaydi</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Avval harflilarni, keyin sonlarni hisoblayman!</div></div>
+  <div class="daraja oson"><i></i>Oson — soddalashtiring</div>
+  <div class="misollar">
+    <span><b>a)</b> \(w + w + w + w + w\)</span>
+    <span><b>b)</b> \(6t + 9t\)</span>
+    <span><b>c)</b> \(14r - 5r\)</span>
+    <span><b>d)</b> \(d + 7d\)</span>
+    <span><b>e)</b> \(11g - g\)</span>
+    <span><b>f)</b> \(8s - 8s\)</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) \(5w\)</span><span>b) \(15t\)</span><span>c) \(9r\)</span><span>d) \(8d\)</span><span>e) \(10g\)</span><span>f) \(0\)</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — uch-to'rt hadli ifodalar</div>
+  <div class="misollar qator">
+    <span><b>a)</b> \(5n + 6n - 3n\)</span>
+    <span><b>b)</b> \(2h + 13 + 7h\)</span>
+    <span><b>c)</b> \(17x - 6 - 9x\)</span>
+    <span><b>d)</b> \(3 + 11c + 9 - 4c\)</span>
+    <span><b>e)</b> \(25 - 12 + 5u - u\)</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) \(8n\)</span><span>b) \(9h + 13\)</span><span>c) \(8x - 6\)</span><span>d) \(7c + 12\)</span><span>e) \(4u + 13\)</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin</div>
+  <ol>
+    <li>\(30v + 9 - 14v - 2 + v\)</li>
+    <li>\(m + 20 - m + 6 + m\)</li>
+    <li>Tushirib qoldirilgan hadni toping: \(15q = 9q + \square\); \(\square - 4k = 7k\).</li>
+    <li>Plitkalarga qarab ifodani yozing va soddalashtiring:</li>
+  </ol>
+  <div data-plitka="3z + 2 + 4z + 3"></div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) \(17v + 7\)</span><span>2) \(m + 26\)</span><span>3) \(6q\); \(11k\)</span><span>4) \(3z + 2 + 4z + 3 = 7z + 5\)</span></div>
+  </details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Masalalarni yeching</span>
+    <ol class="masalalar">
+      <li>Bir qutida \(k\) ta shar bor. Lolada 5 quti, Malikada 7 quti shar bor. Ikkalasida jami nechta shar? Ular 4 qutini do'stlariga berishsa, nechta shar qoladi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Jami: \(5k + 7k = 12k\) ta. Qoladi: \(12k - 4k = 8k\) ta.</details></li>
+      <li>Uchburchakning tomonlari \(3a\), \(4a\) va \(5a\) cm. Perimetrini soddalashtirib yozing.
+        <details class="javob"><summary>Javobni ko'rish</summary>\(3a + 4a + 5a = 12a\) cm.</details></li>
+      <li>Kitob javonida \(6b\) ta kitob bor edi. \(2b\) ta kitob olindi, so'ng 10 ta kitob qo'yildi. Javonda nechta kitob bor?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(6b - 2b + 10 = 4b + 10\) ta.</details></li>
+      <li>To'g'ri to'rtburchakning bo'yi \(5x\) cm, eni \(2x\) cm. Perimetrini soddalashtiring.
+        <details class="javob"><summary>Javobni ko'rish</summary>\(5x + 2x + 5x + 2x = 14x\) cm.</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Javobni tekshirishning oson yo'li bor — harf o'rniga son qo'yish!</div></div>
+  <div class="box qiyin">
+    <span class="tag">Xatoni toping</span>
+    <p>Sevara: \(8y + 3 - 2y - 5 = 6y + 8\). Tekshirish uchun \(y = 2\) qo'yib ko'ring. Qayerda xato?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Chap tomon: \(16 + 3 - 4 - 5 = 10\). O'ng tomon: \(12 + 8 = 20\) — teng emas. Xato: \(-5\) ni \(+5\) deb olgan. To'g'risi: \(6y + 3 - 5 = 6y - 2\); tekshiruv: \(12 - 2 = 10\) ✓.</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Muammoli topshiriq</span>
+    <p>Bo'sh joyga nima yozilsa, ifoda \(10t + 4\) ga teng bo'ladi? a) \(13t + 4 - \square\); b) \(\square + 6 - 2t\).</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>a) \(3t\): \(13t - 3t + 4 = 10t + 4\). b) Bu yerda bitta had yetmaydi — ham \(t\) li, ham son kerak: \(12t - 2\). Tekshiruv: \(12t - 2 + 6 - 2t = 10t + 4\) ✓.</details>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — testga o'ting!</div></div>
+  <div class="box tekshir">
+    <ul>
+      <li>O'xshash hadlarni taniy olaman.</li>
+      <li>O'xshash hadlarni qo'shib va ayirib soddalashtira olaman.</li>
+      <li>Harfli hadlar va sonlarni alohida guruhlay olaman.</li>
+      <li>Javobni harf o'rniga son qo'yib tekshira olaman.</li>
+    </ul>
+  </div>
+</section>
+
+<p class="m-foot">Mathlearn · 6-sinf matematika</p>
+</main>
+<script src="chizma.js?v=54"></script>
+<script src="maruza.js?v=4"></script>
+</body>
+</html>

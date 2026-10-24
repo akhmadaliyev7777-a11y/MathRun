@@ -102,6 +102,8 @@
        Bir nechta uchburchak: "shakllar":["ABC","ACD"]; "diag":[["B","D","togri"]] — qalin to'g'ri chiziq; "yoy":[["B","A","C","40°",(rang),(radius)]] — A uchida
        AB va AC orasidagi burchak (yozuv "90°" — kvadratcha); "tik":["BAC"] — istalgan to'g'ri burchak; "joy":{"A":[dx,dy]} — nom joyini qo'lda berish (px);
        "par":{"AB":1,"DC":1} — parallel tomonlar strelkasi (a → b yo'nalishda; 2 — ikkinchi juft, qo'sh strelka).
+   data-plitka="3y + 2y − 4" [data-kesish="1"] — algebraik plitkalar: harfli had — uzun plitka, son — kichik kvadratlar, orasida belgilar;
+       kesish="1" — o'xshash hadlar bitta qatorda, ayrilganlari ustidan qizil chiziq (6y − 4y: 6 ta, 4 tasi chizilgan).
    data-model='{"q":[["Ali",[["x",3],["10",2]]],["Vali",[["?",5]]]],"jami":{"0":"?"}}' — chizmali model (algebra): har qator [nom, bo'laklar];
        bo'lak [yozuv, uzunlik(, rang)]; yozuv "?" — punktir bo'sh bo'lak; jami {qator: yozuv} — qator ustida qavs va yozuv.
    data-yasash='{"tur":"bb","nom":["B","C","A"],"asos":5,"burchak":[50,45],"qadam":2}' — uchburchakni qadamma-qadam chizish:
@@ -1045,6 +1047,48 @@
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + (y - gap + 8) + '" role="img" aria-label="Chizmali model">' + svg + "</svg>";
   }
 
+  // ---------- algebraik plitkalar: "3y + 2y − 4" (y — uzun plitka, 1 — kichik kvadrat) ----------
+  function chizPlitka(el) {
+    const ifoda = el.dataset.plitka.replace(/−/g, "-");
+    const kesish = el.dataset.kesish === "1";
+    const terms = [];
+    ifoda.replace(/\s+/g, "").replace(/([+-]?)(\d*)([a-z]?)/g, function (m, sg, n, h) {
+      if (!m) return m;
+      terms.push({ sg: sg === "-" ? -1 : 1, n: n === "" ? 1 : Number(n), h: h || "1" });
+      return m;
+    });
+    const RANG = { "1": ["#ffe6d2", "#c2410c"] }, HR = [["#dbe7ff", "#1f5fd6"], ["#d9f2e6", "#12805c"], ["#ece4ff", "#6d43d6"]];
+    let hi = 0; terms.forEach(function (t) { if (!RANG[t.h]) RANG[t.h] = HR[hi++ % HR.length]; });
+    const TW = 22, TH = 58, SQ = 22, G = 6, f = function (v) { return v.toFixed(1); };
+    let x = 8, svg = "";
+    const plitka = function (h, cross) {
+      const c = RANG[h], w = h === "1" ? SQ : TW, hh = h === "1" ? SQ : TH, y = 10 + (TH - hh);
+      let t = '<rect x="' + f(x) + '" y="' + y + '" width="' + w + '" height="' + hh + '" rx="3" fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="2"' + (cross ? ' opacity=".55"' : "") + "/>";
+      t += '<text x="' + f(x + w / 2) + '" y="' + (y + hh / 2 + 5) + '" text-anchor="middle" font-size="' + (h === "1" ? 12 : 15) + '" font-weight="800" fill="' + c[1] + '">' + h + "</text>";
+      if (cross) t += '<path d="M' + f(x - 2) + " " + (y - 2) + " L" + f(x + w + 2) + " " + (y + hh + 2) + " M" + f(x + w + 2) + " " + (y - 2) + " L" + f(x - 2) + " " + (y + hh + 2) + '" stroke="#d6454f" stroke-width="2.5"/>';
+      x += w + G; return t;
+    };
+    const belgi = function (b) { svg += '<text x="' + f(x + 6) + '" y="' + (10 + TH - 14) + '" text-anchor="middle" font-size="22" font-weight="800" fill="#1f2433">' + b + "</text>"; x += 18; };
+    if (kesish) {
+      /* o'xshash hadlar bitta guruhda: musbatlari chiziladi, ayrilganlari ustidan chiziladi */
+      const tart = [], jam = {};
+      terms.forEach(function (t) { if (!(t.h in jam)) { jam[t.h] = { p: 0, m: 0 }; tart.push(t.h); } if (t.sg > 0) jam[t.h].p += t.n; else jam[t.h].m += t.n; });
+      tart.forEach(function (h, i) {
+        if (i) x += 14;
+        for (let k = 0; k < jam[h].p; k++) svg += plitka(h, k >= jam[h].p - jam[h].m);
+      });
+    } else {
+      terms.forEach(function (t, i) {
+        if (i || t.sg < 0) belgi(t.sg < 0 ? "−" : "+");
+        for (let k = 0; k < t.n; k++) svg += plitka(t.h, false);
+        x += 4;
+      });
+    }
+    const W = x + 6, H = TH + 22;
+    el.classList.add("chz");
+    el.innerHTML = '<svg viewBox="0 0 ' + f(W) + " " + H + '" width="' + Math.round(W) + '" role="img" aria-label="Algebraik plitkalar: ' + el.dataset.plitka + '">' + svg + "</svg>";
+  }
+
   // ---------- ustunli diagramma ----------
   function chizUstunli(el) {
     const q = el.dataset.ustunli.split("|").map(function (t) { const p = t.split(":"); return { nom: p[0], v: p[1] === "?" ? null : Number(p[1]) }; });
@@ -1922,6 +1966,7 @@
       root.querySelectorAll("[data-shakl]").forEach(chizShakl);
       root.querySelectorAll("[data-yasash]").forEach(chizYasash);
       root.querySelectorAll("[data-model]").forEach(chizModel);
+      root.querySelectorAll("[data-plitka]").forEach(chizPlitka);
     }
   };
 })();
