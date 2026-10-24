@@ -871,7 +871,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "tortburchaklar-7sinf", title: "7.2 To'rtburchaklar", page: "153/167-bet",
+              id: "tortburchaklar-7sinf", icon: "img/mavzu/7-tortburchaklar-7sinf.webp", title: "7.2 To'rtburchaklar", page: "153/167-bet",
               sections: [
                 secText("To'rtburchak va uning elementlari",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> hech uchtasi bir to'g'ri chiziqda yotmaydigan to'rt nuqta va ularni ketma-ket tutashtiruvchi to'rt kesmadan tuzilgan shakl <strong>to'rtburchak</strong>. Qarama-qarshi uchlarni tutashtiruvchi kesma — <strong>diagonal</strong>.</div>"
@@ -905,7 +905,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "kopburchaklar", title: "7.3 Ko'pburchaklar", page: "153/167-bet",
+              id: "kopburchaklar", icon: "img/mavzu/7-kopburchaklar.webp", title: "7.3 Ko'pburchaklar", page: "153/167-bet",
               sections: [
                 secText("Ko'pburchak ta'rifi",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> ketma-ket tutashtirilgan kesmalardan tuzilgan yopiq siniq chiziq bilan chegaralangan shakl <strong>ko'pburchak</strong> deyiladi. n ta tomoni bo'lsa — <strong>n-burchak</strong>.</div>" +
@@ -936,7 +936,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "uchburchak-tortburchak-yasash", title: "7.4 Uchburchak va to'rtburchaklarni yasash", page: "153/167-bet",
+              id: "uchburchak-tortburchak-yasash", icon: "img/mavzu/7-uchburchak-tortburchak-yasash.webp", title: "7.4 Uchburchak va to'rtburchaklarni yasash", page: "153/167-bet",
               sections: [
                 secText("Yasash asboblari",
                   "<p>Geometrik yasashlar faqat <strong>sirkul</strong> va <strong>chizg'ich</strong> (bo'linmalarsiz) yordamida bajariladi. Sirkul bilan aylana va teng kesmalar, chizg'ich bilan to'g'ri chiziq o'tkaziladi.</p>"
@@ -963,11 +963,11 @@ const SITE_DATA = {
           id: "algebra",
           name: "Algebra (2022-yil)",
           topics: [
-            { id: "sonli-ifodalar", title: "1. Sonli va algebraik ifodalar", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Ifoda qurilmasi: sonlar, harflar va amal kartochkalari. O'quvchi ifoda yig'adi; faqat sonlardan iborat bo'lsa «sonli ifoda» deb qiymati darhol hisoblanadi, harf qo'shilsa «algebraik ifoda» bo'ladi va harfga son berish slayderi paydo bo'ladi. Ma'nosiz ifodalar (masalan 5 : 0) alohida ogohlantiriladi." },
-            { id: "algebraik-tengliklar-formulalar", title: "2. Algebraik tengliklar, formulalar", page: "17-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Formula kartochkalari (S = a·b, P = 2(a + b), s = v·t). Shakl yoki harakat tasviri ostida formuladagi harflar slayder bilan o'zgaradi va natija yangilanadi. Teskari rejim: formuladan boshqa harfni ifodalash — kartochkalar tenglikning u tomoniga o'tkaziladi." },
-            { id: "qavs-qoidasi-koeffitsiyent", title: "3. Qavslarni ochish qoidasi va koeffitsiyent", page: "20-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "To'g'ri to'rtburchak yuzi modeli: a(b + c) bitta to'rtburchak ikki qismga bo'linadi → ab + ac. Qavs oldida minus bo'lsa, qavs ichidagi har bir had rangi (ishorasi) almashadi — animatsiya bilan. Koeffitsiyent esa harf oldidagi son sifatida ajratib yoritiladi." },
-            { id: "arifmetik-amallar-xossalari", title: "4. Arifmetik amallarning xossalari", page: "23-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Kubiklardan qatorlar: o'rin almashtirish (3 + 5 = 5 + 3), guruhlash ((2 + 3) + 4 = 2 + (3 + 4)) va taqsimot (3 · (2 + 4) = 3·2 + 3·4) xossalari kubiklarni surish orqali ko'rsatiladi. Har xossada sonlar o'rniga harflar qo'yilib, umumiy ko'rinishi yoziladi." },
-            { id: "natural-korsatkichli-daraja", title: "5. Natural ko'rsatkichli daraja", page: "26-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Asos va ko'rsatkich slayderlari. 2⁵ = 2·2·2·2·2 ko'paytuvchilar qatori sifatida, o'sishi ustunlar bilan ko'rsatiladi. Kvadrat (a²) va kub (a³) uchun shakl ham chiziladi. Manfiy asosda ishora juft/toq ko'rsatkichga qarab qanday almashishi ko'rinadi." },
+            { id: "sonli-ifodalar", icon: "img/mavzu/7-sonli-ifodalar.webp", title: "1. Sonli va algebraik ifodalar", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Ifoda qurilmasi: sonlar, harflar va amal kartochkalari. O'quvchi ifoda yig'adi; faqat sonlardan iborat bo'lsa «sonli ifoda» deb qiymati darhol hisoblanadi, harf qo'shilsa «algebraik ifoda» bo'ladi va harfga son berish slayderi paydo bo'ladi. Ma'nosiz ifodalar (masalan 5 : 0) alohida ogohlantiriladi." },
+            { id: "algebraik-tengliklar-formulalar", icon: "img/mavzu/7-algebraik-tengliklar-formulalar.webp", title: "2. Algebraik tengliklar, formulalar", page: "17-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Formula kartochkalari (S = a·b, P = 2(a + b), s = v·t). Shakl yoki harakat tasviri ostida formuladagi harflar slayder bilan o'zgaradi va natija yangilanadi. Teskari rejim: formuladan boshqa harfni ifodalash — kartochkalar tenglikning u tomoniga o'tkaziladi." },
+            { id: "qavs-qoidasi-koeffitsiyent", icon: "img/mavzu/7-qavs-qoidasi-koeffitsiyent.webp", title: "3. Qavslarni ochish qoidasi va koeffitsiyent", page: "20-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "To'g'ri to'rtburchak yuzi modeli: a(b + c) bitta to'rtburchak ikki qismga bo'linadi → ab + ac. Qavs oldida minus bo'lsa, qavs ichidagi har bir had rangi (ishorasi) almashadi — animatsiya bilan. Koeffitsiyent esa harf oldidagi son sifatida ajratib yoritiladi." },
+            { id: "arifmetik-amallar-xossalari", icon: "img/mavzu/7-arifmetik-amallar-xossalari.webp", title: "4. Arifmetik amallarning xossalari", page: "23-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Kubiklardan qatorlar: o'rin almashtirish (3 + 5 = 5 + 3), guruhlash ((2 + 3) + 4 = 2 + (3 + 4)) va taqsimot (3 · (2 + 4) = 3·2 + 3·4) xossalari kubiklarni surish orqali ko'rsatiladi. Har xossada sonlar o'rniga harflar qo'yilib, umumiy ko'rinishi yoziladi." },
+            { id: "natural-korsatkichli-daraja", icon: "img/mavzu/7-natural-korsatkichli-daraja.webp", title: "5. Natural ko'rsatkichli daraja", page: "26-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Asos va ko'rsatkich slayderlari. 2⁵ = 2·2·2·2·2 ko'paytuvchilar qatori sifatida, o'sishi ustunlar bilan ko'rsatiladi. Kvadrat (a²) va kub (a³) uchun shakl ham chiziladi. Manfiy asosda ishora juft/toq ko'rsatkichga qarab qanday almashishi ko'rinadi." },
             { id: "daraja-xossalari", title: "6. Natural ko'rsatkichli darajaning xossalari", page: "30-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Ko'paytuvchilar qatori: aᵐ · aⁿ da ikki qator bir qatorga qo'shiladi (m + n), aᵐ : aⁿ da bir xil ko'paytuvchilar juft-juft qisqaradi (m − n), (aᵐ)ⁿ da qator n marta takrorlanadi (m·n). (ab)ⁿ va (a/b)ⁿ uchun ko'paytuvchilar rangi bo'yicha qayta guruhlanadi." },
             { id: "birhad-standart-shakli", title: "7. Birhad va uning standart shakli", page: "34-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Aralash birhad (masalan 3a · 2b · a). O'quvchi sonli ko'paytuvchilarni oldinga, bir xil harflarni yonma-yon suradi; ular daraja ko'rinishiga yig'iladi → 6a²b. Koeffitsiyent va birhad darajasi alohida ko'rsatiladi." },
             { id: "birhadlarni-kopaytirish-bolish", title: "8. Birhadlarni ko'paytirish va bo'lish", page: "36-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Ikki birhad kartochkasi. Ko'paytirishda koeffitsiyentlar alohida, bir xil harflar alohida guruhlanadi (darajalar qo'shiladi). Bo'lishda kasr ko'rinishida yozilib, bir xil ko'paytuvchilar juft-juft qisqaradi." },
