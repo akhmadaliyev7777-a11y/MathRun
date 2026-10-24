@@ -2,9 +2,10 @@
 
 > Har bir qadam bajarilgach shu yerda belgilanadi (☑). Ikkala hisob ham shu rejaga qarab ishlaydi.
 > Tarix (kim, qachon, nima qildi) — `_reja/ish-jurnali.md`.
-> Ko'rish: VS Code'da shu faylni ochib **Cmd+K, keyin V** — o'ng tomonda chiroyli ko'rinish ochiladi va o'zi yangilanib turadi.
+> Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
+> Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 12:55
+**Oxirgi yangilanish:** 2026-10-24 12:54 — 8-mavzu: ma'ruza yozildi, test yozilmoqda
 
 ---
 
@@ -12,8 +13,8 @@
 
 ### 8. Nisbat va kasr (+ matnli masalalar)
 - [x] Kitob betlarini o'rganish (darslik 52–66, mashq daftari 73–86): qoidalar va misol turlari ro'yxati
-- [ ] Ma'ruza yozish (9 bo'lim, chizmalar)
-- [ ] Test yozish: 1-test oson (20), 2-test qiyinroq (20), chizmali savollar bilan
+- [x] Ma'ruza yozish (9 bo'lim, chizmalar)
+- [ ] Test yozish: 1-test oson (20), 2-test qiyinroq (20), chizmali savollar bilan ← *hozir*
 - [ ] Tekshiruv: barcha javoblarni qayta hisoblash
 - [ ] Tekshiruv: kitobdan ko'chirilmaganmi, hech bir qoida va misol turi tushib qolmaganmi
 - [ ] Tekshiruv: telefon (390 px) va kompyuter (1100 px) ko'rinishi

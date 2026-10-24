@@ -3,5 +3,8 @@
     "**/_reja/ISH-REJASI.md": "vscode.markdown.preview.editor",
     "**/_reja/ish-jurnali.md": "vscode.markdown.preview.editor"
   },
-  "markdown-preview-github-styles.colorTheme": "light"
+  "markdown-preview-github-styles.colorTheme": "light",
+  "markdown.styles": [
+    ".vscode/reja.css"
+  ]
 }
