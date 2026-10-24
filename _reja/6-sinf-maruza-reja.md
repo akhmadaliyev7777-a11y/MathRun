@@ -56,7 +56,11 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Tekshiruv:** tenglik.py 120 to'g'ri / 1 atayin xato, testlar.js 0 xato, 390/1100 px avtomatik (14 chizma).
 **Simulyator uchun g'oyalar:** data.js simPlan (ikki savat, oldin/keyin tasmalari).
 
-#### ☐ 11. Foizi va qismiga ko'ra sonning o'zini topish — D1 84–90; M1 111–122
+#### ✅ 11. Foizi va qismiga ko'ra sonning o'zini topish — D1 84–90; M1 111–122
+**Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-sonni-foiziga-kora-topish.html. Chizma: yangi `data-foizyol` (foiz zinasi: 30% → 10% → 100%, kasr qism, tasma), Python egizagi `_reja/tools/foizyol_svg.py`; `data-foizbar`, `data-foiz`, `data-model`, `data-kataklar`. O'z testi 20+20, 4 ta chizmali savol.
+**Kitob bilan solishtirildi:** 1% orqali (eslatma) ✅; qulay foiz orqali (10%, 25% …) ✅; foizni kasrga aylantirib bo'lish (oddiy va o'nli) ✅; qismiga ko'ra sonni topish ✅; qolgan bo'lak foizi, kasr + foiz ✅; teskari chegirma ✅; teskari QQS (QQS miqdori → 12%, jami → 112%) ✅; teskari omonat (foyda, yil oxiridagi mablag') ✅; farq orqali ✅; 100% dan katta foiz ✅; butunni topmasdan boshqa foiz ✅; ketma-ket foizlar ✅; tekshirish va birlik ✅; Eslang turlari va daftardagi barcha turlar ✅. Kitob noaniqliklari (QQS «umumiy narxning 12%», «omonat foizi») ko'chirilmadi. Tekshiruvda: 1 ta noto'g'ri test javobi va 1 ta kasr chiqadigan savol tuzatildi, kitob qolipidagi 27 ta masala almashtirildi. kitobdan.py: 0.
+**Tekshiruv:** tenglik.py 135 to'g'ri / 1 atayin xato, testlar.js 0 xato, hisob mustaqil qayta tekshirildi (0 xato), 390/1100 px avtomatik (25 chizma).
+**Simulyator uchun g'oyalar:** data.js simPlan (foiz tasmasi, 30% → 10% → 100%).
 
 #### ☐ 12. O'sish va kamayish foizi (+ matnli masalalar) — D1 91–112; M1 123–142
 

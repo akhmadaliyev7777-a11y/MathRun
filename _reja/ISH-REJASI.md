@@ -5,11 +5,11 @@
 > Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
 > Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 16:55 — 10-mavzu saytga chiqdi; 11-mavzu tuzatilmoqda
+**Oxirgi yangilanish:** 2026-10-24 17:04 — 11-mavzu saytga chiqdi; 12-mavzu yozilmoqda
 
 ---
 
-## 1. Hozirgi ish — 6-sinf 9, 10, 11-mavzular
+## 1. Hozirgi ish — 6-sinf 11, 12-mavzular
 
 ### 8. Nisbat va kasr (+ matnli masalalar)
 - [x] Kitob betlarini o'rganish (darslik 52–66, mashq daftari 73–86): qoidalar va misol turlari ro'yxati
@@ -49,7 +49,14 @@
 - [x] Ma'ruza yozish (yangi chizma «foiz zinasi»; 13 qoida, 25 chizma)
 - [x] Test yozish (20 + 20, 5 ta chizmali savol)
 - [x] Tekshiruvlar: hisob — 1 test javobi xato (300 → 400); kitob — 17 jiddiy + 10 o'rta (kitob qolipi); o'qituvchi — 3 chizma javobni oshkor qiladi; ko'rinish — mayda
-- [ ] Tuzatish va qayta tekshirish ← *hozir*
+- [x] Tuzatish (≈50 band)
+- [x] Hisobni mustaqil qayta tekshirish — 0 xato
+- [x] Saytga ulash va chiqarish (push)
+
+### 12. O'sish va kamayish foizi (+ matnli masalalar) — yengil tartib
+- [ ] Bitta yozuvchi: kitob → ma'ruza → test 20 + 20 → avtomatik tekshiruvlar ← *hozir*
+- [ ] Bitta mustaqil tekshiruvchi (hisob + kitob + til)
+- [ ] Tuzatish
 - [ ] Saytga ulash va chiqarish (push)
 
 ## 2. Saytni to'liq o'rganish (2026-10-24) — bajarildi
@@ -108,8 +115,8 @@ Har safar 2 tadan mavzu; har 6 mavzudan keyin ish jurnaliga yozuv.
 - [x] 10. O'zgaruvchan nisbatlar
 
 **Foizlar**
-- [ ] 11. Foizi va qismiga ko'ra sonning o'zini topish ← *hozir*
-- [ ] 12. O'sish va kamayish foizi
+- [x] 11. Foizi va qismiga ko'ra sonning o'zini topish
+- [ ] 12. O'sish va kamayish foizi ← *hozir*
 
 **Geometriya: burchaklar, doira**
 - [ ] 13. Geometrik shakllardagi noma'lum burchaklar
