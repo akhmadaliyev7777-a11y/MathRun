@@ -4,6 +4,7 @@
   python3 _reja/kitob.py 6            -> 6-mavzuning darslik + daftar matni (ekranga)
   python3 _reja/kitob.py 6 --rasm DIR -> o'sha betlarni PNG qilib DIR ga (ko'rib chiqish uchun)
   python3 _reja/kitob.py royxat       -> barcha mavzular va betlar
+  python3 _reja/kitob.py 6:3          -> 6-sinf 3-mavzu (_reja/mavzular6.json)
 
 Bet raqamlari kitobdagi raqam; PDF bet = kitob beti + 4 (to'rtala kitobda).
 Rasmlar faqat ko'rib chiqish uchun — saytga kitob rasmi qo'yilmaydi (reja, A2).
@@ -24,6 +25,11 @@ FAYL = {
 }
 OFFSET = 4
 MAVZU = json.load(open(os.path.join(os.path.dirname(__file__), "mavzular.json")))
+# 6-sinf: «python3 _reja/kitob.py 6:3» (sinf:mavzu); kitob nomlari va PDF siljishi (bet + 4) bir xil
+if len(sys.argv) > 1 and sys.argv[1].startswith("6:"):
+    FAYL = {"D1": "6-sinf matematika 1-qism darslik.pdf", "D2": "6-sinf matematika 2-qism darslik.pdf",
+            "M1": "6-sinf matematika 1-mashq daftari.pdf", "M2": "6-sinf matematika 2-mashq daftari.pdf"}
+    MAVZU = {"6:" + k: v for k, v in json.load(open(os.path.join(os.path.dirname(__file__), "mavzular6.json"))).items()}
 
 
 def betlar(oraliq):

@@ -2367,6 +2367,53 @@ const QUIZ_DATA = {
     ]
   },
 
+  "6|matematika|algebraik-ifodalar": {
+    oson: [
+      { question: "Algebraik ifoda qaysi?", options: ["x + 4", "12 + 4", "16", "5 · 3"], answer: "x + 4", explain: "Algebraik ifodada <b>harf</b> (noma'lum son) qatnashadi: x + 4." },
+      { question: "«m ga 9 ni qo'shing» jumlasining ifodasi?", options: ["m + 9", "9m", "m − 9", "m/9"], answer: "m + 9", explain: "Qo'shish: <b>m + 9</b>." },
+      { question: "«k dan 6 ni ayiring» jumlasining ifodasi?", options: ["k − 6", "6 − k", "6k", "k + 6"], answer: "k − 6", explain: "k dan ayiramiz: <b>k − 6</b>." },
+      { question: "«40 dan y ni ayiring» jumlasining ifodasi?", options: ["40 − y", "y − 40", "40y", "40 + y"], answer: "40 − y", explain: "40 dan ayiriladi — 40 birinchi: <b>40 − y</b>." },
+      { question: "4 · n qanday qisqa yoziladi?", options: ["4n", "n4", "4 + n", "n/4"], answer: "4n", explain: "Ko'paytirish belgisi yozilmaydi, son oldin: <b>4n</b>." },
+      { question: "«z ni 7 ga bo'ling» jumlasining ifodasi?", options: ["z/7", "7/z", "7z", "z − 7"], answer: "z/7", explain: "Bo'lish kasr ko'rinishida: <b>z/7</b>." },
+      { question: "Savatda x ta olma bor edi, yana 5 ta solindi. Savatda nechta olma bo'ldi?", options: ["(x + 5) ta", "5x ta", "(x − 5) ta", "(5 − x) ta"], answer: "(x + 5) ta", explain: "Qo'shildi: <b>x + 5</b>." },
+      { question: "Har qutida 8 ta pechenye bor. q ta qutida nechta pechenye?", options: ["8q ta", "(q + 8) ta", "q/8 ta", "(q − 8) ta"], answer: "8q ta", explain: "q ta 8 — ko'paytirish: <b>8q</b>." },
+      { question: "Aziz hozir 11 yoshda. t yildan keyin necha yoshda bo'ladi?", options: ["11 + t", "11 − t", "11t", "t − 11"], answer: "11 + t", explain: "Yosh ortadi: <b>11 + t</b>." },
+      { question: "Nodira hozir 13 yoshda. m yil oldin necha yoshda edi?", options: ["13 − m", "m − 13", "13 + m", "13m"], answer: "13 − m", explain: "Oldin — kamroq: <b>13 − m</b>." },
+      { question: "p so'm 4 bolaga teng bo'lindi. Har biri qancha oldi?", options: ["p/4 so'm", "4p so'm", "(p − 4) so'm", "4/p so'm"], answer: "p/4 so'm", explain: "Teng bo'lish — bo'lish: <b>p/4</b>." },
+      { question: "«d dan 10 ta kam» ifodasi?", options: ["d − 10", "10 − d", "d + 10", "10d"], answer: "d − 10", explain: "Kam — ayirish: <b>d − 10</b>." },
+      { question: "«y ning uch baravari» ifodasi?", options: ["3y", "y + 3", "y/3", "y − 3"], answer: "3y", explain: "Uch baravar — 3 ga ko'paytirish: <b>3y</b>." },
+      { question: "1 · a qanday yoziladi?", options: ["a", "1a", "a + 1", "0"], answer: "a", explain: "1 · a = <b>a</b>." },
+      { question: "Qaysi ifodalar har doim teng?", options: ["x + 6 va 6 + x", "x − 6 va 6 − x", "6x va x + 6", "x/6 va 6/x"], answer: "x + 6 va 6 + x", explain: "Qo'shishda tartib muhim emas: <b>x + 6 = 6 + x</b>." },
+      { question: "Ko'ylak a so'm, shim undan 30 000 so'm qimmat. Shim qancha?", options: ["a + 30 000", "a − 30 000", "30 000a", "a/30 000"], answer: "a + 30 000", explain: "Qimmat — qo'shamiz: <b>a + 30 000</b>." },
+      { question: "Kvadratning tomoni c cm. Perimetri?", options: ["4c cm", "(c + 4) cm", "c/4 cm", "c² cm"], answer: "4c cm", explain: "4 ta teng tomon: <b>4c</b>." },
+      { question: "Lola do'konga n so'm berdi va 2000 so'm qaytim oldi. Xarid narxi?", options: ["n − 2000", "n + 2000", "2000 − n", "2000n"], answer: "n − 2000", explain: "Berilgan puldan qaytim ayiriladi: <b>n − 2000</b>." },
+      { question: "«b dan 12 ga ortiq» ifodasi?", options: ["b + 12", "b − 12", "12b", "12 − b"], answer: "b + 12", explain: "Ortiq — qo'shish: <b>b + 12</b>." },
+      { question: "Algebraik ifodada harf nimani bildiradi?", options: ["Noma'lum sonni", "Faqat 0 ni", "Faqat 1 ni", "Amal belgisini"], answer: "Noma'lum sonni", explain: "Harf — <b>noma'lum son</b> belgisi." }
+    ],
+    qiyin: [
+      { question: "Bitta daftar c so'm. 5 ta daftar va 3000 so'mlik qalam qancha turadi?", options: ["5c + 3000", "5 + c + 3000", "5(c + 3000)", "8c"], answer: "5c + 3000", explain: "Daftarlar 5c, qalam bilan: <b>5c + 3000</b>." },
+      { question: "Tarvuz w kg. Qovun undan 2 marta yengil. Qovun necha kg?", options: ["w/2", "2w", "w − 2", "w + 2"], answer: "w/2", explain: "2 marta yengil — 2 ga bo'lamiz: <b>w/2</b>." },
+      { question: "Tarvuz w kg, qovun undan 2 marta yengil, handalak qovundan 1 kg og'ir. Handalak necha kg?", options: ["w/2 + 1", "2w + 1", "w/2 − 1", "w + 3"], answer: "w/2 + 1", explain: "Qovun w/2, handalak 1 kg og'ir: <b>w/2 + 1</b>." },
+      { question: "k ta qalam 3 bolaga teng bo'lindi. Bir bola 2 tasini yo'qotdi. Unda nechta qoldi?", options: ["k/3 − 2", "k − 2", "3k − 2", "k/3 + 2"], answer: "k/3 − 2", explain: "Har biri k/3; yo'qotgach <b>k/3 − 2</b>." },
+      { question: "Qizil lenta y cm, ko'k lenta undan 15 cm qisqa. Ikkalasi jami?", options: ["y + (y − 15)", "2y + 15", "y − 15", "15y"], answer: "y + (y − 15)", explain: "Ko'k y − 15; jami <b>y + (y − 15)</b>." },
+      { question: "To'g'ri to'rtburchakning yuzi S cm², eni 7 cm. Bo'yi?", options: ["S/7 cm", "7S cm", "(S − 7) cm", "(S + 7) cm"], answer: "S/7 cm", explain: "Bo'yi = yuz : eni = <b>S/7</b>." },
+      { question: "To'g'ri to'rtburchakning bo'yi a cm, eni 6 cm. Yuzi?", options: ["6a cm²", "(a + 6) cm²", "a/6 cm²", "2(a + 6) cm²"], answer: "6a cm²", explain: "Yuz = bo'yi · eni = <b>6a</b>." },
+      { question: "Qaysi juftlik har doim teng EMAS?", options: ["9 − x va x − 9", "x + 9 va 9 + x", "9x va x · 9", "x · 1 va x"], answer: "9 − x va x − 9", explain: "Ayirishda tartib muhim — <b>9 − x ≠ x − 9</b>." },
+      { question: "x = 5 bo'lsa, 3x va x + 3 qiymatlari?", options: ["15 va 8", "8 va 15", "15 va 15", "35 va 8"], answer: "15 va 8", explain: "3 · 5 = 15; 5 + 3 = 8 — <b>har xil</b>." },
+      { question: "Avtobusda a yo'lovchi bor edi. 7 kishi tushdi, 4 kishi chiqdi. Endi nechta?", options: ["a − 7 + 4", "a + 7 − 4", "a − 11", "a + 11"], answer: "a − 7 + 4", explain: "Tushganlar ayriladi, chiqqanlar qo'shiladi: <b>a − 7 + 4</b>." },
+      { question: "Bog'da x ta olma va undan 3 marta ko'p o'rik daraxti. Jami nechta daraxt?", options: ["x + 3x", "x + 3", "3x", "x + x + 3"], answer: "x + 3x", explain: "O'rik 3x; jami <b>x + 3x</b> (= 4x)." },
+      { question: "n ta olma Aziza va yana 4 ta do'stiga teng bo'lindi. Har biri nechta oldi?", options: ["n/5", "n/4", "4n", "n − 5"], answer: "n/5", explain: "Aziza + 4 do'st = 5 kishi: <b>n/5</b>." },
+      { question: "O'quvchi «x dan 5 ta ko'p» ni 5x deb yozdi. To'g'ri ifoda?", options: ["x + 5", "5x", "x − 5", "5 − x"], answer: "x + 5", explain: "«Ta ko'p» — qo'shish: <b>x + 5</b>; 5x — «5 marta ko'p»." },
+      { question: "Velosiped b so'm, samokat undan 2 marta arzon, dubulg'a samokatdan 40 000 so'm arzon. Dubulg'a narxi?", options: ["b/2 − 40 000", "2b − 40 000", "b − 40 000", "b/2 + 40 000"], answer: "b/2 − 40 000", explain: "Samokat b/2; dubulg'a <b>b/2 − 40 000</b>." },
+      { question: "Har kuni d bet o'qilsa, 2 haftada necha bet?", options: ["14d", "7d", "d + 14", "2d"], answer: "14d", explain: "2 hafta = 14 kun: <b>14d</b>." },
+      { question: "Do'konda x kg olma bor edi. Ertalab 12 kg sotildi, keyin 20 kg keltirildi. Endi necha kg?", options: ["x − 12 + 20", "x + 12 − 20", "x − 32", "x + 32"], answer: "x − 12 + 20", explain: "Sotilgan ayriladi, keltirilgan qo'shiladi: <b>x − 12 + 20</b>." },
+      { question: "Dono r so'm tejadi, Lobar undan 5000 so'm ko'p. Ikkalasi jami qancha tejadi?", options: ["r + (r + 5000)", "5000r", "r + 5000", "2r − 5000"], answer: "r + (r + 5000)", explain: "Lobar r + 5000; jami <b>r + (r + 5000)</b>." },
+      { question: "Uchburchakning tomonlari a, a va 6 cm. Perimetri?", options: ["a + a + 6", "6a", "a + 6", "3a"], answer: "a + a + 6", explain: "Tomonlar yig'indisi: <b>a + a + 6</b> (= 2a + 6)." },
+      { question: "Qaysi jumla 20/y ifodasiga mos?", options: ["20 ni y ga bo'ling", "y ni 20 ga bo'ling", "y dan 20 marta ko'p", "20 dan y ni ayiring"], answer: "20 ni y ga bo'ling", explain: "Surat — bo'linuvchi: <b>20 ni y ga bo'lish</b>." },
+      { question: "Bitta chipta t so'm. 3 ta katta chipta va har biri 5000 so'm arzon 2 ta bolalar chiptasi qancha?", options: ["3t + 2(t − 5000)", "5t − 5000", "3t + 2t − 5000", "5(t − 5000)"], answer: "3t + 2(t − 5000)", explain: "Bolalar chiptasi t − 5000, ikkitasi 2(t − 5000): jami <b>3t + 2(t − 5000)</b>." }
+    ]
+  },
+
   "5|matematika|foizlar": [
     { level: 1, question: "1% qanday kasrga teng?", options: ["1/100", "1/10", "10/100", "1/1000"], answer: "1/100" },
     { level: 2, question: "50% ni oddiy kasr ko'rinishida yozing.", options: ["1/2", "1/4", "1/5", "2/1"], answer: "1/2" },

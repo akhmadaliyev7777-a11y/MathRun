@@ -1,0 +1,2458 @@
+{
+ "1": [
+  [
+   [
+    "Narsalarning xossalari",
+    [
+     1
+    ]
+   ],
+   [
+    "O'xshashlik va farq",
+    [
+     2
+    ]
+   ],
+   [
+    "Narsalarning joylashishi",
+    [
+     3
+    ]
+   ],
+   [
+    "Narsalar sanog'i",
+    [
+     4
+    ]
+   ],
+   [
+    "Yassi va hajmli shakllar",
+    [
+     5
+    ]
+   ],
+   [
+    "Vaqt bo'yicha ketma-ketlik",
+    [
+     6
+    ]
+   ],
+   [
+    "Narsalar guruhi",
+    [
+     7
+    ]
+   ],
+   [
+    "Guruhlarni taqqoslash",
+    [
+     8
+    ]
+   ],
+   [
+    "1 dan 10 gacha bo'lgan sonlar",
+    [
+     9
+    ]
+   ],
+   [
+    "Narsalar sanog'i",
+    [
+     10
+    ]
+   ],
+   [
+    "Qo'shish",
+    [
+     11
+    ]
+   ],
+   [
+    "Ayirish",
+    [
+     12
+    ]
+   ],
+   [
+    "Sonlarni taqqoslash",
+    [
+     13
+    ]
+   ],
+   [
+    "1 soni va raqami",
+    [
+     14
+    ]
+   ],
+   [
+    "2 soni va raqami",
+    [
+     15
+    ]
+   ],
+   [
+    "3 soni va raqami",
+    [
+     16
+    ]
+   ],
+   [
+    "4 soni va raqami",
+    [
+     17
+    ]
+   ],
+   [
+    "5 soni va raqami",
+    [
+     18
+    ]
+   ],
+   [
+    "1 dan 5 gacha bo'lgan sonlar",
+    [
+     19
+    ]
+   ],
+   [
+    "1 dan 5 gacha bo'lgan sonlar bilan amallar bajarish",
+    [
+     20
+    ]
+   ],
+   [
+    "6 soni va raqami",
+    [
+     21
+    ]
+   ],
+   [
+    "7 soni va raqami",
+    [
+     22
+    ]
+   ],
+   [
+    "8 soni va raqami",
+    [
+     23
+    ]
+   ],
+   [
+    "9 soni va raqami",
+    [
+     24
+    ]
+   ],
+   [
+    "0 soni va raqami",
+    [
+     25
+    ]
+   ],
+   [
+    "10 soni",
+    [
+     26
+    ]
+   ],
+   [
+    "1 dan 10 gacha bo'lgan sonlar. Sonlarni taqqoslash",
+    [
+     27
+    ]
+   ],
+   [
+    "Natural sonlar",
+    [
+     28
+    ]
+   ],
+   [
+    "Juft va toq sonlar",
+    [
+     29
+    ]
+   ],
+   [
+    "Nuqta. To'g'ri va egri chiziq",
+    [
+     30
+    ]
+   ],
+   [
+    "To'g'ri chiziq kesmasi. Siniq chiziq",
+    [
+     31
+    ]
+   ],
+   [
+    "Qo'shish hadlari",
+    [
+     32
+    ]
+   ],
+   [
+    "Ayirish hadlari",
+    [
+     33
+    ]
+   ],
+   [
+    "Noma'lum qo'shiluvchini topish",
+    [
+     34
+    ]
+   ],
+   [
+    "Noma'lum kamayuvchini topish",
+    [
+     35
+    ]
+   ],
+   [
+    "Noma'lum ayriluvchini topish",
+    [
+     36
+    ]
+   ],
+   [
+    "Qo'shish va ayirish orasidagi o'zaro bog'liqlik",
+    [
+     37
+    ]
+   ],
+   [
+    "Qo'shishning o'rin almashtirish xossasi",
+    [
+     38
+    ]
+   ],
+   [
+    "Qo'shish jadvali",
+    [
+     39
+    ]
+   ],
+   [
+    "Taqqoslash xossasi",
+    [
+     40
+    ]
+   ],
+   [
+    "Ifodalar",
+    [
+     41
+    ]
+   ]
+  ],
+  [
+   [
+    "11 dan 20 gacha bo'lgan sonlar",
+    [
+     42
+    ]
+   ],
+   [
+    "11 dan 20 gacha bo'lgan sonlarning o'nlikda yozilishi",
+    [
+     43
+    ]
+   ],
+   [
+    "11 va 12 sonlari",
+    [
+     44
+    ]
+   ],
+   [
+    "13 va 14 sonlari",
+    [
+     45
+    ]
+   ],
+   [
+    "15 va 16 sonlari",
+    [
+     46
+    ]
+   ],
+   [
+    "17 va 18 sonlari",
+    [
+     47
+    ]
+   ],
+   [
+    "19 va 20 sonlari",
+    [
+     48
+    ]
+   ],
+   [
+    "Sonlarni taqqoslash",
+    [
+     49
+    ]
+   ],
+   [
+    "Qavslar",
+    [
+     50,
+     51
+    ]
+   ],
+   [
+    "Bir xonali sonlarni o'nlikdan o'tib qo'shish",
+    [
+     52,
+     53,
+     54
+    ]
+   ],
+   [
+    "Sonlarni ayirish",
+    [
+     55
+    ]
+   ],
+   [
+    "Sonlarni bo'laklab ayirish",
+    [
+     56
+    ]
+   ],
+   [
+    "O'nlikdan ayirish usuli",
+    [
+     57
+    ]
+   ],
+   [
+    "Yaxlit sonlar",
+    [
+     58
+    ]
+   ],
+   [
+    "21 dan 100 gacha bo'lgan sonlar",
+    [
+     59
+    ]
+   ],
+   [
+    "21 dan 100 gacha bo'lgan sonlarning o'qilishi va yozilishi",
+    [
+     60,
+     61
+    ]
+   ],
+   [
+    "Ikki xonali sonlarni taqqoslash",
+    [
+     62
+    ]
+   ],
+   [
+    "Ikki xonali sonlarni qo'shish",
+    [
+     63,
+     64,
+     65
+    ]
+   ],
+   [
+    "Ikki xonali sonlarni ayirish",
+    [
+     66,
+     67,
+     68
+    ]
+   ],
+   [
+    "Qo'shish bilan ayirish orasidagi bog'lanish",
+    [
+     69
+    ]
+   ],
+   [
+    "Ko'p komponentli qo'shish",
+    [
+     70
+    ]
+   ],
+   [
+    "Qo'shishning guruhlash xossasi",
+    [
+     71
+    ]
+   ],
+   [
+    "Tarkibli ifodalar",
+    [
+     72
+    ]
+   ],
+   [
+    "Qavsli tarkibli ifodalar",
+    [
+     73
+    ]
+   ]
+  ],
+  [
+   [
+    "Masalaning tarkibi",
+    [
+     75
+    ]
+   ],
+   [
+    "Masalani yechish algoritmi",
+    [
+     76
+    ]
+   ],
+   [
+    "Sodda masalalar",
+    [
+     77
+    ]
+   ],
+   [
+    "Masala shartining berilish usullari",
+    [
+     78
+    ]
+   ],
+   [
+    "Butunni topishga doir masalalar",
+    [
+     80,
+     81,
+     82
+    ]
+   ],
+   [
+    "Qismlarni topishga doir masalalar",
+    [
+     83,
+     84
+    ]
+   ],
+   [
+    "Sonni orttirish va kamaytirishga doir masalalar",
+    [
+     86,
+     87,
+     88,
+     89
+    ]
+   ],
+   [
+    "Taqqoslashga doir masalalar",
+    [
+     90,
+     91,
+     92,
+     93
+    ]
+   ],
+   [
+    "Murakkab masalalar yechish",
+    [
+     94
+    ]
+   ],
+   [
+    "Shartni yetishmayotgan ma'lumotlar bilan to'ldirish",
+    [
+     95
+    ]
+   ],
+   [
+    "Nostandart masalalar",
+    [
+     96
+    ]
+   ],
+   [
+    "Ikki amalli masalalar yechish",
+    [
+     97
+    ]
+   ],
+   [
+    "Murakkab masalalar",
+    [
+     98
+    ]
+   ],
+   [
+    "Uzunlik. Santimetr",
+    [
+     99
+    ]
+   ],
+   [
+    "Kesmalarni o'lchash",
+    [
+     100
+    ]
+   ],
+   [
+    "Santimetr. Detsimetr",
+    [
+     101
+    ]
+   ],
+   [
+    "Detsimetr bilan santimetr orasidagi o'zaro bog'lanishi",
+    [
+     102
+    ]
+   ],
+   [
+    "Massa va massa birliklari",
+    [
+     104,
+     105
+    ]
+   ],
+   [
+    "Hajm va hajm birliklari",
+    [
+     106,
+     107
+    ]
+   ],
+   [
+    "Kattaliklar: uzunlik, massa, hajm",
+    [
+     108
+    ]
+   ],
+   [
+    "Kattaliklar va ularning xossalari",
+    [
+     109,
+     110
+    ]
+   ]
+  ],
+  [
+   [
+    "Kesma va uning uzunligi",
+    [
+     112
+    ]
+   ],
+   [
+    "Berilgan uzunlikda kesma chizish",
+    [
+     113
+    ]
+   ],
+   [
+    "Kesma xossalari",
+    [
+     114
+    ]
+   ],
+   [
+    "Siniq chiziqning uzunligi",
+    [
+     115
+    ]
+   ],
+   [
+    "Ko'pburchak",
+    [
+     116
+    ]
+   ],
+   [
+    "Ko'pburchakning perimetri",
+    [
+     117,
+     118
+    ]
+   ],
+   [
+    "To'g'ri to'rtburchak va kvadrat",
+    [
+     119,
+     120
+    ]
+   ],
+   [
+    "Burchak",
+    [
+     121
+    ]
+   ],
+   [
+    "To'rtburchaklar",
+    [
+     122
+    ]
+   ],
+   [
+    "Sohalar va chegaralar",
+    [
+     123
+    ]
+   ],
+   [
+    "Teng shakllar",
+    [
+     124
+    ]
+   ],
+   [
+    "Alohida berilgan qismlardan shakllar tuzish",
+    [
+     125
+    ]
+   ],
+   [
+    "Simmetriya",
+    [
+     126
+    ]
+   ],
+   [
+    "Simmetriya o'qlariga ega bo'lgan yassi shakllar",
+    [
+     127
+    ]
+   ],
+   [
+    "Hajmli shakllar",
+    [
+     128
+    ]
+   ],
+   [
+    "Tenglik va tengsizliklar",
+    [
+     129
+    ]
+   ],
+   [
+    "Sonli va harfiy ifodalar",
+    [
+     130
+    ]
+   ],
+   [
+    "Ifoda",
+    [
+     131
+    ]
+   ],
+   [
+    "Ifodalarning qiymatlarini taqqoslash",
+    [
+     132
+    ]
+   ],
+   [
+    "Ifodaning qiymatini hisoblash",
+    [
+     133
+    ]
+   ],
+   [
+    "Matematik amallarning xossalari",
+    [
+     134
+    ]
+   ],
+   [
+    "Sonli va harfiy tengsizliklar",
+    [
+     135
+    ]
+   ],
+   [
+    "Rim raqamlari",
+    [
+     136
+    ]
+   ],
+   [
+    "Tenglamalar",
+    [
+     137,
+     138,
+     139
+    ]
+   ],
+   [
+    "Masalalarni tenglamalar yordamida yechish",
+    [
+     140
+    ]
+   ]
+  ]
+ ],
+ "2": [
+  [
+   [
+    "Sonlarni qo'shish va ayirish",
+    [
+     9,
+     10
+    ]
+   ],
+   [
+    "Yaxlit songacha qo'shish (31 + 9)",
+    [
+     11,
+     12
+    ]
+   ],
+   [
+    "Yaxlit sondan ayirish",
+    [
+     13
+    ]
+   ],
+   [
+    "Sonlarni ayirish (30 − 7)",
+    [
+     14
+    ]
+   ],
+   [
+    "Sonlarni qo'shish (21 + 39)",
+    [
+     15,
+     16
+    ]
+   ],
+   [
+    "Ayirish (50 − 22)",
+    [
+     17,
+     18
+    ]
+   ],
+   [
+    "Sonlarni qo'shish (25 + 6)",
+    [
+     19,
+     20
+    ]
+   ],
+   [
+    "Sonlarni qo'shish (6 + 25)",
+    [
+     21
+    ]
+   ],
+   [
+    "Sonlarni ayirish (33 − 7)",
+    [
+     22
+    ]
+   ],
+   [
+    "Sonlarni ayirish (43 − 7)",
+    [
+     23,
+     24
+    ]
+   ],
+   [
+    "Sonlarni qo'shish (28 + 14)",
+    [
+     25,
+     26
+    ]
+   ],
+   [
+    "Ustun ko'rinishida qo'shish va ayirish",
+    [
+     27
+    ]
+   ],
+   [
+    "Sonlarni ayirish (43 − 16)",
+    [
+     28,
+     29
+    ]
+   ],
+   [
+    "Ustun ko'rinishida qo'shish",
+    [
+     30
+    ]
+   ],
+   [
+    "Qo'shishning xossalari",
+    [
+     31
+    ]
+   ],
+   [
+    "Ustun ko'rinishida ayirish",
+    [
+     32
+    ]
+   ],
+   [
+    "Og'zaki hisoblash usullari",
+    [
+     33
+    ]
+   ],
+   [
+    "Yig'indidan sonni ayirish",
+    [
+     34,
+     35
+    ]
+   ],
+   [
+    "Sondan yig'indini ayirish",
+    [
+     36,
+     37
+    ]
+   ]
+  ],
+  [
+   [
+    "Yuzlik. Yuzliklar bilan hisoblash",
+    [
+     42
+    ]
+   ],
+   [
+    "Uch xonali sonlarning nomlanishi va yozilishi",
+    [
+     43,
+     44,
+     45,
+     46
+    ]
+   ],
+   [
+    "Uch xonali sonlarni taqqoslash",
+    [
+     47,
+     48,
+     49
+    ]
+   ],
+   [
+    "Uch xonali sonlarni qo'shish",
+    [
+     50,
+     51
+    ]
+   ],
+   [
+    "Uch xonali sonlarni ayirish",
+    [
+     52,
+     53,
+     54
+    ]
+   ],
+   [
+    "Uch xonali sonlarni qo'shish va ayirish",
+    [
+     55
+    ]
+   ],
+   [
+    "Bir nechta sonni ustun ko'rinishida qo'shish",
+    [
+     56
+    ]
+   ],
+   [
+    "Metr, detsimetr, santimetr",
+    [
+     58,
+     59,
+     60,
+     61
+    ]
+   ],
+   [
+    "Detsimetr, santimetr, millimetr",
+    [
+     62
+    ]
+   ],
+   [
+    "Siniq chiziq uzunligi, ko'pburchak perimetri",
+    [
+     63
+    ]
+   ],
+   [
+    "Qo'shish va ayirish amallari, ularning bog'liqligi",
+    [
+     64,
+     65,
+     66
+    ]
+   ],
+   [
+    "Tenglamalar",
+    [
+     67
+    ]
+   ],
+   [
+    "Teskari amallar",
+    [
+     68
+    ]
+   ],
+   [
+    "Soat va minut",
+    [
+     69
+    ]
+   ],
+   [
+    "Soat va minutlar ishtirok etgan ifodalarni hisoblash",
+    [
+     70,
+     71,
+     73
+    ]
+   ],
+   [
+    "Mantiqiy masalalar",
+    []
+   ]
+  ],
+  [
+   [
+    "To'g'ri chiziq, nur, kesma",
+    [
+     73
+    ]
+   ],
+   [
+    "Yassi sirtlar. Tekislik",
+    [
+     74
+    ]
+   ],
+   [
+    "Burchak. Burchak turlari",
+    [
+     75
+    ]
+   ],
+   [
+    "To'g'ri to'rtburchak va kvadrat",
+    [
+     76
+    ]
+   ],
+   [
+    "To'g'ri to'rtburchak va kvadratning burchaklari xossalari",
+    [
+     77
+    ]
+   ],
+   [
+    "To'g'ri burchak yasash",
+    [
+     78
+    ]
+   ],
+   [
+    "To'g'ri to'rtburchak va kvadratning tomonlari xossalari",
+    [
+     79
+    ]
+   ],
+   [
+    "Katak qog'ozga shakl yasash",
+    [
+     80
+    ]
+   ],
+   [
+    "Yuz tushunchasi",
+    [
+     81
+    ]
+   ],
+   [
+    "Katak qog'ozdagi yuzni hisoblash",
+    [
+     82
+    ]
+   ],
+   [
+    "Yuz o'lchov birliklari",
+    [
+     83
+    ]
+   ],
+   [
+    "Ko'paytirish tushunchasi",
+    [
+     85
+    ]
+   ],
+   [
+    "To'g'ri to'rtburchakning yuzi",
+    [
+     86
+    ]
+   ],
+   [
+    "Ko'paytirish komponentlari",
+    [
+     87
+    ]
+   ],
+   [
+    "Ko'paytirishning o'rin almashtirish xossasi",
+    [
+     88
+    ]
+   ],
+   [
+    "Ko'p xonali sonlarni 1 ga ko'paytirish",
+    [
+     89
+    ]
+   ],
+   [
+    "Bir xonali sonlarni 1 ga ko'paytirish",
+    [
+     90
+    ]
+   ],
+   [
+    "2 soniga ko'paytirish",
+    [
+     91
+    ]
+   ],
+   [
+    "2 sonini ko'paytirish va 2 ga ko'paytirish",
+    [
+     92
+    ]
+   ],
+   [
+    "Sonni bo'lish. Bo'lish komponentlari",
+    [
+     93
+    ]
+   ],
+   [
+    "Sonni 2 ga bo'lish",
+    [
+     94,
+     95
+    ]
+   ],
+   [
+    "Juft va toq sonlar",
+    [
+     96
+    ]
+   ],
+   [
+    "3 sonini ko'paytirish va 3 ga ko'paytirish",
+    [
+     97
+    ]
+   ],
+   [
+    "Sonni 3 ga bo'lish",
+    [
+     98
+    ]
+   ],
+   [
+    "4 sonini ko'paytirish va 4 ga ko'paytirish",
+    [
+     99
+    ]
+   ],
+   [
+    "Sonni 4 ga bo'lish",
+    [
+     100
+    ]
+   ],
+   [
+    "5 sonini ko'paytirish va 5 ga ko'paytirish",
+    [
+     101
+    ]
+   ],
+   [
+    "Sonni 5 ga bo'lish",
+    [
+     102
+    ]
+   ],
+   [
+    "Bir necha marta orttirish",
+    [
+     103
+    ]
+   ],
+   [
+    "Bir necha marta kamaytirish",
+    [
+     104
+    ]
+   ],
+   [
+    "6 sonini ko'paytirish va 6 ga ko'paytirish",
+    [
+     105
+    ]
+   ],
+   [
+    "Sonni 6 ga bo'lish",
+    [
+     106
+    ]
+   ],
+   [
+    "7 sonini ko'paytirish va 7 ga ko'paytirish",
+    [
+     107
+    ]
+   ],
+   [
+    "Sonni 7 ga bo'lish",
+    [
+     108
+    ]
+   ],
+   [
+    "8 sonini ko'paytirish va 8 ga ko'paytirish",
+    [
+     109
+    ]
+   ],
+   [
+    "Sonni 8 ga bo'lish",
+    [
+     110
+    ]
+   ],
+   [
+    "9 sonini ko'paytirish va 9 ga ko'paytirish",
+    [
+     111
+    ]
+   ],
+   [
+    "Sonni 9 ga bo'lish",
+    [
+     112
+    ]
+   ],
+   [
+    "Ko'paytirish jadvali",
+    [
+     113
+    ]
+   ],
+   [
+    "Bo'lish bilan ko'paytirish orasidagi bog'lanish",
+    [
+     114
+    ]
+   ],
+   [
+    "Bo'luvchilar va karralilar",
+    [
+     115
+    ]
+   ],
+   [
+    "Mantiqiy masalalar",
+    []
+   ]
+  ],
+  [
+   [
+    "Ko'paytirish xossalari",
+    [
+     117,
+     118
+    ]
+   ],
+   [
+    "Nolning xossalari",
+    [
+     119
+    ]
+   ],
+   [
+    "1 ga ko'paytirish, 1 ga bo'lish",
+    [
+     120
+    ]
+   ],
+   [
+    "Ikki amalli ifodalar",
+    [
+     121
+    ]
+   ],
+   [
+    "Amallarning bajarilish tartibi",
+    [
+     122,
+     123,
+     124,
+     125
+    ]
+   ],
+   [
+    "Tenglamalar",
+    [
+     126,
+     127,
+     128
+    ]
+   ],
+   [
+    "10 ga va 100 ga ko'paytirish hamda bo'lish",
+    [
+     130,
+     131
+    ]
+   ],
+   [
+    "Ming",
+    [
+     132
+    ]
+   ],
+   [
+    "Kilometr",
+    [
+     133
+    ]
+   ],
+   [
+    "Yaxlit sonlarni ko'paytirish",
+    [
+     134,
+     135
+    ]
+   ],
+   [
+    "Yaxlit sonlarni bo'lish",
+    [
+     136,
+     137
+    ]
+   ],
+   [
+    "Yig'indini songa ko'paytirish",
+    [
+     138
+    ]
+   ],
+   [
+    "Taqsimot xossasi",
+    [
+     139,
+     140
+    ]
+   ],
+   [
+    "Ikki xonali sonni ko'paytirish",
+    [
+     141,
+     142
+    ]
+   ],
+   [
+    "Hajmli shakllar",
+    [
+     143
+    ]
+   ],
+   [
+    "Shakllarning hajmi",
+    [
+     144
+    ]
+   ],
+   [
+    "Aylana va doira",
+    [
+     145,
+     146
+    ]
+   ]
+  ]
+ ],
+ "3": [
+  [
+   [
+    "Ko'p xonali sonlar",
+    [
+     10
+    ]
+   ],
+   [
+    "Pozitsion sanoq sistemasi",
+    [
+     11
+    ]
+   ],
+   [
+    "Ko'p xonali sonlarning o'qilishi va yozilishi",
+    [
+     12,
+     13
+    ]
+   ],
+   [
+    "Ko'p xonali sonlarni taqqoslash",
+    [
+     14
+    ]
+   ],
+   [
+    "Xona qo'shiluvchilari yig'indisi",
+    [
+     15
+    ]
+   ],
+   [
+    "Ko'p xonali sonlarni qo'shish",
+    [
+     16,
+     17
+    ]
+   ],
+   [
+    "Ko'p xonali sonlarni ayirish",
+    [
+     18,
+     19
+    ]
+   ],
+   [
+    "Ko'p xonali sonlarni qo'shish va ayirish",
+    [
+     20,
+     21,
+     22
+    ]
+   ],
+   [
+    "Sonlarni 10, 100, 1000 ga ko'paytirish va bo'lish",
+    [
+     23
+    ]
+   ],
+   [
+    "Yaxlit sonlarni ko'paytirish",
+    [
+     24
+    ]
+   ],
+   [
+    "Yaxlit sonlarni bo'lish",
+    [
+     25
+    ]
+   ],
+   [
+    "Ikki xonali sonni bir xonali songa ko'paytirish",
+    [
+     26
+    ]
+   ],
+   [
+    "Uch xonali sonni bir xonali songa ko'paytirish",
+    [
+     27
+    ]
+   ],
+   [
+    "Ko'p xonali sonni bir xonali songa ko'paytirish",
+    [
+     28,
+     29
+    ]
+   ],
+   [
+    "Ikki xonali sonni ikki xonali songa ko'paytirish",
+    [
+     30
+    ]
+   ],
+   [
+    "Ko'p xonali sonni ikki xonali songa ko'paytirish",
+    [
+     31
+    ]
+   ],
+   [
+    "Ko'p xonali sonni uch xonali songa ko'paytirish",
+    [
+     32
+    ]
+   ],
+   [
+    "Yaxlit sonlarni ko'paytirish",
+    [
+     33
+    ]
+   ],
+   [
+    "O'rtasida nol bo'lgan sonlarni ko'paytirish",
+    [
+     34
+    ]
+   ],
+   [
+    "Narx, miqdor va qiymat",
+    [
+     37
+    ]
+   ],
+   [
+    "Soatlar, minutlar, sekundlar",
+    [
+     39
+    ]
+   ]
+  ],
+  [
+   [
+    "Yig'indini songa bo'lish",
+    [
+     40
+    ]
+   ],
+   [
+    "Ikki xonali sonni bir xonali songa bo'lish",
+    [
+     41
+    ]
+   ],
+   [
+    "Qoldiq",
+    [
+     42
+    ]
+   ],
+   [
+    "Qoldiqli bo'lish",
+    [
+     43
+    ]
+   ],
+   [
+    "Burchakli bo'lish",
+    [
+     44,
+     45,
+     46
+    ]
+   ],
+   [
+    "Ko'p xonali sonlarni qoldiqli bo'lish",
+    [
+     48
+    ]
+   ],
+   [
+    "O'rtasida 0 raqami bor sonlarni bo'lish",
+    [
+     49
+    ]
+   ],
+   [
+    "0 bilan tugagan sonlarni bo'lish",
+    [
+     50
+    ]
+   ],
+   [
+    "Yaxlit sonlarni bo'lish",
+    [
+     51
+    ]
+   ],
+   [
+    "Bo'lishning geometrik ma'nosi",
+    [
+     52
+    ]
+   ],
+   [
+    "Ikki xonali sonni ikki xonali songa burchakli bo'lish",
+    [
+     54
+    ]
+   ],
+   [
+    "Ikki xonali songa burchakli bo'lish",
+    [
+     55
+    ]
+   ],
+   [
+    "Uch xonali songa burchakli bo'lish",
+    [
+     56,
+     57,
+     58
+    ]
+   ],
+   [
+    "Bo'luvchilar va karralilar",
+    [
+     59
+    ]
+   ],
+   [
+    "Kesmani teng bo'laklarga bo'lish",
+    [
+     62
+    ]
+   ],
+   [
+    "To'g'ri to'rtburchakning perimetri",
+    [
+     63
+    ]
+   ],
+   [
+    "Muntazam shakllarning perimetri",
+    [
+     64
+    ]
+   ],
+   [
+    "Nostandart shakllarning perimetri",
+    [
+     65
+    ]
+   ],
+   [
+    "Yuzning xossalari",
+    [
+     66
+    ]
+   ],
+   [
+    "Yuzni topishning nostandart usullari",
+    [
+     67
+    ]
+   ],
+   [
+    "Nostandart shakllarning yuzi",
+    [
+     68
+    ]
+   ],
+   [
+    "Mantiqiy masalalar",
+    []
+   ]
+  ],
+  [
+   [
+    "Kilogramm va gramm",
+    [
+     69
+    ]
+   ],
+   [
+    "Tonna va sentner",
+    [
+     70
+    ]
+   ],
+   [
+    "Massa birliklari",
+    [
+     71
+    ]
+   ],
+   [
+    "Uzunlik birliklari",
+    [
+     72,
+     73
+    ]
+   ],
+   [
+    "Uzunlik birliklari va ularning bog'liqligi",
+    [
+     74
+    ]
+   ],
+   [
+    "Yuz birliklari",
+    [
+     75,
+     76
+    ]
+   ],
+   [
+    "Yuz birliklari va ular orasidagi bog'lanishlar",
+    [
+     77
+    ]
+   ],
+   [
+    "Hajm birliklari",
+    [
+     79
+    ]
+   ],
+   [
+    "Hajm birliklari va ular orasidagi bog'lanishlar",
+    [
+     80
+    ]
+   ],
+   [
+    "Yuzlarni paletka yordamida hisoblash",
+    [
+     82,
+     83
+    ]
+   ],
+   [
+    "Parallelepiped va kub",
+    [
+     84
+    ]
+   ],
+   [
+    "Kub qirralari uzunliklari yig'indisi",
+    [
+     85
+    ]
+   ],
+   [
+    "To'g'ri burchakli parallelepiped qirralari uzunliklari yig'indisi",
+    [
+     86
+    ]
+   ],
+   [
+    "Kubning yoyilmasi",
+    [
+     87
+    ]
+   ],
+   [
+    "To'g'ri burchakli parallelepipedning yoyilmasi",
+    [
+     88
+    ]
+   ],
+   [
+    "Doira va aylana",
+    [
+     89
+    ]
+   ],
+   [
+    "Aylana yasash",
+    [
+     90
+    ]
+   ],
+   [
+    "Aylana yordamida naqsh chizish",
+    [
+     91
+    ]
+   ],
+   [
+    "Doirani teng bo'laklarga bo'lish",
+    [
+     92
+    ]
+   ],
+   [
+    "Doiraning ulushlari",
+    [
+     93
+    ]
+   ],
+   [
+    "Doiraning ulushi. Soatlar va minutlar",
+    [
+     94
+    ]
+   ],
+   [
+    "Sonning ulushini topish",
+    [
+     95
+    ]
+   ],
+   [
+    "Parallel to'g'ri chiziqlar",
+    [
+     96
+    ]
+   ],
+   [
+    "Perpendikular to'g'ri chiziqlar",
+    [
+     97
+    ]
+   ],
+   [
+    "Koordinata nuri",
+    [
+     98
+    ]
+   ],
+   [
+    "Koordinata nuri yordamida taqqoslash",
+    [
+     99
+    ]
+   ],
+   [
+    "Tenglik va tengsizliklar",
+    [
+     100
+    ]
+   ],
+   [
+    "Sonli nur yordamida qo'shish va ayirish",
+    [
+     101
+    ]
+   ],
+   [
+    "Sonli nur yordamida masalalar yechish",
+    [
+     102
+    ]
+   ],
+   [
+    "Sodda tenglamalar",
+    [
+     103
+    ]
+   ],
+   [
+    "Tengsizliklarni sonli nur yordamida yechish",
+    [
+     104
+    ]
+   ],
+   [
+    "Koordinata burchagi",
+    [
+     105
+    ]
+   ],
+   [
+    "Koordinata burchagida nuqtalar yasash",
+    [
+     106
+    ]
+   ],
+   [
+    "O'qli simmetriya",
+    [
+     107
+    ]
+   ],
+   [
+    "Simmetrik shakllar",
+    [
+     108
+    ]
+   ],
+   [
+    "Tarkibli tenglamalar",
+    [
+     109
+    ]
+   ],
+   [
+    "Tenglamalarni soddalashtirish",
+    [
+     110
+    ]
+   ]
+  ],
+  [
+   [
+    "Muntazam shakllarning perimetri",
+    [
+     111
+    ]
+   ],
+   [
+    "To'g'ri to'rtburchak va kvadratning yuzi",
+    [
+     112
+    ]
+   ],
+   [
+    "Kuboidning hajmi",
+    [
+     113
+    ]
+   ],
+   [
+    "Qoldiqli bo'lish",
+    [
+     114
+    ]
+   ],
+   [
+    "Amaliy masalalar yechish",
+    [
+     115
+    ]
+   ],
+   [
+    "Harakat va tezlik",
+    [
+     117
+    ]
+   ],
+   [
+    "Masofa, vaqt, tezlik",
+    [
+     118
+    ]
+   ],
+   [
+    "Harakatga doir masalalar yechish",
+    [
+     119,
+     120
+    ]
+   ],
+   [
+    "Narx, miqdor, qiymat",
+    [
+     121
+    ]
+   ],
+   [
+    "Qiymatga doir masalalar yechish",
+    [
+     122,
+     123,
+     124
+    ]
+   ],
+   [
+    "Unumdorlik",
+    [
+     125
+    ]
+   ],
+   [
+    "Unumdorlikka doir masalalar yechish",
+    [
+     126,
+     127
+    ]
+   ],
+   [
+    "To'plamlar",
+    [
+     128
+    ]
+   ],
+   [
+    "To'plamlar va ularning qismto'plamlari",
+    [
+     129
+    ]
+   ],
+   [
+    "To'plamga tegishlilik",
+    [
+     130
+    ]
+   ],
+   [
+    "Eyler-Venn diagrammasi",
+    [
+     131
+    ]
+   ],
+   [
+    "Qismto'plam",
+    [
+     132
+    ]
+   ],
+   [
+    "To'plamlar kesishmasi",
+    [
+     133
+    ]
+   ],
+   [
+    "To'plamlar birlashmasi",
+    [
+     134
+    ]
+   ],
+   [
+    "Mulohazalar",
+    [
+     136
+    ]
+   ]
+  ]
+ ],
+ "4": [
+  [
+   [
+    "Bo'luvchilar va karralilar",
+    [
+     12
+    ]
+   ],
+   [
+    "10 ga bo'linish alomati",
+    [
+     13
+    ]
+   ],
+   [
+    "5 ga bo'linish alomati",
+    [
+     14
+    ]
+   ],
+   [
+    "2 ga bo'linish alomati",
+    [
+     15
+    ]
+   ],
+   [
+    "3 ga bo'linish alomati",
+    [
+     16
+    ]
+   ],
+   [
+    "9 ga bo'linish alomati",
+    [
+     17
+    ]
+   ],
+   [
+    "4 ga bo'linish alomati",
+    [
+     18
+    ]
+   ],
+   [
+    "To'plamlar va ma'lumotlar",
+    [
+     21
+    ]
+   ],
+   [
+    "Ma'lumotlarni taqdim etish usullari",
+    [
+     22
+    ]
+   ],
+   [
+    "O'rta arifmetik",
+    [
+     23
+    ]
+   ],
+   [
+    "Chastota",
+    [
+     24
+    ]
+   ],
+   [
+    "Parallel va perpendikular to'g'ri chiziqlar",
+    [
+     27
+    ]
+   ],
+   [
+    "Koordinata nuri",
+    [
+     28
+    ]
+   ],
+   [
+    "Koordinata burchagi",
+    [
+     29
+    ]
+   ],
+   [
+    "Ustunli diagramma",
+    [
+     30
+    ]
+   ],
+   [
+    "Chiziqli diagramma",
+    [
+     31
+    ]
+   ],
+   [
+    "Grafik",
+    [
+     33
+    ]
+   ],
+   [
+    "Venn diagrammasi",
+    [
+     36
+    ]
+   ],
+   [
+    "Ekologik masalalar",
+    [
+     39
+    ]
+   ]
+  ],
+  [
+   [
+    "Sonli nur va shkala",
+    [
+     41
+    ]
+   ],
+   [
+    "Nuqtadan 0 gacha bo'lgan masofa",
+    [
+     42
+    ]
+   ],
+   [
+    "Nurning nuqtalari orasidagi masofa",
+    [
+     43
+    ]
+   ],
+   [
+    "Nuqtaning koordinata nuri bo'ylab harakati",
+    [
+     44
+    ]
+   ],
+   [
+    "Yo'l, vaqt, tezlik",
+    [
+     46
+    ]
+   ],
+   [
+    "Nuqtalarning birgalikdagi harakati",
+    [
+     47
+    ]
+   ],
+   [
+    "Qarama-qarshi harakat",
+    [
+     48,
+     49,
+     50,
+     51
+    ]
+   ],
+   [
+    "Quvlama harakat",
+    [
+     52,
+     53
+    ]
+   ],
+   [
+    "Kechikishli harakat",
+    [
+     54,
+     55
+    ]
+   ],
+   [
+    "Aniq va taqribiy qiymatlar",
+    [
+     56
+    ]
+   ],
+   [
+    "O'lchash xatoligi",
+    [
+     57
+    ]
+   ],
+   [
+    "Taqribiy tenglik",
+    [
+     58
+    ]
+   ],
+   [
+    "O'nliklargacha aniqlikda yaxlitlash",
+    [
+     59
+    ]
+   ],
+   [
+    "Yuzliklargacha aniqlikda yaxlitlash",
+    [
+     60
+    ]
+   ],
+   [
+    "Berilgan aniqlikda yaxlitlash",
+    [
+     61
+    ]
+   ],
+   [
+    "Ortig'i va kami bilan yaxlitlash",
+    [
+     62,
+     63
+    ]
+   ],
+   [
+    "Qiymatlarni chamalash",
+    [
+     64,
+     65
+    ]
+   ],
+   [
+    "Hisoblashning qulay usullari",
+    [
+     66
+    ]
+   ],
+   [
+    "Yuzni hisoblash usuli",
+    [
+     67,
+     68
+    ]
+   ]
+  ],
+  [
+   [
+    "Bo'lish",
+    [
+     72,
+     73
+    ]
+   ],
+   [
+    "Ulush va qismlar",
+    [
+     74,
+     75
+    ]
+   ],
+   [
+    "Sonning qismini topish",
+    [
+     76
+    ]
+   ],
+   [
+    "Kattaliklarning qismlari",
+    [
+     77,
+     78
+    ]
+   ],
+   [
+    "To'g'ri va noto'g'ri kasrlar",
+    [
+     79
+    ]
+   ],
+   [
+    "Aralash kasrlar",
+    [
+     80
+    ]
+   ],
+   [
+    "Kasrlarning sonli nurda tasvirlanishi",
+    [
+     81
+    ]
+   ],
+   [
+    "Noto'g'ri kasrdan butun qismni ajratish",
+    [
+     82
+    ]
+   ],
+   [
+    "Aralash kasrni noto'g'ri kasrga aylantirish",
+    [
+     83
+    ]
+   ],
+   [
+    "Kasrlarni taqqoslash",
+    [
+     84,
+     85
+    ]
+   ],
+   [
+    "Kasrlarni qo'shish va ayirish",
+    [
+     88,
+     89,
+     90
+    ]
+   ],
+   [
+    "Aralash kasrlarni qo'shish va ayirish",
+    [
+     91
+    ]
+   ],
+   [
+    "Aralash kasrlarni qo'shish",
+    [
+     92,
+     93
+    ]
+   ],
+   [
+    "Birdan ayirish",
+    [
+     94,
+     95
+    ]
+   ],
+   [
+    "Butundan aralash kasrni ayirish",
+    [
+     96
+    ]
+   ],
+   [
+    "Kasrlarni birlikdan o'tib ayirish",
+    [
+     97,
+     98
+    ]
+   ],
+   [
+    "Kasrlarni natural songa ko'paytirish",
+    [
+     99
+    ]
+   ],
+   [
+    "O'nli kasr",
+    [
+     101
+    ]
+   ],
+   [
+    "O'nli kasrlarning xonalari. O'ndan birlar",
+    [
+     102
+    ]
+   ],
+   [
+    "O'nli kasrlarning xonalari. Yuzdan birlar",
+    [
+     103
+    ]
+   ],
+   [
+    "O'nli kasrlarning xonalari. Mingdan birlar",
+    [
+     104
+    ]
+   ],
+   [
+    "Uzunlikning o'nli ulushlar ko'rinishida yozilishi",
+    [
+     105,
+     106
+    ]
+   ],
+   [
+    "Massaning o'nli ulushlar ko'rinishida yozilishi",
+    [
+     107
+    ]
+   ],
+   [
+    "Foiz",
+    [
+     108
+    ]
+   ]
+  ],
+  [
+   [
+    "O'q simmetriya",
+    [
+     109
+    ]
+   ],
+   [
+    "To'g'ri chiziqqa nisbatan simmetriya",
+    [
+     110
+    ]
+   ],
+   [
+    "Markaziy simmetriya",
+    [
+     111
+    ]
+   ],
+   [
+    "Nostandart shakllar yuzi",
+    [
+     113
+    ]
+   ],
+   [
+    "Shakllarni to'g'ri to'rtburchakkacha to'ldirish",
+    [
+     114
+    ]
+   ],
+   [
+    "To'g'ri burchakli parallelepiped (kuboid)",
+    [
+     115
+    ]
+   ],
+   [
+    "Ko'pburchak va prizma",
+    [
+     116
+    ]
+   ],
+   [
+    "Prizma va uning yoyilmasi",
+    [
+     117
+    ]
+   ],
+   [
+    "Uchburchak va piramida",
+    [
+     118
+    ]
+   ],
+   [
+    "Ko'pburchak va piramida",
+    [
+     119
+    ]
+   ],
+   [
+    "Piramida va uning yoyilmasi",
+    [
+     120
+    ]
+   ],
+   [
+    "Doira va shar",
+    [
+     121
+    ]
+   ],
+   [
+    "Doira va silindr",
+    [
+     122
+    ]
+   ],
+   [
+    "Silindr va uning yoyilmasi",
+    [
+     123
+    ]
+   ],
+   [
+    "Doira va konus",
+    [
+     124
+    ]
+   ],
+   [
+    "Konus va uning yoyilmasi",
+    [
+     125
+    ]
+   ],
+   [
+    "Burchaklarni taqqoslash",
+    [
+     127
+    ]
+   ],
+   [
+    "Burchakning gradus o'lchovi",
+    [
+     128
+    ]
+   ],
+   [
+    "Burchakni transportir bilan o'lchash",
+    [
+     129,
+     130,
+     131
+    ]
+   ],
+   [
+    "Berilgan gradus o'lchovi bo'yicha burchakni yasash",
+    [
+     132,
+     133
+    ]
+   ]
+  ]
+ ]
+}

@@ -1,0 +1,560 @@
+{
+ "1": {
+  "id": "algebraik-ifodalar",
+  "nom": "Algebraik ifodalar",
+  "darslik": "D1",
+  "d": [
+   [
+    2,
+    9
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    1,
+    8
+   ]
+  ]
+ },
+ "2": {
+  "id": "ifodalarni-soddalashtirish",
+  "nom": "Algebraik ifodalarni soddalashtirish",
+  "darslik": "D1",
+  "d": [
+   [
+    10,
+    12
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    9,
+    10
+   ]
+  ]
+ },
+ "3": {
+  "id": "ifoda-qiymatini-topish",
+  "nom": "Algebraik ifodaning qiymatini topish",
+  "darslik": "D1",
+  "d": [
+   [
+    13,
+    18
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    11,
+    18
+   ]
+  ]
+ },
+ "4": {
+  "id": "tenglamalarni-yechish",
+  "nom": "Tenglamalarni yechish",
+  "darslik": "D1",
+  "d": [
+   [
+    19,
+    24
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    19,
+    32
+   ]
+  ]
+ },
+ "5": {
+  "id": "kasrni-natural-songa-bolish",
+  "nom": "To'g'ri kasrni natural songa bo'lish",
+  "darslik": "D1",
+  "d": [
+   [
+    26,
+    32
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    33,
+    40
+   ]
+  ]
+ },
+ "6": {
+  "id": "natural-sonni-kasrga-bolish",
+  "nom": "Natural sonni to'g'ri kasrga bo'lish",
+  "darslik": "D1",
+  "d": [
+   [
+    33,
+    35
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    41,
+    48
+   ]
+  ]
+ },
+ "7": {
+  "id": "kasrni-kasrga-bolish",
+  "nom": "To'g'ri kasrni to'g'ri kasrga bo'lish (+ matnli masalalar)",
+  "darslik": "D1",
+  "d": [
+   [
+    36,
+    48
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    49,
+    66
+   ]
+  ]
+ },
+ "8": {
+  "id": "nisbat-va-kasr",
+  "nom": "Nisbat va kasr (+ matnli masalalar)",
+  "darslik": "D1",
+  "d": [
+   [
+    52,
+    66
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    73,
+    86
+   ]
+  ]
+ },
+ "9": {
+  "id": "uch-miqdor-nisbati",
+  "nom": "Uch miqdor nisbati",
+  "darslik": "D1",
+  "d": [
+   [
+    67,
+    71
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    87,
+    94
+   ]
+  ]
+ },
+ "10": {
+  "id": "ozgaruvchan-nisbatlar",
+  "nom": "O'zgaruvchan nisbatlar",
+  "darslik": "D1",
+  "d": [
+   [
+    72,
+    82
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    95,
+    110
+   ]
+  ]
+ },
+ "11": {
+  "id": "sonni-foiziga-kora-topish",
+  "nom": "Foizi va qismiga ko'ra sonning o'zini topish",
+  "darslik": "D1",
+  "d": [
+   [
+    84,
+    90
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    111,
+    122
+   ]
+  ]
+ },
+ "12": {
+  "id": "osish-kamayish-foizi",
+  "nom": "O'sish va kamayish foizi (+ matnli masalalar)",
+  "darslik": "D1",
+  "d": [
+   [
+    91,
+    112
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    123,
+    142
+   ]
+  ]
+ },
+ "13": {
+  "id": "shakllardagi-nomalum-burchaklar",
+  "nom": "Geometrik shakllardagi noma'lum burchaklar",
+  "darslik": "D1",
+  "d": [
+   [
+    116,
+    126
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    151,
+    168
+   ]
+  ]
+ },
+ "14": {
+  "id": "doira-aylana-elementlari",
+  "nom": "Doira va aylana elementlari",
+  "darslik": "D1",
+  "d": [
+   [
+    128,
+    133
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    169,
+    170
+   ]
+  ]
+ },
+ "15": {
+  "id": "aylana-uzunligi",
+  "nom": "Aylananing uzunligi",
+  "darslik": "D1",
+  "d": [
+   [
+    134,
+    139
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    171,
+    176
+   ]
+  ]
+ },
+ "16": {
+  "id": "yarim-chorak-doira-perimetri",
+  "nom": "Yarim va chorak doira perimetri",
+  "darslik": "D1",
+  "d": [
+   [
+    140,
+    144
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    177,
+    182
+   ]
+  ]
+ },
+ "17": {
+  "id": "doira-yuzi",
+  "nom": "Doiraning yuzi",
+  "darslik": "D1",
+  "d": [
+   [
+    145,
+    149
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    183,
+    184
+   ]
+  ]
+ },
+ "18": {
+  "id": "yarim-chorak-doira-yuzi",
+  "nom": "Yarim va chorak doira yuzi",
+  "darslik": "D1",
+  "d": [
+   [
+    150,
+    152
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    185,
+    186
+   ]
+  ]
+ },
+ "19": {
+  "id": "murakkab-shakllar-yuzi-perimetri",
+  "nom": "Murakkab shakllarning yuzi va perimetri",
+  "darslik": "D1",
+  "d": [
+   [
+    153,
+    162
+   ]
+  ],
+  "daftar": "M1",
+  "m": [
+   [
+    187,
+    198
+   ]
+  ]
+ },
+ "20": {
+  "id": "tezlik-masofa-vaqt",
+  "nom": "Tezlik, masofa va vaqt",
+  "darslik": "D2",
+  "d": [
+   [
+    2,
+    11
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    1,
+    10
+   ]
+  ]
+ },
+ "21": {
+  "id": "ikki-xil-tezlikdagi-harakat",
+  "nom": "Ikki xil tezlikdagi harakat",
+  "darslik": "D2",
+  "d": [
+   [
+    12,
+    14
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    11,
+    14
+   ]
+  ]
+ },
+ "22": {
+  "id": "ortacha-tezlik",
+  "nom": "O'rtacha tezlik",
+  "darslik": "D2",
+  "d": [
+   [
+    15,
+    19
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    15,
+    18
+   ]
+  ]
+ },
+ "23": {
+  "id": "ikki-jism-harakati",
+  "nom": "Ikki jism harakati: uchrashish va quvib yetish",
+  "darslik": "D2",
+  "d": [
+   [
+    20,
+    26
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    19,
+    28
+   ]
+  ]
+ },
+ "24": {
+  "id": "kuboid-qirrasini-topish",
+  "nom": "Kuboidning qirrasini topish",
+  "darslik": "D2",
+  "d": [
+   [
+    28,
+    34
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    29,
+    34
+   ]
+  ]
+ },
+ "25": {
+  "id": "kub-qirrasini-topish",
+  "nom": "Kubning qirrasini topish",
+  "darslik": "D2",
+  "d": [
+   [
+    35,
+    38
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    35,
+    36
+   ]
+  ]
+ },
+ "26": {
+  "id": "kuboid-kub-yogi-yuzi",
+  "nom": "Kuboid va kubning bir yog'i yuzi (+ matnli masalalar)",
+  "darslik": "D2",
+  "d": [
+   [
+    39,
+    48
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    37,
+    56
+   ]
+  ]
+ },
+ "27": {
+  "id": "doiraviy-diagramma-tuzish",
+  "nom": "Doiraviy diagrammada ma'lumotlarni taqdim etish",
+  "darslik": "D2",
+  "d": [
+   [
+    52,
+    56
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    63,
+    70
+   ]
+  ]
+ },
+ "28": {
+  "id": "doiraviy-diagramma-oqish",
+  "nom": "Doiraviy diagrammani o'qish va talqin qilish",
+  "darslik": "D2",
+  "d": [
+   [
+    57,
+    72
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    71,
+    80
+   ]
+  ]
+ },
+ "29": {
+  "id": "konus-silindr-prizma-piramida",
+  "nom": "Konus, silindr, prizma va piramida",
+  "darslik": "D2",
+  "d": [
+   [
+    74,
+    77
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    81,
+    84
+   ]
+  ]
+ },
+ "30": {
+  "id": "panjarada-fazoviy-jismlar",
+  "nom": "Uch o'lchamli panjarada fazoviy jismlarni chizish",
+  "darslik": "D2",
+  "d": [
+   [
+    78,
+    81
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    85,
+    88
+   ]
+  ]
+ },
+ "31": {
+  "id": "fazoviy-jismlar-yoyilmasi",
+  "nom": "Fazoviy jismlarning yoyilmasi",
+  "darslik": "D2",
+  "d": [
+   [
+    82,
+    90
+   ]
+  ],
+  "daftar": "M2",
+  "m": [
+   [
+    89,
+    100
+   ]
+  ]
+ }
+}
