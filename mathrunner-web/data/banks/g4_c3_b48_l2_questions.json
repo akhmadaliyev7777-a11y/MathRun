@@ -2,7 +2,7 @@
   {"id": "sinf4_chorak3_blok48_level2_qosh_01", "question": "2/7 + 3/7 = ?", "correctAnswer": "5/7", "wrongAnswers": ["5/14", "6/7"]},
   {"id": "sinf4_chorak3_blok48_level2_qosh_02", "question": "1/5 + 3/5 = ?", "correctAnswer": "4/5", "wrongAnswers": ["4/10", "3/5"]},
   {"id": "sinf4_chorak3_blok48_level2_qosh_03", "question": "3/8 + 4/8 = ?", "correctAnswer": "7/8", "wrongAnswers": ["7/16", "1/8"]},
-  {"id": "sinf4_chorak3_blok48_level2_qosh_04", "question": "1/6 + 1/6 + 1/6 = ?", "correctAnswer": "3/6", "wrongAnswers": ["3/18", "1/6"]},
+  {"id": "sinf4_chorak3_blok48_level2_qosh_04", "question": "1/6 + 1/6 + 1/6 = ?", "correctAnswer": "3/6", "wrongAnswers": ["3/18", "2/6"]},
   {"id": "sinf4_chorak3_blok48_level2_qosh_05", "question": "2/9 + 5/9 = ?", "correctAnswer": "7/9", "wrongAnswers": ["7/18", "3/9"]},
   {"id": "sinf4_chorak3_blok48_level2_qosh_06", "question": "Aziz 1/4 + 2/4 ni hisoblab 3/8 dedi. Xatosi nimada?", "correctAnswer": "Bir xil maxrajli kasrlarni qo'shganda MAXRAJ o'zgarmaydi: 1/4 + 2/4 = 3/4", "wrongAnswers": ["Xato yo'q", "Suratlar ham qo'shilmaydi"]},
   {"id": "sinf4_chorak3_blok48_level2_qosh_07", "question": "4/10 + 3/10 = ?", "correctAnswer": "7/10", "wrongAnswers": ["7/20", "1/10"]},

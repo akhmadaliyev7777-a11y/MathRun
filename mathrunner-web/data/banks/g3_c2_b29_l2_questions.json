@@ -19,29 +19,29 @@
   },
   {
     "id": "s3c2b29l2_03",
-    "question": "3 ga karrali dastlabki 4 ta natural son qaysilar?  (3, 6, 9, 12 = 1;  1, 3, 6, 9 = 2)",
-    "correctAnswer": 1,
+    "question": "3 ga karrali dastlabki 4 ta natural son qaysilar?",
+    "correctAnswer": "3, 6, 9, 12",
     "wrongAnswers": [
-      2,
-      3
+      "1, 3, 6, 9",
+      "6, 9, 12, 15"
     ]
   },
   {
     "id": "s3c2b29l2_04",
-    "question": "15 soni 3 ning karralisimi?  (Ha = 1, Yo'q = 2)",
-    "correctAnswer": 1,
+    "question": "15 soni 3 ning karralisimi?",
+    "correctAnswer": "Ha",
     "wrongAnswers": [
-      2,
-      3
+      "Yo'q",
+      "Aniqlab bo'lmaydi"
     ]
   },
   {
     "id": "s3c2b29l2_05",
-    "question": "24 sonining bo'luvchisi bo'lmagan son qaysi?  (7 = 1, 6 = 2, 8 = 3)",
-    "correctAnswer": 1,
+    "question": "24 sonining bo'luvchisi bo'lmagan son qaysi?",
+    "correctAnswer": 7,
     "wrongAnswers": [
-      2,
-      3
+      6,
+      8
     ]
   },
   {
@@ -82,11 +82,11 @@
   },
   {
     "id": "s3c2b29l2_10",
-    "question": "36 soni quyidagilardan qaysi biriga bo'linmaydi?  (5 = 1, 4 = 2, 9 = 3)",
-    "correctAnswer": 1,
+    "question": "36 soni quyidagilardan qaysi biriga bo'linmaydi?",
+    "correctAnswer": 5,
     "wrongAnswers": [
-      2,
-      3
+      4,
+      9
     ]
   }
 ]

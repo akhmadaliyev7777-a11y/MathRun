@@ -895,7 +895,7 @@ function ensurePrimaryBanks() {
   Promise.all(keys.map(function (k) {
     const info = primaryLevelInfo(k);
     if (!info) return null;
-    return fetch("mathrunner-web/data/" + info.l.bank + "?v=3").then(function (r) { return r.json(); })
+    return fetch("mathrunner-web/data/" + info.l.bank + "?v=4").then(function (r) { return r.json(); })
       .then(function (bank) { MW_QUIZ[k] = bank.map(mwToQuestion); }).catch(function () {});
   })).then(function () { renderResultsSection(); });
 }

@@ -8,5 +8,5 @@
   {"id": "sinf4_chorak3_blok50_level1_bir_07", "question": "1 − 4/9 = ?", "correctAnswer": "5/9", "wrongAnswers": ["4/9", "9/9"]},
   {"id": "sinf4_chorak3_blok50_level1_bir_08", "question": "1 ni maxraji 7 bo'lgan kasr shaklida qanday yozamiz?", "correctAnswer": "7/7", "wrongAnswers": ["1/7", "7/1"]},
   {"id": "sinf4_chorak3_blok50_level1_bir_09", "question": "Birdan kasrni ayirish uchun avval nima qilinadi?", "correctAnswer": "1 ayiriladigan kasr bilan bir xil maxrajli noto'g'ri kasrga aylantiriladi", "wrongAnswers": ["Kasr butun songa aylantiriladi", "Hech narsa, to'g'ridan-to'g'ri ayiriladi"]},
-  {"id": "sinf4_chorak3_blok50_level1_bir_10", "question": "1 − 6/6 = ?", "correctAnswer": "0", "wrongAnswers": ["1", "6/6"]}
+  {"id": "sinf4_chorak3_blok50_level1_bir_10", "question": "1 − 6/6 = ?", "correctAnswer": "0", "wrongAnswers": ["1", "5/6"]}
 ]

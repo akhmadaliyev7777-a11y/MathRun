@@ -4,6 +4,7 @@ Har savolda: q (matn), options (4 variant), correct (0..3), d (qiyinlik 1..3).
 O'rtacha qiyinlik: ko'pi d=2. Har kategoriya ~44 savol -> bir o'yinga (30 juft) yetadi.
 Qayta ishga tushirilsa faylni yangilaydi. Qo'lda ham tahrirlash mumkin."""
 import json, random, os
+from fractions import Fraction
 
 random.seed(2026)
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "tug_questions.json")
@@ -41,6 +42,40 @@ def mixed(w, n, d):
     if w == 0:
         return frac(n, d)
     return f"{w} {n}/{d}"
+
+def qiymat(s):
+    """«3/4», «2 1/3», «5» -> Fraction (variantlarni qiymati bo'yicha solishtirish uchun)."""
+    s = str(s)
+    if " " in s:
+        w, f = s.split(" ")
+        return int(w) + Fraction(f)
+    return Fraction(s)
+
+def kasr_variantlar(ans, wr, zaxira, tasodifiy):
+    """ans + 3 ta chalg'ituvchi. Qiymati teng variant bo'lmasin: «4/16» va «2/8»,
+    «6/6» va «5/5» yoki «3 7/5» va «4 2/5» bir xil son — o'quvchi to'g'ri tanlasa ham
+    xato chiqadi. Teng chiqqani zaxiradagi (oldindan belgilangan) xato bilan almashtiriladi,
+    yetmasa — tasodifiy. tools/teng_variantlar.py shu qoidani tekshiradi."""
+    o, bor = [ans], {qiymat(ans)}
+    nav = [w for w in wr if w != ans]
+    for w in nav:
+        if w in o:
+            continue
+        if qiymat(w) in bor:
+            # qiymati teng — zaxiradan birinchi mos kelganini olamiz
+            for z in zaxira:
+                if z not in o and qiymat(z) not in bor:
+                    o.append(z); bor.add(qiymat(z))
+                    break
+            continue
+        o.append(w); bor.add(qiymat(w))
+    for _ in range(500):
+        if len(o) == 4:
+            break
+        v = tasodifiy()
+        if v not in o and qiymat(v) not in bor:
+            o.append(v); bor.add(qiymat(v))
+    return o[:4]
 
 def dedup_cap(rows, per_cat=PER_CAT):
     seen, out = set(), []
@@ -126,19 +161,17 @@ def cat_kasr_teng():
             b = random.randint(1, dn - 1 - a)
             ans = frac(a + b, dn)
             wr = [frac(a + b, dn + dn), frac(a + b + 1, dn), frac(max(1, abs(a - b)), dn)]
+            zx = [frac(a + b + 2, dn), frac(max(1, a + b - 1), dn)]
             text = f"{frac(a, dn)} + {frac(b, dn)} = ?"
         else:
             a = random.randint(2, dn - 1)
             b = random.randint(1, a - 1)
             ans = frac(a - b, dn)
             wr = [frac(a + b, dn), frac(a - b, max(1, dn - b)), frac(a, dn)]
+            zx = [frac(a - b + 1, dn), frac(a + b + 1, dn)]
             text = f"{frac(a, dn)} − {frac(b, dn)} = ?"
             d = min(3, d + 1) if dn >= 9 else d
-        o = [ans] + [w for w in wr if w != ans]
-        while len(o) < 4:
-            o.append(frac(random.randint(1, dn), dn))
-            o = list(dict.fromkeys(o))
-        o = o[:4]
+        o = kasr_variantlar(ans, wr, zx, lambda: frac(random.randint(1, dn), dn))
         random.shuffle(o)
         rows.append({"q": text, "options": o, "correct": o.index(ans), "d": d})
     return dedup_cap(rows)
@@ -165,11 +198,8 @@ def cat_kasr_aralash():
         ans = mixed(aw, an, dn)
         d = 2 if (w1 + w2) <= 6 else 3
         wr = [mixed(aw + 1, an, dn), mixed(aw, max(0, an - 1), dn), mixed(max(0, aw - 1), (an + 2) % max(1, dn), dn)]
-        o = [ans] + [w for w in wr if w != ans]
-        while len(o) < 4:
-            o.append(mixed(random.randint(0, 6), random.randint(0, dn - 1), dn))
-            o = list(dict.fromkeys(o))
-        o = o[:4]
+        zx = [mixed(aw + 2, an, dn), mixed(aw, (an + 1) % dn, dn)]
+        o = kasr_variantlar(ans, wr, zx, lambda: mixed(random.randint(0, 6), random.randint(0, dn - 1), dn))
         random.shuffle(o)
         rows.append({"q": text, "options": o, "correct": o.index(ans), "d": d})
     return dedup_cap(rows)
@@ -184,11 +214,8 @@ def cat_kasr_kop():
         ans = frac(n * k, dn)
         d = 1 if (k <= 3 and dn <= 8) else (3 if n * k > 2 * dn else 2)
         wr = [frac(n * k, dn * k), frac(n + k, dn), frac(n * k, max(1, dn - 1))]
-        o = [ans] + [w for w in wr if w != ans]
-        while len(o) < 4:
-            o.append(frac(random.randint(1, 2 * dn), dn))
-            o = list(dict.fromkeys(o))
-        o = o[:4]
+        zx = [frac(n * k + 1, dn), frac(max(1, n * k - 1), dn), frac(n, dn * k)]
+        o = kasr_variantlar(ans, wr, zx, lambda: frac(random.randint(1, 2 * dn), dn))
         random.shuffle(o)
         rows.append({"q": f"{frac(n, dn)} × {k} = ?", "options": o, "correct": o.index(ans), "d": d})
     return dedup_cap(rows)
