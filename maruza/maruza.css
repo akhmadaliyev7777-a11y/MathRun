@@ -360,3 +360,21 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 /* buyumlar qatori (chizma.js "buyum"): nisbat uchun shakllar, guruhlar */
 .buyum { margin: 10px 0; }
 .buyum svg { width: 100%; height: auto; display: block; margin: 0 auto; }
+
+/* ma'ruza qismlari (2026-10-24): Mavzu · Misollar ishlash · Mustahkamlash · Mustaqil ish · Javoblar */
+.m-qism {
+  margin: 44px 0 4px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: var(--primary);
+  color: #fff;
+}
+.m-qism:first-of-type { margin-top: 22px; }
+.m-qism .q-n { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; opacity: .85; }
+.m-qism h2 { margin: 2px 0 0; font-size: 23px; line-height: 1.25; }
+.m-qism p { margin: 4px 0 0; font-size: 15px; opacity: .92; }
+.m-qism.q-misol { background: #334155; }
+.m-qism.q-mustah { background: var(--ok); }
+.m-qism.q-mustaqil { background: var(--violet); }
+.m-qism.q-javob { background: var(--warn); }
+.m-sec.qism-ichi { margin-top: 18px; }

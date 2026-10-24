@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doira va aylana elementlari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=31">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Doira va aylana elementlari</h1>
+<p class="m-lead">Tanga, soat, g'ildirak — hammasi doira shaklida. Bu mavzuda doiraning qismlarini nomlashni va radius bilan diametr orasidagi bog'lanishni o'rganamiz.</p>
+
+<!-- ============ 1-QISM: MAVZU ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Mavzu</h2><p>Qoidalar va har biriga bitta misol</p></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box qoida">
+    <span class="tag">1-qoida · doira, aylana, yarim doira, chorak doira</span>
+    <ul>
+      <li>Doiraning chegarasi <b>aylana</b> deb nomlangan egri chiziqdan iborat.</li>
+      <li><b>Yarim doira</b> — teng ikkiga bo'lingan doiraning bo'lagi. Yarim doira yarim aylana yoyi va kesma bilan chegaralangan.</li>
+      <li><b>Chorak doira</b> — teng to'rtga bo'lingan doiraning bir bo'lagi. Chorak doira chorak aylana yoyi va ikkita kesma bilan chegaralangan.</li>
+    </ul>
+    <div class="geo-qator">
+      <div><div data-aylana='{"olcham":62,"izoh":[["Aylana",35,30]]}'></div><p>Doira</p></div>
+      <div><div data-aylana='{"olcham":62,"tur":"yarim","nuqta":{"_A":180,"_B":0},"kesma":[["_A","_B","#d6454f","kesma"]],"izoh":[["Yarim|aylana yoyi",300,22]]}'></div><p>Yarim doira</p></div>
+      <div><div data-aylana='{"olcham":70,"tur":"chorak","markaz":"","nuqta":{"_A":0,"_B":90},"kesma":[["_O","_A","#d6454f","kesma",null,0.5,-1],["_O","_B","#d6454f","kesma",null,0.5]],"izoh":[["Chorak|aylana yoyi",55,16]]}'></div><p>Chorak doira</p></div>
+    </div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Misol</span>
+    <p>Dumaloq tort markazidan o'tadigan ikkita kesik bilan 4 ta teng bo'lakka bo'lindi. Bir bo'lagi qanday shakl? U nimalar bilan chegaralangan?</p>
+    <div class="qadam"><b>1</b><span>Doira teng to'rtga bo'lindi — bir bo'lagi <b>chorak doira</b>.</span></div>
+    <div class="qadam"><b>2</b><span>Uning chegarasi: tort chetidagi chorak aylana yoyi va markazdan chetgacha ketgan <b>ikkita kesma</b> (ikkita kesik).</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · markaz, radius, diametr</span>
+    <ul>
+      <li>Aylananing ixtiyoriy nuqtasini uning markazi bilan tutashtiruvchi kesma <b>radius</b> deb ataladi.</li>
+      <li>Aylana markazidan o'tadigan va aylanadagi ikkita nuqtani tutashtiruvchi kesma <b>diametr</b> deb ataladi.</li>
+      <li>Doiraning markazi, radiusi va diametri mos ravishda uning aylanasining markazi, radiusi va diametri bo'ladi. <i>(Ya'ni doira va uning aylanasida bular bir xil.)</i></li>
+      <li>Doiraning perimetri aylana yoyi uzunligiga teng bo'ladi. <i>(Ya'ni butun aylananing uzunligiga.)</i></li>
+    </ul>
+    <p><b>Eslatma:</b> yarim doiraning kesmasi — doiraning <b>diametri</b>; chorak doiraning ikkala kesmasi — <b>radiuslar</b>.</p>
+    <div data-aylana='{"olcham":95,"markaz":"O","markazJoy":[-4,24],"nuqta":{"P":165,"R":345,"Q":60},"kesma":[["P","R","#12805c","diametr PR",null,0.25],["O","Q","#d6454f","radius OQ",null,0.62]],"izoh":[["Aylana",25,34]]}'></div>
+    <p class="chz-cap">O — markaz, OQ — radius, PR — diametr</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Misol</span>
+    <p>O — aylananing markazi. Rasmdagi kesmalardan qaysilari radius, qaysisi diametr? EF kesma diametr bo'ladimi?</p>
+    <div data-aylana='{"olcham":85,"markaz":"O","markazJoy":[-12,24],"nuqta":{"A":200,"B":20,"E":100,"F":330},"kesma":[["A","B"],["O","E"],["E","F"]]}'></div>
+    <div class="qadam"><b>1</b><span>Markazni aylanadagi nuqta bilan tutashtiruvchi kesmalar — radiuslar: <b>OA, OB, OE</b>.</span></div>
+    <div class="qadam"><b>2</b><span>AB markazdan o'tadi, uchlari aylanada — <b>diametr</b>.</span></div>
+    <div class="qadam"><b>3</b><span>EF ning uchlari aylanada, lekin u markazdan o'tmaydi — <b>diametr emas</b>.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · radius va diametr bog'lanishi</span>
+    <ul>
+      <li>Doiraning barcha radiuslari teng uzunlikka ega.</li>
+      <li>Doiraning diametri uning radiusidan ikki marta uzun.</li>
+      <li>Doira radiusi diametrining yarmiga teng.</li>
+    </ul>
+    <p>\(\text{Diametr} = 2 \cdot \text{radius}\)</p>
+    <p>\(\text{Radius} = \text{diametr} : 2\)</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Misol</span>
+    <p>a) Doiraning radiusi 9 cm. Diametrini toping. &nbsp; b) Doiraning diametri 17 m. Radiusini toping.</p>
+    <div class="qadam"><b>1</b><span>a) \(\text{Diametr} = 2 \cdot 9 = \nat{18}\) cm.</span></div>
+    <div class="qadam"><b>2</b><span>b) \(\text{Radius} = 17 : 2 = \nat{8,5}\) m.</span></div>
+  </div>
+</section>
+
+<!-- ============ 2-QISM: MISOLLAR ISHLASH ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Misollar ishlash</h2><p>Bosqichma-bosqich: avval radius yoki diametr ekanini aniqlaymiz, keyin hisoblaymiz</p></div>
+
+<section class="m-sec qism-ichi">
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Avval so'rayman: bu kesma markazdan o'tadimi?</div></div>
+
+  <div class="box namuna">
+    <span class="tag">1-misol · aylana ichidagi kvadrat</span>
+    <p>ABCD kvadratning hamma uchlari aylanada yotadi. Kvadratning diagonallari aylana markazi O da kesishadi. AC = 26 cm. Aylananing radiusini va BD kesma uzunligini toping.</p>
+    <div data-aylana='{"olcham":85,"markaz":"O","markazJoy":[18,6],"nuqta":{"A":225,"B":315,"C":45,"D":135},"ichki":"ABCD","kesma":[["A","C","#12805c","26 cm",null,0.72],["B","D","#1f2433"]]}'></div>
+    <div class="qadam"><b>1</b><span>AC markaz O dan o'tadi, uchlari aylanada — demak, AC <b>diametr</b>.</span></div>
+    <div class="qadam"><b>2</b><span>\(\text{Radius} = 26 : 2 = \nat{13}\) cm.</span></div>
+    <div class="qadam"><b>3</b><span>BD ham markazdan o'tadi — u ham diametr. Barcha diametrlar teng: BD = <span style="white-space:nowrap">\(\nat{26}\) cm.</span></span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · tangalar qatori</span>
+    <p>Uchta bir xil tanga stol ustiga bir-biriga tegib turadigan qilib qatorga terildi. Qatorning uzunligi 54 mm. Bitta tanganing radiusi qancha?</p>
+    <div data-aylana='{"olcham":42,"doiralar":[[2,0,1],[4,0,1]],"olchov":[[-1,-1.4,5,-1.4,"54 mm"]]}'></div>
+    <div class="qadam"><b>1</b><span>Qator uzunligi — uchta tanganing diametri.</span></div>
+    <div class="qadam"><b>2</b><span>Bitta diametr: \(54 : 3 = 18\) mm.</span></div>
+    <div class="qadam"><b>3</b><span>\(\text{Radius} = 18 : 2 = \nat{9}\) mm.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-misol · qaysi doira katta?</span>
+    <p>Birinchi doiraning radiusi 5 cm, ikkinchisining diametri 9 cm. Qaysi doira katta?</p>
+    <div class="qadam"><b>1</b><span>Ikkalasini bir xil o'lchov bilan solishtiramiz — diametrlarni.</span></div>
+    <div class="qadam"><b>2</b><span>Birinchi doiraning diametri: \(2 \cdot 5 = 10\) cm.</span></div>
+    <div class="qadam"><b>3</b><span>10 cm &gt; 9 cm — <b>birinchi doira katta</b> (5 &lt; 9 bo'lsa ham!).</span></div>
+  </div>
+
+  <div class="box diqqat">
+    <span class="tag">Diqqat!</span>
+    <ol>
+      <li>Aylanadagi ikki nuqtani tutashtiruvchi har bir kesma diametr emas. Diametr albatta markazdan o'tadi.</li>
+      <li>Radiusdan diametrga — 2 ga <b>ko'paytiramiz</b>; diametrdan radiusga — 2 ga <b>bo'lamiz</b>. Adashtirmang.</li>
+      <li>Ikki doirani solishtirganda radiusni radius bilan, diametrni diametr bilan solishtiring.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 3-QISM: MUSTAHKAMLASH ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Mustahkamlash</h2><p>Osondan qiyinga. Javoblar — 5-qismda</p></div>
+
+<section class="m-sec qism-ichi">
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Radius — markazdan chetgacha, diametr — chetdan chetgacha, markaz orqali.</div></div>
+  <ol class="masalalar">
+    <li>O — aylana markazi. Kesmalarni ajrating: qaysisi radius, qaysisi diametr, qaysisi ikkalasi ham emas?
+      <div data-aylana='{"olcham":80,"markaz":"O","markazJoy":[-14,-8],"nuqta":{"L":200,"N":20,"K":90,"M":330},"kesma":[["L","N"],["O","K"],["K","M"]]}'></div></li>
+    <li>O — doira markazi, OA = 4,5 cm. Doiraning diametrini toping.
+      <div data-aylana='{"olcham":70,"markaz":"O","markazJoy":[-6,22],"nuqta":{"A":30},"kesma":[["O","A","#d6454f","4,5 cm"]]}'></div></li>
+    <li>Doiraning diametri 19 dm. Radiusini toping.</li>
+    <li>Jadvalni to'ldiring.
+      <div class="jad-wrap"><table class="jad">
+        <tr><th>Doira</th><th>Radius</th><th>Diametr</th></tr>
+        <tr><td>a)</td><td>11 cm</td><td>?</td></tr>
+        <tr><td>b)</td><td>?</td><td>34 cm</td></tr>
+        <tr><td>c)</td><td>2,5 m</td><td>?</td></tr>
+        <tr><td>d)</td><td>?</td><td>9 mm</td></tr>
+      </table></div></li>
+    <li>Yarim doiraning kesmasi 16 cm. Shu yarim doira radiusi qancha?
+      <div data-aylana='{"olcham":80,"tur":"yarim","markaz":"","nuqta":{"_A":180,"_B":0},"kesma":[["_A","_B","#d6454f","16 cm"]]}'></div></li>
+    <li>Chorak doiraning bir kesmasi 9 cm. a) Ikkinchi kesmasi qancha? b) Butun doiraning diametri qancha?
+      <div data-aylana='{"olcham":80,"tur":"chorak","markaz":"","nuqta":{"_A":0,"_B":90},"kesma":[["_O","_A","#d6454f","9 cm"],["_O","_B","#d6454f","?"]]}'></div></li>
+    <li>To'g'rimi yoki noto'g'rimi? a) Doiraning barcha diametrlari teng. b) Aylanadagi ikki nuqtani tutashtiruvchi har bir kesma — diametr. c) Radius diametrning yarmiga teng. d) Yarim doira ikkita kesma bilan chegaralangan.</li>
+    <li>Devor soatining siferblati doira shaklida, diametri 28 cm. Uzun strelka markazdan siferblat chetigacha yetadi. Strelkaning uzunligi qancha?</li>
+  </ol>
+</section>
+
+<!-- ============ 4-QISM: MUSTAQIL ISH ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Mustaqil ish</h2><p>O'zingiz yeching, keyin 5-qismdan tekshiring</p></div>
+
+<section class="m-sec qism-ichi">
+  <div class="gap ong"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Rasmda nechta radius yoki diametr borligini sanayman.</div></div>
+  <ol class="masalalar">
+    <li>Beshta bir xil tanga bir-biriga tegib turadigan qilib qatorga terildi. Qatorning uzunligi 1 dm. Bitta tanganing radiusi necha millimetr?</li>
+    <li>Doira kvadrat ichiga chizilgan: u kvadratning to'rtala tomoniga tegib turadi. Kvadratning tomoni 14 cm. Doiraning radiusini toping.
+      <div data-aylana='{"olcham":70,"markaz":"","ramka":[-1,-1,1,1],"olchov":[[-1,-1.28,1,-1.28,"14 cm"]]}'></div></li>
+    <li>O — aylana markazi, A va B nuqtalar aylanada. AB = 8 cm, OAB uchburchakning perimetri 26 cm. Aylananing radiusini toping.
+      <div data-aylana='{"olcham":80,"markaz":"O","markazJoy":[0,24],"nuqta":{"A":63,"B":117},"kesma":[["O","A"],["O","B"],["A","B","#d6454f","8 cm"]]}'></div></li>
+    <li>Katta doira ichida ikkita bir xil kichik doira bor. Ular katta doiraning diametri bo'ylab yonma-yon turadi va katta doiraga ichkaridan tegadi. Katta doiraning radiusi 10 cm. Kichik doiraning radiusi qancha?
+      <div data-aylana='{"olcham":80,"tur":"aylana","markaz":"","nuqta":{"A":90},"kesma":[["_O","A","#d6454f","10 cm",null,0.78]],"doiralar":[[-0.5,0,0.5],[0.5,0,0.5]]}'></div></li>
+    <li><b>Xatoni toping.</b> Lola shunday yozdi: «Radiusi 8 cm bo'lgan doiraning diametri \(8 : 2 = 4\) cm». Xato nimada? To'g'ri javob qancha?</li>
+    <li><b>Qiyinroq.</b> To'g'ri to'rtburchak ichiga uchta bir xil doira qatorga zich joylashtirildi: ular bir-biriga va to'rtburchak tomonlariga tegib turadi. To'rtburchakning bo'yi 36 cm. a) Doiraning radiusi qancha? b) To'rtburchakning eni qancha? c) To'rtburchakning perimetri qancha?
+      <div data-aylana='{"olcham":42,"doiralar":[[2,0,1],[4,0,1]],"ramka":[-1,-1,5,1],"olchov":[[-1,-1.35,5,-1.35,"36 cm"]]}'></div></li>
+  </ol>
+</section>
+
+<!-- ============ 5-QISM: JAVOBLAR ============ -->
+<div class="m-qism q-javob"><div class="q-n">5-qism</div><h2>Javoblar</h2><p>Avval o'zingiz yeching, keyin oching</p></div>
+
+<section class="m-sec qism-ichi">
+  <h3>Mustahkamlash</h3>
+  <details class="javob"><summary>1-masala</summary>OK — radius; LN — diametr (markazdan o'tadi); KM — ikkalasi ham emas (markazdan o'tmaydi).</details>
+  <details class="javob"><summary>2-masala</summary>\(\text{Diametr} = 2 \cdot 4,5 = 9\) cm.</details>
+  <details class="javob"><summary>3-masala</summary>\(\text{Radius} = 19 : 2 = 9,5\) dm.</details>
+  <details class="javob"><summary>4-masala</summary>a) \(2 \cdot 11 = 22\) cm; b) \(34 : 2 = 17\) cm; c) \(2 \cdot 2,5 = 5\) m; d) \(9 : 2 = 4,5\) mm.</details>
+  <details class="javob"><summary>5-masala</summary>Yarim doiraning kesmasi — butun doiraning diametri. \(\text{Radius} = 16 : 2 = 8\) cm.</details>
+  <details class="javob"><summary>6-masala</summary>a) Ikkala kesma ham radius — 9 cm. b) \(\text{Diametr} = 2 \cdot 9 = 18\) cm.</details>
+  <details class="javob"><summary>7-masala</summary>a) To'g'ri. b) Noto'g'ri — markazdan o'tmasa, diametr emas. c) To'g'ri. d) Noto'g'ri — bitta kesma va yarim aylana yoyi bilan chegaralangan.</details>
+  <details class="javob"><summary>8-masala</summary>Strelka — radius: \(28 : 2 = 14\) cm.</details>
+
+  <h3>Mustaqil ish</h3>
+  <details class="javob"><summary>1-masala</summary>1 dm = 100 mm. Bitta diametr: \(100 : 5 = 20\) mm. \(\text{Radius} = 20 : 2 = 10\) mm.</details>
+  <details class="javob"><summary>2-masala</summary>Doiraning diametri kvadrat tomoniga teng — 14 cm. \(\text{Radius} = 14 : 2 = 7\) cm.</details>
+  <details class="javob"><summary>3-masala</summary>OA = OB = radius. \(OA + OB = 26 - 8 = 18\) cm. \(\text{Radius} = 18 : 2 = 9\) cm.</details>
+  <details class="javob"><summary>4-masala</summary>Ikki kichik doiraning diametrlari birgalikda katta doiraning diametriga teng: \(2 \cdot 10 = 20\) cm. Bitta kichik doiraning diametri \(20 : 2 = 10\) cm, radiusi \(10 : 2 = 5\) cm.</details>
+  <details class="javob"><summary>5-masala</summary>Lola radiusni 2 ga bo'ldi, aslida 2 ga ko'paytirish kerak edi: \(\text{Diametr} = 2 \cdot 8 = 16\) cm.</details>
+  <details class="javob"><summary>6-masala</summary>a) Bo'yi — uchta diametr: \(36 : 3 = 12\) cm — diametr, radius \(12 : 2 = 6\) cm. b) Eni — bitta diametr: 12 cm. c) \(P = 2 \cdot (36 + 12) = 96\) cm.</details>
+</section>
+
+<p class="m-foot">Mathlearn · 6-sinf matematika</p>
+</main>
+<script src="chizma.js?v=60"></script>
+<script src="maruza.js?v=4"></script>
+</body>
+</html>

@@ -67,9 +67,16 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Kitob bilan solishtirildi:** darslik va daftardagi asosiy misol turlari (o'sish/kamayish foizi, «qaraganda», yaxlitlash, diagramma, jadval, yangi qiymat 2 usulda, chegirma, dastlabki qiymat, ketma-ket o'zgarish, jami o'zgarishi, ulush o'zgarishi, idishlar) ✅. Kiritilmadi (mavzu asosi emas): zar o'yini, maosh/jamg'arma turlari, sof «farq orqali» (11-mavzuda bor). kitobdan.py: 0.
 **Tekshiruv:** tenglik.py 59/0, testlar.js 0 xato, 390/1100 px.
 
-#### ☐ 13. Geometrik shakllardagi noma'lum burchaklar — D1 116–126; M1 151–168
+#### ✅ 13. Geometrik shakllardagi noma'lum burchaklar — D1 116–126; M1 151–168
+**Holat (2026-10-24):** tayyor va push qilindi — birinchi **5 qismli** ma'ruza (Mavzu · Misollar ishlash · Mustahkamlash · Mustaqil ish · Javoblar), qoidalar darslikdan aynan. Fayl: maruza/6-shakllardagi-nomalum-burchaklar.html. Chizmalar: data-shakl, data-nurlar (yangi tur yo'q); barcha 60 burchak koordinatalardan o'lchab tekshirildi. O'z testi 20+20, 16 ta chizmali savol (geometriya mavzusi).
+**Kitob bilan solishtirildi:** Eslang qoidalari (to'g'ri chiziq, vertikal, nuqta atrofi, uchburchak 180°, teng tomonli, teng yonli, to'g'ri burchakli, kvadrat/to'g'ri to'rtburchak, parallelogramm/romb, trapetsiya) ✅; murakkab chizmada ketma-ket topish ✅; kvadrat/to'g'ri to'rtburchak + uchburchak ✅; parallelogramm + diagonal ✅; trapetsiya ichida teng yonli ✅; kvadrat + teng tomonli ✅; nuqta atrofidagi shakllar ✅; diagonallar kesishgan parallelogramm (testda) ✅; Matematika kundaligi (xatoni toping) ✅. Amaliy topshiriq (nuqtali panjarada chizish) kiritilmadi.
+**Tekshiruv:** tenglik.py 41/0, testlar.js 0 xato, 390/1100 px; Jumavoy (past o'zlashtiruvchi o'quvchi) — 6 izoh tuzatildi (belgilar qanday o'qilishi, «yopishgan» so'zi, tiqilgan chizmalar, maslahatlar); Ibrohim ustoz — 2 jiddiy (oson-2 da «?» noto'g'ri burchakda, qiyin-15 daftardan ko'chirma) va 6 taklif tuzatildi (qiyin testda nisbatli savollar o'rniga chizmali ko'p qadamli masalalar).
 
-#### ☐ 14. Doira va aylana elementlari — D1 128–133; M1 169–170
+#### ✅ 14. Doira va aylana elementlari — D1 128–133; M1 169–170
+**Holat (2026-10-24):** tayyor va push qilindi (5 qismli). Fayl: maruza/6-doira-aylana-elementlari.html. Yangi chizma: `data-aylana` (markaz, radius, diametr, yarim/chorak doira, ichki kvadrat, qo'shimcha doiralar, ramka, o'lcham chizig'i). O'z testi 20+20, 9 ta chizmali savol.
+**Kitob bilan solishtirildi:** yarim doira, chorak doira va ularning chegaralari ✅; aylana, markaz, radius, diametr ta'riflari ✅; diametr = 2 × radius, radius = diametr : 2 ✅; barcha radiuslar teng ✅; markazdan o'tmagan kesma diametr emas ✅; aylanaga ichki chizilgan kvadrat ✅; jadval ✅; g'ildirak (testda) ✅. Qog'oz buklash, ip bilan chizish (amaliy) kiritilmadi. Kitob sonlari (7 cm, 13 m, 15, 30 cm) almashtirildi.
+**Tekshiruv:** tenglik.py 19/0, testlar.js 0 xato, 390/1100 px; Jumavoy — 7 izoh tuzatildi (yarim/chorak doira kesmasi — diametr/radius eslatmasi, tiqilgan chizmalar); Ibrohim ustoz — 4 jiddiy (oson-7 ikki javobli, qiyin-5/17 chizma zid va mavzudan tashqari) va 7 taklif tuzatildi (ma'ruzaga o'xshash test savollari almashtirildi, kitobdagi «CD», «18 cm» olib tashlandi).
+
 
 #### ☐ 15. Aylananing uzunligi — D1 134–139; M1 171–176
 
