@@ -32,6 +32,10 @@ Foydalanuvchi: «ko'p token ishlatma, ishni soddaroq qil, bitta mavzuga ko'p vaq
 2. **Avtomatik tekshiruvlar** (yozuvchi o'zi): tenglik.py, kitobdan.py, testlar.js, node --check, 390/1100 px ning avtomatik o'lchovi (scrollWidth, KaTeX, chizmalar) — skrinshotlar faqat yangi/o'zgargan chizmalarga.
 3. **Bitta tekshiruvchi** (hisob + kitobga o'xshashlik + til birga, qisqa hisobot). Ikkinchi tekshiruv bosqichi YO'Q — faqat jiddiy xato tuzatilgandan keyin avtomatik tekshiruvlar qayta.
 4. Ulash, versiyalar, push — asosiy sessiya. Barcha ma'ruzalarni qayta ko'rish faqat chizma.js/maruza.css o'zgarganda (avtomatik, skrinshotsiz).
+**Lekin sifat birinchi (foydalanuvchi, 2026-10-24): «tokenni tejash uchun ish sifatsiz bo'lmasin; testlar ham saviyali bo'lsin; kerak bo'lganda token va yaxshi modellarni ishlat».** Ya'ni:
+- Tejaladigan narsa — takroriy ish (4 parallel tekshiruvchi, ikkinchi bosqich, ortiqcha skrinshot). Tejalmaydigan narsa — hisobni Python bilan tekshirish, bitta javoblilik, kitob qolipini ko'chirmaslik, 390/1100 tekshiruvi, mustaqil tekshiruvchi.
+- **Model:** qiyin mavzu, yangi chizma turi, murakkab test yoki tekshiruvchi jiddiy xato topgan bo'lsa — Opus; oddiy mavzu — Sonnet. Jiddiy xato (noto'g'ri javob, ko'chirma) topilsa — tuzatilgach o'sha joylar qayta tekshiriladi.
+- **Testlar saviyali:** qiyin test haqiqatan ko'nikma talab qilsin (ikki-uch qadamli, tipik xatoga tuzoq), oson test esa tushunishni tekshirsin; javob shartdan darhol ko'rinmasin; savollar ma'ruza mashqlari nusxasi bo'lmasin.
 
 ## Ishlash qoidalari (foydalanuvchi bilan kelishilgan, 2026-10-18)
 - **Shox — har doim `main` ga (foydalanuvchi qarori, 2026-10-18):** sessiya qaysi shoxda ochilgan bo'lsa ham (masalan `claude/...`), tayyor ish **`main` ga** yuklanadi — sayt shundan chiqadi. Tartib:
