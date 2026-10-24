@@ -5,7 +5,7 @@
 > Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
 > Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 13:46 — 1–4-sinf teng javoblar tuzatildi va saytga chiqdi; 8-mavzu tekshirilmoqda; ichki belgilarni yashirish ketmoqda
+**Oxirgi yangilanish:** 2026-10-24 13:47 — ichki belgilar yashirildi va saytga chiqdi; 8-mavzu tekshirilmoqda
 
 ---
 
@@ -52,7 +52,7 @@
 - [ ] 7–11-sinflarda birorta test yo'q (109 mavzu)
 
 **O'rta**
-- [ ] ← *hozir* Ichki belgilar o'quvchiga ko'rinadi: rangli nuqtalar, «Tekshirish kerak», «Simulyatsiya rejasi», kitob betlari — faqat admin ko'rsin
+- [x] Ichki belgilar (rangli nuqtalar, legenda, «Simulyatsiya rejasi», kitob betlari, arqon tortishdagi fayl yozuvi) endi faqat admin kirganda ko'rinadi
 - [ ] Bo'sh mavzular to'liqdek ko'rinadi (8–11-sinf bitta gapli «ma'ruza», 6-sinf 8–31, 7-sinf hisobi takrorlangan)
 - [ ] «Mening natijalarim» sahifasi buzilgan (qatorlar ustma-ust, formulalar oddiy matn)
 - [ ] (8–9 dan keyin) 6-sinf «O'zingizni tekshiring» qatorlari telefonda siqiladi

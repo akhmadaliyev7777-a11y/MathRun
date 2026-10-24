@@ -513,7 +513,7 @@ function topicCardHtml(topic, i, href, parts, btn, interactiveFirst) {
         '<span class="tc-icon">' + icon + '</span>' +
         '<span class="tc-title"><b>' + parts.num + '</b> ' + parts.title + '</span>' +
       '</a>' +
-      ((dots || topic.page) ? '<span class="tc-meta">' + dots + (topic.page ? '<span class="tc-page">' + topic.page + '</span>' : '') + '</span>' : '') +
+      ((dots || topic.page) ? '<span class="tc-meta">' + dots + (topic.page ? '<span class="tc-page admin-only">' + topic.page + '</span>' : '') + '</span>' : '') +
       '<span class="tc-actions">' +
         (interactiveFirst ? bInt + bLec : bLec + bInt) +
         (topic.test ? btn("Test", "#test", false) : "") +
@@ -574,7 +574,8 @@ function renderTopicPage() {
   // nuqtalar: tekshirish belgisi (qizil/sariq) yoki ma'ruza yuklangan (ko'k) bo'lsa — sarlavha yonida
   if (topic.review || topicHasLecture(topic)) titleEl.insertAdjacentHTML("beforeend", reviewDot(topic));
   const pageEl = document.getElementById("topic-page");
-  if (pageEl) pageEl.textContent = topic.page || "";
+  /* darslik beti — faqat adminga (saytda kitob betlari ko'rsatilmaydi) */
+  if (pageEl) pageEl.innerHTML = topic.page ? '<span class="admin-only">' + topic.page + '</span>' : "";
 
   if (topic.lecture && topic.lecture.embedUrl) {
     // maruza/ dagi kitob sahifalari ham LESSON_VER bilan yangilanadi
@@ -598,8 +599,9 @@ function renderTopicPage() {
   }
 
   // simPlan — yasaladigan simulyatsiyaning qisqa rejasi (ko'rgazma ostida ko'rsatiladi)
+  // reja faqat adminga ko'rinadi (.admin-only); o'quvchiga — «tez orada» yozuvi
   const planHtml = topic.simPlan
-    ? '<div class="sim-plan"><div class="sim-plan-title">Simulyatsiya rejasi</div><p>' + topic.simPlan + '</p></div>'
+    ? '<div class="sim-plan admin-only"><div class="sim-plan-title">Simulyatsiya rejasi</div><p>' + topic.simPlan + '</p></div>'
     : "";
   if (topic.interactive) {
     const lv = typeof LESSON_VER !== "undefined" ? (topic.interactive.indexOf("?") < 0 ? "?v=" : "&v=") + LESSON_VER : "";

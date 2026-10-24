@@ -7,6 +7,17 @@
 
 let firebaseReady = false;
 
+// Ichki ish belgilari (holat nuqtalari, kitob betlari, simulyatsiya rejasi, tahrirlash izohlari) faqat adminga ko'rinadi:
+// admin kirganda <html> ga "is-admin" klassi qo'yiladi, CSS (.admin-only, .review-dot ...) shunga qarab ko'rsatadi.
+// Kirish holati aniqlanguncha belgilar yonib-o'chmasligi uchun oxirgi holat shu brauzerda eslab qolinadi.
+// Bu faqat ko'rinish uchun (xavfsizlik emas): admin sahifasi baribir guardAdminPage bilan tekshiriladi.
+const ADMIN_FLAG_KEY = "mathlearn-admin";
+function setAdminView(on) {
+  document.documentElement.classList.toggle("is-admin", !!on);
+  try { if (on) localStorage.setItem(ADMIN_FLAG_KEY, "1"); else localStorage.removeItem(ADMIN_FLAG_KEY); } catch (e) {}
+}
+try { if (localStorage.getItem(ADMIN_FLAG_KEY) === "1") document.documentElement.classList.add("is-admin"); } catch (e) {}
+
 try {
   if (
     typeof firebase !== "undefined" &&
@@ -16,6 +27,7 @@ try {
   ) {
     firebase.initializeApp(FIREBASE_CONFIG);
     firebaseReady = true;
+    firebase.auth().onAuthStateChanged(function (user) { setAdminView(currentIsAdmin(user)); });
   }
 } catch (e) {
   console.warn("Firebase ishga tushmadi:", e);

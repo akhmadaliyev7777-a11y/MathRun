@@ -268,8 +268,8 @@ export async function render(root, _params) {
                 el('button', { class: 'btn btn--tug-start', onclick: play }, 'Boshlash',
                   el('span', { style: 'width:22px;height:22px', html: ICON.arrowRight }))),
               el('p', { style: 'font-weight:600;font-size:13px;color:var(--muted-soft);margin-top:22px' },
-                'Klaviatura: ko\'k jamoa — 1 2 3 4 · qizil jamoa — 7 8 9 0. Sensorli ekranda variantni bosing. ' +
-                'Savollarni tahrirlash: data/tug_questions.json.')),
+                'Klaviatura: ko\'k jamoa — 1 2 3 4 · qizil jamoa — 7 8 9 0. Sensorli ekranda variantni bosing. ',
+                el('span', { class: 'admin-only' }, 'Savollarni tahrirlash: data/tug_questions.json.'))),
             uploadPanel()))),
       footer());
 
