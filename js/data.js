@@ -165,7 +165,7 @@ const SITE_DATA = {
           name: "Matematika (2026-yil)",
           topics: [
             {
-              id: "tub-sonlar-daraja", title: "1.1 Tub sonlar, tub ko'paytuvchilarga ajratish va daraja", page: "1-bet",
+              id: "tub-sonlar-daraja", icon: "img/mavzu/7-tub-sonlar-daraja.webp", title: "1.1 Tub sonlar, tub ko'paytuvchilarga ajratish va daraja", page: "1-bet",
               sections: [
                 secText("Eslang",
                   "<p>Har bir natural son o'zining bo'luvchilariga ega. <strong>Bo'luvchi</strong> — berilgan sonni qoldiqsiz bo'ladigan son. Masalan, 12 sonining bo'luvchilari: 1, 2, 3, 4, 6, 12.</p>"
@@ -210,7 +210,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/7-matematika-tub-sonlar.html", test: null
             },
             {
-              id: "ekub", title: "1.2 Eng katta umumiy bo'luvchi (EKUB)", page: "1-bet",
+              id: "ekub", icon: "img/mavzu/7-ekub.webp", title: "1.2 Eng katta umumiy bo'luvchi (EKUB)", page: "1-bet",
               sections: [
                 secText("Eslang",
                   "<p>Ikki sonning har ikkisini ham qoldiqsiz bo'ladigan son ularning <strong>umumiy bo'luvchisi</strong> deyiladi. Masalan, 12 va 18 ning umumiy bo'luvchilari: 1, 2, 3, 6.</p>"
@@ -237,7 +237,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/7-matematika-ekub.html", test: null
             },
             {
-              id: "ekuk", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "1-bet",
+              id: "ekuk", icon: "img/mavzu/7-ekuk.webp", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "1-bet",
               sections: [
                 secText("Eslang",
                   "<p>Sonning <strong>karralilari</strong> — uni butun songa ko'paytirishdan hosil bo'ladigan sonlar. Masalan, 4 ning karralilari: 4, 8, 12, 16, 20, 24, …</p>"
@@ -264,7 +264,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/7-matematika-ekuk.html", test: null
             },
             {
-              id: "kvadrat-kub-ildiz", title: "1.4 Sonning kvadrat ildizi va kub ildizi", page: "1-bet",
+              id: "kvadrat-kub-ildiz", icon: "img/mavzu/7-kvadrat-kub-ildiz.webp", title: "1.4 Sonning kvadrat ildizi va kub ildizi", page: "1-bet",
               sections: [
                 secText("Eslang",
                   "<p>Sonning <strong>kvadrati</strong> — uni o'ziga ko'paytirish: a<sup>2</sup> = a·a. Sonning <strong>kubi</strong> — a<sup>3</sup> = a·a·a. Masalan, 7<sup>2</sup> = 49, &nbsp; 4<sup>3</sup> = 64.</p>"
@@ -294,7 +294,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "manfiy-son-sonlar-oqi", title: "2.1 Manfiy son tushunchasi va sonlar o'qi", page: "27/31-bet",
+              id: "manfiy-son-sonlar-oqi", icon: "img/mavzu/7-manfiy-son-sonlar-oqi.webp", title: "2.1 Manfiy son tushunchasi va sonlar o'qi", page: "27/31-bet",
               sections: [
                 secText("Eslang",
                   "<p>Hozirgacha 0 va undan katta sonlar bilan ishladingiz. Ammo harorat 0° dan pastga tushishi, hisobda qarz bo'lishi mumkin. Bularni ifodalash uchun <strong>manfiy sonlar</strong> kiritiladi.</p>"
@@ -333,7 +333,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/6-matematika-musbat-manfiy-sonlar.html", test: null
             },
             {
-              id: "butun-sonlar-qoshish-ayirish", title: "2.2 Butun sonlarni qo'shish va ayirish", page: "27/31-bet",
+              id: "butun-sonlar-qoshish-ayirish", icon: "img/mavzu/7-butun-sonlar-qoshish-ayirish.webp", title: "2.2 Butun sonlarni qo'shish va ayirish", page: "27/31-bet",
               sections: [
                 secText("Bir xil ishorali sonlarni qo'shish",
                   "<div class='lecture-rule'><strong>Qoida:</strong> ishoralari bir xil bo'lgan sonlarni qo'shish uchun modullarini qo'shamiz, natijaga umumiy ishorani qo'yamiz.</div>" +
@@ -373,7 +373,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "butun-sonlar-kopaytirish-bolish", title: "2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar", page: "27/31-bet",
+              id: "butun-sonlar-kopaytirish-bolish", icon: "img/mavzu/7-butun-sonlar-kopaytirish-bolish.webp", title: "2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar", page: "27/31-bet",
               sections: [
                 secText("Ishoralar qoidasi",
                   "<div class='lecture-rule'><strong>Qoida:</strong> ishoralari <em>bir xil</em> ikki sonning ko'paytmasi (va bo'linmasi) — <strong>musbat</strong>; ishoralari <em>har xil</em> bo'lsa — <strong>manfiy</strong>.</div>" +
@@ -400,7 +400,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "ratsional-irratsional-haqiqiy-sonlar", title: "2.4 Ratsional, irratsional va haqiqiy sonlar", page: "27/31-bet",
+              id: "ratsional-irratsional-haqiqiy-sonlar", icon: "img/mavzu/7-ratsional-irratsional-haqiqiy-sonlar.webp", title: "2.4 Ratsional, irratsional va haqiqiy sonlar", page: "27/31-bet",
               sections: [
                 secText("Ratsional sonlar",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> p/q ko'rinishida (p — butun son, q — natural son) yozish mumkin bo'lgan son <strong>ratsional son</strong> deyiladi. Barcha butun sonlar va oddiy kasrlar ratsionaldir.</div>" +
