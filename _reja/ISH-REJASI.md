@@ -5,7 +5,7 @@
 > Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
 > Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 12:54 — 8-mavzu: ma'ruza yozildi, test yozilmoqda
+**Oxirgi yangilanish:** 2026-10-24 12:57 — sayt o'rganildi (kamchiliklar 2-bo'limda); 8-mavzu testi yozilmoqda
 
 ---
 
@@ -32,14 +32,41 @@
 - [ ] Saytga ulash va chiqarish (push)
 - [ ] Ish jurnaliga yozuv
 
-## 2. Saytni to'liq o'rganish (2026-10-24 boshlandi)
-- [ ] Bosh sahifa, menyu, qidiruv, havolalar
-- [ ] 5-sinf sahifalari va ma'ruzalari
-- [ ] 6-sinf sahifalari va ma'ruzalari
-- [ ] Testlar (yechib ko'rish, natija, «Mening natijalarim»)
-- [ ] 1–4-sinflar bo'limi va o'yinlar
-- [ ] 7–11-sinflar va simulyatorlar
-- [ ] Topilgan kamchiliklar ro'yxati → foydalanuvchiga ko'rsatish → qaysilari tuzatilishini kelishish
+## 2. Saytni to'liq o'rganish (2026-10-24) — bajarildi
+- [x] Bosh sahifa, menyu, qidiruv, havolalar (338 havola — hammasi ishlaydi)
+- [x] 5-sinf sahifalari va ma'ruzalari
+- [x] 6-sinf sahifalari va ma'ruzalari
+- [x] Testlar (yechib ko'rish, natija, «Mening natijalarim»)
+- [x] 1–4-sinflar bo'limi va o'yinlar
+- [x] 7–11-sinflar va simulyatorlar
+- [x] Topilgan kamchiliklar ro'yxati → foydalanuvchiga ko'rsatildi
+- [ ] Qaysilari tuzatilishini foydalanuvchi bilan kelishish ← *javob kutilmoqda*
+- [ ] Firestore «natijalar»dagi 9 ta sinov yozuvini o'chirish (tekshiruvchi 1–4-sinf testlarini yechib yuborgan; faqat Firebase Console'dan — foydalanuvchi)
+
+### Topilgan kamchiliklar (tuzatish — kelishilgandan keyin)
+**Jiddiy**
+- [ ] 1–4-sinf testida to'g'ri javob «xato» deyiladi: «1/3 × 3» da «3/3», «1/6 × 6» da «6/6» (ikkalasi ham 1) — barcha boshlang'ich testlarni shunday teng variantlarga tekshirish
+- [ ] Arqon tortish o'yini telefonda o'ynab bo'lmaydi (ochkolar savolni yopadi, arqon ekrandan chiqadi)
+- [ ] 10 ga yaqin eski simulyator telefonda sig'maydi yoki kesiladi (5-sinf 38, 6-sinf algebra/kasr/tezlik, 7-sinf, 10-sinf) — `lessons/` ga tegish uchun ruxsat kerak
+- [ ] 7–11-sinflarda birorta test yo'q (109 mavzu)
+
+**O'rta**
+- [ ] Ichki belgilar o'quvchiga ko'rinadi: rangli nuqtalar, «Tekshirish kerak», «Simulyatsiya rejasi», kitob betlari — faqat admin ko'rsin
+- [ ] Bo'sh mavzular to'liqdek ko'rinadi (8–11-sinf bitta gapli «ma'ruza», 6-sinf 8–31, 7-sinf hisobi takrorlangan)
+- [ ] «Mening natijalarim» sahifasi buzilgan (qatorlar ustma-ust, formulalar oddiy matn)
+- [ ] 6-sinf «O'zingizni tekshiring» qatorlari telefonda siqiladi
+- [ ] 6-sinf 3-mavzu chizmasi: «4 bo'lak» qavsi 3 bo'lakni o'raydi
+- [ ] 6-sinf: formuladan keyingi «:» bo'lish belgisiga o'xshaydi (4-mavzuda 7 ta, 2-da 3 ta, 3 va 7-da 1 tadan)
+- [ ] 5-sinf jadvallarining o'ng ustuni telefonda ko'rinmaydi (6 ta ma'ruza)
+- [ ] Chizmalardagi yozuvlar telefonda juda mayda (test rasmlari, «sig'adi» chizmasi)
+- [ ] Eskirgan matnlar (bosh sahifa «10 tagacha savol», info.html, «Home»)
+- [ ] Qidiruv kirill yozuvi va imlo xatosini topmaydi
+
+**Mayda**
+- [ ] Chap chetda kulrang soya (yopiq menyu), ma'ruza oynasi pastidan 18–20 px kesiladi
+- [ ] Telefonda test paneli katta (ekranning ~30%), natijada rasm savoldan oldin chiqadi
+- [ ] O'z 404 sahifasi yo'q; sinf sahifalari sarlavhasi bir xil; Telegram'da havola rasmsiz
+- [ ] 1–4-sinf: shifrlangan savol (g3_c2_b29_l2), 3 842 savolda yechim yo'q, mayda ko'rinish xatolari
 
 ## 3. 6-sinf — barcha mavzular (31 ta)
 Har safar 2 tadan mavzu; har 6 mavzudan keyin ish jurnaliga yozuv.
