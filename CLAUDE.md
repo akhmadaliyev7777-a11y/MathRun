@@ -34,7 +34,7 @@ Foydalanuvchi: «ma'ruza qismi juda ko'p, qoidalar ko'payib ketyapti, qo'shimcha
 ## Yangi ma'ruza tuzilishi — 5 qism (foydalanuvchi qarori, 2026-10-24; sinov: 6-sinf 13–14-mavzular, yoqsa — qolganlari ham)
 - **Qoida va ta'riflar — kitobdan aynan olinadi** (foydalanuvchi: «kitobda yaxshi yozilgan»). Bu 3-qoidaning istisnosi: faqat qoida/ta'rif matni. Misollar, masalalar, sonlar, ismlar, vaziyatlar va rasmlar — avvalgidek o'zimizniki (kitobdan.py tekshiruvi qoladi).
 - **Sahifa 5 qismga aniq ajratiladi** (har qism katta sarlavha bilan):
-  1. **Mavzu** — qoida/ta'rif/formula → darhol unga mos bitta misol. Hajmi **2–3 bet, ko'pi bilan 4** (A4 bosma bet).
+  1. **Mavzu** — qoida/ta'rif/formula → darhol unga mos **2 ta misol, ikki xil turda** (`<div class="misol-juft">` — keng ekranda yonma-yon). Personajlar (qiz Madina, boyo'g'li ustoz, bola Aziz) — mazmunli qisqa gaplar bilan. Hajmi **2–3 bet, ko'pi bilan 4** (A4 bosma bet).
   2. **Misollar ishlash** — 2–3 namuna, bosqichma-bosqich, sodda (har qadam — bitta harakat va sababi).
   3. **Mustahkamlash** — mashqlar (osondan qiyinga).
   4. **Mustaqil ish** — o'quvchi o'zi yechadigan topshiriqlar.

@@ -378,3 +378,17 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 .m-qism.q-mustaqil { background: var(--violet); }
 .m-qism.q-javob { background: var(--warn); }
 .m-sec.qism-ichi { margin-top: 18px; }
+/* bitta qoidaga ikki misol — keng ekranda yonma-yon */
+.misol-juft { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 0 14px; align-items: start; }
+.misol-juft > .box { margin-top: 14px; }
+.misol-juft .chz svg { max-width: 100%; height: auto; }
+/* qog'ozga chiqarish: personajlar kichik, bo'shliqlar zichroq */
+@media print {
+  .m-wrap { font-size: 15px; }
+  .gap { margin: 4px 0; }
+  .gap img { width: 64px; height: auto; }
+  .gap .pufak { font-size: 13px; padding: 6px 10px; }
+  .m-qism { margin: 18px 0 2px; padding: 8px 14px; }
+  .box { padding: 10px 12px; margin: 8px 0; }
+  .misol-juft > .box { margin-top: 8px; }
+}
