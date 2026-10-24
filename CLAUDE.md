@@ -18,8 +18,10 @@ Bu fayl har sessiya boshida o'qiladi. Ish shu yerdan davom etadi.
 8. Ichki nomlar o'zgartirilmaydi: localStorage kaliti `mathrun-progress-v1`, postMessage turi `mathrun:height`, `mathrunner-web/` papkasi.
 9. **Ma'ruza ichi o'zi aylanmaydi (foydalanuvchi qarori, 2026-10-20):** ma'ruza iframe ichida ochilganda sahifa aylanmaydi, faqat tashqi sahifa aylanadi (telefonda surish silliq bo'lishi uchun). Bu `js/main.js` dagi `scrolling="no"` va `maruza/maruza.js` dagi `overflow:hidden` orqali barcha ma'ruzalarga avtomatik ishlaydi — yangi mavzuda yangi `maruza/5-*.html` da `maruza.js` ulangan bo'lsa yetarli. Bu ikki joyni o'chirmang.
 
-## Ish jurnali (foydalanuvchi qarori, 2026-10-24)
-Loyihada **ikki kishi, ikki hisob** navbatma-navbat ishlaydi. **Sessiya boshida `_reja/ish-jurnali.md` ni o'qing** — oxirgi kim, qayerga kelgani shu yerda.
+## Ish rejasi va jurnal (foydalanuvchi qarori, 2026-10-24)
+Loyihada **ikki kishi, ikki hisob** navbatma-navbat ishlaydi. **Sessiya boshida `_reja/ISH-REJASI.md` va `_reja/ish-jurnali.md` ni o'qing.**
+- **`_reja/ISH-REJASI.md` — jonli reja (checkbox'lar).** Foydalanuvchi uni VS Code'da yonma-yon ochib kuzatadi. Ishni boshlashdan oldin rejadagi qadamlar yoziladi (yangi ish bo'lsa — avval rejaga qo'shiladi), **har bir qadam bajarilishi bilan darhol `[x]` qilinadi**, «← *hozir*» belgisi va «Oxirgi yangilanish» vaqti yangilanadi. Reja mavzu bilan birga `main` ga push qilinadi.
+- **`_reja/ish-jurnali.md` — tarix:** oxirgi kim, qayerga kelgani.
 - **Har 6 ta tugagan mavzudan keyin** (ma'ruza + test saytga chiqqach) jurnalga yangi yozuv qo'shing (eng tepaga): sana va vaqt (`date "+%Y-%m-%d %H:%M"`), qaysi hisob, nima qilindi, nima chala, navbatdagi ish; «Hozir qayerdamiz» bo'limini va «oxirgi yozuvdan beri: n / 6» hisobini yangilang. Har mavzu push qilinganda shu hisobni +1 qiling.
 - Sessiya tugayotgan bo'lsa yoki foydalanuvchi «to'xta» desa — 6 taga yetmagan bo'lsa ham yozuv qo'shing.
 - Jurnal `main` ga mavzu bilan birga push qilinadi.
