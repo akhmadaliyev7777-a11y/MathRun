@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tenglamalarni yechish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=30">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">Tenglamalarni yechish</h1>
+<p class="m-lead">Harfli tenglik — tenglama. Uni yechish — harf o'rniga qanday son qo'yilganda tenglik to'g'ri bo'lishini topish. Tenglama matnli masalalarni yechishning qulay yo'li: noma'lumni harf bilan belgilaymiz, shartni tenglik qilib yozamiz va yechamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Noma'lum komponentni topish qoidalari endi juda kerak bo'ladi!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>Algebraik ifoda: \(x + 6\), \(3y\), \(\frac{p}{4}\); soddalashtirish: \(x + 4x = 5x\).</li>
+      <li>Noma'lum qo'shiluvchi = yig'indi − ma'lum qo'shiluvchi; noma'lum kamayuvchi = ayirma + ayriluvchi.</li>
+      <li>Noma'lum ko'paytuvchi = ko'paytma : ma'lum ko'paytuvchi; noma'lum bo'linuvchi = bo'linma · bo'luvchi.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Tenglama — muvozanatdagi tarozi. Ikki pallasiga bir xil amal qilsak, muvozanat buzilmaydi!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · tenglama va uning yechimi</span>
+    <p>Harfli tenglik <b>tenglama</b> deyiladi: \(x + 5 = 12\). Tenglikni to'g'ri qiladigan son — tenglamaning <b>yechimi</b> (ildizi): \(x = 7\), chunki \(7 + 5 = 12\). Yechimni topgach, uni tenglamaga qo'yib <b>tekshiramiz</b>.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · tarozi</span>
+    <div data-tarozi="x + 5|12"></div>
+    <p>Tarozi muvozanatda. Ikkala palladan 5 tadan tosh olsak, muvozanat saqlanadi: chapda \(x\), o'ngda \(12 - 5 = 7\). Demak \(\nat{x = 7}\).</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · bir qadamli tenglamalar</span>
+    <ul>
+      <li>\(x + 9 = 24\): \(x = 24 - 9 = \nat{15}\).</li>
+      <li>\(x - 8 = 13\): \(x = 13 + 8 = \nat{21}\).</li>
+      <li>\(6x = 42\): \(x = 42 : 6 = \nat{7}\).</li>
+      <li>\(\frac{x}{5} = 9\): \(x = 9 \cdot 5 = \nat{45}\).</li>
+    </ul>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · qutidagi tangalar</span>
+    <p>Qutida 9 ta tanga bor edi, Sardor yana \(j\) ta soldi va 25 ta bo'ldi. \(9 + j = 25\), \(j = 25 - 9 = \nat{16}\). Tekshiruv: \(9 + 16 = 25\) ✓.</p>
+    <div data-model='{"q":[["",[["9",9],["j",16]]]],"jami":{"0":"25"}}'></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · ikki qadamli tenglamalar</span>
+    <p>\(ax + b = c\) ko'rinishidagi tenglamani ikki qadamda yechamiz:</p>
+    <ol>
+      <li>Harfsiz sonni olib tashlaymiz: \(ax = c - b\).</li>
+      <li>Harf oldidagi songa bo'lamiz: \(x = (c - b) : a\).</li>
+    </ol>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · 2x + 7 = 19</span>
+    <div data-tarozi="2x + 7|19"></div>
+    <div class="qadam"><b>1</b><span>Ikkala palladan 7 ni olamiz: \(2x = 19 - 7 = 12\).</span></div>
+    <div class="qadam"><b>2</b><span>Ikki quti 12 ga teng — bittasi \(12 : 2\): \(\nat{x = 6}\).</span></div>
+    <div class="qadam"><b>3</b><span>Tekshiruv: \(2 \cdot 6 + 7 = 12 + 7 = 19\) ✓.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · masalani tenglama bilan yechish</span>
+    <ol>
+      <li>Noma'lum miqdorni (odatda eng kichigini) harf bilan belgilaymiz.</li>
+      <li>Qolgan miqdorlarni shu harf orqali ifodalaymiz va chizmali model chizamiz.</li>
+      <li>Shartdagi tenglikdan tenglama tuzamiz va yechamiz.</li>
+      <li>Javobni masala shartiga qo'yib tekshiramiz.</li>
+    </ol>
+    <p>Chizmali modeldagi «bo'laklar» usuli va tenglama — bitta yechimning ikki yozuvi: «5 bo'lak = 60» ↔ \(5x = 60\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · to'garakdagi bolalar</span>
+    <p>To'garakda 64 bola bor, qizlar o'g'il bolalardan 12 taga ko'p. Nechta o'g'il bola bor?</p>
+    <div data-model='{"q":[["O&#39;g&#39;il",[["x",5]]],["Qiz",[["x",5],["12",2]]]],"jami":{}}'></div>
+    <div class="qadam"><b>1</b><span>O'g'il bolalar \(x\), qizlar \(x + 12\).</span></div>
+    <div class="qadam"><b>2</b><span>\(x + x + 12 = 64\), ya'ni \(2x + 12 = 64\).</span></div>
+    <div class="qadam"><b>3</b><span>\(2x = 52\), \(\nat{x = 26}\) o'g'il bola (qizlar 38). Tekshiruv: \(26 + 38 = 64\) ✓.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">5-qoida · «marta ko'p» va ketma-ket sonlar</span>
+    <ul>
+      <li>«Katta son kichigidan 3 marta ko'p, yig'indisi 48»: \(p + 3p = 48\), \(4p = 48\), \(p = 12\).</li>
+      <li>Har biri oldingisidan 1 ga katta uchta son: \(m\), \(m + 1\), \(m + 2\); yig'indisi \(3m + 3\).</li>
+    </ul>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · ketma-ket uchta son</span>
+    <p>Yig'indisi 75 bo'lgan, har biri oldingisidan 1 ga katta uchta sonni toping.</p>
+    <div data-model='{"q":[["1-son",[["m",6]]],["2-son",[["m",6],["1",1,1]]],["3-son",[["m",6],["1",1,1],["1",1,1]]]]}'></div>
+    <div class="qadam"><b>1</b><span>\(m + (m + 1) + (m + 2) = 75\) → \(3m + 3 = 75\).</span></div>
+    <div class="qadam"><b>2</b><span>\(3m = 72\), \(m = 24\). Sonlar: \(\nat{24, 25, 26}\). Tekshiruv: \(24 + 25 + 26 = 75\) ✓.</span></div>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Tarozida ikki pallaga bir xil ish qilaman!</div></div>
+  <div class="box">
+    <p><b>\(3x + 4 = 22\)</b> tenglamasi tarozida:</p>
+    <div data-tarozi="3x + 4|22"></div>
+    <div class="qadam"><b>1</b><span>Ikkala palladan 4 ni olamiz: \(3x = 18\).</span></div>
+    <div data-tarozi="3x|18"></div>
+    <div class="qadam"><b>2</b><span>Uchta quti 18 ga teng — bittasi 6: \(\nat{x = 6}\).</span></div>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar</h2>
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · uch kishining puli</span>
+    <p>Anvarning puli Boburnikidan 2 marta ko'p, Kamolniki esa Boburnikidan 5 ming so'm ko'p. Uchalasida 45 ming so'm. Boburda qancha?</p>
+    <div class="qadam"><b>1</b><span>Bobur \(b\), Anvar \(2b\), Kamol \(b + 5\) (ming so'm).</span></div>
+    <div class="qadam"><b>2</b><span>\(b + 2b + b + 5 = 45\) → \(4b + 5 = 45\) → \(4b = 40\) → \(\nat{b = 10}\) ming so'm.</span></div>
+    <div class="qadam"><b>3</b><span>Tekshiruv: 10 + 20 + 15 = 45 ✓.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · yoshlar</span>
+    <p>Ota o'g'lidan 4 marta katta. 6 yildan keyin ularning yoshlari yig'indisi 62 bo'ladi. O'g'il hozir necha yoshda?</p>
+    <div class="qadam"><b>1</b><span>Hozir: o'g'il \(y\), ota \(4y\). 6 yildan keyin: \(y + 6\) va \(4y + 6\).</span></div>
+    <div class="qadam"><b>2</b><span>\(y + 6 + 4y + 6 = 62\) → \(5y + 12 = 62\) → \(5y = 50\) → \(\nat{y = 10}\) yosh.</span></div>
+    <div class="qadam"><b>3</b><span>Tekshiruv: 6 yildan keyin 16 va 46, yig'indi 62 ✓.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · ishlatilgan tuxumlar</span>
+    <p>Oshxonada \(3t\) dona tuxum bor edi. \(t\) tasi ishlatildi va 26 ta qoldi. Dastlab nechta tuxum bor edi?</p>
+    <div class="qadam"><b>1</b><span>\(3t - t = 26\) → \(2t = 26\) → \(t = 13\).</span></div>
+    <div class="qadam"><b>2</b><span>Dastlab \(3t = 3 \cdot 13 = \nat{39}\) dona.</span></div>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Avval sonni olib tashlayman, keyin bo'laman — teskarisi emas!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Qadamlar tartibini buzish.<br><span class="xato">\(2x + 7 = 19\): \(x = 19 : 2 - 7\)</span> &nbsp;→&nbsp; <span class="togri">\(2x = 12\), \(x = 6\)</span></li>
+      <li>Noma'lum kamayuvchida ayirib yuborish.<br><span class="xato">\(x - 8 = 13\): \(x = 13 - 8 = 5\)</span> &nbsp;→&nbsp; <span class="togri">\(x = 13 + 8 = 21\)</span></li>
+      <li>«12 ta ko'p» ni ikki marta hisoblamaslik.<br><span class="xato">\(x + 12 = 64\)</span> &nbsp;→&nbsp; <span class="togri">ikkala guruh: \(x + (x + 12) = 64\)</span></li>
+      <li>Masalada so'ralgan miqdorni emas, harfni javob qilish.<br><span class="xato">«dastlab nechta tuxum?» — \(t = 13\)</span> &nbsp;→&nbsp; <span class="togri">\(3t = 39\)</span></li>
+      <li>Tekshirmaslik. Har doim javobni tenglamaga (yoki masalaga) qo'yib ko'ring.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Yechdim — darrov tekshiraman!</div></div>
+  <div class="daraja oson"><i></i>Oson — tenglamani yeching</div>
+  <div class="misollar">
+    <span><b>a)</b> \(x + 17 = 40\)</span>
+    <span><b>b)</b> \(y - 9 = 26\)</span>
+    <span><b>c)</b> \(8n = 72\)</span>
+    <span><b>d)</b> \(\frac{k}{4} = 11\)</span>
+    <span><b>e)</b> \(35 - m = 19\)</span>
+    <span><b>f)</b> \(54 : a = 6\)</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 23</span><span>b) 35</span><span>c) 9</span><span>d) 44</span><span>e) 16</span><span>f) 9</span></div>
+  </details>
+
+  <div class="daraja orta"><i></i>O'rta — ikki qadamli tenglamalar</div>
+  <div class="misollar">
+    <span><b>a)</b> \(3x + 5 = 32\)</span>
+    <span><b>b)</b> \(4y - 6 = 30\)</span>
+    <span><b>c)</b> \(x + 5x = 66\)</span>
+    <span><b>d)</b> \(7c - 2c = 45\)</span>
+    <span><b>e)</b> \(2t + 9 + t = 39\)</span>
+  </div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>a) 9</span><span>b) 9</span><span>c) 11</span><span>d) 9</span><span>e) 10</span></div>
+  </details>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin — tarozi va sehrli kvadrat</div>
+  <p>1) Tarozidagi tenglamani yozing va yeching:</p>
+  <div data-tarozi="4x + 3|23"></div>
+  <p>2) Sehrli kvadratda har qator, ustun va diagonal yig'indisi teng. Markazdagi son \(x\), qolganlari jadvalda. \(x = 7\) bo'lsa, katakchalardagi sonlarni toping va har bir qator yig'indisi 21 ekanini tekshiring.</p>
+  <div class="jad-wrap"><table class="jad">
+    <tr><td>\(x + 1\)</td><td>\(x - 4\)</td><td>\(x + 3\)</td></tr>
+    <tr><td>\(x + 2\)</td><td>\(x\)</td><td>\(x - 2\)</td></tr>
+    <tr><td>\(x - 3\)</td><td>\(x + 4\)</td><td>\(x - 1\)</td></tr>
+  </table></div>
+  <details class="javob"><summary>Javobni ko'rish</summary>
+    <div class="javoblar"><span>1) \(4x + 3 = 23\), \(4x = 20\), \(x = 5\)</span><span>2) 8, 3, 10 / 9, 7, 5 / 4, 11, 6 — har qator, ustun va diagonal yig'indisi \(3x = 21\)</span></div>
+  </details>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Tenglama tuzib yeching</span>
+    <ol class="masalalar">
+      <li>Lolaning puli Nilufarnikidan 3 marta ko'p, ikkalasida 36 000 so'm. Har birida qancha?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(n + 3n = 36\,000\), \(n = 9000\). Nilufar 9000, Lola 27 000 so'm.</details></li>
+      <li>Ikki kunda 31 ta pirog pishirildi, ikkinchi kuni birinchisidan 7 ta ko'p. Birinchi kuni nechta?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(p + p + 7 = 31\), \(2p = 24\), \(p = 12\) ta.</details></li>
+      <li>Uch qizdagi markalar: Shahnozada \(s\), Dildorada undan 2 marta, Rayhonada Dildoradan 2 marta ko'p. Jami 140 ta. Rayhonada nechta?
+        <details class="javob"><summary>Javobni ko'rish</summary>\(s + 2s + 4s = 140\), \(7s = 140\), \(s = 20\); Rayhona \(4s = 80\) ta.</details></li>
+      <li>Aka ukasidan 7 yosh katta. 3 yildan keyin yoshlari yig'indisi 39 bo'ladi. Uka hozir necha yoshda?
+        <details class="javob"><summary>Javobni ko'rish</summary>\((u + 3) + (u + 7 + 3) = 39\), \(2u + 13 = 39\), \(u = 13\) yosh.</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Kalendarda ham tenglama yashiringan!</div></div>
+  <div class="box qiyin">
+    <span class="tag">Muammoli topshiriq · kalendar</span>
+    <p>Kalendarda bir hafta ostidagi sana \(y\). Uning o'ng tomonidagi, pastidagi va pastki-o'ngidagi sanalarni \(y\) orqali yozing. Shu to'rt sana yig'indisi 64 bo'lsa, \(y\) ni toping.</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>O'ngi \(y + 1\), pasti \(y + 7\), pastki-o'ngi \(y + 8\). \(4y + 16 = 64\), \(4y = 48\), \(y = 12\).</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Matematika kundaligi</span>
+    <p>Javobi \(3x - 4\) ifoda bo'ladigan masala tuzing.</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Masalan: «3 ta qutida \(x\) tadan olma bor edi. 4 ta olma yeyildi. Nechta qoldi?» — \(3x - 4\).</details>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — testga o'ting!</div></div>
+  <div class="box tekshir">
+    <ul>
+      <li>Bir va ikki qadamli tenglamalarni yecha olaman.</li>
+      <li>Yechimni tenglamaga qo'yib tekshira olaman.</li>
+      <li>Matnli masalaga tenglama tuza olaman.</li>
+      <li>Chizmali model va tarozi yordamida tenglamani tushuntira olaman.</li>
+    </ul>
+  </div>
+</section>
+
+<p class="m-foot">Mathlearn · 6-sinf matematika</p>
+</main>
+<script src="chizma.js?v=56"></script>
+<script src="maruza.js?v=4"></script>
+</body>
+</html>

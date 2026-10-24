@@ -102,6 +102,8 @@
        Bir nechta uchburchak: "shakllar":["ABC","ACD"]; "diag":[["B","D","togri"]] — qalin to'g'ri chiziq; "yoy":[["B","A","C","40°",(rang),(radius)]] — A uchida
        AB va AC orasidagi burchak (yozuv "90°" — kvadratcha); "tik":["BAC"] — istalgan to'g'ri burchak; "joy":{"A":[dx,dy]} — nom joyini qo'lda berish (px);
        "par":{"AB":1,"DC":1} — parallel tomonlar strelkasi (a → b yo'nalishda; 2 — ikkinchi juft, qo'sh strelka).
+   data-ulush="2/3:4" — kasrni natural songa bo'lish doirada: b ta qalin bo'lak, a tasi n kishiga rangli bo'linadi; punktir — b·n mayda bo'lak.
+   data-tarozi="2x + 4|20" — pallali tarozi (tenglama): chapda va o'ngda harfli qutilar va birlik toshlar (24 dan katta son yoki data-dona dan katta — bitta katta tosh).
    data-plitka="3y + 2y − 4" [data-kesish="1"] — algebraik plitkalar: harfli had — uzun plitka, son — kichik kvadratlar, orasida belgilar;
        kesish="1" — o'xshash hadlar bitta qatorda, ayrilganlari ustidan qizil chiziq (6y − 4y: 6 ta, 4 tasi chizilgan).
    data-model='{"q":[["Ali",[["x",3],["10",2]]],["Vali",[["?",5]]]],"jami":{"0":"?"}}' — chizmali model (algebra): har qator [nom, bo'laklar];
@@ -1089,6 +1091,78 @@
     el.innerHTML = '<svg viewBox="0 0 ' + f(W) + " " + H + '" width="' + Math.round(W) + '" role="img" aria-label="Algebraik plitkalar: ' + el.dataset.plitka + '">' + svg + "</svg>";
   }
 
+  // ---------- pallali tarozi (tenglama): "2x + 4|20" ----------
+  function chizTarozi(el) {
+    const tomon = el.dataset.tarozi.split("|");
+    const f = function (v) { return v.toFixed(1); };
+    const parse = function (t) {
+      const r = [];
+      t.replace(/\s+/g, "").replace(/([+]?)(\d*)([a-z]?)/g, function (m, sg, n, h) {
+        if (!m) return m;
+        if (h) for (let k = 0; k < (n === "" ? 1 : Number(n)); k++) r.push({ h: h });
+        else if (Number(n) <= (el.dataset.dona ? Number(el.dataset.dona) : 24)) for (let k = 0; k < Number(n); k++) r.push({ h: "1" });
+        else r.push({ h: n, katta: true });
+        return m;
+      });
+      return r;
+    };
+    const W = 420, cx = W / 2, pW = 156, bY = 30, pY = 168, half = 125;
+    let svg = '<path d="M' + (cx - 34) + ' 222 L' + (cx + 34) + ' 222 L' + cx + " " + bY + ' Z" fill="#e8ecf5" stroke="#5b6577" stroke-width="2"/>';
+    svg += '<line x1="' + (cx - half) + '" y1="' + bY + '" x2="' + (cx + half) + '" y2="' + bY + '" stroke="#1f2433" stroke-width="5" stroke-linecap="round"/><circle cx="' + cx + '" cy="' + bY + '" r="7" fill="#1f2433"/>';
+    tomon.forEach(function (t, i) {
+      const ax = i ? cx + half : cx - half, px = ax - pW / 2, py = pY;
+      svg += '<line x1="' + ax + '" y1="' + bY + '" x2="' + (px + 4) + '" y2="' + py + '" stroke="#9aa3b5" stroke-width="1.4"/><line x1="' + ax + '" y1="' + bY + '" x2="' + (px + pW - 4) + '" y2="' + py + '" stroke="#9aa3b5" stroke-width="1.4"/>';
+      svg += '<path d="M' + px + " " + py + " Q" + (px + pW / 2) + " " + (py + 26) + " " + (px + pW) + " " + py + ' Z" fill="#c9d3e6" stroke="#5b6577" stroke-width="2"/>';
+      const it = parse(t);
+      /* buyumlarni pallaning ustiga qatorlab teramiz (pastdan yuqoriga) */
+      let x = px + 8, y = py, qatorH = 0, satr = [];
+      const qator = []; let cur = [], w = 0;
+      it.forEach(function (o) {
+        const ow = o.h === "1" ? 20 : o.katta ? 46 : 30;
+        if (w + ow > pW - 12 && cur.length) { qator.push(cur); cur = []; w = 0; }
+        cur.push(o); w += ow + 4;
+      });
+      if (cur.length) qator.push(cur);
+      qator.forEach(function (q, qi) {
+        let ww = q.reduce(function (a, o) { return a + (o.h === "1" ? 20 : o.katta ? 46 : 30) + 4; }, -4);
+        let xx = px + pW / 2 - ww / 2;
+        const hq = Math.max.apply(null, q.map(function (o) { return o.h === "1" ? 20 : 30; }));
+        y -= hq + (qi ? 4 : 2);
+        q.forEach(function (o) {
+          if (o.h === "1") svg += '<circle cx="' + f(xx + 10) + '" cy="' + f(y + hq - 10) + '" r="10" fill="#ffe6d2" stroke="#c2410c" stroke-width="2"/><text x="' + f(xx + 10) + '" y="' + f(y + hq - 5.5) + '" text-anchor="middle" font-size="12" font-weight="800" fill="#c2410c">1</text>', xx += 24;
+          else if (o.katta) svg += '<path d="M' + f(xx + 6) + " " + f(y + hq) + " L" + f(xx + 40) + " " + f(y + hq) + " L" + f(xx + 34) + " " + f(y + 2) + " L" + f(xx + 12) + " " + f(y + 2) + ' Z" fill="#ffe6d2" stroke="#c2410c" stroke-width="2"/><text x="' + f(xx + 23) + '" y="' + f(y + hq - 9) + '" text-anchor="middle" font-size="14" font-weight="800" fill="#c2410c">' + o.h + "</text>", xx += 50;
+          else svg += '<rect x="' + f(xx) + '" y="' + f(y) + '" width="30" height="30" rx="4" fill="#dbe7ff" stroke="#1f5fd6" stroke-width="2"/><text x="' + f(xx + 15) + '" y="' + f(y + 21) + '" text-anchor="middle" font-size="16" font-weight="800" fill="#1f5fd6">' + o.h + "</text>", xx += 34;
+        });
+      });
+      svg += '<text x="' + (px + pW / 2) + '" y="' + (py + 46) + '" text-anchor="middle" font-size="17" font-weight="800" fill="#1f2433">' + t.trim() + "</text>";
+    });
+    el.classList.add("chz");
+    el.innerHTML = '<svg viewBox="0 10 ' + W + ' 222" width="' + W + '" role="img" aria-label="Pallali tarozi: ' + tomon.join(" = ") + '">' + svg + "</svg>";
+  }
+
+  // ---------- kasrni natural songa bo'lish (doira): "2/3:4" — 2/3 qism 4 kishiga ----------
+  function chizUlush(el) {
+    const m = el.dataset.ulush.match(/(\d+)\/(\d+):(\d+)/), a = +m[1], b = +m[2], n = +m[3];
+    const R = 92, cx = 110, cy = 104, f = function (v) { return v.toFixed(1); };
+    const RANG = ["#1f5fd6", "#e07b39", "#12805c", "#8b5cf6", "#d6454f", "#0e9aa7", "#b45309", "#db2777"];
+    const P = function (t) { const ang = -Math.PI / 2 + t * 2 * Math.PI; return [cx + R * Math.cos(ang), cy + R * Math.sin(ang)]; };
+    const sektor = function (t1, t2, fill, op) {
+      const p1 = P(t1), p2 = P(t2), big = t2 - t1 > 0.5 ? 1 : 0;
+      return '<path d="M' + cx + " " + cy + " L" + f(p1[0]) + " " + f(p1[1]) + " A " + R + " " + R + " 0 " + big + " 1 " + f(p2[0]) + " " + f(p2[1]) + ' Z" fill="' + fill + '" fill-opacity="' + op + '"/>';
+    };
+    let svg = '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="#fff"/>';
+    const ul = a / b / n;
+    for (let k = 0; k < n; k++) svg += sektor(k * ul, (k + 1) * ul, RANG[k % RANG.length], 0.75);
+    /* mayda chiziqlar: butun b·n bo'lakka */
+    for (let k = 0; k < b * n; k++) { const q = P(k / (b * n)); svg += '<line x1="' + cx + '" y1="' + cy + '" x2="' + f(q[0]) + '" y2="' + f(q[1]) + '" stroke="#9aa3b5" stroke-width="1" stroke-dasharray="3 3"/>'; }
+    for (let k = 0; k < b; k++) { const q = P(k / b); svg += '<line x1="' + cx + '" y1="' + cy + '" x2="' + f(q[0]) + '" y2="' + f(q[1]) + '" stroke="#1f2433" stroke-width="2.4"/>'; }
+    svg += '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#1f2433" stroke-width="2.6"/>';
+    let leg = "", y = 22;
+    for (let k = 0; k < Math.min(n, 8); k++) { leg += '<rect x="226" y="' + (y - 11) + '" width="14" height="14" rx="3" fill="' + RANG[k] + '" fill-opacity=".75"/><text x="246" y="' + y + '" font-size="14" font-weight="700" fill="#1f2433">' + (k + 1) + "-kishi</text>"; y += 22; }
+    el.classList.add("chz");
+    el.innerHTML = '<svg viewBox="0 0 320 210" width="320" role="img" aria-label="' + a + "/" + b + " qism " + n + ' kishiga">' + svg + leg + "</svg>";
+  }
+
   // ---------- ustunli diagramma ----------
   function chizUstunli(el) {
     const q = el.dataset.ustunli.split("|").map(function (t) { const p = t.split(":"); return { nom: p[0], v: p[1] === "?" ? null : Number(p[1]) }; });
@@ -1967,6 +2041,8 @@
       root.querySelectorAll("[data-yasash]").forEach(chizYasash);
       root.querySelectorAll("[data-model]").forEach(chizModel);
       root.querySelectorAll("[data-plitka]").forEach(chizPlitka);
+      root.querySelectorAll("[data-tarozi]").forEach(chizTarozi);
+      root.querySelectorAll("[data-ulush]").forEach(chizUlush);
     }
   };
 })();

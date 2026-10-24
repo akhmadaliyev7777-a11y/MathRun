@@ -18,9 +18,13 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-ifoda-qiymatini-topish.html. O'z testi 20+20.
 **Kitob bilan solishtirildi:** harf o'rniga son ✅; yashirin ko'paytirish ✅; jadval (bir ifoda — har xil qiymat) ✅; kasr ko'rinishidagi ifoda ✅; avval soddalashtirish ✅; masala: ifoda + qiymat (tasma farqi, uch quti, 5 marta ko'p — bo'laklar, o'rta arifmetik, shakl yuzi, yosh, qaytim, perimetr, stiker, hamyon, pechenye) ✅. Kitob sonlari (z = 8, y = 5, m = 3, Halima 8 tugma, 78 000, f = 140, 5 cm va w) ishlatilmadi.
 
-#### ☐ 4. Tenglamalarni yechish — D1 19–24; M1 19–32
+#### ✅  4. Tenglamalarni yechish — D1 19–24; M1 19–32
+**Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-tenglamalarni-yechish.html. Yangi chizma: `data-tarozi` (pallali tarozi: x qutilar va birlik toshlar, 24 tagacha donalab). O'z testi 20+20, 6 savolda chizma (tarozi, chizmali model); yechim emas variantlar dastur bilan tekshirildi.
+**Kitob bilan solishtirildi:** tenglama, yechim, tekshirish ✅; bir qadamli (4 komponent) ✅; ikki qadamli (tarozi) ✅; bo'laklar usuli = tenglama ✅; «… ta ko'p», «… marta ko'p» ✅; ketma-ket sonlar ✅; yoshlar ✅; sehrli kvadrat ✅; kalendar ✅; kundalik (javobi ifoda bo'lgan masala) ✅. Kitob sonlari (7 + j = 18, 4 + 2k = 20, 70/14, 50/4 marta, 66, 48 yosh, 30 000, 60 tomoshabin, x + 3 = 8, 2b va 22 tuxum) ishlatilmadi.
 
-#### ☐ 5. To'g'ri kasrni natural songa bo'lish — D1 26–32; M1 33–40
+#### ✅  5. To'g'ri kasrni natural songa bo'lish — D1 26–32; M1 33–40
+**Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-kasrni-natural-songa-bolish.html. Yangi chizma: `data-ulush="a/b:n"` (doira: kasr qism n kishiga rangli bo'linadi, punktir — b·n mayda bo'lak). O'z testi 20+20, 5 savolda chizma (doira, to'g'ri to'rtburchak modeli).
+**Kitob bilan solishtirildi:** Eslang (ko'paytirish, bo'linma — kasr) ✅; a/b : n = a/b · 1/n ✅; surat bo'linsa ✅; qisqartirish ✅; to'g'ri to'rtburchak modeli ✅; kasr miqdorni taqsimlash (sim, sharbat, kvadrat perimetri) ✅; daftardagi ikki qadamli masalalar ✅. Kitob misollari (1/2 : 2, 1/4 : 2, 4/5 : 4, 3/4 : 2, 3/4 : 5, 2/3 : 4 va daftar ro'yxati) ishlatilmadi.
 
 #### ☐ 6. Natural sonni to'g'ri kasrga bo'lish — D1 33–35; M1 41–48
 
