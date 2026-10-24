@@ -5,7 +5,7 @@
 > Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
 > Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 15:44 — 1–4-sinf shifrli savollar tuzatildi va saytga chiqdi; 9-mavzu yozilmoqda
+**Oxirgi yangilanish:** 2026-10-24 15:45 — 1–4-sinf ishlari to'xtatildi (keyin darslik bo'yicha boshidan); hozir yuqori sinflar: 9-mavzu yozilmoqda
 
 ---
 
@@ -49,8 +49,6 @@
 **Jiddiy**
 - [x] 1–4-sinf testida to'g'ri javob «xato» deyilardi («3/3» va «1») — 5 574 savol tekshirildi, 18 ta tuzatildi (12 test + 6 arqon tortish); tekshiruv dasturi `mathrunner-web/tools/teng_variantlar.py`
 - [x] 1–4-sinf: 122 ta shifrli savol (54 test) oddiy savolga aylantirildi, javoblar haqiqiy; 1 ta noto'g'ri javob (paletka) tuzatildi
-- [ ] 1–4-sinf: ba'zi savollar yechimni matnda aytib qo'yadi («(eni = 4)», «P = 12»), 5 ta testda bir xil savol ikki marta
-- [ ] Arqon tortish o'yini telefonda o'ynab bo'lmaydi (ochkolar savolni yopadi, arqon ekrandan chiqadi)
 - [ ] 10 ga yaqin eski simulyator telefonda sig'maydi yoki kesiladi (5-sinf 38, 6-sinf algebra/kasr/tezlik, 7-sinf, 10-sinf) — `lessons/` ga tegish uchun ruxsat kerak
 - [ ] 7–11-sinflarda birorta test yo'q (109 mavzu)
 
@@ -71,7 +69,6 @@
 - [ ] Telefonda test paneli katta (ekranning ~30%), natijada rasm savoldan oldin chiqadi
 - [ ] O'z 404 sahifasi yo'q; sinf sahifalari sarlavhasi bir xil; Telegram'da havola rasmsiz
 - [x] 1–4-sinf: shifrlangan savol g3_c2_b29_l2 tuzatildi
-- [ ] 1–4-sinf: 3 842 savolda yechim yo'q, mayda ko'rinish xatolari
 
 ## 3. 6-sinf — barcha mavzular (31 ta)
 Har safar 2 tadan mavzu; har 6 mavzudan keyin ish jurnaliga yozuv.
@@ -125,7 +122,14 @@ Har safar 2 tadan mavzu; har 6 mavzudan keyin ish jurnaliga yozuv.
 - [ ] 30. Uch o'lchamli panjarada fazoviy jismlarni chizish
 - [ ] 31. Fazoviy jismlarning yoyilmasi
 
-## 4. Keyingi ishlar (navbat kelganda)
+## 4. 1–4-sinflar — TO'XTATILGAN (foydalanuvchi qarori, 2026-10-24)
+Hozir tegilmaydi. Keyinroq boshidan, darslik bo'yicha: avval mavzular → keyin shu mavzular bo'yicha testlar → interaktiv darslar.
+O'shanda hisobga olinadigan kamchiliklar (sayt tekshiruvidan):
+- Arqon tortish o'yini telefonda o'ynab bo'lmaydi; sozlash sahifasi ekrandan keng
+- Ba'zi savollar yechimni matnda aytib qo'yadi («(eni = 4)», «P = 12»); 5 ta testda bir xil savol ikki marta; 3 842 savolda yechim yo'q
+- Telefonda sinf rasmlari kesilgan, simulyator yorliqlari kesilgan
+
+## 5. Keyingi ishlar (navbat kelganda)
 - [ ] 7-sinf mavzu ikonkalari: 32/79 tayyor, keyingisi 9-prompt (Algebra 6–9)
 - [ ] 5-sinf simulyatorlarini ma'ruzalarga moslab boyitish (foydalanuvchi qarori bilan)
 - [ ] 6-sinf simulyatorlari (har mavzuda reja bor)
