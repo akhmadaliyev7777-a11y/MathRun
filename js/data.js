@@ -632,7 +632,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/7-algebra-kopaytuvchilarga-ajratish.html", test: null
             },
             {
-              id: "sodda-chiziqli-tenglamalar", title: "5.1 Sodda chiziqli tenglamalar", page: "101/123-bet",
+              id: "sodda-chiziqli-tenglamalar", icon: "img/mavzu/7-sodda-chiziqli-tenglamalar.webp", title: "5.1 Sodda chiziqli tenglamalar", page: "101/123-bet",
               sections: [
                 secText("Tenglama va uning ildizi",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> o'zgaruvchi qatnashgan tenglik <strong>tenglama</strong> deyiladi. Tenglamani to'g'ri tenglikka aylantiradigan o'zgaruvchi qiymati uning <strong>ildizi</strong> (yechimi) deyiladi.</div>" +
@@ -669,7 +669,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/7-algebra-sodda-chiziqli-tenglamalar.html", test: null
             },
             {
-              id: "qavs-kasr-chiziqli-tenglamalar", title: "5.2 Qavs va kasrlar qatnashgan chiziqli tenglamalar", page: "101/123-bet",
+              id: "qavs-kasr-chiziqli-tenglamalar", icon: "img/mavzu/7-qavs-kasr-chiziqli-tenglamalar.webp", title: "5.2 Qavs va kasrlar qatnashgan chiziqli tenglamalar", page: "101/123-bet",
               sections: [
                 secText("Qavsli tenglamalar",
                   "<div class='lecture-rule'><strong>Qoida:</strong> avval barcha qavslarni ochamiz, o'xshash hadlarni ixchamlaymiz, so'ng o'zgaruvchili hadlarni bir tomonga, sonlarni ikkinchi tomonga o'tkazamiz.</div>" +
@@ -692,7 +692,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "sodda-kasr-chiziqli-tenglamalar", title: "5.3 Sodda kasr-chiziqli tenglamalar", page: "101/123-bet",
+              id: "sodda-kasr-chiziqli-tenglamalar", icon: "img/mavzu/7-sodda-kasr-chiziqli-tenglamalar.webp", title: "5.3 Sodda kasr-chiziqli tenglamalar", page: "101/123-bet",
               sections: [
                 secText("Kasr-chiziqli tenglama nima?",
                   "<p>Maxrajida o'zgaruvchi qatnashgan tenglama <strong>kasr-chiziqli tenglama</strong> deyiladi. Masalan, 6/x = 3 &nbsp; yoki &nbsp; 1/(x − 2) = 5.</p>"
@@ -713,7 +713,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "tenglama-matnli-masalalar", title: "5.4 Chiziqli tenglama tuzib yechiladigan matnli masalalar", page: "101/123-bet",
+              id: "tenglama-matnli-masalalar", icon: "img/mavzu/7-tenglama-matnli-masalalar.webp", title: "5.4 Chiziqli tenglama tuzib yechiladigan matnli masalalar", page: "101/123-bet",
               sections: [
                 secText("Masala yechish bosqichlari",
                   "<div class='lecture-rule'><strong>Qoida:</strong> 1) noma'lum kattalikni x deb belgilaymiz; 2) masaladagi shartga ko'ra tenglama tuzamiz; 3) tenglamani yechamiz; 4) topilgan qiymatni masala savoliga moslab javob yozamiz va shartga tekshiramiz.</div>"
@@ -734,7 +734,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "nuqta-togri-chiziq-tekislik", title: "6.1 Nuqta, to'g'ri chiziq va tekislik", page: "127/145-bet",
+              id: "nuqta-togri-chiziq-tekislik", icon: "img/mavzu/7-nuqta-togri-chiziq-tekislik.webp", title: "6.1 Nuqta, to'g'ri chiziq va tekislik", page: "127/145-bet",
               sections: [
                 secText("Asosiy geometrik tushunchalar",
                   "<p><strong>Nuqta</strong>, <strong>to'g'ri chiziq</strong> va <strong>tekislik</strong> — geometriyaning eng sodda, ta'riflanmaydigan tushunchalari. Nuqta bosh harflar (A, B, C), to'g'ri chiziq kichik harf (a, b) yoki ikki nuqtasi bilan (AB) belgilanadi.</p>" +
@@ -767,7 +767,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "burchaklar-tushunchasi", title: "6.2 Burchaklar", page: "127/145-bet",
+              id: "burchaklar-tushunchasi", icon: "img/mavzu/7-burchaklar-tushunchasi.webp", title: "6.2 Burchaklar", page: "127/145-bet",
               sections: [
                 secText("Burchak ta'rifi",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> umumiy boshlang'ich nuqtaga (uchiga) ega ikki nurdan tuzilgan shakl <strong>burchak</strong> deyiladi. Nurlar — burchakning <strong>tomonlari</strong>. Belgilanishi: ∠AOB yoki ∠O.</div>"
@@ -802,7 +802,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "parallel-chiziqlar-kesuvchi", title: "6.3 Parallel to'g'ri chiziqlar va kesuvchi", page: "127/145-bet",
+              id: "parallel-chiziqlar-kesuvchi", icon: "img/mavzu/7-parallel-chiziqlar-kesuvchi.webp", title: "6.3 Parallel to'g'ri chiziqlar va kesuvchi", page: "127/145-bet",
               sections: [
                 secText("Parallel to'g'ri chiziqlar",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> bir tekislikda yotgan va kesishmaydigan ikki to'g'ri chiziq <strong>parallel</strong> deyiladi. Belgilanishi: a ∥ b.</div>"
@@ -836,7 +836,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "uchburchaklar-7sinf", title: "7.1 Uchburchaklar", page: "153/167-bet",
+              id: "uchburchaklar-7sinf", icon: "img/mavzu/7-uchburchaklar-7sinf.webp", title: "7.1 Uchburchaklar", page: "153/167-bet",
               sections: [
                 secText("Uchburchak va uning elementlari",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> bir to'g'ri chiziqda yotmaydigan uch nuqta va ularni tutashtiruvchi uch kesmadan tuzilgan shakl <strong>uchburchak</strong> deyiladi. Elementlari: 3 ta uch, 3 ta tomon, 3 ta burchak.</div>"
