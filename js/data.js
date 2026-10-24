@@ -436,7 +436,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "haqiqiy-sonlar-amallar", title: "2.5 Haqiqiy sonlar ustida amallar", page: "27/31-bet",
+              id: "haqiqiy-sonlar-amallar", icon: "img/mavzu/7-haqiqiy-sonlar-amallar.webp", title: "2.5 Haqiqiy sonlar ustida amallar", page: "27/31-bet",
               sections: [
                 secText("Amallarning asosiy xossalari",
                   "<div class='lecture-rule'><strong>Formulalar:</strong> a + b = b + a; &nbsp; ab = ba (o'rin almashtirish); &nbsp; (a + b) + c = a + (b + c); &nbsp; (ab)c = a(bc) (guruhlash); &nbsp; a(b + c) = ab + ac (taqsimot).</div>"
@@ -462,7 +462,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "xonagacha-yaxlitlash", title: "3.1 Sonlarni belgilangan xonasigacha yaxlitlash", page: "53/65-bet",
+              id: "xonagacha-yaxlitlash", icon: "img/mavzu/7-xonagacha-yaxlitlash.webp", title: "3.1 Sonlarni belgilangan xonasigacha yaxlitlash", page: "53/65-bet",
               sections: [
                 secText("Yaxlitlash nima?",
                   "<p><strong>Yaxlitlash</strong> — sonni unga yaqin, ko'proq «yumaloq» son bilan almashtirish. Natija <strong>≈</strong> (taqriban teng) belgisi bilan yoziladi.</p>"
@@ -491,7 +491,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "ahamiyatli-raqamgacha-yaxlitlash", title: "3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash", page: "53/65-bet",
+              id: "ahamiyatli-raqamgacha-yaxlitlash", icon: "img/mavzu/7-ahamiyatli-raqamgacha-yaxlitlash.webp", title: "3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash", page: "53/65-bet",
               sections: [
                 secText("Ahamiyatli raqam nima?",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> sonning birinchi noldan farqli raqamidan boshlab sanaladigan barcha raqamlari <strong>ahamiyatli raqamlar</strong> deyiladi. Boshidagi nollar ahamiyatli emas.</div>" +
@@ -513,7 +513,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "chamalash", title: "3.3 Chamalash", page: "53/65-bet",
+              id: "chamalash", icon: "img/mavzu/7-chamalash.webp", title: "3.3 Chamalash", page: "53/65-bet",
               sections: [
                 secText("Chamalash nima?",
                   "<p><strong>Chamalash</strong> — sonlarni qulay yaxlitlab, hisobni tez va taxminan bajarish. U aniq javob emas, balki javobning taxminiy kattaligini bilish uchun kerak.</p>"
@@ -535,7 +535,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "algebraga-kirish", title: "4.1 Algebraga kirish", page: "71/89-bet",
+              id: "algebraga-kirish", icon: "img/mavzu/7-algebraga-kirish.webp", title: "4.1 Algebraga kirish", page: "71/89-bet",
               sections: [
                 secText("O'zgaruvchi va harfiy ifoda",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> turli qiymatlar qabul qila oladigan harf <strong>o'zgaruvchi</strong> deyiladi. Sonlar, o'zgaruvchilar va amal belgilaridan tuzilgan yozuv <strong>harfiy (algebraik) ifoda</strong>dir.</div>" +
@@ -560,7 +560,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "chiziqli-ifodalarni-soddalashtirish", title: "4.2 Chiziqli ifodalarni soddalashtirish", page: "71/89-bet",
+              id: "chiziqli-ifodalarni-soddalashtirish", icon: "img/mavzu/7-chiziqli-ifodalarni-soddalashtirish.webp", title: "4.2 Chiziqli ifodalarni soddalashtirish", page: "71/89-bet",
               sections: [
                 secText("O'xshash hadlar",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> o'zgaruvchi qismi bir xil bo'lgan hadlar <strong>o'xshash hadlar</strong> deyiladi. Ozod hadlar ham o'zaro o'xshash.</div>" +
@@ -584,7 +584,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "qavslarni-ochish", title: "4.3 Chiziqli ifodalarda qavslarni ochish", page: "71/89-bet",
+              id: "qavslarni-ochish", icon: "img/mavzu/7-qavslarni-ochish.webp", title: "4.3 Chiziqli ifodalarda qavslarni ochish", page: "71/89-bet",
               sections: [
                 secText("Qavs oldida «+» bo'lsa",
                   "<div class='lecture-rule'><strong>Qoida:</strong> qavs oldida «+» ishorasi (yoki hech narsa) tursa, qavs shundoqqina olib tashlanadi, hadlar ishorasi o'zgarmaydi.</div>" +
@@ -608,7 +608,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "kopaytuvchilarga-ajratish", title: "4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish", page: "71/89-bet",
+              id: "kopaytuvchilarga-ajratish", icon: "img/mavzu/7-kopaytuvchilarga-ajratish.webp", title: "4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish", page: "71/89-bet",
               sections: [
                 secText("Ko'paytuvchilarga ajratish nima?",
                   "<p><strong>Ko'paytuvchilarga ajratish</strong> — ko'phadni bir nechta ifodaning ko'paytmasi ko'rinishida yozish. Bu qavs ochishga teskari amal.</p>"
