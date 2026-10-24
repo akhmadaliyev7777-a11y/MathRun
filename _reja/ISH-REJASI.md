@@ -5,7 +5,7 @@
 > Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
 > Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 15:37 — «Mening natijalarim» tuzatildi va saytga chiqdi
+**Oxirgi yangilanish:** 2026-10-24 15:42 — 8-mavzu tayyor va saytga chiqdi; 9-mavzu yozilmoqda
 
 ---
 
@@ -20,9 +20,10 @@
 - [x] Tekshiruv: telefon (390 px) va kompyuter (1100 px) ko'rinishi
 - [x] Tekshiruv: o'qituvchi va o'quvchi ko'zi bilan
 - [x] 1-tekshiruv kamchiliklari tuzatildi (38 ta)
-- [ ] 2-tekshiruv kamchiliklarini tuzatish (4 jiddiy — kitobga o'xshash masalalar, ~15 mayda) ← *hozir*
-- [ ] Saytga ulash (mavzu sahifasi, test havolasi)
-- [ ] Rejada belgilash, saytga chiqarish (push)
+- [x] 2-tekshiruv kamchiliklarini tuzatish (4 jiddiy — kitobga o'xshash masalalar, ~17 mayda)
+- [x] Saytga ulash (mavzu sahifasi, test havolasi)
+- [x] Yakuniy tekshiruv: barcha 56 ma'ruza 390/1100 px, 56 test — 0 xato
+- [x] Rejada belgilash, saytga chiqarish (push)
 
 ### 9. Uch miqdor nisbati
 - [ ] Kitob betlarini o'rganish (darslik 67–71, mashq daftari 87–94) ← *hozir*
@@ -86,7 +87,7 @@ Har safar 2 tadan mavzu; har 6 mavzudan keyin ish jurnaliga yozuv.
 - [x] 7. To'g'ri kasrni to'g'ri kasrga bo'lish
 
 **Nisbat**
-- [ ] 8. Nisbat va kasr ← *hozir*
+- [x] 8. Nisbat va kasr
 - [ ] 9. Uch miqdor nisbati ← *hozir*
 - [ ] 10. O'zgaruvchan nisbatlar
 

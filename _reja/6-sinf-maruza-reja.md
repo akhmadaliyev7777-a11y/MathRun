@@ -38,7 +38,11 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Tekshiruv:** tenglik.py (faqat atayin xato misollar va 2 ta o'qish xatosi), testlar.js 0 xato, 390/1100 px, KaTeX xatosiz.
 **Simulyator uchun g'oyalar:** data.js simPlan (ikki tasma ustma-ust).
 
-#### ☐ 8. Nisbat va kasr (+ matnli masalalar) — D1 52–66; M1 73–86
+#### ✅ 8. Nisbat va kasr (+ matnli masalalar) — D1 52–66; M1 73–86
+**Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-nisbat-va-kasr.html. Chizmalar: `data-tasma`, `data-model` (yangi: "qavs" — qator qismi ostida/ustida qavs, "ong" — o'ngda umumiy qavs, "chiziq" — punktir tik chiziqlar), `data-buyum`, `data-shakl`. O'z testi 20+20, chizmali savollar bilan.
+**Kitob bilan solishtirildi:** Eslang (nisbat, qisqarmas ko'rinish, teng kuchli, bo'laklar usuli) ✅; A : B = a : b ⇔ A = a/b · B ✅; hadlar o'rnini almashtirish, «baravari» ✅; «n marta ko'p» ✅; qism : jami ✅; «har a taga b ta» ✅; javob qisqarmas, to'r/qutilarda donalarni sanash ✅; farq bo'laklarda ✅; bo'laklar usuli (ma'lum — qism, jami yoki farq) ✅; ikki miqdorning qismlari teng (suratlarni tenglashtirish) ✅; qism qismdan ortiq va jami ma'lum ✅; dastlab teng miqdorlar va sarf ✅; geometriyada nisbat (kvadrat yuzlari, shakl ichidagi sohalar) ✅; retseptni o'zgartirish ✅; daftardagi barcha turlar ✅. Ikki tekshiruv bosqichi: 38 + 21 kamchilik tuzatildi, kitobga o'xshash vaziyatlar (to'garak, pul 1/4 = 3/5, yong'oqlar, sarflagan : tejagan, tasma, bo'ylar) o'zimiznikiga almashtirildi. kitobdan.py: 22 ta oddiy «a : b» juft.
+**Tekshiruv:** tenglik.py 109 to'g'ri / 0 xato, testlar.js 0 xato, 390/1100 px — barcha 56 ma'ruza qayta tekshirildi (chizma.js o'zgardi), KaTeX xatosiz.
+**Simulyator uchun g'oyalar:** data.js simPlan (ikki rangli tasma, nisbat ↔ kasr slayder bilan).
 
 #### ☐ 9. Uch miqdor nisbati — D1 67–71; M1 87–94
 
