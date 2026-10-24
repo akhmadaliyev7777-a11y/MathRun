@@ -10,9 +10,21 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
 - **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor.
-- **6-sinf:** 1–11-mavzular tayyor. **12-mavzu ustida ish ketmoqda.**
+- **6-sinf:** 1–12-mavzular tayyor. Navbat: 13-mavzu «Geometrik shakllardagi noma'lum burchaklar».
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 32/79 (keyingisi — 9-prompt, Algebra 6–9).
-- **Oxirgi yozuvdan beri tugagan mavzular:** 4 / 6 (8, 9, 10, 11).
+- **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+
+---
+
+## 2026-10-24 17:22 — m.shukurillo hisobi
+**Qilindi:**
+- 6-sinf 8–12-mavzular: ma'ruza va o'z testi 20 + 20 (chizmali savollar bilan), saytga chiqdi. Yangi chizmalar: data-birlash, data-ozgar, data-foizyol.
+- 1–4-sinf: teng javob variantlari (18 ta) va shifrli savollar (122 ta) tuzatildi; keyin 1–4-sinf ishi TO'XTATILDI (keyinroq darslik bo'yicha boshidan).
+- Ichki belgilar (rangli nuqtalar, kitob betlari, simulyatsiya rejasi) faqat admin uchun; «Mening natijalarim» tuzatildi.
+- Yangi kelishuvlar (CLAUDE.md): ma'ruza ixcham — eslab qolinadigan 3–4 narsa, kitob tushuntirish yo'liga tayanib, sodda; kitob qolipi ko'chirilmaydi; kam token — bitta yozuvchi, kerak bo'lsa bitta tekshiruvchi.
+
+**Chala:** 8–11-mavzular uzun (12–13 qoida) — yangi talabga ko'ra soddalashtirish kerakmi, foydalanuvchi hal qiladi.
+**Navbatda:** 6-sinf 13-mavzu.
 
 ---
 

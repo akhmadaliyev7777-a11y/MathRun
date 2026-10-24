@@ -62,7 +62,10 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Tekshiruv:** tenglik.py 135 to'g'ri / 1 atayin xato, testlar.js 0 xato, hisob mustaqil qayta tekshirildi (0 xato), 390/1100 px avtomatik (25 chizma).
 **Simulyator uchun g'oyalar:** data.js simPlan (foiz tasmasi, 30% → 10% → 100%).
 
-#### ☐ 12. O'sish va kamayish foizi (+ matnli masalalar) — D1 91–112; M1 123–142
+#### ✅ 12. O'sish va kamayish foizi (+ matnli masalalar) — D1 91–112; M1 123–142
+**Holat (2026-10-24):** tayyor va push qilindi — birinchi «ixcham» ma'ruza (4 qoida: o'zgarish foizi, yangi qiymat, dastlabki qiymat, ketma-ket o'zgarish). Fayl: maruza/6-osish-kamayish-foizi.html. Chizmalar: data-model, data-foizbar, data-foizyol, data-ustunli, data-buyum (yangi tur yo'q). O'z testi 20+20, 5 ta chizmali savol.
+**Kitob bilan solishtirildi:** darslik va daftardagi asosiy misol turlari (o'sish/kamayish foizi, «qaraganda», yaxlitlash, diagramma, jadval, yangi qiymat 2 usulda, chegirma, dastlabki qiymat, ketma-ket o'zgarish, jami o'zgarishi, ulush o'zgarishi, idishlar) ✅. Kiritilmadi (mavzu asosi emas): zar o'yini, maosh/jamg'arma turlari, sof «farq orqali» (11-mavzuda bor). kitobdan.py: 0.
+**Tekshiruv:** tenglik.py 59/0, testlar.js 0 xato, 390/1100 px.
 
 #### ☐ 13. Geometrik shakllardagi noma'lum burchaklar — D1 116–126; M1 151–168
 

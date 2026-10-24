@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>O'sish va kamayish foizi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=30">
+</head>
+<body>
+<main class="m-wrap">
+
+<h1 class="m-title">O'sish va kamayish foizi</h1>
+<p class="m-lead">«Narx 20% ga oshdi», «Narx 20% ga tushdi» — bunday yozuvlarni har kuni ko'ramiz. Ikki marta 20% bo'lsa, narx joyiga qaytadimi? Bu mavzuda miqdor necha foizga o'zganini, foiz bo'yicha yangi qiymatni va dastlabki qiymatni topamiz.</p>
+
+<!-- 1. Eslab olaylik -->
+<section class="m-sec">
+  <h2><span class="n">1</span>Eslab olaylik</h2>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Butun — doim 100%. Unga qo'shilsa, 100% dan oshadi!</div></div>
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik · foiz</span>
+    <ul>
+      <li>Qism butunning necha foizi: 60 ning necha foizi 15? <span style="white-space:nowrap">\(\frac{15}{60} \cdot 100\% = 25\%\).</span></li>
+      <li>Sonning foizi: 240 ning 35% i. 1% — <span style="white-space:nowrap">\(240 : 100 = 2,4\);</span> 35% — <span style="white-space:nowrap">\(2,4 \cdot 35 = 84\).</span></li>
+      <li>Butunni topish: sonning 115% i 69 ga teng. 1% — <span style="white-space:nowrap">\(69 : 115 = 0,6\);</span> son — 60.</li>
+    </ul>
+    <div data-foizbar="Butun:100|Qo'shildi:15" data-jami="Yangi miqdor"></div>
+    <p class="chz-cap">Butunga uning 15% i qo'shilsa, yangi miqdor 115% bo'ladi</p>
+  </div>
+</section>
+
+<!-- 2. Qoidalar -->
+<section class="m-sec">
+  <h2><span class="n">2</span>Qoidalar</h2>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Har masalada avval so'rang: «100% — qaysi miqdor?»</div></div>
+
+  <div class="box qoida">
+    <span class="tag">1-qoida · o'sish va kamayish foizi</span>
+    <p>1) Qanchaga o'zgarganini topamiz: kattasidan kichigini ayiramiz.</p>
+    <p>2) Shu sonni <b>dastlabki</b> qiymatga bo'lib, 100% ga ko'paytiramiz:</p>
+    <p>o'zgarish foizi \(= \frac{\text{o'zgarish}}{\text{dastlabki qiymat}} \cdot 100\%\).</p>
+    <p>Chegirma foizi ham shunday topiladi. «A, B ga qaraganda necha foiz ko'p?» savolida dastlabki qiymat — B.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · teatr tomoshabinlari</span>
+    <p>Spektaklning birinchi kuni teatrga 250 tomoshabin keldi, ikkinchi kuni esa 320 tomoshabin. Tomoshabinlar soni necha foizga oshdi?</p>
+    <div data-model='{"q":[["1-kun",[["250",250]]],["2-kun",[["250",250],["+70",70,1]]]],"jami":{"0":"250 — 100%"},"qavs":[[1,250,320,"? %","past"]]}'></div>
+    <div class="qadam"><b>1</b><span>O'sish miqdori: \(320 - 250 = 70\) tomoshabin.</span></div>
+    <div class="qadam"><b>2</b><span>O'sish foizi: <span style="white-space:nowrap">\(\frac{70}{250} \cdot 100\% = \nat{28\%}\).</span></span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">Namuna · tarvuzlar</span>
+    <p>Rastada ertalab 80 ta tarvuz bor edi, kechqurun 52 tasi qoldi. Tarvuzlar soni necha foizga kamaydi?</p>
+    <div data-model='{"q":[["Ertalab",[["80",80]]],["Kechki",[["52",52],["?",28]]]],"jami":{"0":"80 ta — 100%"},"qavs":[[1,52,80,"−28 ta","past"]]}'></div>
+    <div class="qadam"><b>1</b><span>Kamayish miqdori: \(80 - 52 = 28\) ta.</span></div>
+    <div class="qadam"><b>2</b><span>Kamayish foizi: <span style="white-space:nowrap">\(\frac{28}{80} \cdot 100\% = \nat{35\%}\).</span></span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-qoida · foiz bo'yicha yangi qiymat</span>
+    <p>Dastlabki qiymat — 100%. Miqdor 15% ga oshsa, yangi qiymat — 115% bo'ladi; 15% ga kamaysa — 85% bo'ladi.</p>
+    <p>Ikki usul bor: 1) o'zgarishni topib, qo'shamiz (yoki ayiramiz); 2) darhol 115% ni (yoki 85% ni) topamiz.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · ko'chatlar (2 usul)</span>
+    <p>Bog'da 340 tup ko'chat bor edi. Bahorda ko'chatlar 15% ga ko'paytirildi. Endi nechta ko'chat bor?</p>
+    <div data-foizbar="Bor edi:100|Qo'shildi:15" data-jami="?" data-qiymat="340 tup|"></div>
+    <div class="qadam"><b>1</b><span>1-usul: 1% — <span style="white-space:nowrap">\(340 : 100 = 3,4\);</span> 15% — \(3,4 \cdot 15 = 51\) tup; \(340 + 51 = \nat{391}\) tup.</span></div>
+    <div class="qadam"><b>2</b><span>2-usul: <span style="white-space:nowrap">\(100\% + 15\% = 115\%\);</span> \(3,4 \cdot 115 = \nat{391}\) tup.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">3-qoida · dastlabki qiymatni topish</span>
+    <p>Dastlabki qiymat noma'lum bo'lsa, avval berilgan son necha foiz ekanini aniqlaymiz. Masalan, 15% ga oshgandan keyingi son — 115%; 15% ga kamaygandan keyingi son — 85%; o'zgarishning o'zi — 15%.</p>
+    <p>Keyin 1% ni topamiz va 100 ga ko'paytiramiz.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · konsert</span>
+    <p>Bu yil konsertga 1610 kishi keldi — bu o'tgan yilgidan 15% ko'p. O'tgan yili nechta kishi kelgan?</p>
+    <div data-foizyol="115:1610" data-orqali="1" data-birlik="kishi"></div>
+    <div class="qadam"><b>1</b><span>1610 kishi — o'tgan yilgi sonning 115% i.</span></div>
+    <div class="qadam"><b>2</b><span>1% — <span style="white-space:nowrap">\(1610 : 115 = 14\);</span> 100% — \(14 \cdot 100 = \nat{1400}\) kishi.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">4-qoida · bir necha o'zgarish</span>
+    <p>Masalada bir necha o'zgarish bo'lsa, foizlarni qo'shib yoki ayirib bo'lmaydi. Har qadamda yangi sonlarni topamiz:</p>
+    <ul>
+      <li>ikkinchi o'zgarish — birinchisidan keyingi sondan olinadi;</li>
+      <li>jami o'zgarishni topish uchun oldingi jamini va keyingi jamini hisoblaymiz.</li>
+    </ul>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna · ikki issiqxona</span>
+    <p>Birinchi issiqxonada 400 tup pomidor, ikkinchisida 600 tup bodring bor edi. Pomidorlar 30% ga ko'paytirildi, bodringlar 15% ga kamaydi. Jami ko'chatlar necha foizga o'zgardi?</p>
+    <div class="qadam"><b>1</b><span>Pomidor: 400 ning 130% i \(= 4 \cdot 130 = 520\) tup. Bodring: 600 ning 85% i \(= 6 \cdot 85 = 510\) tup.</span></div>
+    <div class="qadam"><b>2</b><span>Oldin: <span style="white-space:nowrap">\(400 + 600 = 1000\);</span> keyin: <span style="white-space:nowrap">\(520 + 510 = 1030\);</span> o'sish — 30 tup.</span></div>
+    <div class="qadam"><b>3</b><span>Jami: \(\frac{30}{1000} \cdot 100\% = \nat{3\%}\) ga oshdi (15% emas).</span></div>
+  </div>
+</section>
+
+<!-- 3. Rasmda ko'ramiz -->
+<section class="m-sec">
+  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
+  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Dastlabki tasma — doim 100%. Yangi tasma undan uzun yoki qisqa!</div></div>
+  <div class="box">
+    <div data-foizbar="Dastlabki:100|O'sish:20" data-jami="Yangi qiymat"></div>
+    <p class="chz-cap">20% ga oshdi: yangi qiymat — 120%</p>
+    <div data-foizbar="Qoldi:85|Kamayish:15" data-jami="Dastlabki"></div>
+    <p class="chz-cap">15% ga kamaydi: yangi qiymat — 85%</p>
+    <p><b>Ketma-ket o'zgarish.</b> Narx avval 20% ga oshdi, keyin 20% ga kamaydi. Ikkinchi 20% kattaroq qiymatdan — 120% dan olinadi:</p>
+    <div data-model='{"q":[["Dastlab",[["100%",100]]],["1-qadam",[["100%",100],["+20%",20,1]]],["2-qadam",[["96%",96,2],["?",24]]]],"qavs":[[2,96,120,"−24%","past"]]}'></div>
+    <p class="chz-cap">120% ning 20% i — 24%. Natija: <span style="white-space:nowrap">\(120\% - 24\% = 96\%\),</span> ya'ni 4% ga kamaydi</p>
+  </div>
+</section>
+
+<!-- 4. Namunalar -->
+<section class="m-sec">
+  <h2><span class="n">4</span>Namunalar</h2>
+  <div class="box namuna">
+    <span class="tag">Namuna 1 · diagramma va yaxlitlash</span>
+    <p>Diagrammada asalarichilik xo'jaligining besh yildagi asal hosili (kilogrammda) berilgan. Har yili hosil necha foizga o'zgargan (o'ndan birlargacha)? Qaysi yilda o'sish miqdori, qaysi yilda o'sish foizi eng katta?</p>
+    <div data-ustunli="2021:150|2022:210|2023:280|2024:245|2025:330" data-qadam="50" data-yozuv="Asal (kg)" data-qiymat="1"></div>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Yillar</th><th>O'zgarish</th><th>Foiz</th></tr>
+      <tr><td>2021 → 2022</td><td>+60 kg</td><td>\(\frac{60}{150} \cdot 100\% = 40\%\)</td></tr>
+      <tr><td>2022 → 2023</td><td>+70 kg</td><td>\(\frac{70}{210} \cdot 100\% \approx 33,3\%\)</td></tr>
+      <tr><td>2023 → 2024</td><td>−35 kg</td><td>\(\frac{35}{280} \cdot 100\% = 12,5\%\) kamaydi</td></tr>
+      <tr><td>2024 → 2025</td><td>+85 kg</td><td>\(\frac{85}{245} \cdot 100\% \approx 34,7\%\)</td></tr>
+    </table></div>
+    <div class="qadam"><b>1</b><span>O'sish miqdori eng katta — 2024 → 2025 (+85 kg).</span></div>
+    <div class="qadam"><b>2</b><span>O'sish foizi eng katta — 2021 → 2022 (40%), chunki dastlabki hosil eng kichik edi. Katta o'zgarish har doim katta foiz bo'lavermaydi.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 2 · chegirma o'zgardi (2 usul)</span>
+    <p>Oshxona pechi 25% chegirma bilan 330 000 so'mga sotilayotgan edi. Keyingi oy do'kon chegirmani kamaytirdi va pech 352 000 so'm bo'ldi. a) Pechning asl narxi qancha? b) Endi asl narxdan necha foiz chegirma qilingan?</p>
+    <div class="qadam"><b>1</b><span>330 000 so'm — asl narxning \(100\% - 25\% = 75\%\) i.</span></div>
+    <div class="qadam"><b>2</b><span>a) 1-usul: 1% — \(330 000 : 75 = 4400\) so'm; asl narx — \(4400 \cdot 100 = \nat{440 000}\) so'm.<br>2-usul: 25% — \(330 000 : 3 = 110 000\) so'm; asl narx — \(110 000 \cdot 4 = 440 000\) so'm.</span></div>
+    <div class="qadam"><b>3</b><span>b) Endi chegirma: \(440 000 - 352 000 = 88 000\) so'm; <span style="white-space:nowrap">\(\frac{88 000}{440 000} \cdot 100\% = \nat{20\%}\).</span></span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">Namuna 3 · ulush o'zgardi</span>
+    <p>Avtoturargohda 80 ta mashina bor, ularning 15% i elektromobil. Yana bir nechta elektromobil kelib qo'shildi, boshqa mashinalar o'zgarmadi. Endi elektromobillar barcha mashinalarning 20% i. Nechta elektromobil kelgan?</p>
+    <div class="qadam"><b>1</b><span>Oldin elektromobil: 80 ning 15% i \(= 0,8 \cdot 15 = 12\) ta; boshqa mashinalar — \(80 - 12 = 68\) ta.</span></div>
+    <div data-foizbar="Elektromobil:20|Boshqalar:80" data-jami="?" data-qiymat="?|68 ta"></div>
+    <div class="qadam"><b>2</b><span>Keyin boshqalar \(100\% - 20\% = 80\%\) — 68 ta. 1% — <span style="white-space:nowrap">\(68 : 80 = 0,85\);</span> jami — 85 ta mashina.</span></div>
+    <div class="qadam"><b>3</b><span>Elektromobillar: \(85 - 68 = 17\) ta; kelgani — \(17 - 12 = \nat{5}\) ta (80 ning 5% i — 4 ta emas!).</span></div>
+  </div>
+</section>
+
+<!-- 5. Diqqat -->
+<section class="m-sec">
+  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">O'zgarishni doim dastlabki qiymatga bo'laman!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Xato ⟶ To'g'ri</span>
+    <ol>
+      <li>Keyingi qiymatga bo'lish. Narx 80 000 so'mdan 100 000 so'mga oshdi:<br><span class="xato"><span style="white-space:nowrap">\(20 000 : 100 000\),</span> ya'ni 20%</span> &nbsp;→&nbsp; <span class="togri">\(\frac{20 000}{80 000} \cdot 100\% = 25\%\)</span></li>
+      <li>Ayirmani foiz deb yozish. 80 tadan 60 taga kamaydi:<br><span class="xato">20% ga kamaydi</span> &nbsp;→&nbsp; <span class="togri">20 taga, ya'ni \(\frac{20}{80} \cdot 100\% = 25\%\) ga kamaydi</span></li>
+      <li>«+20% va −20% — o'zgarish yo'q». 500 so'm avval 20% ga oshdi, keyin 20% ga kamaydi:<br><span class="xato">yana 500 so'm</span> &nbsp;→&nbsp; <span class="togri">600 so'm, keyin \(600 - 120 = 480\) so'm</span></li>
+      <li>Ketma-ket foizlarni qo'shish. Ikki yil 20% dan oshdi:<br><span class="xato">40% ga oshdi</span> &nbsp;→&nbsp; <span class="togri">120% ning 120% i — 144%, ya'ni 44% ga oshdi</span></li>
+      <li>Dastlabki qiymatni topishda yangi qiymatdan foiz olish. 1610 kishi — 15% ko'p:<br><span class="xato">\(1610 - 241,5 = 1368,5\)</span> &nbsp;→&nbsp; <span class="togri">115% — 1610; 1% — 14; o'tgan yil 1400</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Mashqlar -->
+<section class="m-sec">
+  <h2><span class="n">6</span>Mashqlar</h2>
+  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Avval dastlabki qiymatni topib, tagiga chizaman!</div></div>
+
+  <div class="daraja oson"><i></i>Oson</div>
+  <ol class="masalalar">
+    <li>Miqdor necha foizga oshgan yoki kamaygan? a) 50 → 60; b) 80 → 60; c) 120 → 84; d) 45 → 90.
+      <details class="javob"><summary>Javobni ko'rish</summary>a) 20% oshdi; b) 25% kamaydi; c) 30% kamaydi; d) 100% oshdi.</details></li>
+    <li>Yangi qiymatni toping: a) 60 ni 25% ga oshiring; b) 300 ni 40% ga kamaytiring; c) 1500 ni 6% ga oshiring; d) 250 ni 8% ga kamaytiring.
+      <details class="javob"><summary>Javobni ko'rish</summary>a) 75; b) 180; c) 1590; d) 230.</details></li>
+    <li>Jadvaldagi bo'sh kataklarni to'ldiring.
+      <div class="jad-wrap"><table class="jad">
+        <tr><th></th><th>Dastlabki</th><th>Keyingi</th><th>O'zgarish</th><th>Necha foizga</th></tr>
+        <tr><td>a)</td><td>160</td><td>200</td><td>?</td><td>?</td></tr>
+        <tr><td>b)</td><td>250</td><td>?</td><td>75 ga oshdi</td><td>?</td></tr>
+        <tr><td>c)</td><td>?</td><td>540</td><td>60 ga kamaydi</td><td>?</td></tr>
+      </table></div>
+      <details class="javob"><summary>Javobni ko'rish</summary>a) 40 ga oshdi; <span style="white-space:nowrap">\(\frac{40}{160} \cdot 100\% = 25\%\).</span> b) <span style="white-space:nowrap">\(250 + 75 = 325\);</span> <span style="white-space:nowrap">\(\frac{75}{250} \cdot 100\% = 30\%\).</span> c) <span style="white-space:nowrap">\(540 + 60 = 600\);</span> <span style="white-space:nowrap">\(\frac{60}{600} \cdot 100\% = 10\%\).</span></details></li>
+    <li>Rasmdagi 6 ta yulduz barcha yulduzlarning 30% i. a) Hammasi bo'lib nechta yulduz bor? b) Yulduzlar soni 50% ga ko'paysa, nechta bo'ladi?
+      <div data-buyum="Yulduzlar:yulduz:sariq:6" data-olcham="26"></div>
+      <details class="javob"><summary>Javobni ko'rish</summary>a) 10% — \(6 : 3 = 2\) ta; 100% — 20 ta. b) 50% — 10 ta; \(20 + 10 = 30\) ta.</details></li>
+  </ol>
+
+  <div class="daraja orta"><i></i>O'rta</div>
+  <ol class="masalalar">
+    <li>Birinchi sexda 60, ikkinchisida 90 ishchi ishlaydi. a) Ikkinchi sexda birinchisiga qaraganda necha foiz ko'p ishchi bor? b) Birinchi sexda ikkinchisiga qaraganda necha foiz kam ishchi bor (o'ndan birlargacha)?
+      <details class="javob"><summary>Javobni ko'rish</summary>Farq 30. a) Asos 60 ta ishchi: \(\frac{30}{60} \cdot 100\% = 50\%\) ko'p. b) Asos 90 ta ishchi: \(\frac{30}{90} \cdot 100\% \approx 33,3\%\) kam.</details></li>
+    <li>Jadvalda bozordagi uch mahsulotning yanvar va iyundagi narxi berilgan. Har birining narxi necha foizga o'zgargan (o'ndan birlargacha)?
+      <div class="jad-wrap"><table class="jad">
+        <tr><th>Mahsulot</th><th>Yanvar</th><th>Iyun</th></tr>
+        <tr><td>Kartoshka (1 kg)</td><td>6000 so'm</td><td>7500 so'm</td></tr>
+        <tr><td>Piyoz (1 kg)</td><td>4000 so'm</td><td>3400 so'm</td></tr>
+        <tr><td>Asal (1 kg)</td><td>85 000 so'm</td><td>92 000 so'm</td></tr>
+      </table></div>
+      <details class="javob"><summary>Javobni ko'rish</summary>Kartoshka \(\frac{1500}{6000} \cdot 100\% = 25\%\) ga qimmatladi; piyoz \(\frac{600}{4000} \cdot 100\% = 15\%\) ga arzonladi; asal \(\frac{7000}{85 000} \cdot 100\% \approx 8,2\%\) ga qimmatladi.</details></li>
+    <li>Velosiped yo'lagi 20% ga uzaytirildi va uning uzunligi 1560 m bo'ldi. Dastlab yo'lak qancha uzun edi?
+      <details class="javob"><summary>Javobni ko'rish</summary>1560 m — 120%. 20% — \(1560 : 6 = 260\) m; 100% — \(260 \cdot 5 = 1300\) m.</details></li>
+    <li>Asalarichining oilalari soni 9 taga kamaydi — bu 12% kamayish. Nechta asalari oilasi qoldi?
+      <details class="javob"><summary>Javobni ko'rish</summary>9 ta — 12%. 1% — 0,75; dastlab 75 ta; qoldi \(75 - 9 = 66\) ta.</details></li>
+  </ol>
+
+  <div class="daraja qiyin-d"><i></i>Qiyin</div>
+  <ol class="masalalar">
+    <li>Hovuzda 450 ta baliq bor edi. Bahorda baliqlar 20% ga kamaydi, yozda esa 20% ga ko'paydi. Kuzda hovuzda nechta baliq bo'ldi? Bu dastlabkidan necha foiz kam?
+      <details class="javob"><summary>Javobni ko'rish</summary>Bahor: 450 ning 80% i — 360 ta. Yoz: 360 ning 120% i — 432 ta. \(\frac{18}{450} \cdot 100\% = 4\%\) kam.</details></li>
+    <li>Akvariumda 40 ta baliq bor, ularning 30% i qizil. Bir nechta qizil baliq boshqa akvariumga olindi, shundan keyin qizillar barcha baliqlarning 20% ini tashkil qildi. Nechta qizil baliq olingan?
+      <details class="javob"><summary>Javobni ko'rish</summary>Qizil 12 ta, boshqalar 28 ta (o'zgarmaydi). Keyin 28 ta — 80%; 1% — 0,35; jami 35 ta. Qizil \(35 - 28 = 7\) ta qoldi; \(12 - 7 = 5\) ta olingan.</details></li>
+    <li>Birinchi qutidan ikkinchi qutiga 18 ta qalam olib solindi. Shunda birinchi qutidagi qalamlar 15% ga kamaydi, ikkinchi qutidagilar esa 30% ga ko'paydi. Ikkala qutida jami nechta qalam bor?
+      <details class="javob"><summary>Javobni ko'rish</summary>18 ta — birinchi qutidagi sonning 15% i: 1% — 1,2; birinchida 120 ta edi. 18 ta — ikkinchisidagi sonning 30% i: 10% — 6; ikkinchida 60 ta edi. Jami \(120 + 60 = 180\) ta (qalamlar bir qutidan ikkinchisiga o'tdi — jami o'zgarmaydi).</details></li>
+  </ol>
+</section>
+
+<!-- 7. Matnli masalalar -->
+<section class="m-sec">
+  <h2><span class="n">7</span>Matnli masalalar</h2>
+  <div class="box masala">
+    <span class="tag">Masalalarni yeching (avval 100% qaysi miqdor ekanini aniqlang)</span>
+    <ol class="masalalar">
+      <li>Maktab bog'idagi ko'chatlar jadvalda berilgan. Terak, archa va qayin birgalikda barcha ko'chatlarning 80% i.
+        <div class="jad-wrap"><table class="jad">
+          <tr><th>Ko'chat</th><th>Soni</th></tr>
+          <tr><td>Terak</td><td>75</td></tr>
+          <tr><td>Archa</td><td>55</td></tr>
+          <tr><td>Qayin</td><td>30</td></tr>
+          <tr><td>Chinor</td><td>?</td></tr>
+        </table></div>
+        a) Nechta chinor bor? b) Kelasi yil har bir turdagi ko'chatlar 20% ga ko'paytiriladi. Har bir turga nechtadan ko'chat qo'shiladi? Jami nechta?
+        <details class="javob"><summary>Javobni ko'rish</summary>a) \(75 + 55 + 30 = 160\) — bu 80%; 1% — 2; jami 200, chinor — 40 ta. b) Terakka 15, archaga 11, qayinga 6, chinorga 8 tup — foiz bir xil, qo'shiladigan son har xil. Jami \(15 + 11 + 6 + 8 = 40\) tup — 200 ning 20% i.</details></li>
+      <li>Sayyoh birinchi kuni yo'lning 30% ini, ikkinchi kuni qolgan yo'lning 40% ini bosib o'tdi. a) Yo'lning necha foizi qoldi? b) Qolgan yo'l 84 km bo'lsa, butun yo'l necha km?
+        <details class="javob"><summary>Javobni ko'rish</summary>a) 1-kundan keyin 70%; 2-kun 70% ning 40% i — 28%; qoldi <span style="white-space:nowrap">\(70\% - 28\% = 42\%\).</span> b) 42% — 84 km; 1% — 2 km; yo'l 200 km.</details></li>
+      <li>Xorda 40 kishi bor, ularning 45% i qizlar. Xorga yana 10 kishi qo'shildi, ulardan faqat 2 tasi qiz. Endi xordagilarning necha foizi o'g'il bolalar?
+        <details class="javob"><summary>Javobni ko'rish</summary>Oldin qizlar: 40 ning 45% i — 18, o'g'il bolalar — 22. Endi o'g'il bolalar <span style="white-space:nowrap">\(22 + 8 = 30\),</span> jami 50 kishi: <span style="white-space:nowrap">\(\frac{30}{50} \cdot 100\% = 60\%\).</span></details></li>
+      <li>Ombor to'la: unda 600 qop un va bir necha qop guruch saqlanadi. Keyingi oy un qoplari 20% ga kamaytirildi, guruch qoplari esa 30% ga ko'paytirildi — ombor yana to'la bo'ldi. Omborga necha qop sig'adi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Un 600 ning 20% i — 120 qopga kamaydi. Jami o'zgarmagani uchun guruch ham 120 qopga ko'paygan: 120 qop — guruchning 30% i; 10% — 40 qop; guruch 400 qop. Ombor: \(600 + 400 = 1000\) qop.</details></li>
+      <li>Uchta idishdan bir xil miqdorda suv quyib olindi: bu birinchi idishdagi suvning 20% i, ikkinchisidagining 50% i, uchinchisidagining 40% i edi. Idishlarda jami 52 l suv qoldi. Dastlab idishlarda jami qancha suv bor edi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Olingan miqdor — 1 bo'lak. Birinchi idish 5 bo'lak (qoldi 4), ikkinchisi 2 bo'lak (qoldi 1), uchinchisi \(2\frac{1}{2}\) bo'lak (qoldi <span style="white-space:nowrap">\(1\frac{1}{2}\)).</span> Qoldi \(4 + 1 + 1\frac{1}{2} = 6\frac{1}{2}\) bo'lak — 52 l; 1 bo'lak — 8 l. Dastlab: 40 l, 16 l, 20 l — jami 76 l.</details></li>
+      <li>Sport do'konida koptoklarga 10%, raketkalarga 25% chegirma bor. Sardor bitta koptok va bitta raketka uchun jami 270 000 so'm to'ladi; raketka uchun to'lagan puli koptok uchun to'laganidan 2 marta ko'p. Chegirmasiz ikkalasi jami qancha turadi?
+        <details class="javob"><summary>Javobni ko'rish</summary>Koptok — 1 bo'lak, raketka — 2 bo'lak: 3 bo'lak — 270 000; koptok uchun 90 000, raketka uchun 180 000 so'm to'landi. Koptok: 90 000 — 90%, narxi 100 000 so'm. Raketka: 180 000 — 75%, 25% — 60 000, narxi 240 000 so'm. Jami 340 000 so'm.</details></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. O'ylab ko'ring -->
+<section class="m-sec">
+  <h2><span class="n">8</span>O'ylab ko'ring</h2>
+  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Foiz qaysi qiymatdan olinganini kuzating — javob shunda!</div></div>
+  <div class="box qiyin">
+    <span class="tag">Bahs: kim haq?</span>
+    <p>Kitob narxi avval 25% ga oshirildi, keyin yangi narx 20% ga tushirildi. Aziz: «Narx 5% ga oshdi». Madina: «Narx o'zgarmadi». Kim haq?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Madina haq. Narxni 100 deb olamiz: 25% ga oshdi — 125; 125 ning 20% i — 25; <span style="white-space:nowrap">\(125 - 25 = 100\).</span> Ikkinchi foiz kattaroq qiymatdan olingani uchun 20% ham 25 birlik bo'ldi.</details>
+  </div>
+  <div class="box qiyin">
+    <span class="tag">Muammoli topshiriq · reja tuzing</span>
+    <p>Bog'da 40 tup olma, 50 tup nok va 30 tup o'rik bor edi. Bog'ga yana 33 tup ko'chat ekildi: olmalar 30% ga, o'riklar 50% ga ko'paydi. Noklar necha foizga ko'paygan? (Reja tuzing, yeching, javobni tekshiring.)</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>Reja: avval olma va o'rik ko'chatlarini topamiz, qolgani — nok. Olma: 40 ning 30% i — 12 tup; o'rik: 30 ning 50% i — 15 tup. Nok: \(33 - 12 - 15 = 6\) tup; <span style="white-space:nowrap">\(\frac{6}{50} \cdot 100\% = \nat{12\%}\).</span> Tekshiramiz: <span style="white-space:nowrap">\(52 + 56 + 45 = 153 = 120 + 33\).</span></details>
+  </div>
+</section>
+
+<!-- 9. O'zingizni tekshiring -->
+<section class="m-sec">
+  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — testga o'ting!</div></div>
+  <div class="box tekshir">
+    <ul>
+      <li>O'sish va kamayish foizini topaman: o'zgarishni dastlabki qiymatga bo'laman, kerak bo'lsa yaxlitlayman.</li>
+      <li>Foiz bo'yicha yangi qiymatni ikki usulda topaman.</li>
+      <li>Yangi qiymat yoki o'zgarish miqdori orqali dastlabki qiymatni topaman.</li>
+      <li>Ketma-ket o'zgarish, jami miqdor va ulush o'zgarishiga doir masalalarni yechaman.</li>
+    </ul>
+  </div>
+</section>
+
+<p class="m-foot">Mathlearn · 6-sinf matematika</p>
+</main>
+<script src="chizma.js?v=59"></script>
+<script src="maruza.js?v=4"></script>
+</body>
+</html>
