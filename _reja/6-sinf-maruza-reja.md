@@ -50,7 +50,11 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Tekshiruv:** tenglik.py 102 to'g'ri / 0 xato, testlar.js 0 xato, 390/1100 px — barcha 58 ma'ruza qayta tekshirildi (chizma.js o'zgardi), test sahifasi 20+20.
 **Simulyator uchun g'oyalar:** data.js simPlan (uch rangli tasma, a : b va b : c ni umumiy b orqali birlashtirish).
 
-#### ☐ 10. O'zgaruvchan nisbatlar — D1 72–82; M1 95–110
+#### ✅ 10. O'zgaruvchan nisbatlar — D1 72–82; M1 95–110
+**Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-ozgaruvchan-nisbatlar.html. Chizma: yangi `data-ozgar` («oldin–keyin» tasmalari, tur bir/jami/farq/teng, EKUK bo'lakchalari), Python egizagi `_reja/tools/ozgar_svg.py` (test rasmlari). O'z testi 20+20, 6 ta chizmali savol.
+**Kitob bilan solishtirildi:** uch tur — yagona o'zgarmas miqdor, o'zgarmas yig'indi, o'zgarmas ayirma ✅; tenglashtirish (EKUK, bo'lakcha) ✅; 1 bo'lak va ichki tekshiruv ✅; ma'lum son o'zgarish emas (bitta miqdor, jami, keyingi farq) ✅; 2 usul (chizmali model va jadval) ✅; dastlab teng ✅; «teng bo'ldi», «qismi», «marta» ✅; yosh ✅; qism : jami ✅; birlik (qutilar, qoplar) ✅; tekshirish ✅; daftardagi barcha turlar, M1-106 (takrorlash), M1-107 (amaliy), M1-108 (muammoli), M1-110 (kundalik) ✅. Kitob xatosi (D1-81 #7 — yechimsiz) to'g'ri shartda berildi. Tekshiruvda kitob qolipidagi 19 ta masala vaziyati almashtirildi. kitobdan.py: 15 ta oddiy juft.
+**Tekshiruv:** tenglik.py 120 to'g'ri / 1 atayin xato, testlar.js 0 xato, 390/1100 px avtomatik (14 chizma).
+**Simulyator uchun g'oyalar:** data.js simPlan (ikki savat, oldin/keyin tasmalari).
 
 #### ☐ 11. Foizi va qismiga ko'ra sonning o'zini topish — D1 84–90; M1 111–122
 

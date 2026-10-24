@@ -5,7 +5,7 @@
 > Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
 > Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 16:49 — 10 va 11-mavzular tuzatilmoqda; ish tartibiga «kitob qolipini ko'chirmaslik» qoidasi qo'shildi
+**Oxirgi yangilanish:** 2026-10-24 16:55 — 10-mavzu saytga chiqdi; 11-mavzu tuzatilmoqda
 
 ---
 
@@ -41,8 +41,8 @@
 - [x] Ma'ruza yozish (yangi chizma «oldin–keyin» — 14 ta; 12 qoida, 20 mashq, 8 masala)
 - [x] Test yozish (20 + 20, 6 ta chizmali savol)
 - [x] Tekshiruvlar: hisob — 0 xato; kitob — 19 ta masala kitobga o'xshash (jiddiy); o'qituvchi — 3 jiddiy; ko'rinish — mayda
-- [ ] Tuzatish va qayta tekshirish ← *hozir*
-- [ ] Saytga ulash va chiqarish (push)
+- [x] Tuzatish (≈40 band) va avtomatik qayta tekshirish
+- [x] Saytga ulash va chiqarish (push)
 
 ### 11. Foizi va qismiga ko'ra sonning o'zini topish
 - [x] Kitob betlarini o'rganish (darslik 84–90, mashq daftari 111–122): 13 qoida, ~45 misol turi, kitobdagi 2 noaniqlik (QQS «umumiy narxning 12%», «omonat foizi»)
@@ -105,7 +105,7 @@ Har safar 2 tadan mavzu; har 6 mavzudan keyin ish jurnaliga yozuv.
 **Nisbat**
 - [x] 8. Nisbat va kasr
 - [x] 9. Uch miqdor nisbati
-- [ ] 10. O'zgaruvchan nisbatlar ← *hozir*
+- [x] 10. O'zgaruvchan nisbatlar
 
 **Foizlar**
 - [ ] 11. Foizi va qismiga ko'ra sonning o'zini topish ← *hozir*
