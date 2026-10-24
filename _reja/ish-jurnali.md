@@ -10,9 +10,9 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
 - **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor.
-- **6-sinf:** 1–8-mavzular tayyor. **9-mavzu ustida ish ketmoqda.**
+- **6-sinf:** 1–9-mavzular tayyor. **10–11-mavzular ustida ish ketmoqda.**
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 32/79 (keyingisi — 9-prompt, Algebra 6–9).
-- **Oxirgi yozuvdan beri tugagan mavzular:** 1 / 6 (8).
+- **Oxirgi yozuvdan beri tugagan mavzular:** 2 / 6 (8, 9).
 
 ---
 

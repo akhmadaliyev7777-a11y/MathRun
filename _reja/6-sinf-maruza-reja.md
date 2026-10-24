@@ -44,7 +44,11 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Tekshiruv:** tenglik.py 109 to'g'ri / 0 xato, testlar.js 0 xato, 390/1100 px — barcha 56 ma'ruza qayta tekshirildi (chizma.js o'zgardi), KaTeX xatosiz.
 **Simulyator uchun g'oyalar:** data.js simPlan (ikki rangli tasma, nisbat ↔ kasr slayder bilan).
 
-#### ☐ 9. Uch miqdor nisbati — D1 67–71; M1 87–94
+#### ✅ 9. Uch miqdor nisbati — D1 67–71; M1 87–94
+**Holat (2026-10-24):** tayyor va push qilindi. Fayl: maruza/6-uch-miqdor-nisbati.html. Chizmalar: yangi `data-birlash` (ikki nisbatni uch hadli nisbatga birlashtirish, EKUK bo'lakchalari bilan), `data-shakl` ga "ranglar", `data-model`, `data-buyum`. O'z testi 20+20, chizmali savollar bilan.
+**Kitob bilan solishtirildi:** ikki nisbatni umumiy miqdor orqali birlashtirish (EKUK) ✅; bo'laklar modeli (nega EKUK) ✅; xususiy hollar (hadlar teng, biri ikkinchisiga bo'linadi) ✅; umumiy miqdor istalgan o'rinda ✅; kasr, «k marta ko'p/kam», «yarmi» bilan berilgan bog'lanish ✅; javob qisqarmas ✅; bitta miqdor / ayirma / yig'indi / jami ma'lum — miqdorlarni topish ✅; bir ayirmadan boshqa ayirmani topish ✅; uch hadli nisbatdan yangi nisbat va kasr ✅; shakl sohalari yuzi (diagonal — teng yarmilar, to'rtinchi soha) ✅; ustma-ust shakllar (umumiy qism) ✅; tekshirish ✅. Ikki tekshiruv bosqichi: 31 + 26 kamchilik; kitobga o'xshash 4 test savoli va erkak/ayol/bola vaziyati almashtirildi. kitobdan.py: 14 ta oddiy «a : b» juft.
+**Tekshiruv:** tenglik.py 102 to'g'ri / 0 xato, testlar.js 0 xato, 390/1100 px — barcha 58 ma'ruza qayta tekshirildi (chizma.js o'zgardi), test sahifasi 20+20.
+**Simulyator uchun g'oyalar:** data.js simPlan (uch rangli tasma, a : b va b : c ni umumiy b orqali birlashtirish).
 
 #### ☐ 10. O'zgaruvchan nisbatlar — D1 72–82; M1 95–110
 

@@ -5,11 +5,11 @@
 > Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
 > Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 15:45 — 1–4-sinf ishlari to'xtatildi (keyin darslik bo'yicha boshidan); hozir yuqori sinflar: 9-mavzu yozilmoqda
+**Oxirgi yangilanish:** 2026-10-24 16:26 — 9-mavzu tayyor va saytga chiqdi; 10-mavzu testi, 11-mavzu ma'ruzasi yozilmoqda
 
 ---
 
-## 1. Hozirgi ish — 6-sinf 8 va 9-mavzular
+## 1. Hozirgi ish — 6-sinf 9, 10, 11-mavzular
 
 ### 8. Nisbat va kasr (+ matnli masalalar)
 - [x] Kitob betlarini o'rganish (darslik 52–66, mashq daftari 73–86): qoidalar va misol turlari ro'yxati
@@ -26,13 +26,31 @@
 - [x] Rejada belgilash, saytga chiqarish (push)
 
 ### 9. Uch miqdor nisbati
-- [ ] Kitob betlarini o'rganish (darslik 67–71, mashq daftari 87–94) ← *hozir*
-- [ ] Ma'ruza yozish
-- [ ] Test yozish (20 + 20)
+- [x] Kitob betlarini o'rganish (darslik 67–71, mashq daftari 87–94)
+- [x] Ma'ruza yozish
+- [x] Test yozish (20 + 20)
+- [x] 1-tekshiruv (hisob, kitob, ko'rinish, o'qituvchi) va tuzatish
+- [x] 2-tekshiruv (4 jiddiy — kitobga o'xshash test savollari)
+- [x] Tuzatish (2-bosqich: 24 ta)
+- [x] Yakuniy tekshiruv: 58 ma'ruza 390/1100 px, 57 test — 0 xato
+- [x] Saytga ulash va chiqarish (push)
+- [x] Ish jurnaliga yozuv (2/6)
+
+### 10. O'zgaruvchan nisbatlar
+- [x] Kitob betlarini o'rganish (darslik 72–82, mashq daftari 95–110): 12 qoida, 3 tur (o'zgarmas miqdor / yig'indi / ayirma), kitobdagi 1 yechimsiz masala topildi; yangi chizma «oldin–keyin» kerak
+- [x] Ma'ruza yozish (yangi chizma «oldin–keyin» — 14 ta; 12 qoida, 20 mashq, 8 masala)
+- [ ] Test yozish (20 + 20, chizmali savollar bilan) ← *hozir*
 - [ ] Tekshiruvlar (hisob, kitob, ko'rinish, o'qituvchi)
-- [ ] Tuzatish
+- [ ] Tuzatish va qayta tekshirish
 - [ ] Saytga ulash va chiqarish (push)
-- [ ] Ish jurnaliga yozuv
+
+### 11. Foizi va qismiga ko'ra sonning o'zini topish
+- [x] Kitob betlarini o'rganish (darslik 84–90, mashq daftari 111–122): 13 qoida, ~45 misol turi, kitobdagi 2 noaniqlik (QQS «umumiy narxning 12%», «omonat foizi»)
+- [ ] Ma'ruza yozish (yangi chizma «foiz zinasi» bilan) ← *hozir*
+- [ ] Test yozish (20 + 20, chizmali savollar bilan)
+- [ ] Tekshiruvlar (hisob, kitob, ko'rinish, o'qituvchi)
+- [ ] Tuzatish va qayta tekshirish
+- [ ] Saytga ulash va chiqarish (push)
 
 ## 2. Saytni to'liq o'rganish (2026-10-24) — bajarildi
 - [x] Bosh sahifa, menyu, qidiruv, havolalar (338 havola — hammasi ishlaydi)
@@ -86,11 +104,11 @@ Har safar 2 tadan mavzu; har 6 mavzudan keyin ish jurnaliga yozuv.
 
 **Nisbat**
 - [x] 8. Nisbat va kasr
-- [ ] 9. Uch miqdor nisbati ← *hozir*
-- [ ] 10. O'zgaruvchan nisbatlar
+- [x] 9. Uch miqdor nisbati
+- [ ] 10. O'zgaruvchan nisbatlar ← *hozir*
 
 **Foizlar**
-- [ ] 11. Foizi va qismiga ko'ra sonning o'zini topish
+- [ ] 11. Foizi va qismiga ko'ra sonning o'zini topish ← *hozir*
 - [ ] 12. O'sish va kamayish foizi
 
 **Geometriya: burchaklar, doira**
