@@ -64,8 +64,8 @@ function qzLoadKatex() {
 // sahifadagi barcha formulalarni chizish (KaTeX yuklanmasa — oddiy matn bo'lib qoladi)
 function qzRenderMath(root) {
   const els = root.querySelectorAll(".qz-m:not(.qz-m--ok)");
-  if (!els.length) return;
-  qzLoadKatex().then(function (katex) {
+  if (!els.length) return Promise.resolve();
+  return qzLoadKatex().then(function (katex) {
     els.forEach(function (el) {
       try {
         katex.render(el.dataset.tex.replace(/(\d),(?=\d)/g, "$1{,}"), el, {
@@ -75,6 +75,14 @@ function qzRenderMath(root) {
       } catch (e) { /* formula chizilmasa — matn qoladi */ }
     });
   }).catch(function () { /* internet yo'q — formulalar matn ko'rinishida */ });
+}
+
+// «Mening natijalarim» dagi havola (test.html...#qz-q5) savolni yuqoridagi yopishqoq panel ostida qoldirmasin:
+// savollarga panel balandligicha chekinish (scroll-margin-top, css/test.css) beriladi; formulalar chizilgach
+// (savollar balandligi o'zgaradi) shu savolga yana bir marta o'tiladi.
+function qzHeadOffset(card, embedded) {
+  const head = card.querySelector("#qz-head");
+  card.style.setProperty("--qz-off", (head && !embedded ? head.offsetHeight + 24 : 16) + "px");
 }
 
 // ---------- test sahifasi ----------
@@ -135,12 +143,19 @@ function initQuiz() {
     };
   });
 
+  let jumped = false;
   QuizCore.mount({
     card: card, tabsEl: tabsEl, title: topicName, tests: tests, current: tur, embedded: embedded,
     html: { q: qzMathText, a: qzMathText, sol: qzMathText },
-    afterPaint: qzRenderMath,
+    afterPaint: function (root) {
+      qzHeadOffset(root, embedded);
+      const math = qzRenderMath(root);
+      const m = !jumped && !embedded && /^#qz-q\d+$/.test(location.hash) && document.getElementById(location.hash.slice(1));
+      jumped = true;
+      if (m) math.then(function () { m.scrollIntoView(); });
+    },
     savedKey: function (id, i) { return quizStatKey(key, id) + "#" + i; },
-    savedData: function (id, i, q) { return { k: quizStatKey(key, id), i: i, q: q.question, a: q.answer, t: Date.now() }; },
+    savedData: function (id, i, q) { return { k: quizStatKey(key, id), i: i, q: q.question, a: q.answer, rasm: q.rasm || undefined, t: Date.now() }; },
     onFinish: function (r) {
       const statKey = quizStatKey(key, r.test.id);
       if (typeof sendQuizResult === "function") sendQuizResult(statKey, r.questions, r.picked, r.score);

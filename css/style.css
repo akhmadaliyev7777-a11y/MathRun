@@ -1765,10 +1765,26 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
 .my-h { font-size: 1.1rem; margin: 18px 0 10px; }
 .my-list { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
 .my-list li + li { border-top: 1px solid var(--border); }
-.my-list a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; }
+.my-list a { display: flex; align-items: center; gap: 12px; padding: 12px 16px; color: inherit; }
 .my-list a:hover { background: #fafbff; }
-.my-topic { display: flex; flex-direction: column; font-weight: 600; min-width: 0; }
+/* chap ustun (mavzu) qolgan joyni egallaydi, uzun nom qatorga bo'linadi; o'ng ustun (foiz) — faqat kichik raqam */
+.my-topic { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px; overflow-wrap: anywhere; }
+.my-title { font-weight: 600; line-height: 1.35; }
 .my-topic small, .my-score small { color: var(--muted); font-weight: 500; font-size: .76rem; }
-.my-score { display: flex; flex-direction: column; align-items: flex-end; text-align: right; flex: 0 0 auto; }
-.my-score b { font-size: 1.15rem; }
-@media (max-width: 560px) { .my-stats { gap: 8px; } .my-stats b { font-size: 1.3rem; } .my-stats span { font-size: .72rem; } .my-list a { padding: 11px 12px; } }
+.my-topic .my-meta { margin-top: 3px; }
+.my-score { flex: 0 0 auto; min-width: 56px; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.my-score b { font-size: 1.2rem; line-height: 1.2; }
+/* saqlangan savollar: mavzu, savol (formula, chizma), to'g'ri javob — ustma-ust */
+.my-list a.my-saved { display: block; padding: 14px 16px; }
+.my-saved-meta { display: block; color: var(--muted); font-weight: 500; font-size: .76rem; overflow-wrap: anywhere; }
+.my-saved-q { margin-top: 4px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
+.my-saved-a { margin-top: 6px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.my-saved-a small { color: var(--muted); font-size: .8rem; }
+.my-saved-a b { color: #0f8a7c; font-size: 1.02rem; }
+.my-fig { max-width: 260px; margin: 8px 0 2px; }
+.my-fig svg { display: block; width: 100%; height: auto; }
+.my-list .qz-m { display: inline-block; margin: 2px 0; vertical-align: middle; }
+.my-list .qz-m .katex, .my-list [data-mw] .katex { font-size: 1.06em; }
+.my-list .q-text, .my-list .q-formula { display: inline; }
+.page-container.my-page { max-width: 720px; }
+@media (max-width: 560px) { .my-stats { gap: 8px; } .my-stats > div { padding: 12px 6px; } .my-stats b { font-size: 1.3rem; } .my-stats span { font-size: .72rem; line-height: 1.3; display: block; } .my-list a { padding: 11px 12px; } .my-list a.my-saved { padding: 12px; } .my-fig { max-width: 220px; } }

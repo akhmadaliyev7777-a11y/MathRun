@@ -5,7 +5,7 @@
 > Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
 > Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 13:47 — ichki belgilar yashirildi va saytga chiqdi; 8-mavzu tekshirilmoqda
+**Oxirgi yangilanish:** 2026-10-24 15:37 — «Mening natijalarim» tuzatildi va saytga chiqdi
 
 ---
 
@@ -15,16 +15,17 @@
 - [x] Kitob betlarini o'rganish (darslik 52–66, mashq daftari 73–86): qoidalar va misol turlari ro'yxati
 - [x] Ma'ruza yozish (9 bo'lim, chizmalar)
 - [x] Test yozish: 1-test oson (20), 2-test qiyinroq (20), chizmali savollar bilan
-- [ ] Tekshiruv: barcha javoblarni qayta hisoblash ← *hozir*
-- [ ] Tekshiruv: kitobdan ko'chirilmaganmi, hech bir qoida va misol turi tushib qolmaganmi ← *hozir*
-- [ ] Tekshiruv: telefon (390 px) va kompyuter (1100 px) ko'rinishi ← *hozir*
-- [ ] Tekshiruv: o'qituvchi va o'quvchi ko'zi bilan ← *hozir*
-- [ ] Topilgan kamchiliklarni tuzatish
+- [x] Tekshiruv: barcha javoblarni qayta hisoblash
+- [x] Tekshiruv: kitobdan ko'chirilmaganmi, hech bir qoida va misol turi tushib qolmaganmi
+- [x] Tekshiruv: telefon (390 px) va kompyuter (1100 px) ko'rinishi
+- [x] Tekshiruv: o'qituvchi va o'quvchi ko'zi bilan
+- [x] 1-tekshiruv kamchiliklari tuzatildi (38 ta)
+- [ ] 2-tekshiruv kamchiliklarini tuzatish (4 jiddiy — kitobga o'xshash masalalar, ~15 mayda) ← *hozir*
 - [ ] Saytga ulash (mavzu sahifasi, test havolasi)
 - [ ] Rejada belgilash, saytga chiqarish (push)
 
 ### 9. Uch miqdor nisbati
-- [ ] Kitob betlarini o'rganish (darslik 67–71, mashq daftari 87–94)
+- [ ] Kitob betlarini o'rganish (darslik 67–71, mashq daftari 87–94) ← *hozir*
 - [ ] Ma'ruza yozish
 - [ ] Test yozish (20 + 20)
 - [ ] Tekshiruvlar (hisob, kitob, ko'rinish, o'qituvchi)
@@ -46,7 +47,7 @@
 ### Topilgan kamchiliklar (tuzatish — kelishilgandan keyin)
 **Jiddiy**
 - [x] 1–4-sinf testida to'g'ri javob «xato» deyilardi («3/3» va «1») — 5 574 savol tekshirildi, 18 ta tuzatildi (12 test + 6 arqon tortish); tekshiruv dasturi `mathrunner-web/tools/teng_variantlar.py`
-- [ ] 1–4-sinf: yana 121 savolda «(… = 1, … = 2)» shifrli javoblar qolgan (52 test) — har birini ko'rib tuzatish kerak
+- [ ] ← *hozir* 1–4-sinf: yana 121 savolda «(… = 1, … = 2)» shifrli javoblar qolgan (52 test) — har birini ko'rib tuzatish kerak
 - [ ] Arqon tortish o'yini telefonda o'ynab bo'lmaydi (ochkolar savolni yopadi, arqon ekrandan chiqadi)
 - [ ] 10 ga yaqin eski simulyator telefonda sig'maydi yoki kesiladi (5-sinf 38, 6-sinf algebra/kasr/tezlik, 7-sinf, 10-sinf) — `lessons/` ga tegish uchun ruxsat kerak
 - [ ] 7–11-sinflarda birorta test yo'q (109 mavzu)
@@ -54,7 +55,7 @@
 **O'rta**
 - [x] Ichki belgilar (rangli nuqtalar, legenda, «Simulyatsiya rejasi», kitob betlari, arqon tortishdagi fayl yozuvi) endi faqat admin kirganda ko'rinadi
 - [ ] Bo'sh mavzular to'liqdek ko'rinadi (8–11-sinf bitta gapli «ma'ruza», 6-sinf 8–31, 7-sinf hisobi takrorlangan)
-- [ ] «Mening natijalarim» sahifasi buzilgan (qatorlar ustma-ust, formulalar oddiy matn)
+- [x] «Mening natijalarim» tuzatildi: qatorlar toza, kasr/chizmalar KaTeX bilan, 1-test/2-test belgisi, savolga sakrash panel ostida qolmaydi
 - [ ] (8–9 dan keyin) 6-sinf «O'zingizni tekshiring» qatorlari telefonda siqiladi
 - [ ] (8–9 dan keyin) 6-sinf 3-mavzu chizmasi: «4 bo'lak» qavsi 3 bo'lakni o'raydi
 - [ ] (8–9 dan keyin) 6-sinf: formuladan keyingi «:» bo'lish belgisiga o'xshaydi (4-mavzuda 7 ta, 2-da 3 ta, 3 va 7-da 1 tadan)

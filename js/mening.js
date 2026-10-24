@@ -75,28 +75,54 @@ function renderMyAccount() {
   }
 }
 
+// Formulalar test sahifasidagidek chiqadi: 5–11-sinf — qzMathText/qzRenderMath (js/quiz-engine.js),
+// 1–4-sinf — mathrunner-web/js/mathfmt.js (o'sha testlarning o'zi ishlatadigan). Ular yuklanmasa — oddiy matn.
+const myMathText = function (t) { return typeof qzMathText === "function" ? qzMathText(t) : escapeText(t); };
+let MW_TEXTS = [];
+function myRenderMath(root) {
+  if (typeof qzRenderMath === "function") qzRenderMath(root);
+  const mwEls = root.querySelectorAll("[data-mw]");
+  if (!mwEls.length || typeof qzLoadKatex !== "function") return;
+  const texts = MW_TEXTS;
+  Promise.all([import("../mathrunner-web/js/mathfmt.js"), qzLoadKatex()]).then(function (res) {
+    const fmt = res[0];
+    mwEls.forEach(function (el) {
+      const t = texts[Number(el.dataset.mw)];
+      if (!el.isConnected || t == null) return;
+      el.innerHTML = el.dataset.kind === "a" ? fmt.answerHTML(t, { compact: true }) : fmt.questionHTML(t, { compact: true });
+    });
+  }).catch(function () { /* formulalar oddiy matn bo'lib qoladi */ });
+}
+
+function myScoreHtml(r) {
+  return '<span class="my-score"><b class="my-rate--' + myRateClass(r.best || 0) + '">' + (r.best || 0) + '%</b><small>eng yaxshi</small></span>';
+}
+function myMetaHtml(r) {
+  return '<small class="my-meta">Oxirgisi ' + (r.last || 0) + '% · ' + (r.count || 1) + ' marta yechilgan · ' + myDate(r.t) + '</small>';
+}
+
 function renderMyResults() {
-  let results = {}, progress = {};
+  let results = {}, progress = {}, saved = {};
   try { results = JSON.parse(localStorage.getItem("mathlearn-natijalar-v1")) || {}; } catch (e) {}
   try { progress = JSON.parse(localStorage.getItem("mathrun-progress-v1")) || {}; } catch (e) {}
+  try { saved = JSON.parse(localStorage.getItem("mathlearn-saqlangan-v1")) || {}; } catch (e) {}
 
-  mwLoad(Object.keys(results).concat(Object.keys(JSON.parse(localStorage.getItem("mathlearn-saqlangan-v1") || "{}")).map(function (id) { return id.split("#")[0]; })));
+  mwLoad(Object.keys(results).concat(Object.keys(saved).map(function (id) { return id.split("#")[0]; })));
   const tests = Object.keys(results).map(function (k) { return { k: k, r: results[k], t: myTopic(k), mw: myPrimary(k) }; })
     .filter(function (x) { return x.t || x.mw; })
     .sort(function (a, b) { return (b.r.t || 0) - (a.r.t || 0); });
   const done = Object.keys(progress).filter(function (k) { return progress[k] && progress[k].done; })
     .map(function (k) { return { k: k, t: myTopic(k) }; }).filter(function (x) { return x.t; });
 
+  // har bir test (1-test va 2-test alohida) bo'yicha eng yaxshi natijalarning o'rtachasi
   const avg = tests.length ? Math.round(tests.reduce(function (s, x) { return s + (x.r.best || 0); }, 0) / tests.length) : null;
   document.getElementById("my-stats").innerHTML =
     '<div class="my-stats">' +
-      '<div><b>' + tests.length + '</b><span>ta mavzu testi yechilgan</span></div>' +
-      '<div><b' + (avg != null ? ' class="my-rate--' + myRateClass(avg) + '"' : "") + '>' + (avg != null ? avg + "%" : "—") + '</b><span>o\'rtacha eng yaxshi natija</span></div>' +
+      '<div><b>' + tests.length + '</b><span>ta test yechilgan</span></div>' +
+      '<div><b' + (avg != null ? ' class="my-rate--' + myRateClass(avg) + '"' : "") + '>' + (avg != null ? avg + "%" : "—") + '</b><span>eng yaxshi natijalar o\'rtachasi</span></div>' +
       '<div><b>' + done.length + '</b><span>ta ko\'rgazma tugatilgan</span></div>' +
     '</div>';
 
-  let saved = {};
-  try { saved = JSON.parse(localStorage.getItem("mathlearn-saqlangan-v1")) || {}; } catch (e) {}
   const marks = Object.keys(saved).map(function (id) { return saved[id]; })
     .filter(function (x) { return x && (myTopic(x.k) || myPrimary(x.k)); })
     .sort(function (a, b) { return (b.t || 0) - (a.t || 0); });
@@ -107,45 +133,57 @@ function renderMyResults() {
       '<a href="index.html#grades-section">Sinfni tanlash →</a></div>';
     return;
   }
+  MW_TEXTS = [];
+  const mwSlot = function (text, kind) {
+    MW_TEXTS.push(String(text));
+    return '<span data-mw="' + (MW_TEXTS.length - 1) + '" data-kind="' + kind + '">' + escapeText(text) + '</span>';
+  };
   el.innerHTML =
     (tests.length
       ? '<h2 class="my-h">Testlar</h2><ul class="my-list">' + tests.map(function (x) {
           if (x.mw) {
-            return '<li><a href="' + x.mw.href + '">' +
-              '<span class="my-topic"><small>' + escapeText(x.mw.sub) + '</small>' + escapeText(x.mw.title) + '</span>' +
-              '<span class="my-score"><b class="my-rate--' + myRateClass(x.r.best || 0) + '">' + (x.r.best || 0) + '%</b>' +
-              '<small>oxirgisi ' + (x.r.last || 0) + '% · ' + (x.r.count || 1) + ' marta · ' + myDate(x.r.t) + '</small></span></a></li>';
+            return '<li><a class="my-row" href="' + x.mw.href + '">' +
+              '<span class="my-topic"><small>' + escapeText(x.mw.sub) + '</small><span class="my-title">' + escapeText(x.mw.title) + '</span>' + myMetaHtml(x.r) + '</span>' +
+              myScoreHtml(x.r) + '</a></li>';
           }
           const parts = splitTopicTitle(x.t.topic.title, x.t.index);
-          return '<li><a href="' + topicHref(x.t.grade.id, x.t.subject.id, x.t.topic.id) + '#test">' +
-            '<span class="my-topic"><small>' + x.t.grade.name + (/\|qiyin$/.test(x.k) ? " · 2-test" : "") + '</small>' + escapeText(parts.num + " " + parts.title) + '</span>' +
-            '<span class="my-score"><b class="my-rate--' + myRateClass(x.r.best || 0) + '">' + (x.r.best || 0) + '%</b>' +
-            '<small>oxirgisi ' + (x.r.last || 0) + '% · ' + (x.r.count || 1) + ' marta · ' + myDate(x.r.t) + '</small></span></a></li>';
+          return '<li><a class="my-row" href="' + topicHref(x.t.grade.id, x.t.subject.id, x.t.topic.id) + '#test">' +
+            '<span class="my-topic"><small>' + x.t.grade.name + ' · ' + (/\|qiyin$/.test(x.k) ? "2-test" : "1-test") + '</small>' +
+              '<span class="my-title">' + escapeText(parts.num + " " + parts.title) + '</span>' + myMetaHtml(x.r) + '</span>' +
+            myScoreHtml(x.r) + '</a></li>';
         }).join("") + '</ul>'
       : "") +
     (done.length
       ? '<h2 class="my-h">Tugatilgan ko\'rgazmalar</h2><ul class="my-list">' + done.map(function (x) {
           const parts = splitTopicTitle(x.t.topic.title, x.t.index);
-          return '<li><a href="' + topicHref(x.t.grade.id, x.t.subject.id, x.t.topic.id) + '#interaktiv">' +
-            '<span class="my-topic"><small>' + x.t.grade.name + '</small>' + escapeText(parts.num + " " + parts.title) + '</span>' +
+          return '<li><a class="my-row" href="' + topicHref(x.t.grade.id, x.t.subject.id, x.t.topic.id) + '#interaktiv">' +
+            '<span class="my-topic"><small>' + x.t.grade.name + '</small><span class="my-title">' + escapeText(parts.num + " " + parts.title) + '</span></span>' +
             '<span class="my-score"><b class="my-rate--high">✓</b></span></a></li>';
         }).join("") + '</ul>'
       : "") +
     (marks.length
       ? '<h2 class="my-h">Saqlangan savollar</h2><ul class="my-list">' + marks.map(function (x) {
           const mw = myPrimary(x.k);
+          let href, meta, q, a;
           if (mw) {
-            return '<li><a href="' + mw.href + '"><span class="my-topic"><small>' + escapeText(mw.title) + ' · ' + escapeText(mw.sub) + ', ' + (x.i + 1) + '-savol</small>' + escapeText(x.q) + '</span>' +
-              '<span class="my-score"><small>javob</small><b>' + escapeText(x.a) + '</b></span></a></li>';
+            href = mw.href;
+            meta = escapeText(mw.title) + ' · ' + escapeText(mw.sub) + ', ' + (x.i + 1) + '-savol';
+            q = mwSlot(x.q, "q"); a = mwSlot(x.a, "a");
+          } else {
+            const t = myTopic(x.k), p = String(x.k).split("|");
+            const parts = splitTopicTitle(t.topic.title, t.index);
+            href = "test.html?sinf=" + p[0] + "&fan=" + p[1] + "&mavzu=" + p[2] + (p[3] === "qiyin" ? "&tur=qiyin" : "") + "#qz-q" + (x.i + 1);
+            meta = escapeText(parts.num + " " + parts.title) + ' · ' + t.grade.name + ' · ' + (p[3] === "qiyin" ? "2-test" : "1-test") + ', ' + (x.i + 1) + '-savol';
+            q = myMathText(x.q); a = myMathText(x.a);
           }
-          const t = myTopic(x.k), p = String(x.k).split("|");
-          const parts = splitTopicTitle(t.topic.title, t.index);
-          const href = "test.html?sinf=" + p[0] + "&fan=" + p[1] + "&mavzu=" + p[2] + (p[3] === "qiyin" ? "&tur=qiyin" : "") + "#qz-q" + (x.i + 1);
-          return '<li><a href="' + href + '">' +
-            '<span class="my-topic"><small>' + escapeText(parts.num + " " + parts.title) + ' · ' + (p[3] === "qiyin" ? "2-test" : "1-test") + ', ' + (x.i + 1) + '-savol</small>' + escapeText(x.q) + '</span>' +
-            '<span class="my-score"><small>javob</small><b>' + escapeText(x.a) + '</b></span></a></li>';
+          return '<li><a class="my-saved" href="' + href + '">' +
+            '<small class="my-saved-meta">' + meta + '</small>' +
+            '<div class="my-saved-q">' + q + '</div>' +
+            (x.rasm ? '<div class="my-fig">' + x.rasm + '</div>' : "") +
+            '<div class="my-saved-a"><small>To\'g\'ri javob:</small> <b>' + a + '</b></div></a></li>';
         }).join("") + '</ul>'
       : "");
+  myRenderMath(el);
 }
 
 function renderMyPage() {
