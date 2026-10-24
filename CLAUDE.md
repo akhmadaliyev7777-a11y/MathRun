@@ -26,6 +26,13 @@ Loyihada **ikki kishi, ikki hisob** navbatma-navbat ishlaydi. **Sessiya boshida 
 - Sessiya tugayotgan bo'lsa yoki foydalanuvchi «to'xta» desa — 6 taga yetmagan bo'lsa ham yozuv qo'shing.
 - Jurnal `main` ga mavzu bilan birga push qilinadi.
 
+## Yengil ish tartibi — token va vaqtni tejash (foydalanuvchi qarori, 2026-10-24)
+Foydalanuvchi: «ko'p token ishlatma, ishni soddaroq qil, bitta mavzuga ko'p vaqt sarflama». 10–11-mavzularda bir mavzu ~1 soat va 0,5–1 mln token ketdi (4 tekshiruvchi × 2 bosqich) — bu ortiqcha. Endi har mavzu:
+1. **Bitta yozuvchi** (oddiy mavzuda Sonnet): kitob matnini o'qiydi (rasm faqat kerakli 2–3 bet), ma'ruza + 20+20 test yozadi — boshidanoq `_reja/CLAUDE-ish-tartibi.md` 0-bo'lim 9–11 qoidalariga amal qilib (kitob qolipi ko'chirilmaydi). Yangi chizma turi faqat juda zarur bo'lsa; mavjudlari bilan ishlash afzal.
+2. **Avtomatik tekshiruvlar** (yozuvchi o'zi): tenglik.py, kitobdan.py, testlar.js, node --check, 390/1100 px ning avtomatik o'lchovi (scrollWidth, KaTeX, chizmalar) — skrinshotlar faqat yangi/o'zgargan chizmalarga.
+3. **Bitta tekshiruvchi** (hisob + kitobga o'xshashlik + til birga, qisqa hisobot). Ikkinchi tekshiruv bosqichi YO'Q — faqat jiddiy xato tuzatilgandan keyin avtomatik tekshiruvlar qayta.
+4. Ulash, versiyalar, push — asosiy sessiya. Barcha ma'ruzalarni qayta ko'rish faqat chizma.js/maruza.css o'zgarganda (avtomatik, skrinshotsiz).
+
 ## Ishlash qoidalari (foydalanuvchi bilan kelishilgan, 2026-10-18)
 - **Shox — har doim `main` ga (foydalanuvchi qarori, 2026-10-18):** sessiya qaysi shoxda ochilgan bo'lsa ham (masalan `claude/...`), tayyor ish **`main` ga** yuklanadi — sayt shundan chiqadi. Tartib:
   1. **Sessiya boshida:** `git fetch origin` va `git branch -r` — boshqa shoxlarda `main` ga qo'shilmagan mavzu bormi (`git log --oneline origin/main..origin/<shox>`)? Bo'lsa — foydalanuvchiga ayting va uni `main` ga birlashtiring (ikkala tomondagi ish saqlanadi; `?v=` versiyalar kattasidan +1). Keyin ishni eng so'nggi `main` ustida boshlang.
