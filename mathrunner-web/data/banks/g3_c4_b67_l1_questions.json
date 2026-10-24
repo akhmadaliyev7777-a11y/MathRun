@@ -64,11 +64,11 @@
   },
   {
     "id": "s3c4b67l1_08",
-    "question": "Faqat A to'plamga tegishli elementlar sonini topish uchun nima qilamiz?  (A dagi elementlar sonidan kesishmani ayiramiz = 1, A va B ni qo'shamiz = 2)",
-    "correctAnswer": 1,
+    "question": "Faqat A to'plamga tegishli elementlar sonini qanday topamiz?",
+    "correctAnswer": "A dagi elementlar sonidan kesishmadagilar sonini ayiramiz",
     "wrongAnswers": [
-      2,
-      3
+      "A va B dagi elementlar sonini qo'shamiz",
+      "A dagi elementlar soniga kesishmadagilar sonini qo'shamiz"
     ]
   },
   {

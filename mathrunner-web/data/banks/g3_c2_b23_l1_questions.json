@@ -81,11 +81,11 @@
   },
   {
     "id": "s3c2b23l1_09",
-    "question": "Burchakli bo'lishda bo'linuvchining qaysi xonasidan boshlanadi?  (eng katta = 1, eng kichik = 2)",
-    "correctAnswer": 1,
+    "question": "Burchak usulida bo'lish bo'linuvchining qaysi xonasidan boshlanadi?",
+    "correctAnswer": "Eng katta xonasidan (chapdan)",
     "wrongAnswers": [
-      2,
-      3
+      "Eng kichik xonasidan (o'ngdan)",
+      "O'rtadagi xonasidan"
     ]
   },
   {

@@ -73,11 +73,11 @@
   },
   {
     "id": "s3c3b46l2_09",
-    "question": "Sonning 1/n qismini topish uchun sonni nimaga bo'lamiz?  (n ga = 1, n ni ko'paytiramiz = 2)",
-    "correctAnswer": 1,
+    "question": "Sonning 1/n qismini topish uchun nima qilamiz?",
+    "correctAnswer": "Sonni n ga bo'lamiz",
     "wrongAnswers": [
-      2,
-      3
+      "Sonni n ga ko'paytiramiz",
+      "Sondan n ni ayiramiz"
     ]
   },
   {

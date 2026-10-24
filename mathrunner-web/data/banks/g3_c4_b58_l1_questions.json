@@ -55,11 +55,11 @@
   },
   {
     "id": "s3c4b58l1_07",
-    "question": "Masofa formulasi qaysi?  (s = v * t = 1, s = v : t = 2, s = v + t = 3)",
-    "correctAnswer": 1,
+    "question": "Masofani topish formulasi qaysi?",
+    "correctAnswer": "s = v * t",
     "wrongAnswers": [
-      2,
-      3
+      "s = v : t",
+      "s = v + t"
     ]
   },
   {
@@ -73,11 +73,11 @@
   },
   {
     "id": "s3c4b58l1_09",
-    "question": "Akmalning samolyoti 3 sekundda 15 m, Jasurniki 4 sekundda 12 m uchdi. Qaysi biri tezroq?  (Akmal = 1, Jasur = 2, teng = 3)",
-    "correctAnswer": 1,
+    "question": "Akmalning samolyoti 3 sekundda 15 m, Jasurniki 4 sekundda 12 m uchdi. Qaysi biriniki tezroq?",
+    "correctAnswer": "Akmalniki",
     "wrongAnswers": [
-      2,
-      3
+      "Jasurniki",
+      "Ikkalasi teng"
     ]
   },
   {

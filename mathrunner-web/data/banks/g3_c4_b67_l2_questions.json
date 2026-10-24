@@ -73,20 +73,20 @@
   },
   {
     "id": "s3c4b67l2_09",
-    "question": "Rost mulohaza — bu qanday tasdiq?  (to'g'ri tasdiq = 1, noto'g'ri tasdiq = 2)",
-    "correctAnswer": 1,
+    "question": "Rost mulohaza qanday tasdiq?",
+    "correctAnswer": "To'g'ri tasdiq",
     "wrongAnswers": [
-      2,
-      3
+      "Noto'g'ri tasdiq",
+      "Savol"
     ]
   },
   {
     "id": "s3c4b67l2_10",
-    "question": "'x + 3 = 10' — bu rost mulohazami yoki yolg'onmi?  (aniqlab bo'lmaydi (x noma'lum) = 3)",
-    "correctAnswer": 3,
+    "question": "«x + 3 = 10» — bu rost mulohazami yoki yolg'on?",
+    "correctAnswer": "Aniqlab bo'lmaydi, x noma'lum",
     "wrongAnswers": [
-      1,
-      2
+      "Rost",
+      "Yolg'on"
     ]
   }
 ]

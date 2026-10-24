@@ -37,11 +37,11 @@
   },
   {
     "id": "s3c4b67l3_05",
-    "question": "'Har qanday juft son 2 ga bo'linadi' — bu rost mulohazami?  (Rost = 1, Yolg'on = 2)",
-    "correctAnswer": 1,
+    "question": "«Har qanday juft son 2 ga bo'linadi» — bu mulohaza rostmi?",
+    "correctAnswer": "Rost",
     "wrongAnswers": [
-      2,
-      3
+      "Yolg'on",
+      "Aniqlab bo'lmaydi"
     ]
   },
   {
@@ -73,11 +73,11 @@
   },
   {
     "id": "s3c4b67l3_09",
-    "question": "'Barcha tub sonlar toq' — bu rost mulohazami?  (Yo'q, chunki 2 juft va tub = 2)",
-    "correctAnswer": 2,
+    "question": "«Barcha tub sonlar toq» — bu mulohaza rostmi?",
+    "correctAnswer": "Yolg'on, chunki 2 — juft tub son",
     "wrongAnswers": [
-      1,
-      3
+      "Rost, chunki 3, 5, 7 — toq",
+      "Aniqlab bo'lmaydi"
     ]
   },
   {

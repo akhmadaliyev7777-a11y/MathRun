@@ -5,7 +5,7 @@
 > Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
 > Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 15:42 — 8-mavzu tayyor va saytga chiqdi; 9-mavzu yozilmoqda
+**Oxirgi yangilanish:** 2026-10-24 15:44 — 1–4-sinf shifrli savollar tuzatildi va saytga chiqdi; 9-mavzu yozilmoqda
 
 ---
 
@@ -48,7 +48,8 @@
 ### Topilgan kamchiliklar (tuzatish — kelishilgandan keyin)
 **Jiddiy**
 - [x] 1–4-sinf testida to'g'ri javob «xato» deyilardi («3/3» va «1») — 5 574 savol tekshirildi, 18 ta tuzatildi (12 test + 6 arqon tortish); tekshiruv dasturi `mathrunner-web/tools/teng_variantlar.py`
-- [ ] ← *hozir* 1–4-sinf: yana 121 savolda «(… = 1, … = 2)» shifrli javoblar qolgan (52 test) — har birini ko'rib tuzatish kerak
+- [x] 1–4-sinf: 122 ta shifrli savol (54 test) oddiy savolga aylantirildi, javoblar haqiqiy; 1 ta noto'g'ri javob (paletka) tuzatildi
+- [ ] 1–4-sinf: ba'zi savollar yechimni matnda aytib qo'yadi («(eni = 4)», «P = 12»), 5 ta testda bir xil savol ikki marta
 - [ ] Arqon tortish o'yini telefonda o'ynab bo'lmaydi (ochkolar savolni yopadi, arqon ekrandan chiqadi)
 - [ ] 10 ga yaqin eski simulyator telefonda sig'maydi yoki kesiladi (5-sinf 38, 6-sinf algebra/kasr/tezlik, 7-sinf, 10-sinf) — `lessons/` ga tegish uchun ruxsat kerak
 - [ ] 7–11-sinflarda birorta test yo'q (109 mavzu)

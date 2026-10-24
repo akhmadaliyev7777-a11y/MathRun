@@ -60,20 +60,20 @@
   },
   {
     "id": "s3c2b25l2_07",
-    "question": "Yaxlit sonlarni bo'lishda bo'linuvchi va bo'luvchidan bir xil sondagi nollarni qisqartirsa bo'ladi.  (Rost = 1, Yolg'on = 2)",
-    "correctAnswer": 1,
+    "question": "Yaxlit sonlarni bo'lishda bo'linuvchi va bo'luvchi oxiridagi bir xil sondagi nollarni o'chirsa bo'ladi (masalan, 800 : 20 = 80 : 2).",
+    "correctAnswer": "Rost",
     "wrongAnswers": [
-      2,
-      3
+      "Yolg'on",
+      "Aniqlab bo'lmaydi"
     ]
   },
   {
     "id": "s3c2b25l2_08",
-    "question": "A4 qog'ozni teng ikkiga bo'lsak, qaysi o'lcham hosil bo'ladi?  (A5 = 1, A3 = 2, A6 = 3)",
-    "correctAnswer": 1,
+    "question": "A4 qog'ozni teng ikkiga bo'lsak, qaysi o'lchamdagi qog'oz hosil bo'ladi?",
+    "correctAnswer": "A5",
     "wrongAnswers": [
-      2,
-      3
+      "A3",
+      "A6"
     ]
   },
   {

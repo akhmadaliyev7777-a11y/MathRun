@@ -37,11 +37,11 @@
   },
   {
     "id": "s3c1b6l1_05",
-    "question": "740 203 058 sonida qaysi sinf raqami eng katta o'rin qiymatiga ega?  (millionlar=1, minglar=2, birlar=3)",
-    "correctAnswer": 1,
+    "question": "740 203 058 sonida qaysi sinfdagi raqamlar eng katta o'rin qiymatiga ega?",
+    "correctAnswer": "Millionlar sinfi",
     "wrongAnswers": [
-      2,
-      3
+      "Minglar sinfi",
+      "Birlar sinfi"
     ]
   },
   {

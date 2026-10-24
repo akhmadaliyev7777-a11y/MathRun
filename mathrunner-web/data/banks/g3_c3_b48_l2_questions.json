@@ -19,11 +19,11 @@
   },
   {
     "id": "s3c3b48l2_03",
-    "question": "Ikki chiziq bir nuqtada kesishdi, lekin to'g'ri burchak hosil qilmadi. Ular perpendikularmi?  (Yo'q = 1, Ha = 2)",
-    "correctAnswer": 1,
+    "question": "Ikki to'g'ri chiziq kesishdi, lekin to'g'ri burchak hosil qilmadi. Ular perpendikularmi?",
+    "correctAnswer": "Yo'q",
     "wrongAnswers": [
-      2,
-      3
+      "Ha",
+      "Aniqlab bo'lmaydi"
     ]
   },
   {
@@ -37,11 +37,11 @@
   },
   {
     "id": "s3c3b48l2_05",
-    "question": "Bir to'g'ri chiziqqa perpendikular bo'lgan ikki chiziq o'zaro qanday?  (parallel = 1, perpendikular = 2)",
-    "correctAnswer": 1,
+    "question": "Ikki to'g'ri chiziq uchinchi to'g'ri chiziqqa perpendikular. Bu ikki chiziq o'zaro qanday?",
+    "correctAnswer": "Parallel",
     "wrongAnswers": [
-      2,
-      3
+      "Perpendikular",
+      "Kesishadi"
     ]
   },
   {
@@ -64,29 +64,29 @@
   },
   {
     "id": "s3c3b48l2_08",
-    "question": "Yo'lakdagi ikki chekka chiziq bir-biriga qanday?  (parallel = 1, perpendikular = 2)",
-    "correctAnswer": 1,
+    "question": "Yo'lakning ikki chekka chizig'i o'zaro qanday?",
+    "correctAnswer": "Parallel",
     "wrongAnswers": [
-      2,
-      3
+      "Perpendikular",
+      "Kesishadi"
     ]
   },
   {
     "id": "s3c3b48l2_09",
-    "question": "Devor va pol o'zaro qanday?  (perpendikular = 1, parallel = 2)",
-    "correctAnswer": 1,
+    "question": "Devor va pol o'zaro qanday joylashgan?",
+    "correctAnswer": "Perpendikular",
     "wrongAnswers": [
-      2,
-      3
+      "Parallel",
+      "Kesishmaydi"
     ]
   },
   {
     "id": "s3c3b48l2_10",
-    "question": "Parallel chiziqlarning umumiy nuqtasi bormi?  (Yo'q = 1, Ha = 2)",
-    "correctAnswer": 1,
+    "question": "Parallel to'g'ri chiziqlarning umumiy nuqtasi bormi?",
+    "correctAnswer": "Yo'q",
     "wrongAnswers": [
-      2,
-      3
+      "Ha, bitta",
+      "Ha, ikkita"
     ]
   }
 ]

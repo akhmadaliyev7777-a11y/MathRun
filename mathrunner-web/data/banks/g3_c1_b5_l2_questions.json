@@ -73,11 +73,11 @@
   },
   {
     "id": "s3c1b5l2_09",
-    "question": "14 sonini Rim raqamlarida qanday yoziladi?  (variantlar: XIV=1, XVI=2, IVX=3)",
-    "correctAnswer": 1,
+    "question": "14 soni Rim raqamlarida qanday yoziladi?",
+    "correctAnswer": "XIV",
     "wrongAnswers": [
-      2,
-      3
+      "XVI",
+      "IVX"
     ]
   },
   {

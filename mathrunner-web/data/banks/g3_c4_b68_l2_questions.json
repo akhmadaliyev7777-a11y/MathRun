@@ -19,11 +19,11 @@
   },
   {
     "id": "s3c4b68l2_03",
-    "question": "'256 soni 4 ga qoldiqsiz bo'linadi' — rost mulohazami?  (Rost = 1, Yolg'on = 2)",
-    "correctAnswer": 1,
+    "question": "«256 soni 4 ga qoldiqsiz bo'linadi» — bu mulohaza rostmi?",
+    "correctAnswer": "Rost",
     "wrongAnswers": [
-      2,
-      3
+      "Yolg'on",
+      "Aniqlab bo'lmaydi"
     ]
   },
   {
@@ -55,11 +55,11 @@
   },
   {
     "id": "s3c4b68l2_07",
-    "question": "'0 - juft son' — bu rost mulohazami?  (Rost = 1, Yolg'on = 2)",
-    "correctAnswer": 1,
+    "question": "«0 — juft son» — bu mulohaza rostmi?",
+    "correctAnswer": "Rost",
     "wrongAnswers": [
-      2,
-      3
+      "Yolg'on",
+      "Aniqlab bo'lmaydi"
     ]
   },
   {

@@ -64,20 +64,20 @@
   },
   {
     "id": "s3c3b55l3_08",
-    "question": "Koordinata burchagida (1,1), (5,1), (5,4) nuqtalar berilgan. Bu qanday shaklning uchlari bo'lishi mumkin?  (to'g'ri burchakli uchburchak = 1, kvadrat = 2, doira = 3)",
-    "correctAnswer": 1,
+    "question": "Koordinata burchagida (1, 1), (5, 1), (5, 4) nuqtalar berilgan. Ularni ketma-ket tutashtirsak, qanday shakl hosil bo'ladi?",
+    "correctAnswer": "To'g'ri burchakli uchburchak",
     "wrongAnswers": [
-      2,
-      3
+      "Kvadrat",
+      "To'g'ri to'rtburchak"
     ]
   },
   {
     "id": "s3c3b55l3_09",
-    "question": "Doira 12 teng sektorga bo'lindi. 3 tasi doiraning qanday ulushi?  (to'rtdan bir = 1, uchdan bir = 2, yarim = 3)",
-    "correctAnswer": 1,
+    "question": "Doira 12 ta teng sektorga bo'lindi. 3 ta sektor doiraning qanday ulushi?",
+    "correctAnswer": "To'rtdan bir",
     "wrongAnswers": [
-      2,
-      3
+      "Uchdan bir",
+      "Yarmi"
     ]
   },
   {

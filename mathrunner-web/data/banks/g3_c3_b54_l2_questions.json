@@ -64,11 +64,11 @@
   },
   {
     "id": "s3c3b54l2_08",
-    "question": "Tarkibli tenglama nima?  (bir tomonida bir nechta amal bo'lgan tenglama = 1, faqat bitta amal = 2)",
-    "correctAnswer": 1,
+    "question": "Tarkibli tenglama qanday tenglama?",
+    "correctAnswer": "Bir tomonida bir nechta amal bo'lgan tenglama",
     "wrongAnswers": [
-      2,
-      3
+      "Faqat bitta amalli tenglama",
+      "Noma'lumi yo'q tenglik"
     ]
   },
   {

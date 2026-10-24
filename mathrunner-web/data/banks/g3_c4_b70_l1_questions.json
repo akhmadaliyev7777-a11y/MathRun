@@ -46,11 +46,11 @@
   },
   {
     "id": "s3c4b70l1_06",
-    "question": "4 m3 27 dm3 va 4 270 dm3 ni taqqoslang.  (4 m3 27 dm3 = 4027 dm3)  (kichik = <)",
-    "correctAnswer": 1,
+    "question": "Taqqoslang: 5 m3 300 dm3 __ 5 030 dm3",
+    "correctAnswer": ">",
     "wrongAnswers": [
-      2,
-      3
+      "<",
+      "="
     ]
   },
   {

@@ -55,11 +55,11 @@
   },
   {
     "id": "s3c2b33l3_07",
-    "question": "Doira 8 ta teng sektorga bo'lingan, 3 tasi bo'yalgan. Bo'yalgan qism doiraning qanday ulushi?  (3/8 = 1, 1/8 = 2, 3/5 = 3)",
-    "correctAnswer": 1,
+    "question": "Doira 8 ta teng sektorga bo'lingan, 3 tasi bo'yalgan. Bo'yalgan qism doiraning qanday ulushi?",
+    "correctAnswer": "3/8",
     "wrongAnswers": [
-      2,
-      3
+      "1/8",
+      "3/5"
     ]
   },
   {
@@ -73,11 +73,11 @@
   },
   {
     "id": "s3c2b33l3_09",
-    "question": "Guruch yordamida yuza o'lchashda nima taxminan aniqlanadi?  (yuza = 1, perimetr = 2, hajm = 3)",
-    "correctAnswer": 1,
+    "question": "Shakl yuzasini guruch donalari bilan to'ldirib o'lchasak, nimani taxminan aniqlaymiz?",
+    "correctAnswer": "Yuzani",
     "wrongAnswers": [
-      2,
-      3
+      "Perimetrni",
+      "Hajmni"
     ]
   },
   {

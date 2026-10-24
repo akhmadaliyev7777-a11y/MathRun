@@ -19,11 +19,11 @@
   },
   {
     "id": "s3c3b41l2_03",
-    "question": "Ikki shakl: 1-si 6 to'liq + 4 yarim, 2-si 8 to'liq + 2 yarim. Qaysi birining yuzi katta?  (1-si = 1, 2-si = 2, teng = 3)",
-    "correctAnswer": 3,
+    "question": "Paletka bilan o'lchandi: 1-shakl 6 ta to'liq va 4 ta yarim katak, 2-shakl 8 ta to'liq va 2 ta yarim katak egallaydi. Qaysi shaklning yuzi katta?",
+    "correctAnswer": "2-shaklniki",
     "wrongAnswers": [
-      1,
-      2
+      "1-shaklniki",
+      "Ikkalasi teng"
     ]
   },
   {
@@ -55,11 +55,11 @@
   },
   {
     "id": "s3c3b41l2_07",
-    "question": "Yarim katak necha to'liq katakka teng deb olinadi?  (yarmiga = 0.5 -> ikki yarim = 1 to'liq)  (2 ta yarim = 1 to'liq = 1;  1 yarim = 1 to'liq = 2)",
-    "correctAnswer": 1,
+    "question": "Paletka bilan yuza topishda 2 ta yarim katak nechta to'liq katak deb olinadi?",
+    "correctAnswer": "1 ta to'liq katak",
     "wrongAnswers": [
-      2,
-      3
+      "2 ta to'liq katak",
+      "Hisobga olinmaydi"
     ]
   },
   {

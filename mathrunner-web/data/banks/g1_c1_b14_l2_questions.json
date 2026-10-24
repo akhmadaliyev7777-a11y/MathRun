@@ -37,11 +37,11 @@
   },
   {
     "id": "s1c1b14l2_05",
-    "question": "8 juft sonmi yoki toqmi? (juft = 1, toq = 2)",
-    "correctAnswer": 1,
+    "question": "8 soni juftmi yoki toqmi?",
+    "correctAnswer": "Juft",
     "wrongAnswers": [
-      2,
-      3
+      "Toq",
+      "Na juft, na toq"
     ]
   },
   {

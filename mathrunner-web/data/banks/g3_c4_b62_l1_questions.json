@@ -46,11 +46,11 @@
   },
   {
     "id": "s3c4b62l1_06",
-    "question": "Ish hajmi formulasi qaysi?  (A = w * t = 1, A = w : t = 2, A = w + t = 3)",
-    "correctAnswer": 1,
+    "question": "Bajarilgan ish hajmini topish formulasi qaysi? (w — ish unumi, t — vaqt)",
+    "correctAnswer": "A = w * t",
     "wrongAnswers": [
-      2,
-      3
+      "A = w : t",
+      "A = w + t"
     ]
   },
   {

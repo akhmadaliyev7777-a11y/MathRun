@@ -73,11 +73,11 @@
   },
   {
     "id": "s3c3b51l2_09",
-    "question": "Tenglama ildizi nima?  (tenglamani to'g'ri tenglikka aylantiruvchi son = 1, har qanday son = 2)",
-    "correctAnswer": 1,
+    "question": "Tenglamaning ildizi nima?",
+    "correctAnswer": "Tenglamani to'g'ri tenglikka aylantiradigan son",
     "wrongAnswers": [
-      2,
-      3
+      "Istalgan son",
+      "Tenglamadagi eng katta son"
     ]
   },
   {

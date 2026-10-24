@@ -28,11 +28,11 @@
   },
   {
     "id": "s3c3b50l2_04",
-    "question": "'532 - 118 = 414' — bu tenglik to'g'rimi?  (Rost = 1, Yolg'on = 2)",
-    "correctAnswer": 1,
+    "question": "532 - 118 = 414 tengligi to'g'ri.",
+    "correctAnswer": "Rost",
     "wrongAnswers": [
-      2,
-      3
+      "Yolg'on",
+      "Aniqlab bo'lmaydi"
     ]
   },
   {
@@ -46,11 +46,11 @@
   },
   {
     "id": "s3c3b50l2_06",
-    "question": "x = 6 bo'lsa, x + 8 < 20 tengsizligi to'g'rimi?  (Rost = 1, Yolg'on = 2)",
-    "correctAnswer": 1,
+    "question": "x = 6 bo'lsa, x + 8 < 20 tengsizligi to'g'ri bo'ladi.",
+    "correctAnswer": "Rost",
     "wrongAnswers": [
-      2,
-      3
+      "Yolg'on",
+      "Aniqlab bo'lmaydi"
     ]
   },
   {
@@ -64,12 +64,13 @@
   },
   {
     "id": "s3c3b50l2_08",
-    "question": "'9 * 5' va '45' — bu tenglikmi?  (Rost = 1, Yolg'on = 2)",
-    "correctAnswer": 1,
+    "question": "Taqqoslang: 9 * 5 __ 45",
+    "correctAnswer": "=",
     "wrongAnswers": [
-      2,
-      3
-    ]
+      "<",
+      ">"
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 9 * 5 = 45, 45 = 45.<br>45 = 45, demak javob: <b>=</b>"
   },
   {
     "id": "s3c3b50l2_09",

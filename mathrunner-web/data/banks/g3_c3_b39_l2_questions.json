@@ -37,11 +37,11 @@
   },
   {
     "id": "s3c3b39l2_05",
-    "question": "Idish hajmi 25 dm3. Unga 25 litr suv sig'adimi?  (Ha = 1, Yo'q = 2)",
-    "correctAnswer": 1,
+    "question": "Idishning hajmi 25 dm3. Unga 25 litr suv sig'adimi?",
+    "correctAnswer": "Ha, 1 dm3 = 1 litr",
     "wrongAnswers": [
-      2,
-      3
+      "Yo'q, 25 dm3 = 2,5 litr",
+      "Yo'q, 25 dm3 = 250 ml"
     ]
   },
   {

@@ -28,11 +28,11 @@
   },
   {
     "id": "s3c3b40l2_04",
-    "question": "Anvar 5 000 m ni 5 km deb aytdi. To'g'rimi?  (Rost = 1, Yolg'on = 2)",
-    "correctAnswer": 1,
+    "question": "Anvar: «5 000 m = 5 km» dedi. U to'g'ri aytdimi?",
+    "correctAnswer": "Ha, to'g'ri",
     "wrongAnswers": [
-      2,
-      3
+      "Yo'q, 5 000 m = 50 km",
+      "Yo'q, 5 000 m = 500 km"
     ]
   },
   {
@@ -46,11 +46,11 @@
   },
   {
     "id": "s3c3b40l2_06",
-    "question": "Bir sonni o'yladim: u kg da 8, g da 8 000. To'g'rimi?  (Rost = 1, Yolg'on = 2)",
-    "correctAnswer": 1,
+    "question": "8 kg ni grammda 8 000 g deb yozish to'g'rimi?",
+    "correctAnswer": "Ha, to'g'ri",
     "wrongAnswers": [
-      2,
-      3
+      "Yo'q, 8 kg = 800 g",
+      "Yo'q, 8 kg = 80 000 g"
     ]
   },
   {

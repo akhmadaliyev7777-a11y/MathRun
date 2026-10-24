@@ -28,20 +28,20 @@
   },
   {
     "id": "s3c4b68l1_04",
-    "question": "Bo'sh to'plam nima deyiladi va qanday belgilanadi?  (elementsiz to'plam = 1, barcha sonlar = 2)",
-    "correctAnswer": 1,
+    "question": "Bo'sh to'plam qanday to'plam?",
+    "correctAnswer": "Bitta ham elementi yo'q to'plam",
     "wrongAnswers": [
-      2,
-      3
+      "Barcha sonlar to'plami",
+      "Faqat 0 dan iborat to'plam"
     ]
   },
   {
     "id": "s3c4b68l1_05",
-    "question": "Eyler-Venn diagrammasi nima uchun ishlatiladi?  (to'plamlar munosabatini ko'rsatish = 1, hisoblash = 2)",
-    "correctAnswer": 1,
+    "question": "Eyler–Venn diagrammasi nima uchun kerak?",
+    "correctAnswer": "To'plamlar orasidagi bog'lanishni ko'rsatish uchun",
     "wrongAnswers": [
-      2,
-      3
+      "Sonlarni qo'shish uchun",
+      "Shakl yuzini topish uchun"
     ]
   },
   {
@@ -73,11 +73,11 @@
   },
   {
     "id": "s3c4b68l1_09",
-    "question": "A = {toq sonlar}, B = {2 ga bo'linadigan sonlar}. A ∩ B qanday?  (bo'sh = 1, to'la = 2)",
-    "correctAnswer": 1,
+    "question": "A — toq sonlar, B — 2 ga bo'linadigan sonlar to'plami. A ∩ B qanday to'plam?",
+    "correctAnswer": "Bo'sh to'plam",
     "wrongAnswers": [
-      2,
-      3
+      "Barcha sonlar to'plami",
+      "Toq sonlar to'plami"
     ]
   },
   {

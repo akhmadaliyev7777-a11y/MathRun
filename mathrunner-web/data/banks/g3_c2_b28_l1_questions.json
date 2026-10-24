@@ -51,11 +51,11 @@
   },
   {
     "id": "s3c2b28l1_06",
-    "question": "Uch xonali songa bo'lish ikki xonali songa bo'lish kabi bajariladimi?  (Ha = 1, Yo'q = 2)",
-    "correctAnswer": 1,
+    "question": "Uch xonali songa bo'lish ham ikki xonali songa bo'lish kabi burchak usulida bajariladimi?",
+    "correctAnswer": "Ha",
     "wrongAnswers": [
-      2,
-      3
+      "Yo'q",
+      "Faqat qoldiqsiz bo'linsa"
     ]
   },
   {

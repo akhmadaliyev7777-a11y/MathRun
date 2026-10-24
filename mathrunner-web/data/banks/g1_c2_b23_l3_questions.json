@@ -19,20 +19,20 @@
   },
   {
     "id": "s1c2b23l3_03",
-    "question": "11 juft sonmi yoki toq? (juft = 1, toq = 2)",
-    "correctAnswer": 2,
+    "question": "11 soni juftmi yoki toqmi?",
+    "correctAnswer": "Toq",
     "wrongAnswers": [
-      1,
-      3
+      "Juft",
+      "Na juft, na toq"
     ]
   },
   {
     "id": "s1c2b23l3_04",
-    "question": "20 juft sonmi yoki toq? (juft = 1, toq = 2)",
-    "correctAnswer": 1,
+    "question": "20 soni juftmi yoki toqmi?",
+    "correctAnswer": "Juft",
     "wrongAnswers": [
-      2,
-      3
+      "Toq",
+      "Na juft, na toq"
     ]
   },
   {

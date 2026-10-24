@@ -1,29 +1,29 @@
 [
   {
     "id": "s3c3b50l1_01",
-    "question": "12 + 15 = 27 yozuvi nima?  (tenglik = 1, tengsizlik = 2, tenglama = 3)",
-    "correctAnswer": 1,
+    "question": "12 + 15 = 27 yozuvi nima deyiladi?",
+    "correctAnswer": "Tenglik",
     "wrongAnswers": [
-      2,
-      3
+      "Tengsizlik",
+      "Tenglama"
     ]
   },
   {
     "id": "s3c3b50l1_02",
-    "question": "b < 5 yozuvi nima?  (tengsizlik = 1, tenglik = 2, tenglama = 3)",
-    "correctAnswer": 1,
+    "question": "b < 5 yozuvi nima deyiladi?",
+    "correctAnswer": "Tengsizlik",
     "wrongAnswers": [
-      2,
-      3
+      "Tenglik",
+      "Tenglama"
     ]
   },
   {
     "id": "s3c3b50l1_03",
-    "question": "x + 8 = 20 yozuvi nima?  (tenglama = 1, tenglik = 2, tengsizlik = 3)",
-    "correctAnswer": 1,
+    "question": "x + 8 = 20 yozuvi nima deyiladi?",
+    "correctAnswer": "Tenglama",
     "wrongAnswers": [
-      2,
-      3
+      "Tenglik",
+      "Tengsizlik"
     ]
   },
   {
@@ -55,11 +55,11 @@
   },
   {
     "id": "s3c3b50l1_07",
-    "question": "561 + 119 = 680 va 600 - 134 < 450 yozuvlaridan qaysi biri tengsizlik?  (2-si = 1, 1-si = 2)",
-    "correctAnswer": 1,
+    "question": "561 + 119 = 680 va 600 - 134 > 450 yozuvlaridan qaysi biri tengsizlik?",
+    "correctAnswer": "600 - 134 > 450",
     "wrongAnswers": [
-      2,
-      3
+      "561 + 119 = 680",
+      "Ikkalasi ham"
     ]
   },
   {

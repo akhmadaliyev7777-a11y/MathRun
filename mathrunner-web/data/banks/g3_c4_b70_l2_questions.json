@@ -73,12 +73,13 @@
   },
   {
     "id": "s3c4b70l2_09",
-    "question": "27 810 : 270 va 81 270 : 270 ni taqqoslang.  (103 va 301, kichik = 1-si)  (1-si kichik = 1)",
-    "correctAnswer": 1,
+    "question": "Taqqoslang: 27 810 : 270 __ 81 270 : 270",
+    "correctAnswer": "<",
     "wrongAnswers": [
-      2,
-      3
-    ]
+      ">",
+      "="
+    ],
+    "explain": "Avval ikkala tomonni hisoblaymiz: 27 810 : 270 = 103, 81 270 : 270 = 301.<br>103 < 301, demak javob: <b><</b>"
   },
   {
     "id": "s3c4b70l2_10",

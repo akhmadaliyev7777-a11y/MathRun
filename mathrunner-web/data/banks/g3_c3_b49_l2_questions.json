@@ -10,20 +10,20 @@
   },
   {
     "id": "s3c3b49l2_02",
-    "question": "A(25) va B(42) nuqtalardan qaysi biri koordinata nurida chapda joylashgan?  (A = 1, B = 2)",
-    "correctAnswer": 1,
+    "question": "Koordinata nurida A(25) va B(42) nuqtalar bor. Qaysi biri chaproqda joylashgan?",
+    "correctAnswer": "A nuqta",
     "wrongAnswers": [
-      2,
-      3
+      "B nuqta",
+      "Ikkalasi bir joyda"
     ]
   },
   {
     "id": "s3c3b49l2_03",
-    "question": "C(456) va D(219) nuqtalardan qaysi biri o'ngda joylashgan?  (C = 1, D = 2)",
-    "correctAnswer": 1,
+    "question": "Koordinata nurida C(456) va D(219) nuqtalar bor. Qaysi biri o'ngroqda joylashgan?",
+    "correctAnswer": "C nuqta",
     "wrongAnswers": [
-      2,
-      3
+      "D nuqta",
+      "Ikkalasi bir joyda"
     ]
   },
   {
@@ -46,11 +46,11 @@
   },
   {
     "id": "s3c3b49l2_06",
-    "question": "Koordinata nurida sonlar qaysi tomonga o'sib boradi?  (o'ngga = 1, chapga = 2)",
-    "correctAnswer": 1,
+    "question": "Koordinata nurida sonlar qaysi tomonga qarab ortib boradi?",
+    "correctAnswer": "O'ngga",
     "wrongAnswers": [
-      2,
-      3
+      "Chapga",
+      "Avval o'ngga, keyin chapga"
     ]
   },
   {
@@ -64,11 +64,11 @@
   },
   {
     "id": "s3c3b49l2_08",
-    "question": "M(2 933) va N(293) nuqtalardan qaysi biri katta koordinataga ega?  (M = 1, N = 2)",
-    "correctAnswer": 1,
+    "question": "M(2 933) va N(293) nuqtalardan qaysi birining koordinatasi katta?",
+    "correctAnswer": "M nuqtaniki",
     "wrongAnswers": [
-      2,
-      3
+      "N nuqtaniki",
+      "Ikkalasiniki teng"
     ]
   },
   {

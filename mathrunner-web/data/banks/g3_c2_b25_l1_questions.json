@@ -51,11 +51,11 @@
   },
   {
     "id": "s3c2b25l1_06",
-    "question": "To'liqsiz bo'linmada nol raqami qachon paydo bo'ladi?  (bo'linuvchining xonasi bo'luvchidan kichik bo'lsa = 1, katta bo'lsa = 2)",
-    "correctAnswer": 1,
+    "question": "Burchak usulida bo'lishda bo'linmaga 0 raqami qachon yoziladi?",
+    "correctAnswer": "Tushirilgan son bo'luvchidan kichik bo'lsa",
     "wrongAnswers": [
-      2,
-      3
+      "Tushirilgan son bo'luvchidan katta bo'lsa",
+      "Bo'linuvchida 0 raqami bo'lsa, har doim"
     ]
   },
   {

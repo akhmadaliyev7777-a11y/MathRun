@@ -64,11 +64,11 @@
   },
   {
     "id": "s3c2b31l2_08",
-    "question": "P = 2 * a + 2 * b formulasi P = (a + b) * 2 formulasi bilan bir xil natija beradimi?  (Ha = 1, Yo'q = 2)",
-    "correctAnswer": 1,
+    "question": "P = 2 * a + 2 * b va P = (a + b) * 2 formulalari bir xil natija beradimi?",
+    "correctAnswer": "Ha, har doim",
     "wrongAnswers": [
-      2,
-      3
+      "Yo'q, hech qachon",
+      "Faqat a = b bo'lsa"
     ]
   },
   {

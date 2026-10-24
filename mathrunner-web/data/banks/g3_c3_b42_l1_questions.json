@@ -82,11 +82,11 @@
   },
   {
     "id": "s3c3b42l1_10",
-    "question": "Parallelepipedning qarama-qarshi yoqlari qanday?  (teng = 1, har xil = 2)",
-    "correctAnswer": 1,
+    "question": "To'g'ri burchakli parallelepipedning qarama-qarshi yoqlari qanday?",
+    "correctAnswer": "Teng",
     "wrongAnswers": [
-      2,
-      3
+      "Har xil",
+      "Biri ikkinchisidan 2 marta katta"
     ]
   }
 ]

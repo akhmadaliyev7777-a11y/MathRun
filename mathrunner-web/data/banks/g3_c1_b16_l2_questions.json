@@ -41,11 +41,11 @@
   },
   {
     "id": "s3c1b16l2_05",
-    "question": "Muntazam ko'pburchakning barcha tomonlari qanday bo'ladi?  (teng = 1, har xil = 2)",
-    "correctAnswer": 1,
+    "question": "Muntazam ko'pburchakning tomonlari qanday bo'ladi?",
+    "correctAnswer": "Hammasi teng",
     "wrongAnswers": [
-      2,
-      3
+      "Hammasi har xil",
+      "Faqat qarama-qarshi tomonlari teng"
     ]
   },
   {

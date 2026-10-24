@@ -19,11 +19,11 @@
   },
   {
     "id": "s3c4b69l1_03",
-    "question": "9 738 000 soni qanday o'qiladi?  (to'qqiz million yetti yuz o'ttiz sakkiz ming = 1, to'qqiz yuz million... = 2)",
-    "correctAnswer": 1,
+    "question": "9 738 000 soni qanday o'qiladi?",
+    "correctAnswer": "To'qqiz million yetti yuz o'ttiz sakkiz ming",
     "wrongAnswers": [
-      2,
-      3
+      "To'qqiz yuz yetmish uch ming sakkiz yuz",
+      "To'qqiz million yetmish uch ming sakkiz yuz"
     ]
   },
   {

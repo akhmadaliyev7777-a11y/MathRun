@@ -1,11 +1,11 @@
 [
   {
     "id": "s3c3b53l2_01",
-    "question": "Simmetriya o'qi shaklni qanday bo'laklarga ajratadi?  (o'zaro teng va mos ikki bo'lakka = 1, har xil ikki bo'lakka = 2)",
-    "correctAnswer": 1,
+    "question": "Simmetriya o'qi shaklni qanday bo'laklarga ajratadi?",
+    "correctAnswer": "Bir-biriga mos ikki teng bo'lakka",
     "wrongAnswers": [
-      2,
-      3
+      "Har xil ikki bo'lakka",
+      "To'rtta teng bo'lakka"
     ]
   },
   {
@@ -37,20 +37,20 @@
   },
   {
     "id": "s3c3b53l2_05",
-    "question": "Doira nechta simmetriya o'qiga ega?  (cheksiz ko'p = 1, 4 ta = 2, 1 ta = 3)",
-    "correctAnswer": 1,
+    "question": "Doiraning nechta simmetriya o'qi bor?",
+    "correctAnswer": "Cheksiz ko'p",
     "wrongAnswers": [
-      2,
-      3
+      "4 ta",
+      "1 ta"
     ]
   },
   {
     "id": "s3c3b53l2_06",
-    "question": "AB = 5 cm kesma. Markazlari A va B da bo'lgan 2 cm radiusli aylanalar kesishadimi?  (Yo'q = 1, Ha = 2)",
-    "correctAnswer": 1,
+    "question": "AB = 5 cm. Markazlari A va B nuqtalarda bo'lgan, radiusi 2 cm dan ikkita aylana chizildi. Ular kesishadimi?",
+    "correctAnswer": "Yo'q",
     "wrongAnswers": [
-      2,
-      3
+      "Ha, ikki nuqtada",
+      "Ha, bitta nuqtada"
     ]
   },
   {
@@ -64,11 +64,11 @@
   },
   {
     "id": "s3c3b53l2_08",
-    "question": "Harflardan qaysi biri simmetriya o'qiga ega: 'A' yoki 'F'?  (A = 1, F = 2)",
-    "correctAnswer": 1,
+    "question": "Qaysi harfning simmetriya o'qi bor: A yoki F?",
+    "correctAnswer": "A harfining",
     "wrongAnswers": [
-      2,
-      3
+      "F harfining",
+      "Ikkalasining ham"
     ]
   },
   {
@@ -82,11 +82,11 @@
   },
   {
     "id": "s3c3b53l2_10",
-    "question": "Simmetrik shaklning bir yarmini bilsak, ikkinchi yarmini qanday chizamiz?  (o'qqa nisbatan aks ettirib = 1, tasodifiy = 2)",
-    "correctAnswer": 1,
+    "question": "Simmetrik shaklning bir yarmi berilgan. Ikkinchi yarmini qanday chizamiz?",
+    "correctAnswer": "Simmetriya o'qiga nisbatan aks ettirib",
     "wrongAnswers": [
-      2,
-      3
+      "Tasodifiy chizib",
+      "Xuddi shu yarmini yoniga surib"
     ]
   }
 ]

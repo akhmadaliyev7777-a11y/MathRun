@@ -39,11 +39,11 @@
   },
   {
     "id": "s3c1b14l2_05",
-    "question": "Grafikda tovar narxi 1-oy 40 000, 2-oy 46 000, 3-oy 43 000 so'm. Eng yuqori narx qaysi oyda edi?  (1, 2 yoki 3)",
-    "correctAnswer": 2,
+    "question": "Grafikda tovar narxi: 1-oy 40 000 so'm, 2-oy 46 000 so'm, 3-oy 43 000 so'm. Eng yuqori narx qaysi oyda bo'lgan?",
+    "correctAnswer": "2-oyda",
     "wrongAnswers": [
-      1,
-      3
+      "1-oyda",
+      "3-oyda"
     ]
   },
   {

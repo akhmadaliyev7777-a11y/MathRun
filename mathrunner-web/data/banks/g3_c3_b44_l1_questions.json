@@ -37,20 +37,20 @@
   },
   {
     "id": "s3c3b44l1_05",
-    "question": "Aylana markazidan uning istalgan nuqtasigacha bo'lgan kesma nima deyiladi?  (radius = 1, diametr = 2, tomon = 3)",
-    "correctAnswer": 1,
+    "question": "Aylana markazini aylanadagi istalgan nuqta bilan tutashtiruvchi kesma nima deyiladi?",
+    "correctAnswer": "Radius",
     "wrongAnswers": [
-      2,
-      3
+      "Diametr",
+      "Yoy"
     ]
   },
   {
     "id": "s3c3b44l1_06",
-    "question": "Aylananing ikki nuqtasini tutashtirib, markazdan o'tuvchi kesma nima deyiladi?  (diametr = 1, radius = 2, yoy = 3)",
-    "correctAnswer": 1,
+    "question": "Aylananing ikki nuqtasini tutashtiruvchi va markazdan o'tuvchi kesma nima deyiladi?",
+    "correctAnswer": "Diametr",
     "wrongAnswers": [
-      2,
-      3
+      "Radius",
+      "Yoy"
     ]
   },
   {
@@ -64,11 +64,11 @@
   },
   {
     "id": "s3c3b44l1_08",
-    "question": "Aylana qanday asbob bilan chiziladi?  (sirkul = 1, chizg'ich = 2, transportir = 3)",
-    "correctAnswer": 1,
+    "question": "Aylana qaysi asbob bilan chiziladi?",
+    "correctAnswer": "Sirkul",
     "wrongAnswers": [
-      2,
-      3
+      "Chizg'ich",
+      "Transportir"
     ]
   },
   {

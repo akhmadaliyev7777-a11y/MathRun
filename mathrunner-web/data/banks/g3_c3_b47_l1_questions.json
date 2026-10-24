@@ -37,11 +37,11 @@
   },
   {
     "id": "s3c3b47l1_05",
-    "question": "Doira 3 teng bo'lakka bo'lindi. Bittasi qanday ulush?  (1/3 = 1, 1/2 = 2, 3/1 = 3)",
-    "correctAnswer": 1,
+    "question": "Doira 3 ta teng bo'lakka bo'lindi. Bitta bo'lak doiraning qanday ulushi?",
+    "correctAnswer": "1/3",
     "wrongAnswers": [
-      2,
-      3
+      "1/2",
+      "3/1"
     ]
   },
   {

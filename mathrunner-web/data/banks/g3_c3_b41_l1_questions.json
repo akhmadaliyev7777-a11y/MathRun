@@ -37,20 +37,20 @@
   },
   {
     "id": "s3c3b41l1_05",
-    "question": "Paletka bilan yuza qanday topiladi?  (to'liq + yarim kataklar hisoblanadi = 1, faqat to'liq kataklar = 2)",
-    "correctAnswer": 1,
+    "question": "Paletka yordamida shakl yuzi qanday topiladi?",
+    "correctAnswer": "To'liq kataklar sanaladi, har 2 ta yarim katak 1 ta deb qo'shiladi",
     "wrongAnswers": [
-      2,
-      3
+      "Faqat to'liq kataklar sanaladi",
+      "To'liq va yarim kataklar 1 tadan sanaladi"
     ]
   },
   {
     "id": "s3c3b41l1_06",
-    "question": "Shakl yuzi kamida 7 (to'liq kataklar), ko'pi bilan 11 kvadrat birlik. Taxminiy yuza qaysi son bo'lishi mumkin?  (9 = 1, 15 = 2, 5 = 3)",
-    "correctAnswer": 1,
+    "question": "Paletka bo'yicha shakl yuzi kamida 7, ko'pi bilan 11 kvadrat birlik. Uning taxminiy yuzi qaysi son bo'lishi mumkin?",
+    "correctAnswer": 9,
     "wrongAnswers": [
-      2,
-      3
+      15,
+      5
     ]
   },
   {
@@ -82,11 +82,11 @@
   },
   {
     "id": "s3c3b41l1_10",
-    "question": "Paletka nima?  (shaffof katakli setka = 1, chizg'ich = 2, sirkul = 3)",
-    "correctAnswer": 1,
+    "question": "Paletka nima?",
+    "correctAnswer": "Shaffof katakli plastinka (to'r)",
     "wrongAnswers": [
-      2,
-      3
+      "Chizg'ich",
+      "Sirkul"
     ]
   }
 ]

@@ -55,11 +55,11 @@
   },
   {
     "id": "s3c2b24l2_07",
-    "question": "1-kvartal qaysi oylarni o'z ichiga oladi?  (yanvar-fevral-mart = 1, aprel-may-iyun = 2)",
-    "correctAnswer": 1,
+    "question": "1-kvartalga qaysi oylar kiradi?",
+    "correctAnswer": "Yanvar, fevral, mart",
     "wrongAnswers": [
-      2,
-      3
+      "Aprel, may, iyun",
+      "Oktabr, noyabr, dekabr"
     ]
   },
   {
@@ -73,11 +73,11 @@
   },
   {
     "id": "s3c2b24l2_09",
-    "question": "Son 5 ga bo'lganda qanday qoldiqlar bo'lishi mumkin?  (0,1,2,3,4 = 1;  0,1,2,3,4,5 = 2)",
-    "correctAnswer": 1,
+    "question": "Sonni 5 ga bo'lganda qanday qoldiqlar chiqishi mumkin?",
+    "correctAnswer": "0, 1, 2, 3, 4",
     "wrongAnswers": [
-      2,
-      3
+      "0, 1, 2, 3, 4, 5",
+      "1, 2, 3, 4, 5"
     ]
   },
   {

@@ -80,11 +80,11 @@
   },
   {
     "id": "s3c1b10l1_09",
-    "question": "Amallar tartibi bo'yicha oldin qaysi amal bajariladi: 8 + 6 * 5 ?  (ko'paytirish = 1, qo'shish = 2)",
-    "correctAnswer": 1,
+    "question": "8 + 6 * 5 ifodada qaysi amal birinchi bajariladi?",
+    "correctAnswer": "Ko'paytirish",
     "wrongAnswers": [
-      2,
-      3
+      "Qo'shish",
+      "Farqi yo'q, ikkalasi bir vaqtda"
     ]
   },
   {

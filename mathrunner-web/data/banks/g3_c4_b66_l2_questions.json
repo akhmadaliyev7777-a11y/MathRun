@@ -19,29 +19,29 @@
   },
   {
     "id": "s3c4b66l2_03",
-    "question": "Ikki to'plamning umumiy elementlaridan iborat to'plam nima deyiladi?  (kesishma = 1, birlashma = 2)",
-    "correctAnswer": 1,
+    "question": "Ikki to'plamning umumiy elementlaridan iborat to'plam nima deyiladi?",
+    "correctAnswer": "Kesishma",
     "wrongAnswers": [
-      2,
-      3
+      "Birlashma",
+      "Bo'sh to'plam"
     ]
   },
   {
     "id": "s3c4b66l2_04",
-    "question": "Ikki to'plamning barcha elementlaridan iborat to'plam nima deyiladi?  (birlashma = 1, kesishma = 2)",
-    "correctAnswer": 1,
+    "question": "Ikki to'plamning barcha elementlaridan iborat to'plam nima deyiladi?",
+    "correctAnswer": "Birlashma",
     "wrongAnswers": [
-      2,
-      3
+      "Kesishma",
+      "Bo'sh to'plam"
     ]
   },
   {
     "id": "s3c4b66l2_05",
-    "question": "A = {juft sonlar}, B = {toq sonlar}. A va B ning kesishmasi qanday to'plam?  (bo'sh to'plam = 1, barcha sonlar = 2)",
-    "correctAnswer": 1,
+    "question": "A — juft sonlar to'plami, B — toq sonlar to'plami. A va B ning kesishmasi qanday to'plam?",
+    "correctAnswer": "Bo'sh to'plam",
     "wrongAnswers": [
-      2,
-      3
+      "Barcha sonlar to'plami",
+      "Juft sonlar to'plami"
     ]
   },
   {
@@ -55,11 +55,11 @@
   },
   {
     "id": "s3c4b66l2_07",
-    "question": "A = {2, 4, 6, 8, 10}, B = {5, 10, 15}. A va B kesishmasi qanday?  ({10} = 1, {} = 2, {5} = 3)",
-    "correctAnswer": 1,
+    "question": "A = {2, 4, 6, 8, 10}, B = {5, 10, 15}. A va B ning kesishmasini toping.",
+    "correctAnswer": "{10}",
     "wrongAnswers": [
-      2,
-      3
+      "Bo'sh to'plam",
+      "{2, 4, 5, 6, 8, 10, 15}"
     ]
   },
   {

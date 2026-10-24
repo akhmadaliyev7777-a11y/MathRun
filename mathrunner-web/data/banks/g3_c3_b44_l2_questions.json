@@ -1,20 +1,20 @@
 [
   {
     "id": "s3c3b44l2_01",
-    "question": "Doira 6 ta teng sektorga bo'lindi. Bitta sektor doiraning qanday ulushi?  (1/6 = 1, 1/3 = 2, 6/1 = 3)",
-    "correctAnswer": 1,
+    "question": "Doira 6 ta teng sektorga bo'lindi. Bitta sektor doiraning qanday ulushi?",
+    "correctAnswer": "1/6",
     "wrongAnswers": [
-      2,
-      3
+      "1/3",
+      "6/1"
     ]
   },
   {
     "id": "s3c3b44l2_02",
-    "question": "Doira 4 ta teng sektorga bo'lindi. Bitta sektor nima deyiladi?  (chorak = 1, yarim = 2, uchdan bir = 3)",
-    "correctAnswer": 1,
+    "question": "Doira 4 ta teng sektorga bo'lindi. Bitta sektor qanday ataladi?",
+    "correctAnswer": "Chorak",
     "wrongAnswers": [
-      2,
-      3
+      "Yarim",
+      "Uchdan bir"
     ]
   },
   {
@@ -28,11 +28,11 @@
   },
   {
     "id": "s3c3b44l2_04",
-    "question": "Naqsh (ornament) qanday hosil qilinadi?  (bir xil elementni takrorlab = 1, tasodifiy = 2)",
-    "correctAnswer": 1,
+    "question": "Naqsh (ornament) qanday hosil qilinadi?",
+    "correctAnswer": "Bir xil elementni takrorlab",
     "wrongAnswers": [
-      2,
-      3
+      "Elementlarni tasodifiy joylab",
+      "Bitta katta shakl chizib"
     ]
   },
   {
@@ -55,11 +55,11 @@
   },
   {
     "id": "s3c3b44l2_07",
-    "question": "Diametri 12 cm doirani teng ikkiga bo'lsak, hosil bo'lgan har bir qism nima deyiladi?  (yarim doira = 1, chorak = 2)",
-    "correctAnswer": 1,
+    "question": "Diametri 12 cm bo'lgan doirani diametri bo'ylab teng ikkiga bo'ldik. Har bir bo'lak nima deyiladi?",
+    "correctAnswer": "Yarim doira",
     "wrongAnswers": [
-      2,
-      3
+      "Chorak",
+      "Uchdan bir"
     ]
   },
   {
@@ -73,11 +73,11 @@
   },
   {
     "id": "s3c3b44l2_09",
-    "question": "Doiraviy diagrammada butun doira nimani bildiradi?  (hammasi / 100% = 1, yarmi = 2)",
-    "correctAnswer": 1,
+    "question": "Doiraviy diagrammada butun doira nimani bildiradi?",
+    "correctAnswer": "Hammasini (100%)",
     "wrongAnswers": [
-      2,
-      3
+      "Yarmini (50%)",
+      "Choragini (25%)"
     ]
   },
   {

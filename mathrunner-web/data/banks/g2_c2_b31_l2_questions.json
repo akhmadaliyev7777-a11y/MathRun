@@ -82,11 +82,11 @@
   },
   {
     "id": "s2c2b31l2_10",
-    "question": "Xatoni toping: 1 soat 10 minut = 70 minut. To'g'rimi?  (Rost = 1, Yolg'on = 2)",
-    "correctAnswer": 1,
+    "question": "1 soat 10 minut = 70 minut.",
+    "correctAnswer": "Rost",
     "wrongAnswers": [
-      2,
-      3
+      "Yolg'on",
+      "Aniqlab bo'lmaydi"
     ]
   }
 ]

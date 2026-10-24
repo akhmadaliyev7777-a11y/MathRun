@@ -1,11 +1,11 @@
 [
   {
     "id": "s3c3b55l1_01",
-    "question": "Kesishmaydigan ikki to'g'ri chiziq nima deyiladi?  (parallel = 1, perpendikular = 2)",
-    "correctAnswer": 1,
+    "question": "Bir tekislikda yotgan, kesishmaydigan ikki to'g'ri chiziq qanday ataladi?",
+    "correctAnswer": "Parallel",
     "wrongAnswers": [
-      2,
-      3
+      "Perpendikular",
+      "Kesishuvchi"
     ]
   },
   {
@@ -73,11 +73,11 @@
   },
   {
     "id": "s3c3b55l1_09",
-    "question": "'m : 4 = 48' yozuvi nima?  (tenglama = 1, tengsizlik = 2)",
-    "correctAnswer": 1,
+    "question": "m : 4 = 48 yozuvi nima deyiladi?",
+    "correctAnswer": "Tenglama",
     "wrongAnswers": [
-      2,
-      3
+      "Tengsizlik",
+      "Ifoda"
     ]
   },
   {

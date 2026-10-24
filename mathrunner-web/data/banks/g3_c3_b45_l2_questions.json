@@ -1,11 +1,11 @@
 [
   {
     "id": "s3c3b45l2_01",
-    "question": "Doira ikkita teng bo'lakka bo'lindi. Bitta bo'lak doiraning qanday ulushi?  (1/2 = 1, 1/3 = 2, 1/4 = 3)",
-    "correctAnswer": 1,
+    "question": "Doira 2 ta teng bo'lakka bo'lindi. Bitta bo'lak doiraning qanday ulushi?",
+    "correctAnswer": "1/2",
     "wrongAnswers": [
-      2,
-      3
+      "1/3",
+      "1/4"
     ]
   },
   {
@@ -19,29 +19,29 @@
   },
   {
     "id": "s3c3b45l2_03",
-    "question": "Chorak — bu butunning nechinchi qismi?  (to'rtdan bir = 1, uchdan bir = 2, ikkidan bir = 3)",
-    "correctAnswer": 1,
+    "question": "Chorak — butunning qanday qismi?",
+    "correctAnswer": "To'rtdan bir qismi",
     "wrongAnswers": [
-      2,
-      3
+      "Uchdan bir qismi",
+      "Ikkidan bir qismi"
     ]
   },
   {
     "id": "s3c3b45l2_04",
-    "question": "Doira 4 ta teng bo'lakka bo'lindi, 3 tasi bo'yaldi. Bo'yalgan qism doiraning qanday ulushi?  (3/4 = 1, 1/4 = 2, 4/3 = 3)",
-    "correctAnswer": 1,
+    "question": "Doira 4 ta teng bo'lakka bo'lindi, 3 tasi bo'yaldi. Bo'yalgan qism doiraning qanday ulushi?",
+    "correctAnswer": "3/4",
     "wrongAnswers": [
-      2,
-      3
+      "1/4",
+      "4/3"
     ]
   },
   {
     "id": "s3c3b45l2_05",
-    "question": "Yarim (1/2) qismni ikkiga bo'lsak, har biri butunning qanday ulushi bo'ladi?  (1/4 = 1, 1/2 = 2, 1/3 = 3)",
-    "correctAnswer": 1,
+    "question": "Yarim (1/2) qismni yana teng ikkiga bo'lsak, har bir bo'lak butunning qanday ulushi bo'ladi?",
+    "correctAnswer": "1/4",
     "wrongAnswers": [
-      2,
-      3
+      "1/2",
+      "1/3"
     ]
   },
   {
@@ -55,29 +55,29 @@
   },
   {
     "id": "s3c3b45l2_07",
-    "question": "Sektor — bu doiraning qanday qismi?  (ikki radius va yoy bilan chegaralangan qism = 1, butun doira = 2)",
-    "correctAnswer": 1,
+    "question": "Sektor — doiraning qanday qismi?",
+    "correctAnswer": "Ikki radius va yoy bilan chegaralangan qismi",
     "wrongAnswers": [
-      2,
-      3
+      "Butun doira",
+      "Markazdan o'tuvchi kesma"
     ]
   },
   {
     "id": "s3c3b45l2_08",
-    "question": "Doira 6 teng sektorga bo'lindi. 2 tasi doiraning qanday ulushini tashkil qiladi?  (2/6 = 1, 1/6 = 2, 6/2 = 3)",
-    "correctAnswer": 1,
+    "question": "Doira 6 ta teng sektorga bo'lindi. 2 ta sektor doiraning qanday ulushi?",
+    "correctAnswer": "2/6",
     "wrongAnswers": [
-      2,
-      3
+      "1/6",
+      "6/2"
     ]
   },
   {
     "id": "s3c3b45l2_09",
-    "question": "Butun doirani 1 deb olsak, uchdan bir ulush 1/3 deb yoziladi. To'rtdan bir qanday yoziladi?  (1/4 = 1, 4/1 = 2, 1/3 = 3)",
-    "correctAnswer": 1,
+    "question": "Butun doirani 1 deb olsak, uchdan bir ulush 1/3 deb yoziladi. To'rtdan bir ulush qanday yoziladi?",
+    "correctAnswer": "1/4",
     "wrongAnswers": [
-      2,
-      3
+      "4/1",
+      "1/3"
     ]
   },
   {

@@ -37,11 +37,11 @@
   },
   {
     "id": "s3c3b43l2_05",
-    "question": "Yoyilmani buklaganda qaysi shakl hosil bo'ladi, agar 6 ta bir xil kvadrat bo'lsa?  (kub = 1, parallelepiped = 2, piramida = 3)",
-    "correctAnswer": 1,
+    "question": "Yoyilma 6 ta bir xil kvadratdan iborat. Uni buklasak, qanday jism hosil bo'ladi?",
+    "correctAnswer": "Kub",
     "wrongAnswers": [
-      2,
-      3
+      "Piramida",
+      "Silindr"
     ]
   },
   {
@@ -82,11 +82,11 @@
   },
   {
     "id": "s3c3b43l2_10",
-    "question": "Yoyilmada 4 ta to'rtburchak va 2 ta kvadrat bo'lsa, bu qaysi shaklning yoyilmasi?  (parallelepiped = 1, kub = 2, silindr = 3)",
-    "correctAnswer": 1,
+    "question": "Yoyilma 4 ta to'g'ri to'rtburchak va 2 ta kvadratdan iborat. Bu qaysi jismning yoyilmasi?",
+    "correctAnswer": "To'g'ri burchakli parallelepiped",
     "wrongAnswers": [
-      2,
-      3
+      "Kub",
+      "Silindr"
     ]
   }
 ]

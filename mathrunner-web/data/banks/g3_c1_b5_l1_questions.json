@@ -55,11 +55,11 @@
   },
   {
     "id": "s3c1b5l1_07",
-    "question": "Ko'p xonali sonda o'ngdan sanaganda qaysi 3 xona birlar sinfini tashkil qiladi?  (variantlardan birini tanlang: birlar-o'nlar-yuzlar = 1, minglar-o'n minglar-yuz minglar = 2)",
-    "correctAnswer": 1,
+    "question": "Ko'p xonali sonda o'ngdan birinchi uchta xona birlar sinfini tashkil qiladi. Bu qaysi xonalar?",
+    "correctAnswer": "Birlar, o'nlar, yuzlar",
     "wrongAnswers": [
-      2,
-      3
+      "Minglar, o'n minglar, yuz minglar",
+      "Millionlar, o'n millionlar, yuz millionlar"
     ]
   },
   {
