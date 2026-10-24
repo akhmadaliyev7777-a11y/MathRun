@@ -26,6 +26,12 @@ Loyihada **ikki kishi, ikki hisob** navbatma-navbat ishlaydi. **Sessiya boshida 
 - Sessiya tugayotgan bo'lsa yoki foydalanuvchi «to'xta» desa — 6 taga yetmagan bo'lsa ham yozuv qo'shing.
 - Jurnal `main` ga mavzu bilan birga push qilinadi.
 
+## Ma'ruza hajmi — kitobdagidek, ixcham (foydalanuvchi qarori, 2026-10-24)
+Foydalanuvchi: «ma'ruza qismi juda ko'p, qoidalar ko'payib ketyapti, qo'shimcha qoidalar murakkablashib ketyapti — kitobdagi mavzularga o'xshasin, lekin kitobdan ko'chirilganga o'xshamasin (mualliflik huquqi)». Shuning uchun (12-mavzudan boshlab):
+- **Qoidalar — faqat darslikning o'zi shu mavzuda o'rgatgan qoida/usullar** (odatda 3–6 ta), o'z so'zimiz bilan. O'zimizdan qo'shimcha qoida o'ylab topilmaydi, bitta g'oya bir nechta qoidaga bo'linmaydi; xususiy holat — namuna yoki «Diqqat» bandi.
+- **Ixcham:** Eslab olaylik 2–4 band; har qoida — qisqa ramka + bitta namuna; Namunalar 2–3; Diqqat 3–5; Mashqlar ≈ 4 oson + 4 o'rta + 3 qiyin; Matnli masalalar 4–6; O'ylab ko'ring 1–2; O'zingizni tekshiring 3–5. Har kitob misol turi bir marta — ko'p variant shart emas.
+- Mazmun va tartib kitob mavzusiga o'xshasin, lekin so'zlar, sonlar, ismlar, vaziyatlar va gap qoliplari o'zimizniki (mualliflik huquqi). Test 20+20 va saviyali bo'lib qoladi.
+
 ## Yengil ish tartibi — token va vaqtni tejash (foydalanuvchi qarori, 2026-10-24)
 Foydalanuvchi: «ko'p token ishlatma, ishni soddaroq qil, bitta mavzuga ko'p vaqt sarflama». 10–11-mavzularda bir mavzu ~1 soat va 0,5–1 mln token ketdi (4 tekshiruvchi × 2 bosqich) — bu ortiqcha. Endi har mavzu:
 1. **Bitta yozuvchi** (oddiy mavzuda Sonnet): kitob matnini o'qiydi (rasm faqat kerakli 2–3 bet), ma'ruza + 20+20 test yozadi — boshidanoq `_reja/CLAUDE-ish-tartibi.md` 0-bo'lim 9–11 qoidalariga amal qilib (kitob qolipi ko'chirilmaydi). Yangi chizma turi faqat juda zarur bo'lsa; mavjudlari bilan ishlash afzal.
