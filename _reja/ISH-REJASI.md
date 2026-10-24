@@ -5,7 +5,7 @@
 > Ko'rish: VS Code'da shu fayl o'zi chiroyli ko'rinishda ochiladi va yangilanib turadi (yashil ✓ — bajarildi).
 > Tekshirish: `python3 _reja/tools/reja_tekshir.py` — katakchalar saytning haqiqiy holatiga mosmi.
 
-**Oxirgi yangilanish:** 2026-10-24 16:26 — 9-mavzu tayyor va saytga chiqdi; 10-mavzu testi, 11-mavzu ma'ruzasi yozilmoqda
+**Oxirgi yangilanish:** 2026-10-24 16:49 — 10 va 11-mavzular tuzatilmoqda; ish tartibiga «kitob qolipini ko'chirmaslik» qoidasi qo'shildi
 
 ---
 
@@ -39,17 +39,17 @@
 ### 10. O'zgaruvchan nisbatlar
 - [x] Kitob betlarini o'rganish (darslik 72–82, mashq daftari 95–110): 12 qoida, 3 tur (o'zgarmas miqdor / yig'indi / ayirma), kitobdagi 1 yechimsiz masala topildi; yangi chizma «oldin–keyin» kerak
 - [x] Ma'ruza yozish (yangi chizma «oldin–keyin» — 14 ta; 12 qoida, 20 mashq, 8 masala)
-- [ ] Test yozish (20 + 20, chizmali savollar bilan) ← *hozir*
-- [ ] Tekshiruvlar (hisob, kitob, ko'rinish, o'qituvchi)
-- [ ] Tuzatish va qayta tekshirish
+- [x] Test yozish (20 + 20, 6 ta chizmali savol)
+- [x] Tekshiruvlar: hisob — 0 xato; kitob — 19 ta masala kitobga o'xshash (jiddiy); o'qituvchi — 3 jiddiy; ko'rinish — mayda
+- [ ] Tuzatish va qayta tekshirish ← *hozir*
 - [ ] Saytga ulash va chiqarish (push)
 
 ### 11. Foizi va qismiga ko'ra sonning o'zini topish
 - [x] Kitob betlarini o'rganish (darslik 84–90, mashq daftari 111–122): 13 qoida, ~45 misol turi, kitobdagi 2 noaniqlik (QQS «umumiy narxning 12%», «omonat foizi»)
-- [ ] Ma'ruza yozish (yangi chizma «foiz zinasi» bilan) ← *hozir*
-- [ ] Test yozish (20 + 20, chizmali savollar bilan)
-- [ ] Tekshiruvlar (hisob, kitob, ko'rinish, o'qituvchi)
-- [ ] Tuzatish va qayta tekshirish
+- [x] Ma'ruza yozish (yangi chizma «foiz zinasi»; 13 qoida, 25 chizma)
+- [x] Test yozish (20 + 20, 5 ta chizmali savol)
+- [x] Tekshiruvlar: hisob — 1 test javobi xato (300 → 400); kitob — 17 jiddiy + 10 o'rta (kitob qolipi); o'qituvchi — 3 chizma javobni oshkor qiladi; ko'rinish — mayda
+- [ ] Tuzatish va qayta tekshirish ← *hozir*
 - [ ] Saytga ulash va chiqarish (push)
 
 ## 2. Saytni to'liq o'rganish (2026-10-24) — bajarildi

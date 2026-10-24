@@ -12,6 +12,9 @@ Foydalanuvchi: o'zbek tilida yozadi, dasturchi emas. Javoblar o'zbek tilida, qis
 6. **Kitob xatolari ko'chirilmaydi** (rejaning C bo'limi).
 7. **Simulyatorlarga (lessons/) tegilmaydi** — ma'ruzalar bosqichi tugaguncha. Har mavzuda simulyator uchun g'oyalarni rejaga yozib boraman.
 8. Qoida mujmal bo'lmasin: qachon ishlaydi, nima qilinadi, natija qanday — uchalasi ham yozilsin. "Odatda", "ko'pincha" kabi so'z yo'q.
+9. **Kitob masalasining «qolipi» ham ko'chirilmaydi (2026-10-24 xulosasi: 6-sinf 10–11-mavzularda 19 va 27 ta shunday holat topildi).** Faqat son va ismni almashtirish YETMAYDI: vaziyat (nima/kim/qayerda), gap tuzilishi va savol tartibi (a) …, b) …) ham o'zgarsin. Har masalani yozishdan oldin kitobdagi o'xshashi bilan solishtiring: vaziyat boshqa bo'lsin (odamlar o'rniga idish, ombor, avtobus, bog' va h.k.), so'raladigan narsa boshqacha bo'lishi mumkin (dastlabki ↔ keyingi, jami ↔ bitta qism). 5-sinf ma'ruzalaridagi masalalar ham takrorlanmasin. Javob — butun son (kasr qism yoki 136,5 quti kabi chiqmasin).
+10. **Test savoli ma'ruza mashqining nusxasi bo'lmasin** (o'quvchi javobni eslab qoladi) va chizma javobni oshkor qilmasin (asosiy qadam rasmda bo'lmasin, «?» bilan).
+11. **Narsani «ukasiga / do'stiga» berdi** degan masalada oluvchi masaladagi ikkinchi kishi emasligi aniq bo'lsin (aks holda masala turi o'zgaradi) — yaxshisi uchinchi joy: kutubxonaga, ko'rgazmaga.
 
 ## 0a. 2026-10-17 dagi o'zgarishlar (hisobga olinadi)
 - Sayt nomi **Mathlearn** (faqat M katta), domen **mathlearn.uz**. Ma'ruza pastidagi yozuv: `<p class="m-foot">Mathlearn · 5-sinf matematika</p>`.
