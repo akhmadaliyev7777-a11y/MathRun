@@ -10,9 +10,22 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
 - **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor.
-- **6-sinf:** 1–14-mavzular tayyor; 8–14 — 5 qismli ixcham tuzilishda (8–12 2026-10-25 da qayta yozildi). Navbat: 15-mavzu «Aylananing uzunligi».
+- **6-sinf:** 1–14-mavzular tayyor, hammasi 5 qismli ixcham tuzilishda va Jumavoy + Ibrohim ustoz + «Anti sun'iylik» tekshiruvidan o'tgan (2026-10-25). Navbat: 15-mavzu «Aylananing uzunligi».
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+
+---
+
+## 2026-10-25 10:33 — m.shukurillo hisobi
+**Qilindi:**
+- 6-sinf 1–7-mavzular ma'ruzalari 5 qismli ixcham tuzilishga qayta yozildi (8–12 dagidek): qoida matni kitobda bo'lsa — aynan, faqat namuna bo'lsa — «Usul».
+- Har mavzuni Jumavoy, Ibrohim ustoz va «Anti sun'iylik» tekshirdi; kitob juftlari (masalan 3 : 3/4, 4 : 3/5), kitob qoliplari (sehrli kvadrat, «Juftlikda ishlang» va b.), tushib qolgan kitob usullari (suratlarni tenglashtirish, yosh/qaytim/yuz → en) tuzatildi.
+- Testlar (20 + 20) yangi ma'ruzaga moslandi — har mavzuda 17–40 savol almashtirildi.
+- 13–14-mavzular «Anti sun'iylik» tekshiruvidan o'tkazildi (pufaklar qisqartirildi).
+- Shu bilan 6-sinfning tayyor 14 mavzusi to'liq tekshirildi.
+
+**Chala:** yo'q.
+**Navbatda:** 6-sinf 15-mavzu «Aylananing uzunligi».
 
 ---
 

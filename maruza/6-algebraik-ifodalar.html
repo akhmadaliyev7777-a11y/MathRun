@@ -12,236 +12,234 @@
 <main class="m-wrap">
 
 <h1 class="m-title">Algebraik ifodalar</h1>
-<p class="m-lead">Ba'zan miqdorning aniq qiymatini bilmaymiz: qutida nechta konfet bor, do'kondagi narx qancha. Bunday noma'lum sonni harf bilan belgilaymiz va u bilan xuddi son kabi amallar yozamiz. Harf va sonlardan tuzilgan bunday yozuv — algebraik ifoda.</p>
+<p class="m-lead">Qutida nechta konfet borligini bilmasak ham, uni harf bilan yozib qo'yamiz.</p>
 
-<!-- 1. Eslab olaylik -->
-<section class="m-sec">
-  <h2><span class="n">1</span>Eslab olaylik</h2>
-  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Kvadratcha o'rnidagi sonni qanday topar edik?</div></div>
+<!-- ============ 1-QISM: MAVZU ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Mavzu</h2></div>
+
+<section class="m-sec qism-ichi">
   <div class="box eslab">
-    <span class="tag">Eslab olaylik · tushirib qoldirilgan son</span>
+    <span class="tag">Eslab olaylik</span>
     <ul>
-      <li>Noma'lum qo'shiluvchi = yig'indi − ma'lum qo'shiluvchi: \(7 + \square = 25\), \(\square = 25 - 7 = \nat{18}\).</li>
-      <li>Noma'lum kamayuvchi = ayirma + ayriluvchi: \(\square - 9 = 13\), \(\square = 13 + 9 = \nat{22}\).</li>
-      <li>Noma'lum ko'paytuvchi = ko'paytma : ma'lum ko'paytuvchi: \(4 \cdot \square = 36\), \(\square = 36 : 4 = \nat{9}\).</li>
-      <li>Noma'lum bo'linuvchi = bo'linma · bo'luvchi: \(\square : 6 = 7\), \(\square = 7 \cdot 6 = \nat{42}\).</li>
-    </ul>
-    <p>Kvadratcha o'rniga harf ham yozish mumkin: \(7 + x = 25\). Harf — noma'lum sonning belgisi.</p>
-  </div>
-</section>
-
-<!-- 2. Qoidalar -->
-<section class="m-sec">
-  <h2><span class="n">2</span>Qoidalar</h2>
-  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Harf — bu «hali bilmaymiz, lekin qandaydir son» degani!</div></div>
-
-  <div class="box qoida">
-    <span class="tag">1-qoida · noma'lum son harf bilan</span>
-    <p>Noma'lum sonni lotin harfi bilan belgilaymiz: \(x, y, a, b, n, p\) va hokazo. Harf qatnashgan, sonlar va harflar amal belgilari bilan bog'langan yozuv <b>algebraik ifoda</b> deyiladi: \(x + 3\), \(20 - y\), \(4n\), \(\frac{p}{5}\).</p>
-  </div>
-  <div class="box namuna">
-    <span class="tag">Namuna · savatdagi olmalar</span>
-    <p>Savatda 7 ta olma bor. Unga yana 2 ta olma solsak — \(7 + 2 = 9\) ta. Boshqa savatdagi olmalar sonini bilmaymiz — uni \(x\) deylik. Unga 2 ta olma solsak — \(\nat{(x + 2)}\) ta olma bo'ladi.</p>
-    <div data-model='{"q":[["",[["x",4],["2",2]]]],"jami":{"0":"x + 2"}}'></div>
-    <p>\(x\) ning qiymatini bilmaganimiz uchun javobni bitta son qilib yoza olmaymiz — u <b>ifoda</b> ko'rinishida qoladi va qavsga olinadi: \((x + 2)\) ta olma.</p>
-  </div>
-
-  <div class="box qoida">
-    <span class="tag">2-qoida · qo'shish va ayirish</span>
-    <ul>
-      <li>«\(a\) ga 6 ni qo'shing», «\(a\) dan 6 ta ko'p», «\(a\) dan 6 ga ortiq» — \(\nat{a + 6}\) (yoki \(6 + a\)).</li>
-      <li>«\(a\) dan 6 ni ayiring», «\(a\) dan 6 ta kam» — \(\nat{a - 6}\).</li>
-      <li>«30 dan \(a\) ni ayiring», «30 dan \(a\) ta kam» — \(\nat{30 - a}\).</li>
-    </ul>
-    <p>Ayirishda tartib muhim: \(a - 6\) va \(6 - a\) — har xil ifodalar.</p>
-  </div>
-  <div class="box namuna">
-    <span class="tag">Namuna · yosh</span>
-    <p>Nodira hozir 13 yoshda.</p>
-    <div class="qadam"><b>1</b><span>4 yildan keyin: \(13 + 4 = 17\) yosh; \(t\) yildan keyin: \(\nat{13 + t}\) yosh.</span></div>
-    <div class="qadam"><b>2</b><span>6 yil oldin: \(13 - 6 = 7\) yosh; \(m\) yil oldin: \(\nat{13 - m}\) yosh.</span></div>
-  </div>
-
-  <div class="box qoida">
-    <span class="tag">3-qoida · ko'paytirish</span>
-    <p>Son bilan harfni ko'paytirganda ko'paytirish belgisi yozilmaydi va <b>son oldin</b> yoziladi: \(4 \cdot n = n \cdot 4 = \nat{4n}\). «\(n\) ning 4 baravari», «\(n\) dan 4 marta ko'p», «4 ta \(n\)» — hammasi \(4n\).</p>
-    <p>\(1 \cdot n\) ni qisqacha \(n\) deb yozamiz.</p>
-  </div>
-  <div class="box namuna">
-    <span class="tag">Namuna · qutilardagi qalamlar</span>
-    <p>Har bir qutida \(n\) ta qalam bor. 4 ta qutida: \(n + n + n + n = 4 \cdot n = \nat{4n}\) ta qalam.</p>
-    <div data-model='{"q":[["1 quti",[["n",1]]],["4 quti",[["n",1],["n",1],["n",1],["n",1]]]],"jami":{"1":"4n"}}'></div>
-  </div>
-
-  <div class="box qoida">
-    <span class="tag">4-qoida · bo'lish</span>
-    <p>Harfni songa bo'lishni kasr ko'rinishida yozamiz: \(p : 5 = \nat{\frac{p}{5}}\). «\(p\) ni 5 ga bo'ling», «\(p\) ni 5 ta teng qismga ajrating», «\(p\) ning beshdan biri» — hammasi \(\frac{p}{5}\).</p>
-  </div>
-  <div class="box namuna">
-    <span class="tag">Namuna · pulni teng bo'lish</span>
-    <p>20 000 so'm 5 ta bolaga teng bo'lindi: har biri \(20\,000 : 5 = 4000\) so'm oladi. \(p\) so'm 5 ta bolaga teng bo'linsa, har biri \(\nat{\frac{p}{5}}\) so'm oladi.</p>
-  </div>
-
-  <div class="box qoida">
-    <span class="tag">5-qoida · qaysi ifodalar bir xil?</span>
-    <ul>
-      <li>Qo'shish va ko'paytirishda tartib muhim emas: \(x + 7 = 7 + x\), \(7x = x \cdot 7\).</li>
-      <li>Ayirish va bo'lishda tartib muhim: \(x - 7 \ne 7 - x\), \(\frac{x}{7} \ne \frac{7}{x}\).</li>
-      <li>\(7x\) (7 marta) va \(x + 7\) (7 ta ko'p) — har xil ifodalar.</li>
+      <li>\(\square\) o'rnidagi sonni topish: \(7 + \square = 25\), \(\square = 25 - 7 = 18\); \(\square : 6 = 7\), \(\square = 7 \cdot 6 = 42\).</li>
+      <li>\(\square\) o'rniga harf ham yozish mumkin: \(7 + x = 25\).</li>
+      <li>To'g'ri to'rtburchakning yuzi \(=\) bo'yi \(\cdot\) eni, bo'yi \(=\) yuzi \(:\) eni.</li>
     </ul>
   </div>
-  <div class="box namuna">
-    <span class="tag">Namuna · x = 10 da tekshiramiz</span>
-    <p>\(x + 7 = 17\) va \(7 + x = 17\) — teng. \(7x = 70\), \(x + 7 = 17\) — teng emas. \(x - 7 = 3\), \(7 - x\) esa bu holda hisoblanmaydi (7 dan 10 ni ayirib bo'lmaydi) — demak \(x - 7\) va \(7 - x\) bir xil emas.</p>
-  </div>
-</section>
 
-<!-- 3. Rasmda ko'ramiz -->
-<section class="m-sec">
-  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
-  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Chizmali model har bir jumlani ko'z oldimizga keltiradi!</div></div>
-  <div class="box">
-    <div class="jad-wrap">
-    <table class="jad">
+  <div class="box qoida">
+    <span class="tag">1-qoida · harf bilan belgilash</span>
+    <p>Biz algebrada noma'lum sonni ifodalash uchun harflardan foydalanamiz.</p>
+    <p>Javobni qavs ichida yozish kerak. Biz \(x\) ning qiymatini bilmaymiz, shuning uchun javob \((x + 1)\).</p>
+    <p>\(x + 1\), \(x + 2\) va \(x + 3\) <b>algebraik ifodalarga</b> misol bo'ladi.</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · lift</span>
+    <p>Liftda \(x\) kishi bor edi. Yana 1 kishi kirdi. Liftda necha kishi bo'ldi?</p>
+    <div data-model='{"q":[["",[["x",4],["1",1]]]],"jami":{"0":"?"}}'></div>
+    <p class="chz-cap">Bu rasm — chizma-model: \(x\) va 1 birga</p>
+    <div class="qadam"><b>1</b><span>Agar \(x = 5\) bo'lsa, \(5 + 1 = 6\) kishi bo'lardi.</span></div>
+    <div class="qadam"><b>2</b><span>\(x\) ni bilmaymiz, javob ifoda bo'lib qoladi: \(\nat{(x + 1)}\) kishi.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · avtobus</span>
+    <p>Avtobusda 30 ta yo'lovchi bor edi. Bekatda \(n\) kishi tushdi. Avtobusda nechta yo'lovchi qoldi?</p>
+    <div data-model='{"q":[["",[["n",2],["?",4]]]],"jami":{"0":"30"}}'></div>
+    <div class="qadam"><b>1</b><span>Tushganlar ayriladi: \(30 - n\).</span></div>
+    <div class="qadam"><b>2</b><span>Avtobusda \(\nat{(30 - n)}\) ta yo'lovchi qoldi.</span></div>
+  </div>
+  </div>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Demak, \(x\) o'rniga istalgan sonni qo'ysa bo'lar ekan-da?</div></div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · jumladan ifodaga</span>
+    <div class="jad-wrap"><table class="jad">
       <tr><th>Jumla</th><th>Algebraik ifoda</th></tr>
-      <tr><td>\(m\) ga 15 ni qo'shing</td><td>\(m + 15\)</td></tr>
-      <tr><td>\(b\) dan 8 ta ko'p</td><td>\(b + 8\)</td></tr>
+      <tr><td>\(m\) ga 15 ni qo'shing</td><td>\(m + 15\) yoki \(15 + m\)</td></tr>
+      <tr><td>\(h\) dan 8 ga ortiq (8 ta ko'p)</td><td>\(h + 8\)</td></tr>
       <tr><td>40 dan \(k\) ni ayiring</td><td>\(40 - k\)</td></tr>
-      <tr><td>\(d\) dan 9 ta kam</td><td>\(d - 9\)</td></tr>
-      <tr><td>3 ta \(y\) / \(y\) ning uch baravari</td><td>\(3y\)</td></tr>
-      <tr><td>\(z\) ni 4 ga bo'ling</td><td>\(\frac{z}{4}\)</td></tr>
-    </table>
-    </div>
-    <p>«40 dan \(k\) ni ayiring» modeli: butun tasma 40, uning bir bo'lagi \(k\), qolgani — so'ralgan ifoda.</p>
-    <div data-model='{"q":[["",[["k",2],["?",4]]]],"jami":{"0":"40"}}'></div>
-    <p>«\(d\) dan 9 ta kam» modeli: \(d\) — uzun tasma, ikkinchisi undan 9 ga qisqa.</p>
-    <div data-model='{"q":[["",[["d",6]]],["",[["?",4],["9",2,3]]]]}'></div>
+      <tr><td>\(r\) dan 9 ga kam</td><td>\(r - 9\)</td></tr>
+    </table></div>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · ortiq</span>
+    <p>«\(h\) dan 8 ga ortiq» ni ifoda bilan yozing.</p>
+    <div data-model='{"q":[["",[["h",4],["8",2]]]],"jami":{"0":"?"}}'></div>
+    <div class="qadam"><b>1</b><span>\(h\) ga yana 8 qo'shiladi.</span></div>
+    <div class="qadam"><b>2</b><span>Natija: \(\nat{h + 8}\).</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · ayirish</span>
+    <p>«40 dan \(k\) ni ayiring» ni ifoda bilan yozing.</p>
+    <div data-model='{"q":[["",[["?",4],["k",2]]]],"jami":{"0":"40"}}'></div>
+    <div class="qadam"><b>1</b><span>Butun tasma 40, undan \(k\) ajratiladi.</span></div>
+    <div class="qadam"><b>2</b><span>To'g'ri yozuv \(\nat{40 - k}\), \(k - 40\) emas.</span></div>
+  </div>
+  </div>
+
+  <div class="gap ong"><img src="personaj/aziz-oylaydi.webp" alt="Aziz o'ylanmoqda" width="120" height="140"><div class="pufak">«4 marta ko'p» bilan «4 ta ko'p» bir xilmi?</div></div>
+  <div class="box qoida">
+    <span class="tag">2-qoida · ko'paytirish</span>
+    <p>\(5 \cdot q = q \cdot 5\).<br>Biz \(5 \cdot q\) ni \(5q\) kabi yozamiz.</p>
+    <p>\(1 \cdot q = q \cdot 1\).<br>\(1 \cdot q\) ni \(q\) kabi yozamiz.</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · akvarium</span>
+    <p>Kichik akvariumda \(n\) ta baliq bor. Katta akvariumda undan 4 marta ko'p baliq bor. Katta akvariumda nechta baliq bor?</p>
+    <div data-model='{"q":[["Kichik",[["n",1]]],["Katta",[["n",1],["n",1],["n",1],["n",1]]]],"jami":{"1":"?"}}'></div>
+    <div class="qadam"><b>1</b><span>4 marta (4 baravar) ko'p: \(n + n + n + n = 4 \cdot n\).</span></div>
+    <div class="qadam"><b>2</b><span>Katta akvariumda \(\nat{4n}\) ta baliq bor. Masalan, \(n = 6\) bo'lsa, \(4 \cdot 6 = 24\) ta.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · zal</span>
+    <p>Zalda 9 qator stul bor, har qatorda \(r\) ta stul. Zalda nechta stul bor?</p>
+    <div class="qadam"><b>1</b><span>1 qatorda: \(1 \cdot r = r\) ta stul.</span></div>
+    <div class="qadam"><b>2</b><span>9 qatorda: \(9 \cdot r = \nat{9r}\) ta stul.</span></div>
+  </div>
+  </div>
+
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">\(t : 5\) ni kasr ko'rinishida ham yozaveramiz.</div></div>
+  <div class="box qoida">
+    <span class="tag">Usul · bo'lish</span>
+    <p>\(t\) ni 5 ta teng bo'lakka bo'lamiz: \(t : 5 = \frac{t}{5}\). Har bir bo'lak — \(t\) ning \(\frac{1}{5}\) qismi.</p>
+    <p>24 ta konfet \(n\) ta bolaga teng bo'linsa, har biriga \(24 : n = \frac{24}{n}\) ta tegadi.</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · lenta</span>
+    <p>60 cm lenta 4 ta teng bo'lakka kesilsa, har bo'lak \(60 : 4 = 15\) cm. \(L\) cm lenta 4 ta teng bo'lakka kesilsa, har bo'lak necha cm?</p>
+    <div data-model='{"q":[["",[["?",1],["",1],["",1],["",1]]]],"jami":{"0":"L cm"}}'></div>
+    <div class="qadam"><b>1</b><span>\(L : 4 = \frac{L}{4}\).</span></div>
+    <div class="qadam"><b>2</b><span>Har bo'lak \(\nat{\frac{L}{4}}\) cm.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · to'g'ri to'rtburchak</span>
+    <p>To'g'ri to'rtburchakning yuzi \(S\) cm², eni 6 cm. Bo'yi necha cm?</p>
+    <div data-geo='{"nuqta":{"A":[0,0],"B":[8,0],"C":[8,4],"D":[0,4]},"shakl":["ABCD"],"yashir":["A","B","C","D"],"uzun":{"AB":"?","BC":"6 cm"},"matn":{"S cm²":[4,2]}}' data-izoh="Yuzi S cm², eni 6 cm bo'lgan to'g'ri to'rtburchak"></div>
+    <div class="qadam"><b>1</b><span>Bo'yi \(=\) yuzi \(:\) eni \(= S : 6\).</span></div>
+    <div class="qadam"><b>2</b><span>Bo'yi \(\nat{\frac{S}{6}}\) cm.</span></div>
+  </div>
   </div>
 </section>
 
-<!-- 4. Namunalar -->
-<section class="m-sec">
-  <h2><span class="n">4</span>Namunalar</h2>
-  <div class="box namuna">
-    <span class="tag">Namuna 1 · bir nechta amal</span>
-    <p>Bitta daftar \(c\) so'm. Lola 3 ta daftar va 2500 so'mlik qalam oldi. Qancha to'ladi?</p>
-    <div class="qadam"><b>1</b><span>3 ta daftar: \(3c\) so'm.</span></div>
-    <div class="qadam"><b>2</b><span>Qalam bilan birga: \(\nat{3c + 2500}\) so'm.</span></div>
-  </div>
-  <div class="box namuna">
-    <span class="tag">Namuna 2 · ikki qadamli masala</span>
-    <p>Tarvuzning massasi \(w\) kg. Qovun tarvuzdan 3 marta yengil, handalak esa qovundan 1 kg og'ir.</p>
-    <div class="qadam"><b>1</b><span>Qovun: \(\frac{w}{3}\) kg.</span></div>
-    <div class="qadam"><b>2</b><span>Handalak: \(\nat{\frac{w}{3} + 1}\) kg.</span></div>
-  </div>
-  <div class="box namuna">
-    <span class="tag">Namuna 3 · to'g'ri to'rtburchak</span>
-    <p>To'g'ri to'rtburchakning yuzi \(S\) cm², eni 6 cm. Bo'yi: \(\nat{\frac{S}{6}}\) cm. Agar bo'yi \(a\) cm, eni 6 cm bo'lsa, yuzi \(\nat{6a}\) cm².</p>
-  </div>
-</section>
+<!-- ============ 2-QISM: MISOLLAR ISHLASH ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Misollar ishlash</h2></div>
 
-<!-- 5. Diqqat -->
-<section class="m-sec">
-  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
-  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">«Ko'p» — qo'shish, «marta ko'p» — ko'paytirish!</div></div>
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">1-misol · bog'</span>
+    <p>Bog'da 40 tup daraxt bor edi. Bog'bon 5 kun davomida har kuni \(t\) tupdan ko'chat o'tqazdi. Endi bog'da necha tup daraxt bor?</p>
+    <div class="qadam"><b>1</b><span>5 kunda o'tqazilgan ko'chatlar: \(5 \cdot t = 5t\) tup.</span></div>
+    <div class="qadam"><b>2</b><span>Ularni avvalgi 40 tupga qo'shamiz: \(\nat{(40 + 5t)}\) tup.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · bochka</span>
+    <p>Bochkadagi \(v\) litr suv 4 ta chelakka teng quyildi. Keyin bitta chelakdan 3 l suv to'kildi. Shu chelakda necha litr suv qoldi?</p>
+    <div class="qadam"><b>1</b><span>Bitta chelakdagi suv: \(v : 4 = \frac{v}{4}\) l.</span></div>
+    <div class="qadam"><b>2</b><span>Undan 3 l ayiramiz: \(\nat{\left(\frac{v}{4} - 3\right)}\) l.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-misol · ikki sinf</span>
+    <p>6-A sinfda \(x\) nafar o'quvchi bor. 6-B sinfda undan 3 nafar kam o'quvchi bor. Ikkala sinfda jami nechta o'quvchi bor?</p>
+    <div data-model='{"q":[["6-A",[["x",5]]],["6-B",[["x − 3",4]]]],"qavs":[[0,4,5,"3","ust"]],"ong":"?"}'></div>
+    <div class="qadam"><b>1</b><span>6-B sinfda: \(x - 3\) nafar.</span></div>
+    <div class="qadam"><b>2</b><span>Ikkala sinfni qo'shamiz: \(\nat{x + (x - 3)}\) nafar.</span></div>
+  </div>
+
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">«Marta»ni «ta» deb o'qib yubordim-a!</div></div>
   <div class="box diqqat">
-    <span class="tag">Xato ⟶ To'g'ri</span>
+    <span class="tag">Diqqat!</span>
     <ol>
-      <li>«5 ta ko'p» va «5 marta ko'p» ni adashtirish.<br><span class="xato">\(x\) dan 5 ta ko'p: \(5x\)</span> &nbsp;→&nbsp; <span class="togri">\(x + 5\)</span></li>
-      <li>Ayirishda tartibni almashtirish.<br><span class="xato">30 dan \(a\) ni ayiring: \(a - 30\)</span> &nbsp;→&nbsp; <span class="togri">\(30 - a\)</span></li>
-      <li>Harfni sondan oldin yozish.<br><span class="xato">\(n4\)</span> &nbsp;→&nbsp; <span class="togri">\(4n\)</span></li>
-      <li>Bo'lishda surat va maxrajni almashtirish.<br><span class="xato">\(p\) ni 5 ga bo'ling: \(\frac{5}{p}\)</span> &nbsp;→&nbsp; <span class="togri">\(\frac{p}{5}\)</span></li>
-      <li>Noma'lumli javobni son bilan birlashtirib yuborish.<br><span class="xato">\(x + 2 = 2x\)</span> &nbsp;→&nbsp; <span class="togri">\(x + 2\) shundayligicha qoladi</span></li>
+      <li>«\(m\) dan 8 ta ko'p»:<br><span class="xato">\(8m\)</span> &nbsp;→&nbsp; <span class="togri">\(m + 8\)</span>. \(8m\) — «8 marta ko'p».</li>
+      <li>«50 dan \(k\) ni ayiring»:<br><span class="xato">\(k - 50\)</span> &nbsp;→&nbsp; <span class="togri">\(50 - k\)</span></li>
+      <li>\(n \cdot 7\) ni qisqa yozish:<br><span class="xato">\(n7\)</span> &nbsp;→&nbsp; <span class="togri">\(7n\)</span> (son oldin yoziladi)</li>
+      <li>«\(h\) ni 6 ga bo'ling»:<br><span class="xato">\(\frac{6}{h}\)</span> &nbsp;→&nbsp; <span class="togri">\(\frac{h}{6}\)</span></li>
+      <li>\(y + 4\) ni qisqartirish:<br><span class="xato">\(y + 4 = 4y\)</span> &nbsp;→&nbsp; <span class="togri">\(y + 4\) shundayligicha qoladi</span>. \(y = 2\) da \(y + 4 = 6\), \(4y = 8\).</li>
     </ol>
   </div>
 </section>
 
-<!-- 6. Mashqlar -->
-<section class="m-sec">
-  <h2><span class="n">6</span>Mashqlar</h2>
-  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Avval jumladagi kalit so'zni topaman: qo'sh, ayir, marta, bo'l!</div></div>
-  <div class="daraja oson"><i></i>Oson — algebraik ifoda yozing</div>
-  <div class="misollar qator">
-    <span><b>a)</b> \(y\) ni 9 ga ko'paytiring</span>
-    <span><b>b)</b> \(t\) ga 14 ni qo'shing</span>
-    <span><b>c)</b> \(k\) dan 3 ni ayiring</span>
-    <span><b>d)</b> 50 dan \(r\) ni ayiring</span>
-    <span><b>e)</b> \(h\) ni 8 ga bo'ling</span>
-    <span><b>f)</b> \(w\) dan 11 ta kam</span>
-  </div>
-  <details class="javob"><summary>Javobni ko'rish</summary>
-    <div class="javoblar"><span>a) \(9y\)</span><span>b) \(t + 14\)</span><span>c) \(k - 3\)</span><span>d) \(50 - r\)</span><span>e) \(\frac{h}{8}\)</span><span>f) \(w - 11\)</span></div>
-  </details>
+<!-- ============ 3-QISM: MUSTAHKAMLASH ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Mustahkamlash</h2></div>
 
-  <div class="daraja orta"><i></i>O'rta — masaladan ifoda tuzing</div>
-  <ol>
-    <li>Ko'ylak \(m\) so'm, shim ko'ylakdan 40 000 so'm qimmat. Shim qancha turadi?</li>
-    <li>Har bir qutida 12 ta tuxum. \(q\) ta qutida nechta tuxum bor?</li>
-    <li>Sardor do'konga \(p\) so'm berib, 3000 so'm qaytim oldi. Xarid qancha turdi?</li>
-    <li>\(n\) ta olma Azizaga va yana 3 ta do'stiga teng bo'lindi. Har biri nechta oldi?</li>
-    <li>To'g'ri to'rtburchakning yuzi \(S\) cm², bo'yi 9 cm. Eni qancha?</li>
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Jumlani ifoda bilan yozing: a) \(s\) ga 11 ni qo'shing; b) 27 dan \(j\) ga ortiq; c) 60 dan \(k\) ni ayiring; d) \(f\) dan 14 ga kam.</li>
+    <li>Algebraik ifoda yozing: a) 9 ta \(d\); b) \(e\) ning to'rt baravari; c) \(m\) ni 5 ga bo'ling; d) 15 va \(b\) ning ko'paytmasi.</li>
+    <li>Chizma-modelga qarab «?» uchun ifoda yozing.
+      <div data-model='{"q":[["a)",[["w",4],["25",2]]]],"jami":{"0":"?"}}'></div>
+      <div data-model='{"q":[["b)",[["?",4],["g",2]]]],"jami":{"0":"50"}}'></div>
+      <div data-model='{"q":[["c)",[["c",1],["c",1],["c",1]]]],"jami":{"0":"?"}}'></div></li>
+    <li>Javonda \(h\) ta kitob bor. Agar a) yana 6 ta kitob qo'yilsa; b) 4 ta kitob olinsa; c) kitoblar 2 marta ko'paysa, javonda nechta kitob bo'ladi?</li>
+    <li>Juftlikdagi ifodalar bir xilmi? a) \(9 - k\) va \(k - 9\); b) \(\frac{k}{9}\) va \(\frac{9}{k}\); c) \(k \cdot 9\) va \(9k\); d) \(9 + k\) va \(k + 9\).</li>
+    <li>Shokolad \(r\) so'm turadi. Muzqaymoq shokoladdan 3000 so'm arzon. Muzqaymoq qancha turadi?</li>
+    <li>Bog'dagi chinor hozir 16 yoshda. U necha yoshda bo'ladi yoki bo'lgan: a) \(n\) yildan keyin; b) 6 yil oldin; c) \(k\) yil oldin?</li>
+    <li>Kassaga 50 000 so'm berildi, xarid \(z\) so'm turadi. Qancha qaytim beriladi?</li>
+    <li>Velosipedchi \(d\) km yo'lni 3 kunda bosib o'tdi, har kuni bir xil masofa yurdi. U bir kunda necha km yurgan?</li>
+    <li>Kvadratning perimetri \(P\) cm. Uning tomoni necha cm?</li>
+    <li>Ikki amalli ifoda tuzing: a) \(k\) ni 2 ga bo'lib, natijaga 10 ni qo'shing; b) \(m\) ni 3 ga ko'paytirib, natijadan 4 ni ayiring.</li>
   </ol>
-  <details class="javob"><summary>Javobni ko'rish</summary>
-    <div class="javoblar"><span>1) \(m + 40\,000\) so'm</span><span>2) \(12q\) ta</span><span>3) \(p - 3000\) so'm</span><span>4) \(\frac{n}{4}\) ta (Aziza + 3 do'st = 4 kishi)</span><span>5) \(\frac{S}{9}\) cm</span></div>
-  </details>
 
-  <div class="daraja qiyin-d"><i></i>Qiyin — ikki qadamli ifodalar</div>
-  <ol>
-    <li>Velosiped \(b\) so'm, samokat velosipeddan 2 marta arzon, dubulg'a esa samokatdan 50 000 so'm arzon. Dubulg'a qancha turadi?</li>
-    <li>\(k\) ta qalam 3 bolaga teng bo'lindi. Bitta bola o'z qalamlaridan 2 tasini yo'qotdi. Unda nechta qalam qoldi?</li>
-    <li>Qizil lenta \(y\) cm, ko'k lenta undan 25 cm qisqa. Ikkala lenta jami necha cm?</li>
+  <h3>Matnli masalalar</h3>
+  <ol class="masalalar">
+    <li>Bog'da 3 qator olma daraxti bor, har qatorda \(a\) tup. Bundan tashqari, bog'da 12 tup nok bor. Bog'da jami necha tup daraxt bor?</li>
+    <li>Mashina birinchi kuni \(s\) km yurdi. Ikkinchi kuni birinchi kundagi yo'lning yarmini <i>(yarmi — 2 ga bo'lish)</i>, uchinchi kuni esa ikkinchi kundagidan 15 km ko'p yurdi. Uchinchi kuni necha km yurgan?</li>
+    <li>Birinchi idishda \(v\) litr suv bor, ikkinchi idishda undan 3 marta ko'p. Ikkala idishda jami necha litr suv bor?</li>
+    <li>Sport zalida \(a\) ta to'p bor edi. 6 ta yangi to'p keltirildi, keyin 4 tasi maktab hovlisiga olib chiqildi. Zalda nechta to'p qoldi?</li>
   </ol>
-  <details class="javob"><summary>Javobni ko'rish</summary>
-    <div class="javoblar"><span>1) Samokat \(\frac{b}{2}\), dubulg'a \(\frac{b}{2} - 50\,000\) so'm</span><span>2) \(\frac{k}{3} - 2\) ta</span><span>3) \(y + (y - 25)\) cm</span></div>
-  </details>
 </section>
 
-<!-- 7. Matnli masalalar -->
-<section class="m-sec">
-  <h2><span class="n">7</span>Matnli masalalar</h2>
-  <div class="box masala">
-    <span class="tag">Masalalarni yeching</span>
-    <ol class="masalalar">
-      <li>Bir kunda \(d\) bet kitob o'qilsa, bir haftada necha bet o'qiladi?
-        <details class="javob"><summary>Javobni ko'rish</summary>Haftada 7 kun: \(7d\) bet.</details></li>
-      <li>Avtobusda \(a\) yo'lovchi bor edi. Bekatda 6 kishi tushdi va 4 kishi chiqdi. Endi nechta yo'lovchi bor?
-        <details class="javob"><summary>Javobni ko'rish</summary>\(a - 6 + 4\) yo'lovchi.</details></li>
-      <li>Bog'da \(x\) ta olma daraxti bor, o'rik daraxtlari esa olmadan 3 marta ko'p. O'rik daraxtlari nechta? Jami nechta daraxt?
-        <details class="javob"><summary>Javobni ko'rish</summary>O'rik \(3x\) ta; jami \(x + 3x\) ta daraxt.</details></li>
-      <li>Kvadratning tomoni \(c\) cm. Uning perimetrini ifoda bilan yozing.
-        <details class="javob"><summary>Javobni ko'rish</summary>\(4c\) cm.</details></li>
-    </ol>
-  </div>
+<!-- ============ 4-QISM: MUSTAQIL ISH ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Mustaqil ish</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Har bir jumlaga mos ifodani yozing: a) \(z\) ning olti baravari; b) 75 dan \(u\) ni ayiring; c) \(q\) ni 11 ga bo'ling; d) \(c\) dan 20 ga ortiq.</li>
+    <li>«\(h\) dan 7 ga kam» uchun chizma-model chizing va ifoda yozing.</li>
+    <li><b>Xatoni toping.</b> Bekzod «\(p\) dan 6 marta ko'p» ni \(p + 6\), «\(p\) dan 6 ta ko'p» ni esa \(6p\) deb yozdi. To'g'ri ifodalarni yozing.</li>
+    <li>Ruchka \(r\) so'm turadi. Daftar ruchkadan 2000 so'm qimmat. Ruchka va daftar birga qancha turadi?</li>
+    <li>Bolalar bog'chasiga \(b\) ta o'yinchoq keltirildi va 3 ta guruhga teng bo'lindi. Keyin har bir guruhga yana 4 tadan o'yinchoq berildi. Har bir guruhda nechta o'yinchoq bo'ldi?</li>
+    <li>Bog'bon \(w\) tup ko'chatni o'z bog'iga va yana 2 ta qo'shni bog'ga teng bo'lib o'tqazdi. Har bir bog'ga necha tup ko'chat tegdi?</li>
+  </ol>
 </section>
 
-<!-- 8. O'ylab ko'ring -->
-<section class="m-sec">
-  <h2><span class="n">8</span>O'ylab ko'ring</h2>
-  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Ikki ifoda doim teng bo'ladimi yoki faqat ba'zan?</div></div>
-  <div class="box qiyin">
-    <span class="tag">Muammoli topshiriq · juftliklar</span>
-    <p>Qaysi juftliklar har qanday \(q\) da teng: a) \(8 + q\) va \(q + 8\); b) \(8q\) va \(8 + q\); c) \(8 - q\) va \(q - 8\); d) \(\frac{q}{8}\) va \(8q\)?</p>
-    <details class="javob"><summary>Javobni ko'rish</summary>Faqat a) — qo'shishda tartib muhim emas. b) da \(q = 2\) bo'lsa 16 va 10; c) va d) da tartib muhim, masalan \(q = 2\) da \(8 - q = 6\), \(q - 8\) esa hisoblanmaydi; \(\frac{q}{8} = \frac{1}{4}\), \(8q = 16\).</details>
-  </div>
-  <div class="box qiyin">
-    <span class="tag">Xatoni toping</span>
-    <p>Aziz «Lobar Donodan 4000 so'm ko'p tejadi, Dono \(r\) so'm tejadi» degan jumlani \(4000r\) deb yozdi. To'g'rimi?</p>
-    <details class="javob"><summary>Javobni ko'rish</summary>Yo'q. «4000 so'm ko'p» — qo'shish: Lobar \(r + 4000\) so'm tejagan. \(4000r\) esa «4000 marta ko'p» degani.</details>
-  </div>
-</section>
+<!-- ============ 5-QISM: JAVOBLAR ============ -->
+<div class="m-qism q-javob"><div class="q-n">5-qism</div><h2>Javoblar</h2></div>
 
-<!-- 9. O'zingizni tekshiring -->
-<section class="m-sec">
-  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
-  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — testga o'ting!</div></div>
-  <div class="box tekshir">
-    <ul>
-      <li>Noma'lum sonni harf bilan belgilay olaman.</li>
-      <li>«Ko'p», «kam», «marta», «bo'ling» kabi jumlalarni algebraik ifoda bilan yoza olaman.</li>
-      <li>\(5q\), \(q + 5\), \(\frac{q}{5}\) ifodalarining farqini bilaman.</li>
-      <li>Masala shartidan ikki qadamli ifoda tuza olaman.</li>
-    </ul>
-  </div>
+<section class="m-sec qism-ichi">
+  <h3>Mustahkamlash</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(s + 11\); b) \(27 + j\); c) \(60 - k\); d) \(f - 14\).</details>
+  <details class="javob"><summary>2-masala</summary>a) \(9d\); b) \(4e\); c) \(\frac{m}{5}\); d) \(15b\).</details>
+  <details class="javob"><summary>3-masala</summary>a) \(w + 25\); b) \(50 - g\); c) \(c + c + c = 3c\).</details>
+  <details class="javob"><summary>4-masala</summary>a) \((h + 6)\) ta; b) \((h - 4)\) ta; c) \(2h\) ta.</details>
+  <details class="javob"><summary>5-masala</summary>a) yo'q, \(9 - k\) va \(k - 9\) turlicha; b) yo'q: \(k = 3\) da \(\frac{3}{9} = \frac{1}{3}\), \(\frac{9}{3} = 3\); c) ha, tartib farqi yo'q; d) ha, tartib farqi yo'q.</details>
+  <details class="javob"><summary>6-masala</summary>3000 so'm arzon, demak ayiramiz: \((r - 3000)\) so'm.</details>
+  <details class="javob"><summary>7-masala</summary>a) \(16 + n\); b) \(16 - 6 = 10\) yoshda; c) \(16 - k\).</details>
+  <details class="javob"><summary>8-masala</summary>\((50\,000 - z)\) so'm.</details>
+  <details class="javob"><summary>9-masala</summary>\(d : 3 = \frac{d}{3}\) km.</details>
+  <details class="javob"><summary>10-masala</summary>4 ta teng tomon: \(P : 4 = \frac{P}{4}\) cm.</details>
+  <details class="javob"><summary>11-masala</summary>a) \(\frac{k}{2} + 10\); b) \(3m - 4\).</details>
+
+  <h3>Matnli masalalar</h3>
+  <details class="javob"><summary>1-masala</summary>Olma: \(3a\) tup. Jami: \((3a + 12)\) tup.</details>
+  <details class="javob"><summary>2-masala</summary>Ikkinchi kuni: \(\frac{s}{2}\) km. Uchinchi kuni: \(\left(\frac{s}{2} + 15\right)\) km.</details>
+  <details class="javob"><summary>3-masala</summary>Ikkinchi idishda \(3v\) l. Jami: \((v + 3v)\) l, ya'ni \(4v\) l.</details>
+  <details class="javob"><summary>4-masala</summary>\((a + 6 - 4)\) ta, ya'ni \((a + 2)\) ta to'p.</details>
+
+  <h3>Mustaqil ish</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(6z\); b) \(75 - u\); c) \(\frac{q}{11}\); d) \(c + 20\).</details>
+  <details class="javob"><summary>2-masala</summary>
+    <div data-model='{"q":[["",[["?",4],["7",2]]]],"jami":{"0":"h"}}'></div>
+    Ifoda: \(h - 7\).</details>
+  <details class="javob"><summary>3-masala</summary>Bekzod ikkalasini almashtirib yuborgan. «6 marta ko'p» — \(6p\), «6 ta ko'p» — \(p + 6\).</details>
+  <details class="javob"><summary>4-masala</summary>Daftar: \((r + 2000)\) so'm. Birga: \(r + (r + 2000)\) so'm.</details>
+  <details class="javob"><summary>5-masala</summary>Bir guruhga avval \(\frac{b}{3}\) ta. Keyin: \(\left(\frac{b}{3} + 4\right)\) ta o'yinchoq.</details>
+  <details class="javob"><summary>6-masala</summary>Bog'lar 3 ta: o'zining bog'i va 2 ta qo'shni bog'. Har biriga \(w : 3 = \frac{w}{3}\) tup.</details>
 </section>
 
 <p class="m-foot">Mathlearn · 6-sinf matematika</p>
