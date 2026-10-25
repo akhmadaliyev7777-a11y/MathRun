@@ -9,10 +9,17 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 ---
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
-- **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor. 1–12 — 5 qismli tuzilishga qayta yozildi; 13–14 — qayta yozilmay tekshirildi va joyida tuzatildi (2026-10-25). Navbat: 15-mavzudan, 2 tadan, qayta yozmasdan tekshiruv.
+- **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor. 1–12 — 5 qismli tuzilishga qayta yozildi; 13–16 — qayta yozilmay tekshirildi va joyida tuzatildi (2026-10-25). Navbat: 17-mavzudan, 2 tadan, qayta yozmasdan tekshiruv (qoidalar kitob rasmi bilan, hajm/takror ham).
 - **6-sinf:** 1–14-mavzular tayyor, hammasi 5 qismli ixcham tuzilishda va Jumavoy + Ibrohim ustoz + «Anti sun'iylik» tekshiruvidan o'tgan (2026-10-25). Navbat: 15-mavzu «Aylananing uzunligi».
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+
+---
+
+## 2026-10-25 15:43 — m.shukurillo hisobi
+**Qilindi:** 5-sinf 15 «Fazoviy jismlarning hajmi» va 16 «Uch o'lchamli panjarada chizish» — qayta yozilmay tekshirildi va joyida tuzatildi. Qoidalar kitob rasmlari bilan solishtirildi (15: kitob matniga keltirildi; 16: kitobda qoida yo'q — o'ylab topilganlar olib tashlandi). Yangi mezon: sahifa hajmi va takror (16: 25 → 16,6 KB).
+**Chala:** yo'q.
+**Navbatda:** 5-sinf 17 «Jismning turli ko'rinishlari» va 18 «Hajmni cm³ va m³ da o'lchash».
 
 ---
 
