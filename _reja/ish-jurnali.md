@@ -9,10 +9,17 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 ---
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
-- **5-sinf:** 47/47 — 1–12 qayta yozildi (5 qism), 13–18 to'liq tekshirib joyida tuzatildi, 19–47 «Anti sun'iylik» tekshiruvidan o'tdi (2026-10-25). 5-sinf ko'rib chiqish tugadi.
+- **5-sinf:** 47/47 — 1–12 qayta yozildi (5 qism), 13–18 to'liq tekshirib joyida tuzatildi, 19–47 «Anti sun'iylik» tekshiruvidan o'tdi (2026-10-25); 18–47 qoida ramkalari kitob bilan solishtirildi (kitob matni / «Usul» / olib tashlandi). 5-sinf ko'rib chiqish tugadi.
 - **6-sinf:** 1–14-mavzular tayyor, hammasi 5 qismli ixcham tuzilishda va Jumavoy + Ibrohim ustoz + «Anti sun'iylik» tekshiruvidan o'tgan (2026-10-25). Navbat: 15-mavzu «Aylananing uzunligi».
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+
+---
+
+## 2026-10-25 kech — m.shukurillo hisobi
+**Qilindi:** 5-sinf 19.1–47 — faqat qoida ramkalari kitob rasmlari bilan solishtirildi: kitobda bor qoida/ta'rif aynan qo'yildi; kitob faqat misolda ko'rsatgan yo'l «Usul · …» (kitob qadamlari, bizning sonlar); kitobda yo'q qoidalar ramkadan olindi (mazmuni namuna/Diqqat'da qoldi). Mashqlar, javoblar, testlar o'zgarmadi. 33/34 dagi tenglik.py «xato»lari tekshirildi — haqiqiy xato yo'q (dastur «%» ni noto'g'ri o'qiydi yoki atayin xato misollar).
+**Chala:** yo'q.
+**Navbatda:** 6-sinf 15 «Aylananing uzunligi» (yoki foydalanuvchi aytgan ish).
 
 ---
 
