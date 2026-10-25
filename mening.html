@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<script>(function(){var d=document.documentElement,k="mathlearn-theme",q=window.matchMedia?matchMedia("(prefers-color-scheme: dark)"):null;function a(){var t=window.mlThemeMem||null;try{t=localStorage.getItem(k)||t}catch(e){}if(t!=="dark"&&t!=="light")t=q&&q.matches?"dark":"light";d.setAttribute("data-theme",t)}window.mlApplyTheme=a;a();window.addEventListener("storage",function(e){if(!e.key||e.key===k)a()});if(q){try{q.addEventListener("change",a)}catch(e){try{q.addListener(a)}catch(e2){}}}})();</script>
 <title>Mening natijalarim — Mathlearn</title>
 <link rel="icon" href="favicon.png?v=3" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
-<link rel="stylesheet" href="css/style.css?v=67">
+<link rel="stylesheet" href="css/style.css?v=68">
 </head>
 <body>
 
@@ -25,7 +27,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
 <script src="js/firebase-config.js?v=8"></script>
 <script src="js/auth.js?v=10"></script>
-<script src="js/layout.js?v=22"></script>
+<script src="js/layout.js?v=23"></script>
 <script src="js/quiz-engine.js?v=16"></script>
 <script src="js/mening.js?v=5"></script>
 <script>renderSiteHeader(); renderMyPage();</script>

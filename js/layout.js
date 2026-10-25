@@ -6,6 +6,9 @@ function renderSiteHeader(base, active) {
   const cls = (key) => (active === key ? ' class="active"' : "");
   const root = document.getElementById("site-header-root");
   if (!root) return;
+  // tungi rejim tugmasi — faqat <head> dagi mavzu skripti bor sahifalarda (html[data-theme]);
+  // mathrunner-web (1–4-sinf) va admin.html da yo'q — ular doim kunduzgi ko'rinishda qoladi
+  const themeOn = document.documentElement.hasAttribute("data-theme");
 
   root.innerHTML =
     '<header class="site-header">' +
@@ -21,6 +24,7 @@ function renderSiteHeader(base, active) {
         '<a href="' + base + 'mathrunner-web/index.html#/games" data-nav="games"' + cls("games") + '>O\'yinlar</a>' +
       "</nav>" +
       '<button type="button" id="site-login-btn" class="site-login-btn">Kirish</button>' +
+      (themeOn ? '<button type="button" id="theme-toggle-btn" class="theme-toggle" aria-label="Tungi rejim" title="Tungi rejim">' + MOON_ICON + "</button>" : "") +
       '<button type="button" id="search-open-btn" class="search-open" aria-label="Mavzu qidirish" title="Mavzu qidirish (/)">' + SEARCH_ICON + "</button>" +
     "</header>" +
     '<div id="site-search" class="site-search" hidden>' +
@@ -82,6 +86,7 @@ function renderSiteHeader(base, active) {
   overlay.addEventListener("click", closeDrawer);
 
   initSiteSearch(base);
+  if (themeOn) initThemeToggle();
 
   if (window.onAuthReadyForMenu) window.onAuthReadyForMenu();
   // Kirish — Google bilan (auth.js). Firebase yuklanmagan bo'lsa — faqat xabar ko'rsatadi
@@ -98,6 +103,46 @@ function renderSiteHeader(base, active) {
     tip.classList.add("on");
     clearTimeout(tip._t); tip._t = setTimeout(function () { tip.classList.remove("on"); }, 2200);
   });
+}
+
+// ---------- Tungi rejim (yuqoridagi oy / quyosh tugmasi) ----------
+// Tanlov localStorage "mathlearn-theme" ("dark" | "light") da saqlanadi; tanlanmagan bo'lsa — qurilma sozlamasi.
+// Sahifa ochilishidagi oq chaqnashning oldini <head> dagi bir qatorli skript oladi (window.mlApplyTheme).
+const THEME_KEY = "mathlearn-theme";
+const MOON_ICON =
+  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+  '<path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>';
+const SUN_ICON =
+  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
+  '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>';
+
+function initThemeToggle() {
+  const btn = document.getElementById("theme-toggle-btn");
+  if (!btn) return;
+  const html = document.documentElement;
+  function sync() {
+    const dark = html.getAttribute("data-theme") === "dark";
+    const label = dark ? "Kunduzgi rejim" : "Tungi rejim";
+    btn.innerHTML = dark ? SUN_ICON : MOON_ICON;
+    btn.setAttribute("aria-label", label);
+    btn.title = label;
+  }
+  btn.addEventListener("click", function () {
+    const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    window.mlThemeMem = next;
+    try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+    html.setAttribute("data-theme", next);
+    // sahifa ichidagi test oynasi (test.html) ham darhol almashadi
+    document.querySelectorAll("iframe").forEach(function (f) {
+      try {
+        const w = f.contentWindow;
+        if (w && w.mlApplyTheme) { w.mlThemeMem = next; w.mlApplyTheme(); }
+      } catch (e) {}
+    });
+  });
+  // boshqa oynada yoki qurilma sozlamasida almashsa — tugma belgisi ham yangilanadi
+  if (window.MutationObserver) new MutationObserver(sync).observe(html, { attributes: true, attributeFilter: ["data-theme"] });
+  sync();
 }
 
 // ---------- Mavzu qidirish (yuqoridagi lupa) ----------
