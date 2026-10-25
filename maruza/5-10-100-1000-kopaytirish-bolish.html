@@ -12,282 +12,250 @@
 <main class="m-wrap">
 
 <h1 class="m-title">Sonni 10, 100, 1000 ga ko'paytirish va bo'lish</h1>
-<p class="m-lead">Natural sonni 10, 100, 1000 ga ko'paytirganda yoki bo'lganda raqamlar qanday suriladi? Nollar qachon qo'shiladi, qachon tushib qoladi?</p>
+<p class="m-lead">Bitta qutida 10 ta qalam bor. 26 ta qutida nechta qalam bor? 5900 so'mda nechta 100 so'mlik tanga bor?</p>
 
-<!-- 1. Eslab olaylik -->
-<section class="m-sec">
-  <h2><span class="n">1</span>Eslab olaylik</h2>
-  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">10 ta birlik — bitta o'nlik. Buni eslaysizmi?</div></div>
+<!-- ============ 1-QISM: MAVZU ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Mavzu</h2></div>
+
+<section class="m-sec qism-ichi">
   <div class="box eslab">
     <span class="tag">Eslab olaylik</span>
     <ul>
-      <li>Har bir xonaning 10 ta birligi chapdagi keyingi xonaning 1 ta birligiga teng: 10 ta bir = 1 ta o'n, 10 ta o'n = 1 ta yuz, 10 ta yuz = 1 ta ming.</li>
+      <li>10 ta birlik = 1 ta o'nlik, 10 ta o'nlik = 1 ta yuzlik, 10 ta yuzlik = 1 ta minglik.</li>
       <li>\(100 = 10 \cdot 10\), \(1000 = 10 \cdot 10 \cdot 10\).</li>
-      <li>Ko'paytuvchilarning o'rnini almashtirsak, ko'paytma o'zgarmaydi: \(10 \cdot 25 = 25 \cdot 10\).</li>
-      <li>Bo'lish ko'paytirishga teskari amal: \(a : b = c\) bo'lsa, \(c \cdot b = a\).</li>
+      <li>Ko'paytuvchilarning o'rni almashsa, ko'paytma o'zgarmaydi: \(10 \cdot 46 = 46 \cdot 10\).</li>
     </ul>
   </div>
-</section>
-
-<!-- 2. Qoidalar -->
-<section class="m-sec">
-  <h2><span class="n">2</span>Qoidalar</h2>
-  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Nollarni sanang: 10 da bitta, 100 da ikkita, 1000 da uchta nol bor.</div></div>
 
   <div class="box qoida">
-    <span class="tag">1-qoida · 10 ga ko'paytirish</span>
-    <p>Natural sonni 10 ga ko'paytirganda uning <strong>har bir raqami bir xona chapga suriladi</strong>, bo'shab qolgan birlar xonasiga <strong>0</strong> yoziladi.</p>
-    <p>Qisqasi: sonni 10 ga ko'paytirish uchun uning <strong>o'ng tomoniga bitta nol</strong> yoziladi.</p>
+    <span class="tag">Usul · 10 ga ko'paytirish</span>
+    <p>Sonli tugma — ichiga 1, 10, 100 yoki 1000 yozilgan doiracha. Hamma tugmalarni qo'shsak, son chiqadi: \(26 = 10 + 10 + 1 + 1 + 1 + 1 + 1 + 1\).</p>
+    <p>10 ga ko'paytirganda har bir tugma 10 marta kattalashadi:</p>
+    <p class="chz-cap">1 → 10 &nbsp;&nbsp; 10 → 100 &nbsp;&nbsp; 100 → 1000</p>
+    <p class="chz-cap">\(5 \cdot 10 = 5\mx{0}\) &nbsp;&nbsp; \(23 \cdot 10 = 23\mx{0}\) &nbsp;&nbsp; \(148 \cdot 10 = 148\mx{0}\)</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · tugmalar bilan</span>
+    <p>26 ni 10 ga ko'paytiring.</p>
+    <div data-tugma="26"></div>
+    <p class="chz-cap">× 10 ↓</p>
+    <div data-tugma="260"></div>
+    <div class="qadam"><b>1</b><span>2 ta o'nlik 2 ta yuzlikka aylandi.</span></div>
+    <div class="qadam"><b>2</b><span>6 ta birlik 6 ta o'nlikka aylandi.</span></div>
+    <div class="qadam"><b>3</b><span>Birlik qolmadi, birlar xonasiga 0 yoziladi. Demak, \(26 \cdot 10 = \nat{260}\). Ya'ni 26 ta qutida 260 ta qalam bor.</span></div>
   </div>
   <div class="box namuna">
-    <span class="tag">Namuna · \(324 \cdot 10\)</span>
-    <div data-siljish="324/x10"></div>
-    <p>3 ta yuz 3 ta mingga, 2 ta o'n 2 ta yuzga, 4 ta bir 4 ta o'nga aylandi: \(324 \cdot 10 = \nat{3240}\).</p>
+    <span class="tag">2-misol · o'rtasida nol bor</span>
+    <p>\(10 \cdot 609\) ni hisoblang.</p>
+    <div class="qadam"><b>1</b><span>O'rnini almashtiramiz: \(10 \cdot 609 = 609 \cdot 10\).</span></div>
+    <div class="qadam"><b>2</b><span>Har bir raqam bir xona chapga suriladi (birlar o'nliklar o'rniga, o'nliklar yuzliklar o'rniga o'tadi):</span></div>
+    <div data-siljish="609/x10"></div>
+    <div class="qadam"><b>3</b><span>O'rtadagi 0 ham joyida qoladi: \(10 \cdot 609 = \nat{6090}\).</span></div>
+  </div>
   </div>
 
+  <div class="gap ong"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">26 → 260, 609 → 6090 — har safar oxiriga bitta 0 qo'shildi!</div></div>
   <div class="box qoida">
-    <span class="tag">2-qoida · 100 va 1000 ga ko'paytirish</span>
-    <p>\(100 = 10 \cdot 10\), shuning uchun 100 ga ko'paytirish — 10 ga <strong>ikki marta</strong> ko'paytirish demak. \(1000 = 10 \cdot 10 \cdot 10\) — 10 ga <strong>uch marta</strong> ko'paytirish.</p>
-    <p>Natural sonni <strong>100 ga</strong> ko'paytirish uchun uning o'ng tomoniga <strong>ikkita nol</strong>, <strong>1000 ga</strong> ko'paytirish uchun <strong>uchta nol</strong> yoziladi.</p>
+    <span class="tag">Usul · 100 va 1000 ga ko'paytirish</span>
+    <p>\(100 = 10 \cdot 10\), shuning uchun 100 ga ko'paytirish — 10 ga ikki marta ko'paytirish. \(1000 = 10 \cdot 10 \cdot 10\) — 10 ga uch marta ko'paytirish.</p>
+    <p class="chz-cap">\(7 \cdot 100 = 7 \cdot 10 \cdot 10 = 7\mx{00}\) &nbsp;&nbsp; \(7 \cdot 1000 = 7 \cdot 10 \cdot 10 \cdot 10 = 7\mx{000}\)</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · 100 ga</span>
+    <p>38 ni 100 ga ko'paytiring.</p>
+    <div data-zanjir="38/x10/x10"></div>
+    <div class="qadam"><b>1</b><span>\(38 \cdot 10 = 380\).</span></div>
+    <div class="qadam"><b>2</b><span>\(380 \cdot 10 = 3800\). Demak, \(38 \cdot 100 = \nat{3800}\).</span></div>
   </div>
   <div class="box namuna">
-    <span class="tag">Namuna</span>
-    <div class="usullar">
-      <div class="box">
-        <p>\(47 \cdot 100 = 47 \cdot 10 \cdot 10 = 470 \cdot 10 = \nat{4700}\)</p>
-        <div data-siljish="47/x100"></div>
-      </div>
-      <div class="box">
-        <p>\(32 \cdot 1000 = 32 \cdot 10 \cdot 10 \cdot 10 = \nat{32\,000}\)</p>
-        <p>\(1000 \cdot 463 = 463 \cdot 1000 = \nat{463\,000}\) — ko'paytuvchilar o'rnini almashtirish mumkin.</p>
-        <p>\(400 \cdot 1000 = \nat{400\,000}\) — 400 dagi ikkita nol ham saqlanadi, yana uchta nol qo'shiladi.</p>
-      </div>
-    </div>
+    <span class="tag">2-misol · 1000 ga</span>
+    <p>\(1000 \cdot 71\) ni hisoblang.</p>
+    <div class="qadam"><b>1</b><span>O'rnini almashtiramiz: \(1000 \cdot 71 = 71 \cdot 1000\).</span></div>
+    <div class="qadam"><b>2</b><span>Raqamlar uch xona chapga suriladi:</span></div>
+    <div data-siljish="71/x1000"></div>
+    <div class="qadam"><b>3</b><span>\(1000 \cdot 71 = \nat{71\,000}\).</span></div>
   </div>
-
-  <div class="box qoida">
-    <span class="tag">3-qoida · 10, 100, 1000 ga bo'lish</span>
-    <p>Oxiri nol bilan tugagan sonni 10 ga bo'lganda <strong>har bir raqam bir xona o'ngga suriladi</strong> va oxiridagi nol tushib qoladi.</p>
-    <p>Oxiri kamida <strong>bitta / ikkita / uchta nol</strong> bilan tugagan sonni <strong>10 / 100 / 1000</strong> ga bo'lish uchun uning <strong>oxiridan</strong> mos ravishda <strong>bitta / ikkita / uchta nol</strong> olib tashlanadi.</p>
-  </div>
-  <div class="box namuna">
-    <span class="tag">Namuna</span>
-    <div class="usullar">
-      <div class="box">
-        <p>\(41\,300 : 100 = \nat{413}\)</p>
-        <div data-siljish="41300/:100"></div>
-      </div>
-      <div class="box">
-        <p>\(2340 : 10 = \nat{234}\)</p>
-        <p>\(26\,000 : 1000 = \nat{26}\)</p>
-        <p>\(3000 : 1000 = 3000 : 10 : 10 : 10 = 300 : 10 : 10 = 30 : 10 = \nat{3}\)</p>
-      </div>
-    </div>
   </div>
 
   <div class="box qoida">
-    <span class="tag">4-qoida · bo'lishni tekshirish</span>
-    <p>Bo'lish to'g'ri bajarilganini <strong>ko'paytirish</strong> bilan tekshiramiz: <strong>bo'linma × bo'luvchi = bo'linuvchi</strong>.</p>
+    <span class="tag">Usul · 10 ga bo'lish</span>
+    <p>10 ga bo'lganda har bir tugma 10 marta kichrayadi:</p>
+    <p class="chz-cap">10 → 1 &nbsp;&nbsp; 100 → 10 &nbsp;&nbsp; 1000 → 100</p>
+    <p class="chz-cap">\(9\mx{0} : 10 = 9\) &nbsp;&nbsp; \(81\mx{0} : 10 = 81\)</p>
+    <p><b>Tekshirish:</b> bo'linmani bo'luvchiga ko'paytiramiz — bo'linuvchi chiqishi kerak: \(81 \cdot 10 = 810\).</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · tugmalar bilan</span>
+    <p>470 ni 10 ga bo'ling.</p>
+    <div data-tugma="470"></div>
+    <p class="chz-cap">: 10 ↓</p>
+    <div data-tugma="47"></div>
+    <div class="qadam"><b>1</b><span>4 ta yuzlik 4 ta o'nlikka, 7 ta o'nlik 7 ta birlikka aylandi: \(470 : 10 = \nat{47}\).</span></div>
+    <div class="qadam"><b>2</b><span>Tekshiramiz: \(47 \cdot 10 = 470\).</span></div>
   </div>
   <div class="box namuna">
-    <span class="tag">Namuna</span>
-    <p>\(245\,300 : 100 = 2453\). Tekshiramiz: \(2453 \cdot 100 = 245\,300\) ✓</p>
+    <span class="tag">2-misol · o'rtasida nol bor</span>
+    <p>\(3060 : 10\) ni toping.</p>
+    <div data-siljish="3060/:10"></div>
+    <div class="qadam"><b>1</b><span>Faqat oxiridagi 0 tushib qoladi, o'rtadagisi qoladi: \(3060 : 10 = \nat{306}\).</span></div>
+    <div class="qadam"><b>2</b><span>Tekshiramiz: \(306 \cdot 10 = 3060\).</span></div>
   </div>
+  </div>
+
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">470 → 47, 3060 → 306 — har safar oxiridagi bitta 0 tushib qoldi!</div></div>
 
   <div class="box qoida">
-    <span class="tag">5-qoida · «marta ko'p» masalalari</span>
-    <p>«10 (100, 1000) <strong>marta ko'p</strong>» bo'lgan sonni topish uchun berilgan son 10 (100, 1000) ga <strong>ko'paytiriladi</strong>.</p>
-    <p>Agar katta son berilib, undan 10 (100, 1000) <strong>marta kichik</strong> bo'lgan sonni topish kerak bo'lsa — <strong>bo'linadi</strong>.</p>
+    <span class="tag">Usul · 100 va 1000 ga bo'lish</span>
+    <p>100 ga bo'lish — 10 ga ikki marta bo'lish. 1000 ga bo'lish — 10 ga uch marta bo'lish.</p>
+    <p class="chz-cap">\(400 : 100 = 400 : 10 : 10 = 4\) &nbsp;&nbsp; \(4000 : 1000 = 4000 : 10 : 10 : 10 = 4\)</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · 100 ga</span>
+    <p>5900 so'mda nechta 100 so'mlik tanga bor?</p>
+    <div class="qadam"><b>1</b><span>Nechta 100 borligini bilish uchun 100 ga bo'lamiz:</span></div>
+    <div data-zanjir="5900/:10/:10"></div>
+    <div class="qadam"><b>2</b><span>\(5900 : 10 = 590\), \(590 : 10 = 59\). Demak, \(5900 : 100 = \nat{59}\).</span></div>
+    <div class="qadam"><b>3</b><span>5900 so'mda 59 ta 100 so'mlik tanga bor. Tekshiramiz: \(59 \cdot 100 = 5900\).</span></div>
   </div>
   <div class="box namuna">
-    <span class="tag">Namuna</span>
-    <p>Zalga 450 kishi sig'adi, stadionga esa zaldan 100 marta ko'p kishi sig'adi: \(450 \cdot 100 = \nat{45\,000}\) kishi.</p>
-    <p>Akada 840 000 so'm bor, bu ukasidagi puldan 10 marta ko'p. Ukada: \(840\,000 : 10 = \nat{84\,000}\) so'm.</p>
+    <span class="tag">2-misol · 1000 ga</span>
+    <p>\(84\,000 : 1000\) ni toping.</p>
+    <div data-siljish="84000/:1000"></div>
+    <div class="qadam"><b>1</b><span>Raqamlar uch xona o'ngga suriladi, oxiridagi uchta 0 tushib qoladi: \(84\,000 : 1000 = \nat{84}\).</span></div>
+    <div class="qadam"><b>2</b><span>Tekshiramiz: \(84 \cdot 1000 = 84\,000\).</span></div>
   </div>
-</section>
-
-<!-- 3. Rasmda ko'ramiz -->
-<section class="m-sec">
-  <h2><span class="n">3</span>Rasmda ko'ramiz</h2>
-  <div class="gap"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Bir xil rangli raqamlarni kuzating: ular faqat joyini almashtiradi, o'zi o'zgarmaydi!</div></div>
-  <div class="usullar">
-    <div class="box">
-      <p><b>1000 ga ko'paytirish</b> — raqamlar 3 xona chapga:</p>
-      <div data-siljish="2056/x1000"></div>
-    </div>
-    <div class="box">
-      <p><b>1000 ga bo'lish</b> — raqamlar 3 xona o'ngga:</p>
-      <div data-siljish="2056000/:1000"></div>
-    </div>
-  </div>
-  <p>Ko'paytirish va bo'lish bir-biriga teskari: 2056 ni 1000 ga ko'paytirib, keyin 1000 ga bo'lsak, yana 2056 hosil bo'ladi.</p>
-</section>
-
-<!-- 4. Namunalar -->
-<section class="m-sec">
-  <h2><span class="n">4</span>Namunalar</h2>
-  <div class="box namuna">
-    <span class="tag">Namuna 1 · tushirib qoldirilgan son</span>
-    <div class="qadam"><b>1</b><span>\(524 \cdot \square = 52\,400\): natijada 524 ning o'ng tomoniga ikkita nol qo'shilgan — demak, \(\square = 100\).</span></div>
-    <div class="qadam"><b>2</b><span>\(\square : 1000 = 260\): bo'linuvchi = bo'linma × bo'luvchi: \(260 \cdot 1000 = 260\,000\) — demak, \(\square = 260\,000\).</span></div>
-  </div>
-  <div class="box namuna">
-    <span class="tag">Namuna 2 · jadval</span>
-    <div class="jad-wrap"><table class="jad">
-      <tr><th>Son</th><th>× 10</th><th>× 100</th><th>× 1000</th></tr>
-      <tr><td>58</td><td>580</td><td>5800</td><td>58 000</td></tr>
-      <tr><td>407</td><td>4070</td><td>40 700</td><td>407 000</td></tr>
-    </table></div>
   </div>
 </section>
 
-<!-- 5. Diqqat -->
-<section class="m-sec">
-  <h2><span class="n">5</span>Diqqat! Ko'p uchraydigan xatolar</h2>
-  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">To'xtang! Faqat oxiridagi nollar tushib qoladi — o'rtadagisi emas.</div></div>
+<!-- ============ 2-QISM: MISOLLAR ISHLASH ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Misollar ishlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">1-misol · tushirib qoldirilgan son</span>
+    <p>Katakka qaysi son yoziladi? a) \(74 \cdot \square = 74\,000\); b) \(\square : 100 = 47\); c) \(\square \cdot 10 : 1000 = 7\).</p>
+    <div class="qadam"><b>1</b><span>a) 74 ning oxiriga uchta 0 qo'shilgan.</span></div>
+    <div class="qadam"><b>2</b><span>Uchta nol — 1000 ga ko'paytirish: \(\square = \nat{1000}\).</span></div>
+    <div class="qadam"><b>3</b><span>b) Bo'linuvchi = bo'linma · bo'luvchi: \(47 \cdot 100 = 4700\).</span></div>
+    <div class="qadam"><b>4</b><span>\(\square = \nat{4700}\). Tekshiramiz: \(4700 : 100 = 47\).</span></div>
+    <div class="qadam"><b>5</b><span>c) Oxirgi amaldan boshlaymiz: 1000 ga bo'lishdan oldin son \(7 \cdot 1000 = 7000\) edi.</span></div>
+    <div class="qadam"><b>6</b><span>\(\square \cdot 10 = 7000\), demak, \(\square = 7000 : 10 = \nat{700}\). Tekshiramiz: \(700 \cdot 10 = 7000\), \(7000 : 1000 = 7\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · ikki amal</span>
+    <p>\(5300 : 100 \cdot 1000\) ni hisoblang.</p>
+    <div class="qadam"><b>1</b><span>Amallarni chapdan o'ngga bajaramiz: \(5300 : 100 = 53\).</span></div>
+    <div class="qadam"><b>2</b><span>\(53 \cdot 1000 = \nat{53\,000}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-misol · «marta ko'p»</span>
+    <p>Maktab kutubxonasida 1360 ta kitob bor. Shahar kutubxonasida kitoblar 100 marta ko'p. Shahar kutubxonasida nechta kitob bor?</p>
+    <div class="qadam"><b>1</b><span>«100 marta ko'p» — 1360 ni 100 ga ko'paytiramiz.</span></div>
+    <div class="qadam"><b>2</b><span>\(1360 \cdot 100 = \nat{136\,000}\) ta kitob.</span></div>
+  </div>
+
+  <div class="gap ong"><img src="personaj/aziz-oylaydi.webp" alt="Aziz o'ylanmoqda" width="120" height="140"><div class="pufak">Masalada «10 marta baland» deyilgan, lekin pastrog'ini topish kerak. Ko'paytiramanmi yoki bo'lamanmi?</div></div>
+  <div class="box namuna">
+    <span class="tag">4-misol · kichik sonni topish</span>
+    <p>Bog'dagi terakning bo'yi 2500 cm. Terak yonidagi ko'chatdan 10 marta baland. Ko'chatning bo'yi necha santimetr?</p>
+    <div class="qadam"><b>1</b><span>Ko'chat terakdan 10 marta past.</span></div>
+    <div class="qadam"><b>2</b><span>Kichik sonni topamiz — bo'lamiz: \(2500 : 10 = \nat{250}\) cm.</span></div>
+    <div class="qadam"><b>3</b><span>Tekshiramiz: \(250 \cdot 10 = 2500\) cm (terakning bo'yi).</span></div>
+  </div>
+
+  <div class="gap"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Nolni o'rtadan o'chirib yuborsam, son butunlay boshqa bo'lib qoladi!</div></div>
   <div class="box diqqat">
-    <span class="tag">Xato ⟶ To'g'ri</span>
+    <span class="tag">Diqqat!</span>
     <ol>
-      <li>Bo'lishda faqat <b>oxiridagi</b> nollar olib tashlanadi, o'rtadagi nol qoladi.<br><span class="xato">4050 : 10 = 45</span> &nbsp;→&nbsp; <span class="togri">4050 : 10 = 405</span></li>
-      <li>Ko'paytuvchidagi nollar ham saqlanadi.<br><span class="xato">400 · 1000 = 4000</span> &nbsp;→&nbsp; <span class="togri">400 · 1000 = 400 000</span></li>
-      <li>100 ga ko'paytirganda ikkita nol yoziladi, bitta emas.<br><span class="xato">205 · 100 = 2050</span> &nbsp;→&nbsp; <span class="togri">205 · 100 = 20 500</span></li>
-      <li>«10 marta kichik» bo'lgan sonni topishda ko'paytirmang, bo'ling. Aka 840 000 so'm, ukada 10 marta kam:<br><span class="xato">8 400 000</span> &nbsp;→&nbsp; <span class="togri">840 000 : 10 = 84 000</span></li>
-      <li>Oxiri nol bilan tugamagan son (masalan, 3456) 10 ga qoldiqsiz bo'linmaydi — oxiridan raqam «tashlab yuborib» bo'lmaydi: \(3456 : 10 \ne 345\).</li>
+      <li>Faqat oxiridagi nol tushadi:<br><span class="xato">6050 : 10 = 65</span> &nbsp;→&nbsp; <span class="togri">6050 : 10 = 605</span></li>
+      <li>10 ga bo'lganda bitta nol tushadi:<br><span class="xato">52 600 : 10 = 526</span> &nbsp;→&nbsp; <span class="togri">52 600 : 10 = 5260</span></li>
+      <li>100 ga ko'paytirganda ikkita nol yoziladi:<br><span class="xato">509 · 100 = 5090</span> &nbsp;→&nbsp; <span class="togri">509 · 100 = 50 900</span></li>
+      <li>Sonning o'zidagi nollar ham qoladi:<br><span class="xato">300 · 100 = 3000</span> &nbsp;→&nbsp; <span class="togri">300 · 100 = 30 000</span></li>
     </ol>
   </div>
 </section>
 
-<!-- 6. Mashqlar -->
-<section class="m-sec">
-  <h2><span class="n">6</span>Mashqlar</h2>
-  <div class="gap"><img src="personaj/aziz-yozadi.webp" alt="Aziz daftarga yozmoqda" width="120" height="140"><div class="pufak">Nollarni sanayman, keyin yozaman!</div></div>
+<!-- ============ 3-QISM: MUSTAHKAMLASH ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Mustahkamlash</h2></div>
 
-  <div class="daraja oson"><i></i>Oson — ko'paytiring</div>
-  <div class="misollar">
-    <span><b>a)</b>47 · 10</span><span><b>b)</b>385 · 10</span><span><b>c)</b>10 · 2006</span>
-    <span><b>d)</b>36 · 100</span><span><b>e)</b>100 · 709</span><span><b>f)</b>4150 · 100</span>
-    <span><b>g)</b>18 · 1000</span><span><b>h)</b>1000 · 520</span><span><b>i)</b>3007 · 1000</span>
-  </div>
-  <details class="javob"><summary>Javobni ko'rish</summary>
-    <div class="javoblar"><span>a) 470</span><span>b) 3850</span><span>c) 20 060</span><span>d) 3600</span><span>e) 70 900</span><span>f) 415 000</span><span>g) 18 000</span><span>h) 520 000</span><span>i) 3 007 000</span></div>
-  </details>
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Tugmalar qaysi sonni ko'rsatadi? Shu son 10 ga ko'paytirilsa, tugmalar qanday o'zgaradi va qaysi son hosil bo'ladi?
+      <div data-tugma="35"></div></li>
+    <li>Ko'paytiring: a) \(64 \cdot 10\); b) \(10 \cdot 2307\); c) \(85 \cdot 100\); d) \(100 \cdot 690\); e) \(27 \cdot 1000\); f) \(1000 \cdot 3040\); g) \(100 \cdot 100\); h) \(1000 \cdot 1000\).</li>
+    <li>Bo'ling: a) \(590 : 10\); b) \(7030 : 10\); c) \(4800 : 100\); d) \(60\,200 : 100\); e) \(7000 : 1000\); f) \(135\,000 : 1000\).</li>
+    <li>Jadvalni to'ldiring.
+      <div class="jad-wrap"><table class="jad">
+        <tr><th>Son</th><th>× 10</th><th>× 100</th><th>× 1000</th></tr>
+        <tr><td>52</td><td>?</td><td>?</td><td>?</td></tr>
+        <tr><td>840</td><td>?</td><td>?</td><td>?</td></tr>
+      </table></div></li>
+    <li>Katakka qaysi son yoziladi? a) \(93 \cdot \square = 9300\); b) \(6 \cdot \square = 6000\); c) \(\square \cdot 10 = 4610\); d) \(2800 : \square = 28\); e) \(\square : 1000 = 75\); f) \(\square : 100 = 302\); g) \(\square : 1000 = 100\).</li>
+    <li>Ko'paytirish bilan tekshiring. Qaysi bo'lish noto'g'ri? To'g'risini yozing. a) \(38\,000 : 100 = 380\); b) \(704\,000 : 1000 = 74\); c) \(12\,090 : 10 = 1209\).</li>
+    <li>Hisoblang: a) \(9 \cdot 10 \cdot 10 \cdot 10\); b) \(72\,000 : 10 : 10\); c) \(1\,000\,000 : 1000\).</li>
+    <li>Taqqoslang (\(&gt;\), \(&lt;\) yoki \(=\)): a) \(35 \cdot 1000\) va \(3500 \cdot 10\); b) \(46 \cdot 100\) va \(4600 \cdot 10\); c) \(60\,000 : 100\) va \(6000 : 10\).</li>
+  </ol>
 
-  <div class="daraja oson"><i></i>Oson — bo'ling</div>
-  <div class="misollar">
-    <span><b>a)</b>260 : 10</span><span><b>b)</b>4080 : 10</span><span><b>c)</b>31 500 : 10</span>
-    <span><b>d)</b>900 : 100</span><span><b>e)</b>7300 : 100</span><span><b>f)</b>60 400 : 100</span>
-    <span><b>g)</b>8000 : 1000</span><span><b>h)</b>45 000 : 1000</span><span><b>i)</b>1 200 000 : 1000</span>
-  </div>
-  <details class="javob"><summary>Javobni ko'rish</summary>
-    <div class="javoblar"><span>a) 26</span><span>b) 408</span><span>c) 3150</span><span>d) 9</span><span>e) 73</span><span>f) 604</span><span>g) 8</span><span>h) 45</span><span>i) 1200</span></div>
-  </details>
-
-  <div class="daraja orta"><i></i>O'rta — tushirib qoldirilgan sonni toping</div>
-  <div class="misollar" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
-    <span><b>a)</b>524 · □ = 52 400</span><span><b>b)</b>70 · □ = 70 000</span>
-    <span><b>c)</b>□ · 10 = 6080</span><span><b>d)</b>□ · 1000 = 4 090 000</span>
-    <span><b>e)</b>9300 : □ = 93</span><span><b>f)</b>□ : 10 = 705</span>
-    <span><b>g)</b>□ : 1000 = 260</span><span><b>h)</b>81 000 : □ = 810</span>
-  </div>
-  <details class="javob"><summary>Javobni ko'rish</summary>
-    <div class="javoblar"><span>a) 100</span><span>b) 1000</span><span>c) 608</span><span>d) 4090</span><span>e) 100</span><span>f) 7050</span><span>g) 260 000</span><span>h) 100</span></div>
-  </details>
-
-  <div class="daraja orta"><i></i>O'rta — jadvalni to'ldiring</div>
-  <div class="jad-wrap"><table class="jad">
-    <tr><th>Son</th><th>× 10</th><th>× 100</th><th>× 1000</th></tr>
-    <tr><td>93</td><td>?</td><td>?</td><td>?</td></tr>
-    <tr><td>3260</td><td>?</td><td>?</td><td>?</td></tr>
-  </table></div>
-  <div class="jad-wrap"><table class="jad">
-    <tr><th>Son</th><th>: 10</th><th>: 100</th><th>: 1000</th></tr>
-    <tr><td>720 000</td><td>?</td><td>?</td><td>?</td></tr>
-    <tr><td>5 008 000</td><td>?</td><td>?</td><td>?</td></tr>
-  </table></div>
-  <details class="javob"><summary>Javobni ko'rish</summary>
-    <p style="margin:4px 0">93: 930; 9300; 93 000 &nbsp;·&nbsp; 3260: 32 600; 326 000; 3 260 000</p>
-    <p style="margin:4px 0">720 000: 72 000; 7200; 720 &nbsp;·&nbsp; 5 008 000: 500 800; 50 080; 5008</p>
-  </details>
-
-  <div class="daraja orta"><i></i>O'rta — bo'lishni ko'paytirish bilan tekshiring</div>
-  <div class="misollar" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
-    <span><b>a)</b>47 000 : 100 = 470</span><span><b>b)</b>903 000 : 1000 = 93</span><span><b>c)</b>15 060 : 10 = 1506</span>
-  </div>
-  <p>Qaysi bo'lish noto'g'ri bajarilgan? To'g'risini yozing.</p>
-  <details class="javob"><summary>Javobni ko'rish</summary>
-    <div class="javoblar"><span>a) \(470 \cdot 100 = 47\,000\) ✓</span><span>b) \(93 \cdot 1000 = 93\,000 \ne 903\,000\) — xato; to'g'risi 903</span><span>c) \(1506 \cdot 10 = 15\,060\) ✓</span></div>
-  </details>
-
-  <div class="daraja qiyin-d"><i></i>Qiyin — hisoblang</div>
-  <div class="misollar" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
-    <span><b>a)</b>6 · 10 · 10 · 10</span><span><b>b)</b>5 400 000 : 100 : 10</span>
-    <span><b>c)</b>35 · 1000 : 100</span><span><b>d)</b>1 000 000 : 100</span>
-  </div>
-  <details class="javob"><summary>Javobni ko'rish</summary>
-    <div class="javoblar"><span>a) 6000</span><span>b) 5400</span><span>c) 35 000 : 100 = 350</span><span>d) 10 000 (bir millionda 10 000 ta yuz bor)</span></div>
-  </details>
-
-  <div class="daraja qiyin-d"><i></i>Qiyin — taqqoslang (&gt;, &lt; yoki =)</div>
-  <div class="misollar" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-    <span><b>a)</b>35 · 1000 □ 3500 · 10</span><span><b>b)</b>46 · 100 □ 4600 · 10</span><span><b>c)</b>90 000 : 100 □ 9000 : 10</span>
-  </div>
-  <details class="javob"><summary>Javobni ko'rish</summary>
-    <div class="javoblar"><span>a) 35 000 = 35 000</span><span>b) 4600 &lt; 46 000</span><span>c) 900 = 900</span></div>
-  </details>
+  <h3>Matnli masalalar</h3>
+  <ol class="masalalar">
+    <li>Bitta qutida 10 ta flomaster bor. 125 ta qutida nechta flomaster bor?</li>
+    <li>Ertalab novvoyxonada 140 ta non yopildi, kun bo'yi esa 10 marta ko'p. Kun bo'yi nechta non yopildi?</li>
+    <li>Katta hovuzga 360 000 litr suv sig'adi. Bolalar hovuziga esa 100 marta kam suv sig'adi. Bolalar hovuziga necha litr suv sig'adi?</li>
+    <li>Fabrika 27 000 ta qalamni 100 tadan qutilarga joyladi. Nechta quti kerak bo'ldi?</li>
+    <li>Filning vazni 5000 kg. U kengurudan 100 marta og'ir. Kenguruning vazni necha kilogramm?</li>
+    <li>Sut zavodi kuniga 6500 litr sut tayyorlaydi. 10 kunda necha litr sut tayyorlaydi? Shu sut 100 litrlik bochkalarga quyilsa, nechta bochka kerak bo'ladi?</li>
+  </ol>
 </section>
 
-<!-- 7. Matnli masalalar -->
-<section class="m-sec">
-  <h2><span class="n">7</span>Matnli masalalar</h2>
-  <div class="box masala">
-    <span class="tag">Masalalarni yeching</span>
-    <ol class="masalalar">
-      <li>Bitta daftar 3600 so'm turadi. 10 ta shunday daftar necha so'm turadi?
-        <details class="javob"><summary>Javobni ko'rish</summary>\(3600 \cdot 10 = 36\,000\) so'm</details></li>
-      <li>Hayit kuni Nodirga 15 000 so'm berishdi, opasiga esa undan 3 marta ko'p pul berishdi. Opasi necha so'm olgan?
-        <details class="javob"><summary>Javobni ko'rish</summary>\(15\,000 \cdot 3 = 45\,000\) so'm</details></li>
-      <li>Bitta qutida 250 ta qalam bor. 100 ta qutida nechta qalam bor?
-        <details class="javob"><summary>Javobni ko'rish</summary>\(250 \cdot 100 = 25\,000\) ta</details></li>
-      <li>Kutubxonadagi 18 000 ta kitob 100 ta javonga teng joylandi. Har bir javonda nechta kitob bor?
-        <details class="javob"><summary>Javobni ko'rish</summary>\(18\,000 : 100 = 180\) ta</details></li>
-      <li>Shahar aholisi qishloq aholisidan 1000 marta ko'p. Qishloqda 1350 kishi yashaydi. Shaharda necha kishi yashaydi?
-        <details class="javob"><summary>Javobni ko'rish</summary>\(1350 \cdot 1000 = 1\,350\,000\) kishi</details></li>
-      <li>Fermerning bog'ida 26 000 tup ko'chat bor, bu qo'shnisinikidan 100 marta ko'p. Qo'shnisida necha tup ko'chat bor?
-        <details class="javob"><summary>Javobni ko'rish</summary>\(26\,000 : 100 = 260\) tup</details></li>
-      <li>1 km = 1000 m. 37 km necha metr? 52 000 m necha kilometr?
-        <details class="javob"><summary>Javobni ko'rish</summary>\(37 \cdot 1000 = 37\,000\) m; \(52\,000 : 1000 = 52\) km</details></li>
-    </ol>
-  </div>
+<!-- ============ 4-QISM: MUSTAQIL ISH ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Mustaqil ish</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Hisoblang: a) \(79 \cdot 100\); b) \(1000 \cdot 406\); c) \(8100 : 100\); d) \(250\,000 : 1000\).</li>
+    <li>Katakka qaysi son yoziladi? a) \(603 \cdot \square = 60\,300\); b) \(\square : 10 = 3080\).</li>
+    <li>Aziz shunday yozdi: \(30\,400 : 100 = 34\). Xato qayerda? To'g'ri javobni toping va ko'paytirish bilan tekshiring.</li>
+    <li>O'rmon xo'jaligida daraxtlar shahar bog'idagidan 100 marta ko'p. Bog'da 1450 tup daraxt bor. O'rmon xo'jaligida necha tup daraxt bor?</li>
+    <li>5800 ta konfet 10 tadan qutilarga solindi. Nechta quti chiqdi?</li>
+    <li>Bir son avval 100 ga ko'paytirildi, keyin 1000 ga bo'lindi — 64 chiqdi. Qaysi son olingan edi?</li>
+  </ol>
 </section>
 
-<!-- 8. O'ylab ko'ring -->
-<section class="m-sec">
-  <h2><span class="n">8</span>O'ylab ko'ring</h2>
-  <div class="gap ong"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylanmoqda" width="120" height="140"><div class="pufak">Shoshilmang: nollarni sanang, keyin javob bering.</div></div>
-  <div class="box qiyin">
-    <span class="tag">Topishmoq</span>
-    <p>Men bir son o'yladim. Uni 1000 ga ko'paytirib, so'ng 10 ga bo'lsam, 70 500 chiqdi. Men qaysi sonni o'yladim?</p>
-    <details class="javob"><summary>Javobni ko'rish</summary>Teskari amallarni bajaramiz: \(70\,500 \cdot 10 = 705\,000\), \(705\,000 : 1000 = 705\). O'ylangan son — 705.</details>
-  </div>
-  <div class="box qiyin">
-    <span class="tag">Xatoni toping</span>
-    <p>Sardor shunday yozdi: «87 300 ni 10 ga bo'lsam, 873 chiqadi, chunki nollarni olib tashlayman». Uning xatosi nimada?</p>
-    <details class="javob"><summary>Javobni ko'rish</summary>10 ga bo'lganda faqat <b>bitta</b> nol tushib qoladi: \(87\,300 : 10 = 8730\). 873 esa 87 300 ni 100 ga bo'lganda chiqadi.</details>
-  </div>
-</section>
+<!-- ============ 5-QISM: JAVOBLAR ============ -->
+<div class="m-qism q-javob"><div class="q-n">5-qism</div><h2>Javoblar</h2></div>
 
-<!-- 9. O'zingizni tekshiring -->
-<section class="m-sec">
-  <h2><span class="n">9</span>O'zingizni tekshiring</h2>
-  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Hammasini bilsangiz — belgilab chiqing va Interaktiv bo'limda mashq qiling!</div></div>
-  <div class="box">
-    <ul class="tekshir">
-      <li><input type="checkbox" id="t1"><label for="t1">Men sonni 10, 100 va 1000 ga ko'paytira olaman.</label></li>
-      <li><input type="checkbox" id="t2"><label for="t2">Men oxiri nol bilan tugagan sonni 10, 100 va 1000 ga bo'la olaman.</label></li>
-      <li><input type="checkbox" id="t3"><label for="t3">Men bo'lishni ko'paytirish bilan tekshira olaman.</label></li>
-      <li><input type="checkbox" id="t4"><label for="t4">Men «marta ko'p» va «marta kam» masalalarini yecha olaman.</label></li>
-    </ul>
-  </div>
+<section class="m-sec qism-ichi">
+  <h3>Mustahkamlash</h3>
+  <details class="javob"><summary>1-masala</summary>35: 3 ta o'nlik, 5 ta birlik. 10 ga ko'paytirsak, 3 ta yuzlik va 5 ta o'nlik bo'ladi, birlik qolmaydi: \(35 \cdot 10 = 350\).</details>
+  <details class="javob"><summary>2-masala</summary>a) 640; b) 23 070; c) 8500; d) 69 000; e) 27 000; f) 3 040 000; g) 10 000; h) 1 000 000.</details>
+  <details class="javob"><summary>3-masala</summary>a) 59; b) 703; c) 48; d) 602; e) 7; f) 135.</details>
+  <details class="javob"><summary>4-masala</summary>52: 520; 5200; 52 000. &nbsp; 840: 8400; 84 000; 840 000.</details>
+  <details class="javob"><summary>5-masala</summary>a) 100; b) 1000; c) \(4610 : 10 = 461\); d) 100; e) \(75 \cdot 1000 = 75\,000\); f) \(302 \cdot 100 = 30\,200\); g) \(100 \cdot 1000 = 100\,000\).</details>
+  <details class="javob"><summary>6-masala</summary>a) \(380 \cdot 100 = 38\,000\) — to'g'ri; b) \(74 \cdot 1000 = 74\,000\), 704 000 emas — noto'g'ri, to'g'risi \(704\,000 : 1000 = 704\); c) \(1209 \cdot 10 = 12\,090\) — to'g'ri.</details>
+  <details class="javob"><summary>7-masala</summary>a) \(9 \cdot 10 = 90\), \(90 \cdot 10 = 900\), \(900 \cdot 10 = 9000\); b) \(72\,000 : 10 = 7200\), \(7200 : 10 = 720\); c) 1000.</details>
+  <details class="javob"><summary>8-masala</summary>a) \(35\,000 = 35\,000\); b) \(4600 &lt; 46\,000\); c) \(600 = 600\).</details>
+
+  <h3>Matnli masalalar</h3>
+  <details class="javob"><summary>1-masala</summary>\(125 \cdot 10 = 1250\) ta flomaster.</details>
+  <details class="javob"><summary>2-masala</summary>\(140 \cdot 10 = 1400\) ta non.</details>
+  <details class="javob"><summary>3-masala</summary>\(360\,000 : 100 = 3600\) litr.</details>
+  <details class="javob"><summary>4-masala</summary>\(27\,000 : 100 = 270\) ta quti.</details>
+  <details class="javob"><summary>5-masala</summary>Kenguru 100 marta yengil: \(5000 : 100 = 50\) kg.</details>
+  <details class="javob"><summary>6-masala</summary>\(6500 \cdot 10 = 65\,000\) litr; \(65\,000 : 100 = 650\) ta bochka.</details>
+
+  <h3>Mustaqil ish</h3>
+  <details class="javob"><summary>1-masala</summary>a) 7900; b) 406 000; c) 81; d) 250.</details>
+  <details class="javob"><summary>2-masala</summary>a) ikkita 0 qo'shilgan: \(\square = 100\); b) \(3080 \cdot 10 = 30\,800\).</details>
+  <details class="javob"><summary>3-masala</summary>O'rtadagi 0 ham olib tashlangan. To'g'ri: \(30\,400 : 100 = 304\). Tekshiruv: \(304 \cdot 100 = 30\,400\).</details>
+  <details class="javob"><summary>4-masala</summary>\(1450 \cdot 100 = 145\,000\) tup.</details>
+  <details class="javob"><summary>5-masala</summary>\(5800 : 10 = 580\) ta quti.</details>
+  <details class="javob"><summary>6-masala</summary>\(64 \cdot 1000 = 64\,000\), \(64\,000 : 100 = 640\). Tekshiruv: \(640 \cdot 100 = 64\,000\), \(64\,000 : 1000 = 64\).</details>
 </section>
 
 <p class="m-foot">Mathlearn · 5-sinf matematika</p>

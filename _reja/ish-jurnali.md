@@ -9,10 +9,23 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 ---
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
-- **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor.
+- **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor. 1–10-mavzular 5 qismli tuzilishga qayta yozildi va tekshirildi (2026-10-25); navbat: 11-mavzudan davom.
 - **6-sinf:** 1–14-mavzular tayyor, hammasi 5 qismli ixcham tuzilishda va Jumavoy + Ibrohim ustoz + «Anti sun'iylik» tekshiruvidan o'tgan (2026-10-25). Navbat: 15-mavzu «Aylananing uzunligi».
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+
+---
+
+## 2026-10-25 13:13 — m.shukurillo hisobi
+**Qilindi:**
+- 5-sinf 1–10-mavzular ma'ruzalari 5 qismli tuzilishga qayta yozildi. Foydalanuvchi talabi: mavzu majburan qisqartirilmaydi — to'liq mohiyati ochilguncha sodda tushuntiriladi, lekin cho'zilmaydi.
+- Qoida matni kitobda bo'lsa — aynan (4-mavzu D1 30–38 ramkalari, 6-mavzu yon izohlari, 9-mavzu D1 70/73 va b.); faqat namuna bo'lsa — «Usul». Kitob xatosi tuzatildi (9-mavzu: «umumiy karralisiga» → «bo'luvchisiga»).
+- Tekshiruvchi endi bitta: Jumavoy + Ibrohim ustoz, «Anti sun'iylik» vazifasi Ibrohim ustozda (foydalanuvchi qarori, token tejash).
+- Testlar (20 + 20) yangi ma'ruzaga moslandi — har mavzuda 4–40 savol almashtirildi (kitob juftlari, kitob qoliplari, ma'ruzada yo'q usullar, teng qiymatli variantlar).
+- Ish davomida xavfsizlik tekshiruvi (server) bir muddat ishlamadi va limit 12:20 gacha tugadi — ish to'xtagan joydan davom ettirildi.
+
+**Chala:** yo'q.
+**Navbatda:** 5-sinf 11-mavzudan boshlab xuddi shunday (yoki 6-sinf 15-mavzu «Aylananing uzunligi» — foydalanuvchi hal qiladi).
 
 ---
 
