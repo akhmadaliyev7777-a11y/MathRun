@@ -9,10 +9,17 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 ---
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
-- **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor. 1–10-mavzular 5 qismli tuzilishga qayta yozildi va tekshirildi (2026-10-25); navbat: 11-mavzudan davom.
+- **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor. 1–12-mavzular 5 qismli tuzilishga qayta yozildi va tekshirildi (2026-10-25); navbat: 13-mavzudan davom (2 tadan).
 - **6-sinf:** 1–14-mavzular tayyor, hammasi 5 qismli ixcham tuzilishda va Jumavoy + Ibrohim ustoz + «Anti sun'iylik» tekshiruvidan o'tgan (2026-10-25). Navbat: 15-mavzu «Aylananing uzunligi».
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+
+---
+
+## 2026-10-25 14:27 — m.shukurillo hisobi
+**Qilindi:** 5-sinf 11 «Qolgan qismning qismi» va 12 «Uchburchakning asosi va balandligi» — 5 qismli tuzilish, Jumavoy + Ibrohim ustoz tekshiruvi, test 20+20 moslandi (12-mavzuda 11 ta yangi rasmli savol). Foydalanuvchi: endi 2 tadan mavzu.
+**Chala:** yo'q.
+**Navbatda:** 5-sinf 13 «Uchburchakning yuzini topish» va 14.
 
 ---
 
