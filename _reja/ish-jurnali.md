@@ -9,10 +9,17 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 ---
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
-- **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor. 1–12 — 5 qismli tuzilishga qayta yozildi; 13–16 — qayta yozilmay tekshirildi va joyida tuzatildi (2026-10-25). Navbat: 17-mavzudan, 2 tadan, qayta yozmasdan tekshiruv (qoidalar kitob rasmi bilan, hajm/takror ham).
+- **5-sinf:** 47/47 — 1–12 qayta yozildi (5 qism), 13–18 to'liq tekshirib joyida tuzatildi, 19–47 «Anti sun'iylik» tekshiruvidan o'tdi (2026-10-25). 5-sinf ko'rib chiqish tugadi.
 - **6-sinf:** 1–14-mavzular tayyor, hammasi 5 qismli ixcham tuzilishda va Jumavoy + Ibrohim ustoz + «Anti sun'iylik» tekshiruvidan o'tgan (2026-10-25). Navbat: 15-mavzu «Aylananing uzunligi».
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+
+---
+
+## 2026-10-25 20:15 — m.shukurillo hisobi
+**Qilindi:** 5-sinf 19–47 — faqat «Anti sun'iylik» tekshiruvi (Ibrohim ustoz): shior/reja pufaklari olib tashlandi yoki aniq misolga bog'landi, «Reja:» va «(3-qoida)» ishoralari olib tashlandi; mashqlar, qoidalar, sonlar o'zgarmadi. Tungi rejim butun saytga (asosiy, 1–4-sinf, o'yinlar, admin) qo'shildi. Yangi ish qoidalari: push faqat foydalanuvchi tasdiqlagach; mashqlar qisqartirilmaydi; mavzular sonini foydalanuvchi har safar aytadi.
+**Chala:** 33- va 34-mavzularda tenglik.py oldindan 14 va 11 «xato» ko'rsatadi — tekshirilmagan (atayin xato misollar bo'lishi mumkin).
+**Navbatda:** 6-sinf 15 «Aylananing uzunligi» (yoki foydalanuvchi aytgan ish).
 
 ---
 
