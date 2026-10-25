@@ -1098,7 +1098,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "burchak-turlari", title: "Burchakning turlari", page: "45-bet",
+              id: "burchak-turlari", icon: "img/mavzu/7-burchak-turlari.webp", title: "Burchakning turlari", page: "45-bet",
               sections: [
                 secText("Kattaligiga ko'ra turlari",
                   "<div class='lecture-figure'>" +
@@ -1134,7 +1134,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "perpendikulyar-togri-chiziqlar", title: "Perpendikulyar to'g'ri chiziqlar", page: "53-bet",
+              id: "perpendikulyar-togri-chiziqlar", icon: "img/mavzu/7-perpendikulyar-togri-chiziqlar.webp", title: "Perpendikulyar to'g'ri chiziqlar", page: "53-bet",
               sections: [
                 secText("Ta'rif",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> kesishganda to'g'ri (90°) burchak hosil qiladigan ikki to'g'ri chiziq <strong>perpendikulyar</strong> deyiladi. Belgilanishi: a ⊥ b.</div>" +
@@ -1163,7 +1163,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "uchburchaklar-turlari-elementlari", title: "Uchburchaklar, ularning turlari va elementlari", page: "72-bet",
+              id: "uchburchaklar-turlari-elementlari", icon: "img/mavzu/7-uchburchaklar-turlari-elementlari.webp", title: "Uchburchaklar, ularning turlari va elementlari", page: "72-bet",
               sections: [
                 secText("Uchburchak va uning elementlari",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> bir to'g'ri chiziqda yotmaydigan uch nuqta (uchlar) va ularni juft-juft tutashtiruvchi uch kesmadan (tomonlar) tuzilgan shakl <strong>uchburchak</strong> deyiladi.</div>" +
@@ -1196,7 +1196,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "uchburchak-tenglik-1", title: "Uchburchaklar tengligining birinchi alomati", page: "79-bet",
+              id: "uchburchak-tenglik-1", icon: "img/mavzu/7-uchburchak-tenglik-1.webp", title: "Uchburchaklar tengligining birinchi alomati", page: "79-bet",
               sections: [
                 secText("Teng uchburchaklar",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> ustma-ust qo'yganda to'la mos tushadigan uchburchaklar <strong>teng</strong> deyiladi. Teng uchburchaklarning mos tomonlari va mos burchaklari o'zaro teng.</div>"
@@ -1222,7 +1222,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "teng-yonli-uchburchak-xossalari", title: "Teng yonli uchburchakning xossalari", page: "82-bet",
+              id: "teng-yonli-uchburchak-xossalari", icon: "img/mavzu/7-teng-yonli-uchburchak-xossalari.webp", title: "Teng yonli uchburchakning xossalari", page: "82-bet",
               sections: [
                 secText("Ta'rif",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> ikki tomoni teng bo'lgan uchburchak <strong>teng yonli</strong> deyiladi. Teng tomonlar — <strong>yon tomonlar</strong>, uchinchisi — <strong>asos</strong>.</div>" +
@@ -1252,7 +1252,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "uchburchak-tenglik-2", title: "Uchburchaklar tengligining ikkinchi alomati", page: "85-bet",
+              id: "uchburchak-tenglik-2", icon: "img/mavzu/7-uchburchak-tenglik-2.webp", title: "Uchburchaklar tengligining ikkinchi alomati", page: "85-bet",
               sections: [
                 secText("Ikkinchi alomat (burchak — tomon — burchak)",
                   "<div class='lecture-rule'><strong>Teorema:</strong> agar bir uchburchakning bir tomoni va unga yopishgan ikki burchagi ikkinchi uchburchakning mos tomoni va unga yopishgan ikki burchagiga teng bo'lsa, bunday uchburchaklar teng.</div>"
@@ -1270,7 +1270,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "uchburchak-tenglik-3", title: "Uchburchaklar tengligining uchinchi alomati", page: "87-bet",
+              id: "uchburchak-tenglik-3", icon: "img/mavzu/7-uchburchak-tenglik-3.webp", title: "Uchburchaklar tengligining uchinchi alomati", page: "87-bet",
               sections: [
                 secText("Uchinchi alomat (uch tomon)",
                   "<div class='lecture-rule'><strong>Teorema:</strong> agar bir uchburchakning uch tomoni ikkinchi uchburchakning mos uch tomoniga teng bo'lsa, bunday uchburchaklar teng.</div>"
@@ -1289,7 +1289,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "parallel-togri-chiziqlar-tushunchasi", title: "Parallel to'g'ri chiziqlar", page: "100-bet",
+              id: "parallel-togri-chiziqlar-tushunchasi", icon: "img/mavzu/7-parallel-togri-chiziqlar-tushunchasi.webp", title: "Parallel to'g'ri chiziqlar", page: "100-bet",
               sections: [
                 secText("Ta'rif",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> bir tekislikda yotgan va kesishmaydigan ikki to'g'ri chiziq <strong>parallel</strong> deyiladi. Belgilanishi: a ∥ b.</div>" +
@@ -1314,7 +1314,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "parallellik-alomatlari", title: "Ikki to'g'ri chiziqning parallellik alomatlari", page: "105-bet",
+              id: "parallellik-alomatlari", icon: "img/mavzu/7-parallellik-alomatlari.webp", title: "Ikki to'g'ri chiziqning parallellik alomatlari", page: "105-bet",
               sections: [
                 secText("Kesuvchi va burchaklar",
                   "<div class='lecture-figure'>" +
@@ -1343,7 +1343,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "kesuvchi-hosil-qilgan-burchaklar", title: "Ikki parallel to'g'ri chiziq va kesuvchi hosil qilgan burchaklar", page: "109-bet",
+              id: "kesuvchi-hosil-qilgan-burchaklar", icon: "img/mavzu/7-kesuvchi-hosil-qilgan-burchaklar.webp", title: "Ikki parallel to'g'ri chiziq va kesuvchi hosil qilgan burchaklar", page: "109-bet",
               sections: [
                 secText("Parallel chiziqlar xossasi (teskari teorema)",
                   "<div class='lecture-rule'><strong>Teorema:</strong> ikki parallel to'g'ri chiziq kesuvchi bilan kesilganda: ichki almashinuvchi burchaklar teng; mos burchaklar teng; ichki bir tomonli burchaklar yig'indisi 180°.</div>"
@@ -1370,7 +1370,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "uchburchak-ichki-burchaklar-yigindisi", title: "Uchburchakning ichki burchaklari yig'indisi", page: "124-bet",
+              id: "uchburchak-ichki-burchaklar-yigindisi", icon: "img/mavzu/7-uchburchak-ichki-burchaklar-yigindisi.webp", title: "Uchburchakning ichki burchaklari yig'indisi", page: "124-bet",
               sections: [
                 secText("Teorema",
                   "<div class='lecture-figure'>" +
@@ -1400,7 +1400,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "togri-burchakli-uchburchaklar", title: "To'g'ri burchakli uchburchaklar", page: "131-bet",
+              id: "togri-burchakli-uchburchaklar", icon: "img/mavzu/7-togri-burchakli-uchburchaklar.webp", title: "To'g'ri burchakli uchburchaklar", page: "131-bet",
               sections: [
                 secText("Elementlari",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> bitta burchagi 90° bo'lgan uchburchak <strong>to'g'ri burchakli</strong> deyiladi. To'g'ri burchak qarshisidagi tomon — <strong>gipotenuza</strong>, qolgan ikki tomon — <strong>katetlar</strong>.</div>" +
@@ -1431,7 +1431,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "bissektrisa-xossasi", title: "Burchak bissektrisasining xossasi", page: "135-bet",
+              id: "bissektrisa-xossasi", icon: "img/mavzu/7-bissektrisa-xossasi.webp", title: "Burchak bissektrisasining xossasi", page: "135-bet",
               sections: [
                 secText("Bissektrisa ta'rifi",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> burchakni ikkita teng burchakka bo'luvchi nur uning <strong>bissektrisasi</strong> deyiladi.</div>"
@@ -1460,7 +1460,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "tomon-burchak-munosabatlar", title: "Uchburchakning tomonlari va burchaklari orasidagi munosabatlar", page: "138-bet",
+              id: "tomon-burchak-munosabatlar", icon: "img/mavzu/7-tomon-burchak-munosabatlar.webp", title: "Uchburchakning tomonlari va burchaklari orasidagi munosabatlar", page: "138-bet",
               sections: [
                 secText("Katta tomon — katta burchak",
                   "<div class='lecture-rule'><strong>Teorema:</strong> uchburchakning katta tomoni qarshisida katta burchak yotadi; katta burchak qarshisida katta tomon yotadi.</div>" +
@@ -1480,7 +1480,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/7-geometriya-uchburchak-tengsizligi.html", review: true, test: null
             },
             {
-              id: "sirkul-chizgich-yasash", title: "Sirkul va chizg'ich yordamida geometrik yasashga doir masalalar", page: "152-bet",
+              id: "sirkul-chizgich-yasash", icon: "img/mavzu/7-sirkul-chizgich-yasash.webp", title: "Sirkul va chizg'ich yordamida geometrik yasashga doir masalalar", page: "152-bet",
               sections: [
                 secText("Yasash asboblari va shartlari",
                   "<div class='lecture-rule'><strong>Qoida:</strong> geometrik yasashda faqat ikki asbob ishlatiladi: <strong>chizg'ich</strong> (ikki nuqta orqali to'g'ri chiziq o'tkazish) va <strong>sirkul</strong> (markaz va radius bo'yicha aylana chizish). Chizg'ichda bo'linmalardan foydalanilmaydi.</div>"
