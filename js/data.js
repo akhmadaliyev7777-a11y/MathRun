@@ -992,11 +992,11 @@ const SITE_DATA = {
             { id: "funksiya-tushunchasi-7sinf", icon: "img/mavzu/7-funksiya-tushunchasi-7sinf.webp", title: "27. Funksiya tushunchasi", page: "115-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "«Funksiya mashinasi»: kirishga x tashlanadi, qoidaga ko'ra chiqishda y chiqadi. Natijalar jadvalga va koordinata tekisligiga nuqta bo'lib tushadi. Funksiya bo'lmagan moslik (bitta x ga ikki y) qizil bilan ko'rsatiladi." },
             { id: "chiziqli-funksiya", icon: "img/mavzu/7-chiziqli-funksiya.webp", title: "28. Chiziqli funksiya", page: "120-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "y = kx + b grafigi: k va b slayderlari. k o'zgarganda to'g'ri chiziq og'adi (k > 0 o'sadi, k < 0 kamayadi), b o'zgarganda chiziq yuqoriga-pastga suriladi. Ikkita chiziq parallel bo'ladigan holat (k bir xil) alohida ko'rsatiladi." },
             { id: "tenglamalar-sistemasi", icon: "img/mavzu/7-tenglamalar-sistemasi.webp", title: "29. Chiziqli tenglamalar sistemasi", page: "131-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Ikki tenglamaning grafigi bitta tekislikda. Koeffitsiyentlar slayderlar bilan o'zgaradi; kesishish nuqtasi — sistemaning yechimi. Chiziqlar parallel (yechim yo'q) va ustma-ust tushgan (cheksiz ko'p yechim) holatlar ham ko'rsatiladi." },
-            { id: "sistema-yechish-usullari", title: "30. Sistemani o'rniga qo'yish usulida yechish", page: "135-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Birinchi tenglamadan bitta noma'lum ifodalanadi (y = ...), so'ng bu ifoda kartochkasi ikkinchi tenglamadagi y ning ustiga «tushadi». Bir noma'lumli tenglama yechilib, javob birinchi tenglamaga qaytariladi. Yonidagi grafikda kesishish nuqtasi bilan tekshiriladi." },
-            { id: "sistema-qoshish-usuli", title: "31. Sistemani qo'shish usulida yechish", page: "135-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Ikki tenglama ustma-ust yoziladi. Ko'paytiruvchi slayderi bilan bitta noma'lumning koeffitsiyentlari qarama-qarshi qilinadi, so'ng tenglamalar qo'shilganda o'sha noma'lum yo'qoladi. Qadam-baqadam yechim va grafikda tekshiruv." },
-            { id: "kombinatorika-qoidalari", title: "32. Kombinatorikaning asosiy qoidalari", page: "146-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Kiyim tanlash: ko'ylaklar va shimlar. «Yoki» — qo'shish qoidasi (ko'ylak yoki kurtka), «va» — ko'paytirish qoidasi (ko'ylak va shim). Har bir variant juftlikda chiziladi, umumiy son daraxt yoki jadval bilan sanaladi." },
-            { id: "kombinatorik-masalalar-turlari", title: "33. Kombinatorik masalalar turlari", page: "150-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Uchta rejim, rangli sharlar bilan: o'rin almashtirish (hammasini qatorga terish, n!), o'rinlashtirish (n tadan k tasini tartib bilan tanlash), guruhlash (tartibsiz tanlash). Har rejimda barcha variantlar ro'yxati ko'rsatiladi va takrorlanuvchilari belgilanadi." },
-            { id: "kombinatorik-masalalar-usullari", title: "34. Kombinatorik masalalarni yechish usullari", page: "156-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Bitta masala uch usulda: barcha variantlarni ro'yxatlash, variantlar daraxti (shoxlar bosqichma-bosqich o'sadi) va jadval. Usullar yonma-yon ko'rsatiladi, natijalar bir xil ekani tekshiriladi." }
+            { id: "sistema-yechish-usullari", icon: "img/mavzu/7-sistema-yechish-usullari.webp", title: "30. Sistemani o'rniga qo'yish usulida yechish", page: "135-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Birinchi tenglamadan bitta noma'lum ifodalanadi (y = ...), so'ng bu ifoda kartochkasi ikkinchi tenglamadagi y ning ustiga «tushadi». Bir noma'lumli tenglama yechilib, javob birinchi tenglamaga qaytariladi. Yonidagi grafikda kesishish nuqtasi bilan tekshiriladi." },
+            { id: "sistema-qoshish-usuli", icon: "img/mavzu/7-sistema-qoshish-usuli.webp", title: "31. Sistemani qo'shish usulida yechish", page: "135-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Ikki tenglama ustma-ust yoziladi. Ko'paytiruvchi slayderi bilan bitta noma'lumning koeffitsiyentlari qarama-qarshi qilinadi, so'ng tenglamalar qo'shilganda o'sha noma'lum yo'qoladi. Qadam-baqadam yechim va grafikda tekshiruv." },
+            { id: "kombinatorika-qoidalari", icon: "img/mavzu/7-kombinatorika-qoidalari.webp", title: "32. Kombinatorikaning asosiy qoidalari", page: "146-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Kiyim tanlash: ko'ylaklar va shimlar. «Yoki» — qo'shish qoidasi (ko'ylak yoki kurtka), «va» — ko'paytirish qoidasi (ko'ylak va shim). Har bir variant juftlikda chiziladi, umumiy son daraxt yoki jadval bilan sanaladi." },
+            { id: "kombinatorik-masalalar-turlari", icon: "img/mavzu/7-kombinatorik-masalalar-turlari.webp", title: "33. Kombinatorik masalalar turlari", page: "150-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Uchta rejim, rangli sharlar bilan: o'rin almashtirish (hammasini qatorga terish, n!), o'rinlashtirish (n tadan k tasini tartib bilan tanlash), guruhlash (tartibsiz tanlash). Har rejimda barcha variantlar ro'yxati ko'rsatiladi va takrorlanuvchilari belgilanadi." },
+            { id: "kombinatorik-masalalar-usullari", icon: "img/mavzu/7-kombinatorik-masalalar-usullari.webp", title: "34. Kombinatorik masalalarni yechish usullari", page: "156-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null, simPlan: "Bitta masala uch usulda: barcha variantlarni ro'yxatlash, variantlar daraxti (shoxlar bosqichma-bosqich o'sadi) va jadval. Usullar yonma-yon ko'rsatiladi, natijalar bir xil ekani tekshiriladi." }
           ]
         },
         {
@@ -1004,7 +1004,7 @@ const SITE_DATA = {
           name: "Geometriya (2022-yil)",
           topics: [
             {
-              id: "eng-sodda-geometrik-shakllar", title: "Eng sodda geometrik shakllar", page: "8-bet",
+              id: "eng-sodda-geometrik-shakllar", icon: "img/mavzu/7-eng-sodda-geometrik-shakllar.webp", title: "Eng sodda geometrik shakllar", page: "8-bet",
               sections: [
                 secText("Asosiy tushunchalar",
                   "<p><strong>Nuqta</strong> va <strong>to'g'ri chiziq</strong> — planimetriyaning ta'riflanmaydigan asosiy tushunchalari. Nuqta bosh harf bilan (A, B), to'g'ri chiziq kichik harf (a) yoki uning ikki nuqtasi bilan (AB) belgilanadi.</p>" +
@@ -1035,7 +1035,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "kesma-taqqoslash-olchash", title: "Kesma. Kesmalarni taqqoslash va o'lchash", page: "17-bet",
+              id: "kesma-taqqoslash-olchash", icon: "img/mavzu/7-kesma-taqqoslash-olchash.webp", title: "Kesma. Kesmalarni taqqoslash va o'lchash", page: "17-bet",
               sections: [
                 secText("Kesmani o'lchash",
                   "<div class='lecture-rule'><strong>Qoida:</strong> kesma uzunligi tanlangan birlik kesma (mm, sm, m) necha marta joylashishini bildiradi. Har bir kesmaning aniq bir uzunligi (musbat son) bo'ladi.</div>" +
@@ -1066,7 +1066,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "burchak-taqqoslash-olchash", title: "Burchak. Burchaklarni taqqoslash va o'lchash", page: "29-bet",
+              id: "burchak-taqqoslash-olchash", icon: "img/mavzu/7-burchak-taqqoslash-olchash.webp", title: "Burchak. Burchaklarni taqqoslash va o'lchash", page: "29-bet",
               sections: [
                 secText("Burchak ta'rifi",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> umumiy boshlang'ich nuqtadan (uchdan) chiquvchi ikki nurdan iborat shakl <strong>burchak</strong> deyiladi. Nurlar — tomonlari. Belgilanishi: ∠AOB, ∠O yoki ∠1.</div>" +
