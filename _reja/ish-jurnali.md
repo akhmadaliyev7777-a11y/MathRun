@@ -9,10 +9,17 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 ---
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
-- **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor. 1–12-mavzular 5 qismli tuzilishga qayta yozildi va tekshirildi (2026-10-25); navbat: 13-mavzudan davom (2 tadan).
+- **5-sinf:** 47/47 mavzu — ma'ruza va o'z testi (20 + 20) tayyor. 1–12 — 5 qismli tuzilishga qayta yozildi; 13–14 — qayta yozilmay tekshirildi va joyida tuzatildi (2026-10-25). Navbat: 15-mavzudan, 2 tadan, qayta yozmasdan tekshiruv.
 - **6-sinf:** 1–14-mavzular tayyor, hammasi 5 qismli ixcham tuzilishda va Jumavoy + Ibrohim ustoz + «Anti sun'iylik» tekshiruvidan o'tgan (2026-10-25). Navbat: 15-mavzu «Aylananing uzunligi».
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+
+---
+
+## 2026-10-25 15:05 — m.shukurillo hisobi
+**Qilindi:** 5-sinf 13–14 — foydalanuvchi qarori bilan qayta yozilmadi: bitta agent Jumavoy + Ibrohim ustoz bo'lib tekshirdi va joyida tuzatdi. Qoidalar kitob rasmlari bilan solishtirildi (kitobda yo'q 4 ta «qoida» olib tashlandi/misolga aylantirildi, kitob formula zanjiri aynan qo'yildi). Testlarda 20 va 8 savol almashtirildi.
+**Chala:** yo'q.
+**Navbatda:** 5-sinf 15 «Fazoviy jismlarning hajmi» va 16.
 
 ---
 
