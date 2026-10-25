@@ -783,3 +783,135 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .nf-hint { font-weight: 700; color: var(--muted); margin-top: 8px; }
 
 .symcell.line-l { margin-left: 8px; } .symcell.line-t { margin-top: 8px; }
+
+/* ===================================================================
+   Tungi rejim (html[data-theme="dark"]) — asosiy sayt bilan bir xil ranglar (../css/style.css oxiri).
+   Mavzu <head> dagi bir qatorli skript va yuqoridagi oy tugmasi (../js/layout.js) orqali qo'yiladi.
+   Simulyator oynasi (lessons/) va yoyilma rasmlari o'z ranglarida — oq karta ichida qoladi.
+   =================================================================== */
+:root[data-theme="dark"] {
+  --cream: #0f1320;
+  --ink: #e7eaf3;
+  --peri: #bcc3ff;
+  --violet: #97a2ff;
+  --line: #2d3451;
+  --line-strong: #414a6e;
+  --muted: #a4acc4;
+  --muted-soft: #949cb6;
+  --tint: rgba(151, 162, 255, 0.14);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --k-accent: #5361e4;
+  --k-accent-dark: #bcc3ff;
+  --k-tint: rgba(151, 162, 255, 0.16);
+}
+/* natija ekrani (rangli fon) — oq yozuvlar o'z holicha */
+:root[data-theme="dark"] .result { --cream: #f6f7fb; --ink: #1f2433; }
+
+/* oq kartochkalar → to'q sirt */
+:root[data-theme="dark"] :is(.btn, .sc-card, .sc-ans, .sc-chip, .qcard, .kcard, .gchip, .gcard, .howcard,
+  .grade-btn, .rail-games, .chorak-tab, .bcard, .trow, .tbtn, .score-pill, .qbox, .answer, .venn, .tray,
+  .pv__col, .pan, .symcell, .nf-opt, .conv__item, .tug-input, .tug-select__btn, .tug-pop,
+  .tug-pop__input, .tug-setup__col--upload, .tug-panel, .simtests, .cp-chip, .cp-svg, .ml-card, .ml-read,
+  .fs-strip, .fs-cell) { background-color: var(--surface); }
+:root[data-theme="dark"] .eq input { background: var(--surface); }
+/* holat ranglari (yuqoridagi umumiy qoidadan keyin qayta) */
+:root[data-theme="dark"] .btn--accent { background: var(--k-accent); }
+:root[data-theme="dark"] .btn--tug-start { background: var(--green); color: #06351c; }
+:root[data-theme="dark"] .tbtn--sim { background: #12805C; }
+:root[data-theme="dark"] .tbtn--sim:hover { background: #0E6B4C; }
+:root[data-theme="dark"] :is(.answer, .nf-opt).is-correct { background: var(--green); }
+:root[data-theme="dark"] :is(.answer, .nf-opt).is-wrong { background: var(--red); }
+:root[data-theme="dark"] .symcell.given { background: var(--k-accent); }
+:root[data-theme="dark"] .result__btns .btn:not(.btn--ink) { background: #fff; color: #1f2433; }
+:root[data-theme="dark"] .result__btns .btn:not(.btn--ink):hover { color: #3a44b0; border-color: #fff; }
+
+/* asosiy (ko'k) tugmalar: oq yozuv o'qiladigan to'qroq ko'k */
+:root[data-theme="dark"] :is(.btn--ink, .grade-btn.is-active, .chorak-tab.is-active, .tbtn--primary, .tug-pop__item.is-active) {
+  background: var(--btn); border-color: var(--btn); color: #fff; box-shadow: none;
+}
+:root[data-theme="dark"] :is(.btn--ink, .tbtn--primary):hover { background: var(--btn-hover); border-color: var(--btn-hover); color: #fff; }
+:root[data-theme="dark"] .btn--accent:hover { background: var(--btn-hover); }
+:root[data-theme="dark"] .lchip--primary { box-shadow: 0 4px 0 #2b3290; }
+:root[data-theme="dark"] .lchip--primary:hover { box-shadow: 0 5px 0 #2b3290; }
+:root[data-theme="dark"] .lchip--ghost { background: rgba(255, 255, 255, 0.06); box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35); }
+:root[data-theme="dark"] .lchip--ghost:hover { background: rgba(255, 255, 255, 0.1); }
+:root[data-theme="dark"] .lchip--soon { background: rgba(255, 255, 255, 0.04); }
+:root[data-theme="dark"] .prompt { box-shadow: 0 6px 0 #2b3290; }
+:root[data-theme="dark"] :is(.grade-btn:not(.is-active), .chorak-tab:not(.is-active), .gchip, .rail-games):hover { border-color: #4a5390; }
+:root[data-theme="dark"] .trow:hover { border-color: #4a5390; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4); }
+:root[data-theme="dark"] .gcard:hover { box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4); border-color: color-mix(in srgb, var(--gc) 55%, var(--surface)); }
+:root[data-theme="dark"] .gcard__icon { background: color-mix(in srgb, var(--gc) 26%, var(--surface)); color: color-mix(in srgb, var(--gc) 50%, #fff); }
+:root[data-theme="dark"] .gcard__meta { color: color-mix(in srgb, var(--gc) 50%, #fff); }
+:root[data-theme="dark"] .gfeature__btn { color: #3a44b0; }
+:root[data-theme="dark"] .kcard:hover { box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45); }
+/* 3–4-sinf afishalarining pastki och chizig'i to'q kartada ko'rinmasin */
+:root[data-theme="dark"] .kcard__head { background-size: auto 105%; }
+
+/* bosh sahifa (1–4) */
+:root[data-theme="dark"] .tag { background: rgba(64, 208, 189, 0.14); color: #40d0bd; }
+:root[data-theme="dark"] .sc-card,
+:root[data-theme="dark"] .sc-chip { box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+:root[data-theme="dark"] .sc-bar { background: var(--surface-2); }
+:root[data-theme="dark"] .sc-q { background: var(--surface-2); }
+:root[data-theme="dark"] .sc-ans--ok { background: rgba(79, 209, 139, 0.16); border-color: #2c7a55; color: #4fd18b; }
+:root[data-theme="dark"] .sc-ans__check,
+:root[data-theme="dark"] .sc-frac b { color: #4fd18b; }
+:root[data-theme="dark"] .hownum[style*="e6f7f4"],
+:root[data-theme="dark"] .bcard__num[style*="e6f7f4"] { background: rgba(64, 208, 189, 0.14) !important; color: #40d0bd !important; }
+
+/* mavzular ro'yxati */
+:root[data-theme="dark"] .trow__icon { background: var(--surface-2); }
+:root[data-theme="dark"] .trow__num { color: var(--violet); }
+:root[data-theme="dark"] .badge--test { background: rgba(255, 255, 255, 0.07); }
+:root[data-theme="dark"] .trow--sim .trow__title { color: #4fd8a0; }
+:root[data-theme="dark"] .simbadge { background: rgba(79, 209, 139, 0.14); color: #4fd18b; }
+/* simulyator (lessons/) — o'z ranglarida, oq varaqdek */
+:root[data-theme="dark"] .simframe { background: #fff; border-color: #3a4263; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35); }
+
+/* test / o'yin umumiy */
+:root[data-theme="dark"] :is(.bar, .gbar) { background: var(--surface-2); }
+:root[data-theme="dark"] :is(.tile, .tile--sm) { box-shadow: 0 5px 0 rgba(0, 0, 0, 0.45); }
+:root[data-theme="dark"] .tile:active { box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45); }
+:root[data-theme="dark"] :is(.dropzone, .slot) { background: rgba(255, 255, 255, 0.03); }
+:root[data-theme="dark"] .weight { background: rgba(255, 255, 255, 0.08); }
+:root[data-theme="dark"] .opt,
+:root[data-theme="dark"] .tug-opt { box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4); }
+:root[data-theme="dark"] .symcell.on { background: #8f9bff; }
+:root[data-theme="dark"] .symcell.axis { background: rgba(255, 255, 255, 0.1); }
+:root[data-theme="dark"] .venn__label:is([style*="3f56c4"], [style*="63, 86, 196"]) { color: #9faae2 !important; }
+/* tekshiruvdan keyin bir lahza yashil/qizil bo'ladigan kataklar — yozuvi to'q */
+:root[data-theme="dark"] #app [style*="background: var(--green)"] { color: #06351c; }
+:root[data-theme="dark"] #app [style*="background: var(--red)"] { color: #4a0000; }
+:root[data-theme="dark"] .gmsg--ok { background: rgba(79, 209, 139, 0.14); color: #4fd18b; }
+:root[data-theme="dark"] .gmsg--bad { background: rgba(255, 92, 92, 0.14); color: #ff8f97; }
+:root[data-theme="dark"] .fs-cell:hover { background: var(--surface-2); }
+:root[data-theme="dark"] .fs-cell.on { background: var(--k-accent); }
+:root[data-theme="dark"] .fs-cell.ok.on { background: #2bb673; }
+:root[data-theme="dark"] .fs-cell.bad.on { background: #e5484d; }
+:root[data-theme="dark"] .cp-chip.done { background: rgba(79, 209, 139, 0.14); border-color: #2c7a55; color: #4fd18b; }
+:root[data-theme="dark"] .cp-grid { stroke: #2d3451; }
+/* yoyilma rasmi (o'z ranglarida) — oq karta ichida */
+:root[data-theme="dark"] .nf-fig { background: #fff; border-color: #3a4263; }
+
+/* arqon tortish */
+:root[data-theme="dark"] .tug-pop { box-shadow: 0 12px 26px rgba(0, 0, 0, 0.5); }
+:root[data-theme="dark"] .tug-pop__item:hover { background: var(--surface-2); }
+:root[data-theme="dark"] .tug-upload__current { background: var(--surface-2); }
+:root[data-theme="dark"] .tug-upload__status--ok { background: rgba(79, 209, 139, 0.12); color: #7fe0a8; border-color: #2c7a55; }
+:root[data-theme="dark"] .tug-upload__status--warn { background: rgba(245, 196, 81, 0.12); color: #f7d98a; border-color: #8a6a1e; }
+:root[data-theme="dark"] .tug-upload__status--err { background: rgba(255, 92, 92, 0.12); color: #ffb3b6; border-color: #8f3a44; }
+:root[data-theme="dark"] .tug-timer { border-color: #4a5390; }
+:root[data-theme="dark"] .tug-panel--blue { border-color: #5361e4; }
+:root[data-theme="dark"] .tug-panel--red { border-color: #c94a55; }
+:root[data-theme="dark"] .tug-panel--red .tug-q,
+:root[data-theme="dark"] .tug-teamlabel--red { color: #ff8f97; }
+:root[data-theme="dark"] .tug-opt i { background: rgba(255, 255, 255, 0.08); }
+/* sahna rasmi (shaffof PNG) — och maydonda yaxshi ko'rinadi */
+:root[data-theme="dark"] .tug-arena { background: #eef0f8; border-color: #3a4263; }
+:root[data-theme="dark"] .tug-arena .tug-centerline { border-left-color: #b8bdd3; }
+:root[data-theme="dark"] .tug-end { background: rgba(0, 0, 0, 0.6); }
+:root[data-theme="dark"] .tug-end__card { background: var(--surface); border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); }
+:root[data-theme="dark"] .tug-end__s--blue { background: rgba(83, 97, 228, 0.22); color: var(--peri); }
+:root[data-theme="dark"] .tug-end__s--red { background: rgba(255, 92, 92, 0.16); color: #ff8f97; }
+:root[data-theme="dark"] .tug-countdown { background: rgba(0, 0, 0, 0.6); }

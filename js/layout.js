@@ -6,8 +6,8 @@ function renderSiteHeader(base, active) {
   const cls = (key) => (active === key ? ' class="active"' : "");
   const root = document.getElementById("site-header-root");
   if (!root) return;
-  // tungi rejim tugmasi — faqat <head> dagi mavzu skripti bor sahifalarda (html[data-theme]);
-  // mathrunner-web (1–4-sinf) va admin.html da yo'q — ular doim kunduzgi ko'rinishda qoladi
+  // tungi rejim tugmasi — <head> dagi mavzu skripti bor sahifalarda (html[data-theme]):
+  // asosiy sayt, 1–4-sinf bo'limi (mathrunner-web) va admin panel
   const themeOn = document.documentElement.hasAttribute("data-theme");
 
   root.innerHTML =
