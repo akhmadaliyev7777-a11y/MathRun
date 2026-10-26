@@ -50,7 +50,7 @@
     balandlik();
 
     yukla("link", { rel: "stylesheet", href: KATEX + "katex.min.css" });
-    yukla("script", { src: KATEX + "katex.min.js" })
+    const katexTayyor = yukla("script", { src: KATEX + "katex.min.js" })
       .then(function () { return yukla("script", { src: KATEX + "contrib/auto-render.min.js" }); })
       .then(function () {
         vergul(document.body);
@@ -73,6 +73,260 @@
         balandlik();
       })
       .catch(function () { /* internet yo'q — formulalar matn ko'rinishida qoladi */ });
+
+    if (document.body.hasAttribute("data-a4")) a4(katexTayyor);
+  }
+
+  /* ===== A4 varaqlar va «PDF yuklab olish» (faqat <body data-a4> bo'lgan ma'ruzalarda) =====
+     Kompyuterda (kenglik >= A4 varaq + 2·16 px) ma'ruza bloklari 210×297 mm varaqlarga taqsimlanadi, pastida raqam.
+     Telefonda — oddiy uzluksiz ko'rinish. Chop etishda (PDF) har doim varaqlar: 1 varaq = 1 bet.
+     Bloklar bo'linmaydi; faqat ro'yxat (ol/ul) li orasidan bo'linadi, varaqdan baland quti — ichki bloklari orasidan.
+     Bitta bo'linmas blok varaqdan baland bo'lsa — varaq cho'ziladi (a4-ortiq). */
+  function a4(katexTayyor) {
+    const html = document.documentElement;
+    const main = document.querySelector("main") || document.body;
+    const params = new URLSearchParams(location.search);
+    const CHOP = params.get("chop") === "1";
+    const ICHIDA = window.parent !== window;
+    const MM = 96 / 25.4;
+    const CHEGARA = Math.ceil(210 * MM) + 32;
+    let asl = null;          // asl tuzilish: [{el, kids}]
+    let klonlar = [];        // bo'lingan bloklarning davomlari [{asl, klon}]
+    let faol = false;        // varaqlar ko'rsatilganmi
+    let chopda = false;      // chop etishga tayyorlanganmi
+    let tayyor = false;
+    let ochiqAsl = new Map();
+
+    // telefonda ?chop=1 sahifasi kompyuter kengligida chiziladi (bosma bilan bir xil o'lcham)
+    if (CHOP) {
+      let m = document.querySelector('meta[name="viewport"]');
+      if (!m) { m = document.createElement("meta"); m.name = "viewport"; document.head.appendChild(m); }
+      m.content = "width=840";
+    }
+    const st = document.createElement("style");
+    st.textContent = "@page { size: A4; margin: 0; }";
+    document.head.appendChild(st);
+
+    // tugma
+    const bar = document.createElement("div");
+    bar.className = "a4-bar";
+    bar.innerHTML = '<button type="button" class="a4-btn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">' +
+      '<path d="M12 3v12m0 0l-5-5m5 5l5-5M4 17v3h16v-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      '<span>PDF yuklab olish</span></button>';
+    document.body.insertBefore(bar, document.body.firstChild);
+    bar.querySelector("button").addEventListener("click", yuklabOl);
+
+    function joyidaChopEtsaBoladi() {
+      const ua = navigator.userAgent;
+      const mobil = /Android|iPhone|iPad|iPod|Mobile/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      const safari = /Safari/.test(ua) && !/Chrome|Chromium|CriOS|Edg|OPR|Firefox|FxiOS/.test(ua);
+      if (mobil) return false;
+      if (ICHIDA && safari) return false;          // Safari iframe ichidan butun tashqi sahifani chop etishi mumkin
+      return html.clientWidth >= CHEGARA || CHOP;   // tor oynada — yangi oynada (kompyuter kengligida)
+    }
+    function yuklabOl() {
+      if (!joyidaChopEtsaBoladi() && !CHOP) {
+        const u = new URL(location.href);
+        u.searchParams.set("chop", "1");
+        u.hash = "";
+        const w = window.open(u.href, "_blank");
+        if (!w) { try { window.top.location.href = u.href; } catch (e) { location.href = u.href; } }
+        return;
+      }
+      chopgaTayyorla();
+      setTimeout(function () { window.print(); }, 60);
+    }
+
+    function belgila(d, v) { if (d.open !== v) { d._a4k = v; d.open = v; } }
+    function javoblarniOch() { document.querySelectorAll("details.a4-javobda").forEach(function (d) { belgila(d, true); }); }
+
+    function aslniYoz() {
+      asl = Array.prototype.map.call(main.children, function (el) {
+        return { el: el, kids: el.matches("section, .m-sec") ? Array.prototype.slice.call(el.children) : null };
+      });
+      // «Javoblar» qismidan keyingi details — chop etishda ochiq; undan oldingilari (mashq ichidagi javoblar) — yashiriladi
+      let javobda = false;
+      asl.forEach(function (a) {
+        if (a.el.matches(".q-javob")) javobda = true;
+        if (!javobda) return;
+        if (a.el.matches("details.javob")) a.el.classList.add("a4-javobda");
+        a.el.querySelectorAll("details.javob").forEach(function (d) { d.classList.add("a4-javobda"); });
+      });
+      document.querySelectorAll("details").forEach(function (d) { ochiqAsl.set(d, d.open); });
+    }
+
+    function tikla() {
+      klonlar.forEach(function (k) {
+        while (k.klon.firstChild) k.asl.appendChild(k.klon.firstChild);
+        if (k.klon.parentNode) k.klon.parentNode.removeChild(k.klon);
+      });
+      klonlar = [];
+      asl.forEach(function (a) { if (a.kids) a.kids.forEach(function (k) { a.el.appendChild(k); }); });
+      main.textContent = "";
+      asl.forEach(function (a) { main.appendChild(a.el); });
+      html.classList.remove("a4-rejim");
+    }
+
+    function royxat(el) { return /^(OL|UL)$/.test(el.nodeName) && el.children.length > 0; }
+    function birgaKeyingi(el) { return el.matches(".m-qism, h2, h3, h4, .gap, .daraja, .m-title"); }
+    function bolinadi(el) {
+      if (royxat(el)) return true;
+      if (!el.matches(".box, .m-sec, section, .misol-juft")) return false;
+      for (let n = el.firstChild; n; n = n.nextSibling) if (n.nodeType === 3 && n.nodeValue.trim()) return false;
+      return el.children.length > 1;
+    }
+
+    function sahifala() {
+      if (!asl) aslniYoz();
+      tikla();
+      html.classList.add("a4-rejim");
+      const birlik = [];
+      asl.forEach(function (a) {
+        if (a.kids) a.kids.forEach(function (k) { birlik.push({ el: k, sec: a.el }); });
+        else birlik.push({ el: a.el, sec: null });
+      });
+      main.textContent = "";
+      let varaq, ichi, chegara, soni = 0, oram = null, oramSec = null;
+      function yangiVaraq() {
+        varaq = document.createElement("div");
+        varaq.className = "a4-varaq";
+        varaq.innerHTML = '<div class="a4-ichi"></div><div class="a4-raqam"></div>';
+        main.appendChild(varaq);
+        ichi = varaq.firstChild;
+        chegara = ichi.clientHeight;
+        soni = 0; oram = null; oramSec = null;
+      }
+      function idish(sec) {
+        if (!sec) { oram = null; oramSec = null; return ichi; }
+        if (oramSec !== sec || !oram || oram.parentNode !== ichi || oram !== ichi.lastElementChild) {
+          oram = sec.cloneNode(false); oram.removeAttribute("id");
+          ichi.appendChild(oram); oramSec = sec;
+        }
+        return oram;
+      }
+      function pastki(el) { return el.getBoundingClientRect().bottom - ichi.getBoundingClientRect().top; }
+      function sigadi(el) { return pastki(el) <= chegara + 1; }
+      function olib(el) {
+        const p = el.parentNode;
+        if (p) p.removeChild(el);
+        if (p && p !== ichi && !p.children.length && p.parentNode === ichi) { ichi.removeChild(p); if (oram === p) { oram = null; oramSec = null; } }
+      }
+      function bosh(el) { return (royxat(el) || pastki(el) > chegara) && el.firstElementChild ? el.firstElementChild : el; }
+      // el dan oxirgi bolalarini davomiga ko'chirib, sig'diradi; min — qoladigan eng kam bola
+      function bol(el, min) {
+        const klon = el.cloneNode(false);
+        klon.removeAttribute("id");
+        if (el.nodeName === "OL") klon.setAttribute("start", (el.start || 1) + el.children.length);
+        while (!sigadi(el) && el.children.length > min) klon.insertBefore(el.lastElementChild, klon.firstChild);
+        if (el.nodeName === "OL") klon.setAttribute("start", (el.start || 1) + el.children.length);
+        if (!klon.children.length) return null;
+        if (!sigadi(el)) { while (klon.firstChild) el.appendChild(klon.firstChild); return null; }
+        if (!royxat(el)) klon.classList.add("a4-davomi");
+        klonlar.push({ asl: el._a4asl || el, klon: klon });
+        klon._a4asl = el._a4asl || el;
+        return klon;
+      }
+      yangiVaraq();
+      let i = 0;
+      const navbat = birlik.slice();
+      while (navbat.length) {
+        const u = navbat.shift();
+        const el = u.el;
+        if (el.matches(".q-javob") && soni > 0) yangiVaraq();
+        idish(u.sec).appendChild(el);
+        if (sigadi(el)) {
+          // sarlavha (va personaj) keyingi blok bilan birga turadi
+          if (birgaKeyingi(el) && soni > 0) {
+            const vaqt = [];
+            let j = 0, ok = true;
+            while (j < navbat.length && j < 3) {
+              const n = navbat[j];
+              if (n.el.matches(".q-javob")) break;
+              idish(n.sec).appendChild(n.el); vaqt.push(n.el);
+              if (!sigadi(bosh(n.el))) { ok = false; break; }
+              if (!birgaKeyingi(n.el)) break;
+              j++;
+            }
+            vaqt.reverse().forEach(olib);
+            if (!ok) { olib(el); yangiVaraq(); idish(u.sec).appendChild(el); }
+          }
+          soni++;
+          continue;
+        }
+        if (royxat(el)) {
+          const k = bol(el, 1);
+          if (k) { soni++; navbat.unshift({ el: k, sec: u.sec }); yangiVaraq(); continue; }
+        }
+        if (soni > 0) { olib(el); yangiVaraq(); navbat.unshift(u); continue; }
+        // varaqda yolg'iz va baribir sig'maydi
+        if (bolinadi(el)) {
+          const k = bol(el, el.matches(".box") && el.firstElementChild && el.firstElementChild.matches(".tag") ? 2 : 1);
+          if (k) { soni++; navbat.unshift({ el: k, sec: u.sec }); yangiVaraq(); continue; }
+        }
+        varaq.classList.add("a4-ortiq");
+        soni++;
+        if (navbat.length) yangiVaraq();
+      }
+      if (!ichi.children.length && main.children.length > 1) main.removeChild(varaq);
+      Array.prototype.forEach.call(main.querySelectorAll(".a4-raqam"), function (r, n) { r.textContent = n + 1; });
+      faol = true;
+      balandlik();
+    }
+
+    function oddiy() {
+      if (!asl) return;
+      tikla();
+      document.querySelectorAll("details").forEach(function (d) { if (ochiqAsl.has(d)) belgila(d, ochiqAsl.get(d)); });
+      faol = false;
+      balandlik();
+    }
+
+    function kerak() { return CHOP || chopda || html.clientWidth >= CHEGARA; }
+    function yangila(majburan) {
+      if (!tayyor) return;
+      if (!asl) aslniYoz();
+      const k = kerak();
+      if (k && (!faol || majburan)) { javoblarniOch(); sahifala(); }
+      else if (!k && faol) oddiy();
+    }
+
+    function chopgaTayyorla() {
+      if (chopda) return;
+      chopda = true;
+      if (!asl) aslniYoz();
+      html.classList.add("a4-chop");
+      javoblarniOch();
+      sahifala();
+    }
+    function chopdanQayt() {
+      if (!chopda) return;
+      chopda = false;
+      html.classList.remove("a4-chop");
+      if (kerak()) { javoblarniOch(); sahifala(); } else oddiy();
+    }
+    window.addEventListener("beforeprint", function () { if (tayyor) chopgaTayyorla(); });
+    window.addEventListener("afterprint", function () { setTimeout(chopdanQayt, 0); });
+
+    let t = 0;
+    window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(function () { yangila(false); }, 150); });
+    document.addEventListener("toggle", function (e) {
+      const d = e.target;
+      if (d._a4k === d.open) { delete d._a4k; return; }
+      delete d._a4k;
+      if (faol) { clearTimeout(t); t = setTimeout(function () { yangila(true); }, 30); }
+    }, true);
+
+    const yuklandi = document.readyState === "complete" ? Promise.resolve() : new Promise(function (ok) { window.addEventListener("load", ok); });
+    const shrift = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    Promise.all([katexTayyor.catch(function () {}), yuklandi, shrift]).then(function () {
+      tayyor = true;
+      html.classList.add("a4-tayyor");
+      yangila(false);
+      if (CHOP) {
+        chopgaTayyorla();
+        setTimeout(function () { window.print(); }, 400);
+      }
+    });
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boshla);

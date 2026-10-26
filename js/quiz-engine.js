@@ -143,6 +143,20 @@ function initQuiz() {
     };
   });
 
+  // PDF (chop etish) rejimi: test.html?...&pdf=oson — test o'rniga chop etiladigan varaq chiqadi (natija yozilmaydi)
+  const pdfTur = getQueryParam("pdf");
+  const pdfInfo = {
+    head: "Mathlearn · " + (grade ? grade.name : "") + (subject ? " · " + subject.name : ""),
+    topic: topicName,
+    file: "Mathlearn " + (grade ? grade.name + " " : "") + topicName,
+    seed: key
+  };
+  if (pdfTur === "oson" || pdfTur === "qiyin") {
+    const t = tests.find(function (x) { return x.id === pdfTur && !x.off; });
+    if (t) { qzPdfPage(t, pdfInfo, backLink, embedded); return; }
+  }
+  qzPdfButtons(tests, pdfInfo, tabsEl, embedded);
+
   let jumped = false;
   QuizCore.mount({
     card: card, tabsEl: tabsEl, title: topicName, tests: tests, current: tur, embedded: embedded,
@@ -168,5 +182,156 @@ function initQuiz() {
       history.replaceState(null, "", u.toString());
     },
     backHref: topic ? topicHref(gradeId, subjectId, topicId) : "", backLabel: "Mavzuga qaytish"
+  });
+}
+
+// ---------- testni PDF qilib saqlash (brauzerning «Chop etish → PDF sifatida saqlash» oynasi) ----------
+// Har test uchun alohida tugma. Bosilganda sahifa oxiriga chop etiladigan varaq (#qz-print) yasaladi:
+// sarlavha, ism-familiya qatori, 20 savol (rasmi bilan, javoblar A–D asl tartibda), keyin yangi betda «Javoblar»
+// (kalit jadvali va qisqa yechimlar). Ekranda bu varaq ko'rinmaydi, chop etishda esa faqat u chiqadi (css/test.css).
+// Formulalar test sahifasidagi qzMathText + qzRenderMath bilan chiziladi.
+// Mavzu sahifasi ichida (iframe) chop etish ishonchsiz — tugma testni yangi oynada &pdf=... bilan ochadi.
+const QZ_HARF = ["A", "B", "C", "D", "E", "F"];
+const QZ_PDF_ICON = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10.5l5 5 5-5"/><path d="M5 20h14"/></svg>';
+
+function qzPlain(t) { return String(t).replace(/<[^>]*>/g, "").replace(/\\\(|\\\)/g, "").replace(/\\[a-z]+/g, "").replace(/\s+/g, " ").trim(); }
+
+// bir savol rasmini qayta ishlatganda SVG ichidagi id'lar takrorlanmasin (strelka, gradiyent havolalari)
+function qzUniqIds(svg, pre) {
+  return String(svg).replace(/\bid="([^"]+)"/g, 'id="' + pre + '$1"')
+    .replace(/url\(#([^)]+)\)/g, "url(#" + pre + "$1)")
+    .replace(/href="#([^"]+)"/g, 'href="#' + pre + '$1"');
+}
+
+// Bazada to'g'ri javob ko'pincha birinchi turadi; onlayn testda javoblar har safar aralashadi.
+// Varaqda esa tartib aralashtiriladi, lekin har safar BIR XIL (mavzu + test + savol raqamidan hosil bo'ladi) —
+// shuning uchun qayta yuklab olingan PDF va uning javoblar kaliti o'zgarmaydi.
+function qzPdfOrder(seedText, n) {
+  let h = 2166136261;
+  for (let k = 0; k < seedText.length; k++) { h ^= seedText.charCodeAt(k); h = Math.imul(h, 16777619); }
+  const rnd = function () {
+    h = (h + 0x6D2B79F5) | 0;
+    let t = Math.imul(h ^ (h >>> 15), 1 | h);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  const a = [];
+  for (let k = 0; k < n; k++) a.push(k);
+  for (let k = n - 1; k > 0; k--) { const j = Math.floor(rnd() * (k + 1)); const x = a[k]; a[k] = a[j]; a[j] = x; }
+  return a;
+}
+
+function qzPdfHtml(test, info) {
+  const qs = test.questions;
+  const info2 = QZ_TUR[test.id];
+  const orders = qs.map(function (q, i) { return qzPdfOrder((info.seed || "") + "|" + test.id + "|" + i + "|" + q.question, q.options.length); });
+  const list = qs.map(function (q, i) {
+    const longest = Math.max.apply(null, q.options.map(function (x) { return qzPlain(x).length; }));
+    const cols = longest <= 9 && !q.rasm ? 4 : longest <= (q.rasm ? 18 : 30) ? 2 : 1;
+    const opts = orders[i].map(function (oi, j) {
+      return '<li><b>' + QZ_HARF[j] + ')</b> <span>' + qzMathText(q.options[oi]) + '</span></li>';
+    }).join("");
+    return '<li class="qp-q' + (q.rasm ? " qp-q--fig" : "") + '">' +
+      '<span class="qp-num">' + (i + 1) + '.</span>' +
+      '<div class="qp-main"><div class="qp-text">' + qzMathText(q.question) + '</div>' +
+        '<ol class="qp-opts qp-c' + cols + '">' + opts + '</ol></div>' +
+      (q.rasm ? '<div class="qp-fig">' + qzUniqIds(q.rasm, "qp" + test.id + (i + 1) + "-") + '</div>' : "") +
+    '</li>';
+  }).join("");
+  const keyRow = function (q, i) {
+    const k = orders[i].indexOf(q.options.indexOf(q.answer));
+    return '<tr><td>' + (i + 1) + '</td><td class="qp-k">' + (QZ_HARF[k] || "?") + '</td><td>' + qzMathText(q.answer) + '</td></tr>';
+  };
+  const half = Math.ceil(qs.length / 2);
+  const table = function (a, b) {
+    return '<table class="qp-key"><thead><tr><th>№</th><th>Javob</th><th>Qiymati</th></tr></thead><tbody>' +
+      qs.slice(a, b).map(function (q, j) { return keyRow(q, a + j); }).join("") + '</tbody></table>';
+  };
+  const sols = qs.map(function (q, i) {
+    const s = q.yechim || q.explain;
+    return s ? '<li><b>' + (i + 1) + '.</b> ' + qzMathText(s) + '</li>' : "";
+  }).join("");
+  return '<header class="qp-head">' +
+      '<div class="qp-brand">' + info.head + '</div>' +
+      '<h1>' + info.topic + '</h1>' +
+      '<div class="qp-sub">' + info2.nom + ' ' + info2.qavs + ' · ' + qs.length + ' ta savol</div>' +
+      '<div class="qp-lines"><span>Ism-familiya: <i class="qp-l qp-l--w"></i></span><span>Sinf: <i class="qp-l"></i></span><span>Sana: <i class="qp-l"></i></span></div>' +
+      '<div class="qp-hint">Har savolda bitta to\'g\'ri javobni belgilang.</div>' +
+    '</header>' +
+    '<ol class="qp-list">' + list + '</ol>' +
+    '<section class="qp-ans">' +
+      '<h2>Javoblar</h2><div class="qp-sub">' + info.topic + ' · ' + info2.nom + ' ' + info2.qavs + '</div>' +
+      '<div class="qp-keys">' + table(0, half) + table(half, qs.length) + '</div>' +
+      (sols ? '<h3>Qisqa yechimlar</h3><ol class="qp-sols">' + sols + '</ol>' : "") +
+    '</section>';
+}
+
+// varaqni yasab, formulalarni chizadi; tayyor bo'lganda va'da bajariladi
+function qzPdfBuild(test, info) {
+  let box = document.getElementById("qz-print");
+  if (!box) { box = document.createElement("div"); box.id = "qz-print"; document.body.appendChild(box); }
+  box.innerHTML = qzPdfHtml(test, info);
+  document.documentElement.classList.add("qz-printing");
+  const fonts = document.fonts && document.fonts.ready ? function () { return document.fonts.ready; } : function () {};
+  return qzRenderMath(box).then(fonts).then(function () { return box; });
+}
+
+function qzPdfPrint(test, info) {
+  const old = document.title;
+  return qzPdfBuild(test, info).then(function () {
+    document.title = info.file + " — " + QZ_TUR[test.id].nom;
+    const back = function () { document.title = old; window.removeEventListener("afterprint", back); };
+    window.addEventListener("afterprint", back);
+    try { window.print(); } catch (e) { back(); }
+  });
+}
+
+function qzPdfUrl(id) {
+  const u = new URL(location.href);
+  u.searchParams.delete("tur"); u.searchParams.set("pdf", id); u.hash = "";
+  return u.toString();
+}
+
+// «1-test — PDF», «2-test — PDF» tugmalari (yorliqlar ustida)
+function qzPdfButtons(tests, info, tabsEl, embedded) {
+  const real = tests.filter(function (t) { return !t.off; });
+  if (!real.length) return;
+  const bar = document.createElement("div");
+  bar.className = "qz-pdf";
+  bar.innerHTML = real.map(function (t) {
+    const label = QZ_PDF_ICON + '<span>' + t.nom + ' — PDF</span>';
+    const tip = t.nom + "ni PDF qilib saqlash yoki chop etish";
+    return embedded
+      ? '<a class="qz-pdf-btn" href="' + qzPdfUrl(t.id) + '" target="_blank" rel="noopener" title="' + tip + '">' + label + '</a>'
+      : '<button type="button" class="qz-pdf-btn" data-pdf="' + t.id + '" title="' + tip + '">' + label + '</button>';
+  }).join("");
+  tabsEl.parentNode.insertBefore(bar, tabsEl);
+  bar.querySelectorAll("[data-pdf]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      const t = real.find(function (x) { return x.id === b.dataset.pdf; });
+      b.disabled = true;
+      Promise.resolve(typeof t.questions === "function" ? t.questions() : t.questions).then(function (qs) {
+        return qzPdfPrint({ id: t.id, questions: qs }, info);
+      }).then(function () { b.disabled = false; }, function () { b.disabled = false; });
+    });
+  });
+}
+
+// test.html?...&pdf=oson — varaq ekranda ko'rinadi, ustida «Chop etish / PDF» tugmasi; chop etish oynasi o'zi ochiladi
+function qzPdfPage(t, info, backLink, embedded) {
+  document.documentElement.classList.add("qz-pdf-mode");
+  const test = { id: t.id, questions: t.questions };
+  const tools = document.createElement("div");
+  tools.className = "qz-pdf-tools";
+  const u = new URL(location.href); u.searchParams.delete("pdf");
+  if (t.id === "qiyin") u.searchParams.set("tur", "qiyin");
+  tools.innerHTML = '<a class="qz-btn qz-btn--ghost" href="' + u.toString() + '">← Testga qaytish</a>' +
+    '<button type="button" class="qz-btn" id="qz-pdf-go">' + QZ_PDF_ICON + ' Chop etish / PDF sifatida saqlash</button>' +
+    '<p>Ochilgan oynada «Printer» o\'rniga <b>«PDF sifatida saqlash»</b> (Save as PDF) ni tanlang.</p>';
+  document.body.insertBefore(tools, document.body.firstChild);
+  Promise.resolve(typeof test.questions === "function" ? test.questions() : test.questions).then(function (qs) {
+    test.questions = qs;
+    document.getElementById("qz-pdf-go").addEventListener("click", function () { qzPdfPrint(test, info); });
+    return qzPdfPrint(test, info);
   });
 }
