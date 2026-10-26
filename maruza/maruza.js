@@ -302,7 +302,8 @@
       balandlik();
     }
 
-    function kerak() { return CHOP || PDF || chopda || html.clientWidth >= CHEGARA; }
+    // A4 varaqlar faqat PDF/chop etish uchun; saytda ma'ruza oddiy ko'rinishda (foydalanuvchi qarori, 2026-10-26)
+    function kerak() { return CHOP || PDF || chopda; }
     function yangila(majburan) {
       if (!tayyor) return;
       if (!asl) aslniYoz();

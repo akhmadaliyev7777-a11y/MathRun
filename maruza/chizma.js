@@ -123,7 +123,8 @@
        "doiralar": [[x, y, r], ...] — qo'shimcha doiralar; "ramka": [x1, y1, x2, y2] — to'g'ri to'rtburchak (kvadrat);
        "olchov": [[x1, y1, x2, y2, "54 mm"], ...] — o'lcham chizig'i (hammasi radius birligida, markaz (0,0), y tepaga).
    data-yoyish='{"d":"d","bolak":1,"yozuv":"aylana uzunligi"}' — doira to'g'ri chiziq bo'ylab dumalab, 1 (yoki "marta":n) marta to'liq aylanadi:
-       boshida doira (qizil nuqta pastda), oxirida punktir doira, bosib o'tilgan yo'l (= aylana uzunligi) qizil; "d" — diametr yozuvi (yoki "r" — radius);
+       g'ildirak (shina, kegaylar, shinada aylanish strelkasi, qizil nuqta) — saytda aylanib yuradi, chop etish/PDF'da boshida turadi; oxirida punktir doira,
+       bosib o'tilgan yo'l (= aylana uzunligi) qizil; "d" — diametr yozuvi (yoki "r" — radius);
        "bolak":1 — yo'l ostida 3 ta diametr (d, d, d) va yashil «ozgina» qoldiq; "chizgich":22 — ostida 0..22 cm chizg'ich;
        "marta":3 — n ta aylanish bo'lagi (1, 2, 3), "davomi":1 — oxirida «…»; "ustki" — tepadagi yozuv; "yozuv" — pastki o'lcham yozuvi; "olcham" — radius (px).
    data-yoy='{"yol":[["y",0,0,5,0,180,"yoy"],["k",-5,0,5,0,"10 cm","d"]]}' — yoylar va kesmalardan tuzilgan yopiq shakl (yarim/chorak doira va ulardan tuzilgan shakllar):
@@ -792,20 +793,37 @@
       return s + yoz((x1 + x2) / 2, y + 20, t, c);
     };
     let h = "", ust = "";
-    /* yer chizig'i va bosib o'tilgan yo'l */
+    /* yer chizig'i */
     const oxir = T + R + 8 + (davom ? 40 : 0);
     h += chiz(-R - 8, 0, oxir, 0, "#b8bfcc", 3);
-    h += chiz(0, 0, T, 0, QIZIL, 4.5);
     if (davom) { h += chiz(T, 0, T + 40, 0, QIZIL, 4.5, "3 7"); ust += yoz(T + R + 18, -6, "…", QIZIL, "middle", 18); }
-    /* boshidagi doira: diametr yoki radius, pastida qizil nuqta */
-    h += '<circle cx="0" cy="' + f(-R) + '" r="' + f(R) + '" fill="' + KOK + '" fill-opacity=".12" stroke="' + KOK + '" stroke-width="2.6"/>';
-    nuq(-R, -2 * R); nuq(R, 0);
-    if (g.d) { h += chiz(-R, -R, R, -R, YASHIL, 2.6); ust += yoz(-R / 2, -R - 8, g.d, YASHIL); }
-    else if (g.r) { h += chiz(0, -R, R, -R, YASHIL, 2.6); ust += yoz(R / 2, -R - 7, g.r, YASHIL); }
-    h += '<circle cx="0" cy="' + f(-R) + '" r="2.8" fill="' + QORA + '"/>';
-    /* oxiridagi punktir doira */
+    nuq(-R, -2 * R); nuq(R, 0); nuq(T + R, -2 * R);
+    /* g'ildirak (markazi (0, -R)): shina, gardish, kegaylar, shinada aylanish strelkasi, shinadagi qizil nuqta */
+    const w = Math.max(5, R * 0.26), rs = R - w / 2, rg = R - w;
+    const P = function (r, a) { const t = a * Math.PI / 180; return [r * Math.cos(t), -R - r * Math.sin(t)]; };
+    let teker = '<circle cx="0" cy="' + f(-R) + '" r="' + f(rg) + '" fill="#eef3fb" stroke="#9aa3b2" stroke-width="1.4"/>';
+    for (let k = 0; k < 6; k++) { const q = P(rg, k * 60 + 90); teker += '<line x1="0" y1="' + f(-R) + '" x2="' + f(q[0]) + '" y2="' + f(q[1]) + '" stroke="#9aa3b2" stroke-width="1.6"/>'; }
+    teker += '<circle cx="0" cy="' + f(-R) + '" r="' + f(rs) + '" fill="none" stroke="#2f3542" stroke-width="' + f(w) + '"/>';
+    teker += '<circle cx="0" cy="' + f(-R) + '" r="' + f(Math.max(2.8, R * 0.13)) + '" fill="#5b6577"/>';
+    { const a0 = 155, a1 = 35, A = P(rs, a0), B = P(rs, a1), t = a1 * Math.PI / 180;
+      const dx = Math.sin(t), dy = Math.cos(t), k = Math.max(4, w * 0.9);
+      teker += '<path d="M' + f(A[0]) + " " + f(A[1]) + " A" + f(rs) + " " + f(rs) + " 0 0 1 " + f(B[0]) + " " + f(B[1]) + '" fill="none" stroke="#fbbf24" stroke-width="' + f(Math.max(1.8, w * 0.32)) + '" stroke-linecap="round"/>';
+      teker += '<path d="M' + f(B[0] + dx * k) + " " + f(B[1] + dy * k) + " L" + f(B[0] - dy * k * 0.75) + " " + f(B[1] + dx * k * 0.75) + " L" + f(B[0] + dy * k * 0.75) + " " + f(B[1] - dx * k * 0.75) + ' Z" fill="#fbbf24"/>'; }
+    teker += '<circle cx="0" cy="' + f(-w / 2) + '" r="' + f(Math.max(2.6, w * 0.38)) + '" fill="' + QIZIL + '" stroke="#fff" stroke-width="1"/>';
+    let dChiz = "", dYoz = "";
+    if (g.d) { dChiz = chiz(-rg, -R, rg, -R, YASHIL, 2.6); dYoz = yoz(-R / 2, -2 * R - 5, g.d, YASHIL); }
+    else if (g.r) { dChiz = chiz(0, -R, rg, -R, YASHIL, 2.6); dYoz = yoz(R / 2, -2 * R - 5, g.r, YASHIL); }
+    /* oxiridagi punktir doira va yerdagi nuqtalar */
     h += '<circle cx="' + f(T) + '" cy="' + f(-R) + '" r="' + f(R) + '" fill="none" stroke="' + KUL + '" stroke-width="1.8" stroke-dasharray="6 5"/>';
-    nuq(T + R, -2 * R);
+    /* qimirlamaydigan holat (chop etish/PDF): to'liq qizil yo'l va boshidagi g'ildirak */
+    const stat = '<g class="yy-stat">' + chiz(0, 0, T, 0, QIZIL, 4.5) + teker + dChiz + dYoz + "</g>";
+    /* saytda: g'ildirak aylanib yuradi, yo'l chizilib boradi */
+    const dur = (2.6 + 1.4 * n) + "s", kt = ' keyTimes="0;0.75;1" dur="' + dur + '" repeatCount="indefinite"';
+    const anim = '<g class="yy-anim">' +
+      '<line x1="0" y1="0" x2="0" y2="0" stroke="' + QIZIL + '" stroke-width="4.5" stroke-linecap="round"><animate attributeName="x2" values="0;' + f(T) + ";" + f(T) + '"' + kt + "/></line>" +
+      '<g><animateTransform attributeName="transform" type="translate" values="0 0;' + f(T) + " 0;" + f(T) + ' 0"' + kt + "/>" +
+      '<g><animateTransform attributeName="transform" type="rotate" values="0 0 ' + f(-R) + ";" + (360 * n) + " 0 " + f(-R) + ";" + (360 * n) + " 0 " + f(-R) + '"' + kt + "/>" + teker + "</g>" + dChiz + dYoz + "</g></g>";
+    h += '<style>.yy-stat{display:none}@media print{.yy-anim{display:none}.yy-stat{display:inline}}@media (prefers-reduced-motion:reduce){.yy-anim{display:none}.yy-stat{display:inline}}</style>' + stat + anim;
     h += '<circle cx="0" cy="0" r="4.6" fill="' + QIZIL + '"/><circle cx="' + f(T) + '" cy="0" r="4.6" fill="' + QIZIL + '"/>';
     /* tepada yo'nalish strelkasi */
     const ya = -2 * R - 14, xa = Math.min(R + 10, T * 0.25);
