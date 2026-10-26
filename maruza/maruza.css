@@ -408,6 +408,7 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 html.a4-rejim body { background: #dde1e8; padding: 16px 16px 8px; }
 html.a4-rejim .a4-bar { max-width: 210mm; margin: 0 auto 12px; }
 html.a4-rejim .m-wrap { max-width: none; }
+html.a4-rejim .diqqat .xato, html.a4-rejim .diqqat .togri { white-space: normal; }   /* A4 varaqda uzun qator sig'sin */
 .a4-varaq {
   position: relative;
   width: 210mm; height: 297mm;

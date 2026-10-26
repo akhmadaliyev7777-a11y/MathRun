@@ -274,6 +274,8 @@
         const el = u.el;
         if (el.matches(".q-javob") && soni > 0) yangiVaraq();
         idish(u.sec).appendChild(el);
+        // sahifa oxiridagi «Mathlearn · …» yozuvi sig'masa — yangi varaq ochilmaydi, yozuv tushirib qoldiriladi
+        if (el.matches(".m-foot") && !sigadi(el) && soni > 0) { olib(el); continue; }
         if (sigadi(el)) {
           // sarlavha (va personaj) keyingi blok bilan birga turadi
           if (birgaKeyingi(el) && soni > 0) {

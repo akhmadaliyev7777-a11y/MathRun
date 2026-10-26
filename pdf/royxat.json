@@ -596,8 +596,8 @@
  "6-aylana-uzunligi": {
   "fayl": "6-sinf Aylananing uzunligi.pdf",
   "sahifa": 13,
-  "hajm": 1212491,
-  "v": "63257598"
+  "hajm": 1212502,
+  "v": "027a42e4"
  },
  "6-aylana-uzunligi-1-test": {
   "fayl": "6-sinf Aylananing uzunligi 1-test.pdf",
@@ -659,6 +659,12 @@
   "hajm": 189261,
   "v": "79d6d652"
  },
+ "6-kasrni-kasrga-bolish": {
+  "fayl": "6-sinf To'g'ri kasrni to'g'ri kasrga bo'lish.pdf",
+  "sahifa": 11,
+  "hajm": 827780,
+  "v": "2b1c68fd"
+ },
  "6-kasrni-kasrga-bolish-1-test": {
   "fayl": "6-sinf To'g'ri kasrni to'g'ri kasrga bo'lish 1-test.pdf",
   "sahifa": 5,
@@ -692,8 +698,8 @@
  "6-natural-sonni-kasrga-bolish": {
   "fayl": "6-sinf Natural sonni to'g'ri kasrga bo'lish.pdf",
   "sahifa": 10,
-  "hajm": 606067,
-  "v": "8f9b0294"
+  "hajm": 605872,
+  "v": "2d0e5fdb"
  },
  "6-natural-sonni-kasrga-bolish-1-test": {
   "fayl": "6-sinf Natural sonni to'g'ri kasrga bo'lish 1-test.pdf",
@@ -706,6 +712,12 @@
   "sahifa": 5,
   "hajm": 242835,
   "v": "f316f573"
+ },
+ "6-nisbat-va-kasr": {
+  "fayl": "6-sinf Nisbat va kasr.pdf",
+  "sahifa": 13,
+  "hajm": 1031529,
+  "v": "eb0394fc"
  },
  "6-nisbat-va-kasr-1-test": {
   "fayl": "6-sinf Nisbat va kasr 1-test.pdf",
@@ -771,7 +783,7 @@
   "fayl": "6-sinf Tenglamalarni yechish.pdf",
   "sahifa": 13,
   "hajm": 872708,
-  "v": "9344ba07"
+  "v": "7adc902f"
  },
  "6-tenglamalarni-yechish-1-test": {
   "fayl": "6-sinf Tenglamalarni yechish 1-test.pdf",
@@ -800,8 +812,8 @@
  "6-yarim-chorak-doira-perimetri": {
   "fayl": "6-sinf Yarim va chorak doira perimetri.pdf",
   "sahifa": 13,
-  "hajm": 1162156,
-  "v": "af48b06a"
+  "hajm": 1162149,
+  "v": "63ddd4bf"
  },
  "6-yarim-chorak-doira-perimetri-1-test": {
   "fayl": "6-sinf Yarim va chorak doira perimetri 1-test.pdf",
