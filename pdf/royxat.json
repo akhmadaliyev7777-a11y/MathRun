@@ -597,7 +597,7 @@
   "fayl": "6-sinf Aylananing uzunligi.pdf",
   "sahifa": 13,
   "hajm": 1212502,
-  "v": "027a42e4"
+  "v": "e727e90c"
  },
  "6-aylana-uzunligi-1-test": {
   "fayl": "6-sinf Aylananing uzunligi 1-test.pdf",
@@ -610,6 +610,12 @@
   "sahifa": 5,
   "hajm": 269207,
   "v": "210113a9"
+ },
+ "6-doira-aylana-elementlari": {
+  "fayl": "6-sinf Doira va aylana elementlari.pdf",
+  "sahifa": 11,
+  "hajm": 1119712,
+  "v": "04c42754"
  },
  "6-doira-aylana-elementlari-1-test": {
   "fayl": "6-sinf Doira va aylana elementlari 1-test.pdf",
@@ -681,7 +687,7 @@
   "fayl": "6-sinf To'g'ri kasrni natural songa bo'lish.pdf",
   "sahifa": 11,
   "hajm": 671445,
-  "v": "c93099f2"
+  "v": "a2a7ae82"
  },
  "6-kasrni-natural-songa-bolish-1-test": {
   "fayl": "6-sinf To'g'ri kasrni natural songa bo'lish 1-test.pdf",
@@ -735,7 +741,7 @@
   "fayl": "6-sinf O'sish va kamayish foizi.pdf",
   "sahifa": 12,
   "hajm": 1027151,
-  "v": "084691ef"
+  "v": "9f3ae8ab"
  },
  "6-osish-kamayish-foizi-1-test": {
   "fayl": "6-sinf O'sish va kamayish foizi 1-test.pdf",
@@ -767,6 +773,12 @@
   "hajm": 258828,
   "v": "3a963da8"
  },
+ "6-shakllardagi-nomalum-burchaklar": {
+  "fayl": "6-sinf Geometrik shakllardagi noma'lum burchaklarni topish.pdf",
+  "sahifa": 15,
+  "hajm": 1129657,
+  "v": "c04a4a28"
+ },
  "6-shakllardagi-nomalum-burchaklar-1-test": {
   "fayl": "6-sinf Geometrik shakllardagi noma'lum burchaklarni topish 1-test.pdf",
   "sahifa": 5,
@@ -783,7 +795,7 @@
   "fayl": "6-sinf Foizi va qismiga ko'ra sonning o'zini topish.pdf",
   "sahifa": 12,
   "hajm": 1051689,
-  "v": "09039449"
+  "v": "5f46150a"
  },
  "6-sonni-foiziga-kora-topish-1-test": {
   "fayl": "6-sinf Foizi va qismiga ko'ra sonning o'zini topish 1-test.pdf",
@@ -801,7 +813,7 @@
   "fayl": "6-sinf Tenglamalarni yechish.pdf",
   "sahifa": 13,
   "hajm": 876026,
-  "v": "c24aa32d"
+  "v": "a4d3bcce"
  },
  "6-tenglamalarni-yechish-1-test": {
   "fayl": "6-sinf Tenglamalarni yechish 1-test.pdf",
@@ -837,7 +849,7 @@
   "fayl": "6-sinf Yarim va chorak doira perimetri.pdf",
   "sahifa": 13,
   "hajm": 1162149,
-  "v": "63ddd4bf"
+  "v": "175ffbba"
  },
  "6-yarim-chorak-doira-perimetri-1-test": {
   "fayl": "6-sinf Yarim va chorak doira perimetri 1-test.pdf",
