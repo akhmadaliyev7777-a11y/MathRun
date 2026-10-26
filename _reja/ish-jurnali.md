@@ -10,9 +10,17 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
 - **5-sinf:** 47/47 — 1–12 qayta yozildi (5 qism), 13–18 to'liq tekshirib joyida tuzatildi, 19–47 «Anti sun'iylik» tekshiruvidan o'tdi (2026-10-25); 18–47 qoida ramkalari kitob bilan solishtirildi (kitob matni / «Usul» / olib tashlandi). 5-sinf ko'rib chiqish tugadi.
-- **6-sinf:** 1–14-mavzular tayyor, hammasi 5 qismli ixcham tuzilishda va Jumavoy + Ibrohim ustoz + «Anti sun'iylik» tekshiruvidan o'tgan (2026-10-25). Navbat: 15-mavzu «Aylananing uzunligi».
+- **6-sinf:** 1–16-mavzular tayyor (15–16 — 2026-10-26), hammasida mavzu PDF'i (A4) va testlar PDF'i bor. Navbat: 17-mavzu «Doiraning yuzi».
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+
+---
+
+## 2026-10-26 — m.shukurillo hisobi
+**Qilindi:** 5-sinf 31–47 qoidalari kitob bilan solishtirildi (5-sinf tugadi). 6-sinf 15 «Aylananing uzunligi» (yangi chizma `data-yoyish`, aylanadigan g'ildirak) va 16 «Yarim va chorak doira perimetri» (yangi chizma `data-yoy`) — ma'ruza + 20+20 test. PDF: oldindan yasalgan fayllar `pdf/` (mavzu nomi bilan, brauzer PDF oynasida ochiladi; `python3 _reja/tools/pdf_yasash.py`), 6-sinf 1–16 ma'ruzalari va barcha 20+20 testlar; varaqlar zich to'ldiriladi. PDF tugmasi bosqichlar qatorida; ma'ruza sahifasi kengroq. Admin panel yangi dizayn (alohida, batafsil bo'limlar). Sayt tepasi va chap menyu yangilandi.
+**Ish tartibi:** push faqat tasdiqdan keyin; ko'rsatishda brauzerni o'zimiz ochmaymiz — localhost havolalari beriladi.
+**Chala:** yo'q. 6-sinf 7-mavzuda tenglik.py 8 ta eski «xato» (tekshirilmagan).
+**Navbatda:** 6-sinf 17 «Doiraning yuzi» (yoki foydalanuvchi aytgan ish).
 
 ---
 
