@@ -251,6 +251,17 @@
         el.style.zoom = "";
         return false;
       }
+      // sarlavhadan keyingi blok shu varaqda boshlana oladimi — joylashtirishdagi qoidalar bilan bir xil:
+      // to'liq sig'adi / kichraytirilsa sig'adi / ro'yxat yoki bo'linadigan quti (joy ko'p bo'lsa) boshi sig'adi
+      function joyBor(el) {
+        if (sigadi(el) || kichrayt(el)) return true;
+        const min = el.matches(".box") && el.firstElementChild && el.firstElementChild.matches(".tag") ? 2 : 1;
+        const bolak = el.children[min - 1];
+        if (!bolak) return false;
+        if (royxat(el)) return sigadi(bolak);
+        const bosh0 = pastki(el) - el.getBoundingClientRect().height;
+        return bolinadi(el) && !el.matches(".misol-juft") && chegara - bosh0 > chegara * 0.3 && sigadi(bolak);
+      }
       function bosh(el) { return (royxat(el) || (bolinadi(el) && pastki(el) > chegara)) && el.firstElementChild ? el.firstElementChild : el; }
       // el dan oxirgi bolalarini davomiga ko'chirib, sig'diradi; min — qoladigan eng kam bola
       function bol(el, min) {
@@ -285,7 +296,7 @@
               const n = navbat[j];
               if (n.el.matches(".q-javob")) break;
               idish(n.sec).appendChild(n.el); vaqt.push(n.el);
-              if (!sigadi(bosh(n.el)) && !(bosh(n.el) === n.el && kichrayt(n.el))) { ok = false; break; }
+              if (!joyBor(n.el)) { ok = false; break; }
               if (!birgaKeyingi(n.el)) break;
               j++;
             }

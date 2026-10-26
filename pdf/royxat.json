@@ -626,8 +626,8 @@
  "6-ifoda-qiymatini-topish": {
   "fayl": "6-sinf Algebraik ifodaning qiymatini topish.pdf",
   "sahifa": 11,
-  "hajm": 770038,
-  "v": "b758ebfc"
+  "hajm": 780382,
+  "v": "bab01d6a"
  },
  "6-ifoda-qiymatini-topish-1-test": {
   "fayl": "6-sinf Algebraik ifodaning qiymatini topish 1-test.pdf",
@@ -644,8 +644,8 @@
  "6-ifodalarni-soddalashtirish": {
   "fayl": "6-sinf Algebraik ifodalarni soddalashtirish.pdf",
   "sahifa": 9,
-  "hajm": 627607,
-  "v": "b359f487"
+  "hajm": 630829,
+  "v": "f663968c"
  },
  "6-ifodalarni-soddalashtirish-1-test": {
   "fayl": "6-sinf Algebraik ifodalarni soddalashtirish 1-test.pdf",
@@ -743,6 +743,12 @@
   "hajm": 274459,
   "v": "386ebbcd"
  },
+ "6-ozgaruvchan-nisbatlar": {
+  "fayl": "6-sinf O'zgaruvchan nisbatlar.pdf",
+  "sahifa": 13,
+  "hajm": 1126964,
+  "v": "6429cab5"
+ },
  "6-ozgaruvchan-nisbatlar-1-test": {
   "fayl": "6-sinf O'zgaruvchan nisbatlar 1-test.pdf",
   "sahifa": 5,
@@ -782,8 +788,8 @@
  "6-tenglamalarni-yechish": {
   "fayl": "6-sinf Tenglamalarni yechish.pdf",
   "sahifa": 13,
-  "hajm": 872708,
-  "v": "7adc902f"
+  "hajm": 876026,
+  "v": "c24aa32d"
  },
  "6-tenglamalarni-yechish-1-test": {
   "fayl": "6-sinf Tenglamalarni yechish 1-test.pdf",
@@ -796,6 +802,12 @@
   "sahifa": 5,
   "hajm": 259025,
   "v": "92119979"
+ },
+ "6-uch-miqdor-nisbati": {
+  "fayl": "6-sinf Uch miqdor nisbati.pdf",
+  "sahifa": 12,
+  "hajm": 1081324,
+  "v": "904ecb31"
  },
  "6-uch-miqdor-nisbati-1-test": {
   "fayl": "6-sinf Uch miqdor nisbati 1-test.pdf",
