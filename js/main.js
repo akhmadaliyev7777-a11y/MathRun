@@ -206,22 +206,34 @@ function renderGradesGrid() {
   };
   const primary = [1, 2, 3, 4].map(function (n) { return primaryTile(n, "4 chorak"); }).join("");
 
-  el.innerHTML =
-    '<div class="grade-group">' +
-      '<div class="grade-group-head">' +
-        '<div><div class="grade-group-title">Boshlang\'ich sinflar</div>' +
-        '<div class="grade-group-sub">1–4 sinf · mavzular, darslar va testlar</div></div>' +
-        '<a class="grade-group-link" href="mathrunner-web/index.html">Bo\'limni ochish →</a>' +
-      '</div>' +
-      '<div class="grade-tiles" id="primary-tiles">' + primary + '</div>' +
-    '</div>' +
-    '<div class="grade-group">' +
-      '<div class="grade-group-head">' +
-        '<div><div class="grade-group-title">5–11 sinflar</div>' +
-        '<div class="grade-group-sub">Algebra, geometriya va interaktiv ko\'rgazmalar</div></div>' +
-      '</div>' +
-      '<div class="grade-tiles">' + upper + '</div>' +
+  // bitta qator, sig'masa yonga suriladi (tugmalar — initGradeRail)
+  const rail = function (id, tiles, cls) {
+    return '<div class="grade-rail">' +
+      '<button class="gr-btn gr-prev" type="button" aria-label="Oldingi sinflar" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>' +
+      '<div class="grade-tiles grade-tiles--rail ' + cls + '" id="' + id + '">' + tiles + '</div>' +
+      '<button class="gr-btn gr-next" type="button" aria-label="Keyingi sinflar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>' +
     '</div>';
+  };
+
+  // har guruh — interaktiv darslar oynasi kabi ramka (sarlavha, izoh, tugma) va ichida kartochkalar qatori
+  const panel = function (label, title, sub, link, tiles) {
+    return '<div class="lessons-panel grade-panel">' +
+      '<div class="lessons-head">' +
+        '<div><div class="section-label">' + label + '</div>' +
+        '<h2 class="lessons-title">' + title + '</h2>' +
+        '<p class="lessons-sub">' + sub + '</p></div>' +
+        (link || "") +
+      '</div>' + tiles +
+    '</div>';
+  };
+
+  el.innerHTML =
+    panel("Boshlang'ich sinflar", "Matematikani o'yin orqali o'rganamiz", "1–4-sinf: mavzular, darslar va testlar bir joyda.",
+      '<a class="lessons-all" href="mathrunner-web/index.html">Bo\'limni ochish <span aria-hidden="true">→</span></a>',
+      rail("primary-tiles", primary, "gr-boshlang")) +
+    panel("5–11-sinflar", "Algebra va geometriya — sinfingizni tanlang", "Ma'ruzalar, testlar va interaktiv ko'rgazmalar bir joyda.",
+      "", rail("upper-tiles", upper, "gr-yuqori"));
+  el.querySelectorAll(".grade-rail").forEach(initGradeRail);
 
   // boshlang'ich sinflar uchun aniq mavzu va darslar soni (bo'lim ma'lumotidan)
   fetch("mathrunner-web/data/curriculum.json")
@@ -233,8 +245,84 @@ function renderGradesGrid() {
         const topics = g.choraks.reduce(function (sum, c) { return sum + c.blocks.length; }, 0);
         return primaryTile(g.grade, topics + " mavzu · <b>" + g.levelCount + " dars</b>");
       }).join("");
+      box.dispatchEvent(new Event("scroll"));
     })
     .catch(function () {});
+}
+
+// 5–11 sinflar qatori: tugmalar, sichqoncha bilan sudrash; sensor paneli va barmoq bilan o'zi suriladi
+function initGradeRail(rail) {
+  if (!rail) return;
+  const box = rail.querySelector(".grade-tiles--rail");
+  const prev = rail.querySelector(".gr-prev");
+  const next = rail.querySelector(".gr-next");
+  const step = function () {
+    const card = box.firstElementChild;
+    const gap = parseFloat(getComputedStyle(box).columnGap) || 0;
+    const w = card ? card.getBoundingClientRect().width + gap : box.clientWidth;
+    return Math.max(w, Math.floor(box.clientWidth / w - 1) * w);
+  };
+  const update = function () {
+    const max = box.scrollWidth - box.clientWidth;
+    prev.hidden = box.scrollLeft <= 4;
+    next.hidden = box.scrollLeft >= max - 4;
+  };
+  // silliq surish: yopishish (snap) vaqtincha o'chadi, eng yaqin kartochka boshiga yumshoq sekinlashib boradi
+  let anim = 0;
+  const glide = function (target) {
+    const max = box.scrollWidth - box.clientWidth;
+    const points = Array.prototype.map.call(box.children, function (c) { return Math.min(c.offsetLeft - box.offsetLeft - box.clientLeft, max); });
+    points.push(max);
+    let to = points[0];
+    points.forEach(function (p) { if (Math.abs(p - target) < Math.abs(to - target)) to = p; });
+    const from = box.scrollLeft, dist = to - from;
+    const dur = Math.min(650, 260 + Math.abs(dist) * 0.6);
+    const t0 = performance.now();
+    cancelAnimationFrame(anim);
+    box.classList.add("gr-surish");
+    const tick = function (now) {
+      const k = Math.min(1, (now - t0) / dur);
+      box.scrollLeft = from + dist * (1 - Math.pow(1 - k, 3));
+      if (k < 1) anim = requestAnimationFrame(tick);
+      else box.classList.remove("gr-surish");
+    };
+    anim = requestAnimationFrame(tick);
+  };
+  prev.addEventListener("click", function () { glide(box.scrollLeft - step()); });
+  next.addEventListener("click", function () { glide(box.scrollLeft + step()); });
+  box.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+
+  // sichqoncha bilan yonga sudrash; qo'yib yuborilganda tezligiga qarab eng yaqin kartochkaga silliq to'xtaydi.
+  // sudralgan bo'lsa, kartochka bosilmaydi
+  let startX = 0, startLeft = 0, down = false, moved = false, lastX = 0, lastT = 0, speed = 0;
+  box.addEventListener("pointerdown", function (e) {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    cancelAnimationFrame(anim);
+    down = true; moved = false; startX = lastX = e.clientX; startLeft = box.scrollLeft; lastT = performance.now(); speed = 0;
+  });
+  window.addEventListener("pointermove", function (e) {
+    if (!down) return;
+    const dx = e.clientX - startX;
+    if (!moved && Math.abs(dx) > 6) { moved = true; box.classList.add("gr-surish"); }
+    if (!moved) return;
+    box.scrollLeft = startLeft - dx;
+    const now = performance.now(), dt = now - lastT;
+    if (dt > 0) speed = 0.8 * ((e.clientX - lastX) / dt) + 0.2 * speed;
+    lastX = e.clientX; lastT = now;
+  });
+  window.addEventListener("pointerup", function () {
+    if (!down) return;
+    down = false;
+    if (!moved) return;
+    if (performance.now() - lastT > 80) speed = 0;
+    glide(box.scrollLeft - speed * 260);
+    const stop = function (ev) { ev.preventDefault(); ev.stopPropagation(); };
+    box.addEventListener("click", stop, true);
+    setTimeout(function () { box.removeEventListener("click", stop, true); moved = false; }, 60);
+  });
+  box.addEventListener("dragstart", function (e) { e.preventDefault(); });
+  update();
 }
 
 // ---------- Bosh sahifa: jonli mini-ko'rgazmalar ----------

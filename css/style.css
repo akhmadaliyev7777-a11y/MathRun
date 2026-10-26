@@ -1436,18 +1436,49 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
 .gp-meta { color: #4b5578; font-size: .84rem; font-weight: 600; }
 .gp-meta b { color: #12805c; font-weight: 800; }
 @media (max-width: 860px) { .grade-tiles { gap: 16px; } .gp-name { font-size: 1.55rem; } }
-/* kartochkalar 75% kattalikda (foydalanuvchi, 2026-10-26): qatorda 4 ta, chapga tekislangan; telefonda (≤ 560 px) avvalgidek */
+/* kartochkalar 75% kattalikda (foydalanuvchi, 2026-10-26): kenglik --gt-w da; telefonda (≤ 560 px) avvalgidek */
 @media (min-width: 561px) {
-  .grade-tiles { grid-template-columns: repeat(4, calc((100% - 3 * 22px) / 4 * .75)); }
+  .grade-tiles { --gt-w: calc((100% - 3 * 22px) / 4 * .75); grid-template-columns: repeat(4, var(--gt-w)); }
   .grade-poster { border-radius: 18px; }
   .gp-body { padding: 2px 14px 14px; gap: 3px; }
   .gp-name { font-size: 1.4rem; }
   .gp-subj { font-size: .8rem; }
   .gp-meta { font-size: .76rem; }
 }
-@media (min-width: 861px) and (max-width: 960px) { .grade-tiles { grid-template-columns: repeat(3, calc((100% - 2 * 22px) / 3 * .75)); } }
-@media (min-width: 721px) and (max-width: 860px) { .grade-tiles { grid-template-columns: repeat(3, calc((100% - 2 * 16px) / 3 * .75)); } }
-@media (min-width: 561px) and (max-width: 720px) { .grade-tiles { grid-template-columns: repeat(2, calc((100% - 16px) / 2 * .75)); } }
+@media (min-width: 861px) and (max-width: 960px) { .grade-tiles { --gt-w: calc((100% - 2 * 22px) / 3 * .75); grid-template-columns: repeat(3, var(--gt-w)); } }
+@media (min-width: 721px) and (max-width: 860px) { .grade-tiles { --gt-w: calc((100% - 2 * 16px) / 3 * .75); grid-template-columns: repeat(3, var(--gt-w)); } }
+@media (min-width: 561px) and (max-width: 720px) { .grade-tiles { --gt-w: calc((100% - 16px) / 2 * .75); grid-template-columns: repeat(2, var(--gt-w)); } }
+
+/* 5–11 sinflar — bitta qator, yonga suriladi (tugma, sichqoncha bilan sudrash, sensor paneli/barmoq) */
+.grade-rail { position: relative; }
+.grade-tiles--rail { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: var(--gt-w, calc((100% - 12px) / 2.25)); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 10px 2px 28px; margin: -10px -2px -28px; }
+.grade-tiles--rail::-webkit-scrollbar { display: none; }
+.grade-tiles--rail > * { scroll-snap-align: start; }
+.grade-tiles--rail.gr-surish { scroll-snap-type: none; scroll-behavior: auto; }
+@media (hover: hover) { .grade-tiles--rail { cursor: grab; } .grade-tiles--rail.gr-surish { cursor: grabbing; } }
+.grade-tiles--rail.gr-surish > * { pointer-events: none; }
+/* ramka ichida: 1–4 qatorni to'ldiradi, 5–11 da beshinchisining cheti ko'rinib turadi */
+.grade-panel { width: 100%; }
+@media (min-width: 561px) {
+  .grade-tiles.grade-tiles--rail { gap: 18px; }
+  .grade-tiles.gr-boshlang { --gt-w: clamp(170px, calc((100% - 3 * 18px) / 4), 330px); }
+  .grade-tiles.gr-yuqori { --gt-w: clamp(170px, calc((100% - 4 * 18px) / 4.45), 300px); }
+}
+@media (min-width: 961px) {
+  .grade-panel .gp-body { padding: 4px 18px 18px; gap: 4px; }
+  .grade-panel .gp-name { font-size: 1.7rem; }
+  .grade-panel .gp-subj { font-size: .9rem; }
+  .grade-panel .gp-meta { font-size: .84rem; }
+}
+@media (max-width: 560px) { .grade-panel .grade-tiles--rail { --gt-w: calc((100% - 12px) / 1.75); } }
+@media (max-width: 560px) { .grade-tiles--rail { --gt-w: calc((100% - 12px) / 2.25); } }
+.gr-btn { position: absolute; top: 34%; transform: translateY(-50%); z-index: 2; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--text); box-shadow: var(--shadow); display: grid; place-items: center; cursor: pointer; transition: opacity .2s ease, transform .2s ease, background .2s ease; }
+.gr-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.gr-btn svg { width: 22px; height: 22px; }
+.gr-prev { left: -14px; }
+.gr-next { right: -14px; }
+.gr-btn[hidden] { display: grid; opacity: 0; pointer-events: none; }
+@media (hover: none) { .gr-btn { display: none !important; } }
 @media (max-width: 560px) {
   .grade-tiles { gap: 12px; }
   .grade-poster { border-radius: 18px; }
