@@ -5,22 +5,119 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 <script>(function(){var d=document.documentElement,k="mathlearn-theme",q=window.matchMedia?matchMedia("(prefers-color-scheme: dark)"):null;function a(){var t=window.mlThemeMem||null;try{t=localStorage.getItem(k)||t}catch(e){}if(t!=="dark"&&t!=="light")t=q&&q.matches?"dark":"light";d.setAttribute("data-theme",t)}window.mlApplyTheme=a;a();window.addEventListener("storage",function(e){if(!e.key||e.key===k)a()});if(q){try{q.addEventListener("change",a)}catch(e){try{q.addListener(a)}catch(e2){}}}})();</script>
-<title>Ma'lumot — Mathlearn</title>
+<title>Biz haqimizda — Mathlearn</title>
 <link rel="icon" href="favicon.png?v=3" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
-<link rel="stylesheet" href="css/style.css?v=85">
+<link rel="stylesheet" href="css/style.css?v=90">
+<link rel="stylesheet" href="css/haqida.css?v=1">
 </head>
 <body>
 
 <div id="site-header-root"></div>
 
-<div class="page-container narrow">
-  <h1 class="page-title">Mathlearn haqida</h1>
-  <div class="lecture-box">
-    <p>Mathlearn — matematikani interaktiv illyustratsiya va o'yinlar orqali o'rgatuvchi sayt. Har bir mavzu ma'ruza, interaktiv ko'rgazma va bosqichma-bosqich qiyinlashuvchi test bilan boyitilgan.</p>
-    <p>Sayt hozircha 5-sinfdan boshlab to'ldirilmoqda, mavzular va interaktiv o'yinlar vaqt o'tishi bilan qo'shib boriladi.</p>
+<main class="hq">
+
+  <section class="hq-karta hq-bosh">
+    <span class="hq-chip hq-chip--kok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg> Biz haqimizda</span>
+    <h1>Matematikani <em>ko'rib, sinab</em> tushunish</h1>
+    <p>Mathlearn — 1–11-sinf o'quvchilari uchun bepul matematika sayti. Har bir mavzu darslik asosida sodda tilda tushuntiriladi, rasmlar bilan ko'rsatiladi va testlar bilan mustahkamlanadi.</p>
+  </section>
+
+  <section class="hq-karta hq-maqsad">
+    <div>
+      <span class="hq-chip hq-chip--binafsha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg> Bizning maqsadimiz</span>
+      <h2>Har bir o'quvchi mavzuni o'zi mustaqil o'qib tushuna olsin</h2>
+      <p>Ko'p o'quvchilar matematikani qiyin fan deb biladi: qoida yodlanadi, lekin nima uchun shunday ekani tushunilmay qoladi. Darsda tushunmagan mavzuga uyda qaytish uchun esa sodda, o'zbek tilidagi manba kam.</p>
+      <p>Biz shuni o'zgartirmoqchimiz. Mathlearn orqali har bir o'quvchi:</p>
+      <ul class="hq-royxat">
+        <li>Mavzuni qisqa gaplar va rasmlar bilan, qadamma-qadam o'qiydi</li>
+        <li>Interaktiv darsda qoidani o'z qo'li bilan sinab ko'radi</li>
+        <li>Oson va qiyin testda o'zini tekshiradi, har savolning yechimini ko'radi</li>
+        <li>O'z natijalarini kuzatib, qayerda qiynalayotganini biladi</li>
+      </ul>
+    </div>
+    <div class="hq-rasm">
+      <img class="hq-kun" src="img/hero/kirish.webp?v=2" alt="" loading="lazy">
+      <img class="hq-tun" src="img/hero/kirish-tun.webp?v=1" alt="" loading="lazy">
+    </div>
+  </section>
+
+  <section class="hq-karta hq-raqamlar" aria-label="Raqamlarda">
+    <div class="hq-raqam"><span class="hq-belgi hq-belgi--kok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-4 9 4-9 4-9-4Z"/><path d="M7 11v4c0 1.5 2.2 3 5 3s5-1.5 5-3v-4"/></svg></span><b>1–11</b><span>sinflar</span></div>
+    <div class="hq-raqam"><span class="hq-belgi hq-belgi--binafsha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4Z"/><path d="M5 17a3 3 0 0 1 3-3h10"/><path d="M9 8h5"/></svg></span><b id="hq-maruza">—</b><span>tayyor ma'ruza</span></div>
+    <div class="hq-raqam"><span class="hq-belgi hq-belgi--yashil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8l1.5 1.5L13 7M9 14h6M9 17h4"/></svg></span><b id="hq-savol">—</b><span>test savoli</span></div>
+    <div class="hq-raqam"><span class="hq-belgi hq-belgi--sariq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V6.5a1.5 1.5 0 0 1 3 0V12"/><path d="M11 11.5V5a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 11.5V7a1.5 1.5 0 0 1 3 0v7a6 6 0 0 1-6 6h-.5A5.5 5.5 0 0 1 6 17l-1.6-2.8a1.5 1.5 0 0 1 2.6-1.5L8 14"/></svg></span><b id="hq-interaktiv">—</b><span>interaktiv dars</span></div>
+  </section>
+
+  <section class="hq-karta hq-bolim">
+    <span class="hq-chip hq-chip--yashil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg> Saytda nimalar bor</span>
+    <h2>Nimalar qila olasiz?</h2>
+    <p>Bir mavzu uchun kerak bo'ladigan hamma narsa bir joyda: o'qish, sinab ko'rish va o'zini tekshirish.</p>
+    <div class="hq-kartalar">
+      <div class="hq-kichik"><span class="hq-belgi hq-belgi--kok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4Z"/><path d="M5 17a3 3 0 0 1 3-3h10"/><path d="M9 8h5"/></svg></span><h3>Ma'ruzalar</h3><p>Har mavzu besh qismdan iborat: tushuntirish, ishlangan misollar, mashqlar, mustaqil ish va javoblar.</p></div>
+      <div class="hq-kichik"><span class="hq-belgi hq-belgi--sariq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V6.5a1.5 1.5 0 0 1 3 0V12"/><path d="M11 11.5V5a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 11.5V7a1.5 1.5 0 0 1 3 0v7a6 6 0 0 1-6 6h-.5A5.5 5.5 0 0 1 6 17l-1.6-2.8a1.5 1.5 0 0 1 2.6-1.5L8 14"/></svg></span><h3>Interaktiv darslar</h3><p>Tarozi, transportir, son o'qi — narsalarni surib, o'zgartirib, qoidani o'zingiz kashf qilasiz.</p></div>
+      <div class="hq-kichik"><span class="hq-belgi hq-belgi--yashil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8l1.5 1.5L13 7M9 14h6M9 17h4"/></svg></span><h3>Ikki bosqichli testlar</h3><p>Har mavzuda 20 savollik oson va 20 savollik qiyin test. Har savolning qadamma-qadam yechimi bor.</p></div>
+      <div class="hq-kichik"><span class="hq-belgi hq-belgi--binafsha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5"/><path d="M5 19h14"/></svg></span><h3>PDF yuklab olish</h3><p>Ma'ruza va testlarni PDF qilib yuklab olish, daftarga yoki darsga chop etish mumkin.</p></div>
+      <div class="hq-kichik"><span class="hq-belgi hq-belgi--qizil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="11" rx="4"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="15.5" cy="11.5" r=".9" fill="currentColor"/><circle cx="17.5" cy="13.8" r=".9" fill="currentColor"/></svg></span><h3>Fikrlash o'yinlari</h3><p>Boshlang'ich sinflar uchun o'yin shaklidagi darslar va mantiqiy topshiriqlar.</p></div>
+      <div class="hq-kichik"><span class="hq-belgi hq-belgi--moviy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Mening natijalarim</h3><p>Yechilgan testlar saqlanadi. Google orqali kirsangiz, natijalar har qanday qurilmada ko'rinadi.</p></div>
+    </div>
+  </section>
+
+  <section class="hq-karta hq-bolim">
+    <span class="hq-chip hq-chip--sariq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg> Qanday tayyorlaymiz</span>
+    <h2>Nimaga e'tibor beramiz?</h2>
+    <p>Har bir mavzu o'quvchiga yetib borguncha bir necha marta tekshiriladi.</p>
+    <div class="hq-kartalar hq-kartalar--4">
+      <div class="hq-kichik"><span class="hq-belgi hq-belgi--kok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5V5.5Z"/><path d="M12 6v13.5"/></svg></span><h3>Darslik asosida</h3><p>Mavzular tartibi, qoida va ta'riflar maktab darsligiga mos — darsda o'tilgani bilan bir xil.</p></div>
+      <div class="hq-kichik"><span class="hq-belgi hq-belgi--binafsha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l4 4L8 20H4v-4L15 5Z"/><path d="M13 7l4 4"/></svg></span><h3>O'z misollarimiz</h3><p>Misollar, masalalar va rasmlar o'zimizniki — kitobdan ko'chirilmaydi, yangi vaziyatlar bilan beriladi.</p></div>
+      <div class="hq-kichik"><span class="hq-belgi hq-belgi--yashil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Har javob tekshiriladi</h3><p>Har bir javob alohida qayta hisoblab tekshiriladi. Kamchilik topsangiz, mavzu sahifasi pastidan yozing — tuzatamiz.</p></div>
+      <div class="hq-kichik"><span class="hq-belgi hq-belgi--sariq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></svg></span><h3>Bepul va ochiq</h3><p>Hisob yaratmasdan ham barcha darslar, testlar va interaktiv darslardan foydalanish mumkin.</p></div>
+    </div>
+  </section>
+
+  <section class="hq-karta hq-oxir">
+    <div>
+      <h2>O'qishni boshlaymizmi?</h2>
+      <p>Sinfingizni tanlang yoki yangiliklarni Telegram kanalimizda kuzating.</p>
+    </div>
+    <div class="hq-tugmalar">
+      <a class="hq-tugma" href="index.html#grades-section">Sinfingizni tanlang <span aria-hidden="true">→</span></a>
+      <a class="hq-tugma hq-tugma--oq" href="https://t.me/mathlearn_uz" target="_blank" rel="noopener">Telegram kanal</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="index.html"><img class="site-logo-img" src="logo.png?v=1" alt="Mathlearn" width="185" height="36" loading="lazy"></a>
+      <p class="footer-maqsad">Maqsadimiz: matematikani har bir o'quvchi uchun tushunarli va qiziqarli qilish.</p>
+      <p class="footer-maqsad">1–11-sinflar uchun — darslik asosida, bepul.</p>
+      <div class="footer-social">
+        <a href="https://t.me/mathlearn_uz" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5ZM9.5 14l8.6-5.4c.4-.3.8-.1.5.2l-7.1 6.4-.3 3.3L9.5 14Z"/></svg></a>
+        <a href="#" aria-label="Instagram" onclick="return false"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <nav class="footer-col" aria-label="Yordam">
+      <div class="footer-title">Yordam</div>
+      <a href="info.html">Biz haqimizda</a>
+      <a href="https://t.me/mathlearn_uz" target="_blank" rel="noopener">Aloqa</a>
+    </nav>
+    <div class="footer-col footer-news">
+      <div class="footer-title">Yangiliklar</div>
+      <p>Yangi materiallar va imkoniyatlar haqida birinchi bo'lib xabardor bo'ling.</p>
+      <a class="footer-tg" href="https://t.me/mathlearn_uz" target="_blank" rel="noopener">
+        <span class="footer-tg-ikon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.5-1.5ZM9.5 14l8.6-5.4c.4-.3.8-.1.5.2l-7.1 6.4-.3 3.3L9.5 14Z"/></svg></span>
+        <span class="footer-tg-text"><b>@mathlearn_uz</b><span>Telegram kanal</span></span>
+        <span class="footer-tg-strelka" aria-hidden="true">→</span>
+      </a>
+    </div>
   </div>
-</div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Mathlearn. Barcha huquqlar himoyalangan.</span>
+  </div>
+</footer>
 
 <script src="js/data.js?v=194"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
@@ -28,6 +125,27 @@
 <script src="js/firebase-config.js?v=8"></script>
 <script src="js/auth.js?v=12"></script>
 <script src="js/layout.js?v=27"></script>
-<script>renderSiteHeader();</script>
+<script>
+renderSiteHeader();
+/* raqamlar saytdagi ma'lumotdan: tayyor ma'ruzalar, testli mavzular (har biri 20 + 20 savol), interaktiv darslar */
+(function () {
+  if (typeof SITE_DATA === "undefined") return;
+  var maruza = 0, test = 0, interaktiv = 0;
+  SITE_DATA.grades.forEach(function (g) {
+    g.subjects.forEach(function (s) {
+      s.topics.forEach(function (t) {
+        if (t.lecture && t.lecture.embedUrl) maruza++;
+        if (t.test) test++;
+        if (t.interactive) interaktiv++;
+      });
+    });
+  });
+  var savol = Math.floor(test * 40 / 100) * 100;
+  var son = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); };
+  document.getElementById("hq-maruza").textContent = maruza;
+  document.getElementById("hq-savol").textContent = son(savol) + "+";
+  document.getElementById("hq-interaktiv").textContent = interaktiv;
+})();
+</script>
 </body>
 </html>
