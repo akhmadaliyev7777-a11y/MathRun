@@ -488,12 +488,17 @@ window.addEventListener("message", function (e) {
   window.addEventListener("resize", later);
   window.addEventListener("message", function (e) { if (e.data && e.data.type === "mathrun:height") later(); });
 })();
+// yuqori menyu yopishib turadi (layout.js) — sahifani surishda uning balandligi hisobga olinadi
+function stickyHeaderHeight() {
+  const h = document.querySelector(".site-header--sticky");
+  return h ? h.offsetHeight : 0;
+}
 // test oynasi so'raganda — sahifa oyna boshiga (yoki oyna ichidagi y joyga) suriladi
 window.addEventListener("message", function (e) {
   if (!e.data || e.data.type !== "mathrun:top") return;
   document.querySelectorAll("iframe").forEach(function (f) {
     if (f.contentWindow !== e.source) return;
-    const y = f.getBoundingClientRect().top + window.pageYOffset + (e.data.y || 0) - 80;
+    const y = f.getBoundingClientRect().top + window.pageYOffset + (e.data.y || 0) - 80 - stickyHeaderHeight();
     window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
   });
 });
@@ -685,7 +690,7 @@ function initTopicSteps() {
     if (history.replaceState) history.replaceState(null, "", "#" + id);
     // bosqich almashganda — bo'lim boshiga. Panel yopishib turgani uchun uning asl joyi oldingi element ostidan olinadi
     if (scroll && nav.previousElementSibling) {
-      const y = nav.previousElementSibling.getBoundingClientRect().bottom + window.pageYOffset;
+      const y = nav.previousElementSibling.getBoundingClientRect().bottom + window.pageYOffset - stickyHeaderHeight();
       if (window.pageYOffset > y) window.scrollTo(0, Math.max(0, y));
     }
   }

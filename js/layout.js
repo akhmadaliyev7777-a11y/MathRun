@@ -1,31 +1,71 @@
+// Yuqori menyu va chap panel uchun chiziqli belgilar (20 px, admin panel uslubida)
+function navIcon(d) {
+  return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + "</svg>";
+}
+const NAV_ICONS = {
+  menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+  close: '<path d="M6 6l12 12M18 6 6 18"/>',
+  home: '<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>',
+  grades: '<path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.8c0 1.5 2.5 3.2 5.5 3.2s5.5-1.7 5.5-3.2V11"/><path d="M21.5 9v5"/>',
+  lessons: '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M10.2 8.2v5l4.3-2.5z"/><path d="M8 21h8"/>',
+  games: '<rect x="2.5" y="7" width="19" height="11" rx="5.5"/><path d="M7 12.5h3.5M8.75 10.75v3.5"/><path d="M15.5 11.5h.01M17.5 13.5h.01" stroke-width="2.6"/>',
+  results: '<path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/>',
+  about: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.6h.01" stroke-width="2.6"/>',
+  admin: '<path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+  login: '<path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/><path d="m10 16 4-4-4-4"/><path d="M14 12H4"/>',
+  logout: '<path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4"/><path d="M10 16l-4-4 4-4"/><path d="M6 12h10"/>',
+  user: '<circle cx="12" cy="8" r="4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/>',
+  chevron: '<path d="m6 9 6 6 6-6"/>',
+};
+
+// sahifaga qarab menyuda qaysi band ajratiladi: home | grades | lessons | games | results | about
+function siteActiveKey(active) {
+  const path = location.pathname;
+  if (/\/mathrunner-web\//.test(path)) return /^#\/(games|tug)/.test(location.hash) ? "games" : "grades";
+  const page = path.split("/").pop() || "index.html";
+  if (page === "index.html") return location.hash === "#grades-section" ? "grades" : "home";
+  const byPage = { "korgazmalar.html": "lessons", "sinf.html": "grades", "mavzu.html": "grades", "test.html": "grades", "mening.html": "results", "info.html": "about" };
+  if (byPage[page]) return byPage[page];
+  return { home: "home", lessons: "lessons", games: "games", primary: "grades" }[active] || "";
+}
+
 // base — sahifa ichki papkada bo'lsa (masalan mathrunner-web/) asosiy saytga yo'l, masalan "../"
 // active — menyuda ajratib ko'rsatiladigan bo'lim: "home" | "lessons" | "games" | "primary"
 function renderSiteHeader(base, active) {
   base = base || "";
   window.SITE_BASE = base;
-  const cls = (key) => (active === key ? ' class="active"' : "");
   const root = document.getElementById("site-header-root");
   if (!root) return;
   // tungi rejim tugmasi — <head> dagi mavzu skripti bor sahifalarda (html[data-theme]):
   // asosiy sayt, 1–4-sinf bo'limi (mathrunner-web) va admin panel
   const themeOn = document.documentElement.hasAttribute("data-theme");
+  // yuqori menyu asosiy saytda yopishib turadi; 1–4-sinf bo'limida (o'z yopishgan panellari bor) — oddiy
+  const sticky = base === "";
+  const I = function (k) { return navIcon(NAV_ICONS[k]); };
+  const logo = '<img class="site-logo-img" src="' + base + 'logo.png?v=1" alt="Mathlearn" width="185" height="36">';
+  const dlink = function (key, href, text, extra) {
+    return '<a href="' + base + href + '" class="drawer-link' + (extra || "") + '" data-key="' + key + '">' + I(key) + "<span>" + text + "</span></a>";
+  };
 
   root.innerHTML =
-    '<header class="site-header">' +
+    '<header class="site-header' + (sticky ? " site-header--sticky" : "") + '">' +
       '<div class="site-header-left">' +
-        '<button id="menu-toggle-btn" class="menu-toggle" aria-label="Menyu">' +
-          "<span></span><span></span><span></span>" +
-        "</button>" +
-        '<a class="site-logo" href="' + base + 'index.html"><img class="site-logo-img" src="' + base + 'logo.png?v=1" alt="Mathlearn" width="185" height="36"></a>' +
+        '<button type="button" id="menu-toggle-btn" class="menu-toggle" aria-label="Menyu" aria-controls="side-drawer" aria-expanded="false">' + I("menu") + "</button>" +
+        '<a class="site-logo" href="' + base + 'index.html">' + logo + "</a>" +
       "</div>" +
-      '<nav class="site-nav">' +
-        '<a href="' + base + 'index.html"' + cls("home") + '>Home</a>' +
-        '<a href="' + base + 'korgazmalar.html"' + cls("lessons") + '>Interaktiv</a>' +
-        '<a href="' + base + 'mathrunner-web/index.html#/games" data-nav="games"' + cls("games") + '>O\'yinlar</a>' +
+      '<nav class="site-nav" aria-label="Asosiy menyu">' +
+        '<a href="' + base + 'index.html" data-key="home">Bosh sahifa</a>' +
+        '<a href="' + base + 'index.html#grades-section" data-key="grades" data-nav="primary">Sinflar</a>' +
+        '<a href="' + base + 'korgazmalar.html" data-key="lessons">Interaktiv</a>' +
+        '<a href="' + base + 'mathrunner-web/index.html#/games" data-key="games" data-nav="games">O\'yinlar</a>' +
       "</nav>" +
-      '<button type="button" id="site-login-btn" class="site-login-btn">Kirish</button>' +
-      (themeOn ? '<button type="button" id="theme-toggle-btn" class="theme-toggle" aria-label="Tungi rejim" title="Tungi rejim">' + MOON_ICON + "</button>" : "") +
-      '<button type="button" id="search-open-btn" class="search-open" aria-label="Mavzu qidirish" title="Mavzu qidirish (/)">' + SEARCH_ICON + "</button>" +
+      '<div class="site-header-right">' +
+        '<button type="button" id="site-search-trigger" class="site-search-trigger" data-search-open aria-label="Mavzu qidirish" title="Mavzu qidirish (/)">' +
+          SEARCH_ICON + "<span>Mavzu qidirish…</span><kbd>/</kbd></button>" +
+        '<button type="button" id="site-login-btn" class="site-login-btn">Kirish</button>' +
+        (themeOn ? '<button type="button" id="theme-toggle-btn" class="theme-toggle" aria-label="Tungi rejim" title="Tungi rejim">' + MOON_ICON + "</button>" : "") +
+        '<button type="button" id="search-open-btn" class="search-open" data-search-open aria-label="Mavzu qidirish" title="Mavzu qidirish (/)">' + SEARCH_ICON + "</button>" +
+      "</div>" +
     "</header>" +
     '<div id="site-search" class="site-search" hidden>' +
       '<div class="site-search-box" role="dialog" aria-label="Mavzu qidirish">' +
@@ -37,36 +77,50 @@ function renderSiteHeader(base, active) {
         '<ul id="site-search-list" class="site-search-list" role="listbox"></ul>' +
       "</div>" +
     "</div>" +
-    '<div id="side-drawer" class="side-drawer">' +
+    '<aside id="side-drawer" class="side-drawer" aria-label="Menyu">' +
       '<div class="side-drawer-inner">' +
-        '<button id="drawer-close-btn" class="drawer-close" aria-label="Yopish">&times;</button>' +
+        '<div class="drawer-head">' +
+          '<a class="site-logo" href="' + base + 'index.html">' + logo + "</a>" +
+          '<button type="button" id="drawer-close-btn" class="drawer-close" aria-label="Yopish">' + I("close") + "</button>" +
+        "</div>" +
         '<div class="drawer-label">O\'rganish</div>' +
-        '<a href="' + base + 'index.html" class="drawer-link">Bosh sahifa</a>' +
-        '<a href="' + base + 'index.html#grades-section" class="drawer-link">Sinflar (1–11)</a>' +
-        '<a href="' + base + 'korgazmalar.html" class="drawer-link">Interaktiv darslar</a>' +
-        '<a href="' + base + 'mathrunner-web/index.html#/games" class="drawer-link">Fikrlash o\'yinlari</a>' +
-        '<a href="' + base + 'mening.html" class="drawer-link">Mening natijalarim</a>' +
+        dlink("home", "index.html", "Bosh sahifa") +
+        dlink("grades", "index.html#grades-section", "Sinflar (1–11)") +
+        dlink("lessons", "korgazmalar.html", "Interaktiv darslar") +
+        dlink("games", "mathrunner-web/index.html#/games", "Fikrlash o'yinlari") +
+        dlink("results", "mening.html", "Mening natijalarim") +
         '<div class="drawer-divider"></div>' +
-        '<a href="' + base + 'info.html" class="drawer-link">Mathlearn haqida</a>' +
-        // pastki qism: admin kirgan bo'lsa — Admin panel va Chiqish; kirmagan bo'lsa — kichik «Muallif uchun kirish»
+        dlink("about", "info.html", "Mathlearn haqida") +
+        // pastki qism: tungi rejim, hisob (kirgan — ism, natijalar, chiqish; kirmagan — «Kirish»), kichik «Muallif uchun kirish»
         '<div class="drawer-bottom">' +
-          '<a href="' + base + 'admin.html" id="drawer-admin-link" class="drawer-link drawer-admin" target="_blank" rel="noopener" hidden>Admin panel ↗</a>' +
-          '<button id="drawer-logout-btn" class="drawer-link drawer-logout" hidden>Chiqish</button>' +
+          (themeOn ? '<button type="button" id="drawer-theme-btn" class="drawer-link drawer-theme" role="switch" aria-checked="false">' + MOON_ICON + '<span>Tungi rejim</span><i class="drawer-switch" aria-hidden="true"></i></button>' : "") +
+          '<div id="drawer-user-in" class="drawer-user" hidden>' +
+            '<div class="drawer-user-card"><span class="site-user-ava" id="drawer-user-ava" aria-hidden="true"></span>' +
+              '<span class="drawer-user-txt"><b id="drawer-user-name"></b><small id="drawer-user-mail"></small></span></div>' +
+            '<a href="' + base + 'mening.html" class="drawer-link drawer-link--sm" data-key="results">' + I("results") + "<span>Mening natijalarim</span></a>" +
+            '<a href="' + base + 'admin.html" id="drawer-admin-link" class="drawer-link drawer-link--sm drawer-admin" target="_blank" rel="noopener" hidden>' + I("admin") + "<span>Admin panel ↗</span></a>" +
+            '<button type="button" id="drawer-logout-btn" class="drawer-link drawer-link--sm drawer-logout" hidden>' + I("logout") + "<span>Chiqish</span></button>" +
+          "</div>" +
+          '<button type="button" id="drawer-signin-btn" class="drawer-signin">' + I("login") + "<span>Kirish</span></button>" +
           '<a href="' + base + 'login.html" id="drawer-login-link" class="drawer-login-small">Muallif uchun kirish</a>' +
-        '</div>' +
+        "</div>" +
       "</div>" +
-    "</div>" +
+    "</aside>" +
     '<div id="drawer-overlay" class="drawer-overlay" hidden></div>';
 
-  // menyuda hozirgi sahifa ajratib ko'rsatiladi
-  const here = location.pathname.split("/").pop() || "index.html";
-  root.querySelectorAll(".side-drawer .drawer-link[href]").forEach(function (a) {
-    const href = a.getAttribute("href").replace(base, "");
-    const page = href.split("#")[0];
-    const hash = href.indexOf("#") >= 0 ? "#" + href.split("#")[1] : "";
-    if (page === here && (hash === location.hash || (!hash && !location.hash && page !== "mathrunner-web/index.html"))) a.classList.add("active");
-  });
+  // menyuda hozirgi sahifa ajratib ko'rsatiladi (yuqori menyu va chap panel bir xil)
+  function markActive() {
+    const key = siteActiveKey(active);
+    root.querySelectorAll(".site-nav a[data-key], .side-drawer .drawer-link[data-key]").forEach(function (a) {
+      const on = a.dataset.key === key;
+      a.classList.toggle("active", on);
+      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+  }
+  markActive();
+  window.addEventListener("hashchange", markActive);
 
+  const header = root.querySelector(".site-header");
   const toggleBtn = document.getElementById("menu-toggle-btn");
   const closeBtn = document.getElementById("drawer-close-btn");
   const drawer = document.getElementById("side-drawer");
@@ -75,15 +129,31 @@ function renderSiteHeader(base, active) {
   function openDrawer() {
     drawer.classList.add("open");
     overlay.hidden = false;
+    toggleBtn.setAttribute("aria-expanded", "true");
+    document.body.classList.add("drawer-open-body");
+    setTimeout(function () { closeBtn.focus({ preventScroll: true }); }, 60);
   }
   function closeDrawer() {
+    if (!drawer.classList.contains("open")) return;
     drawer.classList.remove("open");
     overlay.hidden = true;
+    toggleBtn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("drawer-open-body");
   }
 
   toggleBtn.addEventListener("click", openDrawer);
-  closeBtn.addEventListener("click", closeDrawer);
+  closeBtn.addEventListener("click", function () { closeDrawer(); toggleBtn.focus({ preventScroll: true }); });
   overlay.addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawer(); });
+  // bir sahifa ichidagi havola (#grades-section, 1–4-sinf bo'limi) bosilganda panel yopiladi
+  drawer.addEventListener("click", function (e) { if (e.target.closest("a[href]")) closeDrawer(); });
+
+  // surilganda yuqori menyu ostida yengil soya
+  if (sticky) {
+    const onScroll = function () { header.classList.toggle("is-scrolled", window.pageYOffset > 4); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
 
   initSiteSearch(base);
   if (themeOn) initThemeToggle();
@@ -91,7 +161,7 @@ function renderSiteHeader(base, active) {
   if (window.onAuthReadyForMenu) window.onAuthReadyForMenu();
   // Kirish — Google bilan (auth.js). Firebase yuklanmagan bo'lsa — faqat xabar ko'rsatadi
   const loginBtn = document.getElementById("site-login-btn");
-  if (loginBtn) loginBtn.addEventListener("click", function () {
+  function loginClick() {
     if (window.onSiteLoginClick && window.onSiteLoginClick(loginBtn)) return;
     let tip = document.getElementById("site-login-tip");
     if (!tip) {
@@ -102,10 +172,13 @@ function renderSiteHeader(base, active) {
     }
     tip.classList.add("on");
     clearTimeout(tip._t); tip._t = setTimeout(function () { tip.classList.remove("on"); }, 2200);
-  });
+  }
+  loginBtn.addEventListener("click", loginClick);
+  // chap paneldagi «Kirish» — yuqoridagi tugma bilan bir xil (Google bilan kirish oynasi)
+  document.getElementById("drawer-signin-btn").addEventListener("click", function () { closeDrawer(); loginClick(); });
 }
 
-// ---------- Tungi rejim (yuqoridagi oy / quyosh tugmasi) ----------
+// ---------- Tungi rejim (yuqoridagi oy / quyosh tugmasi va chap paneldagi almashtirgich) ----------
 // Tanlov localStorage "mathlearn-theme" ("dark" | "light") da saqlanadi; tanlanmagan bo'lsa — qurilma sozlamasi.
 // Sahifa ochilishidagi oq chaqnashning oldini <head> dagi bir qatorli skript oladi (window.mlApplyTheme).
 const THEME_KEY = "mathlearn-theme";
@@ -116,30 +189,38 @@ const SUN_ICON =
   '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
   '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>';
 
+function toggleSiteTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  window.mlThemeMem = next;
+  try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+  html.setAttribute("data-theme", next);
+  // sahifa ichidagi test oynasi (test.html) ham darhol almashadi
+  document.querySelectorAll("iframe").forEach(function (f) {
+    try {
+      const w = f.contentWindow;
+      if (w && w.mlApplyTheme) { w.mlThemeMem = next; w.mlApplyTheme(); }
+    } catch (e) {}
+  });
+}
+
 function initThemeToggle() {
   const btn = document.getElementById("theme-toggle-btn");
-  if (!btn) return;
+  const sw = document.getElementById("drawer-theme-btn");
+  if (!btn && !sw) return;
   const html = document.documentElement;
   function sync() {
     const dark = html.getAttribute("data-theme") === "dark";
-    const label = dark ? "Kunduzgi rejim" : "Tungi rejim";
-    btn.innerHTML = dark ? SUN_ICON : MOON_ICON;
-    btn.setAttribute("aria-label", label);
-    btn.title = label;
+    if (btn) {
+      const label = dark ? "Kunduzgi rejim" : "Tungi rejim";
+      btn.innerHTML = dark ? SUN_ICON : MOON_ICON;
+      btn.setAttribute("aria-label", label);
+      btn.title = label;
+    }
+    if (sw) sw.setAttribute("aria-checked", dark ? "true" : "false");
   }
-  btn.addEventListener("click", function () {
-    const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    window.mlThemeMem = next;
-    try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
-    html.setAttribute("data-theme", next);
-    // sahifa ichidagi test oynasi (test.html) ham darhol almashadi
-    document.querySelectorAll("iframe").forEach(function (f) {
-      try {
-        const w = f.contentWindow;
-        if (w && w.mlApplyTheme) { w.mlThemeMem = next; w.mlApplyTheme(); }
-      } catch (e) {}
-    });
-  });
+  if (btn) btn.addEventListener("click", toggleSiteTheme);
+  if (sw) sw.addEventListener("click", toggleSiteTheme);
   // boshqa oynada yoki qurilma sozlamasida almashsa — tugma belgisi ham yangilanadi
   if (window.MutationObserver) new MutationObserver(sync).observe(html, { attributes: true, attributeFilter: ["data-theme"] });
   sync();
@@ -398,7 +479,16 @@ function initSiteSearch(base) {
     document.body.classList.remove("search-open-body");
   }
 
-  document.getElementById("search-open-btn").addEventListener("click", open);
+  // lupa tugmasi (tor ekran) va yuqoridagi qidiruv maydoni (keng ekran) — ikkalasi ham shu oynani ochadi
+  document.querySelectorAll("[data-search-open]").forEach(function (b) { b.addEventListener("click", open); });
+  const trigger = document.getElementById("site-search-trigger");
+  if (trigger) trigger.addEventListener("keydown", function (e) {
+    if (e.key.length !== 1 || e.ctrlKey || e.metaKey || e.altKey || e.key === " ") return;
+    e.preventDefault();
+    open();
+    input.value = e.key;
+    render();
+  });
   document.getElementById("site-search-close").addEventListener("click", close);
   wrap.addEventListener("click", function (e) { if (e.target === wrap) close(); });
   input.addEventListener("input", function () { active = 0; render(); });

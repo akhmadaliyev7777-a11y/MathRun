@@ -45,6 +45,19 @@ function updateMenuUI(user) {
   // Admin panel havolasi faqat admin kirganda ko'rinadi.
   const adminLink = document.getElementById("drawer-admin-link");
   if (adminLink) adminLink.hidden = !currentIsAdmin(user);
+  // chap panel pastidagi hisob: kirgan — ism, natijalar, chiqish; kirmagan — «Kirish» tugmasi
+  const userBox = document.getElementById("drawer-user-in");
+  const signinBtn = document.getElementById("drawer-signin-btn");
+  if (userBox) {
+    userBox.hidden = !user;
+    if (user) {
+      const name = userFirstName(user);
+      document.getElementById("drawer-user-ava").textContent = name.charAt(0).toUpperCase();
+      document.getElementById("drawer-user-name").textContent = user.displayName || name;
+      document.getElementById("drawer-user-mail").textContent = user.email || "";
+    }
+  }
+  if (signinBtn) signinBtn.hidden = !!user;
   const loginLink = document.getElementById("drawer-login-link");
   const logoutBtn = document.getElementById("drawer-logout-btn");
   if (!loginLink || !logoutBtn) return;
@@ -78,18 +91,29 @@ function updateHeaderUser(user) {
   if (user) {
     const name = userFirstName(user);
     btn.classList.add("is-user");
-    btn.innerHTML = '<span class="site-user-ava" aria-hidden="true">' + escapeText(name.charAt(0).toUpperCase()) + '</span><span class="site-user-name">' + escapeText(name) + '</span>';
+    btn.innerHTML = '<span class="site-user-ava" aria-hidden="true">' + escapeText(name.charAt(0).toUpperCase()) + '</span><span class="site-user-name">' + escapeText(name) + '</span>' +
+      (typeof navIcon === "function" ? '<span class="site-user-chev">' + navIcon(NAV_ICONS.chevron) + '</span>' : "");
     btn.setAttribute("aria-label", "Hisob: " + name);
+    btn.setAttribute("aria-haspopup", "menu");
+    btn.setAttribute("aria-expanded", "false");
   } else {
     btn.classList.remove("is-user");
     btn.textContent = "Kirish";
     btn.removeAttribute("aria-label");
+    btn.removeAttribute("aria-haspopup");
+    btn.removeAttribute("aria-expanded");
   }
 }
 
 function closeUserMenu() {
   const m = document.getElementById("site-user-menu");
   if (m) m.remove();
+  const b = document.getElementById("site-login-btn");
+  if (b && b.hasAttribute("aria-expanded")) b.setAttribute("aria-expanded", "false");
+}
+
+function userMenuIcon(k) {
+  return typeof navIcon === "function" ? navIcon(NAV_ICONS[k]) : "";
 }
 
 function toggleUserMenu(btn) {
@@ -99,15 +123,21 @@ function toggleUserMenu(btn) {
   const menu = document.createElement("div");
   menu.id = "site-user-menu";
   menu.className = "site-user-menu";
+  menu.setAttribute("role", "menu");
   menu.innerHTML =
-    '<div class="site-user-menu-head"><b>' + escapeText(u.displayName || userFirstName(u)) + '</b><span>' + escapeText(u.email || "") + '</span></div>' +
-    '<a href="' + base + 'mening.html">📊 Mening natijalarim</a>' +
-    (currentIsAdmin(u) ? '<a href="' + base + 'admin.html" target="_blank" rel="noopener">🛠 Admin panel</a>' : "") +
-    '<button type="button" id="site-user-role">' + (getRole(u.uid) ? (getRole(u.uid) === "ustoz" ? "👩‍🏫" : "🎒") + ' ' + ROL_NAME[getRole(u.uid)] + ' · o\'zgartirish' : '🙋 Kimligingizni tanlang') + '</button>' +
-    '<button type="button" id="site-user-logout">Chiqish</button>';
+    '<div class="site-user-menu-head"><span class="site-user-ava" aria-hidden="true">' + escapeText(userFirstName(u).charAt(0).toUpperCase()) + '</span>' +
+      '<span class="site-user-menu-who"><b>' + escapeText(u.displayName || userFirstName(u)) + '</b><span>' + escapeText(u.email || "") + '</span></span></div>' +
+    '<a href="' + base + 'mening.html" role="menuitem">' + userMenuIcon("results") + '<span>Mening natijalarim</span></a>' +
+    (currentIsAdmin(u) ? '<a href="' + base + 'admin.html" target="_blank" rel="noopener" role="menuitem">' + userMenuIcon("admin") + '<span>Admin panel ↗</span></a>' : "") +
+    '<button type="button" id="site-user-role" role="menuitem">' + userMenuIcon("user") + '<span>' + (getRole(u.uid) ? ROL_NAME[getRole(u.uid)] + ' · o\'zgartirish' : 'Kimligingizni tanlang') + '</span></button>' +
+    '<button type="button" id="site-user-logout" class="site-user-logout" role="menuitem">' + userMenuIcon("logout") + '<span>Chiqish</span></button>';
   document.body.appendChild(menu);
+  btn.setAttribute("aria-expanded", "true");
+  // yopishgan yuqori menyuda — oyna bilan birga turadi (fixed), boshqa joyda — sahifa bilan (absolute)
   const r = btn.getBoundingClientRect();
-  menu.style.top = (r.bottom + window.pageYOffset + 8) + "px";
+  const fixed = !!btn.closest(".site-header--sticky");
+  menu.style.position = fixed ? "fixed" : "absolute";
+  menu.style.top = (r.bottom + (fixed ? 0 : window.pageYOffset) + 8) + "px";
   menu.style.right = Math.max(12, document.documentElement.clientWidth - r.right) + "px";
   document.getElementById("site-user-role").addEventListener("click", function () { closeUserMenu(); openRoleModal(); });
   document.getElementById("site-user-logout").addEventListener("click", function () {
@@ -116,7 +146,12 @@ function toggleUserMenu(btn) {
   });
   setTimeout(function () {
     document.addEventListener("click", function off(e) {
+      if (!document.getElementById("site-user-menu")) { document.removeEventListener("click", off); return; }
       if (!menu.contains(e.target) && e.target !== btn && !btn.contains(e.target)) { closeUserMenu(); document.removeEventListener("click", off); }
+    });
+    document.addEventListener("keydown", function esc(e) {
+      if (!document.getElementById("site-user-menu")) { document.removeEventListener("keydown", esc); return; }
+      if (e.key === "Escape") { closeUserMenu(); btn.focus(); document.removeEventListener("keydown", esc); }
     });
   }, 0);
 }
@@ -162,6 +197,7 @@ function openLoginModal() {
         '<button type="button" class="site-google-btn" id="site-google-btn">' + GOOGLE_ICON + '<span>Google bilan kirish</span></button>' +
         '<div class="site-login-err" id="site-login-err" hidden></div>' +
         '<p class="site-login-hint">Telegram ichida ochgan bo\'lsangiz, avval ⋮ → «Brauzerda ochish» ni bosing.</p>' +
+        '<a class="site-login-author" href="' + (window.SITE_BASE || "") + 'login.html">Muallif uchun kirish</a>' +
       '</div>';
     document.body.appendChild(modal);
     const close = function () { modal.hidden = true; };
