@@ -1545,6 +1545,18 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
 .hs-slide.next { transform: translateX(40%) rotateY(-32deg) scale(.82); }
 .hs-slide.prev:hover, .hs-slide.next:hover { opacity: .75; }
 .hs-art { padding: 0; }
+/* rasmli slayd («Yuqori sinflar» bo'limi): rasm butun slaydni egallaydi */
+.hs-rasm { padding: 0; background: #f5f7fd; }
+.hs-rasm img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hs-rasm .gp-tun { display: none; }
+.hs-ico-son { font-size: 1.3rem; font-weight: 800; color: #3b4fd8; }
+.hs-modul { flex-direction: column; gap: 4px; background: linear-gradient(140deg, #3b4fd8, #6d7cf5) !important; color: #fff; }
+.hs-modul b { font: 600 clamp(1.5rem, 3.2vw, 2.4rem)/1 "Times New Roman", Georgia, serif; font-style: italic; }
+.hs-modul small { font: 600 clamp(1.1rem, 2.2vw, 1.6rem)/1 "Times New Roman", Georgia, serif; font-style: italic; color: #f2c94c; }
+:root[data-theme="dark"] .hs-ico-son { color: var(--primary); }
+:root[data-theme="dark"] .hs-rasm { background: #0f1529; }
+:root[data-theme="dark"] .hs-rasm .gp-kun { display: none; }
+:root[data-theme="dark"] .hs-rasm .gp-tun { display: block; }
 .hs-art { background: #e4e9fd; container-type: inline-size; }
 .hs-art img { position: absolute; right: 0; bottom: 0; width: 88%; height: auto; display: block; -webkit-mask-image: linear-gradient(to right, transparent, #000 14%), linear-gradient(to bottom, transparent, #000 16%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 14%), linear-gradient(to bottom, transparent, #000 16%); mask-composite: intersect; }
 .hs-shior { position: absolute; left: 7%; top: 50%; transform: translateY(-50%); max-width: 40%; display: flex; flex-direction: column; gap: 8px; z-index: 1; }

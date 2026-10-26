@@ -7,27 +7,35 @@ export function render(root, _params) {
   const cur = curriculum();
   const t = cur.totals;
 
-  // o'ng tomondagi ko'rgazma: test kartochkasi + "Dars tugadi" yorlig'i + kasrli misol kartochkasi
-  const ans = (v, ok) => el('div', { class: 'sc-ans' + (ok ? ' sc-ans--ok' : '') },
-    el('span', { class: 'sc-math' }, v), ok && el('span', { class: 'sc-ans__check', html: ICON.check }));
-  const heroCard = el('div', { class: 'showcase', 'aria-hidden': 'true' },
-    el('div', { class: 'showcase__blob' }),
-    el('div', { class: 'sc-card' },
-      el('div', { class: 'sc-card__top' },
-        el('span', {}, '1-sinf · 7-mavzu · 1-test'), el('b', {}, '4 / 10')),
-      el('div', { class: 'sc-bar' }, el('i', {})),
-      el('div', { class: 'sc-q' },
-        el('div', { class: 'sc-q__kicker' }, 'SAVOL'),
-        el('div', { class: 'sc-math sc-q__f' }, '7 + 5 = ?')),
-      el('div', { class: 'sc-answers' }, ans('12', true), ans('11'), ans('13'), ans('10'))),
-    el('div', { class: 'sc-chip sc-chip--stars' },
-      el('span', { class: 'sc-stars' }, ...[0, 1, 2].map(() => el('span', { html: ICON.star }))),
-      el('span', {}, el('b', {}, 'Dars tugadi!'), el('small', {}, '10 dan 10'))),
-    el('div', { class: 'sc-chip sc-chip--tug' },
-      el('div', { class: 'sc-tug__head' }, el('b', {}, 'Kasrlar'), el('small', {}, '4-sinf')),
-      el('div', { class: 'sc-frac sc-math' },
-        el('span', { class: 'sc-f' }, el('i', {}, '3'), el('i', {}, '4')), el('span', {}, '+'),
-        el('span', { class: 'sc-f' }, el('i', {}, '1'), el('i', {}, '4')), el('span', {}, '='), el('b', {}, '1'))));
+  // o'ng tomonda — faqat boshlang'ich sinflarga xos slayd-shou (../js/slayd.js)
+  const olamlar = cur.grades.map((g) =>
+    `<a class="hs-row" href="#/g/${g.grade}/c/1"><span class="hs-ico"><img src="../img/sinf/${g.grade}.webp?v=3" alt="" width="48" height="48" loading="lazy"></span>` +
+    `<span>${g.grade}-sinf · ${g.kingdomTitle}<small>${g.levelCount} dars</small></span><b aria-hidden="true">→</b></a>`).join('');
+  const slides = [
+    '<div class="hs-slide hs-rasm"><img class="gp-kun" src="../img/hero/boshlangich.webp?v=1" alt=""><img class="gp-tun" src="../img/hero/boshlangich-tun.webp?v=1" alt="" loading="lazy"></div>',
+    '<div class="hs-slide hs-oyin">' +
+      '<img src="assets/tug-characters.png" alt="Arqon tortayotgan bolalar" loading="lazy">' +
+      '<span class="hs-label">Sinf bilan o\'yin</span>' +
+      '<h3>Arqon tortish</h3>' +
+      '<p>To\'g\'ri javob — arqon sizning tomonga! Sinf ikki jamoaga bo\'linib bellashadi.</p>' +
+      '<a class="hs-btn" href="#/tug">O\'ynash →</a>' +
+    '</div>',
+    '<div class="hs-slide hs-feature">' +
+      '<span class="hs-big hs-yulduz" aria-hidden="true"><b>7 + 5 = 12</b><i>✓</i></span>' +
+      '<span class="hs-text">' +
+        '<span class="hs-label">Har dars — 10 savol</span>' +
+        '<h3>Qisqa dars — katta qadam</h3>' +
+        '<p>Shoshilish shart emas: xato bo\'lsa, tuzatib qayta urinasiz.</p>' +
+        '<a class="hs-btn" href="#/g/1/c/1">Boshlash →</a>' +
+      '</span>' +
+    '</div>',
+    '<div class="hs-slide hs-list">' +
+      '<span class="hs-label">To\'rt sinf — to\'rt olam</span>' +
+      '<h3>Qaysi olamga borasiz?</h3>' + olamlar +
+    '</div>',
+  ];
+  const slider = el('div', { class: 'hero-slider mw-slider', role: 'region', 'aria-roledescription': 'slayd-shou', 'aria-label': 'Boshlang\'ich sinflar' });
+  if (window.mountHeroSlider) window.mountHeroSlider(slider, slides);
 
   // sinf kartochkasi — asosiy saytdagi kabi afisha (../img/sinf/<sinf>.webp, tungi rejimda <sinf>-tun.webp)
   const kcard = (g) => {
@@ -55,11 +63,11 @@ export function render(root, _params) {
           el('div', { class: 'tag' },
             el('span', { style: 'width:15px;height:15px', html: ICON.check }),
             'Bepul · qulfsiz · ro\'yxatdan o\'tishsiz'),
-          el('h1', { html: 'Butun matematika darsligi —<br>interaktiv darslar bilan' }),
+          el('h1', { html: 'Matematika —<br><em>o\'yin kabi qiziq</em>' }),
           el('p', { class: 'hero__sub' },
-            '1–4 sinfning har bir darsi — alohida bosqich. Sinf va chorakni tanlang, mavzuni oching va darslarni bajaring. Hammasi ochiq.'),
+            '1–4-sinf darsligidagi har bir mavzu — qisqa bosqich: 10 ta savol yoki qiziqarli o\'yin. Xato bo\'lsa — qo\'rqmang, yana urinib ko\'rasiz. Hammasi ochiq va bepul.'),
           el('div', { class: 'hero__cta' },
-            el('a', { href: '#/g/1/c/1', class: 'btn' }, 'Mavzularni ochish',
+            el('a', { href: '#/g/1/c/1', class: 'btn' }, 'Darsni boshlash',
               el('span', { style: 'width:20px;height:20px', html: ICON.arrowRight })),
             el('a', { href: '#/about' }, 'Loyiha qanday ishlaydi?')),
           el('div', { class: 'stats' },
@@ -67,7 +75,7 @@ export function render(root, _params) {
             el('div', { class: 'stat' }, el('b', {}, `${(t.questions + t.gameTasks).toLocaleString('ru-RU')}+`), el('span', {}, 'savol va topshiriq')),
             el('div', { class: 'stat' }, el('b', {}, '4'), el('span', {}, 'sinf · 16 chorak')),
             el('div', { class: 'stat' }, el('b', {}, String(cur.grades.reduce((n, g) => n + g.choraks.reduce((m, c) => m + c.blocks.length, 0), 0))), el('span', {}, 'mavzu')))),
-        heroCard),
+        slider),
       // kingdoms
       el('section', { class: 'section' },
         el('h2', {}, 'Sinfingizni tanlang'),

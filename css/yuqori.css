@@ -1,0 +1,57 @@
+/* «Yuqori sinflar» bo'limi (yuqori.html) — boshlang'ich sinflar bo'limi tuzilishida */
+.yq { max-width: 1180px; margin: 0 auto; padding: 36px 20px 64px; }
+
+/* tepa qism */
+.yq-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 40px; align-items: center; }
+.yq-tag { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: #dff6ec; color: #13805a; font-weight: 700; font-size: .85rem; }
+.yq-tag svg { width: 15px; height: 15px; }
+.yq-hero h1 { margin: 18px 0 16px; font-size: clamp(2.3rem, 5.2vw, 3.9rem); line-height: 1.06; letter-spacing: -.03em; font-weight: 800; color: #1e2a78; }
+.yq-hero h1 em { font-style: normal; background: linear-gradient(90deg, #3b4fd8, #7c5cf0 55%, #e0a81e); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.yq-sub { margin: 0; color: var(--muted); font-size: 1.08rem; line-height: 1.6; max-width: 540px; }
+.yq-cta { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 28px; }
+.yq-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 14px; background: #3b4fd8; color: #fff; font-weight: 700; }
+.yq-btn:hover { background: #2f40c0; color: #fff; }
+.yq-link { color: #3b4fd8; font-weight: 700; }
+.yq-stats { display: flex; gap: 36px; flex-wrap: wrap; margin-top: 40px; }
+.yq-stat b { display: block; font-size: 1.75rem; font-weight: 800; letter-spacing: -.02em; color: var(--text); }
+.yq-stat span { color: var(--muted); font-size: .85rem; font-weight: 600; }
+
+/* bo'limlar */
+.yq-bolim { margin-top: 72px; }
+.yq-bolim h2 { margin: 0 0 8px; font-size: clamp(1.5rem, 2.8vw, 2rem); letter-spacing: -.02em; font-weight: 800; }
+.yq-bolim > p { margin: 0 0 24px; color: var(--muted); }
+.yq-sinflar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.yq-sinflar .gp-body { min-height: 7.4rem; }
+@media (min-width: 961px) {
+  .yq-sinflar .gp-body { padding: 4px 18px 18px; gap: 4px; }
+  .yq-sinflar .gp-name { font-size: 1.7rem; }
+  .yq-sinflar .gp-subj { font-size: .9rem; }
+  .yq-sinflar .gp-meta { font-size: .84rem; }
+}
+.yq-qanday { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.yq-qadam { padding: 24px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border); }
+.yq-qadam span { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-weight: 800; background: #e6eafe; color: #3b4fd8; }
+.yq-qadam:nth-child(2) span { background: #dff6ec; color: #13805a; }
+.yq-qadam h3 { margin: 16px 0 8px; font-size: 1.12rem; font-weight: 800; }
+.yq-qadam p { margin: 0; color: var(--muted); font-size: .93rem; line-height: 1.55; }
+
+@media (max-width: 960px) {
+  .yq-hero { grid-template-columns: 1fr; gap: 24px; }
+  .yq-sinflar { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .yq-qanday { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .yq { padding: 22px 16px 48px; }
+  .yq-sinflar { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .yq-stats { gap: 22px 28px; }
+  .yq-bolim { margin-top: 52px; }
+}
+
+/* tungi rejim */
+:root[data-theme="dark"] .yq-hero h1 { color: var(--text); }
+:root[data-theme="dark"] .yq-hero h1 em { background-image: linear-gradient(90deg, #8f9bff, #b49cff 55%, #f2c94c); }
+:root[data-theme="dark"] .yq-tag { background: rgba(79, 209, 161, .14); color: #4fd1a1; }
+:root[data-theme="dark"] .yq-btn { background: #5361e4; }
+:root[data-theme="dark"] .yq-btn:hover { background: #6470f0; }
+:root[data-theme="dark"] .yq-link { color: var(--primary); }
+:root[data-theme="dark"] .yq-qadam:nth-child(2) span { background: rgba(79, 209, 161, .14); color: #4fd1a1; }

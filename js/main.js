@@ -76,7 +76,9 @@ function gradeTile(href, number, name, chips, meta, primary) {
 
 // ---------- Bosh sahifa: o'ng tomondagi slayd-shou ----------
 // Slaydlar ma'lumotlardan (js/data.js) yasaladi: yangi ma'ruzalar, yangi interaktiv dars, 5-sinf statistikasi.
-function renderHeroSlider() {
+// opts.rasm — birinchi slayd o'rniga rasm: { kun: "img/...", tun: "img/..." } («Yuqori sinflar» bo'limi)
+function renderHeroSlider(opts) {
+  opts = opts || {};
   const box = document.getElementById("hero-slider");
   if (!box || typeof SITE_DATA === "undefined") return;
   const grade = findGrade("5");
@@ -89,108 +91,66 @@ function renderHeroSlider() {
   };
   const slides = [];
 
-  slides.push('<div class="hs-slide hs-art"><img class="gp-kun" src="img/hero/kirish.webp?v=2" alt="Matematika: kublar, transportir, kasrlar, π va √"><img class="gp-tun" src="img/hero/kirish-tun.webp?v=1" alt="Matematika: kublar, transportir, kasrlar, π va √" loading="lazy">' +
+  if (opts.rasm) slides.push('<div class="hs-slide hs-rasm"><img class="gp-kun" src="' + opts.rasm.kun + '" alt=""><img class="gp-tun" src="' + opts.rasm.tun + '" alt="" loading="lazy"></div>');
+  else slides.push('<div class="hs-slide hs-art"><img class="gp-kun" src="img/hero/kirish.webp?v=2" alt="Matematika: kublar, transportir, kasrlar, π va √"><img class="gp-tun" src="img/hero/kirish-tun.webp?v=1" alt="Matematika: kublar, transportir, kasrlar, π va √" loading="lazy">' +
     '<div class="hs-shior"><span class="hs-label">Mathlearn</span><b><span>Matematika</span> <span>endi qiyin</span> <span>fan emas</span></b></div></div>');
 
-  const lectures = topics.filter(topicHasLecture);
-  if (lectures.length) {
-    const last = lectures.slice(-3).reverse();
-    slides.push(
-      '<div class="hs-slide hs-list">' +
-        '<span class="hs-label">Yangi ma\'ruzalar · 5-sinf</span>' +
-        '<h3>Endi o\'qisa bo\'ladi</h3>' +
-        last.map(function (t) {
-          return '<a class="hs-row" href="' + href(t, "#maruza") + '"><span class="hs-ico">' + ico(t, 48) + '</span><span>' + strip(t.title) + '</span><b aria-hidden="true">→</b></a>';
-        }).join("") +
-        '<a class="hs-more" href="sinf.html?sinf=5&amp;fan=' + subject.id + '">Barcha mavzular →</a>' +
-      '</div>');
-  }
+  if (opts.rasm) slides.push.apply(slides, upperSlides());
+  else {
+    const lectures = topics.filter(topicHasLecture);
+    if (lectures.length) {
+      const last = lectures.slice(-3).reverse();
+      slides.push(
+        '<div class="hs-slide hs-list">' +
+          '<span class="hs-label">Yangi ma\'ruzalar · 5-sinf</span>' +
+          '<h3>Endi o\'qisa bo\'ladi</h3>' +
+          last.map(function (t) {
+            return '<a class="hs-row" href="' + href(t, "#maruza") + '"><span class="hs-ico">' + ico(t, 48) + '</span><span>' + strip(t.title) + '</span><b aria-hidden="true">→</b></a>';
+          }).join("") +
+          '<a class="hs-more" href="sinf.html?sinf=5&amp;fan=' + subject.id + '">Barcha mavzular →</a>' +
+        '</div>');
+    }
 
-  // slayddagi interaktiv dars — tanlangan tayyor mavzu (bo'lmasa oxirgi yangi simulyator)
-  const HERO_SIM = "bolishni-kasr-korinishida", HERO_SIM_NOM = "Kasrlarni bo'yash";
-  const sims = topics.filter(function (t) { return t.newSim && t.interactive && !t.review; });
-  const sim = sims.filter(function (t) { return t.id === HERO_SIM; })[0] || sims[sims.length - 1];
-  if (sim) {
+    // slayddagi interaktiv dars — tanlangan tayyor mavzu (bo'lmasa oxirgi yangi simulyator)
+    const HERO_SIM = "bolishni-kasr-korinishida", HERO_SIM_NOM = "Kasrlarni bo'yash";
+    const sims = topics.filter(function (t) { return t.newSim && t.interactive && !t.review; });
+    const sim = sims.filter(function (t) { return t.id === HERO_SIM; })[0] || sims[sims.length - 1];
+    if (sim) {
+      slides.push(
+        '<div class="hs-slide hs-feature">' +
+          '<span class="hs-big">' + ico(sim, 150) + '</span>' +
+          '<span class="hs-text">' +
+            '<span class="hs-label">Interaktiv dars</span>' +
+            '<h3>' + (sim.id === HERO_SIM ? HERO_SIM_NOM : strip(sim.title)) + '</h3>' +
+            '<p>Sudrab, bosib, o\'zgartirib — mavzuni qo\'l bilan sinab ko\'ring.</p>' +
+            '<a class="hs-btn" href="' + href(sim, "#interaktiv") + '">Sinab ko\'rish →</a>' +
+          '</span>' +
+        '</div>');
+    }
+
+    const n = function (f) { return topics.filter(f).length; };
     slides.push(
-      '<div class="hs-slide hs-feature">' +
-        '<span class="hs-big">' + ico(sim, 150) + '</span>' +
+      '<div class="hs-slide hs-feature hs-grade">' +
+        '<span class="hs-poster"><img class="gp-kun" src="img/sinf/5.webp?v=3" alt="" loading="lazy"><img class="gp-tun" src="img/sinf/5-tun.webp?v=1" alt="" loading="lazy"></span>' +
         '<span class="hs-text">' +
-          '<span class="hs-label">Interaktiv dars</span>' +
-          '<h3>' + (sim.id === HERO_SIM ? HERO_SIM_NOM : strip(sim.title)) + '</h3>' +
-          '<p>Sudrab, bosib, o\'zgartirib — mavzuni qo\'l bilan sinab ko\'ring.</p>' +
-          '<a class="hs-btn" href="' + href(sim, "#interaktiv") + '">Sinab ko\'rish →</a>' +
+          '<span class="hs-label">5-sinf · Matematika</span>' +
+          '<h3>Hammasi bir joyda</h3>' +
+          '<span class="hs-stats">' +
+            '<span><b>' + topics.length + '</b>mavzu</span>' +
+            '<span><b>' + lectures.length + '</b>ma\'ruza</span>' +
+            '<span><b>' + n(function (t) { return !!t.test; }) + '</b>test</span>' +
+          '</span>' +
+          '<a class="hs-btn" href="sinf.html?sinf=5&amp;fan=' + subject.id + '">5-sinfni ochish →</a>' +
         '</span>' +
       '</div>');
   }
 
-  const n = function (f) { return topics.filter(f).length; };
-  slides.push(
-    '<div class="hs-slide hs-feature hs-grade">' +
-      '<span class="hs-poster"><img class="gp-kun" src="img/sinf/5.webp?v=3" alt="" loading="lazy"><img class="gp-tun" src="img/sinf/5-tun.webp?v=1" alt="" loading="lazy"></span>' +
-      '<span class="hs-text">' +
-        '<span class="hs-label">5-sinf · Matematika</span>' +
-        '<h3>Hammasi bir joyda</h3>' +
-        '<span class="hs-stats">' +
-          '<span><b>' + topics.length + '</b>mavzu</span>' +
-          '<span><b>' + lectures.length + '</b>ma\'ruza</span>' +
-          '<span><b>' + n(function (t) { return !!t.test; }) + '</b>test</span>' +
-        '</span>' +
-        '<a class="hs-btn" href="sinf.html?sinf=5&amp;fan=' + subject.id + '">5-sinfni ochish →</a>' +
-      '</span>' +
-    '</div>');
-
-  box.innerHTML = '<div class="hs-track">' + slides.join("") + '</div>' +
-    '<button type="button" class="hs-arrow hs-prev" aria-label="Oldingi">‹</button>' +
-    '<button type="button" class="hs-arrow hs-next" aria-label="Keyingi">›</button>' +
-    '<div class="hs-dots">' + slides.map(function (_, i) { return '<button type="button" aria-label="' + (i + 1) + '-slayd"></button>'; }).join("") + '</div>';
-
-  const els = box.querySelectorAll(".hs-slide"), dots = box.querySelectorAll(".hs-dots button");
-  let cur = 0, timer = null;
-  // coverflow: o'rtadagi slayd oldinda, ikki yonidagisi qiya, xira va yarmi orqada yashiringan
-  const show = function (i) {
-    const len = els.length;
-    cur = (i + len) % len;
-    els.forEach(function (e, k) {
-      const rel = (k - cur + len) % len;
-      e.classList.remove("on", "prev", "next");
-      if (rel === 0) e.classList.add("on");
-      else if (rel === 1) e.classList.add("next");
-      else if (rel === len - 1) e.classList.add("prev");
-      e.setAttribute("aria-hidden", rel === 0 ? "false" : "true");
-      e.querySelectorAll("a, button").forEach(function (x) { x.tabIndex = rel === 0 ? 0 : -1; });
-    });
-    dots.forEach(function (d, k) { d.classList.toggle("on", k === cur); });
-  };
-  // yondagi slaydni bosganda — o'sha slayd o'rtaga chiqadi
-  els.forEach(function (e, k) {
-    e.addEventListener("click", function (ev) {
-      if (!e.classList.contains("on")) { ev.preventDefault(); show(k); play(); }
-    });
-  });
-  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const play = function () { stop(); if (!reduce) timer = setInterval(function () { show(cur + 1); }, 5000); };
-  const stop = function () { if (timer) clearInterval(timer); timer = null; };
-  box.querySelector(".hs-prev").addEventListener("click", function () { show(cur - 1); play(); });
-  box.querySelector(".hs-next").addEventListener("click", function () { show(cur + 1); play(); });
-  dots.forEach(function (d, k) { d.addEventListener("click", function () { show(k); play(); }); });
-  box.addEventListener("mouseenter", stop); box.addEventListener("mouseleave", play);
-  box.addEventListener("focusin", stop); box.addEventListener("focusout", play);
-  let x0 = null;
-  box.addEventListener("pointerdown", function (e) { x0 = e.clientX; });
-  box.addEventListener("pointerup", function (e) {
-    if (x0 === null) return;
-    const dx = e.clientX - x0; x0 = null;
-    if (Math.abs(dx) > 40) { show(cur + (dx < 0 ? 1 : -1)); play(); }
-  });
-  show(0); play();
+  mountHeroSlider(box, slides);
 }
 
-function renderGradesGrid() {
-  const el = document.getElementById("grades-grid");
-  if (!el) return;
-
-  // 5–11 sinflar (SITE_DATA dan)
-  const upper = SITE_DATA.grades.map(function (grade) {
+// 5–11 sinflar afishalari (SITE_DATA dan) — bosh sahifa va «Yuqori sinflar» bo'limi
+function upperGradeTiles() {
+  return SITE_DATA.grades.map(function (grade) {
     const topicCount = grade.subjects.reduce(function (sum, s) { return sum + s.topics.length; }, 0);
     const interactiveCount = grade.subjects.reduce(function (sum, s) {
       return sum + s.topics.filter(function (t) { return !!t.interactive; }).length;
@@ -201,6 +161,13 @@ function renderGradesGrid() {
     const meta = topicCount + " mavzu" + (interactiveCount > 0 ? ' · <b>' + interactiveCount + " interaktiv</b>" : "");
     return gradeTile("sinf.html?sinf=" + grade.id, grade.id, grade.name, chips, meta, false);
   }).join("");
+}
+
+function renderGradesGrid() {
+  const el = document.getElementById("grades-grid");
+  if (!el) return;
+
+  const upper = upperGradeTiles();
 
   // 1–4 sinflar (Boshlang'ich sinflar bo'limiga)
   const primaryTile = function (n, meta) {
@@ -234,7 +201,8 @@ function renderGradesGrid() {
       '<a class="lessons-all" href="mathrunner-web/index.html">Bo\'limni ochish <span aria-hidden="true">→</span></a>',
       rail("primary-tiles", primary, "gr-boshlang")) +
     panel("5–11-sinflar", "Algebra va geometriya — sinfingizni tanlang", "Ma'ruzalar, testlar va interaktiv ko'rgazmalar bir joyda.",
-      "", rail("upper-tiles", upper, "gr-yuqori"));
+      '<a class="lessons-all" href="yuqori.html">Bo\'limni ochish <span aria-hidden="true">→</span></a>',
+      rail("upper-tiles", upper, "gr-yuqori"));
   el.querySelectorAll(".grade-rail").forEach(initGradeRail);
 
   // boshlang'ich sinflar uchun aniq mavzu va darslar soni (bo'lim ma'lumotidan)
@@ -325,6 +293,95 @@ function initGradeRail(rail) {
   });
   box.addEventListener("dragstart", function (e) { e.preventDefault(); });
   update();
+}
+
+// ---------- «Yuqori sinflar» bo'limi (yuqori.html) ----------
+// slayd-shou bosh sahifadagidan farqli: 6–11-sinflardagi yangi ma'ruzalar, 8-sinf interaktiv darsi, 6-sinf
+function upperSlides() {
+  const slides = [];
+  const strip = function (t) { return t.replace(/^[\d.]+\.\s*/, ""); };
+  const yuqori = SITE_DATA.grades.filter(function (g) { return Number(g.id) >= 6; });
+  // faqat yangi tuzilishdagi tayyor ma'ruzalar (maruza/*.html)
+  const tayyor = function (t) { return !!(t.lecture && t.lecture.embedUrl); };
+
+  // eng oxirgi tayyor ma'ruzalar (katta sinfdan boshlab)
+  const yangi = [];
+  yuqori.slice().reverse().forEach(function (g) {
+    g.subjects.forEach(function (s) {
+      s.topics.filter(tayyor).slice().reverse().forEach(function (t) { yangi.push({ g: g, s: s, t: t }); });
+    });
+  });
+  if (yangi.length) {
+    slides.push(
+      '<div class="hs-slide hs-list">' +
+        '<span class="hs-label">Yangi ma\'ruzalar</span>' +
+        '<h3>Endi o\'qisa bo\'ladi</h3>' +
+        yangi.slice(0, 3).map(function (x) {
+          const ikon = x.t.icon ? '<img src="' + x.t.icon + '" alt="" width="48" height="48" loading="lazy">' : '<b class="hs-ico-son">' + x.g.id + '</b>';
+          return '<a class="hs-row" href="' + topicHref(x.g.id, x.s.id, x.t.id) + '#maruza"><span class="hs-ico">' + ikon + '</span><span>' +
+            x.g.id + '-sinf · ' + strip(x.t.title).split(". ")[0] + '</span><b aria-hidden="true">→</b></a>';
+        }).join("") +
+      '</div>');
+  }
+
+  // 8-sinf «Modul kasblarda» interaktiv darsi
+  const g8 = findGrade("8");
+  const s8 = g8 && g8.subjects.filter(function (s) { return s.id === "algebra"; })[0];
+  const modul = s8 && s8.topics.filter(function (t) { return t.id === "modul-tengsizliklar" && t.interactive; })[0];
+  if (modul) {
+    slides.push(
+      '<div class="hs-slide hs-feature">' +
+        '<span class="hs-big hs-modul" aria-hidden="true"><b>|x − a|</b><small>≤ d</small></span>' +
+        '<span class="hs-text">' +
+          '<span class="hs-label">Interaktiv dars</span>' +
+          '<h3>Modul kasblarda</h3>' +
+          '<p>8-sinf: modul hayotda qayerda kerakligini 5 kasb misolida o\'ynab ko\'ring.</p>' +
+          '<a class="hs-btn" href="' + topicHref("8", "algebra", modul.id) + '#interaktiv">Sinab ko\'rish →</a>' +
+        '</span>' +
+      '</div>');
+  }
+
+  // 6-sinf: hammasi bir joyda
+  const g6 = findGrade("6");
+  if (g6) {
+    const t6 = g6.subjects.reduce(function (a, s) { return a.concat(s.topics); }, []);
+    const n = function (f) { return t6.filter(f).length; };
+    slides.push(
+      '<div class="hs-slide hs-feature hs-grade">' +
+        '<span class="hs-poster"><img class="gp-kun" src="img/sinf/6.webp?v=3" alt="" loading="lazy"><img class="gp-tun" src="img/sinf/6-tun.webp?v=1" alt="" loading="lazy"></span>' +
+        '<span class="hs-text">' +
+          '<span class="hs-label">6-sinf · Matematika</span>' +
+          '<h3>Ma\'ruza, test va PDF</h3>' +
+          '<span class="hs-stats">' +
+            '<span><b>' + t6.length + '</b>mavzu</span>' +
+            '<span><b>' + n(tayyor) + '</b>ma\'ruza</span>' +
+            '<span><b>' + n(function (t) { return !!t.interactive; }) + '</b>interaktiv</span>' +
+          '</span>' +
+          '<a class="hs-btn" href="sinf.html?sinf=6">6-sinfni ochish →</a>' +
+        '</span>' +
+      '</div>');
+  }
+  return slides;
+}
+
+function renderUpperSection() {
+  const box = document.getElementById("yq-sinflar");
+  if (box) box.innerHTML = upperGradeTiles();
+  const mavzu = SITE_DATA.grades.reduce(function (n, g) {
+    return n + g.subjects.reduce(function (m, s) { return m + s.topics.length; }, 0);
+  }, 0);
+  const son = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); };
+  const yoz = function (id, v) { const e = document.getElementById(id); if (e) e.textContent = v; };
+  yoz("yq-mavzu", mavzu);
+  // ma'ruza, savol, interaktiv — «Biz haqimizda» dagi kabi js/raqamlar.json dan (3 kunda yangilanadi)
+  fetch("js/raqamlar.json?d=" + new Date().toISOString().slice(0, 10))
+    .then(function (j) { if (!j.ok) throw 0; return j.json(); })
+    .then(function (r) {
+      yoz("yq-maruza", r.maruza);
+      yoz("yq-savol", son(Math.floor(r.savol / 100) * 100) + "+");
+      yoz("yq-interaktiv", r.interaktiv);
+    })
+    .catch(function () {});
 }
 
 // ---------- Bosh sahifa: jonli mini-ko'rgazmalar ----------
