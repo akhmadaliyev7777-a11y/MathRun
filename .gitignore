@@ -2,3 +2,6 @@
 # kitob PDF'lari (mualliflik huquqi) — hech qachon commit qilinmaydi
 _kitob/
 __pycache__/
+
+# PDF yasashdagi vaqtinchalik fayllar (_reja/tools/pdf_yasash.py)
+pdf/*.tmp

@@ -87,6 +87,8 @@
     const main = document.querySelector("main") || document.body;
     const params = new URLSearchParams(location.search);
     const CHOP = params.get("chop") === "1";
+    // ?pdf=1 — tayyor PDF fayl yasash uchun (_reja/tools/pdf_yasash.py): chop etishdagidek varaqlanadi, lekin chop etish oynasi ochilmaydi
+    const PDF = params.get("pdf") === "1";
     const ICHIDA = window.parent !== window;
     const MM = 96 / 25.4;
     const CHEGARA = Math.ceil(210 * MM) + 32;
@@ -124,7 +126,26 @@
       if (ICHIDA && safari) return false;          // Safari iframe ichidan butun tashqi sahifani chop etishi mumkin
       return html.clientWidth >= CHEGARA || CHOP;   // tor oynada — yangi oynada (kompyuter kengligida)
     }
+    // Tayyor PDF fayllar ro'yxati (pdf/royxat.json, yasash: _reja/tools/pdf_yasash.py). Fayl bor bo'lsa — tugma PDF faylning
+    // o'zini yangi oynada ochadi (brauzerning PDF oynasi: varaqlar soni ko'rinadi, yuklab olinganda nomi — mavzu nomi).
+    // Fayl yo'q bo'lsa — eski usul (chop etish oynasi).
+    const FAYL = (location.pathname.match(/\/([^\/]+)\.html?$/) || [])[1] || "";
+    let pdfRoyxat = null;   // null — hali yuklanmagan, false — yuklanmadi
+    if (!PDF && !CHOP && window.fetch) {
+      fetch(new URL("../pdf/royxat.json", location.href).href, { cache: "no-cache" })
+        .then(function (r) { if (!r.ok) throw r; return r.json(); })
+        .then(function (j) { pdfRoyxat = j || {}; }, function () { pdfRoyxat = false; });
+    }
+    function faylOch() {
+      const m = pdfRoyxat && FAYL && pdfRoyxat[FAYL];
+      if (!m || !m.fayl) return false;
+      const u = new URL("../pdf/" + encodeURIComponent(m.fayl) + (m.v ? "?v=" + m.v : ""), location.href).href;
+      const w = window.open(u, "_blank");
+      if (!w) { try { window.top.location.href = u; } catch (e) { location.href = u; } }
+      return true;
+    }
     function yuklabOl() {
+      if (!CHOP && faylOch()) return;
       if (!joyidaChopEtsaBoladi() && !CHOP) {
         const u = new URL(location.href);
         u.searchParams.set("chop", "1");
@@ -281,7 +302,7 @@
       balandlik();
     }
 
-    function kerak() { return CHOP || chopda || html.clientWidth >= CHEGARA; }
+    function kerak() { return CHOP || PDF || chopda || html.clientWidth >= CHEGARA; }
     function yangila(majburan) {
       if (!tayyor) return;
       if (!asl) aslniYoz();
@@ -290,9 +311,30 @@
       else if (!k && faol) oddiy();
     }
 
+    // PDF fayl nomi — mavzu nomi bilan («Mathlearn 6-sinf — Aylananing uzunligi»)
+    let eskiNom = null;
+    function pdfNomi() {
+      const m = location.pathname.match(/\/(\d+)-[^\/]*$/);
+      const nom = (document.title || "").trim();
+      return "Mathlearn " + (m ? m[1] + "-sinf — " : "") + nom;
+    }
+    function nomQoy() {
+      const yangi = pdfNomi();
+      eskiNom = { o: document.title, t: null };
+      document.title = yangi;
+      try { if (window.top !== window) { eskiNom.t = window.top.document.title; window.top.document.title = yangi; } } catch (e) {}
+    }
+    function nomQaytar() {
+      if (!eskiNom) return;
+      document.title = eskiNom.o;
+      try { if (eskiNom.t !== null) window.top.document.title = eskiNom.t; } catch (e) {}
+      eskiNom = null;
+    }
+
     function chopgaTayyorla() {
       if (chopda) return;
       chopda = true;
+      nomQoy();
       if (!asl) aslniYoz();
       html.classList.add("a4-chop");
       javoblarniOch();
@@ -302,10 +344,11 @@
       if (!chopda) return;
       chopda = false;
       html.classList.remove("a4-chop");
+      nomQaytar();
       if (kerak()) { javoblarniOch(); sahifala(); } else oddiy();
     }
     window.addEventListener("beforeprint", function () { if (tayyor) chopgaTayyorla(); });
-    window.addEventListener("afterprint", function () { setTimeout(chopdanQayt, 0); });
+    window.addEventListener("afterprint", function () { if (!PDF) setTimeout(chopdanQayt, 0); });
 
     let t = 0;
     window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(function () { yangila(false); }, 150); });
@@ -322,7 +365,10 @@
       tayyor = true;
       html.classList.add("a4-tayyor");
       yangila(false);
-      if (CHOP) {
+      if (PDF) {
+        chopgaTayyorla();
+        html.classList.add("a4-pdf-tayyor");
+      } else if (CHOP) {
         chopgaTayyorla();
         setTimeout(function () { window.print(); }, 400);
       }

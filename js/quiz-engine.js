@@ -149,7 +149,8 @@ function initQuiz() {
     head: "Mathlearn · " + (grade ? grade.name : "") + (subject ? " · " + subject.name : ""),
     topic: topicName,
     file: "Mathlearn " + (grade ? grade.name + " " : "") + topicName,
-    seed: key
+    seed: key,
+    fayl: gradeId + "-" + topicId   // tayyor PDF: pdf/<sinf>-<mavzu>-1-test.pdf (_reja/tools/pdf_yasash.py)
   };
   if (pdfTur === "oson" || pdfTur === "qiyin") {
     const t = tests.find(function (x) { return x.id === pdfTur && !x.off; });
@@ -306,6 +307,7 @@ function qzPdfButtons(tests, info, tabsEl, embedded) {
       : '<button type="button" class="qz-pdf-btn" data-pdf="' + t.id + '" title="' + tip + '">' + label + '</button>';
   }).join("");
   tabsEl.parentNode.insertBefore(bar, tabsEl);
+  qzPdfFayllar(bar, real, info);
   bar.querySelectorAll("[data-pdf]").forEach(function (b) {
     b.addEventListener("click", function () {
       const t = real.find(function (x) { return x.id === b.dataset.pdf; });
@@ -317,10 +319,42 @@ function qzPdfButtons(tests, info, tabsEl, embedded) {
   });
 }
 
+// Tayyor PDF fayl bor bo'lsa (pdf/royxat.json, yasash: _reja/tools/pdf_yasash.py), tugma PDF faylning o'zini yangi oynada
+// ochadi (brauzerning PDF oynasi: varaqlar soni ko'rinadi, yuklab olinganda nomi — «6-sinf <mavzu> 1-test.pdf»).
+// Fayl yo'q bo'lsa — yuqoridagi chop etish usuli qoladi.
+function qzPdfFayllar(bar, real, info) {
+  if (!window.fetch || !info.fayl) return;
+  fetch("pdf/royxat.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function (royxat) {
+    real.forEach(function (t, i) {
+      const m = royxat && royxat[info.fayl + (t.id === "qiyin" ? "-2-test" : "-1-test")];
+      const old = bar.querySelector('[data-pdf="' + t.id + '"]') || bar.children[i];
+      if (!m || !m.fayl || !old) return;
+      const a = document.createElement("a");
+      a.className = "qz-pdf-btn";
+      a.href = "pdf/" + encodeURIComponent(m.fayl) + (m.v ? "?v=" + m.v : "");
+      a.target = "_blank"; a.rel = "noopener";
+      a.title = t.nom + "ni PDF fayl qilib ochish va yuklab olish";
+      a.innerHTML = old.innerHTML;
+      old.parentNode.replaceChild(a, old);
+    });
+  }).catch(function () { /* ro'yxat yo'q — chop etish usuli qoladi */ });
+}
+
 // test.html?...&pdf=oson — varaq ekranda ko'rinadi, ustida «Chop etish / PDF» tugmasi; chop etish oynasi o'zi ochiladi
 function qzPdfPage(t, info, backLink, embedded) {
   document.documentElement.classList.add("qz-pdf-mode");
   const test = { id: t.id, questions: t.questions };
+  // &tayyor=1 — tayyor PDF fayl yasash uchun (_reja/tools/pdf_yasash.py): varaq yasaladi, chop etish oynasi ochilmaydi
+  if (getQueryParam("tayyor") === "1") {
+    Promise.resolve(typeof test.questions === "function" ? test.questions() : test.questions).then(function (qs) {
+      test.questions = qs;
+      return qzPdfBuild(test, info);
+    }).then(function () {
+      document.title = info.file + " — " + QZ_TUR[test.id].nom;
+      document.documentElement.classList.add("qz-pdf-tayyor");
+    });
+    return;
+  }
   const tools = document.createElement("div");
   tools.className = "qz-pdf-tools";
   const u = new URL(location.href); u.searchParams.delete("pdf");
