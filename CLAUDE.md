@@ -170,6 +170,7 @@ Reja: `_reja/6-sinf-maruza-reja.md` (31 mavzu, betlar bilan). Betlar: `python3 _
 ## A4 varaqlar va PDF (2026-10-26)
 - **Ma'ruza:** `<body data-a4>` (`maruza/maruza.js` → `a4()`, `maruza/maruza.css`): kompyuterda (≥ 826 px) raqamlangan oq A4 varaqlar, telefonda oddiy. Hozircha 6-sinf 15, 16-mavzularda; yangi 6-sinf mavzular ham shunday. `misol-juft` varaqlar orasida bo'linmaydi; ichida keng jadval bo'lsa — `misol-ustun` (ustma-ust) ishlating, aks holda PDF'da kesiladi.
 - **PDF — oldindan yasalgan fayllar** (foydalanuvchi qarori: chop etish oynasi emas, fayl brauzerning PDF oynasida ochilsin, yuklab olinganda mavzu nomi bilan saqlansin): `pdf/<sinf>-sinf <Mavzu nomi>.pdf`, testlar `... 1-test.pdf` / `... 2-test.pdf`, ro'yxat `pdf/royxat.json`. Tugmalar («PDF yuklab olish», «1-test — PDF», «2-test — PDF») faylni yangi oynada ochadi; fayl bo'lmasa — eski chop etish usuli.
+- **Varaqlarni zich to'ldirish (foydalanuvchi, 2026-10-26):** avval yuqoridagi varaqlar to'ldiriladi — sig'masa blok 80% gacha kichraytiriladi (`kichrayt`), bo'linadigan quti/ro'yxat varaqda joy ko'p bo'lsa bo'linadi, shundan keyingina keyingi varaqqa o'tiladi; personaj pufagi varaq pastida qolishi mumkin. «5-qism · Javoblar» yangi varaqdan.
 - **Yasash (mavzu yoki test o'zgarsa — push oldidan majburiy):** `python3 _reja/tools/pdf_yasash.py` (hammasi) yoki `python3 _reja/tools/pdf_yasash.py 6-<id>` / `"test:6|matematika|<id>"`. O'zgarmagan fayl qayta yozilmaydi.
 - Push oldidan sahifalar foydalanuvchi brauzerida ochib ko'rsatiladi (`open "http://localhost:8765/..."`).
 

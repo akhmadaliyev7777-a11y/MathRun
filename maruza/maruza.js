@@ -94,6 +94,7 @@
     const CHEGARA = Math.ceil(210 * MM) + 32;
     let asl = null;          // asl tuzilish: [{el, kids}]
     let klonlar = [];        // bo'lingan bloklarning davomlari [{asl, klon}]
+    let kichik = [];         // varaqqa sig'ishi uchun biroz kichraytirilgan bloklar
     let faol = false;        // varaqlar ko'rsatilganmi
     let chopda = false;      // chop etishga tayyorlanganmi
     let tayyor = false;
@@ -178,6 +179,8 @@
     }
 
     function tikla() {
+      kichik.forEach(function (el) { el.style.zoom = ""; });
+      kichik = [];
       klonlar.forEach(function (k) {
         while (k.klon.firstChild) k.asl.appendChild(k.klon.firstChild);
         if (k.klon.parentNode) k.klon.parentNode.removeChild(k.klon);
@@ -190,7 +193,8 @@
     }
 
     function royxat(el) { return /^(OL|UL)$/.test(el.nodeName) && el.children.length > 0; }
-    function birgaKeyingi(el) { return el.matches(".m-qism, h2, h3, h4, .gap, .daraja, .m-title"); }
+    // sarlavha keyingi blok bilan birga turadi (personaj pufagi — yo'q: varaq pastida qolsa ham bo'ladi, joy bo'sh qolmasin)
+    function birgaKeyingi(el) { return el.matches(".m-qism, h2, h3, h4, .daraja, .m-title"); }
     function bolinadi(el) {
       if (royxat(el)) return true;
       if (!el.matches(".box, .m-sec, section, .misol-juft")) return false;
@@ -234,6 +238,19 @@
         if (p && p !== ichi && !p.children.length && p.parentNode === ichi) { ichi.removeChild(p); if (oram === p) { oram = null; oramSec = null; } }
       }
       // sarlavhadan keyingi blokning boshi: ro'yxat yoki bo'linadigan quti — birinchi bolasi; bo'linmaydigani (masalan javob) — o'zi butunligicha
+      function kichrayt(el) {
+        const h = el.getBoundingClientRect().height;
+        if (!h || h < chegara * 0.12) return false;   // kichkina blok kichraytirilmaydi — keyingi varaqqa o'tadi
+        const joy = chegara - (pastki(el) - h);
+        let z = Math.min(0.98, Math.floor(joy / h * 100) / 100);
+        if (z < 0.8) return false;
+        for (; z >= 0.8; z -= 0.02) {
+          el.style.zoom = z.toFixed(2);
+          if (sigadi(el)) { kichik.push(el); return true; }
+        }
+        el.style.zoom = "";
+        return false;
+      }
       function bosh(el) { return (royxat(el) || (bolinadi(el) && pastki(el) > chegara)) && el.firstElementChild ? el.firstElementChild : el; }
       // el dan oxirgi bolalarini davomiga ko'chirib, sig'diradi; min — qoladigan eng kam bola
       function bol(el, min) {
@@ -266,7 +283,7 @@
               const n = navbat[j];
               if (n.el.matches(".q-javob")) break;
               idish(n.sec).appendChild(n.el); vaqt.push(n.el);
-              if (!sigadi(bosh(n.el))) { ok = false; break; }
+              if (!sigadi(bosh(n.el)) && !(bosh(n.el) === n.el && kichrayt(n.el))) { ok = false; break; }
               if (!birgaKeyingi(n.el)) break;
               j++;
             }
@@ -280,7 +297,19 @@
           const k = bol(el, 1);
           if (k) { soni++; navbat.unshift({ el: k, sec: u.sec }); yangiVaraq(); continue; }
         }
-        if (soni > 0) { olib(el); yangiVaraq(); navbat.unshift(u); continue; }
+        if (soni > 0) {
+          // varaqning bo'sh qolgan joyidan foydalanamiz (foydalanuvchi talabi, 2026-10-26):
+          // 1) blokni biroz (80% gacha) kichraytirib shu varaqqa sig'diramiz;
+          if (kichrayt(el)) { soni++; continue; }
+          // 2) bo'linadigan quti yoki ro'yxat bo'lsa va varaqda joy ko'p qolgan bo'lsa — boshini shu varaqqa, davomini keyingisiga;
+          const bosh0 = pastki(el) - el.getBoundingClientRect().height;
+          if (bolinadi(el) && !el.matches(".misol-juft") && chegara - bosh0 > chegara * 0.3) {
+            const k = bol(el, el.matches(".box") && el.firstElementChild && el.firstElementChild.matches(".tag") ? 2 : 1);
+            if (k) { soni++; navbat.unshift({ el: k, sec: u.sec }); yangiVaraq(); continue; }
+          }
+          // 3) bo'lmasa — keyingi varaqqa
+          olib(el); yangiVaraq(); navbat.unshift(u); continue;
+        }
         // varaqda yolg'iz va baribir sig'maydi
         if (bolinadi(el)) {
           const k = bol(el, el.matches(".box") && el.firstElementChild && el.firstElementChild.matches(".tag") ? 2 : 1);
