@@ -20,15 +20,10 @@ export function nav(active) {
 
 // MathRun'ning umumiy footeri (asosiy sahifalardagi bilan bir xil)
 export function footer() {
-  return el('footer', { class: 'site-footer' },
-    el('div', { class: 'footer-inner' },
-      el('span', { class: 'footer-logo' }, 'Mathlearn'),
-      el('nav', { class: 'footer-links' },
-        el('a', { href: '../index.html' }, 'Bosh sahifa'),
-        el('a', { href: '../korgazmalar.html' }, 'Interaktiv darslar'),
-        el('a', { href: '#/' }, 'Boshlang\'ich sinflar'),
-        el('a', { href: '../info.html' }, 'Ma\'lumot')),
-      el('span', { class: 'footer-copy' }, '© Mathlearn')));
+  // pastki qism bosh sahifadagi bilan bir xil (../js/footer.js)
+  const f = el('footer', { class: 'site-footer', 'data-base': '../' });
+  if (window.mlFooter) window.mlFooter(f);
+  return f;
 }
 
 export const curriculum = () => CUR;
