@@ -647,7 +647,31 @@ function initTopicSteps() {
       '<div class="step-next"><button type="button" class="step-next-btn" data-step="' + next.id + '">Keyingi bosqich: ' + next.label + ' →</button></div>');
   });
 
+  // «PDF yuklab olish» — bosqichlar qatorida, o'ngda (faqat Nazariya ochiq va ma'ruzaning tayyor PDF fayli bo'lsa: pdf/royxat.json)
+  let joriy = null, pdfBtn = null;
+  const frame = document.querySelector("#maruza iframe");
+  const kalit = frame ? ((frame.dataset.src || frame.getAttribute("src") || "").match(/^maruza\/([^\/?#]+)\.html/) || [])[1] : null;
+  if (kalit && window.fetch) {
+    fetch("pdf/royxat.json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw r; return r.json(); })
+      .then(function (j) {
+        const m = j && j[kalit];
+        if (!m || !m.fayl) return;
+        pdfBtn = document.createElement("a");
+        pdfBtn.className = "topic-pdf";
+        pdfBtn.href = "pdf/" + encodeURIComponent(m.fayl) + (m.v ? "?v=" + m.v : "");
+        pdfBtn.target = "_blank";
+        pdfBtn.rel = "noopener";
+        pdfBtn.title = "PDF yuklab olish";
+        pdfBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 17v3h16v-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PDF yuklab olish</span>';
+        pdfBtn.hidden = joriy !== "maruza";
+        nav.appendChild(pdfBtn);
+      }, function () {});
+  }
+
   function show(id, scroll) {
+    joriy = id;
+    if (pdfBtn) pdfBtn.hidden = id !== "maruza";
     steps.forEach(function (st) {
       const el = document.getElementById(st.id);
       const on = st.id === id;

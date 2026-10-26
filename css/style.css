@@ -563,6 +563,28 @@ a.crumb:hover { border-color: var(--primary); color: var(--primary); background:
   box-shadow: 0 4px 14px rgba(79, 91, 213, 0.18);
 }
 .topic-step.active b { background: var(--primary); color: #fff; }
+.topic-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.topic-pdf:hover { border-color: var(--primary); box-shadow: 0 4px 14px rgba(79, 91, 213, 0.18); }
+.topic-pdf[hidden] { display: none; }
+@media (max-width: 520px) {
+  .topic-pdf { padding: 8px 7px; }
+  .topic-steps:has(.topic-pdf:not([hidden])) .topic-step { padding: 8px 4px; gap: 4px; }
+  .topic-pdf span { display: none; }
+}
 @media (max-width: 520px) {
   /* telefonda uchala bosqich ekranga sig'adi: teng kenglik, kerak bo'lsa ikki qator */
   .topic-steps { gap: 6px; }

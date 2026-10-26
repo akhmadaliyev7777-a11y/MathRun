@@ -115,7 +115,8 @@
     bar.innerHTML = '<button type="button" class="a4-btn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">' +
       '<path d="M12 3v12m0 0l-5-5m5 5l5-5M4 17v3h16v-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
       '<span>PDF yuklab olish</span></button>';
-    document.body.insertBefore(bar, document.body.firstChild);
+    // mavzu sahifasi ichida tugma tashqarida — bosqichlar qatorida (js/main.js); bu yerda faqat alohida ochilganda
+    if (!ICHIDA) document.body.insertBefore(bar, document.body.firstChild);
     bar.querySelector("button").addEventListener("click", yuklabOl);
 
     function joyidaChopEtsaBoladi() {
@@ -232,7 +233,8 @@
         if (p) p.removeChild(el);
         if (p && p !== ichi && !p.children.length && p.parentNode === ichi) { ichi.removeChild(p); if (oram === p) { oram = null; oramSec = null; } }
       }
-      function bosh(el) { return (royxat(el) || pastki(el) > chegara) && el.firstElementChild ? el.firstElementChild : el; }
+      // sarlavhadan keyingi blokning boshi: ro'yxat yoki bo'linadigan quti — birinchi bolasi; bo'linmaydigani (masalan javob) — o'zi butunligicha
+      function bosh(el) { return (royxat(el) || (bolinadi(el) && pastki(el) > chegara)) && el.firstElementChild ? el.firstElementChild : el; }
       // el dan oxirgi bolalarini davomiga ko'chirib, sig'diradi; min — qoladigan eng kam bola
       function bol(el, min) {
         const klon = el.cloneNode(false);
