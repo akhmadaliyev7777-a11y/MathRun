@@ -1436,6 +1436,18 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
 .gp-meta { color: #4b5578; font-size: .84rem; font-weight: 600; }
 .gp-meta b { color: #12805c; font-weight: 800; }
 @media (max-width: 860px) { .grade-tiles { gap: 16px; } .gp-name { font-size: 1.55rem; } }
+/* kartochkalar 75% kattalikda (foydalanuvchi, 2026-10-26): qatorda 4 ta, chapga tekislangan; telefonda (≤ 560 px) avvalgidek */
+@media (min-width: 561px) {
+  .grade-tiles { grid-template-columns: repeat(4, calc((100% - 3 * 22px) / 4 * .75)); }
+  .grade-poster { border-radius: 18px; }
+  .gp-body { padding: 2px 14px 14px; gap: 3px; }
+  .gp-name { font-size: 1.4rem; }
+  .gp-subj { font-size: .8rem; }
+  .gp-meta { font-size: .76rem; }
+}
+@media (min-width: 861px) and (max-width: 960px) { .grade-tiles { grid-template-columns: repeat(3, calc((100% - 2 * 22px) / 3 * .75)); } }
+@media (min-width: 721px) and (max-width: 860px) { .grade-tiles { grid-template-columns: repeat(3, calc((100% - 2 * 16px) / 3 * .75)); } }
+@media (min-width: 561px) and (max-width: 720px) { .grade-tiles { grid-template-columns: repeat(2, calc((100% - 16px) / 2 * .75)); } }
 @media (max-width: 560px) {
   .grade-tiles { gap: 12px; }
   .grade-poster { border-radius: 18px; }
