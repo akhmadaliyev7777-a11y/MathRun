@@ -127,24 +127,33 @@
 <script src="js/layout.js?v=27"></script>
 <script>
 renderSiteHeader();
-/* raqamlar saytdagi ma'lumotdan: tayyor ma'ruzalar, testli mavzular (har biri 20 + 20 savol), interaktiv darslar */
+/* raqamlar js/raqamlar.json dan — uni GitHub har 3 kunda yangilaydi (o'zgarish bo'lsagina);
+   fayl o'qilmasa — saytdagi ma'lumotdan sanaladi */
 (function () {
-  if (typeof SITE_DATA === "undefined") return;
-  var maruza = 0, test = 0, interaktiv = 0;
-  SITE_DATA.grades.forEach(function (g) {
-    g.subjects.forEach(function (s) {
-      s.topics.forEach(function (t) {
-        if (t.lecture && t.lecture.embedUrl) maruza++;
-        if (t.test) test++;
-        if (t.interactive) interaktiv++;
+  var son = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); };
+  var yoz = function (r) {
+    document.getElementById("hq-maruza").textContent = r.maruza;
+    document.getElementById("hq-savol").textContent = son(Math.floor(r.savol / 100) * 100) + "+";
+    document.getElementById("hq-interaktiv").textContent = r.interaktiv;
+  };
+  var sana = function () {
+    if (typeof SITE_DATA === "undefined") return;
+    var r = { maruza: 0, savol: 0, interaktiv: 0 };
+    SITE_DATA.grades.forEach(function (g) {
+      g.subjects.forEach(function (s) {
+        s.topics.forEach(function (t) {
+          if (t.lecture && t.lecture.embedUrl) r.maruza++;
+          if (t.test) r.savol += 40;
+          if (t.interactive) r.interaktiv++;
+        });
       });
     });
-  });
-  var savol = Math.floor(test * 40 / 100) * 100;
-  var son = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); };
-  document.getElementById("hq-maruza").textContent = maruza;
-  document.getElementById("hq-savol").textContent = son(savol) + "+";
-  document.getElementById("hq-interaktiv").textContent = interaktiv;
+    yoz(r);
+  };
+  fetch("js/raqamlar.json?d=" + new Date().toISOString().slice(0, 10))
+    .then(function (j) { if (!j.ok) throw 0; return j.json(); })
+    .then(yoz)
+    .catch(sana);
 })();
 </script>
 </body>
