@@ -184,6 +184,15 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .section__lead { font-weight: 600; color: var(--muted); margin: 0 0 26px; }
 
 .kingdoms { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 22px; }
+/* sinf afishalari (asosiy saytdagi .grade-poster — ../css/style.css) */
+.kingdoms--afisha { gap: 18px; }
+.kingdoms--afisha .grade-poster { text-decoration: none; }
+@media (min-width: 961px) {
+  .kingdoms--afisha .gp-body { padding: 4px 18px 18px; gap: 4px; }
+  .kingdoms--afisha .gp-name { font-size: 1.7rem; }
+  .kingdoms--afisha .gp-subj { font-size: .9rem; }
+  .kingdoms--afisha .gp-meta { font-size: .84rem; }
+}
 .kcard { border-radius: var(--r-xl); overflow: hidden; background: #fff; border: 2px solid var(--line); box-shadow: var(--shadow-card); text-align: left; cursor: pointer; padding: 0; font: inherit; color: inherit; transition: transform .1s ease; }
 .kcard:hover { transform: translateY(-3px); }
 .kcard__head { height: 120px; background-size: auto 100%; background-repeat: no-repeat; background-position: -14px top; }

@@ -106,15 +106,17 @@ function renderHeroSlider() {
       '</div>');
   }
 
+  // slayddagi interaktiv dars — tanlangan tayyor mavzu (bo'lmasa oxirgi yangi simulyator)
+  const HERO_SIM = "bolishni-kasr-korinishida", HERO_SIM_NOM = "Kasrlarni bo'yash";
   const sims = topics.filter(function (t) { return t.newSim && t.interactive && !t.review; });
-  const sim = sims[sims.length - 1];
+  const sim = sims.filter(function (t) { return t.id === HERO_SIM; })[0] || sims[sims.length - 1];
   if (sim) {
     slides.push(
       '<div class="hs-slide hs-feature">' +
         '<span class="hs-big">' + ico(sim, 150) + '</span>' +
         '<span class="hs-text">' +
           '<span class="hs-label">Interaktiv dars</span>' +
-          '<h3>' + strip(sim.title) + '</h3>' +
+          '<h3>' + (sim.id === HERO_SIM ? HERO_SIM_NOM : strip(sim.title)) + '</h3>' +
           '<p>Sudrab, bosib, o\'zgartirib — mavzuni qo\'l bilan sinab ko\'ring.</p>' +
           '<a class="hs-btn" href="' + href(sim, "#interaktiv") + '">Sinab ko\'rish →</a>' +
         '</span>' +

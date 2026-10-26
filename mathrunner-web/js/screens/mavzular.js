@@ -1,5 +1,5 @@
 import { el } from '../util.js';
-import { ICON, KINGDOM_ICON } from '../icons.js';
+import { ICON } from '../icons.js';
 import { nav, footer, curriculum, gradeData, applyKingdom } from '../app.js';
 import { readBest } from '../util.js';
 import { TOPIC_TITLES } from '../topicTitles.js';
@@ -20,7 +20,6 @@ export function render(root, [gradeStr, chorakStr]) {
     class: 'grade-btn' + (gg.grade === grade ? ' is-active' : ''),
     onclick: () => { location.hash = `#/g/${gg.grade}/c/1`; },
   },
-    el('span', { style: `width:20px;height:20px;color:${gg.grade === grade ? '#fff' : 'var(--violet)'}`, html: KINGDOM_ICON[gg.kingdom] }),
     `${gg.grade}-sinf`);
 
   const chorakTab = (c) => el('button', {

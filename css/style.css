@@ -1741,6 +1741,7 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
 :root[data-theme="dark"] .primary-promo-card { background: linear-gradient(135deg, #1d2340, #15302e); }
 :root[data-theme="dark"] .showcase-icon,
 :root[data-theme="dark"] .value-icon { background: #1b2238; }
+:root[data-theme="dark"] .hs-big { background: var(--surface-2); box-shadow: none; }
 :root[data-theme="dark"] .value-icon .qd-kun { display: none; }
 :root[data-theme="dark"] .value-icon .qd-tun { display: block; }
 :root[data-theme="dark"] .footer-social a { background: var(--surface-2); color: var(--muted); }

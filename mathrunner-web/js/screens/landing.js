@@ -29,23 +29,18 @@ export function render(root, _params) {
         el('span', { class: 'sc-f' }, el('i', {}, '3'), el('i', {}, '4')), el('span', {}, '+'),
         el('span', { class: 'sc-f' }, el('i', {}, '1'), el('i', {}, '4')), el('span', {}, '='), el('b', {}, '1'))));
 
-  const GRADE_BANNER = {
-    1: 'assets/grade-1-banner.jpg', 2: 'assets/grade-2-banner.jpg',
-    3: 'assets/grade-3-banner.jpg', 4: 'assets/grade-4-banner.jpg',
+  // sinf kartochkasi — asosiy saytdagi kabi afisha (../img/sinf/<sinf>.webp, tungi rejimda <sinf>-tun.webp)
+  const kcard = (g) => {
+    const mavzu = g.choraks.reduce((n, c) => n + c.blocks.length, 0);
+    return el('a', { class: 'grade-poster grade-poster--primary grade-poster--tun', href: `#/g/${g.grade}/c/1` },
+      el('span', { class: 'gp-art' },
+        el('img', { class: 'gp-kun', src: `../img/sinf/${g.grade}.webp?v=3`, alt: '', loading: 'lazy', decoding: 'async' }),
+        el('img', { class: 'gp-tun', src: `../img/sinf/${g.grade}-tun.webp?v=1`, alt: '', loading: 'lazy', decoding: 'async' })),
+      el('span', { class: 'gp-body' },
+        el('span', { class: 'gp-name' }, `${g.grade}-sinf`),
+        el('span', { class: 'gp-subj' }, 'Mavzular · Testlar'),
+        el('span', { class: 'gp-meta', html: `${mavzu} mavzu · <b>${g.levelCount} dars</b>` })));
   };
-  const kcard = (g) => el('button', {
-    class: 'kcard', onclick: () => { location.hash = `#/g/${g.grade}/c/1`; },
-  },
-    el('div', {
-      class: 'kcard__head',
-      style: `background-image:url(${GRADE_BANNER[g.grade]}),${g.color.head}`,
-    }),
-    el('div', { class: 'kcard__body' },
-      el('div', { class: 'kcard__title' }, `${g.grade}-sinf`),
-      el('div', { class: 'kcard__meta' }, `${g.kingdomTitle} · ${g.levelCount} dars · ${g.choraks.length} chorak`),
-      el('div', { class: 'kcard__go', style: `color:${g.color.accentDark}` }, 'Kirish',
-        el('span', { style: 'width:16px;height:16px', html: ICON.arrowRight }))));
-
 
   const howcard = (n, color, dark, title, body) => el('div', { class: 'howcard' },
     el('div', { class: 'hownum', style: `background:${color};color:${dark}` }, String(n)),
@@ -77,7 +72,7 @@ export function render(root, _params) {
       el('section', { class: 'section' },
         el('h2', {}, 'Sinfingizni tanlang'),
         el('p', { class: 'section__lead' }, 'Har sinf — o\'z olami. Barcha chorak va bloklar boshidanoq ochiq.'),
-        el('div', { class: 'kingdoms' }, ...cur.grades.map(kcard))),
+        el('div', { class: 'kingdoms kingdoms--afisha' }, ...cur.grades.map(kcard))),
       // how
       el('section', { class: 'section' },
         el('h2', {}, 'Qanday ishlaydi'),
