@@ -85,7 +85,7 @@ function renderSiteHeader(base, active) {
         "</div>" +
         '<div class="drawer-label">O\'rganish</div>' +
         dlink("home", "index.html", "Bosh sahifa") +
-        dlink("grades", "index.html#grades-section", "Sinflar (1–11)") +
+        dlink("grades", "index.html#grades-section", "Sinflar") +
         dlink("lessons", "korgazmalar.html", "Interaktiv darslar") +
         dlink("games", "mathrunner-web/index.html#/games", "Fikrlash o'yinlari") +
         dlink("results", "mening.html", "Mening natijalarim") +
