@@ -92,7 +92,10 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Tekshiruv:** tenglik.py 19/0, testlar.js 0 xato, 390/1100 px; Jumavoy — 7 izoh tuzatildi (yarim/chorak doira kesmasi — diametr/radius eslatmasi, tiqilgan chizmalar); Ibrohim ustoz — 4 jiddiy (oson-7 ikki javobli, qiyin-5/17 chizma zid va mavzudan tashqari) va 7 taklif tuzatildi (ma'ruzaga o'xshash test savollari almashtirildi, kitobdagi «CD», «18 cm» olib tashlandi).
 
 
-#### ☐ 15. Aylananing uzunligi — D1 134–139; M1 171–176
+#### ✅ 15. Aylananing uzunligi — D1 134–139; M1 171–176
+**Holat (2026-10-26):** tayyor, 5 qismli. Fayl: maruza/6-aylana-uzunligi.html. Yangi chizma `data-yoyish` (doira chiziq bo'ylab dumalaydi). Test 20+20, 6 chizmali.
+**Kitob bilan solishtirildi:** π ta'rifi, C = πd, C = 2πr, π ≈ 3,14 yoki 22/7 (D1 137, aynan) ✅; o'lchash usuli (dumalatish/ip) — Usul ✅; kalkulyator π ✅; g'ildirak necha marta aylandi (M1 176) ✅. Diametrni aylana uzunligidan topish kitobda yo'q — kiritilmadi.
+**Tekshiruv:** tenglik.py 52/0, kitobdan.py 0, testlar.js 0; Jumavoy + Ibrohim ustoz — daftar qolipidagi 3 masala, 8 ta ma'ruzani takrorlagan test savoli almashtirildi.
 
 #### ☐ 16. Yarim va chorak doira perimetri — D1 140–144; M1 177–182
 
