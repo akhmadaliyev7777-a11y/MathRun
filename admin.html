@@ -8,40 +8,104 @@
 <title>Admin panel — Mathlearn</title>
 <link rel="icon" href="favicon.png?v=3" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/style.css?v=69">
-<link rel="stylesheet" href="css/admin.css?v=7">
+<link rel="stylesheet" href="css/admin.css?v=9">
 </head>
-<body hidden>
+<body class="adm-page" hidden>
 
-<div id="site-header-root"></div>
+<div class="adm-shell">
 
-<div class="page-container wide">
-  <div class="adm-head">
-    <div>
-      <h1 class="page-title" style="margin-bottom:6px">Admin panel</h1>
-      <p class="muted" style="margin:0">Kontent holati, izohlaringiz va o'quvchilarning test natijalari.</p>
+  <!-- yuqori qator: logotip, qidiruv, tungi rejim, admin -->
+  <header class="adm-top">
+    <a class="adm-brand" href="index.html" title="Saytni ochish">
+      <img src="apple-touch-icon.png?v=3" alt="" width="38" height="38">
+      <span>Mathlearn</span>
+    </a>
+    <div class="adm-top-search" id="adm-gsearch-wrap">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      <input type="search" id="adm-gsearch" placeholder="Mavzuni qidirish…" autocomplete="off" aria-label="Mavzuni qidirish" aria-controls="adm-gsearch-list">
+      <ul class="adm-gsearch-list" id="adm-gsearch-list" role="listbox" hidden></ul>
     </div>
-    <a class="adm-head-link" href="index.html">Saytni ochish ↗</a>
-  </div>
+    <div class="adm-top-actions">
+      <a class="adm-icon-btn" href="index.html" target="_blank" rel="noopener" title="Saytni ochish" aria-label="Saytni ochish">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>
+      </a>
+      <button type="button" id="theme-toggle-btn" class="adm-icon-btn" aria-label="Tungi rejim" title="Tungi rejim"></button>
+      <div class="adm-me">
+        <span class="adm-me-ava" id="adm-me-ava">A</span>
+        <span class="adm-me-text"><b id="adm-me-name">Admin</b><small>Admin</small></span>
+      </div>
+    </div>
+  </header>
 
-  <!-- bugungi ish va umumiy sonlar -->
-  <div id="adm-stats"></div>
+  <!-- chap menyu -->
+  <nav class="adm-nav" id="adm-nav" aria-label="Admin bo'limlari">
+    <a class="adm-nav-item active" href="#bosh" data-view="bosh">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Bosh panel</span></a>
+    <a class="adm-nav-item" href="#bugungi" data-view="bugungi">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m9 13 2 2 4-4"/></svg><span>Bugungi ish</span><i class="adm-nav-n" id="adm-nav-n-today"></i></a>
+    <a class="adm-nav-item" href="#mavzular" data-view="mavzular">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg><span>Mavzular</span></a>
+    <a class="adm-nav-item" href="#izohlar" data-view="izohlar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Izohlar</span><i class="adm-nav-n" id="adm-nav-n-notes"></i></a>
+    <a class="adm-nav-item" href="#natijalar" data-view="natijalar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg><span>Natijalar</span><i class="adm-nav-n" id="adm-nav-n-results"></i></a>
+    <a class="adm-nav-item" href="#foydalanuvchilar" data-view="foydalanuvchilar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18 14a6 6 0 0 1 3.5 6"/></svg><span>Foydalanuvchilar</span></a>
+    <span class="adm-nav-sep" aria-hidden="true"></span>
+    <a class="adm-nav-item" href="index.html" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg><span>Saytni ochish</span></a>
+    <button type="button" class="adm-nav-item" id="adm-logout">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4"/><path d="M10 16l-4-4 4-4"/><path d="M6 12h10"/></svg><span>Chiqish</span></button>
+  </nav>
 
-  <!-- ish maydoni: chapda sinf, o'ngda mavzular -->
-  <section class="adm-work">
-    <aside class="adm-side">
-      <div class="adm-side-label">Sinflar</div>
-      <div class="adm-grade-list" id="adm-grade-list"></div>
-    </aside>
+  <main class="adm-main-col">
+    <h1 class="adm-view-title" id="adm-view-title" hidden></h1>
 
-    <div class="adm-main">
+    <!-- alohida bo'limlarning batafsil qismlari (faqat o'z bo'limida ko'rinadi) -->
+    <div class="adm-msum" id="adm-today-sum" data-views="bugungi"></div>
+    <section class="adm-card" id="adm-grade-sum" data-views="mavzular"></section>
+    <div class="adm-msum" id="adm-res-sum" data-views="natijalar"></div>
+    <div class="adm-msum" id="adm-users-sum" data-views="foydalanuvchilar"></div>
+
+    <!-- bosh panel: 4 ta son, tayyorlik grafigi, natijalar faolligi, bugungi ish, izohlar -->
+    <section id="adm-dash" class="adm-sec">
+      <div class="adm-kpis" id="adm-kpis" data-views="bosh"></div>
+
+      <div class="adm-dash-grid">
+        <div class="adm-dash-col">
+          <div class="adm-card adm-chart-card" id="adm-ready" data-views="bosh mavzular"></div>
+          <div class="adm-card adm-card--dark" id="adm-activity" data-views="bosh natijalar"></div>
+        </div>
+        <div class="adm-dash-col">
+          <div class="adm-card adm-card--outline" id="adm-today" data-views="bosh bugungi"></div>
+          <div class="adm-card" id="adm-notes" data-views="bosh"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ish maydoni: sinflar va mavzular jadvali -->
+    <section class="adm-card" id="adm-notes-full" data-views="izohlar"></section>
+
+    <section class="adm-card adm-work adm-sec" id="adm-work" data-views="bosh mavzular">
       <div class="adm-main-head">
         <div>
           <h2 class="adm-main-title" id="adm-main-title"></h2>
           <div class="adm-progress" id="adm-progress"></div>
         </div>
-        <input type="search" id="adm-search" class="adm-search" placeholder="Mavzuni qidirish…" autocomplete="off">
+        <div class="adm-work-tools">
+          <label class="adm-select adm-select--box"><select id="adm-sort" aria-label="Tartib">
+            <option value="num">Raqam bo'yicha</option>
+            <option value="missing">Kami ko'p avval</option>
+            <option value="notes">Izohi ko'p avval</option>
+          </select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></label>
+          <input type="search" id="adm-search" class="adm-search" placeholder="Shu sinfdan qidirish…" autocomplete="off">
+        </div>
       </div>
+      <div class="adm-grade-list" id="adm-grade-list" role="tablist" aria-label="Sinflar"></div>
       <div class="adm-filter" id="adm-filter" role="tablist"></div>
       <div class="adm-legend">
         <span><i class="adm-cell adm-cell--ok">✓</i>bor</span>
@@ -52,14 +116,19 @@
         <span class="muted" id="adm-legend-hint"></span>
       </div>
       <div id="adm-topics"></div>
-    </div>
-  </section>
+      <div class="adm-totals" id="adm-totals"></div>
+    </section>
 
-  <!-- o'quvchilar natijalari (nomsiz) -->
-  <section class="adm-results" id="adm-results"></section>
+    <!-- o'quvchilar natijalari (nomsiz) -->
+    <section class="adm-card adm-results adm-sec" id="adm-results" data-views="bosh natijalar"></section>
+    <section class="adm-card adm-results" id="adm-res-recent" data-views="natijalar"></section>
 
-  <!-- kirgan o'quvchilar: ism va natijalari -->
-  <section class="adm-results" id="adm-users"></section>
+    <!-- kirgan o'quvchilar: ism va natijalari -->
+    <section class="adm-card adm-results adm-sec" id="adm-users" data-views="bosh"></section>
+    <section class="adm-card adm-results" id="adm-users-full" data-views="foydalanuvchilar"></section>
+
+    <p class="adm-foot">Mathlearn · admin panel</p>
+  </main>
 </div>
 
 <!-- mavzu yon oynasi -->
@@ -107,7 +176,7 @@
 <script src="js/auth.js?v=10"></script>
 <script src="js/layout.js?v=24"></script>
 <script src="js/natija.js?v=4"></script>
-<script src="js/admin.js?v=19"></script>
-<script>guardAdminPage(function () { renderSiteHeader(); renderAdminDashboard(); });</script>
+<script src="js/admin.js?v=21"></script>
+<script>guardAdminPage(function () { renderAdminDashboard(); });</script>
 </body>
 </html>
