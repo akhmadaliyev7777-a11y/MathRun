@@ -159,6 +159,7 @@ function renderSiteHeader(base, active) {
   if (themeOn) initThemeToggle();
 
   if (window.onAuthReadyForMenu) window.onAuthReadyForMenu();
+  if (window.applyCachedHeaderUser) window.applyCachedHeaderUser();
   // Kirish — Google bilan (auth.js). Firebase yuklanmagan bo'lsa — faqat xabar ko'rsatadi
   const loginBtn = document.getElementById("site-login-btn");
   function loginClick() {

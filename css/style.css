@@ -1787,6 +1787,12 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
 @media (max-width: 899px) { :root { --site-header-h: 60px; } }
 
 #site-header-root { display: contents; }
+/* tepa qator JS bilan chiziladi — chizilguncha joyi band turadi, sahifa pastga sakramaydi */
+#site-header-root:empty { display: block; height: var(--site-header-h); border-bottom: 1px solid var(--border); background: var(--surface); }
+/* sahifalar orasida silliq o'tish (Chrome, Edge, Safari 18+): tepa qator joyida qoladi, mazmun yumshoq almashadi */
+@view-transition { navigation: auto; }
+.site-header { view-transition-name: site-header; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .22s; }
 .site-header {
   position: relative;
   z-index: 50;
@@ -1811,7 +1817,7 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
 .site-logo-img { display: block; height: 34px; width: auto; max-width: 100%; }
 
 .menu-toggle {
-  display: none;
+  display: flex;   /* ☰ har doim ko'rinadi (kompyuterda ham — foydalanuvchi talabi, 2026-10-26) */
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;

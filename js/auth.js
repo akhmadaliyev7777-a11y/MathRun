@@ -84,15 +84,32 @@ function escapeText(t) {
   return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
 }
 
+// kirgan o'quvchining ismi eslab qolinadi: keyingi sahifada tugma darrov ism bilan chiziladi (Firebase kutilmaydi, tepa qator sakramaydi)
+const HDR_NAME_KEY = "mathlearn-hdr-name";
+let authKnown = false;
+function headerUserHtml(name) {
+  return '<span class="site-user-ava" aria-hidden="true">' + escapeText(name.charAt(0).toUpperCase()) + '</span><span class="site-user-name">' + escapeText(name) + '</span>' +
+    (typeof navIcon === "function" ? '<span class="site-user-chev">' + navIcon(NAV_ICONS.chevron) + '</span>' : "");
+}
+window.applyCachedHeaderUser = function () {
+  if (authKnown) return;
+  const btn = document.getElementById("site-login-btn");
+  let name = "";
+  try { name = localStorage.getItem(HDR_NAME_KEY) || ""; } catch (e) {}
+  if (!btn || !name) return;
+  btn.classList.add("is-user");
+  btn.innerHTML = headerUserHtml(name);
+};
+
 function updateHeaderUser(user) {
   const btn = document.getElementById("site-login-btn");
+  try { if (user) localStorage.setItem(HDR_NAME_KEY, userFirstName(user)); else localStorage.removeItem(HDR_NAME_KEY); } catch (e) {}
   if (!btn) return;
   closeUserMenu();
   if (user) {
     const name = userFirstName(user);
     btn.classList.add("is-user");
-    btn.innerHTML = '<span class="site-user-ava" aria-hidden="true">' + escapeText(name.charAt(0).toUpperCase()) + '</span><span class="site-user-name">' + escapeText(name) + '</span>' +
-      (typeof navIcon === "function" ? '<span class="site-user-chev">' + navIcon(NAV_ICONS.chevron) + '</span>' : "");
+    btn.innerHTML = headerUserHtml(name);
     btn.setAttribute("aria-label", "Hisob: " + name);
     btn.setAttribute("aria-haspopup", "menu");
     btn.setAttribute("aria-expanded", "false");
@@ -159,6 +176,7 @@ function toggleUserMenu(btn) {
 // layout.js dagi «Kirish» tugmasi shu funksiyani chaqiradi
 window.onSiteLoginClick = function (btn) {
   if (!firebaseReady) return false;
+  if (!authKnown && btn.classList.contains("is-user")) return true;   // hisob hali aniqlanmoqda
   if (currentUser) toggleUserMenu(btn); else openLoginModal();
   return true;
 };
@@ -368,6 +386,7 @@ function wireAuthUI() {
   if (firebaseReady) {
     firebase.auth().onAuthStateChanged(function (user) {
       currentUser = user;
+      authKnown = true;
       updateMenuUI(user);
       updateHeaderUser(user);
       if (user) syncUserData(user);
