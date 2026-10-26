@@ -1688,11 +1688,15 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
 :root[data-theme="dark"] .hero-feats svg [stroke="#fff"] { stroke: var(--surface); }
 :root[data-theme="dark"] .hero-feats svg [fill="#fff"] { fill: var(--surface); }
 :root[data-theme="dark"] .hs-slide { background: #1e2440; color: var(--text); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45); }
-:root[data-theme="dark"] .hs-art { background: #e4e9fd; color: #1e2a78; }
+:root[data-theme="dark"] .hs-art { background: #171d30; color: var(--text); }
+.hs-art .gp-tun { display: none; }
+:root[data-theme="dark"] .hs-art .gp-kun { display: none; }
+:root[data-theme="dark"] .hs-art .gp-tun { display: block; }
+:root[data-theme="dark"] .hs-art .hs-shior b { color: #eef0fb; }
 :root[data-theme="dark"] .hs-label,
 :root[data-theme="dark"] .hs-more,
 :root[data-theme="dark"] .hs-row b { color: var(--primary); }
-:root[data-theme="dark"] .hs-art .hs-label { color: #3b4fd8; }
+:root[data-theme="dark"] .hs-art .hs-label { color: #7f8cff; }
 :root[data-theme="dark"] .hs-row { background: var(--surface-2); color: var(--text); box-shadow: none; }
 :root[data-theme="dark"] .hs-row:hover { color: var(--primary); }
 :root[data-theme="dark"] .hs-text p,
@@ -1730,6 +1734,19 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
 :root[data-theme="dark"] .tc-icon { background: #e9ecfb; }
 :root[data-theme="dark"] .grade-poster { border-color: var(--border); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
 :root[data-theme="dark"] .grade-poster:hover { box-shadow: 0 22px 44px rgba(0, 0, 0, 0.5); }
+/* tungi afisha (img/sinf/<sinf>-tun.webp): kartochka foni rasm foni bilan bir xil */
+.gp-art .gp-tun, .hs-poster .gp-tun { display: none; }
+:root[data-theme="dark"] .hs-poster { background: #171c2d; }
+:root[data-theme="dark"] .hs-poster .gp-kun { display: none; }
+:root[data-theme="dark"] .hs-poster .gp-tun { display: block; }
+:root[data-theme="dark"] .grade-poster--tun { background: #171c2d; }
+:root[data-theme="dark"] .grade-poster--tun .gp-kun { display: none; }
+:root[data-theme="dark"] .grade-poster--tun .gp-tun { display: block; }
+:root[data-theme="dark"] .grade-poster--tun .gp-name { color: #eef0fb; }
+:root[data-theme="dark"] .grade-poster--tun .gp-subj { color: #9aa6ff; }
+:root[data-theme="dark"] .grade-poster--tun.grade-poster--primary .gp-subj,
+:root[data-theme="dark"] .grade-poster--tun .gp-meta b { color: #4fd1a1; }
+:root[data-theme="dark"] .grade-poster--tun .gp-meta { color: #a4acc4; }
 :root[data-theme="dark"] .lecture-rule,
 :root[data-theme="dark"] .lecture-example,
 :root[data-theme="dark"] .feedback-explain { background: var(--surface-2); }

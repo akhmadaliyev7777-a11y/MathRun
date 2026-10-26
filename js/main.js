@@ -53,14 +53,17 @@ function topicStatusBadge(topic) {
 // ---------- Bosh sahifa: sinflar to'ri ----------
 // Bosh sahifadagi sinflar: ikki guruh — boshlang'ich (1–4) va 5–11 sinflar
 // sinf afishalari (img/sinf/<sinf>.webp); rasmi yo'q sinfda — och fonda katta raqam
-const GRADE_POSTERS = { 1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true, 10: true, 11: true };
+// "tun" — tungi rejim uchun to'q fonli nusxasi ham bor (img/sinf/<sinf>-tun.webp)
+const GRADE_POSTERS = { 1: "tun", 2: "tun", 3: "tun", 4: "tun", 5: "tun", 6: "tun", 7: "tun", 8: "tun", 9: "tun", 10: "tun", 11: "tun" };
 
 function gradeTile(href, number, name, chips, meta, primary) {
+  const tun = GRADE_POSTERS[number] === "tun";
   const poster = GRADE_POSTERS[number]
-    ? '<img src="img/sinf/' + number + '.webp?v=3" alt="" loading="lazy" decoding="async">'
+    ? '<img class="gp-kun" src="img/sinf/' + number + '.webp?v=3" alt="" loading="lazy" decoding="async">' +
+      (tun ? '<img class="gp-tun" src="img/sinf/' + number + '-tun.webp?v=1" alt="" loading="lazy" decoding="async">' : "")
     : '<span class="gp-num">' + number + '</span>';
   return (
-    '<a class="grade-poster' + (primary ? ' grade-poster--primary' : '') + '" href="' + href + '">' +
+    '<a class="grade-poster' + (primary ? ' grade-poster--primary' : '') + (tun ? ' grade-poster--tun' : '') + '" href="' + href + '">' +
       '<span class="gp-art">' + poster + '<span class="gp-badge">' + number + '</span></span>' +
       '<span class="gp-body">' +
         '<span class="gp-name">' + name + '</span>' +
@@ -86,7 +89,7 @@ function renderHeroSlider() {
   };
   const slides = [];
 
-  slides.push('<div class="hs-slide hs-art"><img src="img/hero/kirish.webp?v=2" alt="Matematika: kublar, transportir, kasrlar, π va √">' +
+  slides.push('<div class="hs-slide hs-art"><img class="gp-kun" src="img/hero/kirish.webp?v=2" alt="Matematika: kublar, transportir, kasrlar, π va √"><img class="gp-tun" src="img/hero/kirish-tun.webp?v=1" alt="Matematika: kublar, transportir, kasrlar, π va √" loading="lazy">' +
     '<div class="hs-shior"><span class="hs-label">Mathlearn</span><b><span>Matematika</span> <span>endi qiyin</span> <span>fan emas</span></b></div></div>');
 
   const lectures = topics.filter(topicHasLecture);
@@ -121,7 +124,7 @@ function renderHeroSlider() {
   const n = function (f) { return topics.filter(f).length; };
   slides.push(
     '<div class="hs-slide hs-feature hs-grade">' +
-      '<span class="hs-poster"><img src="img/sinf/5.webp?v=3" alt="" loading="lazy"></span>' +
+      '<span class="hs-poster"><img class="gp-kun" src="img/sinf/5.webp?v=3" alt="" loading="lazy"><img class="gp-tun" src="img/sinf/5-tun.webp?v=1" alt="" loading="lazy"></span>' +
       '<span class="hs-text">' +
         '<span class="hs-label">5-sinf · Matematika</span>' +
         '<h3>Hammasi bir joyda</h3>' +
