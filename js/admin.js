@@ -462,9 +462,10 @@ function renderToday() {
   for (let i = 0; i < 7; i++) {
     const d = new Date(mon); d.setDate(mon.getDate() + i);
     const a = act[d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()];
-    const tip = a ? (a.r ? a.r + " ta natija" : "") + (a.r && a.n ? ", " : "") + (a.n ? a.n + " ta izoh/xabar" : "") : "";
-    days += '<div class="adm-day' + (sameDay(d, now) ? " is-today" : "") + '"' + (tip ? ' title="' + tip + '"' : "") + '>' +
-      '<small>' + UZ_DAYS[d.getDay()] + '</small><b>' + d.getDate() + '</b><i' + (a ? ' class="on"' : "") + '></i></div>';
+    const k = kunlikDay(isoDate(d));
+    const tip = [k ? k.ishlar.length + " ta ish" : "", a && a.r ? a.r + " ta natija" : "", a && a.n ? a.n + " ta izoh/xabar" : ""].filter(Boolean).join(", ");
+    days += '<button type="button" class="adm-day' + (sameDay(d, now) ? " is-today" : "") + (k ? " has-ish" : "") + '" data-day="' + isoDate(d) + '"' + (tip ? ' title="' + tip + '"' : "") + '>' +
+      '<small>' + UZ_DAYS[d.getDay()] + '</small><b>' + d.getDate() + '</b><span class="adm-day-dots"><i' + (k ? ' class="ish"' : "") + '></i><i' + (a ? ' class="on"' : "") + '></i></span></button>';
   }
   const monthName = UZ_MONTHS[mid.getMonth()];
 
@@ -506,6 +507,9 @@ function renderToday() {
     '<div class="adm-today-label"><b>Bugungi ish</b><span>' + now.getDate() + '-' + UZ_MONTHS[now.getMonth()] + ', ' + UZ_DAYS_LONG[now.getDay()] + '</span></div>' +
     body;
 
+  el.querySelectorAll(".adm-day[data-day]").forEach(function (b) {
+    b.addEventListener("click", function () { openDayPanel(b.dataset.day); });
+  });
   document.getElementById("adm-wk-prev").addEventListener("click", function () { weekOffset--; renderToday(); });
   document.getElementById("adm-wk-next").addEventListener("click", function () { weekOffset++; renderToday(); });
   wireEventRows(el);
@@ -660,7 +664,7 @@ function wireGlobalSearch() {
 // ---------- bo'limlar: chap menyu har birini alohida ko'rsatadi (manzil: #bugungi, #mavzular, …) ----------
 
 const VIEWS = {
-  bosh: "Bosh panel", bugungi: "Bugungi ish", mavzular: "Mavzular",
+  bosh: "Bosh panel", bugungi: "Bugungi ish", kunlik: "Kunlik ish", mavzular: "Mavzular",
   izohlar: "Izohlar va xabarlar", natijalar: "Natijalar", foydalanuvchilar: "Foydalanuvchilar"
 };
 let currentView = "bosh";
@@ -1102,6 +1106,7 @@ function renderAdminDashboard() {
   renderTopics();
   renderResultsSection();
   renderUsersSection();
+  renderKunlik();
   wireUpload();
   loadPdfList();
   initDatabase();
@@ -1678,6 +1683,85 @@ function noteDelete(n) {
   DB.collection(n.src === "xabar" ? "xabarlar" : "izohlar").doc(n.id).delete()
     .then(function () { NOTES = NOTES.filter(function (x) { return x.id !== n.id; }); afterNotesChange(); })
     .catch(function (e) { console.warn(e); alert("O'chirib bo'lmadi."); });
+}
+
+// ---------- kunlik ish: js/kunlik.js dagi ro'yxat (har kuni ish oxirida to'ldiriladi) ----------
+
+const KUN_NOMI = ["yakshanba", "dushanba", "seshanba", "chorshanba", "payshanba", "juma", "shanba"];
+const OY_NOMI = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
+let kunlikBolim = "all";
+
+function kunlikSana(iso) {
+  const p = iso.split("-").map(Number), d = new Date(p[0], p[1] - 1, p[2]);
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const diff = Math.round((today - d) / 864e5);
+  return { kun: p[2], oy: OY_NOMI[p[1] - 1], hafta: KUN_NOMI[d.getDay()], belgi: diff === 0 ? "Bugun" : diff === 1 ? "Kecha" : "" };
+}
+
+function isoDate(d) { return d.getFullYear() + "-" + z2(d.getMonth() + 1) + "-" + z2(d.getDate()); }
+function kunlikDay(iso) {
+  return (Array.isArray(window.KUNLIK) ? window.KUNLIK : []).filter(function (d) { return d.sana === iso; })[0] || null;
+}
+function kunlikList(ish) {
+  return '<ul class="adm-kitems">' + ish.map(function (i) {
+    return '<li><span class="adm-ktag" data-b="' + escapeHtml(i[0]) + '">' + escapeHtml(i[0]) + '</span><span>' + escapeHtml(i[1]) + '</span></li>';
+  }).join("") + '</ul>';
+}
+
+// kalendardagi kun bosilganda: o'sha kuni qilingan ishlar + kelgan izoh/natijalar soni
+function openDayPanel(iso) {
+  const k = kunlikDay(iso), s = kunlikSana(iso);
+  const p = iso.split("-").map(Number);
+  const a = activityByDay()[p[0] + "-" + (p[1] - 1) + "-" + p[2]];
+  const keldi = a ? [a.n ? a.n + " ta izoh/xabar" : "", a.r ? a.r + " ta test natijasi" : ""].filter(Boolean).join(", ") : "";
+  document.getElementById("adm-panel-kicker").textContent = "Kunlik ish" + (s.belgi ? " · " + s.belgi : "");
+  document.getElementById("adm-panel-title").textContent = s.kun + "-" + s.oy + ", " + s.hafta;
+  document.getElementById("adm-panel-body").innerHTML =
+    (k ? (k.qisqa ? '<p class="adm-kday-sum">' + escapeHtml(k.qisqa) + '</p>' : "") +
+        '<div class="adm-psec"><h4>Qilingan ishlar <span class="adm-count">' + k.ishlar.length + '</span></h4>' + kunlikList(k.ishlar) + '</div>'
+      : '<p class="adm-empty-line">Bu kun uchun ish yozilmagan.</p>') +
+    (keldi ? '<div class="adm-psec"><h4>Saytga kelganlar</h4><p class="adm-ptext">' + keldi + '</p></div>' : "") +
+    '<div class="adm-psec"><a class="adm-mini-btn" href="#kunlik" id="adm-day-all">Barcha kunlar →</a></div>';
+  document.getElementById("adm-day-all").addEventListener("click", closeTopicPanel);
+  panelTopic = null;
+  const panel = document.getElementById("adm-panel");
+  panel.hidden = false;
+  panel.querySelector(".adm-panel-box").scrollTop = 0;
+  document.body.classList.add("adm-noscroll");
+}
+
+function renderKunlik() {
+  const el = document.getElementById("adm-kunlik");
+  if (!el) return;
+  const days = Array.isArray(window.KUNLIK) ? window.KUNLIK : [];
+  const all = [];
+  days.forEach(function (d) { d.ishlar.forEach(function (i) { all.push(i[0]); }); });
+  const TARTIB = ["5-sinf", "6-sinf", "7-sinf", "8-sinf", "1–4-sinf", "Interaktiv", "Sayt", "Admin", "Ish tartibi"];
+  const rank = function (b) { const i = TARTIB.indexOf(b); return i < 0 ? 99 : i; };
+  const bolimlar = all.filter(function (b, i) { return all.indexOf(b) === i; }).sort(function (x, y) { return rank(x) - rank(y); });
+  const tab = function (key, label, n) {
+    return '<button type="button" class="adm-utab' + (kunlikBolim === key ? " active" : "") + '" data-kb="' + escapeHtml(key) + '">' + escapeHtml(label) + ' <b>' + n + '</b></button>';
+  };
+  const list = days.map(function (d) {
+    const ish = d.ishlar.filter(function (i) { return kunlikBolim === "all" || i[0] === kunlikBolim; });
+    if (!ish.length) return "";
+    const s = kunlikSana(d.sana);
+    return '<article class="adm-kday" id="kun-' + d.sana + '">' +
+      '<div class="adm-kday-date"><b>' + s.kun + '</b><span>' + s.oy + '</span><small>' + s.hafta + '</small>' + (s.belgi ? '<i>' + s.belgi + '</i>' : "") + '</div>' +
+      '<div class="adm-kday-body">' +
+        (d.qisqa ? '<p class="adm-kday-sum">' + escapeHtml(d.qisqa) + '</p>' : "") +
+        kunlikList(ish) +
+      '</div></article>';
+  }).join("");
+  el.innerHTML = '<div class="adm-card-head"><h3>Kunlik ish <span class="adm-count">' + days.length + ' kun</span></h3>' +
+      '<span class="muted">' + (days.length ? kunlikSana(days[days.length - 1].sana).kun + "-" + kunlikSana(days[days.length - 1].sana).oy + " dan beri · " : "") + all.length + ' ta ish</span></div>' +
+    '<div class="adm-ktabs">' + tab("all", "Hammasi", all.length) + bolimlar.map(function (b) {
+      return tab(b, b, all.filter(function (x) { return x === b; }).length);
+    }).join("") + '</div>' +
+    (list || '<p class="adm-empty-line">Hozircha yozuv yo\'q.</p>');
+  el.querySelectorAll("[data-kb]").forEach(function (b) {
+    b.addEventListener("click", function () { kunlikBolim = b.dataset.kb; renderKunlik(); });
+  });
 }
 
 function renderNotesFull() {

@@ -279,7 +279,10 @@ body.adm-page h1, body.adm-page h2, body.adm-page h3, body.adm-page h4 { color: 
 .adm-cal-btn:hover { color: var(--a-ink); border-color: var(--a-green-2); }
 .adm-cal-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .adm-week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; margin-bottom: 16px; }
-.adm-day { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 0 5px; border-radius: 8px; }
+.adm-day { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 0 5px; border-radius: 8px; border: 0; background: transparent; font: inherit; cursor: pointer; }
+.adm-day:hover { background: var(--a-hover); }
+.adm-day-dots { display: flex; gap: 3px; height: 5px; }
+.adm-day i.ish { background: var(--a-green); }
 .adm-day small { font-size: 0.82rem; color: var(--a-muted); }
 .adm-day b { font-size: 1.08rem; font-weight: 600; color: var(--a-ink); }
 .adm-day i { width: 5px; height: 5px; border-radius: 50%; background: transparent; }
@@ -781,4 +784,31 @@ body.adm-page[data-view="mavzular"] .adm-btrack { height: 170px; }
   .adm-work-tools .adm-select--box { flex: 0 0 auto; }
   .adm-work-tools .adm-search { flex: 1; width: auto; min-width: 0; }
   .adm-nitem-head time { margin-left: 0; width: 100%; }
+}
+
+/* ---------- Kunlik ish ---------- */
+.adm-ktabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.adm-kday { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; padding: 16px 0; border-top: 1px solid var(--a-line); }
+.adm-kday-date { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px 6px; border-radius: 16px; background: var(--a-soft); align-self: start; line-height: 1.15; }
+.adm-kday-date b { font-size: 1.9rem; font-weight: 700; color: var(--a-ink); }
+.adm-kday-date span { font-size: .9rem; color: var(--a-text); }
+.adm-kday-date small { font-size: .78rem; color: var(--a-muted); margin-top: 2px; }
+.adm-kday-date i { font-style: normal; font-size: .72rem; font-weight: 600; margin-top: 6px; padding: 2px 8px; border-radius: 999px; background: var(--a-mint); color: var(--a-green); }
+.adm-kday-sum { margin: 0 0 10px; font-weight: 600; color: var(--a-ink); }
+.adm-kitems { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.adm-kitems li { display: flex; gap: 10px; align-items: baseline; color: var(--a-text); line-height: 1.45; }
+.adm-ktag { flex: none; min-width: 74px; text-align: center; font-size: .74rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--a-sage); color: var(--a-ink); }
+.adm-ktag[data-b="5-sinf"] { background: #dbe8f8; color: #1f4f8f; }
+.adm-ktag[data-b="6-sinf"] { background: #dcefe2; color: #1f6a3c; }
+.adm-ktag[data-b="7-sinf"] { background: #efe3f7; color: #6a3590; }
+.adm-ktag[data-b="8-sinf"] { background: #fbe6d6; color: #9a4a12; }
+.adm-ktag[data-b="Interaktiv"] { background: #fdf0c8; color: #7a5a00; }
+.adm-ktag[data-b="1–4-sinf"] { background: #f8dfe4; color: #9b2c48; }
+:root[data-theme="dark"] .adm-ktag { background: var(--a-soft) !important; color: var(--a-text) !important; }
+@media (max-width: 560px) {
+  .adm-kday { grid-template-columns: 1fr; gap: 10px; }
+  .adm-kday-date { flex-direction: row; gap: 6px; align-items: baseline; justify-content: flex-start; padding: 8px 12px; }
+  .adm-kday-date b { font-size: 1.3rem; }
+  .adm-kday-date i { margin: 0 0 0 auto; }
+  .adm-kitems li { flex-direction: column; gap: 4px; }
 }
