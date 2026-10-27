@@ -24,7 +24,7 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;padding:18px 16px 36px;background:var(--bg);color:var(--ink);font:16px/1.5 var(--f-body)}
 [hidden]{display:none!important}
 button{font-family:inherit;touch-action:manipulation}
-.wrap{max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
 h1{font:800 clamp(26px,5.6vw,38px)/1.1 var(--f-display);margin:0;letter-spacing:-.01em}
 h2{font:800 clamp(19px,4.4vw,23px)/1.25 var(--f-display);margin:0}
 p{margin:0}
@@ -221,6 +221,38 @@ p{margin:0}
 .zone{font-weight:700}
 .zone b{font:800 18px var(--f-display);color:var(--green)}
 .gstat{min-height:1.5em}
+.btn.help{background:var(--amberbg);color:#7A4E07;border:1.5px solid #E9C46A}
+.btn.help.pulse{animation:hpulse 1.6s ease-in-out infinite}
+@keyframes hpulse{50%{box-shadow:0 0 0 7px rgba(227,160,8,.3)}}
+/* vaziyat kartasi */
+.scene{display:grid;grid-template-columns:300px minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+@media (max-width:640px){.scene{grid-template-columns:1fr}.scimg{aspect-ratio:2/1}}
+.scimg{aspect-ratio:16/9;background:#E8EEFA;min-width:0}
+.scimg img{width:100%;height:100%;object-fit:cover;display:block}
+.scfb{width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center;gap:18px;padding:12px 12px 0}
+.scfb .av{align-self:center}
+.sctx{padding:14px 18px;display:flex;flex-direction:column;gap:6px;justify-content:center;min-width:0}
+.sctx b{font:800 20px/1.2 var(--f-display)}
+.sctx p{font-weight:600;line-height:1.5}
+.sctx p.flash{animation:fl .5s ease}
+/* formula paneli */
+.kbody{display:flex;flex-direction:column;gap:14px;min-width:0}
+@media (min-width:900px){.kbody{display:grid;grid-template-columns:minmax(0,1fr) 270px;align-items:start}.kbody>.fpan{order:2}}
+.fpan{background:#FFFCF3;border:1.5px solid #E9C46A;border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.fpan h3{margin:0;font:800 13px var(--f-body);color:var(--amber);text-transform:uppercase;letter-spacing:.05em}
+.ff{font:800 25px/1.25 var(--f-display);font-variant-numeric:tabular-nums}
+.ff.cr{color:var(--red)}
+.fe{font:800 18px/1.4 var(--f-display);font-variant-numeric:tabular-nums;color:var(--muted)}
+.fo{font:700 14px var(--f-body);color:var(--muted)}
+.fl{display:flex;flex-wrap:wrap;gap:2px 14px;font-size:14px;font-weight:700;color:var(--muted)}
+@media (min-width:900px){.fl{flex-direction:column}}
+.fl b{font:800 15px var(--f-display)}
+.fnote{font-size:14px;font-weight:700;color:var(--muted)}
+.hole{display:inline-block;min-width:1.3em;padding:0 3px;border:2px dashed var(--muted);border-radius:7px;color:var(--muted);text-align:center;line-height:1.1}
+.fn{border-top:1.5px dashed var(--line);padding-top:8px;font:800 18px/1.35 var(--f-display);font-variant-numeric:tabular-nums}
+.fn small{display:block;font:700 13px var(--f-body);color:var(--muted)}
+.fr{display:inline-block;margin-top:5px;font:800 14px var(--f-body);border-radius:99px;padding:3px 11px}
+.fr.ok{background:var(--greenbg);color:#0B5E43}.fr.bad{background:var(--redbg);color:#9B1C1C}
 /* yakuniy */
 .bands{display:flex;flex-direction:column;gap:6px}
 .brow{border:1px solid var(--line);border-radius:12px;padding:8px 10px 0}
@@ -451,15 +483,36 @@ function drag(el, f) {
 
 /* ============ savol turlari ============ */
 function fbSet(el, kind, html) { el.className = "fb " + kind; el.innerHTML = html || ""; }
-/* xato zinapoyasi: 1-xato — o'qda masofa ko'rsatiladi (h1), 2-xato — aniq qadam (h2) */
-function ladder(fbEl, o) {
-  let n = 0;
-  return function (extra) {
-    n++;
-    const hf = n === 1 ? o.h1 : o.h2;
-    const t = typeof hf === "function" ? hf() : hf;
-    fbSet(fbEl, n === 1 ? "bad" : "hint", (extra ? extra + " " : (n === 1 ? "Hali emas. " : "")) + (t || ""));
+/* yordam: xato yoki «Yordam» bosilsa — 1) ishora (o'qda ko'rsatiladi, h1), 2) aniq qadam (h2), 3) «Ko'rsatib ber» — o'zi yechib beradi.
+   35 soniya javob bo'lmasa yoki 3 marta xato bo'lsa, tugma o'zi miltillab chaqiradi */
+function helper(row, fbEl, o, solve) {
+  let n = 0, miss = 0, done = false;
+  const b = h(`<button class="btn help">Yordam</button>`);
+  row.append(b);
+  const txt = hf => (typeof hf === "function" ? hf() : hf) || "";
+  const lab = () => { b.textContent = n >= 2 ? "Ko'rsatib ber" : "Yordam"; };
+  const call = t => { if (done) return; if (t) b.textContent = t; b.classList.add("pulse"); };
+  later(() => call(n >= 2 ? "Ko'rsatib ber" : "Yordam kerakmi?"), 35000);
+  const up = () => { n = Math.min(n + 1, 2); if (n === 1 && !o.h1) n = 2; };
+  b.onclick = () => {
+    if (done) return;
+    b.classList.remove("pulse");
+    if (o.onWrong) o.onWrong();
+    if (n >= 2) { const t = txt(o.h2); H.end(); solve(`<b>Yechim:</b> ${t}<br>`); return; }
+    up();
+    fbSet(fbEl, "hint", txt(n === 1 ? o.h1 : o.h2));
+    lab();
   };
+  const H = {
+    wrong(extra) {
+      up(); miss++;
+      fbSet(fbEl, n === 1 ? "bad" : "hint", (extra ? extra + " " : (n === 1 ? "Hali emas. " : "")) + txt(n === 1 ? o.h1 : o.h2));
+      lab(); if (miss >= 3) call("Ko'rsatib ber");
+    },
+    miss() { up(); miss++; lab(); if (miss >= 3) call("Ko'rsatib ber"); },
+    end() { done = true; b.hidden = true; }
+  };
+  return H;
 }
 function goOn(box, next, label) {
   const r = h(`<div class="row"><button class="btn green pulse">${label || "Davom etish →"}</button></div>`);
@@ -468,31 +521,35 @@ function goOn(box, next, label) {
   return r;
 }
 function choice(box, o) {
-  const el = h(`<div class="ask">${o.q ? `<p class="q">${o.q}</p>` : ""}<div class="opts"></div><div class="fb" aria-live="polite"></div></div>`);
-  const opts = $(".opts", el), fbEl = $(".fb", el), L = ladder(fbEl, o);
+  const el = h(`<div class="ask">${o.q ? `<p class="q">${o.q}</p>` : ""}<div class="opts"></div><div class="row"></div><div class="fb" aria-live="polite"></div></div>`);
+  const opts = $(".opts", el), fbEl = $(".fb", el);
   let done = false;
-  o.opts.forEach((t, i) => {
+  function win(b, pre) {
+    done = true; b.classList.add("ok"); H.end();
+    $$(".opt", el).forEach(x => { x.disabled = true; });
+    fbSet(fbEl, "ok", (pre || "") + o.ok);
+    if (o.onOk) o.onOk();
+  }
+  const bs = o.opts.map((t, i) => {
     const b = h(`<button class="opt">${t}</button>`);
     b.onclick = () => {
       if (done) return;
-      if (i === o.ans) {
-        done = true; b.classList.add("ok");
-        $$(".opt", el).forEach(x => { x.disabled = true; });
-        fbSet(fbEl, "ok", o.ok);
-        if (o.onOk) o.onOk();
-      } else { b.classList.add("bad"); b.disabled = true; if (o.onWrong) o.onWrong(); L(o.why && o.why[i]); }
+      if (i === o.ans) win(b);
+      else { b.classList.add("bad"); b.disabled = true; if (o.onWrong) o.onWrong(); H.wrong(o.why && o.why[i]); }
     };
     opts.append(b);
+    return b;
   });
+  const H = helper($(".row", el), fbEl, o, pre => win(bs[o.ans], pre));
   box.append(el);
   return el;
 }
 function tiles(box, o) {
   const el = h(`<div class="ask">${o.q ? `<p class="q">${o.q}</p>` : ""}<div class="tline"></div><div class="bank" aria-label="Kartochkalar"></div>
     <div class="row"><button class="btn chk" disabled>Tekshirish</button></div><div class="fb" aria-live="polite"></div></div>`);
-  const line = $(".tline", el), bank = $(".bank", el), fbEl = $(".fb", el), chk = $(".chk", el), L = ladder(fbEl, o);
+  const line = $(".tline", el), bank = $(".bank", el), fbEl = $(".fb", el), chk = $(".chk", el);
   const slots = [];
-  let done = false, tb = [];
+  let done = false, tb = [], pre = "";
   const upd = () => { chk.disabled = done || slots.some(s => s.t < 0); };
   o.tpl.forEach(tok => {
     if (typeof tok === "number") {
@@ -515,9 +572,15 @@ function tiles(box, o) {
   chk.onclick = () => {
     let all = true;
     slots.forEach((s, k) => { const g = o.tiles[s.t] === o.ans[k]; s.b.className = "slot " + (g ? "ok" : "bad"); if (!g) all = false; });
-    if (all) { done = true; tb.forEach(b => { b.disabled = true; }); upd(); fbSet(fbEl, "ok", o.ok); if (o.onOk) o.onOk(); }
-    else L();
+    if (all) { done = true; H.end(); tb.forEach(b => { b.disabled = true; }); upd(); fbSet(fbEl, "ok", pre + o.ok); if (o.onOk) o.onOk(); }
+    else H.wrong();
   };
+  const H = helper(chk.parentNode, fbEl, o, p => {
+    pre = p;
+    slots.forEach(z => { if (z.t >= 0) tb[z.t].disabled = false; z.t = -1; });
+    o.ans.forEach((a, k) => { const i = o.tiles.findIndex((t, j) => t === a && !tb[j].disabled); slots[k].t = i; tb[i].disabled = true; slots[k].b.textContent = a; });
+    chk.onclick();
+  });
   box.append(el);
   return el;
 }
@@ -528,8 +591,8 @@ function askNums(box, o) {
     : `<input class="ni" data-i="${i}" inputmode="decimal" autocomplete="off" aria-label="javob">`);
   const el = h(`<div class="ask">${o.q ? `<p class="q">${o.q}</p>` : ""}<div class="nline">${html}</div>
     ${o.note ? `<p class="hint">${o.note}</p>` : ""}<div class="row"><button class="btn chk">Tekshirish</button></div><div class="fb" aria-live="polite"></div></div>`);
-  const fbEl = $(".fb", el), chk = $(".chk", el), L = ladder(fbEl, o), signs = o.signs || ["≤", "<"];
-  let done = false;
+  const fbEl = $(".fb", el), chk = $(".chk", el), signs = o.signs || ["≤", "<"];
+  let done = false, pre = "";
   $$(".sg", el).forEach(b => { b.onclick = () => { if (done) return; b.textContent = signs[(signs.indexOf(b.textContent) + 1) % signs.length]; b.className = "sg"; }; });
   $$(".ni", el).forEach(inp => { inp.addEventListener("keydown", e => { if (e.key === "Enter") chk.click(); }); inp.addEventListener("input", () => { inp.className = "ni"; }); });
   chk.onclick = () => {
@@ -539,9 +602,15 @@ function askNums(box, o) {
     let all = true;
     ins.forEach(i => { const g = same(num(i.value), o.ans[+i.dataset.i]); i.className = "ni " + (g ? "ok" : "bad"); if (!g) all = false; });
     $$(".sg", el).forEach(b => { const g = b.textContent === o.sans[+b.dataset.s]; b.className = "sg " + (g ? "ok" : "bad"); if (!g) all = false; });
-    if (all) { done = true; chk.disabled = true; ins.forEach(i => { i.readOnly = true; }); fbSet(fbEl, "ok", o.ok); if (o.onOk) o.onOk(); }
-    else L();
+    if (all) { done = true; H.end(); chk.disabled = true; ins.forEach(i => { i.readOnly = true; }); fbSet(fbEl, "ok", pre + o.ok); if (o.onOk) o.onOk(); }
+    else H.wrong();
   };
+  const H = helper(chk.parentNode, fbEl, o, p => {
+    pre = p;
+    $$(".ni", el).forEach(i => { i.value = fmt(o.ans[+i.dataset.i]); });
+    $$(".sg", el).forEach(b => { b.textContent = o.sans[+b.dataset.s]; });
+    chk.onclick();
+  });
   box.append(el);
   return el;
 }
@@ -549,6 +618,7 @@ function askNums(box, o) {
 function judge(box, o) {
   const el = h(`<div class="judge">${o.q ? `<p class="q">${o.q}</p>` : ""}</div>`);
   let left = o.items.length;
+  const rows = [];
   o.items.forEach(it => {
     const r = h(`<div class="jrow"><div class="jq">${it.html}</div><div class="jbtn"><button class="btn green" data-v="1">${o.yes}</button><button class="btn red" data-v="0">${o.no}</button></div><div class="fb" aria-live="polite"></div></div>`);
     const fbEl = $(".fb", r);
@@ -558,12 +628,27 @@ function judge(box, o) {
         if (v === it.good) {
           $$("button", r).forEach(x => { x.disabled = true; x.style.opacity = x === b ? "1" : ".3"; });
           fbSet(fbEl, "ok", it.why);
+          if (o.onPick) o.onPick(it);
           if (--left === 0 && o.onDone) o.onDone();
         } else { b.disabled = true; fbSet(fbEl, "bad", it.bad || it.why); }
       };
     });
+    rows.push({ r, it, fbEl, n: 0 });
     el.append(r);
   });
+  /* yordam: navbatdagi javobsiz qatorga — avval ishora, keyin o'zi javob beradi */
+  const hr = h(`<div class="row"><button class="btn help">Yordam</button></div>`), hb = $("button", hr);
+  hb.onclick = () => {
+    hb.classList.remove("pulse");
+    const q = rows.find(z => $$(".btn", z.r).some(x => !x.disabled));
+    if (!q) return;
+    if (q.n === 0) { q.n = 1; fbSet(q.fbEl, "hint", (q.it.bad || "").replace(/^Hali emas\. /, "")); hb.textContent = "Ko'rsatib ber"; scrollToEl(q.r); return; }
+    $(`[data-v="${q.it.good ? 1 : 0}"]`, q.r).onclick();
+    hb.textContent = "Yordam";
+    if (left === 0) hr.remove();
+  };
+  el.append(hr);
+  later(() => { if (left > 0) { hb.textContent = "Yordam kerakmi?"; hb.classList.add("pulse"); } }, 35000);
   box.append(el);
   return el;
 }
@@ -586,6 +671,7 @@ SCREENS.intro = () => {
     <p class="hint">Ko'k nuqtani suring yoki o'qqa bosing.</p>
     <div class="goal" id="i-goal"><span>5 dan <b>2 birlik</b> uzoqdagi ikkita nuqtani toping:</span><span class="gs" id="i-g1">?</span><span class="gs" id="i-g2">?</span></div>
     <div class="row"><button class="btn" id="i-go">Kasb tanlash →</button></div>
+    <div class="fb" id="i-fb"></div>
   </section>`);
   scr.append(el);
   let x = 8;
@@ -601,9 +687,19 @@ SCREENS.intro = () => {
     $("#i-m", el).textContent = `|${fmt(x)} ${M} 5| = ` + (inner < 0 ? `|${fmt(inner)}| = ` : "") + fmt(d);
   }
   upd();
+  const H = helper($("#i-go", el).parentNode, $("#i-fb", el), {
+    h1: () => { nl.draw({ marks: [{ v: 3, txt: "?", color: C.blue }, { v: 7, txt: "?", color: C.blue }] }); return "5 dan o'ngga 2 birlik yuring — bitta nuqta. Keyin 5 dan chapga 2 birlik — ikkinchisi."; },
+    h2: "5 + 2 = 7 va 5 − 2 = 3. Ko'k nuqtani 7 ga, keyin 3 ga suring."
+  }, p => {
+    fbSet($("#i-fb", el), "hint", p);
+    [7, 3].forEach((v, j) => later(() => { x = v; upd(); check(); }, 400 + j * 900));
+  });
   drag(nlEl, {
     move: px => { const v = clamp(snap(nl.V(px), 0.5), 0, 10); if (!same(v, x)) { x = v; upd(); } },
-    up: () => {
+    up: check
+  });
+  function check() {
+    {
       if (same(dist(x, 5), 2) && !found.has(x)) {
         found.add(x);
         const arr = [...found].sort((p, q) => p - q);
@@ -614,13 +710,65 @@ SCREENS.intro = () => {
           g.classList.add("ok");
           g.innerHTML = `<span>Topdingiz! <span class="fx">|3 ${M} 5| = 2</span> va <span class="fx">|7 ${M} 5| = 2</span>. Modul — sonlar orasidagi masofa.</span>`;
           $("#i-go", el).classList.add("green", "pulse");
+          H.end(); fbSet($("#i-fb", el), "", ""); nl.draw({ marks: [] });
           S.intro = 1; save();
         }
       }
     }
-  });
+  }
   $("#i-go", el).onclick = () => { S.intro = 1; save(); show("pick"); };
 };
+
+/* ============ formula paneli — ish bilan birga |x − a| ≤ d ============ */
+/* c: v — harf, u — birlik, a, d, s ("≤" "<" ">"), lv/la/ld — x, a, d nimani bildiradi, yes/no — shart bajarilsa/bajarilmasa;
+   hide ["a","s","d","eq"] — o'quvchi hali topmagan qismlar «?»; lo/hi — oraliq chetlari (to'g'nog'ichlardan); and — ikkinchi shart; raw — tayyor matn */
+const F = {
+  el: null, c: { hide: [] }, n: null,
+  set(c) { this.c = Object.assign({ hide: [] }, c); this.n = null; this.draw(); },
+  upd(p) { Object.assign(this.c, p); this.draw(); },
+  open() { this.c.hide = []; this.c.lo = this.c.hi = null; this.draw(); },
+  now(x, show, y) { this.n = x == null ? null : { x, show, y }; this.draw(); },
+  say(html) { this.n = { html }; this.draw(); },
+  draw() {
+    const el = this.el, c = this.c, n = this.n;
+    if (!el || !el.isConnected) return;
+    const hid = k => c.hide.indexOf(k) >= 0, Q = `<span class="hole">?</span>`, V = q => `<i class="cb">${q.v}</i>`;
+    const form = (q, top) => {
+      const ha = top && hid("a"), a = ha ? Q : `<span class="co">${fmt(Math.abs(q.a))}</span>`;
+      const inner = !ha && same(q.a, 0) ? V(q) : `${V(q)} ${!ha && q.a < 0 ? "+" : M} ${a}`;
+      return `|${inner}| ${top && hid("s") ? Q : q.s} ${top && hid("d") ? Q : `<span class="cg">${fmt(q.d)}</span>`}`;
+    };
+    const eq = (q, top) => {
+      if (top && hid("eq")) return Q;
+      const lo = top && c.lo != null ? c.lo : q.a - q.d, hi = top && c.hi != null ? c.hi : q.a + q.d, col = q.s === ">" ? "cr" : "cg";
+      const L = `<span class="${col}">${fmt(lo)}</span>`, R = `<span class="${col}">${fmt(hi)}</span>`;
+      return q.s === ">" ? `${V(q)} < ${L} <span class="fo">yoki</span> ${V(q)} > ${R}` : `${L} ${q.s} ${V(q)} ${q.s} ${R}`;
+    };
+    let nw = "";
+    if (n && n.html) nw = `<div class="fn">${n.html}</div>`;
+    else if (n) {
+      const qs = c.and ? [c, c.and] : [c];
+      const rs = qs.map(q => {
+        const x = q === c ? n.x : n.y, r = r6(x - q.a), d = dist(x, q.a);
+        const inner = same(q.a, 0) ? fmt(x) : `${fmt(x)} ${q.a < 0 ? "+" : M} ${fmt(Math.abs(q.a))}`;
+        const head = `|${inner}| = ` + (r < 0 && !same(q.a, 0) ? `|${fmt(r)}| = ` : "");
+        if (!n.show) return { t: head + Q };
+        const rel = same(d, q.d) ? "=" : d < q.d ? "<" : ">";
+        return { t: head + (rel === "=" ? `${fmt(d)} — chegarada` : `${fmt(d)} ${rel} ${fmt(q.d)}`), ok: q.s === "≤" ? rel !== ">" : q.s === "<" ? rel === "<" : rel === ">" };
+      });
+      const cond = rs.every(r => r.ok), good = c.s === ">" ? !cond : cond;
+      nw = `<div class="fn"><small>${qs.map(q => `${q.v} = ${fmt(q === c ? n.x : n.y)}${c.u || ""}`).join(", ")}</small>${rs.map(r => `<div>${r.t}</div>`).join("")}` +
+        (n.show ? `<span class="fr ${good ? "ok" : "bad"}">${good ? "✓" : "✗"} ${cond ? c.yes : c.no}</span>` : "") + `</div>`;
+    }
+    const leg = [[V(c), c.lv], [hid("a") ? Q : `<span class="co">${fmt(c.a)}</span>`, c.la], [hid("d") ? Q : `<span class="cg">${fmt(c.d)}</span>`, c.ld]];
+    if (c.and) leg.push([V(c.and), c.and.lv]);
+    el.innerHTML = `<h3>Formulasi</h3>
+      <div class="ff${c.raw ? " cr" : ""}">${c.raw ? c.raw.f : form(c, true)}</div>${c.and ? `<div class="fo">va</div><div class="ff">${form(c.and)}</div>` : ""}
+      <div class="fe">⇔ ${c.raw ? c.raw.eq : eq(c, true)}${c.and ? `<br>⇔ ${eq(c.and)}` : ""}</div>
+      ${c.raw ? `<p class="fnote">${c.raw.note}</p>` : `<div class="fl">${leg.map(([k, t]) => `<span><b>${k}</b> — ${t}</span>`).join("")}</div>`}${nw}`;
+  }
+};
+function fpan(id, p) { F.set(Object.assign({}, KASB[id].fb, p)); }
 
 /* ---- kasblar ro'yxati ---- */
 const ORDER = ["shifokor", "tikuvchi", "quruvchi", "oshpaz", "dasturchi"];
@@ -628,19 +776,24 @@ const STN = ["O'yna", "Kashf qil", "Qo'lla"];
 const KASB = {
   shifokor: { name: "Shifokor", who: "Shifokor Nilufar opa", teaser: "Bemor sog'mi yoki davolash kerakmi?", tag: "Modul — masofa",
     sum: `Harorat 36,6 dan ko'pi bilan 0,5 farq qilsa — sog': <span class="fx">|t ${M} 36,6| ≤ 0,5</span>, ya'ni <span class="fx">36,1 ≤ t ≤ 37,1</span>.`,
-    line: { min: 35.6, max: 37.6, tick: 0.1, a: 36.6, lo: 36.1, hi: 37.1 }, f: `|t ${M} 36,6| ≤ 0,5` },
+    line: { min: 35.6, max: 37.6, tick: 0.1, a: 36.6, lo: 36.1, hi: 37.1 }, f: `|t ${M} 36,6| ≤ 0,5`,
+    fb: { v: "t", u: " °C", a: 36.6, d: 0.5, s: "≤", lv: "bemorning harorati", la: "sog'lom odam harorati", ld: "ruxsat etilgan farq", yes: "sog'", no: "davolash kerak" } },
   tikuvchi: { name: "Tikuvchi", who: "Tikuvchi Gulchehra opa", teaser: "Mijoz oraliq aytadi — siz formula yozasiz", tag: "Oraliqdan formulaga",
     sum: `«58 dan 60 gacha» — bu «59 dan ko'pi bilan 1 sm farq»: <span class="fx">|x ${M} 59| ≤ 1</span>. a — o'rtasi, d — o'rtadan chetigacha.`,
-    line: { min: 56, max: 62, tick: 0.5, a: 59, lo: 58, hi: 60 }, f: `|x ${M} 59| ≤ 1` },
+    line: { min: 56, max: 62, tick: 0.5, a: 59, lo: 58, hi: 60 }, f: `|x ${M} 59| ≤ 1`,
+    fb: { v: "x", u: " sm", a: 59, d: 1, s: "≤", lv: "yeng uzunligi", la: "oraliq o'rtasi", ld: "o'rtadan chetigacha", yes: "mos", no: "mos emas" } },
   quruvchi: { name: "Quruvchi usta", short: "Quruvchi", who: "Usta Bahodir aka", teaser: "G'ishtlarni saralang — lenta to'xtamaydi", tag: "Chegara: ≤ yoki <",
     sum: `<span class="fx">|x ${M} 250| ≤ 3</span> — 247 va 253 ham yaroqli (bo'yalgan nuqta). <span class="fx">|x ${M} 250| < 3</span> — chegaralar kirmaydi (bo'sh nuqta).`,
-    line: { min: 244, max: 256, tick: 1, a: 250, lo: 247, hi: 253 }, f: `|x ${M} 250| ≤ 3` },
+    line: { min: 244, max: 256, tick: 1, a: 250, lo: 247, hi: 253 }, f: `|x ${M} 250| ≤ 3`,
+    fb: { v: "x", u: " mm", a: 250, d: 3, s: "≤", lv: "g'isht uzunligi", la: "me'yor", ld: "ruxsat etilgan farq", yes: "yaroqli", no: "brak" } },
   oshpaz: { name: "Oshpaz", who: "Oshpaz Sanjar aka", teaser: "Pech haroratini ushlab turing", tag: "Tashqarisi: >",
     sum: `Me'yor: <span class="fx">|t ${M} 180| ≤ 10</span>. Xavf: <span class="fx">|t ${M} 180| > 10</span>, ya'ni <span class="fx">t < 170</span> yoki <span class="fx">t > 190</span> — ikkita nur.`,
-    line: { min: 160, max: 200, tick: 2, a: 180, lo: 170, hi: 190 }, f: `|t ${M} 180| ≤ 10` },
+    line: { min: 160, max: 200, tick: 2, a: 180, lo: 170, hi: 190 }, f: `|t ${M} 180| ≤ 10`,
+    fb: { v: "t", u: " °C", a: 180, d: 10, s: "≤", lv: "pech harorati", la: "pishirish harorati", ld: "ruxsat etilgan farq", yes: "me'yorda", no: "me'yordan tashqari" } },
   dasturchi: { name: "Dasturchi", who: "Dasturchi Kamola", teaser: "O'yin qoidasini o'zingiz yozing", tag: "Qoidani o'zing yoz",
     sum: `Savat <span class="fx">a ${M} d</span> dan <span class="fx">a + d</span> gacha ushlaydi: <span class="fx">|x ${M} a| ≤ d</span>. a = 0 bo'lsa — <span class="fx">|x| ≤ d</span>.`,
-    line: { min: 25, max: 45, tick: 1, a: 35, lo: 30, hi: 40 }, f: `|x ${M} 35| ≤ 5` }
+    line: { min: 25, max: 45, tick: 1, a: 35, lo: 30, hi: 40 }, f: `|x ${M} 35| ≤ 5`,
+    fb: { v: "x", u: "", a: 35, d: 5, s: "≤", lv: "to'p tushgan joy", la: "savat o'rtasi", ld: "o'rtadan chetigacha", yes: "ushladi", no: "o'tib ketdi" } }
 };
 const allDone = () => ORDER.every(k => stageOf(k) >= 3);
 
@@ -670,10 +823,13 @@ function openKasb(id, st) {
     <div class="ktop"><button class="btn ghost" id="k-back">← Kasblar</button>
       <div class="kname">${avatar(id, 46)}<div><b>${K.short || K.name} shogirdi</b><small>${K.tag}</small></div></div></div>
     <div class="stabs" role="tablist">${STN.map((nm, i) => `<button class="stab" role="tab" data-s="${i}"><b>${i + 1}</b>${nm}</button>`).join("")}</div>
+    <div class="scene"><div class="scimg"></div><div class="sctx"><b></b><p></p></div></div>
     <div class="bubble">${avatar(id, 52)}<div class="btext"><small>${K.who}</small><p id="k-say"></p></div></div>
-    <section class="panel" id="k-panel"><div class="shead"><h2 id="k-h"></h2><span class="count" id="k-count"></span></div><div class="sbox" id="k-box"></div></section>
+    <div class="kbody"><aside class="fpan"></aside>
+    <section class="panel" id="k-panel"><div class="shead"><h2 id="k-h"></h2><span class="count" id="k-count"></span></div><div class="sbox" id="k-box"></div></section></div>
   </div>`);
   scr.append(el);
+  F.el = $(".fpan", el);
   const panel = $("#k-panel", el), box = $("#k-box", el);
   $("#k-back", el).onclick = () => show("pick");
   function tabs(cur) {
@@ -712,10 +868,63 @@ function openKasb(id, st) {
         later(() => { const last = box.lastElementChild; if (last) scrollToEl(last); }, 60);
       }
     };
+    fpan(id);
+    scene(el, id, i);
     KASB[id].stages[i](ctx);
   }
   run(st || 0);
   scrollToEl(scr);
+}
+/* ============ vaziyat: topshiriqdan oldin — qayerda, nima bo'lyapti ============ */
+const SCENE = {
+  shifokor: [
+    ["Ertalabki qabul", "Tuman poliklinikasi. Yo'lakda oltita bemor navbat kutyapti. Hamshira har biriga termometr qo'yadi, natijaga qarab esa siz qaror qilasiz: kim uyiga ketadi, kim davolanishga qoladi."],
+    ["Kunlik daftar", "Qabul tugadi. Nilufar opa bugungi oltita haroratni son o'qiga belgilab chiqdi. Endi bilish kerak: sog' chiqqanlarning harorati 36,6 dan qanchalik uzoqlashgan?"],
+    ["Yangi shogird uchun", "Ertaga qabulda yangi shogird ishlaydi. Unga qoidani qisqa va aniq yozib qoldirish kerak — uzun tushuntirish o'rniga bitta yozuv."]
+  ],
+  tikuvchi: [
+    ["Tikuv ustaxonasi", "Mijozlar o'lchamni ko'pincha «shundan shungacha» deb aytadi. Mato qimmat: noto'g'ri kesilsa, uni qaytarib bo'lmaydi. Shuning uchun avval lentada belgilanadi, keyin bichiladi."],
+    ["Buyurtmalar daftari", "Buyurtma ko'p, har birini uzun yozishga vaqt yo'q. Gulchehra opa har bir o'lchamni ikkita son bilan yozadi: o'rtasi va o'rtadan chetigacha."],
+    ["Qisqa yozuv", "Daftar to'lib boryapti. Endi har bir oraliq bitta qisqa yozuvga aylantiriladi — yoki aksincha, yozuvga qarab mijozga oraliq aytiladi."]
+  ],
+  quruvchi: [
+    ["G'isht zavodi", "Pechdan chiqqan g'ishtlar lentada ketma-ket keladi. Uzunligi me'yordan biroz farq qilishi tabiiy, lekin farq katta bo'lsa — devor qiyshiq chiqadi. Lenta to'xtamaydi, tez saralash kerak."],
+    ["Aniqroq buyurtma", "Smena tugadi. Bahodir aka bugungi g'ishtlarni ko'zdan kechiryapti. Shu payt maktab qurayotgan buyurtmachi qo'ng'iroq qildi: unga aniqroq g'isht kerak."],
+    ["Shartnoma", "Buyurtmachi bilan shartnoma tuziladi. Unda «biroz farq» degan gap bo'lmaydi — talab aniq son va belgi bilan yoziladi."]
+  ],
+  oshpaz: [
+    ["To'yxona oshxonasi", "Kechqurun mehmonlarga pirog pishiriladi. Pech eski: o'zicha qizib ketadi, eshigi ochilsa soviydi. Pirog faqat to'g'ri haroratda chiroyli pishadi."],
+    ["Harorat daftari", "Pirog tayyor. Sanjar aka kechagi smenada shogird Jasur yozib qo'ygan harorat daftarini oldi: qaysi daqiqalarda pech xavfli holatda bo'lgan?"],
+    ["Xavf signali", "Oshxonaga avtomatik xavf signali o'rnatiladi. Qurilmaga qachon chalinishini aniq yozib berish kerak."]
+  ],
+  dasturchi: [
+    ["O'yin studiyasi", "Kichik jamoa bolalar uchun «To'p ushla» o'yinini yasayapti. Dizayner savat qayerda turishini chizib berdi — endi uni kodda yozish kerak."],
+    ["Sinovdan keyin", "Kamola opa kod qatoridagi ikki son nima qilishini tekshirib chiqmoqchi. Sinovchilar esa o'yinni o'ynab ko'rib, «Juda oson!» deyishdi."],
+    ["Yangi daraja", "O'yinning yangi darajasi tayyorlanyapti. Shu orada yordamchi dasturchi yozgan kodda xato topildi — o'yin g'alati ishlayapti."]
+  ]
+};
+/* rasm: img/kasb/modul-<kasb>.webp (bo'lmasa — oddiy chizma) */
+const ART = {
+  shifokor: () => thermo(),
+  tikuvchi: () => `<svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true"><rect x="6" y="64" width="108" height="26" rx="3" fill="#F7D046" stroke="#C9A21B" stroke-width="1.5"/>${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(k => `<line x1="${14 + k * 10.5}" y1="64" x2="${14 + k * 10.5}" y2="${k % 2 ? 71 : 76}" stroke="#5C4300" stroke-width="1.3"/>`).join("")}
+    <rect x="18" y="96" width="84" height="16" rx="3" fill="#D23B77" opacity=".75"/><g fill="none" stroke="#6D4BD8" stroke-width="3"><circle cx="40" cy="22" r="9"/><circle cx="62" cy="22" r="9"/><path d="M45 29l34 28M57 29L23 57"/></g></svg>`,
+  quruvchi: () => `<svg viewBox="0 0 148 110" width="148" height="110" aria-hidden="true">${[0, 1, 2, 3].map(r => [0, 1, 2].map(c => `<rect x="${4 + c * 40 + (r % 2 ? 20 : 0)}" y="${82 - r * 22}" width="38" height="20" rx="2" fill="#C9572F" stroke="#8E3218" stroke-width="1.5"/>`).join("")).join("")}</svg>`,
+  oshpaz: () => `<svg viewBox="0 0 120 110" width="120" height="110" aria-hidden="true"><rect x="4" y="4" width="112" height="102" rx="10" fill="#E7EBF0" stroke="#B0BEC5" stroke-width="2"/><rect x="12" y="10" width="96" height="12" rx="3" fill="#CFD8DC"/>
+    <rect x="14" y="30" width="92" height="64" rx="6" fill="#2B2F36"/><rect x="14" y="30" width="92" height="64" rx="6" fill="#FF8A00" opacity=".4"/><ellipse cx="60" cy="72" rx="24" ry="8" fill="#D9A441"/><path d="M36 72q24 -16 48 0" fill="#B9792A"/></svg>`,
+  dasturchi: () => `<svg viewBox="0 0 140 112" width="140" height="112" aria-hidden="true"><rect x="6" y="4" width="128" height="84" rx="8" fill="#1E2235"/><rect x="14" y="12" width="112" height="68" rx="4" fill="#F3F7FF"/>
+    <circle cx="70" cy="30" r="6" fill="#F28C28"/><path d="M52 58h36l-5 14H57z" fill="#E0A96D" stroke="#A0522D" stroke-width="1.5"/><rect x="58" y="88" width="24" height="10" fill="#B0BEC5"/><rect x="38" y="98" width="64" height="8" rx="3" fill="#90A4AE"/></svg>`
+};
+function scene(el, id, i) {
+  const [t, p] = SCENE[id][i], box = $(".scimg", el), tx = $(".sctx p", el);
+  $(".sctx b", el).textContent = t;
+  tx.textContent = p; tx.classList.remove("flash"); void tx.offsetWidth; tx.classList.add("flash");
+  if (box.dataset.k === id) return;
+  box.dataset.k = id;
+  const fall = () => { box.innerHTML = `<div class="scfb" style="background:linear-gradient(180deg,#F5F8FF,#E3EAF8)">${avatar(id, 92)}${ART[id]()}</div>`; };
+  const img = new Image();
+  img.alt = ""; img.onload = () => { box.innerHTML = ""; box.append(img); }; img.onerror = fall;
+  img.src = `../img/kasb/modul-${id}.webp`;
+  fall();
 }
 /* bosqich ichidagi qadamlar */
 function steps(ctx, list) {
@@ -724,6 +933,7 @@ function steps(ctx, list) {
     leaveAll();
     ctx.box.innerHTML = "";
     ctx.count(list.length > 1 ? `${i + 1} / ${list.length}` : "");
+    fpan(ctx.id);
     if (i > 0) scrollToEl(ctx.panel);
     list[i](ctx.box, () => { i++; if (i < list.length) run(); else ctx.done(); });
   }
@@ -773,7 +983,7 @@ function shif1(ctx) {
     $(".pwho", el).innerHTML = `${avatar(p.av, 64)}<div><b>${p.n}</b><div class="reading">35,0 °C</div><small>Termometr o'lchayapti…</small></div>`;
     $(".pth", el).innerHTML = thermo();
     btns.forEach(b => { b.disabled = true; b.style.opacity = ""; });
-    fbSet(fbEl, "", ""); nx.hidden = true;
+    fbSet(fbEl, "", ""); nx.hidden = true; F.now(null);
     const merc = $(".merc", el), rd = $(".reading", el), t0 = performance.now(), Y = v => 130 - (v - 35) / 4 * 118;
     cancelAnimationFrame(raf);
     const stepA = now => {
@@ -781,7 +991,7 @@ function shif1(ctx) {
       merc.setAttribute("y", Y(v)); merc.setAttribute("height", 149 - Y(v));
       rd.textContent = fmt1(k < 1 ? v : p.t) + " °C";
       if (k < 1) raf = requestAnimationFrame(stepA);
-      else { btns.forEach(b => { b.disabled = false; }); $(".pwho small", el).textContent = "Qaror qiling:"; }
+      else { btns.forEach(b => { b.disabled = false; }); $(".pwho small", el).textContent = "Qaror qiling:"; F.now(p.t, false); }
     };
     raf = requestAnimationFrame(stepA);
   }
@@ -799,6 +1009,7 @@ function shif1(ctx) {
           : up ? `${p.n}ni uyga jo'natdingiz — kechqurun isitmasi ko'tarildi. ${diff}, bu 0,5 dan katta.` : `${p.n}ni uyga jo'natdingiz — ahvoli yomonlashdi. ${diff}: past harorat ham xavfli.`;
       }
       fbSet(fbEl, a === good ? "ok" : "bad", msg);
+      F.now(p.t, true);
       btns.forEach(x => { x.disabled = true; x.style.opacity = x === b ? "1" : ".3"; });
       placed.push({ v: p.t, color: good ? C.green : C.red, lab: fmt(p.t) });
       nl.draw({ dots: placed });
@@ -842,6 +1053,7 @@ function shif2(ctx) {
   function tap(i) {
     if (tapped.has(i)) return;
     tapped.add(i);
+    F.now(PAT[i].t, true);
     chips.children[i].classList.add(sog(PAT[i].t) ? "ok" : "bad");
     nl.draw({ arrows: arrows() });
     $(".dlist", el).innerHTML = [...tapped].map(k => { const p = PAT[k]; return `<span class="${sog(p.t) ? "cg" : "cr"}">|${fmt1(p.t)} ${M} 36,6| = ${fmt(dist(p.t, 36.6))}</span>`; }).join("");
@@ -870,6 +1082,7 @@ function shif3(ctx) {
     (box, next) => {
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 35.5, max: 38, tick: 0.1, h: 96, y: 58, center: { v: 36.6 }, band: { lo: 36.1, hi: 37.1 } });
+      F.upd({ hide: ["a", "s", "d", "eq"] });
       tiles(box, {
         q: "Sog' harorat shartini kartochkalardan yig'ing:",
         tpl: ["|", "<i>t</i>", M, 0, "|", 1, 2],
@@ -877,19 +1090,20 @@ function shif3(ctx) {
         h1: () => { nl.draw({ arrows: [{ from: 36.6, to: 37.1, lab: "0,5", color: C.blue }, { from: 36.6, to: 36.1, lab: "0,5", color: C.blue }] }); return "O'rtadagi son qaysi? Undan chetigacha masofa qancha? Chetdagi 36,1 va 37,1 ham sog' edi."; },
         h2: `Modul ichida — t va o'rtadagi son: <span class="fx">|t ${M} 36,6|</span>. Masofa 0,5 dan oshmaydi, chetlari ham kiradi: <span class="fx">≤ 0,5</span>.`,
         ok: `To'g'ri: <span class="fx">|t ${M} 36,6| ≤ 0,5</span> — «t va 36,6 orasidagi masofa 0,5 dan oshmaydi».`,
-        onOk: () => goOn(box, next)
+        onOk: () => { F.open(); goOn(box, next); }
       });
     },
     (box, next) => {
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 35.5, max: 38, tick: 0.1, h: 96, y: 58, center: { v: 36.6 } });
+      F.upd({ hide: ["eq"] });
       askNums(box, {
         q: `<span class="fx">|t ${M} 36,6| ≤ 0,5</span> ni modulsiz yozing:`,
         tpl: `{0} <span class="tk">≤ <i>t</i> ≤</span> {1}`, ans: [36.1, 37.1],
         h1: () => { nl.draw({ arrows: [{ from: 36.6, to: 37.1, lab: "0,5", color: C.blue }, { from: 36.6, to: 36.1, lab: "0,5", color: C.blue }] }); return "36,6 dan chapga va o'ngga 0,5 qadam qo'ying."; },
         h2: "Chap chet: 36,6 − 0,5 = 36,1. O'ng chet: 36,6 + 0,5 = 37,1.",
         ok: `Ha: <span class="fx">36,1 ≤ t ≤ 37,1</span>. Umuman: <span class="fx">|x ${M} a| ≤ d</span> ⇔ <span class="fx">a ${M} d ≤ x ≤ a + d</span>.`,
-        onOk: () => { nl.draw({ band: { lo: 36.1, hi: 37.1 } }); goOn(box, next); }
+        onOk: () => { nl.draw({ band: { lo: 36.1, hi: 37.1 } }); F.open(); goOn(box, next); }
       });
     },
     (box, next) => {
@@ -898,8 +1112,9 @@ function shif3(ctx) {
         yes: "Sog'", no: "Davolanishga",
         items: [37.1, 35.9, 37.0].map(t => {
           const d = dist(t, 36.6), g = d <= 0.5 + 1e-9;
-          return { html: `${fmt1(t)} °C`, good: g, why: `|${fmt1(t)} ${M} 36,6| = ${fmt(d)}${g ? " ≤ 0,5 — sog'" : " > 0,5 — davolash kerak"}${same(d, 0.5) ? " (chegarada, lekin kiradi)" : ""}.`, bad: `Hali emas. Masofani hisoblang: |${fmt1(t)} ${M} 36,6| = ?` };
+          return { x: t, html: `${fmt1(t)} °C`, good: g, why: `|${fmt1(t)} ${M} 36,6| = ${fmt(d)}${g ? " ≤ 0,5 — sog'" : " > 0,5 — davolash kerak"}${same(d, 0.5) ? " (chegarada, lekin kiradi)" : ""}.`, bad: `Hali emas. Masofani hisoblang: |${fmt1(t)} ${M} 36,6| = ?` };
         }),
+        onPick: it => F.now(it.x, true),
         onDone: next
       });
     }
@@ -991,20 +1206,22 @@ function pinTask(box, o) {
   const btn = h(`<div class="row"><button class="btn">Tayyor</button></div>`); box.append(btn);
   const fbEl = h(`<div class="fb" aria-live="polite"></div>`); box.append(fbEl);
   const tape = TAPE(tb, { min: o.min, max: o.max, pins: o.start.slice(), onPins: upd });
-  function upd() { st.innerHTML = `Chap: <b class="cr">${fmt(tape.cfg.pins[0])} sm</b> · O'ng: <b class="cb">${fmt(tape.cfg.pins[1])} sm</b>`; }
+  function upd() { F.upd({ lo: tape.cfg.pins[0], hi: tape.cfg.pins[1] }); st.innerHTML = `Chap: <b class="cr">${fmt(tape.cfg.pins[0])} sm</b> · O'ng: <b class="cb">${fmt(tape.cfg.pins[1])} sm</b>`; }
   upd();
-  const L = ladder(fbEl, {
+  let pre = "";
+  const H = helper(btn, fbEl, {
     h1: () => { tape.draw({ targets: [o.lo, o.hi] }); return `Mijoz aytgan sonlarga qarang — ular lentada yashil uchburchak bilan belgilandi.`; },
     h2: `Qizil to'g'nog'ichni ${fmt(o.lo)} ga, ko'kini ${fmt(o.hi)} ga suring.`
-  });
+  }, p => { pre = p; tape.cfg.pins = [o.lo, o.hi]; tape.draw(); upd(); $("button", btn).onclick(); });
   $("button", btn).onclick = () => {
     const p = tape.cfg.pins;
     if (same(p[0], o.lo) && same(p[1], o.hi)) {
+      H.end();
       tape.draw({ lock: true, band: true, targets: [] });
       $("button", btn).disabled = true;
-      fbSet(fbEl, "ok", `Belgilandi: ${fmt(o.lo)} dan ${fmt(o.hi)} gacha.`);
+      fbSet(fbEl, "ok", `${pre}Belgilandi: ${fmt(o.lo)} dan ${fmt(o.hi)} gacha.`);
       o.onOk(tape);
-    } else L();
+    } else H.wrong();
   };
 }
 /* o'rtasi va yarim kengligini topish */
@@ -1024,24 +1241,31 @@ function adTask(box, o) {
 function tik1(ctx) {
   ctx.say("Xush kelibsiz! Mijozlar o'lchamni oraliq bilan aytadi. Biz uni lentada belgilaymiz, keyin bichamiz.");
   steps(ctx, [
-    (box, next) => pinTask(box, { who: "dilnoza", name: "Dilnoza", text: "Yeng uzunligi 58 dan 60 sm gacha bo'lsa — menga mos.", min: 52, max: 66, start: [54, 64], lo: 58, hi: 60, onOk: () => goOn(box, next) }),
+    (box, next) => (F.upd({ hide: ["a", "d"] }), pinTask(box, { who: "dilnoza", name: "Dilnoza", text: "Yeng uzunligi 58 dan 60 sm gacha bo'lsa — menga mos.", min: 52, max: 66, start: [54, 64], lo: 58, hi: 60, onOk: () => goOn(box, next) })),
     (box, next) => {
       ctx.say("Endi bichamiz. Qo'l biroz adashishi mumkin — shuning uchun ikkala chetgacha zaxira bir xil bo'lsin.");
       box.append(h(`<p class="task">Qaychi qayerdan kessin? Lentaga bosing.</p>`));
       const tb = h(`<div class="nlbox tap"></div>`); box.append(tb);
+      const hrow = h(`<div class="row"></div>`); box.append(hrow);
       const fbEl = h(`<div class="fb" aria-live="polite"></div>`); box.append(fbEl);
-      let n = 0, ok = false;
-      TAPE(tb, {
+      F.upd({ hide: ["a", "d"] });
+      let n = 0, ok = false, pre = "";
+      const H = helper(hrow, fbEl, {
+        h1: "Ikkala chetgacha zaxira bir xil bo'lishi uchun oraliqning o'rtasidan kesish kerak. 58 va 60 ning o'rtasi qaysi son?",
+        h2: "O'rtasi: (58 + 60) : 2 = 59. Lentada 59 ga bosing."
+      }, p => { pre = p; tp.draw({ cut: 59 }); tp.cfg.onCut(59); });
+      const tp = TAPE(tb, {
         min: 52, max: 66, pins: [58, 60], lock: true, band: true, cutMode: true, cut: null,
         onCut: v => {
           if (ok) return;
           const d1 = dist(v, 58), d2 = dist(v, 60);
-          if (v < 58 || v > 60) { n++; fbSet(fbEl, "bad", `${fmt(v)} sm — oraliqdan tashqari. Bunday yeng Dilnozaga mos kelmaydi!` + (n > 1 ? " O'rtasi: (58 + 60) : 2 = 59." : "")); return; }
+          if (v < 58 || v > 60) { n++; H.miss(); fbSet(fbEl, "bad", `${fmt(v)} sm — oraliqdan tashqari. Bunday yeng Dilnozaga mos kelmaydi!` + (n > 1 ? " O'rtasi: (58 + 60) : 2 = 59." : "")); return; }
           if (same(d1, d2)) {
-            ok = true;
-            fbSet(fbEl, "ok", `Zo'r! 59 — oraliqning o'rtasi. Ikki tomonga 1 sm dan zaxira. Dilnoza: «Juda mos bo'libdi!»`);
+            ok = true; H.end();
+            F.open(); F.now(59, true);
+            fbSet(fbEl, "ok", `${pre}Zo'r! 59 — oraliqning o'rtasi. Ikki tomonga 1 sm dan zaxira. Dilnoza: «Juda mos bo'libdi!»`);
             goOn(box, next);
-          } else { n++; fbSet(fbEl, "bad", `Chapga ${fmt(d1)} sm, o'ngga ${fmt(d2)} sm — zaxira teng emas. Ozgina xato qilsangiz, yeng ${v < 59 ? "58 dan qisqa" : "60 dan uzun"} chiqadi.` + (n > 1 ? " O'rtasi: (58 + 60) : 2 = 59." : "")); }
+          } else { n++; H.miss(); fbSet(fbEl, "bad", `Chapga ${fmt(d1)} sm, o'ngga ${fmt(d2)} sm — zaxira teng emas. Ozgina xato qilsangiz, yeng ${v < 59 ? "58 dan qisqa" : "60 dan uzun"} chiqadi.` + (n > 1 ? " O'rtasi: (58 + 60) : 2 = 59." : "")); }
         }
       });
     }
@@ -1051,17 +1275,21 @@ function tik2(ctx) {
   steps(ctx, [
     (box, next) => {
       ctx.say("Daftarga oraliqni emas, ikki son yozamiz: o'rtasi va o'rtadan chetigacha. Dilnozaning yengi uchun topingchi.");
+      F.upd({ hide: ["a", "d"] });
       adTask(box, { q: "Yeng: 58 dan 60 sm gacha.", min: 56, max: 62, lo: 58, hi: 60,
-        ok: "To'g'ri: a = 59, d = 1. «58 dan 60 gacha» — bu «59 dan ko'pi bilan 1 sm uzoq» degani.", onOk: () => goOn(box, next) });
+        ok: "To'g'ri: a = 59, d = 1. «58 dan 60 gacha» — bu «59 dan ko'pi bilan 1 sm uzoq» degani.", onOk: () => { F.open(); goOn(box, next); } });
     },
     (box, next) => {
       ctx.say("Yangi mijoz keldi. Avval lentada belgilang.");
+      F.upd({ a: 73, d: 3, lv: "shim uzunligi", hide: ["a", "d"] });
       pinTask(box, { who: "rustam", name: "Rustam aka", text: "Shim uzunligi 70 dan 76 sm gacha bo'lsin.", min: 66, max: 80, start: [68, 78], lo: 70, hi: 76, onOk: () => goOn(box, next) });
     },
     (box, next) => {
       ctx.say("Endi Rustam akaning o'lchami uchun a va d ni toping.");
+      F.upd({ a: 73, d: 3, lv: "shim uzunligi", hide: ["a", "d"] });
       adTask(box, { q: "Shim: 70 dan 76 sm gacha.", min: 66, max: 80, tick: 1, lo: 70, hi: 76,
         onOk: () => {
+          F.open();
           box.append(h(`<div class="rule">Qoida topildi: <span class="fx">a = (chap + o'ng) : 2</span>, <span class="fx">d = (o'ng ${M} chap) : 2</span>.<br>Rustam aka: a = (70 + 76) : 2 = 73, d = (76 ${M} 70) : 2 = 3.</div>`));
           goOn(box, next);
         } });
@@ -1074,13 +1302,14 @@ function tik3(ctx) {
       ctx.say("Tikuvchilar daftariga qisqa yozadi: x — haqiqiy uzunlik.");
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 66, max: 80, tick: 1, h: 100, y: 62, band: { lo: 70, hi: 76 } });
+      F.upd({ a: 73, d: 3, lv: "shim uzunligi", hide: ["a", "s", "d", "eq"] });
       tiles(box, {
         q: "Rustam akaning shartini (70 dan 76 sm gacha) modul bilan yozing:",
         tpl: ["|", "<i>x</i>", M, 0, "|", 1, 2], tiles: ["70", "73", "76", "3", "6", "≤", "<"], ans: ["73", "≤", "3"],
         h1: () => { nl.draw({ center: { v: 73 }, arrows: [{ from: 73, to: 76, lab: "3", color: C.blue }, { from: 73, to: 70, lab: "3", color: C.blue }] }); return "Modul ichida — o'rtadagi son, o'ngda — o'rtadan chetigacha masofa."; },
         h2: `O'rtasi 73, chetigacha 3, chetlari ham mos: <span class="fx">|x ${M} 73| ≤ 3</span>.`,
         ok: `To'g'ri: <span class="fx">|x ${M} 73| ≤ 3</span> ⇔ <span class="fx">70 ≤ x ≤ 76</span>.`,
-        onOk: () => goOn(box, next)
+        onOk: () => { F.open(); goOn(box, next); }
       });
     },
     (box, next) => {
@@ -1088,25 +1317,27 @@ function tik3(ctx) {
       box.append(h(custLine("zarifa", "Zarifa", "Yoqa aylanasi 37 dan 40 sm gacha bo'lsin.")));
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 35, max: 42, tick: 0.5, h: 100, y: 62, band: { lo: 37, hi: 40 } });
+      F.upd({ a: 38.5, d: 1.5, lv: "yoqa aylanasi", hide: ["a", "d"] });
       askNums(box, {
         q: "Daftarga yozing:", tpl: `<span class="tk">|<i>x</i> ${M}</span>{0}<span class="tk">| ≤</span>{1}`, ans: [38.5, 1.5],
         h1: () => { nl.draw({ arrows: [{ from: 37, to: 40, lab: "3", color: C.blue }] }); return "Oraliq uzunligi 3 sm. O'rtasi va yarmi kasr son bo'ladi."; },
         h2: "a = (37 + 40) : 2 = 38,5; d = (40 − 37) : 2 = 1,5. Vergulni ham yozing: 38,5 va 1,5.",
         ok: `To'g'ri: <span class="fx">|x ${M} 38,5| ≤ 1,5</span>.`,
-        onOk: () => { nl.draw({ center: { v: 38.5 }, arrows: [{ from: 38.5, to: 40, lab: "1,5", color: C.blue }, { from: 38.5, to: 37, lab: "1,5", color: C.blue }] }); goOn(box, next); }
+        onOk: () => { F.open(); nl.draw({ center: { v: 38.5 }, arrows: [{ from: 38.5, to: 40, lab: "1,5", color: C.blue }, { from: 38.5, to: 37, lab: "1,5", color: C.blue }] }); goOn(box, next); }
       });
     },
     (box, next) => {
       ctx.say("Teskarisi ham bo'ladi: daftarda formula bor, mijozga oraliqni aytish kerak.");
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 86, max: 98, tick: 1, h: 100, y: 62, center: { v: 92 } });
+      F.upd({ a: 92, d: 2, lv: "ko'krak aylanasi", hide: ["eq"] });
       askNums(box, {
         q: `Daftarda: <span class="fx">|x ${M} 92| ≤ 2</span> (ko'krak aylanasi, sm). Qaysi oraliq?`,
         tpl: `{0} <span class="tk">≤ <i>x</i> ≤</span> {1}`, ans: [90, 94],
         h1: () => { nl.draw({ arrows: [{ from: 92, to: 94, lab: "2", color: C.blue }, { from: 92, to: 90, lab: "2", color: C.blue }] }); return "92 dan chapga va o'ngga 2 qadam."; },
         h2: "92 − 2 = 90 va 92 + 2 = 94.",
         ok: `To'g'ri: <span class="fx">90 ≤ x ≤ 94</span>.`,
-        onOk: () => { nl.draw({ band: { lo: 90, hi: 94 } }); goOn(box, next); }
+        onOk: () => { nl.draw({ band: { lo: 90, hi: 94 } }); F.open(); goOn(box, next); }
       });
     }
   ]);
@@ -1143,7 +1374,7 @@ function qur1(ctx) {
     idx++;
     if (idx >= BRICKS.length) return finish();
     cur = BRICKS[idx]; x = -brick.offsetWidth - 4;
-    $("b", brick).textContent = cur; brick.hidden = false; place(); score();
+    $("b", brick).textContent = cur; brick.hidden = false; place(); score(); F.now(cur, false);
   }
   function loop(t) {
     if (!running) return;
@@ -1158,7 +1389,7 @@ function qur1(ctx) {
   }
   function result(bin) {
     const v = cur, g = brickOk(v), d = Math.abs(v - 250);
-    cur = null; brick.hidden = true;
+    cur = null; brick.hidden = true; F.now(v, true);
     const calc = `|${v} ${M} 250| = ${d} ${g ? "≤" : ">"} 3`;
     if (bin === null) { missN++; fbSet(fbEl, "hint", `${v} o'tib ketdi. U ${g ? "yaroqli" : "brak"} edi: ${calc}.`); log.push({ v, s: "miss" }); }
     else if (bin === g) { okN++; fbSet(fbEl, "ok", `✓ ${v}: ${calc} — ${g ? "yaroqli" : "brak"}.${d === 3 ? " Farq aniq 3 — mumkin." : ""}`); log.push({ v, s: "ok" }); }
@@ -1211,19 +1442,21 @@ function qur2(ctx) {
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const dots = BRICKS.map(v => ({ v, color: brickOk(v) ? C.green : C.red, lab: String(v) }));
       const nl = NL(nb, { min: 242, max: 258, tick: 1, h: 142, y: 96, center: { v: 250 }, dots, band: { lo: 247, hi: 253 }, gap: 30 });
+      F.upd({ hide: ["eq"] });
       choice(box, {
         q: "247 va 253 — eng chetdagi g'ishtlar. Ular yaroqlimi?",
         opts: ["Yo'q, chegaradagilar brak", "Ha, farq aniq 3 — bunga ruxsat bor", "Faqat 253 yaroqli", "Faqat 247 yaroqli"], ans: 1,
         h1: () => { nl.draw({ dots: dots.map(d => Object.assign({}, d, { lab: "" })), arrows: [{ from: 250, to: 253, lab: "3", color: C.blue }, { from: 250, to: 247, lab: "3", color: C.blue }] }); return "250 dan ularga qadar masofa qancha? Usta «3 mm gacha farq — yaroqli» degan edi."; },
         h2: `|247 ${M} 250| = 3 va |253 ${M} 250| = 3. «3 gacha» — 3 ham kiradi, demak ikkalasi yaroqli.`,
         ok: `To'g'ri: <span class="fx">|x ${M} 250| ≤ 3</span>. Belgi «≤» — chegaradagi nuqtalar bo'yalgan.`,
-        onOk: () => goOn(box, next)
+        onOk: () => { F.open(); F.now(247, true); goOn(box, next); }
       });
     },
     (box, next) => {
       ctx.say("Yangi buyurtmachi keldi: «Menga aniqroq g'isht kerak. Farq 3 mm dan kichik bo'lsin». Endi nima o'zgaradi?");
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const good = BRICKS.filter(brickOk).sort((a, b) => a - b);
+      F.upd({ s: "<", hide: ["eq"] });
       const nl = NL(nb, { min: 242, max: 258, tick: 1, h: 112, y: 70, center: { v: 250 }, band: { lo: 247, hi: 253, openLo: true, openHi: true }, gap: 30,
         dots: good.map(v => ({ v, color: C.green })) });
       box.append(h(`<p class="task">Yaroqli g'ishtlardan qaysilari endi brak bo'ladi? Belgilang.</p>`));
@@ -1232,17 +1465,20 @@ function qur2(ctx) {
       good.forEach(v => { const b = h(`<button class="chip">${v}<small>mm</small></button>`); b.onclick = () => { if (b.disabled) return; sel.has(v) ? sel.delete(v) : sel.add(v); b.classList.toggle("on", sel.has(v)); }; ch.append(b); });
       const row = h(`<div class="row"><button class="btn">Tekshirish</button></div>`); box.append(row);
       const fbEl = h(`<div class="fb" aria-live="polite"></div>`); box.append(fbEl);
-      const Ld = ladder(fbEl, {
+      let pre = "";
+      const H = helper(row, fbEl, {
         h1: () => { nl.draw({ arrows: [{ from: 250, to: 253, lab: "3", color: C.blue }, { from: 250, to: 247, lab: "3", color: C.blue }] }); return "Qaysi g'ishtlarning farqi aniq 3? «3 dan kichik» — 3 ning o'zi kiradimi?"; },
         h2: `|247 ${M} 250| = 3 va |253 ${M} 250| = 3. 3 soni 3 dan kichik emas — bu ikkalasi brak. Qolganlarining farqi 0, 1, 2.`
-      });
+      }, p => { pre = p; sel.clear(); sel.add(247); sel.add(253); $("button", row).onclick(); });
       $("button", row).onclick = () => {
         const ok = sel.size === 2 && sel.has(247) && sel.has(253);
-        if (!ok) { Ld(); return; }
+        if (!ok) { H.wrong(); return; }
+        H.end();
         $("button", row).disabled = true;
         $$(".chip", ch).forEach(b => { b.disabled = true; const v = +b.firstChild.textContent; if (v === 247 || v === 253) b.classList.add("bad"); });
         nl.draw({ dots: good.map(v => ({ v, color: v === 247 || v === 253 ? C.red : C.green })) });
-        fbSet(fbEl, "ok", "To'g'ri: 247 va 253 endi brak.");
+        fbSet(fbEl, "ok", pre + "To'g'ri: 247 va 253 endi brak.");
+        F.open(); F.now(253, true);
         box.append(h(`<div class="rule"><span class="fx">|x ${M} 250| ≤ 3</span> — 247 va 253 kiradi (bo'yalgan nuqta).<br><span class="fx">|x ${M} 250| < 3</span> — 247 va 253 kirmaydi (bo'sh nuqta).</div>`));
         goOn(box, next);
       };
@@ -1255,28 +1491,31 @@ function qur3(ctx) {
       ctx.say("Buyurtmachining shartini hujjatga yozamiz. x — g'isht uzunligi.");
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 242, max: 258, tick: 1, h: 100, y: 62, center: { v: 250 }, band: { lo: 247, hi: 253, openLo: true, openHi: true }, gap: 30 });
+      F.upd({ s: "<", hide: ["a", "s", "d", "eq"] });
       tiles(box, {
         q: "«Farq 3 mm dan kichik» shartini yig'ing:",
         tpl: ["|", "<i>x</i>", M, 0, "|", 1, 2], tiles: ["247", "250", "3", "≤", "<", ">"], ans: ["250", "<", "3"],
         h1: () => { nl.draw({ arrows: [{ from: 250, to: 253, lab: "3", color: C.blue }, { from: 250, to: 247, lab: "3", color: C.blue }] }); return "Chetlari bo'sh nuqta — chegaralar kirmaydi. Qaysi belgi kerak?"; },
         h2: `Me'yor 250, farq 3 dan kichik: <span class="fx">|x ${M} 250| < 3</span>.`,
         ok: `To'g'ri: <span class="fx">|x ${M} 250| < 3</span>.`,
-        onOk: () => goOn(box, next)
+        onOk: () => { F.open(); goOn(box, next); }
       });
     },
     (box, next) => {
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 242, max: 258, tick: 1, h: 100, y: 62, center: { v: 250 }, gap: 30 });
+      F.upd({ s: "<", hide: ["eq"] });
       askNums(box, {
         q: `<span class="fx">|x ${M} 250| < 3</span> ni modulsiz yozing. Belgini bosib almashtirish mumkin.`,
         tpl: `{0}{s0}<span class="tk"><i>x</i></span>{s1}{1}`, ans: [247, 253], sans: ["<", "<"],
         h1: () => { nl.draw({ arrows: [{ from: 250, to: 253, lab: "3", color: C.blue }, { from: 250, to: 247, lab: "3", color: C.blue }] }); return "250 dan ikki tomonga 3 qadam. Chegaralar kiradimi?"; },
         h2: "250 − 3 = 247, 250 + 3 = 253. Modulda «<» bo'lsa, ikkala belgi ham «<»: 247 < x < 253.",
         ok: `To'g'ri: <span class="fx">247 < x < 253</span>.`,
-        onOk: () => { nl.draw({ band: { lo: 247, hi: 253, openLo: true, openHi: true } }); goOn(box, next); }
+        onOk: () => { nl.draw({ band: { lo: 247, hi: 253, openLo: true, openHi: true } }); F.open(); goOn(box, next); }
       });
     },
     (box, next) => {
+      F.upd({ s: "<" });
       choice(box, {
         q: `Shart: <span class="fx">|x ${M} 250| < 3</span>. Uzunligi butun millimetr bo'lgan necha xil g'isht yaroqli?`,
         opts: ["7 xil", "6 xil", "5 xil", "3 xil"], ans: 2,
@@ -1290,14 +1529,16 @@ function qur3(ctx) {
       ctx.say("Katta buyurtma: endi eni ham tekshiriladi. Ikkala shart bajarilsagina g'isht yaroqli.");
       box.append(h(`<div class="rule">Uzunligi: <span class="fx">|x ${M} 250| ≤ 3</span> &nbsp; va &nbsp; eni: <span class="fx">|y ${M} 120| ≤ 2</span></div>`));
       const B2 = [[252, 121], [249, 123], [247, 118], [254, 120]];
+      F.upd({ and: { v: "y", a: 120, d: 2, s: "≤", lv: "g'isht eni" } });
       judge(box, {
         yes: "Yaroqli", no: "Brak",
         items: B2.map(([x, y]) => {
           const dx = Math.abs(x - 250), dy = Math.abs(y - 120), g = dx <= 3 && dy <= 2;
-          return { html: `uzunligi ${x} mm, eni ${y} mm`, good: g,
+          return { x, y, html: `uzunligi ${x} mm, eni ${y} mm`, good: g,
             why: `|${x} ${M} 250| = ${dx} ${dx <= 3 ? "≤" : ">"} 3; |${y} ${M} 120| = ${dy} ${dy <= 2 ? "≤" : ">"} 2 — ${g ? "ikkalasi bajarildi, yaroqli" : "bittasi bajarilmadi, brak"}.`,
             bad: "Hali emas. Ikkala shartni alohida tekshiring." };
         }),
+        onPick: it => F.now(it.x, true, it.y),
         onDone: next
       });
     }
@@ -1404,7 +1645,7 @@ function osh1(ctx) {
     T += (Teq - T) * dt / 0.9 + (Math.random() - 0.5) * 0.8;
     if (T > 190) above += dt; else if (T < 170) below += dt;
     samples.push({ t, T });
-    showT(); graph.draw();
+    showT(); graph.draw(); F.now(Math.round(T), true);
     if (t >= 12 - 1e-9) finish();
   }
   function finish() {
@@ -1427,35 +1668,41 @@ function osh1(ctx) {
     samples.length = 0; samples.push({ t: 0, T: 180 });
     $(".pie", el).setAttribute("fill", "#F1D9A0"); $(".pie2", el).setAttribute("fill", "#E9C77E");
     fbSet($(".fb", el), "", ""); drawKnob(); showT(); graph.draw();
-    $(".go", el).hidden = true;
+    $(".go", el).hidden = true; F.now(180, true);
     timer = setInterval(tick, 100);
   };
   showT();
 }
 const LOG = [176, 193, 185, 168, 171, 190, 199, 182];
 const hot = v => Math.abs(v - 180) > 10;
+/* xavf signali: |t − a| > d */
+const SIG = { s: ">", yes: "signal chalinadi", no: "signal yo'q" };
 function osh2(ctx) {
   steps(ctx, [
     (box, next) => {
       ctx.say("Pishirish tugadi. Grafikda qizil — juda issiq, ko'k — sovuq. Endi shogird Jasurning kechagi daftarini tekshiramiz.");
       if (lastOven) { const g = h(`<div class="nlbox"></div>`); box.append(g); ovenGraph(g, lastOven, false); }
+      F.upd(Object.assign({}, SIG, { hide: ["eq"] }));
       box.append(h(`<p class="task">Qaysi daqiqalarda <span class="fx">|t ${M} 180| > 10</span> bo'lgan? Hammasini belgilang.</p>`));
       const ch = h(`<div class="chips"></div>`); box.append(ch);
       const sel = new Set();
       LOG.forEach((v, i) => { const b = h(`<button class="chip"><small>${i + 1}-daq.</small>${v}°<small class="dd"></small></button>`); b.onclick = () => { if (b.disabled) return; sel.has(i) ? sel.delete(i) : sel.add(i); b.classList.toggle("on", sel.has(i)); }; ch.append(b); });
       const row = h(`<div class="row"><button class="btn">Tekshirish</button></div>`); box.append(row);
       const fbEl = h(`<div class="fb" aria-live="polite"></div>`); box.append(fbEl);
-      const Ld = ladder(fbEl, {
+      let pre = "";
+      const H = helper(row, fbEl, {
         h1: () => { $$(".dd", ch).forEach((s, i) => { s.textContent = "masofa " + Math.abs(LOG[i] - 180); }); return "Har bir son ostiga 180 gacha masofa yozildi. Qaysilari 10 dan katta?"; },
         h2: "193 (13), 168 (12), 199 (19) — 10 dan katta. 190 da masofa aniq 10: 10 > 10 emas. 171 da — 9."
-      });
+      }, p => { pre = p; sel.clear(); LOG.forEach((v, i) => { if (hot(v)) sel.add(i); }); $("button", row).onclick(); });
       $("button", row).onclick = () => {
         const good = LOG.map((v, i) => i).filter(i => hot(LOG[i]));
         const ok = sel.size === good.length && good.every(i => sel.has(i));
-        if (!ok) { Ld(); return; }
+        if (!ok) { H.wrong(); return; }
+        H.end();
         $("button", row).disabled = true;
         $$(".chip", ch).forEach((b, i) => { b.disabled = true; b.classList.remove("on"); b.classList.add(hot(LOG[i]) ? "bad" : "ok"); });
-        fbSet(fbEl, "ok", "To'g'ri: 2-, 4- va 7-daqiqalarda — 193°, 168° va 199°.");
+        fbSet(fbEl, "ok", pre + "To'g'ri: 2-, 4- va 7-daqiqalarda — 193°, 168° va 199°.");
+        F.open(); F.now(199, true);
         goOn(box, next);
       };
     },
@@ -1464,6 +1711,7 @@ function osh2(ctx) {
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 150, max: 210, tick: 5, h: 142, y: 96, center: { v: 180 }, gap: 34,
         dots: LOG.map(v => ({ v, color: hot(v) ? C.red : C.green, lab: String(v) })) });
+      F.upd(SIG);
       later(() => nl.draw({ rays: { lo: 170, hi: 190 }, band: { lo: 170, hi: 190, fade: true, lab: false } }), 700);
       box.append(h(`<div class="rule" style="border-color:${C.red};background:${"#FDF1F1"};color:#7A1515">Yechim — ikkita nur: <span class="fx">|t ${M} 180| > 10</span> ⇔ <span class="fx">t < 170</span> yoki <span class="fx">t > 190</span>. 170 va 190 — bo'sh nuqta.</div>`));
       choice(box, {
@@ -1472,7 +1720,7 @@ function osh2(ctx) {
         h1: () => { nl.draw({ arrows: [{ from: 180, to: 170, lab: "10", color: C.blue }] }); return "170 dan 180 gacha masofa qancha? Signal sharti — masofa 10 dan katta."; },
         h2: "|170 − 180| = 10. 10 > 10 — noto'g'ri, shuning uchun 170 da signal yo'q.",
         ok: "To'g'ri. Shuning uchun 170 va 190 nurlarga kirmaydi — bo'sh nuqta.",
-        onOk: () => goOn(box, next)
+        onOk: () => { F.now(170, true); goOn(box, next); }
       });
     }
   ]);
@@ -1483,48 +1731,53 @@ function osh3(ctx) {
       ctx.say("Pechga xavf signali o'rnatamiz. Qachon chalinishini formula bilan yozing.");
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 150, max: 210, tick: 5, h: 100, y: 62, center: { v: 180 }, rays: { lo: 170, hi: 190 }, gap: 34 });
+      F.upd(Object.assign({}, SIG, { hide: ["a", "s", "d", "eq"] }));
       tiles(box, {
         q: "Signal sharti (qizil nurlar):",
         tpl: ["|", "<i>t</i>", M, 0, "|", 1, 2], tiles: ["170", "180", "10", "≤", ">", "<"], ans: ["180", ">", "10"],
         h1: () => { nl.draw({ arrows: [{ from: 180, to: 190, lab: "10", color: C.blue }, { from: 180, to: 170, lab: "10", color: C.blue }] }); return "Nurlardagi nuqtalar 180 dan uzoqmi, yaqinmi? Masofa 10 dan katta yoki kichik?"; },
         h2: `180 dan 10 dan uzoq: <span class="fx">|t ${M} 180| > 10</span>.`,
         ok: `To'g'ri: <span class="fx">|t ${M} 180| > 10</span>.`,
-        onOk: () => goOn(box, next)
+        onOk: () => { F.open(); goOn(box, next); }
       });
     },
     (box, next) => {
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 150, max: 210, tick: 5, h: 100, y: 62, center: { v: 180 }, gap: 34 });
+      F.upd(Object.assign({}, SIG, { hide: ["eq"] }));
       askNums(box, {
         q: `<span class="fx">|t ${M} 180| > 10</span> ni modulsiz yozing:`,
         tpl: `<span class="tk"><i>t</i> <</span>{0}<span class="nlab">&nbsp;yoki&nbsp;</span><span class="tk"><i>t</i> ></span>{1}`, ans: [170, 190],
         h1: () => { nl.draw({ arrows: [{ from: 180, to: 190, lab: "10", color: C.blue }, { from: 180, to: 170, lab: "10", color: C.blue }] }); return "180 dan chapga va o'ngga 10 qadam — chegaralar shu yerda."; },
         h2: "180 − 10 = 170 va 180 + 10 = 190: t < 170 yoki t > 190.",
         ok: `To'g'ri: <span class="fx">t < 170</span> yoki <span class="fx">t > 190</span>.`,
-        onOk: () => { nl.draw({ rays: { lo: 170, hi: 190 } }); goOn(box, next); }
+        onOk: () => { nl.draw({ rays: { lo: 170, hi: 190 } }); F.open(); goOn(box, next); }
       });
     },
     (box, next) => {
       ctx.say("Non uchun boshqa pech: 220 °C, 15 darajagacha farq mumkin.");
       const nb = h(`<div class="nlbox"></div>`); box.append(nb);
       const nl = NL(nb, { min: 190, max: 250, tick: 5, h: 100, y: 62, center: { v: 220 }, gap: 34 });
+      F.upd(Object.assign({}, SIG, { a: 220, d: 15, lv: "non pechi harorati", hide: ["eq"] }));
       askNums(box, {
         q: `Signal: <span class="fx">|t ${M} 220| > 15</span>. Qachon chalinadi?`,
         tpl: `<span class="tk"><i>t</i> <</span>{0}<span class="nlab">&nbsp;yoki&nbsp;</span><span class="tk"><i>t</i> ></span>{1}`, ans: [205, 235],
         h1: () => { nl.draw({ arrows: [{ from: 220, to: 235, lab: "15", color: C.blue }, { from: 220, to: 205, lab: "15", color: C.blue }] }); return "220 dan ikki tomonga 15 qadam."; },
         h2: "220 − 15 = 205 va 220 + 15 = 235.",
         ok: `To'g'ri: <span class="fx">t < 205</span> yoki <span class="fx">t > 235</span>.`,
-        onOk: () => { nl.draw({ rays: { lo: 205, hi: 235 } }); goOn(box, next); }
+        onOk: () => { nl.draw({ rays: { lo: 205, hi: 235 } }); F.open(); goOn(box, next); }
       });
     },
     (box, next) => {
+      F.upd(SIG);
       judge(box, {
         q: `Pirog pechi: signal <span class="fx">|t ${M} 180| > 10</span> bo'lsa chalinadi.`,
         yes: "Chalinadi", no: "Chalinmaydi",
         items: [190, 163, 186].map(v => {
           const d = Math.abs(v - 180), g = d > 10;
-          return { html: `${v} °C`, good: g, why: `|${v} ${M} 180| = ${d} ${g ? "> 10 — signal chalinadi" : "≤ 10 — signal yo'q"}${d === 10 ? " (chegarada)" : ""}.`, bad: `Hali emas. |${v} ${M} 180| = ?` };
+          return { x: v, html: `${v} °C`, good: g, why: `|${v} ${M} 180| = ${d} ${g ? "> 10 — signal chalinadi" : "≤ 10 — signal yo'q"}${d === 10 ? " (chegarada)" : ""}.`, bad: `Hali emas. |${v} ${M} 180| = ?` };
         }),
+        onPick: it => F.now(it.x, true),
         onDone: next
       });
     }
@@ -1610,13 +1863,14 @@ function gameTask(box, o) {
     min: o.min, max: o.max, target: o.target || null,
     rule: x => dist(x, st.a) <= st.d + 1e-9,
     zones: () => [[st.a - st.d, st.a + st.d]],
-    onBall: (x, ok) => { const d = dist(x, st.a); $(".gstat", wrap).innerHTML = `x = ${fmt(x)}: |${fmt(x)} ${M} ${fmt(st.a)}| = ${fmt(d)} ${ok ? "≤" : ">"} ${fmt(st.d)} → <b class="${ok ? "cg" : "cr"}">${ok ? "Ushladi!" : "O'tib ketdi"}</b> &nbsp;·&nbsp; ushladi: ${game.caught}, o'tib ketdi: ${game.missed}`; }
+    onBall: (x, ok) => { F.now(x, true); const d = dist(x, st.a); $(".gstat", wrap).innerHTML = `x = ${fmt(x)}: |${fmt(x)} ${M} ${fmt(st.a)}| = ${fmt(d)} ${ok ? "≤" : ">"} ${fmt(st.d)} → <b class="${ok ? "cg" : "cr"}">${ok ? "Ushladi!" : "O'tib ketdi"}</b> &nbsp;·&nbsp; ushladi: ${game.caught}, o'tib ketdi: ${game.missed}`; }
   });
   const ins = { a: $('[data-k="a"] input', wrap), d: $('[data-k="d"] input', wrap) };
   const lim = { a: [o.min, o.max], d: [0, (o.max - o.min) / 2] }, step = { a: 1, d: 0.5 };
   function upd(fire) {
     ins.a.value = fmt(st.a); ins.d.value = fmt(st.d);
     $(".zone", wrap).innerHTML = `Savat: <b>${fmt(st.a - st.d)}</b> dan <b>${fmt(st.a + st.d)}</b> gacha ushlaydi`;
+    F.upd({ a: st.a, d: st.d });
     game.draw();
     if (fire && o.onCh) o.onCh(st);
   }
@@ -1637,9 +1891,9 @@ function aimTask(box, o) {
   const G = gameTask(box, Object.assign({}, o, { onCh: st => { if (!done && o.goal(st)) win(); else if (!done) fbSet(fbEl, "", ""); } }));
   const row = h(`<div class="row"><button class="btn">Tekshirish</button></div>`);
   box.append(row); box.append(fbEl);
-  const L = ladder(fbEl, o);
-  function win() { done = true; $("button", row).disabled = true; fbSet(fbEl, "ok", o.ok); if (o.onOk) o.onOk(G); }
-  $("button", row).onclick = () => { if (done) return; if (o.goal(G.st)) win(); else L(); };
+  const t = o.target, H = helper(row, fbEl, o, p => { G.set((t[0] + t[1]) / 2, (t[1] - t[0]) / 2); win(p); });
+  function win(pre) { done = true; H.end(); $("button", row).disabled = true; fbSet(fbEl, "ok", (pre || "") + o.ok); if (o.onOk) o.onOk(G); }
+  $("button", row).onclick = () => { if (done) return; if (o.goal(G.st)) win(); else H.wrong(); };
   return G;
 }
 function das1(ctx) {
@@ -1665,17 +1919,33 @@ function das2(ctx) {
           else if (phase === 2 && !same(st.d, d0)) { phase = 3; askD(); }
         } });
       box.append(qa);
+      /* yordam: qaysi tugmani bosishni aytadi, keyin o'zi bosib ko'rsatadi */
+      const hr = h(`<div class="row"><button class="btn help">Yordam</button></div>`), hb = $("button", hr), hfb = h(`<div class="fb"></div>`);
+      box.insertBefore(hr, qa); box.insertBefore(hfb, qa);
+      let hn = 0;
+      hb.onclick = () => {
+        if (phase !== 0 && phase !== 2) return;
+        hb.classList.remove("pulse");
+        const k = phase === 0 ? "a" : "d";
+        if (hn === 0) { hn = 1; hb.textContent = "Ko'rsatib ber"; fbSet(hfb, "hint", `Kod qatorida <b>${k}</b> yonidagi «+» tugmasini bir necha marta bosing va savatga qarang.`); return; }
+        hn = 0; hb.textContent = "Yordam"; fbSet(hfb, "", "");
+        const plus = $(`[data-k="${k}"] [data-v="+"]`, box);
+        [0, 1, 2, 3].forEach(j => later(() => plus.click(), j * 350));
+      };
+      later(() => { if (phase === 0) { hb.textContent = "Yordam kerakmi?"; hb.classList.add("pulse"); } }, 35000);
       function askA() {
+        hr.hidden = true;
         choice(qa, { q: "a o'zgarganda savat nima bo'ldi?", opts: ["Kengaydi yoki torroq bo'ldi", "Joyidan surildi, kengligi o'zgarmadi", "Hech narsa o'zgarmadi"], ans: 1,
           h1: "Savatning chetlariga qarang: ikkalasi ham bir tomonga siljidimi?", h2: "a — savatning o'rtasi. a o'zgarsa, savat butunligicha suriladi.",
           ok: "To'g'ri: a — savatning o'rtasi.",
-          onOk: () => { ctx.say("Endi d ni o'zgartirib ko'ring."); phase = 2; d0 = G.st.d; } });
+          onOk: () => { ctx.say("Endi d ni o'zgartirib ko'ring."); phase = 2; d0 = G.st.d; hr.hidden = false; } });
       }
       function askD() {
+        hr.hidden = true;
         choice(qa, { q: "d o'zgarganda-chi?", opts: ["Faqat o'ng cheti siljidi", "Joyidan surildi", "Ikki tomonga bir xil kengaydi yoki torroq bo'ldi"], ans: 2,
           h1: "Savatning o'rtasi joyida qoldimi? Chetlari qanday siljidi?", h2: "d — o'rtadan chetigacha. d oshsa, ikkala chet bir xil uzoqlashadi.",
           ok: "To'g'ri: d — o'rtadan chetigacha masofa.",
-          onOk: () => { qa.append(h(`<div class="rule">Savat <span class="fx">a ${M} d</span> dan <span class="fx">a + d</span> gacha ushlaydi. Kenglik — <span class="fx">2d</span>.</div>`)); goOn(qa, next); } });
+          onOk: () => { hr.remove(); hfb.remove(); qa.append(h(`<div class="rule">Savat <span class="fx">a ${M} d</span> dan <span class="fx">a + d</span> gacha ushlaydi. Kenglik — <span class="fx">2d</span>.</div>`)); goOn(qa, next); } });
       }
     },
     (box, next) => {
@@ -1707,10 +1977,14 @@ function das3(ctx) {
       const gw = h(`<div class="sbox"><div class="gm nlbox"></div><div class="code bug"><span class="kw">agar</span><span class="cf">|x| ${M} 50 ≤ 8</span><span class="kw">→</span><span class="str">«Ushladi!»</span></div><p class="gstat hint">To'plar tushyapti…</p></div>`);
       box.append(gw);
       let fixed = false;
+      F.upd({ raw: { f: `|<i class="cb">x</i>| ${M} 50 ≤ 8`, eq: `|<i class="cb">x</i>| ≤ 58, ya'ni ${M}58 ≤ <i class="cb">x</i> ≤ 58`, note: "Yordamchi yozgan qator. Maydonda 0 dan 58 gacha hamma son shu shartga mos." } });
       const rule0 = x => Math.abs(x) - 50 <= 8, rule1 = x => Math.abs(x - 50) <= 8;
       const game = Game($(".gm", gw), {
         min: 0, max: 100, target: [42, 58], rule: rule0, zones: () => fixed ? [[42, 58]] : [[0, 58]],
-        onBall: (x, ok) => { $(".gstat", gw).innerHTML = (fixed ? `|${fmt(x)} ${M} 50| = ${fmt(Math.abs(x - 50))}` : `|${fmt(x)}| ${M} 50 = ${fmt(Math.abs(x) - 50)}`) + ` ${ok ? "≤" : ">"} 8 → <b class="${ok ? "cg" : "cr"}">${ok ? "Ushladi!" : "O'tib ketdi"}</b>`; }
+        onBall: (x, ok) => {
+          if (fixed) F.now(x, true);
+          else F.say(`<small>x = ${fmt(x)}</small>|${fmt(x)}| ${M} 50 = ${fmt(Math.abs(x) - 50)} ${ok ? "≤" : ">"} 8<br><span class="fr ${ok ? "ok" : "bad"}">${ok ? "✓ ushladi" : "✗ o'tib ketdi"}</span>`);
+          $(".gstat", gw).innerHTML = (fixed ? `|${fmt(x)} ${M} 50| = ${fmt(Math.abs(x - 50))}` : `|${fmt(x)}| ${M} 50 = ${fmt(Math.abs(x) - 50)}`) + ` ${ok ? "≤" : ">"} 8 → <b class="${ok ? "cg" : "cr"}">${ok ? "Ushladi!" : "O'tib ketdi"}</b>`; }
       });
       choice(box, {
         q: "Savat 0 dan 58 gacha hamma to'pni ushlayapti. Qaysi qatorni yozish kerak edi?",
@@ -1720,6 +1994,7 @@ function das3(ctx) {
         ok: `Tuzatildi! <span class="fx">|x| ${M} 50 ≤ 8</span> bu <span class="fx">|x| ≤ 58</span> degani — 0 dan 58 gacha hamma son mos edi. To'g'risi: <span class="fx">|x ${M} 50| ≤ 8</span>.`,
         onOk: () => {
           fixed = true; game.cfg.rule = rule1; game.draw();
+          fpan("dasturchi", { a: 50, d: 8 });
           const cd = $(".code", gw); cd.classList.remove("bug"); cd.classList.add("fixed");
           $(".cf", cd).textContent = `|x ${M} 50| ≤ 8`;
           goOn(box, next);
