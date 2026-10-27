@@ -49,8 +49,10 @@ p{margin:0}
 .fb.bad{background:var(--redbg);color:#9B1C1C}
 .fb.hint{background:var(--amberbg);color:#7A4E07}
 .fb.info{background:var(--bluebg);color:#173F8F}
-.rule{border-left:5px solid var(--green);background:var(--greenbg);border-radius:10px;padding:10px 14px;font-weight:700;color:#0B4A35}
-.rule .fx{font-size:1.15em}
+.rule{border-left:5px solid var(--green);background:var(--greenbg);border-radius:10px;padding:10px 14px;font-weight:600;color:var(--ink);line-height:1.9}
+.rule .fx{font-size:1.1em;display:inline-block;background:#fff;border-radius:7px;padding:0 6px;line-height:1.5}
+.rule .lx{font-style:normal;font-weight:800}
+.lx-x{color:var(--blue)}.lx-a{color:var(--orange)}.lx-d{color:#0B6E4F}
 /* son o'qi */
 .nlbox{width:100%;min-width:0;user-select:none;-webkit-user-select:none}
 .nlbox svg{display:block;max-width:100%}
@@ -1650,8 +1652,8 @@ SCREENS.fin = () => {
   const el = h(`<section class="panel">
     <h2>Kasblar — bitta qoida: <span class="fx">|x ${M} a| ≤ d</span></h2>
     <div class="bands"></div>
-    <div class="rule">a — me'yor (o'rtasi), d — ruxsat etilgan farq.<br><span class="fx">|x ${M} a| ≤ d</span> ⇔ <span class="fx">a ${M} d ≤ x ≤ a + d</span> — bitta kesma.<br>
-      <span class="fx">|x ${M} a| > d</span> ⇔ <span class="fx">x < a ${M} d</span> yoki <span class="fx">x > a + d</span> — ikkita nur.</div>
+    <div class="rule">${lx("a")} — me'yor (o'rtasi), ${lx("d")} — ruxsat etilgan farq.<br>${rx(`|x ${M} a| ≤ d`)} ⇔ ${rx(`a ${M} d ≤ x ≤ a + d`)} — bitta kesma.<br>
+      ${rx(`|x ${M} a| > d`)} ⇔ ${rx(`x < a ${M} d`)} yoki ${rx("x > a + d")} — ikkita nur.</div>
     <h2>Yakuniy sinov</h2>
     <div class="ftest sbox"></div>
     <div class="fres"></div>
@@ -1694,6 +1696,9 @@ SCREENS.fin = () => {
 const LORDER = ["shifokor", "tikuvchi", "quruvchi", "oshpaz", "dasturchi"];
 const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const tx = t => `<span class="fx">${t}</span>`;
+/* qoida qutisi: harflar o'z rangida (x — ko'k, a — to'q sariq, d — yashil), so'zlar qora */
+const lx = t => t.replace(/\b([xad])\b/g, '<i class="lx lx-$1">$1</i>');
+const rx = t => tx(lx(t));
 const bOk = t => `<span class="fr ok">✓ ${t}</span>`, bNo = t => `<span class="fr bad">✗ ${t}</span>`;
 const STAR = (() => { let d = ""; for (let k = 0; k < 10; k++) { const r = k % 2 ? 4.4 : 10.5, t = -Math.PI / 2 + k * Math.PI / 5; d += (k ? "L" : "M") + (r * Math.cos(t)).toFixed(2) + " " + (r * Math.sin(t)).toFixed(2); } return d + "Z"; })();
 
@@ -1956,9 +1961,9 @@ SCREENS.lec = at => {
   const el = h(`<section class="panel">
     <div class="shead"><h2>Kasb egalari modulni qanday ishlatadi?</h2><span class="count" id="l-count"></span></div>
     <p class="hint">Har kasbda bitta misol qadamma-qadam ishlanadi. Keyin o'zingiz kasb egasining shogirdi bo'lib ishlaysiz.</p>
-    <div class="rule">${tx(`|x ${M} a|`)} — x bilan a orasidagi masofa.<br>
-      ${tx(`|x ${M} a| ≤ d`)} ⇔ ${tx(`a ${M} d ≤ x ≤ a + d`)} — x son a dan ko'pi bilan d ga farq qiladi.<br>
-      ${tx(`|x ${M} a| > d`)} ⇔ ${tx(`x < a ${M} d`)} yoki ${tx("x > a + d")} — farq d dan katta.</div>
+    <div class="rule">${rx(`|x ${M} a|`)} — ${lx("x")} bilan ${lx("a")} orasidagi masofa.<br>
+      ${rx(`|x ${M} a| ≤ d`)} ⇔ ${rx(`a ${M} d ≤ x ≤ a + d`)} — ${lx("x")} son ${lx("a")} dan ko'pi bilan ${lx("d")} ga farq qiladi.<br>
+      ${rx(`|x ${M} a| > d`)} ⇔ ${rx(`x < a ${M} d`)} yoki ${rx("x > a + d")} — farq ${lx("d")} dan katta.</div>
     <div class="ltabs" role="tablist">${LORDER.map((k, i) => `<button class="ltab" role="tab" data-i="${i}">${avatar(k, 34)}<span>${KASB[k].short || KASB[k].name}</span></button>`).join("")}</div>
     <div class="lsec sbox"></div>
     <div class="lgo"><span class="lgo-av">${ORDER.map(k => avatar(k, 40)).join("")}</span><div><b>Interaktiv dars</b><span>Shifokor, quruvchi va oshpazning shogirdi bo'lib, o'zingiz ishlaysiz.</span></div><button class="btn green" id="l-skip">Interaktiv dars →</button></div>
