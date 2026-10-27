@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 149;
+const LESSON_VER = 152;
 
 function sec(title) {
   return { title: title, text: null };
@@ -1524,7 +1524,7 @@ const SITE_DATA = {
             { id: "kvadrat-tenglama", title: "Kvadrat tenglamalar", lecture: { text: "Kvadrat tenglamalarni yechish formulalari.", embedUrl: null }, interactive: null, test: null },
             { id: "kvadratga-keltirish", title: "Kvadrat tenglamalarga keltiriladigan tenglamalar", lecture: { text: "Murakkabroq tenglamalarni kvadrat tenglamaga keltirish.", embedUrl: null }, interactive: null, test: null },
             { id: "tengsizliklar", title: "Tengsizliklar", lecture: { text: "Chiziqli va kvadrat tengsizliklarni yechish.", embedUrl: null }, interactive: null, test: null },
-            { id: "modul-tengsizliklar", title: "Sonning moduli. Modul qatnashgan tenglama va tengsizliklar", lecture: { text: null, embedUrl: "maruza/8-modul-tengsizliklar.html" }, interactive: "lessons/8-algebra-modul-kasblar.html", test: "test.html?sinf=8&fan=algebra&mavzu=modul-tengsizliklar", newSim: true, simPlan: "Tayyor («Modul kasblarda», 5 kasb × 3 bosqich: O'yna, Kashf qil, Qo'lla): shifokor — harorat 36,6 ± 0,5, modul = masofa; tikuvchi — oraliqdan |x − a| ≤ d ga (a — o'rtasi, d — yarmi); quruvchi — g'isht saralash lentasi, ≤ va < (bo'yalgan/bo'sh nuqta), ikki o'lcham; oshpaz — pech haroratini ushlash, |t − 180| > 10 — ikkita nur; dasturchi — to'p ushlash o'yini, a va d ni o'zgartirish, |x| ≤ d, xato kodni tuzatish; yakunda 5 ta kesma va 5 savollik sinov, «Modul ustasi» nishoni." }
+            { id: "modul-tengsizliklar", title: "Sonning moduli. Modul qatnashgan tenglama va tengsizliklar", lecture: { text: null, embedUrl: "maruza/8-modul-tengsizliklar.html" }, interactive: "lessons/8-algebra-modul-kasblar.html", test: "test.html?sinf=8&fan=algebra&mavzu=modul-tengsizliklar", newSim: true, simPlan: "Tayyor («Modul kasblarda»): avval tushuntirish — 5 kasbda qadamma-qadam ishlangan misol (harakatlanuvchi son o'qi, termometr, g'isht, pech, savat); keyin amaliyot — 3 kasb × 3 bosqich (shifokor, quruvchi, oshpaz). Tushuntirishdagi kasblar: shifokor — harorat 36,6 ± 0,5, modul = masofa; tikuvchi — oraliqdan |x − a| ≤ d ga (a — o'rtasi, d — yarmi); quruvchi — g'isht saralash lentasi, ≤ va < (bo'yalgan/bo'sh nuqta), ikki o'lcham; oshpaz — pech haroratini ushlash, |t − 180| > 10 — ikkita nur; dasturchi — to'p ushlash o'yini, a va d ni o'zgartirish, |x| ≤ d, xato kodni tuzatish; yakunda 5 ta kesma va 5 savollik sinov, «Modul ustasi» nishoni." }
           ]
         },
         {
