@@ -97,11 +97,16 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 **Kitob bilan solishtirildi:** π ta'rifi, C = πd, C = 2πr, π ≈ 3,14 yoki 22/7 (D1 137, aynan) ✅; o'lchash usuli (dumalatish/ip) — Usul ✅; kalkulyator π ✅; g'ildirak necha marta aylandi (M1 176) ✅. Diametrni aylana uzunligidan topish kitobda yo'q — kiritilmadi.
 **Tekshiruv:** tenglik.py 52/0, kitobdan.py 0, testlar.js 0; Jumavoy + Ibrohim ustoz — daftar qolipidagi 3 masala, 8 ta ma'ruzani takrorlagan test savoli almashtirildi.
 
-#### ☐ 16. Yarim va chorak doira perimetri — D1 140–144; M1 177–182
+#### ✅ 16. Yarim va chorak doira perimetri — D1 140–144; M1 177–182
+2026-10-26. Ma'ruza (5 qism, yangi chizma `data-yoy`) va 20+20 test, PDF.
 
-#### ☐ 17. Doiraning yuzi — D1 145–149; M1 183–184
+#### ✅ 17. Doiraning yuzi — D1 145–149; M1 183–184
+2026-10-27. Ma'ruza (5 qism, yangi chizma `data-doirayuz`: doira bo'laklari → qator → to'g'ri to'rtburchakka yaqin shakl, katakli doira, halqa) va 20+20 test (8 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** kataklar bilan taxminiy hisob ✅; kvadratlar bilan solishtirish (2r² < S < 4r²) ✅; bo'laklardan to'g'ri to'rtburchak va S = πr² ✅; javob π orqali, 22/7, 3,14 bilan ✅; diametr berilgan ✅; halqa yuzi ✅; yuzdan/o'ndan birgacha yaxlitlash ✅. Kitob sonlari ishlatilmadi. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 6 ta qiyin test savoli ma'ruza mashqiga o'xshagani uchun vaziyati almashtirildi.
 
-#### ☐ 18. Yarim va chorak doira yuzi — D1 150–152; M1 185–186
+#### ✅ 18. Yarim va chorak doira yuzi — D1 150–152; M1 185–186
+2026-10-27. Ma'ruza (5 qism, `data-yoy` chizmalari — 20 ta) va 20+20 test (8 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** yarim doira yuzi (diametrdan radius) ✅; chorak doira yuzi ✅; to'rt chorak — doira ✅; bo'laklarni qo'shish (yarim + chorak) ✅; bo'yalgan soha — ayirish ✅; kesib olib yopishtirish (in-yan) ✅; kalkulyator π va yaxlitlash ✅; daftar topshiriqlari ✅. Kitobda qoida gapi yo'q — ramkalar «Usul · …». Kitob sonlari ishlatilmadi. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 8 ta test savoli ma'ruza mashqiga o'xshagani uchun vaziyati almashtirildi.
 
 #### ☐ 19. Murakkab shakllarning yuzi va perimetri — D1 153–162; M1 187–198
 

@@ -134,6 +134,19 @@
        "ichki": [[x1, y1, x2, y2, yozuv, rol, (-1)]] — shakl ichidagi punktir chiziq (perimetrga kirmaydi); "nuqta": {"O": [x, y, (dx, dy)]} — nuqta va nomi;
        "olchov": [[x1, y1, x2, y2, yozuv, sx, sy]] — o'lcham chizig'i (sx, sy ga surilgan); "ramka": [[x1, y1, x2, y2]] — punktir to'g'ri to'rtburchak;
        "toliq": [[cx, cy, r]] — punktir to'liq aylana; "olcham": 1 birlik (px, odatda 14). Koordinatalar birlikda, y tepaga.
+       Murakkab shakllar (6-sinf 19-mavzu): "yollar": [yol2, yol3, ...] — yana yopiq chegaralar (yol kabi); hammasi birga bo'yaladi, ichkaridagi
+       chegara teshik bo'ladi (masalan kvadratdan doira o'yilgan, halqa, yo'lka); yoy 0 dan 360 gacha — to'liq aylana;
+       "chiziq": [["y", ...], ["k", ...]] — bo'yalmagan qismlarning ingichka kulrang chiziqlari (perimetrga kirmaydi, yozuvsiz; o'lchamlar — "olchov").
+   data-doirayuz='{"tur":"bolak","n":16,"r":"r"}' — doiraning yuzi (6-sinf 17-mavzu): "tur":
+       "bolak" — doira n ta teng bo'lakka kesilgan (yuqori yarmi sariq, pastki yarmi ko'k; aylana yarmlari to'q sariq / ko'k), "r" — radius yozuvi,
+           "ajrat":1 — bo'laklar biroz ajratilgan, "izoh":["tepa yozuv","past yozuv"];
+       "qator" — o'sha bo'laklar qatorga terilgan (uchlari navbat bilan pastga / tepaga), "n", tepada o'lcham "ust" (odatda «aylana uzunligining yarmi»,
+           "" — yo'q), "past" — pastki o'lcham, chap bo'lak yon tomoni — qizil radius ("r");
+       "tort" — juda ko'p bo'lak: deyarli to'g'ri to'rtburchak, "ust" (eni, odatda «πr»), "yon" (bo'yi, odatda «r»), "ichida" — o'rtadagi yozuv;
+       "katak" — katakli qog'ozda doira, "r": radius (katak), yuqori o'ng choragi bo'yalgan ("chorak":0 — bo'yalmaydi), "son":1 — to'liq kataklar ko'k,
+           yarmidan ko'pi bo'yalganlari sariq; "yozuv" — radius yozuvi, "birlik" — burchakdagi katak o'lchami (odatda «1 cm»);
+       "halqa" — tashqi doiradan ichki doira olib tashlangan: "k":[tashqi, ichki] (radiuslar nisbati), "chiz":[[yozuv, burchak, "r"|"d", 1 (tashqi)|0 (ichki)]],
+           "markaz":"O", "en":[yozuv, burchak] — halqa eni (to'q sariq kesma, yozuvi tashqarida); "olcham" — radius (px, odatda 80; katakda — katak o'lchami 28).
    data-ulush="2/3:4" — kasrni natural songa bo'lish doirada: b ta qalin bo'lak, a tasi n kishiga rangli bo'linadi; punktir — b·n mayda bo'lak.
    data-sigim="2:3/4" yoki "3/4:1/8" — bo'luvchi bo'linuvchida necha marta bor (tasma): har butun — alohida tasma, umumiy maxrajgacha
        mayda kataklar (asl bo'laklar chegarasi qalin); bo'linuvchi qismi bo'luvchi kattaligidagi guruhlarga bo'yaladi (1, 2, 3 ...),
@@ -908,20 +921,28 @@
       return '<text x="' + f(tx) + '" y="' + f(ty) + '" text-anchor="' + anc + '" font-size="16" font-weight="800" fill="' + c + '" stroke="#fff" stroke-width="4" paint-order="stroke">' + t + "</text>";
     };
     /* bo'laklar: ["y", cx, cy, r, a0, a1, yozuv, (-1)] — yoy (a0 dan a1 gacha, gradus); ["k", x1, y1, x2, y2, yozuv, rol, (-1)] — kesma */
-    const bol = (g.yol || []).map(function (p) {
+    const bolak = function (p) {
       if (p[0] === "y") {
         const n = Math.max(2, Math.ceil(Math.abs(p[5] - p[4]) / 5)), pts = [];
         for (let i = 0; i <= n; i++) { const a = rad(p[4] + (p[5] - p[4]) * i / n); pts.push(S(p[1] + p[3] * Math.cos(a), p[2] + p[3] * Math.sin(a))); }
-        return { y: true, p: p, pts: pts, a: pts[0], b: pts[n] };
+        return { y: true, p: p, pts: pts, a: pts[0], b: pts[n], m: pts[Math.round(n / 2)] };
       }
       const a = S(p[1], p[2]), b = S(p[3], p[4]);
       return { y: false, p: p, pts: [a, b], a: a, b: b };
-    });
+    };
+    /* "yollar": qo'shimcha yopiq chegaralar — hammasi birga bo'yaladi (evenodd: ichkaridagi chegara — teshik) */
+    const guruh = [g.yol || []].concat(g.yollar || []).filter(function (l) { return l.length; }).map(function (l) { return l.map(bolak); });
+    const bol = [].concat.apply([], guruh);
+    /* "chiziq": bo'yalgan sohaga kirmaydigan ingichka kulrang chiziqlar (yoy yoki kesma) */
+    const chz = (g.chiziq || []).map(bolak);
+    chz.forEach(function (b) { b.pts.forEach(function (q) { nuq(q[0], q[1]); }); });
     let cx = 0, cy = 0, n = 0;
     bol.forEach(function (b) { b.pts.forEach(function (q) { cx += q[0]; cy += q[1]; n++; nuq(q[0], q[1]); }); });
     if (n) { cx /= n; cy /= n; }
     const yoyD = function (b) {
       const R = b.p[3] * U, katta = Math.abs(b.p[5] - b.p[4]) > 180 ? 1 : 0, sw = b.p[5] > b.p[4] ? 0 : 1;
+      /* to'liq aylana (360°) — ikki yarim yoy bilan */
+      if (Math.abs(b.p[5] - b.p[4]) >= 359.9) return " A" + f(R) + " " + f(R) + " 0 0 " + sw + " " + f(b.m[0]) + " " + f(b.m[1]) + " A" + f(R) + " " + f(R) + " 0 0 " + sw + " " + f(b.b[0]) + " " + f(b.b[1]);
       return " A" + f(R) + " " + f(R) + " 0 " + katta + " " + sw + " " + f(b.b[0]) + " " + f(b.b[1]);
     };
     let fon = "", h = "", ust = "";
@@ -939,9 +960,15 @@
     /* bo'yalgan shakl */
     if (bol.length) {
       let d = "";
-      bol.forEach(function (b, i) { d += (i ? " L" : "M") + f(b.a[0]) + " " + f(b.a[1]) + (b.y ? yoyD(b) : " L" + f(b.b[0]) + " " + f(b.b[1])); });
-      fon += '<path d="' + d + ' Z" fill="' + KOK + '" fill-opacity=".14" stroke="none"/>';
+      guruh.forEach(function (gr) {
+        gr.forEach(function (b, i) { d += (i ? " L" : "M") + f(b.a[0]) + " " + f(b.a[1]) + (b.y ? yoyD(b) : " L" + f(b.b[0]) + " " + f(b.b[1])); });
+        d += " Z ";
+      });
+      fon += '<path d="' + d + '" fill="' + KOK + '" fill-opacity=".14" fill-rule="evenodd" stroke="none"/>';
     }
+    chz.forEach(function (b) {
+      fon += '<path d="M' + f(b.a[0]) + " " + f(b.a[1]) + (b.y ? yoyD(b) : " L" + f(b.b[0]) + " " + f(b.b[1])) + '" fill="none" stroke="' + KUL + '" stroke-width="1.8" stroke-linecap="round"/>';
+    });
     /* shakl ichidagi chiziqlar (perimetrga kirmaydi): [x1, y1, x2, y2, yozuv, rol, (-1)] */
     (g.ichki || []).forEach(function (k) {
       const a = S(k[0], k[1]), b = S(k[2], k[3]), c = k[5] ? rangi(k[5]) : KUL;
@@ -1002,6 +1029,141 @@
     const pad = 8, x0 = Math.min.apply(null, xs) - pad, y0 = Math.min.apply(null, ys) - pad, W = Math.max.apply(null, xs) + pad - x0, H = Math.max.apply(null, ys) + pad - y0;
     el.classList.add("chz");
     el.innerHTML = '<svg viewBox="' + f(x0) + " " + f(y0) + " " + f(W) + " " + f(H) + '" width="' + Math.round(W) + '" role="img" aria-label="Yoy va kesmalardan tuzilgan shakl">' + fon + h + ust + "</svg>";
+  }
+
+  // ---------- doiraning yuzi: bo'laklarga kesish, qatorga terish, to'g'ri to'rtburchak, katakli chamalash, halqa ----------
+  function chizDoirayuz(el) {
+    const g = JSON.parse(el.dataset.doirayuz || "{}");
+    const tur = g.tur || "bolak", f = function (v) { return v.toFixed(1); };
+    const KOK = "#1f5fd6", SARIQ = "#c2410c", QIZIL = "#d6454f", QORA = "#1f2433", KUL = "#7a8194";
+    const UST = ["#fcd9a0", "#f8c27a"], PAST = ["#c4dafa", "#9fc2f2"];
+    const xs = [], ys = [], nuq = function (x, y) { xs.push(x); ys.push(y); };
+    const yoz = function (x, y, t, c, anc, fs) {
+      const k = fs || 16, w = String(t).length * k * 0.56;
+      nuq(anc === "end" ? x - w : anc === "start" ? x : x - w / 2, y - k + 1); nuq(anc === "end" ? x : anc === "start" ? x + w : x + w / 2, y + 4);
+      return '<text x="' + f(x) + '" y="' + f(y) + '" text-anchor="' + (anc || "middle") + '" font-size="' + k + '" font-weight="800" fill="' + c + '" stroke="#fff" stroke-width="4" paint-order="stroke">' + t + "</text>";
+    };
+    const olchov = function (x1, y1, x2, y2, c) {
+      const L = Math.hypot(x2 - x1, y2 - y1) || 1, px = -(y2 - y1) / L * 6, py = (x2 - x1) / L * 6;
+      nuq(x1, y1); nuq(x2, y2);
+      return '<line x1="' + f(x1) + '" y1="' + f(y1) + '" x2="' + f(x2) + '" y2="' + f(y2) + '" stroke="' + c + '" stroke-width="1.8"/>' +
+        '<line x1="' + f(x1 - px) + '" y1="' + f(y1 - py) + '" x2="' + f(x1 + px) + '" y2="' + f(y1 + py) + '" stroke="' + c + '" stroke-width="1.8"/>' +
+        '<line x1="' + f(x2 - px) + '" y1="' + f(y2 - py) + '" x2="' + f(x2 + px) + '" y2="' + f(y2 + py) + '" stroke="' + c + '" stroke-width="1.8"/>';
+    };
+    let h = "", ust = "";
+    if (tur === "bolak") {
+      /* doira n ta teng bo'lakka kesilgan: yuqori yarmi sariq, pastki yarmi ko'k; aylananing yarmi — to'q sariq, ikkinchi yarmi — ko'k */
+      const n = Math.max(4, Number(g.n || 16)), R = Number(g.olcham || 80), dt = 2 * Math.PI / n, ajr = g.ajrat ? 5 : 0;
+      for (let k = 0; k < n; k++) {
+        const a0 = k * dt, a1 = (k + 1) * dt, am = (a0 + a1) / 2, yuq = k < n / 2;
+        const ox = Math.cos(am) * ajr, oy = -Math.sin(am) * ajr;
+        const p0 = [ox + Math.cos(a0) * R, oy - Math.sin(a0) * R], p1 = [ox + Math.cos(a1) * R, oy - Math.sin(a1) * R];
+        h += '<path d="M' + f(ox) + " " + f(oy) + " L" + f(p0[0]) + " " + f(p0[1]) + " A" + R + " " + R + " 0 0 0 " + f(p1[0]) + " " + f(p1[1]) + ' Z" fill="' + (yuq ? UST : PAST)[k % 2] + '" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/>';
+        h += '<path d="M' + f(p0[0]) + " " + f(p0[1]) + " A" + R + " " + R + " 0 0 0 " + f(p1[0]) + " " + f(p1[1]) + '" fill="none" stroke="' + (yuq ? SARIQ : KOK) + '" stroke-width="3.2"/>';
+      }
+      nuq(-R - ajr, -R - ajr); nuq(R + ajr, R + ajr);
+      if (g.r) {
+        const a = -dt / 2 * 0;
+        h += '<line x1="0" y1="0" x2="' + f(R + ajr) + '" y2="0" stroke="' + QIZIL + '" stroke-width="3" stroke-linecap="round"/>';
+        ust += yoz((R + ajr) / 2 + 4, -7 + a, g.r, QIZIL);
+        h += '<circle cx="0" cy="0" r="3.4" fill="' + QORA + '"/>';
+      }
+      if (g.izoh) { ust += yoz(0, -R - ajr - 10, g.izoh[0] || "", SARIQ, "middle", 14); if (g.izoh[1]) ust += yoz(0, R + ajr + 22, g.izoh[1], KOK, "middle", 14); }
+    } else if (tur === "qator") {
+      /* bo'laklar qatorga terilgan: yuqori yarmidagilar uchi pastga, pastki yarmidagilar uchi tepaga — navbat bilan */
+      const n = Math.max(4, Number(g.n || 16)), R = Number(g.olcham || 80), dt = 2 * Math.PI / n;
+      const w = 2 * R * Math.sin(dt / 2), hh = R * Math.cos(dt / 2), m = n / 2;
+      for (let k = 0; k < m; k++) {
+        const xa = k * w + w / 2, xb = (k + 1) * w;
+        h += '<path d="M' + f(xa) + " " + f(hh) + " L" + f(xa - w / 2) + " 0 A" + R + " " + R + " 0 0 1 " + f(xa + w / 2) + ' 0 Z" fill="' + UST[k % 2] + '" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/>';
+        h += '<path d="M' + f(xb) + " 0 L" + f(xb + w / 2) + " " + f(hh) + " A" + R + " " + R + " 0 0 1 " + f(xb - w / 2) + " " + f(hh) + ' Z" fill="' + PAST[k % 2] + '" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/>';
+        ust += '<path d="M' + f(xa - w / 2) + " 0 A" + R + " " + R + " 0 0 1 " + f(xa + w / 2) + ' 0" fill="none" stroke="' + SARIQ + '" stroke-width="3"/>';
+        ust += '<path d="M' + f(xb + w / 2) + " " + f(hh) + " A" + R + " " + R + " 0 0 1 " + f(xb - w / 2) + " " + f(hh) + '" fill="none" stroke="' + KOK + '" stroke-width="3"/>';
+      }
+      const W = m * w, bo = R - hh;
+      nuq(0, -bo); nuq(W + w / 2, hh + bo);
+      /* radius — chapdagi bo'lakning yon tomoni */
+      ust += '<line x1="' + f(w / 2) + '" y1="' + f(hh) + '" x2="0" y2="0" stroke="' + QIZIL + '" stroke-width="3.2" stroke-linecap="round"/>';
+      ust += yoz(w / 4 - 8, hh / 2 + 6, g.r || "r", QIZIL, "end");
+      if (g.ust !== "") {
+        const yy = -bo - 12;
+        ust += olchov(0, yy, W, yy, SARIQ) + yoz(W / 2, yy - 8, g.ust || "aylana uzunligining yarmi", SARIQ, "middle", 15);
+      }
+      if (g.past) {
+        const yy = hh + bo + 12;
+        ust += olchov(w / 2, yy, W + w / 2, yy, KOK) + yoz(W / 2 + w / 2, yy + 20, g.past, KOK, "middle", 15);
+      }
+    } else if (tur === "tort") {
+      /* juda ko'p bo'lak — deyarli to'g'ri to'rtburchak: eni πr, bo'yi r */
+      const R = Number(g.olcham || 80), W = Math.PI * R, m = Number(g.n || 32) / 2, b = W / m;
+      let ich = "";
+      for (let k = 0; k < m; k++) ich += '<path d="M' + f(k * b) + " 0 L" + f((k + 1) * b) + " 0 L" + f((k + 0.5) * b) + " " + f(R) + ' Z" fill="' + UST[k % 2] + '"/>';
+      for (let k = 0; k <= m; k++) ich += '<path d="M' + f(k * b) + " 0 L" + f((k + 0.5) * b) + " " + f(R) + " L" + f((k - 0.5) * b) + " " + f(R) + ' Z" fill="' + PAST[k % 2] + '"/>';
+      const id = "dy" + (chizDoirayuz.n = (chizDoirayuz.n || 0) + 1);
+      h += '<defs><clipPath id="' + id + '"><rect x="0" y="0" width="' + f(W) + '" height="' + f(R) + '"/></clipPath></defs><g clip-path="url(#' + id + ')">' + ich + "</g>";
+      h += '<line x1="0" y1="0" x2="' + f(W) + '" y2="0" stroke="' + SARIQ + '" stroke-width="3.2"/><line x1="0" y1="' + f(R) + '" x2="' + f(W) + '" y2="' + f(R) + '" stroke="' + KOK + '" stroke-width="3.2"/>';
+      h += '<line x1="0" y1="0" x2="0" y2="' + f(R) + '" stroke="' + QORA + '" stroke-width="2"/><line x1="' + f(W) + '" y1="0" x2="' + f(W) + '" y2="' + f(R) + '" stroke="' + QIZIL + '" stroke-width="3.2"/>';
+      nuq(0, 0); nuq(W, R);
+      ust += olchov(0, -12, W, -12, SARIQ) + yoz(W / 2, -20, g.ust || "πr", SARIQ, "middle", 16);
+      ust += yoz(W + 10, R / 2 + 6, g.yon || "r", QIZIL, "start");
+      if (g.ichida) ust += yoz(W / 2, R / 2 + 6, g.ichida, QORA, "middle", 16);
+    } else if (tur === "katak") {
+      /* katakli qog'ozda doira (radiusi r katak), yuqori o'ng choragi bo'yalgan; son: 1 — to'liq kataklar ko'k, yarmidan ko'pi bo'yalganlari sariq */
+      const r = Number(g.r || 4), c = Number(g.olcham || 28), N = r + 1, chorak = g.chorak !== 0;
+      for (let i = -N; i <= N; i++) {
+        h += '<line x1="' + f(i * c) + '" y1="' + f(-N * c) + '" x2="' + f(i * c) + '" y2="' + f(N * c) + '" stroke="#c9cfdb" stroke-width="1"/>';
+        h += '<line x1="' + f(-N * c) + '" y1="' + f(i * c) + '" x2="' + f(N * c) + '" y2="' + f(i * c) + '" stroke="#c9cfdb" stroke-width="1"/>';
+      }
+      nuq(-N * c, -N * c); nuq(N * c, N * c);
+      const R = r * c;
+      if (chorak) h += '<path d="M0 0 L' + f(R) + ' 0 A' + f(R) + " " + f(R) + " 0 0 0 0 " + f(-R) + ' Z" fill="' + KOK + '" fill-opacity=".16"/>';
+      if (g.son) {
+        let butun = 0, kop = 0;
+        for (let i = 0; i < r; i++) for (let j = 0; j < r; j++) {
+          let s = 0; const M = 24;
+          for (let a = 0; a < M; a++) for (let b2 = 0; b2 < M; b2++) { const x = i + (a + 0.5) / M, y = j + (b2 + 0.5) / M; if (x * x + y * y <= r * r) s++; }
+          const q = s / M / M;
+          if (q < 0.5) continue;
+          const toliq = q > 0.999; toliq ? butun++ : kop++;
+          h += '<rect x="' + f(i * c + 2) + '" y="' + f(-(j + 1) * c + 2) + '" width="' + f(c - 4) + '" height="' + f(c - 4) + '" rx="3" fill="' + (toliq ? "#7fb0f0" : "#fbd38d") + '" fill-opacity=".85"/>';
+        }
+      }
+      h += '<circle cx="0" cy="0" r="' + f(R) + '" fill="none" stroke="' + QORA + '" stroke-width="2"/>';
+      if (chorak) h += '<line x1="0" y1="0" x2="' + f(R) + '" y2="0" stroke="' + QIZIL + '" stroke-width="2.6"/><line x1="0" y1="0" x2="0" y2="' + f(-R) + '" stroke="' + QIZIL + '" stroke-width="2.6"/>';
+      h += '<circle cx="0" cy="0" r="3.2" fill="' + QORA + '"/>';
+      if (g.yozuv) ust += yoz(R / 2, 18, g.yozuv, QIZIL, "middle", 15);
+      const bx = -N * c, by = -N * c;
+      ust += olchov(bx, by - 10, bx + c, by - 10, KUL) + yoz(bx + c / 2, by - 16, g.birlik || "1 cm", KUL, "middle", 12);
+    } else if (tur === "halqa") {
+      /* halqa: tashqi doiradan ichki doira olib tashlangan; "k": [tashqi, ichki] (nisbat), "chiz": [[yozuv, burchak, "r"|"d", 1 (tashqi)|0 (ichki)]] */
+      const R = Number(g.olcham || 80), k = g.k || [5, 3], r2 = R * k[1] / k[0], rang = g.rang || [KOK, "#fff"];
+      h += '<circle cx="0" cy="0" r="' + f(R) + '" fill="' + rang[0] + '" fill-opacity="' + (rang[0] === KOK ? ".18" : "1") + '" stroke="' + QORA + '" stroke-width="2.4"/>';
+      h += '<circle cx="0" cy="0" r="' + f(r2) + '" fill="' + rang[1] + '" stroke="' + QORA + '" stroke-width="2.2"/>';
+      nuq(-R, -R); nuq(R, R);
+      (g.chiz || []).forEach(function (z, i) {
+        const tash = z[3] !== 0, rr = tash ? R : r2, a = z[1] * Math.PI / 180, ux = Math.cos(a), uy = -Math.sin(a), c = i % 2 ? KOK : QIZIL;
+        const x1 = z[2] === "d" ? -ux * rr : 0, y1 = z[2] === "d" ? -uy * rr : 0;
+        ust += '<line x1="' + f(x1) + '" y1="' + f(y1) + '" x2="' + f(ux * rr) + '" y2="' + f(uy * rr) + '" stroke="' + c + '" stroke-width="2.8" stroke-linecap="round"/>';
+        if (tash) {
+          /* tashqi radius/diametr yozuvi — doiradan tashqarida, chiziq uchida */
+          ust += yoz(ux * (R + 8) + (ux < -0.3 ? -2 : ux > 0.3 ? 2 : 0), uy * (R + 8) + (uy > 0.3 ? 14 : uy < -0.3 ? -2 : 5), z[0], c, ux < -0.3 ? "end" : ux > 0.3 ? "start" : "middle", 15);
+        } else {
+          let nx = -uy, ny = ux; if (ny > 0) { nx = -nx; ny = -ny; }
+          ust += yoz(ux * r2 / 2 + nx * 12, uy * r2 / 2 + ny * 12 + 5, z[0], c, "middle", 14);
+        }
+      });
+      /* "en": [yozuv, burchak] — halqaning eni: ichki aylanadan tashqi aylanagacha kesma */
+      if (g.en) {
+        const a = g.en[1] * Math.PI / 180, ux = Math.cos(a), uy = -Math.sin(a), t = (r2 + R) / 2;
+        ust += '<line x1="' + f(ux * r2) + '" y1="' + f(uy * r2) + '" x2="' + f(ux * R) + '" y2="' + f(uy * R) + '" stroke="' + SARIQ + '" stroke-width="3" stroke-linecap="round"/>';
+        ust += yoz(ux * (R + 12) + (ux < -0.3 ? -4 : ux > 0.3 ? 4 : 0), uy * (R + 12) + (uy > 0.3 ? 14 : uy < -0.3 ? -2 : 5), g.en[0], SARIQ, ux < -0.3 ? "end" : ux > 0.3 ? "start" : "middle", 15);
+      }
+      h += '<circle cx="0" cy="0" r="3.2" fill="' + QORA + '"/>';
+      if (g.markaz) ust += '<text x="-12" y="18" text-anchor="middle" font-size="16" font-weight="800" fill="' + QORA + '">' + g.markaz + "</text>";
+    }
+    const pad = 8, x0 = Math.min.apply(null, xs) - pad, y0 = Math.min.apply(null, ys) - pad, W = Math.max.apply(null, xs) + pad - x0, H = Math.max.apply(null, ys) + pad - y0;
+    el.classList.add("chz");
+    el.innerHTML = '<svg viewBox="' + f(x0) + " " + f(y0) + " " + f(W) + " " + f(H) + '" width="' + Math.round(W) + '" role="img" aria-label="Doiraning yuzi chizmasi">' + h + ust + "</svg>";
   }
 
   // ---------- to'rtburchakni qadamma-qadam chizish: parallelogramm/romb ("pg") va trapetsiya ("tr") ----------
@@ -3253,6 +3415,7 @@
       root.querySelectorAll("[data-aylana]").forEach(chizAylana);
       root.querySelectorAll("[data-yoyish]").forEach(chizYoyish);
       root.querySelectorAll("[data-yoy]").forEach(chizYoy);
+      root.querySelectorAll("[data-doirayuz]").forEach(chizDoirayuz);
       root.querySelectorAll("[data-oraliq]").forEach(chizOraliq);
       root.querySelectorAll("[data-hayot]").forEach(chizHayot);
     }

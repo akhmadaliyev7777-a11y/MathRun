@@ -4,14 +4,16 @@
 window.KUNLIK = [
   {
     sana: "2026-10-27",
-    qisqa: "Interaktiv darslar «kasblarda» uslubida: 8-sinf «Modul kasblarda» yangilandi, 6-sinf 5-mavzuga yangi dars qo'shildi.",
+    qisqa: "6-sinf 17–18-mavzular (doira yuzi) tayyor; interaktiv darslar «kasblarda» uslubida; admin panelda «Kunlik ish».",
     ishlar: [
       ["Interaktiv", "8-sinf «Modul kasblarda»: ish yonida jonli formula paneli, har topshiriqda 3 bosqichli «Yordam» (ishora → aniq qadam → «Ko'rsatib ber»), har bosqichda rasmli vaziyat kartasi."],
       ["Interaktiv", "8-sinf «Modul kasblarda»: avval 5 kasb bo'yicha qadamma-qadam tushuntirish (harakatlanuvchi chizmalar), keyin alohida «Interaktiv dars» — 3 kasb (shifokor, quruvchi, oshpaz); har ekranda «Orqaga» va «Qaytadan»."],
       ["Interaktiv", "6-sinf 5-mavzu «To'g'ri kasrni natural songa bo'lish»: yangi interaktiv dars «Kasr bo'lish kasblarda» — 5 kasbda tushuntirish (tort, tomorqa, yo'l, sirop, lenta), 3 kasb × 3 bosqich (qandolatchi, bog'bon, farmatsevt), yakuniy sinov."],
       ["Interaktiv", "Ikkala darsda qoida qutisi: so'zlar qora, kasr va harflar oq fonda o'z rangida."],
       ["Interaktiv", "Ikkala darsda hisoblagich yonida «↺ Qaytadan» — so'rab, barcha natijalarni o'chiradi."],
-      ["Admin", "Admin panelga «Kunlik ish» bo'limi qo'shildi (shu ro'yxat)."]
+      ["Admin", "Admin panelga «Kunlik ish» bo'limi qo'shildi (shu ro'yxat); kalendarda kun bosilsa — o'sha kungi ishlar."],
+      ["6-sinf", "17-mavzu «Doiraning yuzi» — ma'ruza (doirani bo'laklarga kesib to'g'ri to'rtburchakka terish chizmasi, katakli doira, halqa), 20+20 test, PDF."],
+      ["6-sinf", "18-mavzu «Yarim va chorak doira yuzi» — ma'ruza (20 ta chizma), 20+20 test, PDF."]
     ]
   },
   {

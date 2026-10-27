@@ -629,6 +629,24 @@
   "hajm": 249897,
   "v": "ed1fbbf5"
  },
+ "6-doira-yuzi": {
+  "fayl": "6-sinf Doiraning yuzi.pdf",
+  "sahifa": 12,
+  "hajm": 990115,
+  "v": "2bdc31d4"
+ },
+ "6-doira-yuzi-1-test": {
+  "fayl": "6-sinf Doiraning yuzi 1-test.pdf",
+  "sahifa": 5,
+  "hajm": 329139,
+  "v": "bfa90b85"
+ },
+ "6-doira-yuzi-2-test": {
+  "fayl": "6-sinf Doiraning yuzi 2-test.pdf",
+  "sahifa": 5,
+  "hajm": 289609,
+  "v": "729e78b8"
+ },
  "6-ifoda-qiymatini-topish": {
   "fayl": "6-sinf Algebraik ifodaning qiymatini topish.pdf",
   "sahifa": 11,
@@ -862,6 +880,24 @@
   "sahifa": 5,
   "hajm": 315139,
   "v": "08f6753b"
+ },
+ "6-yarim-chorak-doira-yuzi": {
+  "fayl": "6-sinf Yarim va chorak doira yuzi.pdf",
+  "sahifa": 12,
+  "hajm": 953211,
+  "v": "0043fe3b"
+ },
+ "6-yarim-chorak-doira-yuzi-1-test": {
+  "fayl": "6-sinf Yarim va chorak doira yuzi 1-test.pdf",
+  "sahifa": 5,
+  "hajm": 263036,
+  "v": "27461ae6"
+ },
+ "6-yarim-chorak-doira-yuzi-2-test": {
+  "fayl": "6-sinf Yarim va chorak doira yuzi 2-test.pdf",
+  "sahifa": 5,
+  "hajm": 302231,
+  "v": "734dc191"
  },
  "8-modul-tengsizliklar": {
   "fayl": "8-sinf Sonning moduli Modul qatnashgan tenglama va tengsizliklar.pdf",
