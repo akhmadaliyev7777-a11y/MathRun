@@ -92,7 +92,10 @@ p{margin:0}
 .btext p{font-weight:700;line-height:1.45}
 .btext p.flash{animation:fl .5s ease}
 @keyframes fl{from{opacity:.2}to{opacity:1}}
-.shead{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.shead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.sright{display:flex;align-items:center;gap:10px;margin-left:auto}
+.reset{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-left:auto}
+.reset .ask{font-size:14px;font-weight:700;color:var(--red)}
 .count{font:800 14px var(--f-body);color:var(--muted);white-space:nowrap}
 .sbox{display:flex;flex-direction:column;gap:14px;min-width:0}
 .donebar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--greenbg);border-radius:14px;padding:12px 14px}
@@ -1361,7 +1364,7 @@ const ART = {
 SCREENS.pick = () => {
   const n = ORDER.filter(k => stageOf(k) >= 3).length;
   const el = h(`<section class="panel">
-    <div class="shead"><h2>Interaktiv dars: kim bo'lmoqchisiz?</h2><span class="count">${n} / ${ORDER.length}</span></div>
+    <div class="shead"><h2>Interaktiv dars: kim bo'lmoqchisiz?</h2><div class="sright"><span class="count">${n} / ${ORDER.length}</span></div></div>
     <div class="kgrid"><button class="kcard${S.intro ? " done" : ""}" data-k="intro"><span class="fin-ic" style="background:radial-gradient(circle at 35% 30%,#E3ECFC,#9DB8EE);border-color:#1F5FD6;color:#173F8F">${fr(1, 2)}:2</span><span class="ktx"><b>Isinish</b><span>Tasmaning yarmini 2 ga bo'ling</span><em>2 daqiqa</em></span>${S.intro ? `<span class="kdone">✓ bajarildi</span>` : ""}</button>${ORDER.map(k => {
       const K = KASB[k], st = stageOf(k);
       return `<button class="kcard${st >= 3 ? " done" : ""}" data-k="${k}">${avatar(k, 64)}<span class="ktx"><b>${K.name}</b><span>${K.teaser}</span><em>${K.tag}</em></span>
@@ -1374,7 +1377,19 @@ SCREENS.pick = () => {
   scr.append(el);
   $$(".kcard", el).forEach(b => { b.onclick = () => { if (b.dataset.k === "intro") show("intro"); else if (b.dataset.k === "fin") show("fin"); else openKasb(b.dataset.k, Math.min(stageOf(b.dataset.k), 2)); }; });
   $("#p-back", el).onclick = () => show("lec");
+  resetBtn($(".sright", el), () => show("pick"));
 };
+/* «Qaytadan» — avval so'raydi, keyin barcha natijalarni o'chiradi */
+function resetBtn(box, then) {
+  const ask = "Barcha natijalar o'chadi. Rozimisiz?", run = () => { S = { intro: 0, k: {}, fin: null, ls: [] }; save(); then(); };
+  const w = h(`<div class="reset"></div>`);
+  const idle = () => { w.innerHTML = `<button class="btn ghost sm" title="Barcha natijalarni o'chirib, qaytadan boshlash">↺ Qaytadan</button>`; $("button", w).onclick = confirm; };
+  const confirm = () => {
+    w.innerHTML = `<span class="ask">${ask}</span><button class="btn red sm" data-y>Ha, o'chir</button><button class="btn ghost sm" data-n>Yo'q</button>`;
+    $("[data-y]", w).onclick = run; $("[data-n]", w).onclick = idle;
+  };
+  idle(); box.append(w);
+}
 
 /* ---- kasb sahifasi: 3 bosqich ---- */
 function openKasb(id, st) {
@@ -1533,7 +1548,7 @@ function lstepper(box, L) {
 
 SCREENS.lec = at => {
   const el = h(`<section class="panel">
-    <div class="shead"><h2>Kasb egalari kasrni qanday bo'ladi?</h2><span class="count" id="l-count"></span></div>
+    <div class="shead"><h2>Kasb egalari kasrni qanday bo'ladi?</h2><div class="sright"><span class="count" id="l-count"></span></div></div>
     <p class="hint">Har kasbda bitta misol qadamma-qadam ishlanadi. Keyin o'zingiz kasb egasining shogirdi bo'lib ishlaysiz.</p>
     ${ruleBox("")}
     <div class="ltabs" role="tablist">${LORDER.map((k, i) => `<button class="ltab" role="tab" data-i="${i}">${avatar(k, 34)}<span>${KASB[k].short || KASB[k].name}</span></button>`).join("")}</div>
@@ -1543,6 +1558,7 @@ SCREENS.lec = at => {
   scr.append(el);
   const sec = $(".lsec", el);
   $("#l-skip", el).onclick = () => show("pick");
+  resetBtn($(".sright", el), () => show("lec"));
   function tabs(cur) {
     $$(".ltab", el).forEach((b, i) => { b.setAttribute("aria-selected", i === cur ? "true" : "false"); b.classList.toggle("done", S.ls.indexOf(LORDER[i]) >= 0); });
   }
