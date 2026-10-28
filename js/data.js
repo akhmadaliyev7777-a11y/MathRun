@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 168;
+const LESSON_VER = 169;
 
 function sec(title) {
   return { title: title, text: null };
@@ -261,7 +261,7 @@ const SITE_DATA = {
                   "<p>Bir bekatdan avtobus har 12 daqiqada, trolleybus har 18 daqiqada jo'naydi. Ular soat 8:00 da birga jo'nadi. Keyingi safar qachon birga jo'naydi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: "lessons/7-matematika-ekuk.html", test: null
+              lecture: { embedUrl: "maruza/7-ekuk.html" }, interactive: "lessons/7-matematika-ekuk.html", test: "test.html?sinf=7&fan=matematika-2026&mavzu=ekuk"
             },
             {
               id: "kvadrat-kub-ildiz", icon: "img/mavzu/7-kvadrat-kub-ildiz.webp", title: "1.4 Sonning kvadrat ildizi va kub ildizi", page: "21-bet",

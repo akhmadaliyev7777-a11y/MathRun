@@ -3108,7 +3108,7 @@
     }
     if (tur === "iz") {   // oyoq izi (poyabzal tagi): oldingi keng qism va tovon — 7-sinf 1.3
       const f = function (v) { return v.toFixed(1); };
-      return '<g fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="1.4">' +
+      return '<g fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="1.4" transform="rotate(90 ' + f(cx) + ' ' + f(cy) + ')">' +
         '<ellipse cx="' + f(cx) + '" cy="' + f(cy - r * 0.32) + '" rx="' + f(r * 0.42) + '" ry="' + f(r * 0.6) + '"/>' +
         '<ellipse cx="' + f(cx) + '" cy="' + f(cy + r * 0.62) + '" rx="' + f(r * 0.3) + '" ry="' + f(r * 0.32) + '"/></g>';
     }

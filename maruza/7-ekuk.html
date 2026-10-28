@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eng kichik umumiy karrali (EKUK)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=49">
+</head>
+<body data-a4>
+<main class="m-wrap">
+
+<h1 class="m-title">Eng kichik umumiy karrali (EKUK)</h1>
+<!-- ============ 1-QISM: QIZIQTIRAMIZ ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Qiziqtiramiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">Ikki savol</span>
+    <p><b>1-savol.</b> Aylana poyga yo'lida mashina va mototsikl START chizig'idan birga yo'lga chiqdi. Mashina bir aylanani 6 minutda, mototsikl 8 minutda o'tadi. Necha minutdan keyin ular yana START chizig'ida birga bo'ladi? Shungacha har biri necha aylana o'tadi?</p>
+    <p><b>2-savol.</b> Ikki tishli g'ildirak ilashib turibdi: kichigida 12 ta, kattasida 18 ta tish bor. Qizil tishlar hozir bir-biriga tegib turibdi. Yana necha tish o'tgach, ular birinchi marta uchrashadi? Shungacha har bir g'ildirak necha marta aylanadi?</p>
+    <div class="misol-juft">
+      <div><div data-trek='{"vaqt":[6,8],"jism":["mashina","mototsikl"],"olcham":0.8}' data-izoh="1-savol. Aylana poyga yo'li: mashina 6 minutda, mototsikl 8 minutda bir aylana; ikkalasi START oldida"></div></div>
+      <div><div data-tishli='{"tish":[12,18],"olcham":1}' data-izoh="2-savol. Ilashgan tishli g'ildiraklar: 12 ta va 18 ta tish, qizil tishlar tegib turibdi"></div></div>
+    </div>
+  </div>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylamoqda" width="120" height="140"><div class="pufak">6 · 8 = 48 minut kutish kerakmi? Yoki ular oldinroq uchrashadimi?</div></div>
+
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>Sonni 1, 2, 3, … ga ko'paytirsak, uning <b>karralilari</b> hosil bo'ladi: 7 ning karralilari — 7, 14, 21, 28, … Har bir karrali 7 ga qoldiqsiz bo'linadi.</li>
+      <li>Tub ko'paytuvchilarga ajratish: \(72 = 2 \cdot 2 \cdot 2 \cdot 3 \cdot 3 = 2^3 \cdot 3^2\). EKUBda umumiy tub ko'paytuvchilarning eng kichik darajasi olinadi.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 2-QISM: SINAB KO'RAMIZ ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Sinab ko'ramiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">1-topshiriq · ikki chigirtka</span>
+    <p>Ikki chigirtka son o'qida 0 dan sakray boshladi: biri har safar 6 birlikka, ikkinchisi 9 birlikka sakraydi.</p>
+    <div data-karrali="6,9" data-gacha="54" data-nom="6 tadan|9 tadan" data-yashir="1" data-olcham="1" data-izoh="6 tadan va 9 tadan sakrash, 0 dan 54 gacha"></div>
+    <p>a) Ikkala chigirtka ham tushgan sonlarni yozing (0 dan tashqari).<br>b) Ulardan eng kichigi qaysi?<br>c) 54 dan keyin ular yana qaysi songa birga tushadi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>
+      a) 6 tadan: 6, 12, <b>18</b>, 24, 30, <b>36</b>, 42, 48, <b>54</b>. 9 tadan: 9, <b>18</b>, 27, <b>36</b>, 45, <b>54</b>. Ikkalasi ham: 18, 36, 54.<br>
+      b) 18. &nbsp; c) 72 — har 18 birlikda yana uchrashadi: 18, 36, 54, 72, …</details>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-topshiriq · ko'paytirsak-chi?</span>
+    <p>a) \(6 \cdot 9 = 54\) ikkala chigirtka tushgan sonlar orasida bormi? U eng kichigimi?<br>
+    b) 4 va 5 ning birinchi umumiy karralisini toping va \(4 \cdot 5\) bilan solishtiring. c) 4 va 6 uchun ham shunday qiling.<br>
+    d) Qaysi juftda 1 dan boshqa umumiy bo'luvchi bor: 4 va 5 yoki 4 va 6?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>
+      a) Bor, lekin eng kichigi emas: 18 undan kichik.<br>
+      b) 4: 4, 8, 12, 16, <b>20</b>. 5: 5, 10, 15, <b>20</b>. Birinchi umumiysi 20, ya'ni aynan \(4 \cdot 5\).<br>
+      c) 4: 4, 8, <b>12</b>; 6: 6, <b>12</b>. Birinchi umumiysi 12, \(4 \cdot 6 = 24\) esa kattaroq.<br>
+      d) 4 va 6 da (2). 4 va 5 ning umumiy bo'luvchisi faqat 1 — shuning uchun ko'paytmasi darhol chiqdi.</details>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-topshiriq · 18 va 30</span>
+    <div class="kub-qator">
+      <div><div data-daraxt='[18,2,[9,3,3]]' data-olcham="0.7" data-izoh="18 ning ko'paytuvchilar daraxti: 2 va 9, 9 = 3 · 3"></div></div>
+      <div><div data-daraxt='[30,2,[15,3,5]]' data-olcham="0.7" data-izoh="30 ning ko'paytuvchilar daraxti: 2 va 15, 15 = 3 · 5"></div></div>
+    </div>
+    <p>a) 18 ning karralilarini 30 ga ham bo'linadigan son chiqquncha yozing.<br>
+    b) Shu sonda nechta 2, nechta 3, nechta 5 bor? Har bir tub son qaysi daraxtdagidek ko'p olingan?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>
+      a) 18, 36, 54, 72, <b>90</b> — 90 son 30 ga bo'linadi.<br>
+      b) \(90 = 2 \cdot 3 \cdot 3 \cdot 5\): bitta 2, ikkita 3, bitta 5. 3 lar 18 dagidek ikkita (30 da bitta), 5 esa 30 dan olingan. Har bir tub son qaysi sonda ko'p bo'lsa, shuncha olingan.</details>
+  </div>
+</section>
+
+<!-- ============ 3-QISM: TUSHUNAMIZ ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Tushunamiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <p>2-qismda 18, 36, 54 sonlari 6 ga ham, 9 ga ham bo'linishini ko'rdingiz. Ular — 6 va 9 ning <b>umumiy karralilari</b>. Ular cheksiz, eng kattasi yo'q; eng kichigining esa nomi bor.</p>
+
+  <div class="box qoida">
+    <span class="tag">Ta'rif · EKUK</span>
+    <p>Ikki va undan ortiq natural sonlarning umumiy karralilarining eng kichigi shu sonlarning <b>eng kichik umumiy karralisi</b> (EKUK) deb ataladi.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · karralilar ro'yxati</span>
+    <p>6 ning karralilari: 6, 12, <b>18</b>, 24, 30, <b>36</b>, …<br>9 ning karralilari: 9, <b>18</b>, 27, <b>36</b>, …<br>Umumiy karralilar: 18, 36, … &nbsp;→&nbsp; eng kichigi 18 &nbsp;→&nbsp; EKUK \(= \nat{18}\)</p>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · 8 va 12</span>
+    <p>8: 8, 16, <b>24</b>. &nbsp; 12: 12, <b>24</b>. &nbsp; EKUK \(= \nat{24}\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · biri ikkinchisiga bo'linadi</span>
+    <p>21 ning o'zi 7 ga karrali (\(21 = 7 \cdot 3\)), shuning uchun 7 va 21 ning EKUKi \(\nat{21}\).</p>
+  </div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">O'zaro tub sonlar</span>
+    <p>Agar ikkita son o'zaro tub bo'lsa, u holda ularning EKUKi shu sonlarning ko'paytmasiga teng bo'ladi.</p>
+    <p><b>3-misol.</b> 4 va 5 ning umumiy bo'luvchisi faqat 1: EKUK \(= 4 \cdot 5 = \nat{20}\) (2-topshiriq).<br><b>4-misol.</b> \(8 = 2^3\), \(15 = 3 \cdot 5\) — murakkab, lekin o'zaro tub: EKUK \(= \nat{120}\).</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">1-usul · tub ko'paytuvchilarga ajratish</span>
+    <p>Har bir sonni tub ko'paytuvchilarining ko'paytmasi shaklida yozamiz. EKUK berilgan sonlarning har bir tub ko'paytuvchisining <b>eng katta</b> darajalarini ko'paytirish orqali hosil qilinadi. Agar uchta son berilgan bo'lsa, EKUK ularning har bir tub ko'paytuvchisining eng katta darajalarini ko'paytirish orqali aniqlanadi.</p>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">5-misol · 54 va 72</span>
+    <p>\(54 = 2 \cdot 3^3\), \(72 = 2^3 \cdot 3^2\). Eng katta darajalar: \(2^3\) (72 da), \(3^3\) (54 da). EKUK \(= 8 \cdot 27 = \nat{216}\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">6-misol · uchta son: 15, 18, 28</span>
+    <p>\(15 = 3 \cdot 5\), \(18 = 2 \cdot 3^2\), \(28 = 2^2 \cdot 7\). Bitta sonda bo'lsa ham, har tub son olinadi: EKUK \(= 2^2 \cdot 3^2 \cdot 5 \cdot 7 = \nat{1260}\).</p>
+  </div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">1-qismdagi savollar</span>
+    <p><b>1-savol.</b> Vaqt 6 ga ham, 8 ga ham karrali: EKUK \(= 2^3 \cdot 3 = \nat{24}\) minut (48 emas). Mashina \(24 : 6 = 4\), mototsikl \(24 : 8 = 3\) aylana o'tadi.</p>
+    <p><b>2-savol.</b> O'tgan tishlar soni 12 ga ham, 18 ga ham karrali: EKUK \(= 2^2 \cdot 3^2 = \nat{36}\) tish. Kichik g'ildirak \(36 : 12 = 3\), kattasi \(36 : 18 = 2\) marta aylanadi.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">2-usul · qisqa bo'lish</span>
+    <p>Har bir sonni alohida qisqa bo'lamiz. EKUK = umumiy tub bo'luvchilar va qolgan bo'luvchilarning ko'paytmasi (umumiylari bir marta olinadi).</p>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">7-misol · 20 va 30</span>
+    <div data-qisqa="20,30" data-alohida="1" data-ekuk="1" data-olcham="0.9" data-izoh="20 va 30 alohida qisqa bo'lingan: umumiylari 2 va 5 yashil, qolganlari 2 va 3 to'q sariq"></div>
+    <p>Umumiylari: 2, 5; qolganlari: 2, 3. EKUK \(= 2 \cdot 5 \cdot 2 \cdot 3 = \nat{60}\)</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">8-misol · 24 va 36</span>
+    <div data-qisqa="24,36" data-alohida="1" data-ekuk="1" data-olcham="0.9" data-izoh="24 va 36 alohida qisqa bo'lingan: umumiylari 2, 2, 3 yashil, qolganlari 2 va 3 to'q sariq"></div>
+    <p>Umumiylari: 2, 2, 3; qolganlari: 2, 3. EKUK \(= 12 \cdot 2 \cdot 3 = \nat{72}\)</p>
+  </div>
+  </div>
+
+</section>
+<!-- ============ 4-QISM: QO'LLAYMIZ ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Qo'llaymiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">1-misol · EKUK va kasrlar</span>
+    <p>Oddiy kasrlarni qo'shish yoki ayirishda umumiy maxrajni topish uchun EKUK tushunchasidan foydalanamiz.</p>
+    <div class="qadam"><b>1</b><span>\(\frac{5}{6} + \frac{4}{9}\): 6 va 9 ning EKUKi 18 — umumiy maxraj.</span></div>
+    <div class="qadam"><b>2</b><span>\(\frac{5}{6} = \frac{15}{18}\) (\(18 : 6 = 3\)), \(\frac{4}{9} = \frac{8}{18}\) (\(18 : 9 = 2\)).</span></div>
+    <div class="qadam"><b>3</b><span>Qo'shamiz: \(\frac{15}{18} + \frac{8}{18} = \frac{23}{18} = \nat{1\frac{5}{18}}\). Maxrajlar ko'paytmasi 54 ni olsak ham bo'lardi, lekin sonlar kattaroq chiqadi.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · sonlar darajalar ko'rinishida berilgan</span>
+    <p>\(A = 2^3 \cdot 3^2 \cdot 5\) va \(B = 2 \cdot 3^4 \cdot 7\). Ularni hisoblamasdan EKUB va EKUKni toping, javobni darajalar ko'rinishida yozing.</p>
+    <p>\(\begin{array}{r|cccc} & 2 & 3 & 5 & 7 \\ \hline A & 2^3 & 3^2 & 5 & \text{—} \\ B & 2 & 3^4 & \text{—} & 7 \\ \hline \text{EKUB} & 2 & 3^2 & \text{—} & \text{—} \\ \text{EKUK} & 2^3 & 3^4 & 5 & 7 \end{array}\)</p>
+    <div class="qadam"><b>1</b><span>EKUB: faqat umumiy tub sonlar (2 va 3), eng kichik darajalari: EKUB \(= \nat{2 \cdot 3^2}\).</span></div>
+    <div class="qadam"><b>2</b><span>EKUK: barcha tub sonlar (2, 3, 5, 7), eng katta darajalari: EKUK \(= \nat{2^3 \cdot 3^4 \cdot 5 \cdot 7}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-misol · uch hodisa birga bo'ladigan vaqt</span>
+    <p>Bog'dagi uchta favvora har 6, 10 va 15 minutda bir marta baland otiladi. Soat 10:00 da uchalasi birga otildi. a) Keyingi safar qachon birga otiladi? b) Soat 12:00 gacha (12:00 ham) yana necha marta birga otiladi?</p>
+    <div data-karrali="6,10,15" data-gacha="30" data-soat="10:00" data-izoh="6, 10 va 15 minutlik oraliqlar 10:00 dan: 10:30 da uchalasi birga"></div>
+    <div class="qadam"><b>1</b><span>\(6 = 2 \cdot 3\), \(10 = 2 \cdot 5\), \(15 = 3 \cdot 5\). EKUK \(= 2 \cdot 3 \cdot 5 = 30\) minut — soat \(\nat{\text{10:30}}\).</span></div>
+    <div class="qadam"><b>2</b><span>Har 30 minutda takrorlanadi: 10:30, 11:00, 11:30, 12:00 — \(120 : 30 = \nat{4}\) marta.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">4-misol · sana oydan oyga o'tadi</span>
+    <p>Kutubxonaga yangi gazeta har 3 kunda, jurnal har 4 kunda, yangi kitoblar har 10 kunda keltiriladi. 5-sentabr kuni uchalasi bir kunda keldi. Keyingi safar qaysi sanada uchalasi yana bir kunda keladi?</p>
+    <div class="qadam"><b>1</b><span>3, 4, 10 ning EKUKi: \(2^2 \cdot 3 \cdot 5 = 60\) kun.</span></div>
+    <div class="qadam"><b>2</b><span>Sentabrda 30 kun: 5-sentabrdan 30-sentabrgacha 25 kun o'tadi. Qoladi \(60 - 25 = 35\) kun.</span></div>
+    <div class="qadam"><b>3</b><span>Oktabrda 31 kun: \(35 - 31 = 4\). Javob: \(\nat{4}\)-noyabr.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">5-misol · to'g'ri to'rtburchaklardan kvadrat</span>
+    <p>O'lchamlari 15 cm va 10 cm bo'lgan bir xil fotosuratlar devorga bir xil holatda, oraliqsiz yopishtirilib, kvadrat hosil qilinmoqchi. a) Eng kichik kvadratning tomoni qancha? b) Nechta fotosurat kerak? c) 12 ta shunday fotosuratdan kvadrat terib bo'ladimi?</p>
+    <div data-qismlar="1:0,4,3,6|2:3,4,6,6|3:0,2,3,4|4:3,2,6,4|5:0,0,3,2|6:3,0,6,2" data-olcham="24" data-uzun="30 cm" data-izoh="Tomoni 30 cm bo'lgan kvadrat 6 ta 15 cm ga 10 cm li fotosuratdan: 2 ustun, 3 qator"></div>
+    <div class="qadam"><b>1</b><span>Kvadrat tomoni 15 ga ham, 10 ga ham karrali bo'lishi kerak. Eng kichigi — EKUK: \(15 = 3 \cdot 5\), \(10 = 2 \cdot 5\), EKUK \(= 2 \cdot 3 \cdot 5 = \nat{30}\) cm.</span></div>
+    <div class="qadam"><b>2</b><span>Bir qatorda \(30 : 15 = 2\) ta, qatorlar \(30 : 10 = 3\) ta. Jami \(2 \cdot 3 = \nat{6}\) ta fotosurat.</span></div>
+    <div class="qadam"><b>3</b><span>Keyingi kvadratlarning tomoni 60, 90, … cm: ularga \(4 \cdot 6 = 24\), \(6 \cdot 9 = 54\), … ta fotosurat kerak. 12 ta bu ro'yxatda yo'q — <b>chiqmaydi</b>.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">6-misol · qoldiq va yetishmaslik</span>
+    <p>a) Sinf o'quvchilarini 3 kishilik guruhlarga ham, 4 kishilik guruhlarga ham bo'lsak, har safar 2 kishi ortib qoladi. Sinfda 30 dan ko'p, 40 dan kam o'quvchi bor. Ular nechta?<br>b) Boshqa sinfda 3 kishilik guruhlarda ham, 4 kishilik guruhlarda ham oxirgi guruhga 1 kishi yetmaydi (o'quvchilar 30 dan ko'p, 40 dan kam). Bu sinfda nechta o'quvchi bor?</p>
+    <div class="qadam"><b>a</b><span>Ortib qolgan 2 kishini chetga olsak, qolgani 3 ga ham, 4 ga ham bo'linadi — 12 ga karrali. 28 dan 38 gacha 12 ga karrali son — 36. Javob: \(36 + 2 = \nat{38}\).</span></div>
+    <div class="qadam"><b>b</b><span>Yana 1 kishi kelsa, hammasi to'liq bo'linadi: \(n + 1\) son 12 ga karrali. \(n + 1 = 36\), \(n = \nat{35}\).</span></div>
+    <div class="qadam"><b>✓</b><span>\(38 = 3 \cdot 12 + 2 = 4 \cdot 9 + 2\); \(35 = 3 \cdot 11 + 2\) (oxirgisida 2 kishi), \(35 = 4 \cdot 8 + 3\) (oxirgisida 3 kishi).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">7-misol · bir nechta songa bo'linadigan son</span>
+    <p>a) 12, 18 va 30 ga bo'linadigan eng kichik to'rt xonali sonni toping.<br>b) 2026 ga eng kamida qanday natural son qo'shilsa, yig'indi 6, 8 va 9 ga bo'linadi?</p>
+    <div class="qadam"><b>a</b><span>Uchala songa bo'linadigan son EKUKga karrali: EKUK \(= 2^2 \cdot 3^2 \cdot 5 = 180\). \(180 \cdot 5 = 900\) — uch xonali, \(180 \cdot 6 = \nat{1080}\) — to'rt xonali.</span></div>
+    <div class="qadam"><b>b</b><span>EKUK \(= 2^3 \cdot 3^2 = 72\). \(72 \cdot 28 = 2016\), \(72 \cdot 29 = 2088\). Qo'shiladi: \(2088 - 2026 = \nat{62}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">8-misol · EKUB va EKUK ko'paytmasi</span>
+    <p>12 va 18: EKUB 6, EKUK 36. \(6 \cdot 36 = 216\) va \(12 \cdot 18 = 216\) — teng.</p>
+    <div class="qadam"><b>1</b><span>Sababi: \(12 = 2^2 \cdot 3\), \(18 = 2 \cdot 3^2\). Har bir tub sonning kichik darajasi EKUBga, katta darajasi EKUKga tushadi — hech biri yo'qolmaydi va ortmaydi. Demak, ikki sonning ko'paytmasi ularning EKUBi va EKUKi ko'paytmasiga teng.</span></div>
+    <div class="qadam"><b>2</b><span>Ikki sonning EKUBi 8, EKUKi 240, biri 48. Ikkinchisi: \(8 \cdot 240 : 48 = \nat{40}\). Tekshiramiz: 48 va 40 ning EKUBi 8, EKUKi 240.</span></div>
+    <p>Ko'paytma EKUKga teng bo'lsa, EKUB 1 — sonlar o'zaro tub.</p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">9-misol · EKUB va EKUK bo'yicha sonlarni topish</span>
+    <p>EKUBi 12, EKUKi 180 bo'lgan ikki sonni toping.</p>
+    <div class="qadam"><b>1</b><span>Ikkala son 12 ga bo'linadi: \(12 \cdot x\) va \(12 \cdot y\), \(x\) va \(y\) — o'zaro tub.</span></div>
+    <div class="qadam"><b>2</b><span>\(12x \cdot 12y = 12 \cdot 180\), demak \(x \cdot y = 180 : 12 = 15\). O'zaro tub juftlar: 1 va 15, 3 va 5.</span></div>
+    <div class="qadam"><b>3</b><span>Javob: \(\nat{12}\) va \(\nat{180}\) yoki \(\nat{36}\) va \(\nat{60}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">10-misol · EKUK berilgan, noma'lum son</span>
+    <p>\(m\) va 60 ning EKUKi 360 ga teng. \(m\) qanday son bo'lishi mumkin?</p>
+    <div class="qadam"><b>1</b><span>\(60 = 2^2 \cdot 3 \cdot 5\), \(360 = 2^3 \cdot 3^2 \cdot 5\). EKUKdagi \(2^3\) va \(3^2\) 60 da yo'q — ular \(m\) dan kelgan: \(m\) da aynan \(2^3\) va \(3^2\) bor.</span></div>
+    <div class="qadam"><b>2</b><span>5 esa 60 da bor: \(m\) da 5 bo'lishi ham, bo'lmasligi ham mumkin. Boshqa tub son bo'lmaydi.</span></div>
+    <div class="qadam"><b>3</b><span>\(m = 2^3 \cdot 3^2 = \nat{72}\) yoki \(m = 2^3 \cdot 3^2 \cdot 5 = \nat{360}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">11-misol · oldinga ketadigan va orqada qoladigan soatlar</span>
+    <p>Devordagi millari bor A soat har kuni 4 minut oldinga ketadi, B soat esa 6 minut orqada qoladi. Ikkalasi bir vaqtda to'g'rilab qo'yildi. Necha kundan keyin ikkalasi ham birga yana to'g'ri vaqtni ko'rsatadi?</p>
+    <div class="qadam"><b>1</b><span>Milli soat 12 soatda aylanib chiqadi: 12 soat \(= 720\) minut. Soat 720 minut oldinga ketsa yoki orqada qolsa, millar yana to'g'ri turadi.</span></div>
+    <div class="qadam"><b>2</b><span>A: \(720 : 4 = 180\) kunda; B: \(720 : 6 = 120\) kunda (keyin har 180 va har 120 kunda takrorlanadi).</span></div>
+    <div class="qadam"><b>3</b><span>180 va 120 ning EKUKi: \(2^3 \cdot 3^2 \cdot 5 = \nat{360}\) kun.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">12-misol · uchta sayyora</span>
+    <p>Soddalashtirilgan modelda uchta sayyora Quyosh atrofini 4, 6 va 10 yilda bir marta aylanib chiqadi. Hozir ular Quyosh bilan bir chiziqda turibdi. a) Necha yildan keyin uchalasi yana shu joyda bo'ladi? b) Shungacha har biri necha marta aylanadi? c) Rasmda 3 yildan keyingi holat: nega bir chiziqda emas?</p>
+    <div data-sayyora='{"davr":[4,6,10],"yil":3,"olcham":0.9}' data-izoh="Uch sayyora 3 yildan keyin: A — aylananing 3/4 qismida, B — yarmida, C — 3/10 qismida"></div>
+    <div class="qadam"><b>1</b><span>Vaqt 4 ga ham, 6 ga ham, 10 ga ham karrali: EKUK \(= 2^2 \cdot 3 \cdot 5 = \nat{60}\) yil.</span></div>
+    <div class="qadam"><b>2</b><span>A: \(60 : 4 = 15\), B: \(60 : 6 = 10\), C: \(60 : 10 = 6\) marta aylanadi.</span></div>
+    <div class="qadam"><b>3</b><span>3 son 4 ga ham, 6 ga ham, 10 ga ham karrali emas: A aylananing \(\frac{3}{4}\) qismini, B yarmini, C esa \(\frac{3}{10}\) qismini o'tgan.</span></div>
+  </div>
+
+  <div class="gap"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Javobni tekshiring: EKUK berilgan sonlarning har biriga qoldiqsiz bo'linishi kerak.</div></div>
+  <div class="box diqqat">
+    <span class="tag">Diqqat!</span>
+    <ol>
+      <li>EKUK va EKUBni adashtirmang: <span class="xato">12 va 18 ning EKUKi 6</span> &nbsp; <span class="togri">6 — EKUB, EKUK \(= 36\)</span></li>
+      <li>Har tub sondan bitta — eng katta daraja: <span class="xato">\(2^2 \cdot 3\) va \(2^3 \cdot 5\) → \(2^2 \cdot 2^3 \cdot 3 \cdot 5\)</span> &nbsp; <span class="togri">\(2^3 \cdot 3 \cdot 5 = 120\)</span></li>
+      <li>Ko'paytma faqat o'zaro tub sonlarda EKUK bo'ladi: <span class="xato">6 va 8 ning EKUKi 48</span> &nbsp; <span class="togri">24</span></li>
+      <li>EKUK sonlarning kattasidan kichik bo'lmaydi: <span class="xato">15 va 45 ning EKUKi 15</span> &nbsp; <span class="togri">45</span></li>
+      <li>Qolgan ko'paytuvchilar ham olinadi: <span class="xato">48 va 180: umumiylari \(2 \cdot 2 \cdot 3 = 12\)</span> &nbsp; <span class="togri">\(12 \cdot 2 \cdot 2 \cdot 3 \cdot 5 = 720\)</span></li>
+    </ol>
+  </div>
+
+  <h3>Mashqlar</h3>
+  <ol class="masalalar">
+    <li>Sonlarning EKUKini toping.<br>a)&nbsp;10 va 14 &nbsp;&nbsp; b)&nbsp;9 va 21 &nbsp;&nbsp; c)&nbsp;16 va 24<br>d)&nbsp;25 va 36 &nbsp;&nbsp; e)&nbsp;13 va 52 &nbsp;&nbsp; f)&nbsp;45 va 105</li>
+    <li>Sonlarning EKUKini toping.<br>a)&nbsp;4, 6 va 10 &nbsp;&nbsp; b)&nbsp;8, 12 va 18 &nbsp;&nbsp; c)&nbsp;7, 11 va 13<br>d)&nbsp;14, 21 va 35 &nbsp;&nbsp; e)&nbsp;20, 45 va 75 &nbsp;&nbsp; f)&nbsp;26, 39 va 65</li>
+    <li>a) Tub ko'paytuvchilarga ajratish usulida 56 va 140 ning EKUKini toping.<br>b) Qisqa bo'lish usulida 66 va 110 ning EKUKini toping.<br>c) 90 va 132 ning EKUKini ikkala usulda toping va javoblarni solishtiring.</li>
+    <li>Sonlarni hisoblamasdan EKUB va EKUKini toping, javobni darajalar ko'rinishida yozing.<br>a)&nbsp;\(2^3 \cdot 3 \cdot 5^2\) va \(2 \cdot 3^3 \cdot 7\) &nbsp;&nbsp; b)&nbsp;\(3^2 \cdot 5^3\) va \(2^2 \cdot 5 \cdot 7\)</li>
+    <li>Maxrajlarning EKUKini umumiy maxraj qilib hisoblang.<br>a)&nbsp;\(\frac{7}{12} + \frac{5}{18}\) &nbsp;&nbsp; b)&nbsp;\(\frac{9}{10} - \frac{4}{15}\) &nbsp;&nbsp; c)&nbsp;\(\frac{3}{8} + \frac{5}{12} + \frac{1}{6}\)</li>
+    <li>a) 4, 6 va 9 ning EKUKini toping.<br>b) 4 va 6, 4 va 9, 6 va 9 juftlarining EKUKini toping.<br>c) a) banddagi javob b) banddagi har bir javobga qoldiqsiz bo'linadimi? Nima uchun shunday bo'ladi?</li>
+    <li>Savollarga javob bering va tushuntiring.<br>a) Nega ikki sonning eng katta umumiy karralisini topib bo'lmaydi?<br>b) Ikki xil sonning EKUKi ularning kichigiga teng bo'lishi mumkinmi?<br>c) 7 va 9 ning EKUKini hisoblamasdan ayting.</li>
+    <li>O'zaro tub ikki natural sonning EKUKi 42 ga teng. Bunday juftlarning hammasini yozing. Qaysi juftda sonlar bir-biriga eng yaqin?</li>
+    <li>Issiqxonada pomidorlarga har 6 soatda suv, har 8 soatda o'g'it beriladi. Soat 06:00 da ikkalasi birga berildi. Keyingi safar ikkalasi qachon birga beriladi?</li>
+    <li>Aeroportga bir yo'nalishdagi samolyot har 6 kunda, ikkinchisi har 9 kunda, uchinchisi har 12 kunda keladi. Dushanba kuni uchalasi bir kunda keldi. Keyingi safar ular haftaning qaysi kunida bir kunda keladi?</li>
+    <li>Bog' yo'lagining boshidan boshlab har 12 m da daraxt, har 18 m da chiroq ustuni o'rnatilgan; boshida ikkalasi yonma-yon turibdi. Yo'lak uzunligi 200 m. Yo'lakda daraxt va ustun yonma-yon turgan nechta joy bor (boshi ham)?</li>
+    <li>Bolalar eni 8 cm, bo'yi 6 cm bo'lgan to'g'ri to'rtburchak stikerlarni bir xil holatda, oraliqsiz yopishtirib, kvadrat hosil qilmoqchi.<br>a) Eng kichik kvadratning tomoni qancha?<br>b) Kvadratda nechta ustun va nechta qator bo'ladi?<br>c) Jami nechta stiker kerak?</li>
+    <li>Ikki g'isht ustun yonma-yon terilmoqda: birida g'ishtning qalinligi 65 mm, ikkinchisida 88 mm (qorishmani hisobga olmang). Ustunlar balandligi eng kamida qancha bo'lganda tenglashadi? Shunda har ustunda nechta g'isht bo'ladi?</li>
+    <li>Velosipedning oldingi yulduzchasida 48 ta, orqadagi yulduzchasida 18 ta tish bor. Har yulduzchada bittadan tish bo'yab qo'yilgan, hozir ikkalasi ham eng yuqorida turibdi. Pedal aylantirilganda zanjir har tishdan bitta bo'g'inga suriladi. Ikkala bo'yalgan tish yana bir vaqtda eng yuqorida bo'lishi uchun zanjir kamida necha bo'g'inga suriladi? Bunda har yulduzcha necha marta aylanadi?</li>
+    <li>Kutubxonachi kitoblarni 8 tadan bog'lasa ham, 12 tadan bog'lasa ham, har safar 5 ta kitob ortib qoladi. Kitoblar 160 dan ko'p, 190 dan kam. Kitoblar nechta?</li>
+    <li>Konfetlarni 4 tadan qutilarga solsak 3 ta, 6 tadan solsak 5 ta, 9 tadan solsak 8 ta konfet ortib qoladi. Konfetlar eng kamida nechta?</li>
+    <li>a) 16, 20 va 30 ga bo'linadigan eng katta uch xonali sonni toping.<br>b) 1500 ga eng kamida qanday natural son qo'shilsa, yig'indi 7, 8 va 12 ga bo'linadi?</li>
+    <li>a) Ikki sonning EKUBi 6, EKUKi 180, ulardan biri 36. Ikkinchi sonni toping.<br>b) EKUBi 15, EKUKi 315 bo'lgan sonlar juftlarining hammasini toping.</li>
+    <li>a) \(2^a \cdot 3^b\) va \(2^2 \cdot 3^4 \cdot 5\) ning EKUKi \(2^5 \cdot 3^4 \cdot 5\) ga teng. \(a\) ni toping. \(b\) qanday qiymatlarni qabul qilishi mumkin?<br>b) \(n\) va 720 ning EKUKi 15 120 ga teng. \(n\) ning eng kichik qiymatini toping.</li>
+    <li>Maktab yo'lagidagi milli soat har kuni 6 minut oldinga ketadi, oshxonadagi milli soat esa har kuni 9 minut orqada qoladi. 1-sentabr kuni ikkalasi to'g'rilab qo'yildi va boshqa tegilmadi. Eng kamida necha kundan keyin ikkalasi bir kunda to'g'ri vaqtni ko'rsatadi? Shu kungacha (shu kun ham) yo'lakdagi soat necha marta to'g'ri vaqtni ko'rsatgan bo'ladi?</li>
+    <li>Bog'da terilgan olmalarni kichik savatlarga 6 tadan joylasa ham, katta yashiklarga 15 tadan joylasa ham, birorta olma ortmaydi va hamma idish to'la bo'ladi. Olmalar eng kamida nechta? Shunda nechta savat yoki nechta yashik kerak bo'ladi?</li>
+    <li>Qishda Aziz va dadasi qor ustida bir joydan birga yo'lga chiqishdi. Azizning bir qadami 60 cm, dadasiniki 75 cm. Necha santimetrdan keyin ularning izlari yana birinchi marta ustma-ust tushadi? Bungacha har biri necha qadam tashlaydi?
+      <div data-karrali="60,75" data-gacha="240" data-nom="Aziz|Dadasi" data-belgi="iz" data-birlik="cm" data-yashir="1" data-olcham="1.05" data-izoh="Azizning izlari har 60 cm da, dadasining izlari har 75 cm da, 240 cm gacha"></div></li>
+  </ol>
+</section>
+
+<!-- ============ 5-QISM: TEKSHIRAMIZ ============ -->
+<div class="m-qism" style="--qc: var(--q5)"><div class="q-n">5-qism</div><h2>Tekshiramiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Sonlarning EKUKini toping.<br>a)&nbsp;15 va 20 &nbsp;&nbsp; b)&nbsp;11 va 12 &nbsp;&nbsp; c)&nbsp;24 va 40 &nbsp;&nbsp; d)&nbsp;42 va 66</li>
+    <li>Sonlarning EKUKini toping.<br>a)&nbsp;3, 5 va 9 &nbsp;&nbsp; b)&nbsp;12, 15 va 20 &nbsp;&nbsp; c)&nbsp;9, 15 va 21 &nbsp;&nbsp; d)&nbsp;10, 12 va 32</li>
+    <li>30 va 42 ni alohida qisqa bo'lib, EKUKini toping. Qaysi ko'paytuvchilar umumiy, qaysilari qolgan?</li>
+    <li>\(2^4 \cdot 3 \cdot 7^2\) va \(2^2 \cdot 3^3 \cdot 5\) sonlarining EKUB va EKUKini darajalar ko'rinishida yozing.</li>
+    <li>Hisoblang: \(\frac{5}{14} + \frac{8}{21}\).</li>
+    <li>Madina kompyuterda ishlaganda har 40 minutda suv ichadi, har 30 minutda ko'zlariga dam beradi. Soat 15:00 da ikkalasini birga qildi. Keyingi safar qachon ikkalasi birga bo'ladi?</li>
+    <li>Bog'bon kaktusga har 10 kunda, xonaki gulga har 4 kunda suv beradi. 3-mart kuni ikkalasiga birga suv berdi.<br>a) Keyingi safar qaysi sanada ikkalasiga birga suv beradi?<br>b) Undan keyingisi-chi?</li>
+    <li>O'lchamlari 21 cm va 15 cm bo'lgan bir xil qog'oz varaqlardan bir xil holatda, oraliqsiz kvadrat devoriy gazeta yasaldi. Kvadrat tomonining eng kichik qiymatini va bunda kerak bo'ladigan varaqlar sonini toping.</li>
+    <li>Uzunligi 35 cm va 50 cm bo'lgan ikki xil yog'och reykalar ikki qatorga uchma-uch terildi: birinchi qatorda faqat 35 cm lik, ikkinchisida faqat 50 cm lik reykalar. Qatorlar uzunligi teng. Bu uzunlik eng kamida qancha? Har qatorda nechta reyka bor?</li>
+    <li>Tuxumlarni 6 tadan ham, 10 tadan ham qutilarga joylasa, har safar 4 ta ortib qoladi. Tuxumlar 70 dan ko'p, 100 dan kam. Tuxumlar nechta?</li>
+    <li>Ikki sonning EKUBi 9, EKUKi 270, ulardan biri 54. Ikkinchi sonni toping.</li>
+    <li><b>Xatoni toping.</b><br>a) Sardor: «8 va 12 o'zaro tub emas, lekin baribir EKUK \(= 8 \cdot 12 = 96\).»<br>b) Nilufar: «\(2^3 \cdot 3\) va \(2^2 \cdot 3^2\) ning EKUKi \(2^2 \cdot 3 = 12\).»<br>c) Bekzod: «Ikki sonning EKUKi ularning kattasidan kichik bo'lishi ham mumkin.»</li>
+  </ol>
+
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men ikki yoki uchta sonning EKUKini karralilar ro'yxati, tub ko'paytuvchilarga ajratish va qisqa bo'lish usulida topa olaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men EKUK yordamida kasrlarning umumiy maxrajini topa olaman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men EKUB va EKUK orasidagi bog'lanishdan foydalanib noma'lum sonni topa olaman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men EKUK qatnashgan matnli masalalarni (vaqt, sana, uzunlik, kvadrat) yecha olaman.</label></li>
+    </ul>
+  </div>
+</section>
+
+<h3 class="q-javob">Javoblar</h3>
+
+<section class="m-sec qism-ichi">
+  <h3>4-qism · Mashqlar</h3>
+  <details class="javob"><summary>1-masala</summary>a) 70. b) \(9 = 3^2\), \(21 = 3 \cdot 7\) → 63. c) \(16 = 2^4\), \(24 = 2^3 \cdot 3\) → \(2^4 \cdot 3 = 48\). d) O'zaro tub: \(25 \cdot 36 = 900\). e) 52 son 13 ga bo'linadi → 52. f) \(45 = 3^2 \cdot 5\), \(105 = 3 \cdot 5 \cdot 7\) → \(3^2 \cdot 5 \cdot 7 = 315\).</details>
+  <details class="javob"><summary>2-masala</summary>a) \(2^2 \cdot 3 \cdot 5 = 60\). b) \(2^3 \cdot 3^2 = 72\). c) Uchalasi tub: \(7 \cdot 11 \cdot 13 = 1001\). d) \(2 \cdot 3 \cdot 5 \cdot 7 = 210\). e) \(20 = 2^2 \cdot 5\), \(45 = 3^2 \cdot 5\), \(75 = 3 \cdot 5^2\) → \(2^2 \cdot 3^2 \cdot 5^2 = 900\). f) \(2 \cdot 3 \cdot 5 \cdot 13 = 390\).</details>
+  <details class="javob"><summary>3-masala</summary>a) \(56 = 2^3 \cdot 7\), \(140 = 2^2 \cdot 5 \cdot 7\) → \(2^3 \cdot 5 \cdot 7 = 280\). b) \(66 = 2 \cdot 3 \cdot 11\), \(110 = 2 \cdot 5 \cdot 11\). Umumiylari 2 va 11, qolganlari 3 va 5. EKUK \(= 2 \cdot 11 \cdot 3 \cdot 5 = 330\). c) \(90 = 2 \cdot 3^2 \cdot 5\), \(132 = 2^2 \cdot 3 \cdot 11\). Eng katta darajalar: \(2^2 \cdot 3^2 \cdot 5 \cdot 11 = 1980\). Qisqa bo'lishda: umumiylari 2, 3; qolganlari 3, 5 va 2, 11 — \(6 \cdot 3 \cdot 5 \cdot 2 \cdot 11 = 1980\).</details>
+  <details class="javob"><summary>4-masala</summary>a) EKUB \(= 2 \cdot 3\), EKUK \(= 2^3 \cdot 3^3 \cdot 5^2 \cdot 7\). b) EKUB \(= 5\), EKUK \(= 2^2 \cdot 3^2 \cdot 5^3 \cdot 7\).</details>
+  <details class="javob"><summary>5-masala</summary>a) Umumiy maxraj 36 bo'ladi, \(\frac{21}{36} + \frac{10}{36} = \frac{31}{36}\). b) Umumiy maxraj 30 bo'ladi, \(\frac{27}{30} - \frac{8}{30} = \frac{19}{30}\). c) Umumiy maxraj 24 bo'ladi, \(\frac{9}{24} + \frac{10}{24} + \frac{4}{24} = \frac{23}{24}\).</details>
+  <details class="javob"><summary>6-masala</summary>a) \(4 = 2^2\), \(6 = 2 \cdot 3\), \(9 = 3^2\) → \(2^2 \cdot 3^2 = 36\). b) 4 va 6 → 12, 4 va 9 → 36, 6 va 9 → 18. c) Ha: \(36 : 12 = 3\), \(36 : 36 = 1\), \(36 : 18 = 2\). 36 uchala songa bo'linadi, demak har bir juftning umumiy karralisi — juftning EKUKiga karrali.</details>
+  <details class="javob"><summary>7-masala</summary>a) Umumiy karralilar cheksiz: har biriga yana EKUKni qo'shsak, kattaroq umumiy karrali chiqadi. b) Yo'q: EKUK kattasiga bo'linadi, demak kattasidan kichik emas. c) 7 va 9 o'zaro tub: \(7 \cdot 9 = 63\).</details>
+  <details class="javob"><summary>8-masala</summary>O'zaro tub sonlarning EKUKi ko'paytmasiga teng, demak ko'paytma 42: 1 va 42, 2 va 21, 3 va 14, 6 va 7. Eng yaqini — 6 va 7.</details>
+  <details class="javob"><summary>9-masala</summary>6 va 8 ning EKUKi 24 soat. Ertasi kuni soat 06:00 da.</details>
+  <details class="javob"><summary>10-masala</summary>6, 9, 12 ning EKUKi 36 kun. \(36 = 7 \cdot 5 + 1\), ya'ni 5 hafta va 1 kun — seshanba.</details>
+  <details class="javob"><summary>11-masala</summary>12 va 18 ning EKUKi 36 m. Joylar: 0, 36, 72, 108, 144, 180 m — 6 ta (216 m yo'lakdan tashqarida).</details>
+  <details class="javob"><summary>12-masala</summary>a) 8 va 6 ning EKUKi 24 cm. b) \(24 : 8 = 3\) ustun, \(24 : 6 = 4\) qator. c) \(3 \cdot 4 = 12\) ta stiker.</details>
+  <details class="javob"><summary>13-masala</summary>65 va 88 o'zaro tub: EKUK \(= 65 \cdot 88 = 5720\) mm \(= 5\) m 72 cm. Birinchi ustunda \(5720 : 65 = 88\) ta, ikkinchisida \(5720 : 88 = 65\) ta g'isht.</details>
+  <details class="javob"><summary>14-masala</summary>48 va 18 ning EKUKi \(2^4 \cdot 3^2 = 144\) bo'g'in. Oldingi yulduzcha \(144 : 48 = 3\) marta, orqadagisi \(144 : 18 = 8\) marta aylanadi.</details>
+  <details class="javob"><summary>15-masala</summary>\(n - 5\) son 8 ga ham, 12 ga ham, ya'ni 24 ga karrali. 155 dan 185 gacha: 168. \(n = 173\).</details>
+  <details class="javob"><summary>16-masala</summary>Yana 1 ta konfet bo'lsa, hammasi 4, 6, 9 ga bo'linadi: \(n + 1\) son 36 ga karrali. Eng kichigi \(n + 1 = 36\), \(n = 35\).</details>
+  <details class="javob"><summary>17-masala</summary>a) EKUK 240: \(240 \cdot 4 = 960\) (\(240 \cdot 5 = 1200\) — to'rt xonali). b) EKUK 168, \(168 \cdot 8 = 1344\), \(168 \cdot 9 = 1512\). Qo'shiladi \(1512 - 1500 = 12\).</details>
+  <details class="javob"><summary>18-masala</summary>a) \(6 \cdot 180 : 36 = 30\). Tekshirish: 36 va 30 ning EKUBi 6, EKUKi 180. b) \(15x \cdot 15y = 15 \cdot 315\), \(x \cdot y = 21\), o'zaro tub: 1 va 21, 3 va 7. Juftlar: 15 va 315, 45 va 105.</details>
+  <details class="javob"><summary>19-masala</summary>a) EKUKdagi \(2^5\) faqat birinchi sondan keladi: \(a = 5\). \(3^4\) ikkinchi sonda bor, shuning uchun \(b\) — 0, 1, 2, 3 yoki 4. b) \(720 = 2^4 \cdot 3^2 \cdot 5\), \(15\,120 = 2^4 \cdot 3^3 \cdot 5 \cdot 7\). \(n\) da \(3^3\) va 7 bo'lishi shart, 2 va 5 shart emas: \(n = 3^3 \cdot 7 = 189\).</details>
+  <details class="javob"><summary>20-masala</summary>Yo'lakdagi soat \(720 : 6 = 120\) kunda, oshxonadagisi \(720 : 9 = 80\) kunda to'g'ri bo'ladi. 120 va 80 ning EKUKi — 240 kun. Yo'lakdagi soat 120- va 240-kunlarda — 2 marta.</details>
+  <details class="javob"><summary>21-masala</summary>Olmalar soni 6 ga ham, 15 ga ham karrali. Eng kichigi — EKUK: 30 ta olma. Savatlar \(30 : 6 = 5\) ta yoki yashiklar \(30 : 15 = 2\) ta.</details>
+
+  <details class="javob"><summary>22-masala</summary>\(60 = 2^2 \cdot 3 \cdot 5\), \(75 = 3 \cdot 5^2\), EKUK \(= 2^2 \cdot 3 \cdot 5^2 = 300\) cm, ya'ni 3 m. Aziz \(300 : 60 = 5\) qadam, dadasi \(300 : 75 = 4\) qadam tashlaydi.</details>
+  <h3>5-qism · Mustaqil ish</h3>
+  <details class="javob"><summary>1-masala</summary>a) 60. b) O'zaro tub: 132. c) \(24 = 2^3 \cdot 3\), \(40 = 2^3 \cdot 5\) → 120. d) \(42 = 2 \cdot 3 \cdot 7\), \(66 = 2 \cdot 3 \cdot 11\) → \(2 \cdot 3 \cdot 7 \cdot 11 = 462\).</details>
+  <details class="javob"><summary>2-masala</summary>a) \(3^2 \cdot 5 = 45\). b) 60. c) \(3^2 \cdot 5 \cdot 7 = 315\). d) \(2^5 \cdot 3 \cdot 5 = 480\).</details>
+  <details class="javob"><summary>3-masala</summary>\(30 = 2 \cdot 3 \cdot 5\), \(42 = 2 \cdot 3 \cdot 7\). Umumiylari 2 va 3, qolganlari 5 va 7. EKUK \(= 2 \cdot 3 \cdot 5 \cdot 7 = 210\).</details>
+  <details class="javob"><summary>4-masala</summary>EKUB \(= 2^2 \cdot 3\), EKUK \(= 2^4 \cdot 3^3 \cdot 5 \cdot 7^2\).</details>
+  <details class="javob"><summary>5-masala</summary>14 va 21 ning EKUKi 42, shuning uchun \(\frac{15}{42} + \frac{16}{42} = \frac{31}{42}\).</details>
+  <details class="javob"><summary>6-masala</summary>40 va 30 ning EKUKi 120 minut — 2 soat. Soat 17:00 da.</details>
+  <details class="javob"><summary>7-masala</summary>10 va 4 ning EKUKi 20 kun. a) 23-mart. b) Martda 31 kun: 23-martdan 31-martgacha 8 kun, yana 12 kun — 12-aprel.</details>
+  <details class="javob"><summary>8-masala</summary>21 va 15 ning EKUKi 105 cm. \(105 : 21 = 5\), \(105 : 15 = 7\), varaqlar \(5 \cdot 7 = 35\) ta.</details>
+  <details class="javob"><summary>9-masala</summary>35 va 50 ning EKUKi 350 cm. Birinchi qatorda \(350 : 35 = 10\) ta, ikkinchisida \(350 : 50 = 7\) ta reyka.</details>
+  <details class="javob"><summary>10-masala</summary>\(n - 4\) son 30 ga karrali: 66 dan 96 gacha — 90. \(n = 94\).</details>
+  <details class="javob"><summary>11-masala</summary>\(9 \cdot 270 : 54 = 45\). Tekshirish: 54 va 45 ning EKUBi 9, EKUKi 270.</details>
+  <details class="javob"><summary>12-masala</summary>a) Ko'paytma faqat o'zaro tub sonlarda EKUK bo'ladi. To'g'risi: \(2^3 \cdot 3 = 24\). b) Nilufar kichik darajalarni olgan — bu EKUB. EKUK \(= 2^3 \cdot 3^2 = 72\). c) Noto'g'ri: EKUK kattasiga ham bo'linadi, shuning uchun undan kichik emas.</details>
+</section>
+
+<p class="m-foot">Mathlearn · 7-sinf matematika</p>
+</main>
+<script src="chizma.js?v=76"></script>
+<script src="maruza.js?v=19"></script>
+</body>
+</html>
