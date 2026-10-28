@@ -653,6 +653,15 @@ window.addEventListener("message", function (e) {
   });
 });
 
+// rang mavzusi (0..6): ma'ruza sahifasidagi bilan bir xil — ma'ruza fayli nomidan (maruza.js da ham shunday), yo'q bo'lsa mavzu id dan
+function topicTema(topic) {
+  const u = topic.lecture && topic.lecture.embedUrl;
+  const nom = u ? u.split("/").pop().replace(/\.html$/, "") : String(topic.id || "");
+  let h = 2166136261;
+  for (let i = 0; i < nom.length; i++) h = Math.imul(h ^ nom.charCodeAt(i), 16777619) >>> 0;
+  h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0; h = (h ^ (h >>> 13)) >>> 0;
+  return h % 7;
+}
 // mavzu kartochkasi (sinf sahifasi va Interaktiv darslar bo'limi uchun umumiy)
 function topicCardHtml(topic, i, href, parts, btn, interactiveFirst) {
   const icon = topic.icon
@@ -663,7 +672,7 @@ function topicCardHtml(topic, i, href, parts, btn, interactiveFirst) {
   const bInt = topic.interactive ? btn("Interaktiv", "#interaktiv", interactiveFirst || !topicHasLecture(topic), topic.newSim ? " topic-btn--new" : "") : "";
   const bLec = topicHasLecture(topic) ? btn("Ma'ruza", "#maruza", !interactiveFirst) : "";
   return (
-    '<li class="topic-card">' +
+    '<li class="topic-card" data-tema="' + topicTema(topic) + '">' +
       '<a class="tc-main" href="' + href + (interactiveFirst ? '#interaktiv' : '') + '">' +
         '<span class="tc-icon">' + icon + '</span>' +
         '<span class="tc-title"><b>' + parts.num + '</b> ' + parts.title + '</span>' +

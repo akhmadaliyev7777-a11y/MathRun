@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 164;
+const LESSON_VER = 165;
 
 function sec(title) {
   return { title: title, text: null };
@@ -165,7 +165,7 @@ const SITE_DATA = {
           name: "Matematika (2026-yil)",
           topics: [
             {
-              id: "tub-sonlar-daraja", icon: "img/mavzu/7-tub-sonlar-daraja.webp", title: "1.1 Tub sonlar, tub ko'paytuvchilarga ajratish va daraja", page: "1-bet",
+              id: "tub-sonlar-daraja", icon: "img/mavzu/7-tub-sonlar-daraja.webp", title: "1.1 Tub sonlar, tub ko'paytuvchilarga ajratish va daraja", page: "2-bet",
               sections: [
                 secText("Eslang",
                   "<p>Har bir natural son o'zining bo'luvchilariga ega. <strong>Bo'luvchi</strong> — berilgan sonni qoldiqsiz bo'ladigan son. Masalan, 12 sonining bo'luvchilari: 1, 2, 3, 4, 6, 12.</p>"
@@ -207,10 +207,10 @@ const SITE_DATA = {
                   "<p>Ikki xonali eng katta sonni tub ko'paytuvchilarga ajrating. Uning nechta bo'luvchisi bor? (Maslahat: agar son p<sup>a</sup>·q<sup>b</sup> ko'rinishida bo'lsa, bo'luvchilari soni (a+1)(b+1) ga teng.)</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: "lessons/7-matematika-tub-sonlar.html", test: null
+              lecture: { embedUrl: "maruza/7-tub-sonlar-daraja.html" }, interactive: "lessons/7-matematika-tub-sonlar.html", test: null
             },
             {
-              id: "ekub", icon: "img/mavzu/7-ekub.webp", title: "1.2 Eng katta umumiy bo'luvchi (EKUB)", page: "1-bet",
+              id: "ekub", icon: "img/mavzu/7-ekub.webp", title: "1.2 Eng katta umumiy bo'luvchi (EKUB)", page: "9-bet",
               sections: [
                 secText("Eslang",
                   "<p>Ikki sonning har ikkisini ham qoldiqsiz bo'ladigan son ularning <strong>umumiy bo'luvchisi</strong> deyiladi. Masalan, 12 va 18 ning umumiy bo'luvchilari: 1, 2, 3, 6.</p>"
@@ -237,7 +237,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/7-matematika-ekub.html", test: null
             },
             {
-              id: "ekuk", icon: "img/mavzu/7-ekuk.webp", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "1-bet",
+              id: "ekuk", icon: "img/mavzu/7-ekuk.webp", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "15-bet",
               sections: [
                 secText("Eslang",
                   "<p>Sonning <strong>karralilari</strong> — uni butun songa ko'paytirishdan hosil bo'ladigan sonlar. Masalan, 4 ning karralilari: 4, 8, 12, 16, 20, 24, …</p>"
@@ -264,7 +264,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/7-matematika-ekuk.html", test: null
             },
             {
-              id: "kvadrat-kub-ildiz", icon: "img/mavzu/7-kvadrat-kub-ildiz.webp", title: "1.4 Sonning kvadrat ildizi va kub ildizi", page: "1-bet",
+              id: "kvadrat-kub-ildiz", icon: "img/mavzu/7-kvadrat-kub-ildiz.webp", title: "1.4 Sonning kvadrat ildizi va kub ildizi", page: "21-bet",
               sections: [
                 secText("Eslang",
                   "<p>Sonning <strong>kvadrati</strong> — uni o'ziga ko'paytirish: a<sup>2</sup> = a·a. Sonning <strong>kubi</strong> — a<sup>3</sup> = a·a·a. Masalan, 7<sup>2</sup> = 49, &nbsp; 4<sup>3</sup> = 64.</p>"
@@ -294,7 +294,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "manfiy-son-sonlar-oqi", icon: "img/mavzu/7-manfiy-son-sonlar-oqi.webp", title: "2.1 Manfiy son tushunchasi va sonlar o'qi", page: "27/31-bet",
+              id: "manfiy-son-sonlar-oqi", icon: "img/mavzu/7-manfiy-son-sonlar-oqi.webp", title: "2.1 Manfiy son tushunchasi va sonlar o'qi", page: "32-bet",
               sections: [
                 secText("Eslang",
                   "<p>Hozirgacha 0 va undan katta sonlar bilan ishladingiz. Ammo harorat 0° dan pastga tushishi, hisobda qarz bo'lishi mumkin. Bularni ifodalash uchun <strong>manfiy sonlar</strong> kiritiladi.</p>"
@@ -333,7 +333,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/6-matematika-musbat-manfiy-sonlar.html", test: null
             },
             {
-              id: "butun-sonlar-qoshish-ayirish", icon: "img/mavzu/7-butun-sonlar-qoshish-ayirish.webp", title: "2.2 Butun sonlarni qo'shish va ayirish", page: "27/31-bet",
+              id: "butun-sonlar-qoshish-ayirish", icon: "img/mavzu/7-butun-sonlar-qoshish-ayirish.webp", title: "2.2 Butun sonlarni qo'shish va ayirish", page: "37-bet",
               sections: [
                 secText("Bir xil ishorali sonlarni qo'shish",
                   "<div class='lecture-rule'><strong>Qoida:</strong> ishoralari bir xil bo'lgan sonlarni qo'shish uchun modullarini qo'shamiz, natijaga umumiy ishorani qo'yamiz.</div>" +
@@ -373,7 +373,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "butun-sonlar-kopaytirish-bolish", icon: "img/mavzu/7-butun-sonlar-kopaytirish-bolish.webp", title: "2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar", page: "27/31-bet",
+              id: "butun-sonlar-kopaytirish-bolish", icon: "img/mavzu/7-butun-sonlar-kopaytirish-bolish.webp", title: "2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar", page: "44-bet",
               sections: [
                 secText("Ishoralar qoidasi",
                   "<div class='lecture-rule'><strong>Qoida:</strong> ishoralari <em>bir xil</em> ikki sonning ko'paytmasi (va bo'linmasi) — <strong>musbat</strong>; ishoralari <em>har xil</em> bo'lsa — <strong>manfiy</strong>.</div>" +
@@ -400,7 +400,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "ratsional-irratsional-haqiqiy-sonlar", icon: "img/mavzu/7-ratsional-irratsional-haqiqiy-sonlar.webp", title: "2.4 Ratsional, irratsional va haqiqiy sonlar", page: "27/31-bet",
+              id: "ratsional-irratsional-haqiqiy-sonlar", icon: "img/mavzu/7-ratsional-irratsional-haqiqiy-sonlar.webp", title: "2.4 Ratsional, irratsional va haqiqiy sonlar", page: "51-bet",
               sections: [
                 secText("Ratsional sonlar",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> p/q ko'rinishida (p — butun son, q — natural son) yozish mumkin bo'lgan son <strong>ratsional son</strong> deyiladi. Barcha butun sonlar va oddiy kasrlar ratsionaldir.</div>" +
@@ -436,7 +436,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "haqiqiy-sonlar-amallar", icon: "img/mavzu/7-haqiqiy-sonlar-amallar.webp", title: "2.5 Haqiqiy sonlar ustida amallar", page: "27/31-bet",
+              id: "haqiqiy-sonlar-amallar", icon: "img/mavzu/7-haqiqiy-sonlar-amallar.webp", title: "2.5 Haqiqiy sonlar ustida amallar", page: "54-bet",
               sections: [
                 secText("Amallarning asosiy xossalari",
                   "<div class='lecture-rule'><strong>Formulalar:</strong> a + b = b + a; &nbsp; ab = ba (o'rin almashtirish); &nbsp; (a + b) + c = a + (b + c); &nbsp; (ab)c = a(bc) (guruhlash); &nbsp; a(b + c) = ab + ac (taqsimot).</div>"
@@ -462,7 +462,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "xonagacha-yaxlitlash", icon: "img/mavzu/7-xonagacha-yaxlitlash.webp", title: "3.1 Sonlarni belgilangan xonasigacha yaxlitlash", page: "53/65-bet",
+              id: "xonagacha-yaxlitlash", icon: "img/mavzu/7-xonagacha-yaxlitlash.webp", title: "3.1 Sonlarni belgilangan xonasigacha yaxlitlash", page: "66-bet",
               sections: [
                 secText("Yaxlitlash nima?",
                   "<p><strong>Yaxlitlash</strong> — sonni unga yaqin, ko'proq «yumaloq» son bilan almashtirish. Natija <strong>≈</strong> (taqriban teng) belgisi bilan yoziladi.</p>"
@@ -491,7 +491,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "ahamiyatli-raqamgacha-yaxlitlash", icon: "img/mavzu/7-ahamiyatli-raqamgacha-yaxlitlash.webp", title: "3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash", page: "53/65-bet",
+              id: "ahamiyatli-raqamgacha-yaxlitlash", icon: "img/mavzu/7-ahamiyatli-raqamgacha-yaxlitlash.webp", title: "3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash", page: "72-bet",
               sections: [
                 secText("Ahamiyatli raqam nima?",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> sonning birinchi noldan farqli raqamidan boshlab sanaladigan barcha raqamlari <strong>ahamiyatli raqamlar</strong> deyiladi. Boshidagi nollar ahamiyatli emas.</div>" +
@@ -513,7 +513,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "chamalash", icon: "img/mavzu/7-chamalash.webp", title: "3.3 Chamalash", page: "53/65-bet",
+              id: "chamalash", icon: "img/mavzu/7-chamalash.webp", title: "3.3 Chamalash", page: "78-bet",
               sections: [
                 secText("Chamalash nima?",
                   "<p><strong>Chamalash</strong> — sonlarni qulay yaxlitlab, hisobni tez va taxminan bajarish. U aniq javob emas, balki javobning taxminiy kattaligini bilish uchun kerak.</p>"
@@ -535,7 +535,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "algebraga-kirish", icon: "img/mavzu/7-algebraga-kirish.webp", title: "4.1 Algebraga kirish", page: "71/89-bet",
+              id: "algebraga-kirish", icon: "img/mavzu/7-algebraga-kirish.webp", title: "4.1 Algebraga kirish", page: "90-bet",
               sections: [
                 secText("O'zgaruvchi va harfiy ifoda",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> turli qiymatlar qabul qila oladigan harf <strong>o'zgaruvchi</strong> deyiladi. Sonlar, o'zgaruvchilar va amal belgilaridan tuzilgan yozuv <strong>harfiy (algebraik) ifoda</strong>dir.</div>" +
@@ -560,7 +560,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "chiziqli-ifodalarni-soddalashtirish", icon: "img/mavzu/7-chiziqli-ifodalarni-soddalashtirish.webp", title: "4.2 Chiziqli ifodalarni soddalashtirish", page: "71/89-bet",
+              id: "chiziqli-ifodalarni-soddalashtirish", icon: "img/mavzu/7-chiziqli-ifodalarni-soddalashtirish.webp", title: "4.2 Chiziqli ifodalarni soddalashtirish", page: "100-bet",
               sections: [
                 secText("O'xshash hadlar",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> o'zgaruvchi qismi bir xil bo'lgan hadlar <strong>o'xshash hadlar</strong> deyiladi. Ozod hadlar ham o'zaro o'xshash.</div>" +
@@ -584,7 +584,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "qavslarni-ochish", icon: "img/mavzu/7-qavslarni-ochish.webp", title: "4.3 Chiziqli ifodalarda qavslarni ochish", page: "71/89-bet",
+              id: "qavslarni-ochish", icon: "img/mavzu/7-qavslarni-ochish.webp", title: "4.3 Chiziqli ifodalarda qavslarni ochish", page: "106-bet",
               sections: [
                 secText("Qavs oldida «+» bo'lsa",
                   "<div class='lecture-rule'><strong>Qoida:</strong> qavs oldida «+» ishorasi (yoki hech narsa) tursa, qavs shundoqqina olib tashlanadi, hadlar ishorasi o'zgarmaydi.</div>" +
@@ -608,7 +608,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "kopaytuvchilarga-ajratish", icon: "img/mavzu/7-kopaytuvchilarga-ajratish.webp", title: "4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish", page: "71/89-bet",
+              id: "kopaytuvchilarga-ajratish", icon: "img/mavzu/7-kopaytuvchilarga-ajratish.webp", title: "4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish", page: "114-bet",
               sections: [
                 secText("Ko'paytuvchilarga ajratish nima?",
                   "<p><strong>Ko'paytuvchilarga ajratish</strong> — ko'phadni bir nechta ifodaning ko'paytmasi ko'rinishida yozish. Bu qavs ochishga teskari amal.</p>"
@@ -632,7 +632,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/7-algebra-kopaytuvchilarga-ajratish.html", test: null
             },
             {
-              id: "sodda-chiziqli-tenglamalar", icon: "img/mavzu/7-sodda-chiziqli-tenglamalar.webp", title: "5.1 Sodda chiziqli tenglamalar", page: "101/123-bet",
+              id: "sodda-chiziqli-tenglamalar", icon: "img/mavzu/7-sodda-chiziqli-tenglamalar.webp", title: "5.1 Sodda chiziqli tenglamalar", page: "124-bet",
               sections: [
                 secText("Tenglama va uning ildizi",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> o'zgaruvchi qatnashgan tenglik <strong>tenglama</strong> deyiladi. Tenglamani to'g'ri tenglikka aylantiradigan o'zgaruvchi qiymati uning <strong>ildizi</strong> (yechimi) deyiladi.</div>" +
@@ -669,7 +669,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: "lessons/7-algebra-sodda-chiziqli-tenglamalar.html", test: null
             },
             {
-              id: "qavs-kasr-chiziqli-tenglamalar", icon: "img/mavzu/7-qavs-kasr-chiziqli-tenglamalar.webp", title: "5.2 Qavs va kasrlar qatnashgan chiziqli tenglamalar", page: "101/123-bet",
+              id: "qavs-kasr-chiziqli-tenglamalar", icon: "img/mavzu/7-qavs-kasr-chiziqli-tenglamalar.webp", title: "5.2 Qavs va kasrlar qatnashgan chiziqli tenglamalar", page: "130-bet",
               sections: [
                 secText("Qavsli tenglamalar",
                   "<div class='lecture-rule'><strong>Qoida:</strong> avval barcha qavslarni ochamiz, o'xshash hadlarni ixchamlaymiz, so'ng o'zgaruvchili hadlarni bir tomonga, sonlarni ikkinchi tomonga o'tkazamiz.</div>" +
@@ -692,7 +692,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "sodda-kasr-chiziqli-tenglamalar", icon: "img/mavzu/7-sodda-kasr-chiziqli-tenglamalar.webp", title: "5.3 Sodda kasr-chiziqli tenglamalar", page: "101/123-bet",
+              id: "sodda-kasr-chiziqli-tenglamalar", icon: "img/mavzu/7-sodda-kasr-chiziqli-tenglamalar.webp", title: "5.3 Sodda kasr-chiziqli tenglamalar", page: "134-bet",
               sections: [
                 secText("Kasr-chiziqli tenglama nima?",
                   "<p>Maxrajida o'zgaruvchi qatnashgan tenglama <strong>kasr-chiziqli tenglama</strong> deyiladi. Masalan, 6/x = 3 &nbsp; yoki &nbsp; 1/(x − 2) = 5.</p>"
@@ -713,7 +713,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "tenglama-matnli-masalalar", icon: "img/mavzu/7-tenglama-matnli-masalalar.webp", title: "5.4 Chiziqli tenglama tuzib yechiladigan matnli masalalar", page: "101/123-bet",
+              id: "tenglama-matnli-masalalar", icon: "img/mavzu/7-tenglama-matnli-masalalar.webp", title: "5.4 Chiziqli tenglama tuzib yechiladigan matnli masalalar", page: "137-bet",
               sections: [
                 secText("Masala yechish bosqichlari",
                   "<div class='lecture-rule'><strong>Qoida:</strong> 1) noma'lum kattalikni x deb belgilaymiz; 2) masaladagi shartga ko'ra tenglama tuzamiz; 3) tenglamani yechamiz; 4) topilgan qiymatni masala savoliga moslab javob yozamiz va shartga tekshiramiz.</div>"
@@ -734,7 +734,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "nuqta-togri-chiziq-tekislik", icon: "img/mavzu/7-nuqta-togri-chiziq-tekislik.webp", title: "6.1 Nuqta, to'g'ri chiziq va tekislik", page: "127/145-bet",
+              id: "nuqta-togri-chiziq-tekislik", icon: "img/mavzu/7-nuqta-togri-chiziq-tekislik.webp", title: "6.1 Nuqta, to'g'ri chiziq va tekislik", page: "146-bet",
               sections: [
                 secText("Asosiy geometrik tushunchalar",
                   "<p><strong>Nuqta</strong>, <strong>to'g'ri chiziq</strong> va <strong>tekislik</strong> — geometriyaning eng sodda, ta'riflanmaydigan tushunchalari. Nuqta bosh harflar (A, B, C), to'g'ri chiziq kichik harf (a, b) yoki ikki nuqtasi bilan (AB) belgilanadi.</p>" +
@@ -767,7 +767,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "burchaklar-tushunchasi", icon: "img/mavzu/7-burchaklar-tushunchasi.webp", title: "6.2 Burchaklar", page: "127/145-bet",
+              id: "burchaklar-tushunchasi", icon: "img/mavzu/7-burchaklar-tushunchasi.webp", title: "6.2 Burchaklar", page: "149-bet",
               sections: [
                 secText("Burchak ta'rifi",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> umumiy boshlang'ich nuqtaga (uchiga) ega ikki nurdan tuzilgan shakl <strong>burchak</strong> deyiladi. Nurlar — burchakning <strong>tomonlari</strong>. Belgilanishi: ∠AOB yoki ∠O.</div>"
@@ -802,7 +802,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "parallel-chiziqlar-kesuvchi", icon: "img/mavzu/7-parallel-chiziqlar-kesuvchi.webp", title: "6.3 Parallel to'g'ri chiziqlar va kesuvchi", page: "127/145-bet",
+              id: "parallel-chiziqlar-kesuvchi", icon: "img/mavzu/7-parallel-chiziqlar-kesuvchi.webp", title: "6.3 Parallel to'g'ri chiziqlar va kesuvchi", page: "156-bet",
               sections: [
                 secText("Parallel to'g'ri chiziqlar",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> bir tekislikda yotgan va kesishmaydigan ikki to'g'ri chiziq <strong>parallel</strong> deyiladi. Belgilanishi: a ∥ b.</div>"
@@ -836,7 +836,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "uchburchaklar-7sinf", icon: "img/mavzu/7-uchburchaklar-7sinf.webp", title: "7.1 Uchburchaklar", page: "153/167-bet",
+              id: "uchburchaklar-7sinf", icon: "img/mavzu/7-uchburchaklar-7sinf.webp", title: "7.1 Uchburchaklar", page: "168-bet",
               sections: [
                 secText("Uchburchak va uning elementlari",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> bir to'g'ri chiziqda yotmaydigan uch nuqta va ularni tutashtiruvchi uch kesmadan tuzilgan shakl <strong>uchburchak</strong> deyiladi. Elementlari: 3 ta uch, 3 ta tomon, 3 ta burchak.</div>"
@@ -871,7 +871,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "tortburchaklar-7sinf", icon: "img/mavzu/7-tortburchaklar-7sinf.webp", title: "7.2 To'rtburchaklar", page: "153/167-bet",
+              id: "tortburchaklar-7sinf", icon: "img/mavzu/7-tortburchaklar-7sinf.webp", title: "7.2 To'rtburchaklar", page: "179-bet",
               sections: [
                 secText("To'rtburchak va uning elementlari",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> hech uchtasi bir to'g'ri chiziqda yotmaydigan to'rt nuqta va ularni ketma-ket tutashtiruvchi to'rt kesmadan tuzilgan shakl <strong>to'rtburchak</strong>. Qarama-qarshi uchlarni tutashtiruvchi kesma — <strong>diagonal</strong>.</div>"
@@ -905,7 +905,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "kopburchaklar", icon: "img/mavzu/7-kopburchaklar.webp", title: "7.3 Ko'pburchaklar", page: "153/167-bet",
+              id: "kopburchaklar", icon: "img/mavzu/7-kopburchaklar.webp", title: "7.3 Ko'pburchaklar", page: "190-bet",
               sections: [
                 secText("Ko'pburchak ta'rifi",
                   "<div class='lecture-rule'><strong>Ta'rif:</strong> ketma-ket tutashtirilgan kesmalardan tuzilgan yopiq siniq chiziq bilan chegaralangan shakl <strong>ko'pburchak</strong> deyiladi. n ta tomoni bo'lsa — <strong>n-burchak</strong>.</div>" +
@@ -936,7 +936,7 @@ const SITE_DATA = {
               lecture: { embedUrl: null }, interactive: null, test: null
             },
             {
-              id: "uchburchak-tortburchak-yasash", icon: "img/mavzu/7-uchburchak-tortburchak-yasash.webp", title: "7.4 Uchburchak va to'rtburchaklarni yasash", page: "153/167-bet",
+              id: "uchburchak-tortburchak-yasash", icon: "img/mavzu/7-uchburchak-tortburchak-yasash.webp", title: "7.4 Uchburchak va to'rtburchaklarni yasash", page: "200-bet",
               sections: [
                 secText("Yasash asboblari",
                   "<p>Geometrik yasashlar faqat <strong>sirkul</strong> va <strong>chizg'ich</strong> (bo'linmalarsiz) yordamida bajariladi. Sirkul bilan aylana va teng kesmalar, chizg'ich bilan to'g'ri chiziq o'tkaziladi.</p>"

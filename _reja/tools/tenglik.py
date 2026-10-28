@@ -14,6 +14,8 @@ t = re.sub(r"\\(nat|sur|mx)\{([^{}]*)\}", r"\2", t)
 for a, b in [("°", ""), ("\\angle", ""), ("\\cdot", "*"), ("·", "*"), ("×", "*"), ("\\,", ""), ("\\;", " "), ("\u00a0", " "), ("−", "-"), ("\\approx", "≈"), ("\\dots", "…")]:
     t = t.replace(a, b)
 t = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", t)
+# daraja: 2^3, 2^{3} -> 8 (7-sinf; asos va ko'rsatkich natural son)
+t = re.sub(r"(?<![\d},.])(\d+)\s*\^\s*\{?\s*(\d+)\s*\}?", lambda m: str(int(m.group(1)) ** int(m.group(2))), t)
 # o'nli kasr: 0,67 -> (067/100)
 t = re.sub(r"(\d+),(\d+)", lambda m: "(" + m.group(1) + m.group(2) + "/1" + "0" * len(m.group(2)) + ")", t)
 # foiz: 47% -> (47/100)

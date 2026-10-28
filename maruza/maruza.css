@@ -10,6 +10,9 @@
   --line: #e2e5ef;
   --primary: #4f5bd5;
   --primary-s: #eef0fc;
+  --primary-l: #d9ddf7;
+  --primary-d: #2e37a0;
+  --q1: #4f5bd5; --q2: #334155; --q3: #12805c; --q4: #6d3fc0; --q5: #b45309;
   --c-surat: #1f5fd6;
   --c-maxraj: #d4501b;
   --c-natija: #12805c;
@@ -78,12 +81,14 @@ body {
 .box ul, .box ol { margin: 6px 0; padding-left: 22px; }
 .box li { margin: 4px 0; }
 
-.qoida { border-left: 5px solid var(--primary); background: var(--primary-s); border-color: #d9ddf7; }
+.qoida { border-left: 5px solid var(--primary); background: var(--primary-s); border-color: var(--primary-l); }
 .qoida > .tag { background: var(--primary); color: #fff; }
-.qoida strong { color: #2e37a0; }
+.qoida strong { color: var(--primary-d); }
 
 .namuna { background: var(--surface); }
 .namuna > .tag { background: var(--gray-s); color: var(--muted); }
+/* rang mavzusi bo'lsa — misol yorlig'i ham shu rangning ochiq tusida (qoida yorlig'idan ochroq) */
+html[data-tema] .namuna > .tag { background: var(--primary-s); color: var(--primary-d); box-shadow: inset 0 0 0 1px var(--primary-l); }
 
 .eslab { background: var(--gray-s); border-style: dashed; }
 .eslab > .tag { background: #fff; color: var(--muted); border: 1px solid var(--line); }
@@ -91,9 +96,14 @@ body {
 .diqqat { border-left: 5px solid #f59e0b; background: var(--warn-s); border-color: #fde3b8; }
 .diqqat > .tag { background: #f59e0b; color: #fff; }
 .diqqat .xato { color: #b91c1c; white-space: nowrap; }
-.diqqat .xato::before { content: "✗ "; font-weight: 800; }
+.diqqat .xato::before, .diqqat .togri::before {
+  /* ✗ va ✓ — qadam raqamlari kabi doiracha ichida */
+  display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 6px; border-radius: 50%;
+  font-size: 13px; font-weight: 900; line-height: 1; vertical-align: 2px;
+}
+.diqqat .xato::before { content: "✗"; color: #b91c1c; background: #fdecec; border: 1px solid #f5c2c2; }
 .diqqat .togri { white-space: nowrap; }
-.diqqat .togri::before { content: "✓ "; font-weight: 800; }
+.diqqat .togri::before { content: "✓"; color: #12805c; background: #e3f5ec; border: 1px solid #b7e2cb; }
 .diqqat li { margin: 8px 0; }
 .diqqat .togri { color: var(--ok); font-weight: 700; }
 
@@ -109,6 +119,8 @@ body {
   background: var(--gray-s); border: 1px solid var(--line);
   display: grid; place-items: center; font-size: 14px;
 }
+/* rang mavzusi bo'lsa — qadam raqamlari ham shu rangning ochiq tusida */
+html[data-tema] .qadam > b { background: var(--primary-s); border-color: var(--primary-l); color: var(--primary-d); }
 
 /* usullar yonma-yon */
 .usullar { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
@@ -214,7 +226,7 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 .pufak {
   position: relative;
   background: #fff;
-  border: 2px solid #c9cff2;
+  border: 2px solid var(--primary-l);
   border-radius: 18px;
   padding: 10px 14px;
   margin-bottom: 64px;
@@ -228,8 +240,8 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
   left: -10px; bottom: 14px;
   width: 16px; height: 16px;
   background: #fff;
-  border-left: 2px solid #c9cff2;
-  border-bottom: 2px solid #c9cff2;
+  border-left: 2px solid var(--primary-l);
+  border-bottom: 2px solid var(--primary-l);
   transform: rotate(45deg);
 }
 .gap.ong .pufak::after { left: auto; right: -10px; transform: rotate(-135deg); }
@@ -364,20 +376,54 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 
 /* ma'ruza qismlari (2026-10-24): Mavzu · Misollar ishlash · Mustahkamlash · Mustaqil ish · Javoblar */
 .m-qism {
-  margin: 44px 0 4px;
-  padding: 14px 18px;
-  border-radius: 14px;
-  background: var(--primary);
-  color: #fff;
+  /* qism sarlavhasi (2026-10-28): o'rtada rangli yostiqcha, tepasida «n-qism» yorlig'i, ikki chetida tasmalar */
+  --qc: var(--q1);
+  --qt: color-mix(in srgb, var(--qc) 22%, #fff);
+  --qb: color-mix(in srgb, var(--qc) 38%, #fff);
+  position: relative; overflow: hidden;
+  margin: 44px 0 8px; padding: 2px 0 8px;
+  display: grid; grid-template-columns: 1fr; justify-items: center; text-align: center;
+  color: #fff; break-inside: avoid;
 }
 .m-qism:first-of-type { margin-top: 22px; }
-.m-qism .q-n { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; opacity: .85; }
-.m-qism h2 { margin: 2px 0 0; font-size: 23px; line-height: 1.25; }
-.m-qism p { margin: 4px 0 0; font-size: 15px; opacity: .92; }
-.m-qism.q-misol { background: #334155; }
-.m-qism.q-mustah { background: var(--ok); }
-.m-qism.q-mustaqil { background: var(--violet); }
-.m-qism.q-javob { background: var(--warn); }
+.m-qism.q-misol { --qc: var(--q2); }
+.m-qism.q-mustah { --qc: var(--q3); }
+.m-qism.q-mustaqil { --qc: var(--q4); }
+.m-qism.q-javob { --qc: var(--q5); }
+.m-qism .q-n {
+  grid-row: 1; grid-column: 1; position: relative; z-index: 2; margin-bottom: -11px;
+  font-size: 12.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--qc) 55%, #10162b); background: var(--qt);
+  border: 1.5px solid var(--qb); border-radius: 11px; padding: 1px 16px;
+}
+.m-qism h2 {
+  grid-row: 2; grid-column: 1; position: relative; z-index: 1; margin: 0; min-width: min(250px, 70%); max-width: 82%;
+  padding: 16px 34px 12px; border-radius: 18px;
+  background: var(--qc); color: #fff; font-size: 23px; line-height: 1.25;
+  box-shadow: 0 0 0 5px var(--qt), 0 0 0 6.5px var(--qb);
+}
+.m-qism::before {
+  /* ikki chetdagi tasma — bitta butun tasma, yostiqcha ostidan o'tadi (ulanish joyi yo'q) */
+  content: ""; grid-row: 2; grid-column: 1; justify-self: stretch; align-self: center; height: 26px;
+  background: linear-gradient(var(--qc), var(--qc)) center / 100% 8px no-repeat, var(--qt);
+}
+.m-qism.m-bolim { margin: 6px 0 12px; }
+.m-qism.m-bolim h2 { font-size: 20px; padding: 14px 28px 10px; display: block; }
+.m-qism p { grid-row: 3; grid-column: 1; margin: 8px 0 0; font-size: 15px; color: var(--muted); }
+@media (max-width: 480px) {
+  .m-qism h2 { font-size: 20px; padding: 14px 20px 10px; min-width: 0; max-width: 86%; }
+}
+/* rang mavzulari (2026-10-28): har mavzu sahifasi 7 ta rang to'plamidan biriga ega (maruza.js — data-tema).
+   Asosiy rang (qoida ramkasi, chegaralar) va ochiq foni almashadi; qism sarlavhalari 7 rangdan ketma-ket 5 tasini oladi.
+   Ma'noli ranglar (surat — ko'k, maxraj — to'q sariq, natija — yashil, Diqqat — sariq) o'zgarmaydi. */
+html[data-tema] { --c0: #4f5bd5; --c1: #0f8f84; --c2: #d9604a; --c3: #c2477a; --c4: #1b8bc4; --c5: #7a4fd0; --c6: #3a8d47; }
+html[data-tema="0"] { --primary: #4f5bd5; --primary-s: #eef0fc; --primary-l: #d9ddf7; --primary-d: #2e37a0; --q1: var(--c0); --q2: var(--c1); --q3: var(--c2); --q4: var(--c3); --q5: var(--c4); }
+html[data-tema="1"] { --primary: #0f8f84; --primary-s: #e6f5f3; --primary-l: #c3e7e2; --primary-d: #0b5f58; --q1: var(--c1); --q2: var(--c2); --q3: var(--c3); --q4: var(--c4); --q5: var(--c5); }
+html[data-tema="2"] { --primary: #d9604a; --primary-s: #fdf0ec; --primary-l: #f5d3ca; --primary-d: #9a3424; --q1: var(--c2); --q2: var(--c3); --q3: var(--c4); --q4: var(--c5); --q5: var(--c6); }
+html[data-tema="3"] { --primary: #c2477a; --primary-s: #fceef4; --primary-l: #f2cfdd; --primary-d: #85234f; --q1: var(--c3); --q2: var(--c4); --q3: var(--c5); --q4: var(--c6); --q5: var(--c0); }
+html[data-tema="4"] { --primary: #1b8bc4; --primary-s: #e8f4fb; --primary-l: #c5e3f3; --primary-d: #0f5b82; --q1: var(--c4); --q2: var(--c5); --q3: var(--c6); --q4: var(--c0); --q5: var(--c1); }
+html[data-tema="5"] { --primary: #7a4fd0; --primary-s: #f3eefc; --primary-l: #e2d6f7; --primary-d: #4e2a96; --q1: var(--c5); --q2: var(--c6); --q3: var(--c0); --q4: var(--c1); --q5: var(--c2); }
+html[data-tema="6"] { --primary: #3a8d47; --primary-s: #eaf5ec; --primary-l: #c8e6cd; --primary-d: #23602d; --q1: var(--c6); --q2: var(--c0); --q3: var(--c1); --q4: var(--c2); --q5: var(--c3); }
 .m-sec.qism-ichi { margin-top: 18px; }
 /* bitta qoidaga ikki misol — keng ekranda yonma-yon */
 .misol-juft { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 0 14px; align-items: start; }
@@ -389,7 +435,7 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
   html:not(.a4-rejim) .gap { margin: 4px 0; }
   html:not(.a4-rejim) .gap img { width: 64px; height: auto; }
   html:not(.a4-rejim) .gap .pufak { font-size: 13px; padding: 6px 10px; }
-  html:not(.a4-rejim) .m-qism { margin: 18px 0 2px; padding: 8px 14px; }
+  html:not(.a4-rejim) .m-qism { margin: 18px 0 2px; }
   html:not(.a4-rejim) .box { padding: 10px 12px; margin: 8px 0; }
   html:not(.a4-rejim) .misol-juft > .box { margin-top: 8px; }
 }
@@ -400,7 +446,7 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
   display: inline-flex; align-items: center; gap: 7px;
   font: 700 15px/1 "Nunito Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
   color: var(--primary); background: var(--surface);
-  border: 1.5px solid #c9cff2; border-radius: 999px;
+  border: 1.5px solid var(--primary-l); border-radius: 999px;
   padding: 8px 15px; cursor: pointer;
 }
 .a4-btn:hover { background: var(--primary-s); border-color: var(--primary); }

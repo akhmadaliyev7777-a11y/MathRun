@@ -5,6 +5,29 @@
    Rangli makroslar: \sur{3} — surat (ko'k), \mx{4} — maxraj (to'q sariq), \nat{0,75} — natija (yashil). */
 (function () {
   "use strict";
+  // rang mavzusi: har sahifa 7 ta rang to'plamidan biriga ega — fayl nomidan (har safar bir xil, mavzudan mavzuga har xil); ?tema=0..6 bilan tanlasa bo'ladi
+  (function () {
+    const q = /[?&]tema=([0-6])/.exec(location.search);
+    const nom = location.pathname.split("/").pop().replace(/\.html$/, "");
+    let h = 2166136261;
+    for (let i = 0; i < nom.length; i++) h = Math.imul(h ^ nom.charCodeAt(i), 16777619) >>> 0;
+    h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0; h = (h ^ (h >>> 13)) >>> 0;
+    document.documentElement.setAttribute("data-tema", q ? q[1] : String(h % 7));
+  })();
+  // eski 9 bo'limli sahifalar (5-sinf): «1 Eslab olaylik» sarlavhalari ham yangi ko'rinishda — yostiqcha, «n-bo'lim» yorlig'i, tasma
+  document.querySelectorAll(".m-sec > h2 > .n:first-child").forEach(function (n, i) {
+    const h2 = n.parentNode;
+    const box = document.createElement("div");
+    box.className = "m-qism m-bolim";
+    box.style.setProperty("--qc", "var(--q" + (i % 5 + 1) + ")");
+    const tag = document.createElement("div");
+    tag.className = "q-n";
+    tag.textContent = n.textContent.trim() + "-bo'lim";
+    n.remove();
+    h2.parentNode.insertBefore(box, h2);
+    box.appendChild(tag);
+    box.appendChild(h2);
+  });
   const KATEX = "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/";
 
   function yukla(tag, attrs) {
@@ -32,6 +55,12 @@
       if (n.parentNode && /^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName)) return;
       // formuladan tashqarida: "3 594 627" — guruhlar orasida uzilmaydigan bo'sh joy
       let v = n.nodeValue.replace(/(\d) (?=\d{3}(?!\d))/g, "$1\u00A0");
+      // formuladan tashqaridagi "30/100" — ustunli kasr bo'lib chiqsin (chizma ichidagi yozuvlarga tegilmaydi)
+      if (/\d\s*\/\s*\d/.test(v) && !(n.parentNode && n.parentNode.closest("svg, .katex, code, textarea"))) {
+        v = v.split(/(\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\])/).map(function (bo, i) {
+          return i % 2 ? bo : bo.replace(/(^|[^\d\/.,])(\d+)\s*\/\s*(\d+)(?![\d\/])/g, "$1\\(\\frac{$2}{$3}\\)");
+        }).join("");
+      }
       // formula ichida: o'nli vergul {,} va guruhlar orasida \, (KaTeX oddiy bo'sh joyni tashlab yuboradi)
       v = v.replace(/\\\(([\s\S]*?)\\\)|\\\[([\s\S]*?)\\\]/g, function (m) {
         return m.replace(/(\d),(?=\d)/g, "$1{,}").replace(/(\d)[ \u00A0](?=\d{3}(?!\d))/g, "$1\\,");

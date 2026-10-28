@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rang to'plamlari</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+/* Ma'ruza uchun 5 ta rang to'plami (ko'rgazma). Har to'plam: 7 ta asosiy rang (qism sarlavhalari, qoida ramkasi)
+   va ularning ochiq tuslari (chizmalardagi shakllar, ramka foni). */
+:root{--ink:#1f2433;--muted:#5f6676;--bg:#f4f6fb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Nunito Sans",system-ui,sans-serif;padding:24px 16px 48px}
+h1{font-size:26px;margin:0 0 4px;text-align:center}
+.sub{color:var(--muted);text-align:center;margin:0 0 24px;font-weight:600}
+.galereya{display:flex;flex-wrap:wrap;gap:28px;justify-content:center}
+.tel{width:330px;background:#1f2433;border-radius:42px;padding:12px;box-shadow:0 18px 40px rgba(20,25,50,.25)}
+.ekran{background:#fbfcfe;border-radius:32px;overflow:hidden;height:715px;display:flex;flex-direction:column}
+.bosh{padding:18px 18px 12px;color:#fff;background:linear-gradient(135deg,var(--k1),var(--k2))}
+.bosh b{font-size:21px;display:block}
+.bosh small{opacity:.9;font-weight:700}
+.palitra{display:flex;gap:6px;padding:12px 18px 4px}
+.palitra i{flex:1;height:34px;border-radius:9px;position:relative;background:var(--c)}
+.palitra i::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:8px;border-radius:5px;background:var(--o)}
+.ich{padding:16px 14px 14px;overflow:hidden;display:flex;flex-direction:column;gap:7px}
+.qism{border-radius:10px;padding:6px 12px;color:#fff}
+.qism span{font-size:10px;font-weight:800;letter-spacing:.06em;opacity:.85;display:block}
+.qism b{font-size:15px}
+.qoida{border:1px solid var(--k1l);border-left:5px solid var(--k1);background:var(--k1s);border-radius:10px;padding:8px 10px;font-size:13.5px}
+.qoida .tag{display:inline-block;background:var(--k1);color:#fff;font-size:10px;font-weight:800;border-radius:999px;padding:1px 8px;margin-bottom:3px}
+.qoida strong{color:var(--k1d)}
+.mtag{align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.04em;border-radius:999px;padding:3px 10px;background:var(--k1s);color:var(--k1d);box-shadow:inset 0 0 0 1px var(--k1l)}
+.chizmalar{display:flex;gap:6px;justify-content:space-between;align-items:center;background:#fff;border:1px solid #e2e5ef;border-radius:10px;padding:6px}
+.chizmalar svg{display:block}
+.tanla{margin:auto 14px 14px;text-align:center;font-weight:800;font-size:14px;border-radius:12px;padding:9px;color:#fff;background:var(--k1)}
+.izoh{max-width:760px;margin:30px auto 0;background:#fff;border-radius:16px;padding:16px 20px;color:var(--muted);font-weight:600}
+.izoh b{color:var(--ink)}
+</style>
+</head>
+<body>
+<h1>Ma'ruza uchun rang to'plamlari</h1>
+<p class="sub">Har mavzu shu 5 ta to'plamdan biri bilan ochiladi. Ma'noli ranglar (surat, maxraj, natija, Diqqat) o'zgarmaydi.</p>
+<div class="galereya" id="g"></div>
+<div class="izoh"><b>Har to'plamda:</b> 7 ta asosiy rang (yuqoridagi qatorda) va ularning ochiq tuslari (ostidagi ingichka chiziq).
+Asosiy ranglar — qism sarlavhalari (Mavzu, Misollar ishlash, Mustahkamlash, Mustaqil ish, Javoblar) va qoida ramkasi;
+ochiq tuslar — chizmalardagi shakllar (doira bo'laklari, jismlar, ustunlar, kataklar) va ramka foni.</div>
+<script>
+const T = [{"nom": "Okean", "izoh": "ko'k · moviy · firuza", "c": ["#3b82f6", "#0891b2", "#0d9488", "#6366f1", "#0284c7", "#059669", "#8b5cf6"], "o": ["#dbeafe", "#cffafe", "#ccfbf1", "#e0e7ff", "#e0f2fe", "#d1fae5", "#ede9fe"]}, {"nom": "Bahor", "izoh": "yashil · pushti · moviy", "c": ["#16a34a", "#ec4899", "#0284c7", "#0d9488", "#d946ef", "#d97706", "#f43f5e"], "o": ["#dcfce7", "#fce7f3", "#e0f2fe", "#ccfbf1", "#fae8ff", "#fef3c7", "#ffe4e6"]}, {"nom": "Shafaq", "izoh": "marjon · to'q sariq · binafsha", "c": ["#ea580c", "#f43f5e", "#d946ef", "#8b5cf6", "#d97706", "#ec4899", "#a855f7"], "o": ["#ffedd5", "#ffe4e6", "#fae8ff", "#ede9fe", "#fef3c7", "#fce7f3", "#f3e8ff"]}, {"nom": "Lavanda", "izoh": "binafsha · siyohrang · pushti", "c": ["#8b5cf6", "#6366f1", "#ec4899", "#a855f7", "#0284c7", "#d946ef", "#3b82f6"], "o": ["#ede9fe", "#e0e7ff", "#fce7f3", "#f3e8ff", "#e0f2fe", "#fae8ff", "#dbeafe"]}, {"nom": "Quyosh", "izoh": "sariq · to'q sariq · firuza", "c": ["#d97706", "#ea580c", "#0d9488", "#f43f5e", "#059669", "#ef4444", "#0284c7"], "o": ["#fef3c7", "#ffedd5", "#ccfbf1", "#ffe4e6", "#d1fae5", "#fee2e2", "#e0f2fe"]}];
+const QISM = ["Mavzu","Misollar ishlash","Mustahkamlash","Mustaqil ish","Javoblar"];
+function doira(t){ // doiraviy diagramma — ochiq tuslar, chegarasi asosiy rangda
+  const v=[3,2,2,1], jami=8; let a=-Math.PI/2, s="";
+  v.forEach((x,i)=>{const d=x/jami*2*Math.PI, a1=a+d, r=34, cx=40, cy=40;
+    s+=`<path d="M${cx} ${cy}L${cx+r*Math.cos(a)} ${cy+r*Math.sin(a)}A${r} ${r} 0 ${d>Math.PI?1:0} 1 ${cx+r*Math.cos(a1)} ${cy+r*Math.sin(a1)}Z" fill="${t.o[i]}" stroke="${t.c[i]}" stroke-width="1.6"/>`; a=a1;});
+  return `<svg width="80" height="80" viewBox="0 0 80 80">${s}</svg>`;
+}
+function kub(t){ // kuboid — uch yog'i uch xil ochiq tusda
+  return `<svg width="84" height="80" viewBox="0 0 84 80"><path d="M10 30L44 30L44 72L10 72Z" fill="${t.o[0]}" stroke="${t.c[0]}" stroke-width="1.6"/>
+  <path d="M10 30L30 12L64 12L44 30Z" fill="${t.o[1]}" stroke="${t.c[1]}" stroke-width="1.6"/>
+  <path d="M44 30L64 12L64 54L44 72Z" fill="${t.o[2]}" stroke="${t.c[2]}" stroke-width="1.6"/></svg>`;
+}
+function ustun(t){ // ustunli diagramma
+  const h=[38,58,26,48]; let s=`<line x1="6" y1="72" x2="86" y2="72" stroke="#9aa3b5" stroke-width="1.4"/>`;
+  h.forEach((x,i)=>{s+=`<rect x="${12+i*19}" y="${72-x}" width="14" height="${x}" rx="2" fill="${t.o[i+3]}" stroke="${t.c[i+3]}" stroke-width="1.4"/>`;});
+  return `<svg width="92" height="80" viewBox="0 0 92 80">${s}</svg>`;
+}
+document.getElementById("g").innerHTML = T.map((t,n)=>`
+<div class="tel" style="--k1:${t.c[0]};--k2:${t.c[1]};--k1s:${t.o[0]};--k1l:${t.o[0]};--k1d:${t.c[0]}">
+ <div class="ekran">
+  <div class="bosh"><small>${n+1}-to'plam</small><b>${t.nom}</b><small>${t.izoh}</small></div>
+  <div class="palitra">${t.c.map((c,i)=>`<i style="--c:${c};--o:${t.o[i]}"></i>`).join("")}</div>
+  <div class="ich">
+   ${QISM.map((q,i)=>`<div class="qism" style="background:linear-gradient(100deg,${t.c[i]} 35%,${t.o[i]} 160%)"><span>${i+1}-QISM</span><b>${q}</b></div>`).join("").replace(/(<\/div>)(<div class="qism"[^>]*><span>2-QISM)/,`$1<span class="mtag">1-MISOL · JAVOBNI YAXLITLASH</span><div class="qoida"><span class="tag">QOIDA</span><br><strong>Tub son</strong> — faqat ikkita bo'luvchisi bor son: 1 va o'zi.</div><div class="chizmalar">${doira(t)}${kub(t)}${ustun(t)}</div>$2`)}
+  </div>
+ </div>
+</div>`).join("");
+</script>
+</body>
+</html>

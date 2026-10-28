@@ -1,0 +1,245 @@
+{
+ "1.1": {
+  "id": "tub-sonlar-daraja",
+  "nom": "Tub sonlar, tub ko'paytuvchilarga ajratish va daraja",
+  "darslik": [
+   2,
+   8
+  ],
+  "mashq": "1–6"
+ },
+ "1.2": {
+  "id": "ekub",
+  "nom": "Eng katta umumiy bo'luvchi (EKUB)",
+  "darslik": [
+   9,
+   14
+  ],
+  "mashq": "7–12"
+ },
+ "1.3": {
+  "id": "ekuk",
+  "nom": "Eng kichik umumiy karrali (EKUK)",
+  "darslik": [
+   15,
+   20
+  ],
+  "mashq": "13–18"
+ },
+ "1.4": {
+  "id": "kvadrat-kub-ildiz",
+  "nom": "Sonning kvadrat ildizi va kub ildizi",
+  "darslik": [
+   21,
+   26
+  ],
+  "mashq": "19–24"
+ },
+ "2.1": {
+  "id": "manfiy-son-sonlar-oqi",
+  "nom": "Manfiy son tushunchasi va sonlar o'qi",
+  "darslik": [
+   32,
+   36
+  ],
+  "mashq": "27–30"
+ },
+ "2.2": {
+  "id": "butun-sonlar-qoshish-ayirish",
+  "nom": "Butun sonlarni qo'shish va ayirish",
+  "darslik": [
+   37,
+   43
+  ],
+  "mashq": "31–34"
+ },
+ "2.3": {
+  "id": "butun-sonlar-kopaytirish-bolish",
+  "nom": "Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar",
+  "darslik": [
+   44,
+   50
+  ],
+  "mashq": "35–40"
+ },
+ "2.4": {
+  "id": "ratsional-irratsional-haqiqiy-sonlar",
+  "nom": "Ratsional, irratsional va haqiqiy sonlar",
+  "darslik": [
+   51,
+   53
+  ],
+  "mashq": "41–44"
+ },
+ "2.5": {
+  "id": "haqiqiy-sonlar-amallar",
+  "nom": "Haqiqiy sonlar ustida amallar",
+  "darslik": [
+   54,
+   60
+  ],
+  "mashq": "45–50"
+ },
+ "3.1": {
+  "id": "xonagacha-yaxlitlash",
+  "nom": "Sonlarni belgilangan xonasigacha yaxlitlash",
+  "darslik": [
+   66,
+   71
+  ],
+  "mashq": "53–56"
+ },
+ "3.2": {
+  "id": "ahamiyatli-raqamgacha-yaxlitlash",
+  "nom": "Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash",
+  "darslik": [
+   72,
+   77
+  ],
+  "mashq": "57–?"
+ },
+ "3.3": {
+  "id": "chamalash",
+  "nom": "Chamalash",
+  "darslik": [
+   78,
+   86
+  ],
+  "mashq": "?–68"
+ },
+ "4.1": {
+  "id": "algebraga-kirish",
+  "nom": "Algebraga kirish",
+  "darslik": [
+   90,
+   99
+  ],
+  "mashq": "71–76"
+ },
+ "4.2": {
+  "id": "chiziqli-ifodalarni-soddalashtirish",
+  "nom": "Chiziqli ifodalarni soddalashtirish",
+  "darslik": [
+   100,
+   105
+  ],
+  "mashq": "77–80"
+ },
+ "4.3": {
+  "id": "qavslarni-ochish",
+  "nom": "Chiziqli ifodalarda qavslarni ochish",
+  "darslik": [
+   106,
+   113
+  ],
+  "mashq": "81–?"
+ },
+ "4.4": {
+  "id": "kopaytuvchilarga-ajratish",
+  "nom": "Algebraik ifodalarni ko'paytuvchilarga ajratish",
+  "darslik": [
+   114,
+   116
+  ],
+  "mashq": "?–92"
+ },
+ "5.1": {
+  "id": "sodda-chiziqli-tenglamalar",
+  "nom": "Sodda chiziqli tenglamalar",
+  "darslik": [
+   124,
+   129
+  ],
+  "mashq": "101–106"
+ },
+ "5.2": {
+  "id": "qavs-kasr-chiziqli-tenglamalar",
+  "nom": "Qavs va kasrlar qatnashgan chiziqli tenglamalar",
+  "darslik": [
+   130,
+   133
+  ],
+  "mashq": "107–112"
+ },
+ "5.3": {
+  "id": "sodda-kasr-chiziqli-tenglamalar",
+  "nom": "Sodda kasr-chiziqli tenglamalar",
+  "darslik": [
+   134,
+   136
+  ],
+  "mashq": "113–118"
+ },
+ "5.4": {
+  "id": "tenglama-matnli-masalalar",
+  "nom": "Chiziqli tenglama tuzib yechiladigan matnli masalalar",
+  "darslik": [
+   137,
+   140
+  ],
+  "mashq": "119–?"
+ },
+ "6.1": {
+  "id": "nuqta-togri-chiziq-tekislik",
+  "nom": "Nuqta, to'g'ri chiziq va tekislik",
+  "darslik": [
+   146,
+   148
+  ],
+  "mashq": "II qism"
+ },
+ "6.2": {
+  "id": "burchaklar-tushunchasi",
+  "nom": "Burchaklar",
+  "darslik": [
+   149,
+   155
+  ],
+  "mashq": "II qism"
+ },
+ "6.3": {
+  "id": "parallel-chiziqlar-kesuvchi",
+  "nom": "Parallel to'g'ri chiziqlar va kesuvchi",
+  "darslik": [
+   156,
+   162
+  ],
+  "mashq": "II qism"
+ },
+ "7.1": {
+  "id": "uchburchaklar-7sinf",
+  "nom": "Uchburchaklar",
+  "darslik": [
+   168,
+   178
+  ],
+  "mashq": "II qism"
+ },
+ "7.2": {
+  "id": "tortburchaklar-7sinf",
+  "nom": "To'rtburchaklar",
+  "darslik": [
+   179,
+   189
+  ],
+  "mashq": "II qism"
+ },
+ "7.3": {
+  "id": "kopburchaklar",
+  "nom": "Ko'pburchaklar",
+  "darslik": [
+   190,
+   199
+  ],
+  "mashq": "II qism"
+ },
+ "7.4": {
+  "id": "uchburchak-tortburchak-yasash",
+  "nom": "Uchburchak va to'rtburchaklarni yasash",
+  "darslik": [
+   200,
+   204
+  ],
+  "mashq": "II qism"
+ }
+}

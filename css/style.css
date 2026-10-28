@@ -2325,3 +2325,18 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
   .site-login-btn { height: 34px; padding: 0 11px; }
   .site-login-btn.is-user { padding: 0 1px; }
 }
+
+/* mavzu kartochkalari — 7 ta rang mavzusi (ma'ruza sahifasidagi bilan bir xil; js/main.js topicTema). Tugmalar (Ma'ruza, Test, Interaktiv) o'zgarmaydi — holat belgisi */
+.topic-card[data-tema="0"] { --tc: #4f5bd5; --tc-s: #eef0fc; --tc-l: #c9cff2; }
+.topic-card[data-tema="1"] { --tc: #0f8f84; --tc-s: #e6f5f3; --tc-l: #b9e2dc; }
+.topic-card[data-tema="2"] { --tc: #d9604a; --tc-s: #fdf0ec; --tc-l: #f2c8bd; }
+.topic-card[data-tema="3"] { --tc: #c2477a; --tc-s: #fceef4; --tc-l: #eec4d5; }
+.topic-card[data-tema="4"] { --tc: #1b8bc4; --tc-s: #e8f4fb; --tc-l: #bcdcef; }
+.topic-card[data-tema="5"] { --tc: #7a4fd0; --tc-s: #f3eefc; --tc-l: #dccdf5; }
+.topic-card[data-tema="6"] { --tc: #3a8d47; --tc-s: #eaf5ec; --tc-l: #bfe0c5; }
+.topic-card[data-tema] { border-top: 3px solid var(--tc); }
+.topic-card[data-tema] .tc-icon { background: var(--tc-s); }
+.topic-card[data-tema] .tc-num { color: var(--tc); }
+.topic-card[data-tema]:hover { border-color: var(--tc-l); border-top-color: var(--tc); }
+.topic-card[data-tema] .tc-main:hover .tc-title { color: var(--tc); }
+:root[data-theme="dark"] .topic-card[data-tema] .tc-icon { background: var(--tc-s); }
