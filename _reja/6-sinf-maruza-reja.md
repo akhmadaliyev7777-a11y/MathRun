@@ -108,9 +108,13 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 2026-10-27. Ma'ruza (5 qism, `data-yoy` chizmalari — 20 ta) va 20+20 test (8 ta chizmali savol), PDF.
 **Kitob bilan solishtirildi:** yarim doira yuzi (diametrdan radius) ✅; chorak doira yuzi ✅; to'rt chorak — doira ✅; bo'laklarni qo'shish (yarim + chorak) ✅; bo'yalgan soha — ayirish ✅; kesib olib yopishtirish (in-yan) ✅; kalkulyator π va yaxlitlash ✅; daftar topshiriqlari ✅. Kitobda qoida gapi yo'q — ramkalar «Usul · …». Kitob sonlari ishlatilmadi. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 8 ta test savoli ma'ruza mashqiga o'xshagani uchun vaziyati almashtirildi.
 
-#### ☐ 19. Murakkab shakllarning yuzi va perimetri — D1 153–162; M1 187–198
+#### ✅ 19. Murakkab shakllarning yuzi va perimetri — D1 153–162; M1 187–198
+2026-10-27. Ma'ruza (5 qism, 28 chizma — `data-yoy` kengaytirildi: teshikli shakllar "yollar", to'liq doira, kulrang "chiziq") va 20+20 test (11 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** «Qarang va o'rganing» 1–8 (kvadrat − chorak doira, chorak doira − uchburchak, burchakdagi choraklar, yarim oy perimetri π orqali, hovuz yo'lkasi, uchburchak + yarim doiralar, simmetrik shaklni bo'lish, bo'lakni ko'chirish) ✅; «Bajaring va o'rganing» 1–7 va daftar turlari ✅. Kitobda qoida gapi yo'q — ramkalar «Usul · …». M1 198 (doira bo'laklarini terish) kiritilmadi — 17-mavzuda bor. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitob/daftarga o'xshagan 5 ta mashq va 12 ta test savolining vaziyati almashtirildi.
 
-#### ☐ 20. Tezlik, masofa va vaqt — D2 2–11; M2 1–10
+#### ✅ 20. Tezlik, masofa va vaqt — D2 2–11; M2 1–10
+2026-10-27. Ma'ruza (5 qism, yangi chizmalar `data-yol` — yo'l bo'laklari, masofa/vaqt, mashina; `data-spidometr`) va 20+20 test (5 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** me'yor (eslatma) ✅; tezlik ta'rifi va birliklari (km/soat, m/min, m/s) ✅; uch formula, ikki usul (1 soatga keltirib / formula) ✅; uchburchak ✅; jadvalni to'ldirish ✅; yarim va chorak soat ✅; boshlanish/tugash vaqti ✅; spidometr ✅; hayvonlar tezligi jadvali (qushlar bilan) ✅; kim tezroq va qanchaga ✅; o'sha masofa yangi tezlikda ✅. Kiritilmadi: Usain Bolt hikoyasi, internetdan izlash, juftlikda muhokama. **Tekshiruv:** mustaqil tekshiruvchi — 1 ta test chalg'ituvchisi tuzatildi; daftarga o'xshagan 7 ta mashq va 4 ta test savolining vaziyati almashtirildi.
 
 #### ☐ 21. Ikki xil tezlikdagi harakat — D2 12–14; M2 11–14
 

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Murakkab shakllarning yuzi va perimetri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=39">
+</head>
+<body data-a4>
+<main class="m-wrap">
+
+<h1 class="m-title">Murakkab shakllarning yuzi va perimetri</h1>
+<p class="m-lead">Hovuz atrofidagi yo'lka, gulzor, deraza, plitka naqshi — ko'p shakllar kvadrat, uchburchak, yarim va chorak doiralardan tuzilgan. Ularning yuzi va perimetrini bo'laklarga ajratib topamiz.</p>
+
+<!-- ============ 1-QISM: MAVZU ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Mavzu</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box qoida">
+    <span class="tag">Usul · murakkab shaklning yuzi</span>
+    <div class="qadam"><b>1</b><span>Shaklni tanish bo'laklarga ajrating: kvadrat, to'g'ri to'rtburchak, uchburchak, doira, yarim doira, chorak doira.</span></div>
+    <div class="qadam"><b>2</b><span>Har bir bo'lakning yuzini toping.</span></div>
+    <div class="qadam"><b>3</b><span>Bo'yalgan soha bo'laklardan yig'ilgan bo'lsa — yuzlarni qo'shing. Bo'yalgan soha katta shakldan bo'lak olib tashlanib hosil bo'lgan bo'lsa — katta shakl yuzidan olib tashlangan bo'lak yuzini ayiring.</span></div>
+    <p>Kerakli formulalar: kvadrat \(a \cdot a\); to'g'ri to'rtburchak \(a \cdot b\); uchburchak \(\frac{1}{2} \cdot \text{asos} \cdot \text{balandlik}\); doira \(\pi r^2\); yarim doira \(\frac{1}{2} \cdot \pi r^2\); chorak doira \(\frac{1}{4} \cdot \pi r^2\).</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · kvadratdan chorak doira</span>
+    <p>Kvadratning tomoni 10 cm. Uning ichiga radiusi 10 cm bo'lgan chorak doira chizildi. Bo'yalgan soha yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.</p>
+    <div data-yoy='{"olcham":7.5,"yol":[["k",10,0,10,10],["k",10,10,0,10],["y",0,0,10,90,0]],"chiziq":[["k",0,0,10,0],["k",0,0,0,10]],"olchov":[[0,0,10,0,"10 cm",0,-1.2]]}'></div>
+    <div class="qadam"><b>1</b><span>Kvadrat: \(10 \cdot 10 = 100\ \text{cm}^2\).</span></div>
+    <div class="qadam"><b>2</b><span>Chorak doira: \(\frac{1}{4} \cdot 3,14 \cdot 10 \cdot 10 = 78,5\ \text{cm}^2\).</span></div>
+    <div class="qadam"><b>3</b><span>Bo'yalgan soha: \(100 - 78,5 = \nat{21,5}\ \text{cm}^2\).</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · doiradan uchburchak</span>
+    <p>Chorak doiraning radiusi 20 cm. Bo'yalgan soha yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.</p>
+    <div data-yoy='{"olcham":3.75,"yol":[["k",0,20,20,0],["y",0,0,20,0,90]],"chiziq":[["k",0,0,20,0],["k",0,0,0,20]],"olchov":[[0,0,20,0,"20 cm",0,-2.4]]}'></div>
+    <div class="qadam"><b>1</b><span>Chorak doira: \(\frac{1}{4} \cdot 3,14 \cdot 20 \cdot 20 = 314\ \text{cm}^2\).</span></div>
+    <div class="qadam"><b>2</b><span>Uchburchakning to'g'ri burchak tomonlari — radiuslar: \(\frac{1}{2} \cdot 20 \cdot 20 = 200\ \text{cm}^2\).</span></div>
+    <div class="qadam"><b>3</b><span>Bo'yalgan soha: \(314 - 200 = \nat{114}\ \text{cm}^2\).</span></div>
+  </div>
+  </div>
+
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Bo'yalgan soha — kvadratning chorak doiradan ortib qolgan qismi. Shuning uchun yuzlar ayiriladi.</div></div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · bo'laklarni birlashtirish</span>
+    <div class="row" style="justify-content:space-between;align-items:center;gap:4px 16px">
+      <div style="flex:1 1 300px">
+        <div class="qadam"><b>1</b><span>Radiusi bir xil bo'lgan 4 ta chorak doira birga — bitta butun doira.</span></div>
+        <div class="qadam"><b>2</b><span>Radiusi bir xil bo'lgan 2 ta yarim doira birga — bitta butun doira.</span></div>
+        <div class="qadam"><b>3</b><span>Shuning uchun bo'laklarning yuzini alohida hisoblash shart emas: bitta doiraning yuzini topish yetarli.</span></div>
+      </div>
+      <div class="row" style="justify-content:center;align-items:flex-end;text-align:center;gap:4px 20px">
+        <div><div data-yoy='{"olcham":11,"yol":[["y",0,0,4,0,360]],"ichki":[[-4,0,4,0],[0,-4,0,4]]}'></div><p>4 ta chorak doira</p></div>
+        <div><div data-yoy='{"olcham":11,"yol":[["y",0,0,4,0,360]],"ichki":[[-4,0,4,0]]}'></div><p>2 ta yarim doira</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · burchaklarda 4 ta chorak doira</span>
+    <p>Kvadratning tomoni 20 cm. Uning har bir burchagida bir xil chorak doira chizilgan, ular bir-biriga tegib turadi. Bo'yalgan soha yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.</p>
+    <div data-yoy='{"olcham":4.5,"yol":[["y",20,0,10,180,90],["y",20,20,10,270,180],["y",0,20,10,360,270],["y",0,0,10,90,0]],"chiziq":[["k",0,0,20,0],["k",20,0,20,20],["k",20,20,0,20],["k",0,20,0,0]],"olchov":[[0,0,20,0,"20 cm",0,-2.4]]}'></div>
+    <div class="qadam"><b>1</b><span>Chorak doiralar tomonning o'rtasida tegadi: radius \(20 : 2 = 10\) cm.</span></div>
+    <div class="qadam"><b>2</b><span>4 ta chorak doira — bitta doira: \(3,14 \cdot 10 \cdot 10 = 314\ \text{cm}^2\).</span></div>
+    <div class="qadam"><b>3</b><span>Kvadrat \(20 \cdot 20 = 400\ \text{cm}^2\). Bo'yalgan soha: \(400 - 314 = \nat{86}\ \text{cm}^2\).</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · hovuz atrofidagi yo'lka</span>
+    <p>Hovuz to'g'ri to'rtburchak va ikki yarim doiradan iborat: to'g'ri qismining uzunligi 20 m, eni 10 m. Atrofida eni 1 m bo'lgan yo'lka bor. Yo'lkaning yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.</p>
+    <div data-yoy='{"olcham":7,"yol":[["k",0,-6,20,-6],["y",20,0,6,-90,90],["k",20,6,0,6],["y",0,0,6,90,270]],"yollar":[[["k",0,-5,20,-5],["y",20,0,5,-90,90],["k",20,5,0,5],["y",0,0,5,90,270]]],"ichki":[[0,-6,0,6],[20,-6,20,6]],"olchov":[[0,6,20,6,"20 m",0,1.4],[10,-5,10,5,"10 m"]]}'></div>
+    <div class="qadam"><b>1</b><span>Ikkita to'g'ri bo'lak: \(2 \cdot 20 \cdot 1 = 40\ \text{m}^2\).</span></div>
+    <div class="qadam"><b>2</b><span>Ikki chetdagi yarim halqalar birga — bitta halqa. Radiuslar: ichki \(10 : 2 = 5\) m, tashqi \(5 + 1 = 6\) m.</span></div>
+    <div class="qadam"><b>3</b><span>Halqa: \(3,14 \cdot 6 \cdot 6 - 3,14 \cdot 5 \cdot 5 = 113,04 - 78,5 = 34,54\ \text{m}^2\).</span></div>
+    <div class="qadam"><b>4</b><span>Yo'lka: \(40 + 34,54 = \nat{74,54}\ \text{m}^2\).</span></div>
+  </div>
+  </div>
+
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Yuz — shakl egallagan joy, kvadrat birlikda: \(\text{cm}^2\), \(\text{m}^2\). Perimetr — shaklni o'rab turgan chiziq uzunligi: cm, m.</div></div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · murakkab shaklning perimetri</span>
+    <div class="qadam"><b>1</b><span>Shaklni o'rab turgan chiziqni boshidan oxirigacha aylanib chiqing. Qaysi bo'laklari yoy, qaysilari to'g'ri chiziq ekanini belgilang.</span></div>
+    <div class="qadam"><b>2</b><span>Har bir yoy qaysi aylananing qismi ekanini aniqlang (yarmimi, choragimi) va uzunligini toping.</span></div>
+    <div class="qadam"><b>3</b><span>Barcha yoy va to'g'ri chiziqlar uzunliklarini qo'shing. Shakl ichidagi chiziqlar perimetrga kirmaydi.</span></div>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · javob \(\pi\) orqali</span>
+    <p>Chorak doiradan yarim doira kesib olindi. Chorak doiraning radiusi 10 cm. Bo'yalgan soha perimetrini \(\pi\) orqali ifodalang.</p>
+    <div data-yoy='{"olcham":8,"yol":[["k",0,10,0,0,"10 cm","r"],["y",5,0,5,180,0],["y",0,0,10,0,90]],"chiziq":[["k",0,0,10,0]]}'></div>
+    <div class="qadam"><b>1</b><span>Katta yoy — aylananing choragi: \(\frac{1}{4} \cdot 2 \cdot 10 \cdot \pi = 5\pi\) cm.</span></div>
+    <div class="qadam"><b>2</b><span>Kichik yoy — diametri 10 cm bo'lgan aylananing yarmi: \(\frac{1}{2} \cdot 10 \cdot \pi = 5\pi\) cm.</span></div>
+    <div class="qadam"><b>3</b><span>Chap tomonda radius qoldi: 10 cm. Perimetr: \(5\pi + 5\pi + 10 = \nat{(10\pi + 10)}\) cm.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · uchburchak va 3 ta yarim doira</span>
+    <p>Gulzor to'g'ri burchakli uchburchak (tomonlari 5 m, 12 m, 13 m) va uning tomonlariga chizilgan 3 ta yarim doiradan iborat. Gulzorning a) perimetrini, b) yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.</p>
+    <div data-yoy='{"olcham":8.5,"yol":[["y",0,2.5,2.5,90,270],["y",6,0,6,180,360],["y",6,2.5,6.5,-22.62,157.38]],"ichki":[[0,0,12,0,"12 m","",-1],[0,0,0,5,"5 m","",-1],[0,5,12,0,"13 m","",-1]]}'></div>
+    <div class="qadam"><b>a</b><span>Chegarada faqat 3 ta yoy bor: \(\frac{1}{2} \cdot (5 + 12 + 13) \cdot \pi = 15\pi \approx \nat{47,1}\) m.</span></div>
+    <div class="qadam"><b>b</b><span>Yarim doiralar: \(\frac{1}{2} \cdot 3,14 \cdot 84,5 = 132,665\ \text{m}^2\) (bu yerda \(2,5 \cdot 2,5 + 6 \cdot 6 + 6,5 \cdot 6,5 = 84,5\)). Uchburchak: \(\frac{1}{2} \cdot 5 \cdot 12 = 30\ \text{m}^2\). Jami \(162,665 \approx \nat{162,67}\ \text{m}^2\).</span></div>
+  </div>
+  </div>
+</section>
+
+<!-- ============ 2-QISM: MISOLLAR ISHLASH ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Misollar ishlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">1-misol · shaklning yarmi bilan ishlash</span>
+    <p>Kvadratning tomoni 10 cm. Uning ikki qarama-qarshi uchidan radiusi 10 cm bo'lgan chorak aylanalar chizildi. Bo'yalgan yaproq shaklining yuzi va perimetrini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.</p>
+    <div class="row" style="justify-content:space-between;align-items:center;gap:4px 16px">
+      <div style="flex:1 1 320px">
+        <div class="qadam"><b>1</b><span>Punktir diagonal yaproqni ikkita teng yarmiga ajratadi. Har bir yarmi — chorak doiradan uchburchak olib tashlangan qism (1-qismdagi kabi).</span></div>
+        <div class="qadam"><b>2</b><span>Yarmi: \(\frac{1}{4} \cdot 3,14 \cdot 10 \cdot 10 - \frac{1}{2} \cdot 10 \cdot 10 = 78,5 - 50 = 28,5\ \text{cm}^2\).</span></div>
+        <div class="qadam"><b>3</b><span>Yaproq: \(2 \cdot 28,5 = \nat{57}\ \text{cm}^2\).</span></div>
+        <div class="qadam"><b>4</b><span>Perimetr — ikkita chorak yoy: \(2 \cdot \frac{1}{4} \cdot 2 \cdot 3,14 \cdot 10 = \nat{31,4}\) cm. Diagonal ichkarida — qo'shilmaydi.</span></div>
+      </div>
+      <div data-yoy='{"olcham":12,"yol":[["y",0,0,10,0,90],["y",10,10,10,180,270]],"chiziq":[["k",0,0,10,0],["k",10,0,10,10],["k",10,10,0,10],["k",0,10,0,0]],"ichki":[[10,0,0,10]],"olchov":[[0,0,10,0,"10 cm",0,-1.2]]}'></div>
+    </div>
+    <p>Boshqa yo'l: ikkala chorak doiraning yuzi \(2 \cdot 78,5 = 157\ \text{cm}^2\). Ularda yaproq ikki marta sanalgan, kvadrat esa bir marta: \(157 - 100 = 57\ \text{cm}^2\). Javob bir xil.</p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · bo'lakni ko'chirish</span>
+    <p>Kvadratning tomoni 10 cm. Uning chap tomonidan yarim doira o'yib olinib, o'ng tomoniga yopishtirildi. Hosil bo'lgan shaklning yuzi va perimetrini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.</p>
+    <div class="row" style="justify-content:space-between;align-items:center;gap:4px 16px">
+      <div style="flex:1 1 320px">
+        <div class="qadam"><b>1</b><span>Qancha olingan bo'lsa, shuncha qo'shilgan. Yuz kvadratnikidek qoladi: \(10 \cdot 10 = \nat{100}\ \text{cm}^2\).</span></div>
+        <div class="qadam"><b>2</b><span>Chegarada: tepada va pastda kvadrat tomonlari \(10 + 10 = 20\) cm, chapda va o'ngda ikkita yarim aylana yoyi: \(2 \cdot \frac{1}{2} \cdot 3,14 \cdot 10 = 31,4\) cm.</span></div>
+        <div class="qadam"><b>3</b><span>Perimetr: \(20 + 31,4 = \nat{51,4}\) cm.</span></div>
+      </div>
+      <div data-yoy='{"olcham":10,"yol":[["k",0,0,10,0],["y",10,5,5,-90,90],["k",10,10,0,10],["y",0,5,5,90,-90]],"ichki":[[10,0,10,10],[0,0,0,10]],"olchov":[[0,0,10,0,"10 cm",0,-1.2]]}'></div>
+    </div>
+    <p>Yuz o'zgarmadi, perimetr esa o'zgardi: kvadratning perimetri 40 cm edi.</p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-misol · doiraning \(\frac{1}{3}\) qismi</span>
+    <p>Doira 3 ta teng bo'lakka bo'lindi. Doiraning radiusi 6 cm. Bitta bo'lakning perimetri va yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.</p>
+    <div class="row" style="justify-content:space-between;align-items:center;gap:4px 16px">
+      <div style="flex:1 1 320px">
+        <div class="qadam"><b>1</b><span>Bo'lakning yoyi — aylananing \(\frac{1}{3}\) qismi: \(\frac{1}{3} \cdot 2 \cdot 3,14 \cdot 6 = 12,56\) cm.</span></div>
+        <div class="qadam"><b>2</b><span>Perimetr: yoy va ikkita radius: \(12,56 + 6 + 6 = \nat{24,56}\) cm.</span></div>
+        <div class="qadam"><b>3</b><span>Yuz — doira yuzining \(\frac{1}{3}\) qismi: \(\frac{1}{3} \cdot 3,14 \cdot 6 \cdot 6 = \nat{37,68}\ \text{cm}^2\).</span></div>
+      </div>
+      <div data-yoy='{"olcham":12,"toliq":[[0,0,6]],"yol":[["k",0,0,6,0,"6 cm","r"],["y",0,0,6,0,120],["k",-3,5.196,0,0,"","r"]],"chiziq":[["k",0,0,-3,-5.196]],"nuqta":{"O":[0,0,-14,6]}}'></div>
+    </div>
+    <p>Yarim doira — \(\frac{1}{2}\), chorak doira — \(\frac{1}{4}\). Bo'lak doiraning qaysi qismi bo'lsa, yoyi ham, yuzi ham shu qismga ko'paytiriladi.</p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">4-misol · bir-biriga tegib turgan uchta doira</span>
+    <p>Radiusi 7 cm bo'lgan uchta bir xil doira bir-biriga tegib turibdi. Ular orasidagi bo'yalgan soha perimetrini toping <span style="white-space:nowrap">(\(\pi = \frac{22}{7}\))</span>.</p>
+    <div class="row" style="justify-content:space-between;align-items:center;gap:4px 16px">
+      <div style="flex:1 1 320px">
+        <div class="qadam"><b>1</b><span>Markazlarni tutashtiramiz: \(AB = BC = AC = 7 + 7 = 14\) cm. Uchburchak teng tomonli, har bir burchagi \(60°\).</span></div>
+        <div class="qadam"><b>2</b><span>\(60°\) — to'liq aylananing \(360° : 60° = 6\) dan bir qismi. Har bir yoy aylananing \(\frac{1}{6}\) qismi, uchta yoy — \(\frac{3}{6} = \frac{1}{2}\) qismi.</span></div>
+        <div class="qadam"><b>3</b><span>Perimetr: \(\frac{1}{2} \cdot 2 \cdot \frac{22}{7} \cdot 7 = \nat{22}\) cm.</span></div>
+      </div>
+      <div data-yoy='{"olcham":9,"yol":[["y",14,0,7,180,120],["y",7,12.124,7,300,240],["y",0,0,7,60,0]],"chiziq":[["y",0,0,7,0,360],["y",14,0,7,0,360],["y",7,12.124,7,0,360]],"ichki":[[0,0,14,0,"14 cm","",-1],[14,0,7,12.124],[7,12.124,0,0]],"nuqta":{"A":[0,0,-14,6],"B":[14,0,14,6],"C":[7,12.124,0,-10]}}'></div>
+    </div>
+  </div>
+
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Yuzda ichki chiziq bo'laklarni ajratishga yordam beradi. Perimetrda esa u umuman sanalmaydi!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Diqqat!</span>
+    <ol>
+      <li>Perimetrga shakl ichidagi chiziq qo'shilmaydi. To'g'ri to'rtburchak (8 dm × 5 dm) va uning 8 dm li tomoni ustida yarim doira: <span class="xato">\(8 + 5 + 5 + 8 + 12,56\)</span> &nbsp; <span class="togri">\(8 + 5 + 5 + 12,56 = 30,56\) dm</span></li>
+      <li>Bo'yalgan soha topilganda kattadan kichik ayiriladi, aksincha emas: <span class="xato">\(78,5 - 100\)</span> &nbsp; <span class="togri">\(100 - 78,5 = 21,5\ \text{cm}^2\)</span></li>
+      <li>Kvadrat burchagidagi chorak doiraning radiusi kvadrat tomoniga teng. 4 ta chorak doira tomon o'rtasida tegib tursa, radius — tomonning yarmi.</li>
+      <li>Ichkariga botgan yoy ham perimetrga kiradi. Yuzda esa uning bo'lagi ayiriladi.</li>
+      <li>Yuz \(\text{cm}^2\), \(\text{m}^2\) da, perimetr cm, m da yoziladi.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 3-QISM: MUSTAHKAMLASH ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Mustahkamlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Bo'yalgan soha yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.
+      <div class="row" style="justify-content:center;align-items:flex-end;text-align:center;gap:4px 24px">
+        <div><div data-yoy='{"olcham":13,"yol":[["k",0,6,0,0],["k",0,0,6,0],["y",6,6,6,270,180]],"chiziq":[["k",6,0,6,6],["k",6,6,0,6]],"olchov":[[0,0,6,0,"6 cm",0,-1.2]]}'></div><p>a)</p></div>
+        <div><div data-yoy='{"olcham":13,"yol":[["k",0,0,10,0,"10 cm"],["y",10,2,2,-90,90],["k",10,4,0,4],["k",0,4,0,0,"4 cm"]],"ichki":[[10,0,10,4]]}'></div><p>b)</p></div>
+        <div><div data-yoy='{"olcham":12,"yol":[["k",0,0,8,0],["k",8,0,8,8],["k",8,8,0,8],["k",0,8,0,0]],"yollar":[[["y",4,4,4,0,360]]],"olchov":[[0,0,8,0,"8 cm",0,-1.2]]}'></div><p>c) doira kvadratga tegib turadi</p></div>
+      </div></li>
+    <li>Kvadratning tomoni 21 cm. Uning ikki qarama-qarshi uchidan radiusi 21 cm bo'lgan chorak aylanalar chizildi. Hosil bo'lgan yaproq shaklining yuzi va perimetrini toping <span style="white-space:nowrap">(\(\pi = \frac{22}{7}\))</span>.</li>
+    <li>Yarim doiraning diametri 16 dm. Uning ichiga uchburchak chizildi: asosi — diametr, uchi — yoyning o'rtasida. Bo'yalgan soha yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.
+      <div data-yoy='{"olcham":12,"yol":[["y",0,0,8,90,180],["k",-8,0,0,8]],"yollar":[[["y",0,0,8,0,90],["k",0,8,8,0]]],"chiziq":[["k",-8,0,8,0]],"ichki":[[0,0,0,8]],"olchov":[[-8,0,8,0,"16 dm",0,-1.2]]}'></div></li>
+    <li>To'g'ri to'rtburchak shaklidagi taxtaning bo'yi 30 cm, eni 12 cm. Uning ikkala qisqa tomonidan diametri 12 cm bo'lgan yarim doira o'yib olindi. Qolgan qismning yuzi va perimetrini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.
+      <div data-yoy='{"olcham":9,"yol":[["k",0,0,30,0,"30 cm"],["y",30,6,6,270,90],["k",30,12,0,12],["y",0,6,6,90,-90]],"ichki":[[0,0,0,12,"12 cm","",-1],[30,0,30,12]]}'></div></li>
+    <li>Plitka naqshi kvadrat va uning har bir tomoniga tashqaridan chizilgan yarim doiradan iborat. Kvadratning tomoni 16 cm. Naqshning yuzi va perimetrini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.
+      <div data-yoy='{"olcham":6,"yol":[["y",8,0,8,180,360],["y",16,8,8,-90,90],["y",8,16,8,0,180],["y",0,8,8,90,270]],"ichki":[[0,0,16,0,"16 cm","",-1],[16,0,16,16],[16,16,0,16],[0,16,0,0]]}'></div></li>
+    <li>Dumaloq tort 6 ta teng bo'lakka kesildi. Tortning radiusi 15 cm. Bitta bo'lakning perimetri va ustki yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.</li>
+    <li>Muzqaymoq rasmi teng yonli uchburchak va yarim doiradan iborat. Uchburchakning yon tomonlari 13 cm, asosi 10 cm, balandligi 12 cm. Yarim doiraning diametri — uchburchak asosi. Shaklning perimetri va yuzini \(\pi\) orqali ifodalang.
+      <div data-yoy='{"olcham":12,"yol":[["k",0,-12,5,0,"13 cm"],["y",0,0,5,0,180],["k",-5,0,0,-12]],"ichki":[[-5,0,5,0,"10 cm","",-1],[0,0,0,-12,"12 cm","",-1]]}'></div></li>
+    <li>Sahna to'g'ri to'rtburchak va ikki yonidagi bir xil chorak doiralardan iborat. To'g'ri to'rtburchakning bo'yi 20 m, eni 7 m, chorak doiralarning radiusi ham 7 m. Sahnaning perimetri va yuzini toping <span style="white-space:nowrap">(\(\pi = \frac{22}{7}\))</span>.
+      <div data-yoy='{"olcham":10,"yol":[["k",-7,0,27,0],["y",20,0,7,0,90],["k",20,7,0,7,"20 m"],["y",0,0,7,90,180]],"ichki":[[0,0,0,7,"7 m","",-1],[20,0,20,7]]}'></div></li>
+    <li>Stol taxtasi to'g'ri to'rtburchak shaklida: 30 cm × 20 cm. Uzun tomonlaridan birining o'rtasidan diametri 14 cm bo'lgan yarim doira o'yib olindi. Qolgan qismning yuzi va perimetrini toping <span style="white-space:nowrap">(\(\pi = \frac{22}{7}\))</span>.
+      <div data-yoy='{"olcham":8,"yol":[["k",0,0,30,0,"30 cm"],["k",30,0,30,20,"20 cm"],["k",30,20,22,20],["y",15,20,7,0,-180],["k",8,20,0,20],["k",0,20,0,0]],"ichki":[[8,20,22,20]],"olchov":[[8,20,22,20,"14 cm",0,1.4]]}'></div></li>
+    <li>Esdalik tangasining diametri 30 mm. Uning o'rtasida diametri 10 mm bo'lgan dumaloq teshik bor. Teshik ichida kvadrat plastinka turibdi, uning uchlari teshik chetida. Bo'yalgan qismning yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>. Maslahat: kvadratning diagonallari uni 4 ta uchburchakka ajratadi.
+      <div data-yoy='{"olcham":8,"yol":[["y",0,0,15,0,360]],"yollar":[[["y",0,0,5,0,360]],[["k",5,0,0,5],["k",0,5,-5,0],["k",-5,0,0,-5],["k",0,-5,5,0]]],"ichki":[[-5,0,5,0],[0,-5,0,5]],"olchov":[[-15,-15,15,-15,"30 mm",0,-2]]}'></div></li>
+    <li><b>Qiyinroq.</b> Radiusi 2 cm bo'lgan uchta bir xil tanga stolda bir-biriga tegib yotibdi. Tangalar orasida qolgan bo'sh joyning perimetrini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.</li>
+  </ol>
+</section>
+
+<!-- ============ 4-QISM: MUSTAQIL ISH ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Mustaqil ish</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Nishon shakli tomoni 12 cm bo'lgan kvadratdan yasaldi: tepadagi ikki burchagidan radiusi 6 cm bo'lgan chorak doiralar kesib olindi, pastiga diametri 12 cm bo'lgan yarim doira yopishtirildi. Nishonning yuzi va perimetrini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.
+      <div data-yoy='{"olcham":10,"ramka":[[0,0,12,12]],"yol":[["k",12,0,12,6],["y",12,12,6,270,180],["y",0,12,6,360,270],["k",0,6,0,0],["y",6,0,6,180,360]],"olchov":[[0,12,12,12,"12 cm",0,1.4]]}'></div></li>
+    <li>Katta yarim doiraning diametri 40 cm. Uning ichidan diametrlari 24 cm va 16 cm bo'lgan ikkita yarim doira kesib olindi. Bo'yalgan soha yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.
+      <div data-yoy='{"olcham":7,"yol":[["y",0,0,20,0,180],["y",-8,0,12,180,0],["y",12,0,8,180,0]],"chiziq":[["k",-20,0,20,0]],"olchov":[[-20,0,4,0,"24 cm",0,-1.6],[4,0,20,0,"16 cm",0,-1.6]]}'></div></li>
+    <li><b>Qiyinroq.</b> Uchburchak to'g'ri burchakli, tomonlari 9 dm, 12 dm va 15 dm. Uning har bir tomoniga yarim doira chizildi. Bo'yalgan soha yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>. Maslahat: uchburchak va ikkita kichik yarim doiradan iborat shakl yuzidan katta yarim doira yuzini ayiring.
+      <div data-yoy='{"olcham":15,"yol":[["y",2.7,3.6,4.5,53.13,233.13],["y",7.5,0,7.5,180,106.26]],"yollar":[[["y",10.2,3.6,6,-36.87,143.13],["y",7.5,0,7.5,106.26,0]]],"chiziq":[["k",0,0,15,0]],"ichki":[[0,0,5.4,7.2,"9 dm"],[5.4,7.2,15,0,"12 dm"],[0,0,15,0,"15 dm","",-1]]}'></div></li>
+    <li>Kvadratning tomoni 12 cm. Uning har bir tomoniga ichkaridan yarim doira chizildi, natijada 4 ta gulbarg hosil bo'ldi. Gulbarglarning umumiy yuzi va perimetrini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.
+      <div data-yoy='{"olcham":13,"yol":[["y",6,0,6,180,90],["y",0,6,6,0,-90]],"yollar":[[["y",6,0,6,0,90],["y",12,6,6,180,270]],[["y",12,6,6,90,180],["y",6,12,6,270,360]],[["y",6,12,6,180,270],["y",0,6,6,0,90]]],"chiziq":[["k",0,0,12,0],["k",12,0,12,12],["k",12,12,0,12],["k",0,12,0,0]],"olchov":[[0,0,12,0,"12 cm",0,-1.2]]}'></div></li>
+    <li>Do'konda ikki xil dumaloq gilam sotiladi: kichigining diametri 1 m, kattasiniki 3 m.<br>a) Ikkala gilamning yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>. Katta gilamning yuzi kichiginikidan necha marta katta?<br>b) Katta gilam kichigidan 8 marta qimmat. Qaysi gilamning har \(1\ \text{m}^2\) i arzonroq tushadi?</li>
+    <li>Ikki o'yinchoq mashina orasida 7,04 m bor. Ular bir vaqtda bir-biriga qarab yura boshladi. Ikkala mashinaning g'ildiragi ham radiusi 14 cm, har bir g'ildirak 2,5 sekundda bir marta to'liq aylanadi. Mashinalar necha sekunddan keyin uchrashadi? <span style="white-space:nowrap">(\(\pi = \frac{22}{7}\))</span></li>
+    <li>Doiraning diametri 20 cm. U diametri 10 cm bo'lgan ikkita kichik yarim aylana bilan ikki bo'lakka bo'lindi. Bo'yalgan bo'lakning perimetri va yuzini toping <span style="white-space:nowrap">(\(\pi = 3,14\))</span>.
+      <div data-yoy='{"olcham":8,"yol":[["y",0,0,10,0,180],["y",-5,0,5,180,360],["y",5,0,5,180,0]],"chiziq":[["y",0,0,10,180,360]],"olchov":[[-10,-10,10,-10,"20 cm",0,-1.2]]}'></div></li>
+    <li><b>Xatoni toping.</b> Deraza to'g'ri to'rtburchak (eni 6 dm, bo'yi 4 dm) va uning ustidagi yarim doiradan iborat. Lola deraza perimetrini shunday topdi: \(6 + 6 + 4 + 4 + 9,42 = 29,42\) dm. Xato nimada? To'g'ri javob qancha? <span style="white-space:nowrap">(\(\pi = 3,14\))</span></li>
+    <li><b>Qiyinroq.</b> Bog'dagi yo'lka ikkita yarim halqadan iborat (rasm). Yo'lkaning eni 2 m. Ichki chetlarining radiusi 9 m, tashqi chetlariniki 11 m. Yo'lkaning ikkala cheti bo'ylab chiroqli sim tortildi: biri A nuqtadan, ikkinchisi B nuqtadan boshlanib, yo'lka oxirigacha boradi. Qaysi sim uzunroq? Javobni \(\pi\) orqali tushuntiring.
+      <div data-yoy='{"olcham":6.5,"yol":[["y",0,0,11,180,0],["y",20,0,9,180,360],["k",29,0,31,0],["y",20,0,11,360,180],["y",0,0,9,0,180],["k",-9,0,-11,0]],"nuqta":{"A":[-11,0,-6,20],"B":[-9,0,6,20]}}'></div></li>
+  </ol>
+</section>
+
+<!-- ============ 5-QISM: JAVOBLAR ============ -->
+<div class="m-qism q-javob"><div class="q-n">5-qism</div><h2>Javoblar</h2></div>
+
+<section class="m-sec qism-ichi">
+  <h3>Mustahkamlash</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(6 \cdot 6 - \frac{1}{4} \cdot 3,14 \cdot 6 \cdot 6 = 36 - 28,26 = 7,74\ \text{cm}^2\); b) \(10 \cdot 4 + \frac{1}{2} \cdot 3,14 \cdot 2 \cdot 2 = 40 + 6,28 = 46,28\ \text{cm}^2\); c) doiraning radiusi 4 cm: \(8 \cdot 8 - 3,14 \cdot 4 \cdot 4 = 64 - 50,24 = 13,76\ \text{cm}^2\).</details>
+  <details class="javob"><summary>2-masala</summary>Chorak doira: \(\frac{1}{4} \cdot \frac{22}{7} \cdot 21 \cdot 21 = 346,5\ \text{cm}^2\). Yaproq: \(2 \cdot 346,5 - 21 \cdot 21 = 693 - 441 = 252\ \text{cm}^2\). Perimetr: \(2 \cdot \frac{1}{4} \cdot 2 \cdot \frac{22}{7} \cdot 21 = 66\) cm.</details>
+  <details class="javob"><summary>3-masala</summary>Radius 8 dm. Yarim doira: \(\frac{1}{2} \cdot 3,14 \cdot 8 \cdot 8 = 100,48\ \text{dm}^2\). Uchburchakning balandligi — radius: \(\frac{1}{2} \cdot 16 \cdot 8 = 64\ \text{dm}^2\). Bo'yalgan soha: \(100,48 - 64 = 36,48\ \text{dm}^2\).</details>
+  <details class="javob"><summary>4-masala</summary>Ikkita yarim doira — bitta doira, radiusi 6 cm: \(3,14 \cdot 6 \cdot 6 = 113,04\ \text{cm}^2\). Yuz: \(30 \cdot 12 - 113,04 = 360 - 113,04 = 246,96\ \text{cm}^2\). Perimetr: ikkita uzun tomon \(30 + 30 = 60\) cm va ikkita yarim aylana yoyi \(3,14 \cdot 12 = 37,68\) cm; jami \(97,68\) cm.</details>
+  <details class="javob"><summary>5-masala</summary>4 ta yarim doira — 2 ta doira, radiusi 8 cm: \(2 \cdot 3,14 \cdot 8 \cdot 8 = 401,92\ \text{cm}^2\). Yuz: \(16 \cdot 16 + 401,92 = 256 + 401,92 = 657,92\ \text{cm}^2\). Perimetr — 4 ta yarim yoy, ya'ni 2 ta aylana: \(2 \cdot 3,14 \cdot 16 = 100,48\) cm.</details>
+  <details class="javob"><summary>6-masala</summary>Bo'lak — doiraning \(\frac{1}{6}\) qismi. Yoy: \(\frac{1}{6} \cdot 2 \cdot 3,14 \cdot 15 = 15,7\) cm; perimetr: \(15,7 + 15 + 15 = 45,7\) cm. Yuz: \(\frac{1}{6} \cdot 3,14 \cdot 15 \cdot 15 = 117,75\ \text{cm}^2\).</details>
+  <details class="javob"><summary>7-masala</summary>Perimetr: \(13 + 13 + \frac{1}{2} \cdot 10 \cdot \pi = (26 + 5\pi)\) cm. Yuz: uchburchak \(\frac{1}{2} \cdot 10 \cdot 12 = 60\ \text{cm}^2\), yarim doira \(\frac{1}{2} \cdot 5 \cdot 5 \cdot \pi = 12,5\pi\ \text{cm}^2\); jami \((60 + 12,5\pi)\ \text{cm}^2\).</details>
+  <details class="javob"><summary>8-masala</summary>Chorak yoy: \(\frac{1}{4} \cdot 2 \cdot \frac{22}{7} \cdot 7 = 11\) m. Perimetr: pastda \(7 + 20 + 7 = 34\) m, tepada 20 m, ikkita yoy 22 m; jami \(34 + 20 + 22 = 76\) m. Yuz: \(20 \cdot 7 + 2 \cdot \frac{1}{4} \cdot \frac{22}{7} \cdot 7 \cdot 7 = 140 + 77 = 217\ \text{m}^2\).</details>
+  <details class="javob"><summary>9-masala</summary>Yuz: \(30 \cdot 20 - \frac{1}{2} \cdot \frac{22}{7} \cdot 7 \cdot 7 = 600 - 77 = 523\ \text{cm}^2\). Perimetr: \(30 + 20 + 20 + (30 - 14) + \frac{1}{2} \cdot \frac{22}{7} \cdot 14 = 30 + 40 + 16 + 22 = 108\) cm.</details>
+  <details class="javob"><summary>10-masala</summary>Tanga: \(3,14 \cdot 15 \cdot 15 = 706,5\ \text{mm}^2\). Teshik: \(3,14 \cdot 5 \cdot 5 = 78,5\ \text{mm}^2\). Kvadrat 4 ta uchburchakdan iborat, har biri \(\frac{1}{2} \cdot 5 \cdot 5 = 12,5\ \text{mm}^2\): kvadrat \(50\ \text{mm}^2\). Bo'yalgan qism: \(706,5 - 78,5 + 50 = 678\ \text{mm}^2\).</details>
+  <details class="javob"><summary>11-masala</summary>Markazlar orasidagi masofa \(2 + 2 = 4\) cm — teng tomonli uchburchak, burchaklari \(60°\). Har bir yoy aylananing \(\frac{1}{6}\) qismi, uchtasi — \(\frac{1}{2}\) qismi: \(\frac{1}{2} \cdot 2 \cdot 3,14 \cdot 2 = 6,28\) cm.</details>
+
+  <h3>Mustaqil ish</h3>
+  <details class="javob"><summary>1-masala</summary>Ikkita kesilgan chorak doira birga — yarim doira, radiusi 6 cm; pastga ham radiusi 6 cm bo'lgan yarim doira qo'shildi. Yuz kvadratnikidek: \(12 \cdot 12 = 144\ \text{cm}^2\). Perimetr: yon tomonlarda \(6 + 6 = 12\) cm, ikkita chorak yoy \(2 \cdot 9,42 = 18,84\) cm, pastdagi yarim yoy \(\frac{1}{2} \cdot 3,14 \cdot 12 = 18,84\) cm; jami \(12 + 18,84 + 18,84 = 49,68\) cm.</details>
+  <details class="javob"><summary>2-masala</summary>\(\frac{1}{2} \cdot 3,14 \cdot 20 \cdot 20 - \frac{1}{2} \cdot 3,14 \cdot 12 \cdot 12 - \frac{1}{2} \cdot 3,14 \cdot 8 \cdot 8 = 628 - 226,08 - 100,48 = 301,44\ \text{cm}^2\).</details>
+  <details class="javob"><summary>3-masala</summary>Ikkita kichik yarim doira: \(\frac{1}{2} \cdot 3,14 \cdot 4,5 \cdot 4,5 + \frac{1}{2} \cdot 3,14 \cdot 6 \cdot 6 = 31,7925 + 56,52 = 88,3125\ \text{dm}^2\). Uchburchak: \(\frac{1}{2} \cdot 9 \cdot 12 = 54\ \text{dm}^2\). Katta yarim doira: \(\frac{1}{2} \cdot 3,14 \cdot 7,5 \cdot 7,5 = 88,3125\ \text{dm}^2\). Bo'yalgan soha \(=\) ikkita kichik yarim doira \(+\) uchburchak \(-\) katta yarim doira \(= 88,3125 + 54 - 88,3125 = 54\ \text{dm}^2\) — uchburchak yuziga teng!</details>
+  <details class="javob"><summary>4-masala</summary>Har bir gulbarg — ikkita chorak doiradan uchburchak olib tashlangan qism (yaproq kabi), radiusi 6 cm. Gulbargning yarmi: \(\frac{1}{4} \cdot 3,14 \cdot 6 \cdot 6 - \frac{1}{2} \cdot 6 \cdot 6 = 28,26 - 18 = 10,26\ \text{cm}^2\). 4 ta gulbarg: \(8 \cdot 10,26 = 82,08\ \text{cm}^2\). Perimetr: 8 ta chorak yoy, ya'ni 2 ta aylana: \(2 \cdot 2 \cdot 3,14 \cdot 6 = 75,36\) cm.</details>
+  <details class="javob"><summary>5-masala</summary>a) Kichik gilam (radiusi 0,5 m): \(3,14 \cdot 0,5 \cdot 0,5 = 0,785\ \text{m}^2\). Katta gilam (radiusi 1,5 m): \(3,14 \cdot 1,5 \cdot 1,5 = 7,065\ \text{m}^2\). \(7,065 : 0,785 = 9\) marta katta. b) Katta gilam 8 marta qimmat, lekin yuzi 9 marta katta. 8 ta kichik gilam narxiga katta gilam olinadi, 8 ta kichik gilam esa atigi \(8 \cdot 0,785 = 6,28\ \text{m}^2\). Katta gilamning har \(1\ \text{m}^2\) i arzonroq.</details>
+  <details class="javob"><summary>6-masala</summary>G'ildirak bir aylanganda mashina aylana uzunligicha yuradi: \(2 \cdot \frac{22}{7} \cdot 14 = 88\) cm. Ikkala mashina birga bir aylanishda \(2 \cdot 88 = 176\) cm yaqinlashadi. \(7,04\) m \(= 704\) cm; \(704 : 176 = 4\) aylanish. Vaqt: \(4 \cdot 2,5 = 10\) sekund.</details>
+  <details class="javob"><summary>7-masala</summary>Perimetr: katta yarim yoy \(\frac{1}{2} \cdot 3,14 \cdot 20 = 31,4\) cm va ikkita kichik yarim yoy \(2 \cdot \frac{1}{2} \cdot 3,14 \cdot 10 = 31,4\) cm; jami \(62,8\) cm. Yuz: o'ngdan olingan kichik yarim doira chapga qo'shilgan, shuning uchun bo'lak — doiraning yarmi: \(\frac{1}{2} \cdot 3,14 \cdot 10 \cdot 10 = 157\ \text{cm}^2\).</details>
+  <details class="javob"><summary>8-masala</summary>Lola derazaning ustki tomonini (6 dm) ham qo'shdi, u yarim doira bilan to'g'ri to'rtburchak orasida — ichkarida. To'g'risi: \(6 + 4 + 4 + \frac{1}{2} \cdot 3,14 \cdot 6 = 14 + 9,42 = 23,42\) dm.</details>
+  <details class="javob"><summary>9-masala</summary>Har bir yarim halqada bir cheti tashqi (radiusi 11 m), ikkinchisi ichki (9 m). A dan boshlangan sim birinchi burilishda tashqi chetda, ikkinchisida ichki chetda bo'ladi. A dagi sim: \(\frac{1}{2} \cdot 2 \cdot 11 \cdot \pi + \frac{1}{2} \cdot 2 \cdot 9 \cdot \pi = 11\pi + 9\pi = 20\pi\) m. B dagi sim: \(9\pi + 11\pi = 20\pi\) m. Ikkala sim teng.</details>
+</section>
+
+<p class="m-foot">Mathlearn · 6-sinf matematika</p>
+</main>
+<script src="chizma.js?v=68"></script>
+<script src="maruza.js?v=13"></script>
+</body>
+</html>

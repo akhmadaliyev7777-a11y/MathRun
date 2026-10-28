@@ -4,7 +4,7 @@
 window.KUNLIK = [
   {
     sana: "2026-10-27",
-    qisqa: "6-sinf 17–18-mavzular (doira yuzi) tayyor; interaktiv darslar «kasblarda» uslubida; admin panelda «Kunlik ish».",
+    qisqa: "6-sinf 17–20-mavzular tayyor (doira yuzi bobi tugadi, «Tezlik» boshlandi); interaktiv darslar «kasblarda» uslubida; admin panelda «Kunlik ish».",
     ishlar: [
       ["Interaktiv", "8-sinf «Modul kasblarda»: ish yonida jonli formula paneli, har topshiriqda 3 bosqichli «Yordam» (ishora → aniq qadam → «Ko'rsatib ber»), har bosqichda rasmli vaziyat kartasi."],
       ["Interaktiv", "8-sinf «Modul kasblarda»: avval 5 kasb bo'yicha qadamma-qadam tushuntirish (harakatlanuvchi chizmalar), keyin alohida «Interaktiv dars» — 3 kasb (shifokor, quruvchi, oshpaz); har ekranda «Orqaga» va «Qaytadan»."],
@@ -13,7 +13,9 @@ window.KUNLIK = [
       ["Interaktiv", "Ikkala darsda hisoblagich yonida «↺ Qaytadan» — so'rab, barcha natijalarni o'chiradi."],
       ["Admin", "Admin panelga «Kunlik ish» bo'limi qo'shildi (shu ro'yxat); kalendarda kun bosilsa — o'sha kungi ishlar."],
       ["6-sinf", "17-mavzu «Doiraning yuzi» — ma'ruza (doirani bo'laklarga kesib to'g'ri to'rtburchakka terish chizmasi, katakli doira, halqa), 20+20 test, PDF."],
-      ["6-sinf", "18-mavzu «Yarim va chorak doira yuzi» — ma'ruza (20 ta chizma), 20+20 test, PDF."]
+      ["6-sinf", "18-mavzu «Yarim va chorak doira yuzi» — ma'ruza (20 ta chizma), 20+20 test, PDF."],
+      ["6-sinf", "19-mavzu «Murakkab shakllarning yuzi va perimetri» — ma'ruza (28 ta chizma, teshikli shakllar), 20+20 test, PDF. Doira bobi tugadi."],
+      ["6-sinf", "20-mavzu «Tezlik, masofa va vaqt» — ma'ruza (yangi chizmalar: yo'l bo'laklari, spidometr), 20+20 test, PDF. 2-qism boshlandi."]
     ]
   },
   {

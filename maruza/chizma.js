@@ -203,6 +203,14 @@
        "ombor" — dori ombori: javon, devorda raqamli termometr ("meyor"), pastda son o'qi: meyor ± "d" yashil, tashqari qizil; "oraliq":[12,24];
            "yoz":"?" (odatda) — chetlar o'rnida «?», "" — chetlarning qiymati yoziladi; "qadam" — o'qdagi bo'linma.
        "qop" — un qoplari: "q":["24,6","24,8"] — har qop ostida tarozi ko'rsatkichi (kg), qopda «UN» va "meyor" kg.
+   data-yol='{"n":3,"ust":"55 km","past":"1 soat","jami":"165 km","vaqt":"?","nom":["A","B"],"jism":"mashina","tezlik":"55 km/soat"}' — yo'l sxemasi (harakat, 6-sinf 20-mavzu):
+       yo'l n ta teng bo'lakka bo'lingan (har bo'lak — bir vaqt birligi); "ust" — har bo'lak ustidagi masofa (ko'k), "past" — ostidagi vaqt (to'q sariq);
+       satr yoki ro'yxat (["60 km","","?"] — har bo'lakka alohida, "" — yozilmaydi); n kasr bo'lsa (2.5) oxirgi bo'lak chala, yozuvi "chala":["32 km","30 min"];
+       "jami" — tepada butun masofa qavsi, "vaqt" — pastda butun vaqt qavsi ("?" bo'lishi mumkin); "nom" — boshi va oxiri nomlari;
+       "jism": "mashina" (odatda) | "avtobus" | "velosiped" | "piyoda" | "poyezd" | "" (jismsiz); "joy" — jism nechanchi bo'lak chegarasida (odatda 0);
+       "tezlik" — jism yonidagi yashil yozuv; "bayroq":0 — oxiridagi marra bayrog'i chizilmaydi; "eni" — chizma kengligi (odatda 400; test rasmi uchun 300).
+   data-spidometr="70" [data-max="160"] [data-qadam="20"] [data-birlik="km/soat"] — spidometr (tezlik ko'rsatkichi): 0 dan max gacha shkala,
+       har qadamda son, yarim qadamda kichik chiziq; qizil mil berilgan tezlikni ko'rsatadi (son yozilmaydi — o'quvchi o'qiydi).
 */
 (function () {
   "use strict";
@@ -3361,6 +3369,136 @@
   }
   chizHayot.n = 0;
 
+  // ---------- harakat: yo'l sxemasi va spidometr (6-sinf 20-mavzu «Tezlik, masofa va vaqt») ----------
+  function yolJism(tur, cx, b) {
+    // b — yo'lning ustki cheti (jism shu chiziqda turadi), cx — jism o'rtasi
+    const g = function (x, y, r, f) { return '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="' + f + '"/>'; };
+    const ln = function (x1, y1, x2, y2, c, w) { return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="' + c + '" stroke-width="' + (w || 2.4) + '" stroke-linecap="round"/>'; };
+    const gild = function (x, y, r) { return g(x, y, r, "#1f2433") + g(x, y, r * 0.42, "#e5e7eb"); };
+    if (tur === "avtobus") {
+      let s = '<rect x="' + (cx - 27) + '" y="' + (b - 27) + '" width="54" height="22" rx="4" fill="#f2b705" stroke="#b07f00" stroke-width="1.4"/>';
+      for (let i = 0; i < 4; i++) s += '<rect x="' + (cx - 23 + i * 11) + '" y="' + (b - 24) + '" width="8" height="8" rx="1.5" fill="#cfe5ff"/>';
+      s += '<rect x="' + (cx + 21) + '" y="' + (b - 24) + '" width="4" height="12" rx="1" fill="#cfe5ff"/>';
+      return s + gild(cx - 15, b - 5, 5) + gild(cx + 15, b - 5, 5);
+    }
+    if (tur === "velosiped") {
+      return '<circle cx="' + (cx - 13) + '" cy="' + (b - 9) + '" r="8.5" fill="none" stroke="#1f2433" stroke-width="2.2"/>' +
+        '<circle cx="' + (cx + 13) + '" cy="' + (b - 9) + '" r="8.5" fill="none" stroke="#1f2433" stroke-width="2.2"/>' +
+        '<path d="M' + (cx - 13) + " " + (b - 9) + " L" + (cx - 3) + " " + (b - 22) + " L" + (cx + 8) + " " + (b - 22) + " L" + (cx + 13) + " " + (b - 9) +
+        " M" + (cx - 3) + " " + (b - 22) + " L" + (cx + 1) + " " + (b - 9) + " L" + (cx + 8) + " " + (b - 22) + '" fill="none" stroke="#12805c" stroke-width="2.4" stroke-linejoin="round"/>' +
+        ln(cx - 3, b - 22, cx - 5, b - 30, "#1f5fd6", 3.2) + ln(cx - 5, b - 30, cx + 6, b - 26, "#1f5fd6", 3) + ln(cx - 3, b - 22, cx + 1, b - 13, "#1f5fd6", 2.6) +
+        g(cx - 6, b - 35, 4.2, "#e9b48a");
+    }
+    if (tur === "piyoda") {
+      return g(cx + 2, b - 39, 4.6, "#e9b48a") + ln(cx + 1, b - 33, cx - 2, b - 20, "#d6454f", 3.6) +
+        ln(cx, b - 30, cx + 9, b - 25, "#1f2433", 2.4) + ln(cx, b - 30, cx - 9, b - 27, "#1f2433", 2.4) +
+        ln(cx - 2, b - 20, cx + 8, b - 11, "#1f5fd6", 2.8) + ln(cx + 8, b - 11, cx + 6, b - 1, "#1f5fd6", 2.8) +
+        ln(cx - 2, b - 20, cx - 8, b - 10, "#1f5fd6", 2.8) + ln(cx - 8, b - 10, cx - 15, b - 6, "#1f5fd6", 2.8);
+    }
+    if (tur === "poyezd") {
+      return '<path d="M' + (cx - 28) + " " + (b - 5) + " V" + (b - 25) + " H" + (cx + 18) + " Q" + (cx + 30) + " " + (b - 25) + " " + (cx + 30) + " " + (b - 12) + " V" + (b - 5) + ' Z" fill="#1f5fd6" stroke="#163f8f" stroke-width="1.4"/>' +
+        '<rect x="' + (cx - 24) + '" y="' + (b - 22) + '" width="9" height="8" rx="1.5" fill="#cfe5ff"/><rect x="' + (cx - 11) + '" y="' + (b - 22) + '" width="9" height="8" rx="1.5" fill="#cfe5ff"/>' +
+        '<rect x="' + (cx + 2) + '" y="' + (b - 22) + '" width="9" height="8" rx="1.5" fill="#cfe5ff"/>' +
+        ln(cx - 28, b - 11, cx + 30, b - 11, "#f2b705", 2) + gild(cx - 18, b - 4, 4) + gild(cx - 4, b - 4, 4) + gild(cx + 18, b - 4, 4);
+    }
+    // mashina (odatda)
+    return '<path d="M' + (cx - 23) + " " + (b - 6) + " V" + (b - 15) + " Q" + (cx - 23) + " " + (b - 18) + " " + (cx - 19) + " " + (b - 18) +
+      " L" + (cx - 11) + " " + (b - 18) + " L" + (cx - 6) + " " + (b - 27) + " L" + (cx + 9) + " " + (b - 27) + " L" + (cx + 15) + " " + (b - 18) +
+      " L" + (cx + 20) + " " + (b - 18) + " Q" + (cx + 24) + " " + (b - 18) + " " + (cx + 24) + " " + (b - 14) + " V" + (b - 6) + ' Z" fill="#d6454f" stroke="#a3222c" stroke-width="1.4" stroke-linejoin="round"/>' +
+      '<path d="M' + (cx - 8) + " " + (b - 18) + " L" + (cx - 4.5) + " " + (b - 24.5) + " L" + (cx + 1) + " " + (b - 24.5) + " L" + (cx + 1) + " " + (b - 18) + ' Z" fill="#cfe5ff"/>' +
+      '<path d="M' + (cx + 3.5) + " " + (b - 18) + " L" + (cx + 3.5) + " " + (b - 24.5) + " L" + (cx + 7.5) + " " + (b - 24.5) + " L" + (cx + 12) + " " + (b - 18) + ' Z" fill="#cfe5ff"/>' +
+      gild(cx - 12, b - 5, 5.2) + gild(cx + 13, b - 5, 5.2);
+  }
+
+  function chizYol(el) {
+    const g = JSON.parse(el.dataset.yol);
+    const n = Number(g.n) || 1, butun = Math.floor(n + 1e-9), chala = n - butun > 1e-9 ? n - butun : 0;
+    const bol = [];
+    for (let i = 0; i < butun; i++) bol.push(1);
+    if (chala) bol.push(chala);
+    const yoz = function (v, i, j) {
+      if (Array.isArray(v)) return v[i] == null ? "" : String(v[i]);
+      if (chala && i === bol.length - 1) return g.chala ? String(g.chala[j] || "") : "";
+      return v == null ? "" : String(v);
+    };
+    const nom = g.nom || [], W = Number(g.eni) || 400, x0 = nom[0] ? 40 : 30, x1 = W - (nom[1] ? 40 : 30);
+    const w = (x1 - x0) / n, X = [x0];
+    bol.forEach(function (b) { X.push(X[X.length - 1] + b * w); });
+    const KOK = "#1f5fd6", SAR = "#d4501b", QORA = "#1f2433";
+    const fs = w < 48 ? 11.5 : 14;
+    const sigdir = function (y, b) { return Math.max(9, Math.min(fs, (b * w - 6) / (0.62 * Math.max(1, y.length)))); };   // yozuv bo'lakka sig'sin
+    const ustBor = bol.some(function (b, i) { return yoz(g.ust, i, 0); });
+    const t = g.jami ? 40 : 6, yD = t + 22, yR = t + 64;
+    let s = "";
+    const T = function (x, y, txt, c, f, wt) { return '<text x="' + x.toFixed(1) + '" y="' + y + '" text-anchor="middle" font-size="' + (f || 14) + '" font-weight="' + (wt || 800) + '" fill="' + c + '">' + txt + "</text>"; };
+    // tepada: jami masofa qavsi
+    if (g.jami) s += '<path d="M' + x0 + " " + (t - 4) + " V" + (t - 12) + " H" + x1 + " V" + (t - 4) + '" fill="none" stroke="' + KOK + '" stroke-width="2"/>' + T((x0 + x1) / 2, t - 18, g.jami, KOK, 15);
+    // bo'laklar ustida masofa o'lchov chizig'i
+    if (ustBor) {
+      s += '<line x1="' + x0 + '" y1="' + yD + '" x2="' + X[X.length - 1].toFixed(1) + '" y2="' + yD + '" stroke="' + KOK + '" stroke-width="1.6"/>';
+      X.forEach(function (x, i) {
+        s += '<line x1="' + x.toFixed(1) + '" y1="' + (yD - 5) + '" x2="' + x.toFixed(1) + '" y2="' + (yD + 5) + '" stroke="' + KOK + '" stroke-width="1.6"/>';
+        if (i > 0) s += '<line x1="' + x.toFixed(1) + '" y1="' + (yD + 5) + '" x2="' + x.toFixed(1) + '" y2="' + yR + '" stroke="#9aa3b5" stroke-width="1" stroke-dasharray="3 3"/>';
+      });
+      bol.forEach(function (b, i) { const y = yoz(g.ust, i, 0); s += T((X[i] + X[i + 1]) / 2, yD - 7, y, KOK, sigdir(y, b)); });
+    }
+    // yo'l
+    s += '<rect x="' + (x0 - 8) + '" y="' + yR + '" width="' + (x1 - x0 + 16) + '" height="16" rx="3" fill="#6b7280"/>' +
+      '<line x1="' + (x0 - 4) + '" y1="' + (yR + 8) + '" x2="' + (x1 + 4) + '" y2="' + (yR + 8) + '" stroke="#fff" stroke-width="1.6" stroke-dasharray="7 6"/>';
+    if (nom[0]) s += '<circle cx="' + x0 + '" cy="' + (yR + 8) + '" r="4.5" fill="#fff" stroke="' + QORA + '" stroke-width="2"/>' + T(x0 - 22, yR + 14, nom[0], QORA, 16);
+    if (nom[1]) s += '<circle cx="' + x1 + '" cy="' + (yR + 8) + '" r="4.5" fill="#fff" stroke="' + QORA + '" stroke-width="2"/>' + T(x1 + 22, yR + 14, nom[1], QORA, 16);
+    // marra bayrog'i
+    if (g.bayroq !== 0) {
+      s += '<line x1="' + x1 + '" y1="' + yR + '" x2="' + x1 + '" y2="' + (yR - 30) + '" stroke="' + QORA + '" stroke-width="2"/>';
+      for (let r = 0; r < 2; r++) for (let c = 0; c < 3; c++)
+        s += '<rect x="' + (x1 + c * 5) + '" y="' + (yR - 30 + r * 5) + '" width="5" height="5" fill="' + ((r + c) % 2 ? "#fff" : QORA) + '" stroke="' + QORA + '" stroke-width=".6"/>';
+    }
+    // jism va tezligi
+    const jx = x0 + (g.joy != null ? Number(g.joy) * w : 0);
+    if (g.jism !== "") s += yolJism(g.jism || "mashina", jx, yR);
+    if (g.tezlik) {
+      const tw = 8 * String(g.tezlik).length + 14, tx = jx + 32;
+      s += '<rect x="' + tx + '" y="' + (yR - 27) + '" width="' + tw + '" height="20" rx="10" fill="#d9f2e6" stroke="#12805c" stroke-width="1.4"/>' +
+        '<text x="' + (tx + tw / 2) + '" y="' + (yR - 12.5) + '" text-anchor="middle" font-size="13" font-weight="800" fill="#12805c">' + g.tezlik + "</text>";
+    }
+    // vaqt bo'laklari
+    const yP = yR + 16;
+    X.forEach(function (x) { s += '<line x1="' + x.toFixed(1) + '" y1="' + yP + '" x2="' + x.toFixed(1) + '" y2="' + (yP + 8) + '" stroke="' + SAR + '" stroke-width="1.8"/>'; });
+    bol.forEach(function (b, i) { const y = yoz(g.past, i, 1); s += T((X[i] + X[i + 1]) / 2, yP + 24, y, SAR, sigdir(y, b)); });
+    let H = yP + 32;
+    if (g.vaqt) {
+      const yb = yP + 38;
+      s += '<path d="M' + x0 + " " + (yb - 6) + " V" + yb + " H" + x1 + " V" + (yb - 6) + '" fill="none" stroke="' + SAR + '" stroke-width="2"/>' + T((x0 + x1) / 2, yb + 18, g.vaqt, SAR, 15);
+      H = yb + 26;
+    }
+    el.classList.add("tasma");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Yo\'l sxemasi' + (g.jami ? ": masofa " + g.jami : "") + (g.vaqt ? ", vaqt " + g.vaqt : "") + '">' + s + "</svg>";
+  }
+
+  function chizSpidometr(el) {
+    const v = Number(el.dataset.spidometr), max = Number(el.dataset.max) || 160, q = Number(el.dataset.qadam) || 20;
+    const birlik = el.dataset.birlik || "km/soat";
+    const W = 200, H = 196, cx = 100, cy = 98, r = 64;
+    const A = function (x) { return (225 - 270 * x / max) * Math.PI / 180; };
+    const P = function (a, rr) { return [cx + rr * Math.cos(a), cy - rr * Math.sin(a)]; };
+    let s = '<circle cx="' + cx + '" cy="' + cy + '" r="94" fill="#eef1f7" stroke="#9aa3b5" stroke-width="3"/>' +
+      '<circle cx="' + cx + '" cy="' + cy + '" r="88" fill="#fff" stroke="#d5d9e4" stroke-width="1.2"/>';
+    const p0 = P(A(0), r), p1 = P(A(max), r);
+    s += '<path d="M' + p0[0].toFixed(1) + " " + p0[1].toFixed(1) + " A" + r + " " + r + " 0 1 1 " + p1[0].toFixed(1) + " " + p1[1].toFixed(1) + '" fill="none" stroke="#1f2433" stroke-width="2"/>';
+    for (let x = 0; x <= max + 1e-9; x += q / 2) {
+      const katta = Math.abs(x / q - Math.round(x / q)) < 1e-9, a = A(x), u = P(a, r), ic = P(a, r - (katta ? 11 : 6));
+      s += '<line x1="' + u[0].toFixed(1) + '" y1="' + u[1].toFixed(1) + '" x2="' + ic[0].toFixed(1) + '" y2="' + ic[1].toFixed(1) + '" stroke="#1f2433" stroke-width="' + (katta ? 2.4 : 1.4) + '"/>';
+      if (katta) { const tp = P(a, r + 15); s += '<text x="' + tp[0].toFixed(1) + '" y="' + (tp[1] + 4.5).toFixed(1) + '" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2433">' + x + "</text>"; }
+    }
+    const ig = P(A(v), r - 2), dum = P(A(v) + Math.PI, 12);
+    s += '<text x="' + cx + '" y="' + (cy + 46) + '" text-anchor="middle" font-size="13" font-weight="800" fill="#5b6275">' + birlik + "</text>" +
+      '<line x1="' + dum[0].toFixed(1) + '" y1="' + dum[1].toFixed(1) + '" x2="' + ig[0].toFixed(1) + '" y2="' + ig[1].toFixed(1) + '" stroke="#d6454f" stroke-width="3.6" stroke-linecap="round"/>' +
+      '<circle cx="' + cx + '" cy="' + cy + '" r="7" fill="#1f2433"/><circle cx="' + cx + '" cy="' + cy + '" r="2.6" fill="#fff"/>';
+    el.classList.add("tasma");
+    el.style.maxWidth = "190px";
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Spidometr (tezlik ko\'rsatkichi), ' + birlik + '">' + s + "</svg>";
+  }
+
   window.MaruzaChizma = {
     bolish: bolish,
     chiz: function (root) {
@@ -3418,6 +3556,8 @@
       root.querySelectorAll("[data-doirayuz]").forEach(chizDoirayuz);
       root.querySelectorAll("[data-oraliq]").forEach(chizOraliq);
       root.querySelectorAll("[data-hayot]").forEach(chizHayot);
+      root.querySelectorAll("[data-yol]").forEach(chizYol);
+      root.querySelectorAll("[data-spidometr]").forEach(chizSpidometr);
     }
   };
 })();
