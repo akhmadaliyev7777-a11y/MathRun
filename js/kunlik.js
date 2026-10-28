@@ -4,8 +4,10 @@
 window.KUNLIK = [
   {
     sana: "2026-10-28",
-    qisqa: "6-sinf 21–22-mavzular (harakat masalalari) tayyor.",
+    qisqa: "6-sinf 21–24-mavzular tayyor: harakat masalalari bobi tugadi, kuboid bobi boshlandi.",
     ishlar: [
+      ["6-sinf", "23-mavzu «Ikki jism harakati: uchrashish va quvib yetish» — ma'ruza (yangi harakat chizmasi: yo'laklar, strelkalar, uchrashish nuqtasi), 20+20 test, PDF."],
+      ["6-sinf", "24-mavzu «Kuboidning qirrasini topish» — ma'ruza (yangi kuboid chizmasi: noma'lum qirra qizil «?», bo'yalgan yoq), 20+20 test, PDF."],
       ["6-sinf", "21-mavzu «Ikki xil tezlikdagi harakat» — ma'ruza (yo'l chizmasi har xil bo'laklar va tezliklar bilan), 20+20 test, PDF."],
       ["6-sinf", "22-mavzu «O'rtacha tezlik» — ma'ruza (kitob qoidasi, «tezliklarni qo'shib 2 ga bo'lish» tuzog'i), 20+20 test, PDF."],
       ["6-sinf", "19–20-mavzular saytga chiqdi; barcha ma'ruzalar yangi chizmalar bilan qayta tekshirildi."]

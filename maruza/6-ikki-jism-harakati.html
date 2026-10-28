@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ikki jism harakati: uchrashish va quvib yetish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=39">
+</head>
+<body data-a4>
+<main class="m-wrap">
+
+<h1 class="m-title">Ikki jism harakati: uchrashish va quvib yetish</h1>
+<p class="m-lead">Ikki jism bir-biridan uzoqlashadi, bir-biriga qarab yuradi yoki biri ikkinchisini quvib yetadi. Bunday masalalarda ikkala jismning yo'lini birga kuzatamiz.</p>
+
+<!-- ============ 1-QISM: MAVZU ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Mavzu</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>Masofa = tezlik · vaqt; &nbsp; Tezlik = masofa : vaqt; &nbsp; Vaqt = masofa : tezlik.</li>
+      <li>30 min = \(\frac{1}{2}\) soat, &nbsp; 20 min = \(\frac{1}{3}\) soat, &nbsp; 45 min = \(\frac{3}{4}\) soat; &nbsp; 09:20 dan 12:00 gacha — 2 soat 40 min.</li>
+    </ul>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · bir joydan qarama-qarshi yo'nalishda</span>
+    <p style="text-align:center">1-jism yo'li = 1-jism tezligi · vaqt; &nbsp; 2-jism yo'li = 2-jism tezligi · vaqt</p>
+    <p style="text-align:center;font-size:1.1em"><b>Oradagi masofa = 1-jism yo'li + 2-jism yo'li</b></p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · oradagi masofa</span>
+    <p>Ikki poyezd bekatdan bir vaqtda qarama-qarshi tomonga jo'nadi: biri 72 km/soat, ikkinchisi 64 km/soat tezlikda. 3 soatdan keyin ular orasi qancha bo'ladi?</p>
+    <div data-harakat='{"jism":[{"t":"poyezd","dan":0,"gacha":-216,"yoz":"? km","tez":"72 km/soat","bolak":3},{"t":"poyezd","dan":0,"gacha":192,"yoz":"? km","tez":"64 km/soat","bolak":3}],"nuqta":[[0,"Bekat"]],"qavs":[[-216,192,"? km"]]}'></div>
+    <div class="qadam"><b>1</b><span>Yo'llari: \(72 \cdot 3 = 216\) km va \(64 \cdot 3 = 192\) km.</span></div>
+    <div class="qadam"><b>2</b><span>Oradagi masofa: \(216 + 192 = \nat{408}\) km.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · ikkinchi jismning tezligi</span>
+    <p>Ikki avtobus bekatdan bir vaqtda qarama-qarshi tomonga jo'nadi. 2 soatdan keyin ular orasi 190 km bo'ldi. Birinchisining tezligi 55 km/soat. Ikkinchisiniki qancha?</p>
+    <div data-harakat='{"jism":[{"t":"avtobus","dan":0,"gacha":-110,"yoz":"? km","tez":"55 km/soat"},{"t":"avtobus","dan":0,"gacha":80,"yoz":"? km","tez":"? km/soat"}],"nuqta":[[0,"Bekat"]],"qavs":[[-110,80,"190 km"]]}'></div>
+    <div class="qadam"><b>1</b><span>Birinchisi: \(55 \cdot 2 = 110\) km.</span></div>
+    <div class="qadam"><b>2</b><span>Ikkinchisi: \(190 - 110 = 80\) km.</span></div>
+    <div class="qadam"><b>3</b><span>Tezligi: \(80 : 2 = \nat{40}\) km/soat.</span></div>
+  </div>
+  </div>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Har soatda poyezdlar orasi \(72 + 64 = 136\) km ga ortadi. Uch soatda: \(136 \cdot 3 = 408\) km — javob yana o'sha!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · bir-biriga qarab harakat (uchrashish)</span>
+    <p style="text-align:center">1 soatda ikkalasi birga bosgan yo'l = 1-jism tezligi + 2-jism tezligi</p>
+    <p style="text-align:center;font-size:1.1em"><b>Uchrashish vaqti = oradagi masofa : (1-jism tezligi + 2-jism tezligi)</b></p>
+    <p style="text-align:center">Uchrashguncha: 1-jism yo'li + 2-jism yo'li = oradagi masofa</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · qachon va qayerda?</span>
+    <p>A va B qishloqlar orasi 48 km. 09:10 da A dan velosipedchi 12 km/soat, B dan piyoda 4 km/soat tezlikda bir-biriga qarab chiqdi. a) Ular soat nechada uchrashadi? b) Uchrashgan joy B dan qancha uzoqda?</p>
+    <div data-harakat='{"jism":[{"t":"velosiped","dan":0,"gacha":36,"yoz":"? km","tez":"12 km/soat","bolak":3},{"t":"piyoda","dan":48,"gacha":36,"yoz":"? km","tez":"4 km/soat","bolak":3}],"nuqta":[[0,"A"],[48,"B"]],"uchrash":36,"qavs":[[0,48,"48 km"]]}'></div>
+    <div class="qadam"><b>a</b><span>1 soatda birga: \(12 + 4 = 16\) km. \(48 : 16 = 3\) soat. Uchrashadi \(\nat{12:10}\) da.</span></div>
+    <div class="qadam"><b>b</b><span>B dan piyoda yurdi: \(4 \cdot 3 = \nat{12}\) km.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · vaqt ma'lum, tezlik noma'lum</span>
+    <p>Ikki shahar orasi 330 km. Ulardan avtobus va yuk mashinasi bir vaqtda bir-biriga qarab chiqdi va 2 soat 30 minutdan keyin uchrashdi. Avtobus tezligi 60 km/soat. Yuk mashinasiniki qancha?</p>
+    <div data-harakat='{"jism":[{"t":"avtobus","dan":0,"gacha":150,"yoz":"? km","tez":"60 km/soat"},{"t":"mashina","dan":330,"gacha":150,"yoz":"? km","tez":"? km/soat"}],"nuqta":[[0,"A"],[330,"B"]],"uchrash":150,"qavs":[[0,330,"330 km"]]}'></div>
+    <div class="qadam"><b>1</b><span>Avtobus: \(60 \cdot 2\frac{1}{2} = 150\) km.</span></div>
+    <div class="qadam"><b>2</b><span>Yuk mashinasi: \(330 - 150 = 180\) km.</span></div>
+    <div class="qadam"><b>3</b><span>Tezligi: \(180 : 2\frac{1}{2} = 180 \cdot \frac{2}{5} = \nat{72}\) km/soat.</span></div>
+  </div>
+  </div>
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Bir-biriga qarab yurganda oradagi yo'l ikki tomondan qisqaradi: har soatda \(60 + 72 = 132\) km ga. \(330 : 132 = 2\frac{1}{2}\) soat — to'g'ri!</div></div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · bir yo'nalishda harakat (quvib yetish)</span>
+    <p style="text-align:center">Bir joydan chiqqan bo'lsa, quvib yetganda ikkalasining yo'li teng. &nbsp; Oldin chiqqanning vaqti = keyin chiqqanning vaqti + kechikkan vaqt</p>
+    <p style="text-align:center">1 soatda yaqinlashish = katta tezlik − kichik tezlik</p>
+    <p style="text-align:center;font-size:1.1em"><b>Quvib yetish vaqti = oradagi masofa : (katta tezlik − kichik tezlik)</b></p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · quvib yetganning tezligi</span>
+    <p>07:20 da velosipedchi qishloqdan 12 km/soat tezlikda chiqdi. 08:50 da shu joydan, shu yo'l bilan mashina chiqdi va 09:20 da uni quvib yetdi. Mashinaning tezligi qancha?</p>
+    <div data-harakat='{"jism":[{"t":"velosiped","dan":0,"oldin":18,"gacha":24,"oldinYoz":"07:20 → 08:50","tez":"12 km/soat"},{"t":"mashina","dan":0,"gacha":24,"yoz":"? km","tez":"? km/soat"}],"nuqta":[[0,"Qishloq"]],"uchrash":24}'></div>
+    <div class="qadam"><b>1</b><span>Velosipedchi 07:20 dan 09:20 gacha — 2 soat: \(12 \cdot 2 = 24\) km.</span></div>
+    <div class="qadam"><b>2</b><span>Mashina ham 24 km yurdi, 08:50 dan 09:20 gacha — \(\frac{1}{2}\) soatda.</span></div>
+    <div class="qadam"><b>3</b><span>Tezligi: \(24 : \frac{1}{2} = \nat{48}\) km/soat.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · qancha vaqtda quvib yetadi?</span>
+    <p>Avtobus shahardan 48 km/soat tezlikda jo'nadi. 30 minutdan keyin uning ortidan mashina 72 km/soat tezlikda jo'nadi. Mashina avtobusni qancha vaqtda quvib yetadi?</p>
+    <div data-harakat='{"jism":[{"t":"avtobus","dan":0,"oldin":24,"gacha":72,"oldinYoz":"24 km","tez":"48 km/soat"},{"t":"mashina","dan":0,"gacha":72,"tez":"72 km/soat"}],"nuqta":[[0,"Shahar"]],"uchrash":72}'></div>
+    <div class="qadam"><b>1</b><span>30 minutda avtobus: \(48 \cdot \frac{1}{2} = 24\) km.</span></div>
+    <div class="qadam"><b>2</b><span>1 soatda mashina \(72 - 48 = 24\) km yaqinlashadi.</span></div>
+    <div class="qadam"><b>3</b><span>\(24 : 24 = \nat{1}\) soat. Tekshiramiz: mashina 72 km, avtobus \(48 \cdot 1\frac{1}{2} = 72\) km.</span></div>
+  </div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · kech chiqib, oldin yetib keldi</span>
+    <p style="text-align:center">1-jism vaqti = masofa : 1-jism tezligi</p>
+    <p style="text-align:center">2-jism vaqti = 1-jism vaqti − kech chiqqan vaqt − oldin kelgan vaqt</p>
+    <p style="text-align:center;font-size:1.1em"><b>2-jism tezligi = masofa : 2-jism vaqti</b></p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · kech chiqdi, oldin keldi</span>
+    <p>Ikki qishloq orasi 36 km. Piyoda 6 km/soat tezlikda yurdi. Velosipedchi undan 1 soat keyin chiqib, 2 soat oldin yetib keldi. Velosipedchining tezligi qancha?</p>
+    <div class="qadam"><b>1</b><span>Piyoda: \(36 : 6 = 6\) soat.</span></div>
+    <div class="qadam"><b>2</b><span>Velosipedchi: \(6 - 1 - 2 = 3\) soat.</span></div>
+    <div class="qadam"><b>3</b><span>Tezligi: \(36 : 3 = \nat{12}\) km/soat.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · kech chiqdi, bir vaqtda keldi</span>
+    <p>Yuk poyezdi 08:00 da jo'nab, 240 km ni 60 km/soat tezlikda yurdi. Yo'lovchi poyezdi shu bekatdan 09:20 da jo'nab, manzilga u bilan bir vaqtda yetdi. Uning tezligi qancha?</p>
+    <div class="qadam"><b>1</b><span>Yuk poyezdi: \(240 : 60 = 4\) soat, 12:00 da yetdi.</span></div>
+    <div class="qadam"><b>2</b><span>Yo'lovchi poyezdi: 09:20 dan 12:00 gacha — \(2\frac{2}{3}\) soat.</span></div>
+    <div class="qadam"><b>3</b><span>\(240 : 2\frac{2}{3} = 240 \cdot \frac{3}{8} = \nat{90}\) km/soat.</span></div>
+  </div>
+  </div>
+</section>
+
+<!-- ============ 2-QISM: MISOLLAR ISHLASH ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Misollar ishlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">1-misol · hali uchrashmagan</span>
+    <p>A va B shaharlar orasi 150 km. A dan mashina 60 km/soat, B dan avtobus 40 km/soat tezlikda bir vaqtda bir-biriga qarab yo'lga chiqdi. 45 minutdan keyin ular orasidagi masofa qancha bo'ladi?</p>
+    <div data-harakat='{"jism":[{"t":"mashina","dan":0,"gacha":45,"yoz":"45 km","tez":"60 km/soat"},{"t":"avtobus","dan":150,"gacha":120,"yoz":"30 km","tez":"40 km/soat"}],"nuqta":[[0,"A"],[150,"B"]],"qavs":[[0,150,"150 km"],[45,120,"? km"]]}'></div>
+    <div class="qadam"><b>1</b><span>45 min = \(\frac{3}{4}\) soat. Mashina: \(60 \cdot \frac{3}{4} = 45\) km. Avtobus: \(40 \cdot \frac{3}{4} = 30\) km.</span></div>
+    <div class="qadam"><b>2</b><span>Ikkalasi birga: \(45 + 30 = 75\) km. Bu 150 km dan kam — ular hali uchrashmagan.</span></div>
+    <div class="qadam"><b>3</b><span>Oradagi masofa: \(150 - 75 = \nat{75}\) km.</span></div>
+    <p>Agar savol «2 soatdan keyin» bo'lsa: ikkalasi birga \(100 \cdot 2 = 200\) km yuradi. Bu 150 km dan ko'p — ular uchrashib, bir-biridan o'tib ketgan. Oradagi masofa: \(200 - 150 = 50\) km.</p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · yo'lning qismi berilgan</span>
+    <p>Qirg'oqdan orolgacha 1440 m. Soat 14:10 da qirg'oqdan ikki qayiq bir vaqtda orolga qarab suzdi. Motorli qayiq orolga 24 minutda yetdi. Shu paytda eshkakli qayiq yo'lning \(\frac{3}{4}\) qismini suzgan edi.<br>a) Eshkakli qayiqning tezligi qancha?<br>b) Eshkakli qayiq orolga soat nechada yetdi?</p>
+    <div data-yol='{"bolak":[3,1],"ust":["3/4 qism","1/4 qism"],"past":["24 min","?"],"jami":"1440 m","jism":""}'></div>
+    <div class="qadam"><b>1</b><span>24 minutda eshkakli qayiq: \(1440 \cdot \frac{3}{4} = 1080\) m. Tezligi: \(1080 : 24 = \nat{45}\) m/min.</span></div>
+    <div class="qadam"><b>2</b><span>Qolgan yo'l: \(1440 - 1080 = 360\) m. Unga ketgan vaqt: \(360 : 45 = 8\) min.</span></div>
+    <div class="qadam"><b>3</b><span>Jami: \(24 + 8 = 32\) min. 14:10 dan 32 min keyin — \(\nat{14:42}\).</span></div>
+    <p>Agar «yo'lning \(\frac{2}{3}\) qismini suzgan edi» deyilsa, 1-qadam o'zgaradi: \(1440 \cdot \frac{2}{3} = 960\) m, \(960 : 24 = 40\) m/min. Qolgan qadamlar xuddi shunday.</p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-misol · masofa berilmagan</span>
+    <p>Elektropoyezd A bekatdan B bekatgacha 2 soatda, yuk poyezdi B dan A gacha 3 soatda yetib boradi. Ular soat 09:50 da bir vaqtda bir-biriga qarab jo'nadi. Soat nechada uchrashadi?</p>
+    <div class="qadam"><b>1</b><span>1 soatda elektropoyezd butun yo'lning \(\frac{1}{2}\) qismini, yuk poyezdi \(\frac{1}{3}\) qismini yuradi.</span></div>
+    <div class="qadam"><b>2</b><span>1 soatda ikkalasi birga: \(\frac{1}{2} + \frac{1}{3} = \frac{5}{6}\) qism.</span></div>
+    <div class="qadam"><b>3</b><span>Uchrashish vaqti: \(1 : \frac{5}{6} = \frac{6}{5} = 1\frac{1}{5}\) soat = 1 soat 12 min. 09:50 dan keyin — \(\nat{11:02}\).</span></div>
+    <p>Tekshiramiz: yo'l 120 km bo'lsin. Tezliklar \(120 : 2 = 60\) va \(120 : 3 = 40\) km/soat. \(120 : (60 + 40) = 1\frac{1}{5}\) soat — xuddi shunday. Yo'l boshqa bo'lsa ham javob o'zgarmaydi.</p>
+  </div>
+
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Avval rasm chizing: jismlar qayerdan chiqdi va qaysi tomonga yurdi? Bir tomonga yursa — tezliklar ayiriladi, qarama-qarshi tomonga yoki bir-biriga qarab yursa — qo'shiladi.</div></div>
+  <div class="box diqqat">
+    <span class="tag">Diqqat!</span>
+    <ol>
+      <li>Bir yo'nalishda yurganda tezliklar qo'shilmaydi. Bir joydan bir vaqtda 16 km/soat va 12 km/soat tezlikda chiqildi, 3 soatdan keyin oradagi masofa: <span class="xato">\((16 + 12) \cdot 3 = 84\) km</span> &nbsp; <span class="togri">\((16 - 12) \cdot 3 = 12\) km</span></li>
+      <li>Oldin chiqqanning vaqtiga kechikkan vaqtni qo'shing. Velosipedchi (12 km/soat) mashinadan 2 soat oldin chiqdi, mashina uni 3 soatda quvib yetdi. Velosipedchi yo'li: <span class="xato">\(12 \cdot 3\)</span> &nbsp; <span class="togri">\(12 \cdot (3 + 2) = 60\) km</span></li>
+      <li>Qaysi joydan so'ralayotganiga qarang. A dan 12 km/soat, B dan 4 km/soat tezlikda 3 soat yurildi. «B dan qancha uzoqda?» — B dan chiqqan jismning yo'li: <span class="xato">\(12 \cdot 3 = 36\) km</span> &nbsp; <span class="togri">\(4 \cdot 3 = 12\) km</span></li>
+      <li>Minutni soatga to'g'ri aylantiring: <span class="xato">45 min = 0,45 soat</span> &nbsp; <span class="togri">45 min = \(\frac{3}{4}\) soat</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 3-QISM: MUSTAHKAMLASH ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Mustahkamlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Ikki mashina S yoqilg'i quyish shoxobchasidan bir vaqtda qarama-qarshi tomonga yo'lga chiqdi. Rasmga qarab, 3 soatdan keyin ular orasidagi masofani toping.
+      <div data-harakat='{"jism":[{"t":"mashina","dan":0,"gacha":-195,"yoz":"? km","tez":"65 km/soat","bolak":3},{"t":"mashina","dan":0,"gacha":165,"yoz":"? km","tez":"55 km/soat","bolak":3}],"nuqta":[[0,"S"]],"qavs":[[-195,165,"? km"]]}'></div></li>
+    <li>Ikki avtobus rasmdagidek bir vaqtda bir-biriga qarab yo'lga chiqdi.<br>a) Ular necha soatdan keyin uchrashadi?<br>b) Uchrashguncha har bir avtobus qancha yo'l yuradi?
+      <div data-harakat='{"jism":[{"t":"avtobus","dan":0,"gacha":110,"yoz":"? km","tez":"55 km/soat"},{"t":"avtobus","dan":200,"gacha":110,"yoz":"? km","tez":"45 km/soat"}],"nuqta":[[0,"A"],[200,"B"]],"uchrash":110,"qavs":[[0,200,"200 km"]]}'></div></li>
+    <li>Ikki samolyot bir aeroportdan bir vaqtda qarama-qarshi tomonga uchdi. \(\frac{3}{4}\) soatdan keyin ular orasi 1110 km bo'ldi. Birinchi samolyot 780 km/soat tezlikda uchdi. Ikkinchisining tezligi qancha?</li>
+    <li>Ikki bekat orasi 350 km. Soat 07:40 da bir bekatdan tezyurar poyezd 80 km/soat, ikkinchisidan yuk poyezdi 60 km/soat tezlikda bir-biriga qarab jo'nadi.<br>a) Poyezdlar soat nechada uchrashadi?<br>b) Uchrashgan joy yuk poyezdi jo'nagan bekatdan necha km uzoqda?</li>
+    <li>Soat 09:00 da traktor fermadan dalaga 18 km/soat tezlikda yo'lga chiqdi. Soat 10:30 da shu fermadan, shu yo'l bilan mototsiklchi jo'nadi va 12:00 da traktorni quvib yetdi. Mototsiklchining tezligi qancha?</li>
+    <li>Velosipedchi uydan 12 km/soat tezlikda yo'lga chiqdi. 45 minutdan keyin uning ortidan shu yo'l bilan mopedchi 30 km/soat tezlikda jo'nadi. Mopedchi velosipedchini necha minutda quvib yetadi?</li>
+    <li>Daryodagi ikki pristan orasi 96 km. Barja bu yo'lni 12 km/soat tezlikda suzib o'tdi. Kater barjadan 3 soat keyin jo'nab, ikkinchi pristanga undan 1 soat oldin yetib keldi. Katerning tezligi qancha?</li>
+    <li>Ikki qishloq orasi 10 km. Ikki piyoda bir vaqtda bir-biriga qarab yo'lga chiqdi: biri 5 km/soat, ikkinchisi 4 km/soat tezlikda. 40 minutdan keyin ular orasida qancha masofa qoladi?</li>
+    <li>Paroxod ko'lning bir qirg'og'idan ikkinchisiga 3 soatda, kater esa 6 soatda suzib o'tadi. Ular soat 13:20 da ikki qirg'oqdan bir-biriga qarab jo'nadi. Soat nechada uchrashadi?</li>
+    <li>Ikki shahar orasidagi yo'lni yuk mashinasi 60 km/soat tezlikda 3 soatda o'tadi. Shu yo'lni mikroavtobus 72 km/soat tezlikda o'tmoqchi. U soat 14:20 da jo'nasa, manzilga soat nechada yetadi?</li>
+    <li>Ikki dron bir tepalikdan bir vaqtda qarama-qarshi tomonga uchdi: biri 45 km/soat, ikkinchisi 55 km/soat tezlikda. 36 minutdan keyin ular orasidagi masofa qancha bo'ladi?</li>
+  </ol>
+</section>
+
+<!-- ============ 4-QISM: MUSTAQIL ISH ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Mustaqil ish</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Velosipedchi soat 06:50 da A qishloqdan chiqdi. Mashina 08:10 da A dan shu yo'l bilan jo'nadi va 08:50 da velosipedchini quvib yetdi. Rasmga qarab, mashinaning tezligini toping.
+      <div data-harakat='{"jism":[{"t":"velosiped","dan":0,"oldin":20,"gacha":30,"oldinYoz":"06:50 → 08:10","tez":"15 km/soat"},{"t":"mashina","dan":0,"gacha":30,"tez":"? km/soat"}],"nuqta":[[0,"A"]],"uchrash":30}'></div></li>
+    <li>Ikki mashina shoxobchadan bir vaqtda qarama-qarshi tomonga jo'nadi. Yarim soatdan keyin ular orasi 75 km bo'ldi. Birinchi mashina 70 km/soat tezlikda yurdi. Ikkinchisining tezligi qancha?</li>
+    <li>Bog'dagi yo'lkaning uzunligi 2000 m. Uning ikki uchidan bir vaqtda ikki elektr samokat bir-biriga qarab yo'lga chiqdi: biri 70 m/min, ikkinchisi 55 m/min tezlikda.<br>a) Ular necha minutdan keyin uchrashadi?<br>b) Uchrashgan joy sekinroq samokat chiqqan uchdan necha metr uzoqda?</li>
+    <li>Soat 13:15 da yuk tashuvchi robot omborning A eshigidan B eshigiga qarab 32 m/min tezlikda yurdi va B ga 45 minutda yetdi. Soat 14:20 da ikkinchi robot B dan A ga 48 m/min tezlikda yo'lga chiqdi.<br>a) A va B eshiklar orasi necha metr?<br>b) Ikkinchi robot A eshikka soat nechada yetadi?</li>
+    <li>Ikki pristan orasi 144 km. Paroxod bu yo'lni 18 km/soat tezlikda suzdi. Kater paroxoddan \(1\frac{1}{2}\) soat keyin jo'nab, manzilga undan \(\frac{1}{2}\) soat oldin yetdi.<br>a) Katerning tezligi qancha?<br>b) Paroxod 07:30 da jo'nagan bo'lsa, kater manzilga soat nechada yetgan?</li>
+    <li>Fermadan shahargacha 180 km. Pochta mashinasi bu yo'lni 2 soatda bosib o'tdi. U yo'lga sut tashuvchi mashinadan 1 soat keyin chiqqan edi. Pochta mashinasi shaharga yetganda, sut mashinasi shahardan hali 30 km uzoqda edi.<br>a) Sut mashinasi shu paytgacha necha soat yurgan?<br>b) Sut mashinasining tezligi qancha?</li>
+    <li><b>Qiyinroq.</b> Tezyurar poyezd manzilga yetganda, yuk poyezdi manzildan hali 40 km uzoqda edi — bu butun yo'lning \(\frac{1}{6}\) qismi. Yuk poyezdi manzilga yana 1 soatdan keyin yetdi. Ikkala poyezd bir bekatdan jo'nagan, tezyurar poyezd yuk poyezdidan 1 soat keyin jo'nagan edi.<br>a) Bekatdan manzilgacha necha km?<br>b) Yuk poyezdining tezligi qancha?<br>c) Tezyurar poyezdning tezligi qancha?</li>
+    <li>Ikki poyezd orasi 200 km bo'lgan ikki bekatdan bir vaqtda bir-biriga qarab jo'nadi: biri 70 km/soat, ikkinchisi 50 km/soat tezlikda. 2 soat 30 minutdan keyin ular orasidagi masofa qancha bo'ladi?</li>
+    <li><b>O'ylab ko'ring.</b> Muz maydonidagi aylana yo'lning uzunligi 250 m. Sardor va Diyor konkida bir joydan bir vaqtda bir tomonga yo'lga chiqdi: Sardor har minutda 240 m, Diyor 180 m yuradi.<br>a) Necha minutdan keyin Sardor Diyordan 900 m ko'p yo'l yurgan bo'ladi?<br>b) Shu paytgacha Sardor aylanani necha marta to'liq aylanib chiqqan bo'ladi?</li>
+    <li><b>Xatoni toping.</b> Ikki velosipedchi bir joydan bir vaqtda bir tomonga yo'lga chiqdi: biri 18 km/soat, ikkinchisi 13 km/soat tezlikda. Bekzod 4 soatdan keyin ular orasidagi masofani shunday topdi: \((18 + 13) \cdot 4 = 124\) km. Xato nimada? To'g'ri javob qancha?</li>
+  </ol>
+</section>
+
+<!-- ============ 5-QISM: JAVOBLAR ============ -->
+<div class="m-qism q-javob"><div class="q-n">5-qism</div><h2>Javoblar</h2></div>
+
+<section class="m-sec qism-ichi">
+  <h3>Mustahkamlash</h3>
+  <details class="javob"><summary>1-masala</summary>\(65 \cdot 3 = 195\) km, \(55 \cdot 3 = 165\) km. Oradagi masofa: \(195 + 165 = 360\) km.</details>
+  <details class="javob"><summary>2-masala</summary>a) 1 soatda birga: \(55 + 45 = 100\) km. \(200 : 100 = 2\) soat. b) \(55 \cdot 2 = 110\) km va \(45 \cdot 2 = 90\) km.</details>
+  <details class="javob"><summary>3-masala</summary>Birinchi samolyot: \(780 \cdot \frac{3}{4} = 585\) km. Ikkinchisi: \(1110 - 585 = 525\) km. Tezligi: \(525 : \frac{3}{4} = 525 \cdot \frac{4}{3} = 700\) km/soat.</details>
+  <details class="javob"><summary>4-masala</summary>a) \(80 + 60 = 140\) km, \(350 : 140 = 2\frac{1}{2}\) soat = 2 soat 30 min. 07:40 dan keyin — 10:10. b) Yuk poyezdi: \(60 \cdot 2\frac{1}{2} = 150\) km.</details>
+  <details class="javob"><summary>5-masala</summary>Traktor 09:00 dan 12:00 gacha — 3 soat: \(18 \cdot 3 = 54\) km. Mototsiklchi 10:30 dan 12:00 gacha — \(1\frac{1}{2}\) soat. Tezligi: \(54 : 1\frac{1}{2} = 54 \cdot \frac{2}{3} = 36\) km/soat.</details>
+  <details class="javob"><summary>6-masala</summary>45 minutda velosipedchi: \(12 \cdot \frac{3}{4} = 9\) km. 1 soatda mopedchi \(30 - 12 = 18\) km yaqinlashadi. \(9 : 18 = \frac{1}{2}\) soat = 30 min.</details>
+  <details class="javob"><summary>7-masala</summary>Barja: \(96 : 12 = 8\) soat. Kater: \(8 - 3 - 1 = 4\) soat. Tezligi: \(96 : 4 = 24\) km/soat.</details>
+  <details class="javob"><summary>8-masala</summary>40 min = \(\frac{2}{3}\) soat. Birga: \((5 + 4) \cdot \frac{2}{3} = 6\) km. Qoladi: \(10 - 6 = 4\) km.</details>
+  <details class="javob"><summary>9-masala</summary>1 soatda paroxod \(\frac{1}{3}\), kater \(\frac{1}{6}\) qism: birga \(\frac{1}{3} + \frac{1}{6} = \frac{1}{2}\) qism. \(1 : \frac{1}{2} = 2\) soat. Uchrashadi soat 15:20 da.</details>
+  <details class="javob"><summary>10-masala</summary>Yo'l: \(60 \cdot 3 = 180\) km. Mikroavtobus: \(180 : 72 = 2\frac{1}{2}\) soat = 2 soat 30 min. 14:20 dan keyin — 16:50.</details>
+  <details class="javob"><summary>11-masala</summary>36 min = \(\frac{36}{60} = \frac{3}{5}\) soat. \((45 + 55) \cdot \frac{3}{5} = 60\) km.</details>
+
+  <h3>Mustaqil ish</h3>
+  <details class="javob"><summary>1-masala</summary>Velosipedchi 06:50 dan 08:50 gacha — 2 soat: \(15 \cdot 2 = 30\) km. Mashina 30 km ni 08:10 dan 08:50 gacha — 40 min = \(\frac{2}{3}\) soatda yurdi: \(30 : \frac{2}{3} = 30 \cdot \frac{3}{2} = 45\) km/soat.</details>
+  <details class="javob"><summary>2-masala</summary>Birinchi: \(70 \cdot \frac{1}{2} = 35\) km. Ikkinchi: \(75 - 35 = 40\) km. Tezligi: \(40 : \frac{1}{2} = 80\) km/soat.</details>
+  <details class="javob"><summary>3-masala</summary>a) 1 minutda birga: \(70 + 55 = 125\) m. \(2000 : 125 = 16\) min. b) Sekinroq samokat: \(55 \cdot 16 = 880\) m.</details>
+  <details class="javob"><summary>4-masala</summary>a) \(32 \cdot 45 = 1440\) m. b) \(1440 : 48 = 30\) min. 14:20 dan keyin — 14:50.</details>
+  <details class="javob"><summary>5-masala</summary>a) Paroxod: \(144 : 18 = 8\) soat. Kater: \(8 - 1\frac{1}{2} - \frac{1}{2} = 6\) soat. \(144 : 6 = 24\) km/soat. b) Kater 07:30 dan \(1\frac{1}{2}\) soat keyin — 09:00 da jo'nadi. 09:00 dan 6 soat keyin — 15:00 da yetdi.</details>
+  <details class="javob"><summary>6-masala</summary>a) \(2 + 1 = 3\) soat. b) Sut mashinasi yurgan yo'l: \(180 - 30 = 150\) km. Tezligi: \(150 : 3 = 50\) km/soat.</details>
+  <details class="javob"><summary>7-masala</summary>a) \(\frac{1}{6}\) qism = 40 km, butun yo'l \(40 \cdot 6 = 240\) km. b) Qolgan 40 km ni yuk poyezdi 1 soatda yurdi: 40 km/soat. c) Yuk poyezdi vaqti: \(240 : 40 = 6\) soat. Tezyurar: \(6 - 1 - 1 = 4\) soat, \(240 : 4 = 60\) km/soat.</details>
+  <details class="javob"><summary>8-masala</summary>1 soatda birga: \(70 + 50 = 120\) km, \(2\frac{1}{2}\) soatda: \(120 \cdot 2\frac{1}{2} = 300\) km. Bu 200 km dan ko'p — poyezdlar bir-biridan o'tib ketgan: \(300 - 200 = 100\) km.</details>
+  <details class="javob"><summary>9-masala</summary>a) Har minutda Sardor \(240 - 180 = 60\) m ko'p yuradi: \(900 : 60 = 15\) min. b) Sardor: \(240 \cdot 15 = 3600\) m. \(3600 : 250 = 14,4\) — 14 marta to'liq aylangan.</details>
+  <details class="javob"><summary>10-masala</summary>Bekzod tezliklarni qo'shgan. Bir tomonga yurganda ular har soatda \(18 - 13 = 5\) km ga uzoqlashadi: \(5 \cdot 4 = 20\) km.</details>
+</section>
+
+<p class="m-foot">Mathlearn · 6-sinf matematika</p>
+</main>
+<script src="chizma.js?v=70"></script>
+<script src="maruza.js?v=13"></script>
+</body>
+</html>

@@ -124,9 +124,13 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 2026-10-28. Ma'ruza (5 qism, 8 ta `data-yol` chizma) va 20+20 test (5 ta chizmali savol), PDF.
 **Kitob bilan solishtirildi:** qoida «O'rtacha tezlik = jami masofa : jami vaqt» (aynan) ✅; «Qarang va o'rganing» 1–5 (uch bo'lak, vaqtni avval topish, butun bo'lmagan javob, o'rtacha tezlikdan vaqt, yo'lning qismi) ✅; «Bajaring» 1–5 va daftar turlari ✅; tezliklar o'rtachasi ≠ o'rtacha tezlik — misol va Diqqat'da ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; qoida ramkasidagi o'zimizning gap olib tashlandi; kitobga o'xshagan 4 ta mashq va 6 ta test savoli almashtirildi; qiyin testda bir xil tuzoq 9 tadan 3 taga kamaytirildi.
 
-#### ☐ 23. Ikki jism harakati: uchrashish va quvib yetish — D2 20–26; M2 19–28
+#### ✅ 23. Ikki jism harakati: uchrashish va quvib yetish — D2 20–26; M2 19–28
+2026-10-28. Ma'ruza (5 qism, yangi chizma `data-harakat` — har harakatlanuvchiga yo'lak, strelka, tezlik, uchrashish yulduzchasi, oldinroq chiqish) va 20+20 test (6 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** qarama-qarshi yo'nalishda (uzoqlashish) ✅; bir-biriga qarab (uchrashish) ✅; quvib yetish ✅; kech chiqib oldin yetish ✅; «hali uchrashmagan / o'tib ketgan» ✅; yo'lning qismi ✅; aylana yo'lak (O'ylab ko'ring) ✅; daftar 1–6 ✅. Kitobda qoida gapi yo'q — «Usul · …». **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 1 ta ikki javobli test savoli tuzatildi; kitob/daftar/ma'ruzaga o'xshagan 7 ta mashq va 7 ta test savoli almashtirildi.
 
-#### ☐ 24. Kuboidning qirrasini topish — D2 28–34; M2 29–34
+#### ✅ 24. Kuboidning qirrasini topish — D2 28–34; M2 29–34
+2026-10-28. Ma'ruza (5 qism, yangi chizma `data-kuboid` — o'lchamga mos kuboid, «?» qirra qizil, bo'yalgan yoq yuzi) va 20+20 test (7 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** qirrani hajm va ikki qirradan topish (kitob formulalari aynan) ✅; o'nli kasrli qirra/javob ✅; asos yuzi va balandlik (kitob gapi aynan) ✅; bitta kuboid — 3 xil asos ✅; bo'yalgan yoq yuzi berilgan ✅; jadval ✅; idishdagi suv (litr) ✅; daftar turlari ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitobga o'xshagan 2 ta misol va 3 ta test savoli almashtirildi, chalg'ituvchilar xilma-xil qilindi.
 
 #### ☐ 25. Kubning qirrasini topish — D2 35–38; M2 35–36
 

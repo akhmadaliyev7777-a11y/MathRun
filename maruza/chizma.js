@@ -65,6 +65,10 @@
    data-idish="40x25x30" [data-suv="18"] — kuboid shaklidagi shisha idish (bo'yi x eni x balandligi), ichida suv sathi
                                           (o'sha birlikda; bo'lmasa — bo'sh idish); o'lchamlar taxminan nisbatda chiziladi
        [data-yozuv="40 cm|25 cm|30 cm|18 cm|12 cm"] — bo'yi | eni | balandligi | suv sathi | bo'sh qism (bo'sh — yozilmaydi)
+   data-kuboid='{"o":[10,6,8],"yoz":["?","6 cm","8 cm"],"yoq":"ust","yuzi":"Yuzi = 60 cm²"}' — yaxlit kuboid (kubchalarsiz, qiya proyeksiya):
+       "o":[bo'yi,eni,balandligi] — qirralar shu nisbatda chiziladi; "yoz":[bo'yi,eni,balandligi] yozuvlari ("?" — qirra qalin qizil, yozuv qizil;
+       bo'sh — yozilmaydi); "yoq":"ust|old|yon|ost" — bo'yalgan yoq, "yuzi" — uning yozuvi (sig'masa — tashqarida chiziqcha bilan);
+       "ost" yoki "shaffof":1 — shaffof jism, orqa qirralar punktir; "rang":"ko'k|yashil|sariq"; "eni"/"boy" — chizma o'lchami (px, 240/150)
    data-menzurka="600/1000"        — o'lchov idishi (menzurka): shkala 0 dan 1000 ml gacha, ichida 600 ml suyuqlik
    data-buyum="Doiralar:doira:ko'k:6|Kvadratlar:kvadrat:sariq:4" [data-guruh="2"] [data-olcham="24"] — buyumlar qatori (nisbat uchun):
                                           har qator "nomi:shakli:rangi:soni" (shakl: doira, kvadrat, uchburchak, romb, yulduz;
@@ -214,6 +218,14 @@
        yashil tezlik yozuvi (masofa chizig'i ostida; "tez" bilan birga "tezlik" ishlatilmasin).
    data-spidometr="70" [data-max="160"] [data-qadam="20"] [data-birlik="km/soat"] — spidometr (tezlik ko'rsatkichi): 0 dan max gacha shkala,
        har qadamda son, yarim qadamda kichik chiziq; qizil mil berilgan tezlikni ko'rsatadi (son yozilmaydi — o'quvchi o'qiydi).
+   data-harakat='{"jism":[{"t":"mashina","dan":0,"gacha":240,"yoz":"240 km","tez":"80 km/soat"},{"t":"avtobus","dan":420,"gacha":240,"yoz":"?"}],
+       "nuqta":[[0,"A","08:15"],[420,"B"]],"uchrash":240,"qavs":[[0,420,"420 km"]],"eni":400}' — ikki (yoki uch) jism harakati (6-sinf 23-mavzu):
+       har jism o'z qatorida: jism rasmi "t" (data-yol dagi turlar), "dan" → "gacha" strelka (yo'nalishi shundan; chapga yursa rasm o'giriladi),
+       "yoz" — strelka ostidagi masofa, "tez" — yashil tezlik lavhasi, "bolak":3 — strelkada teng bo'laklar (har soatdagi yo'l),
+       "oldin":90 + "oldinYoz" — jism "dan" dan "oldin" gacha oldinroq yurgan qism (punktir; jism rasmi "oldin" da turadi), "rang" — strelka rangi.
+       Pastda umumiy yo'l: "nuqta":[[o'rni, nomi, (ostidagi kichik yozuv — soat)]], "uchrash" — uchrashgan joy (yulduzcha va to'q sariq punktir),
+       "qavs":[[dan, gacha, yozuv, (rang)]] — yo'l ostidagi qavslar (umumiy masofa, oradagi masofa). Barcha qiymatlar bitta masshtabda (haqiqiy o'lcham);
+       manfiy ham bo'lishi mumkin (bir joydan ikki tomonga tarqalish). "eni" — kenglik (test rasmi uchun 300).
 */
 (function () {
   "use strict";
@@ -2668,6 +2680,88 @@
       (el.dataset.izoh || "Kuboid shaklidagi idish" + (suv ? ", ichida suv" : "")) + '">' + s + "</svg>";
   }
 
+  // ---------- yaxlit kuboid (qiya proyeksiya): qirralar nisbatda, yozuvlar, "?" qirra, bo'yalgan yoq (6-sinf 24-mavzu) ----------
+  function chizKuboid(el) {
+    let d;
+    try { d = JSON.parse(el.dataset.kuboid); } catch (e) { return; }
+    const o = (d.o || [4, 3, 2]).map(Number);                  // bo'yi, eni, balandligi
+    const yoz = d.yoz || [];
+    const kv = Number(d.eni || 240), kb = Number(d.boy || 150);
+    const cs = Math.cos(Math.PI / 5) * 0.5, sn = Math.sin(Math.PI / 5) * 0.5;   // chuqurlik: 36°, yarim uzunlik
+    const k = Math.min(kv / (o[0] + o[1] * cs), kb / (o[2] + o[1] * sn));
+    const A = o[0] * k, H = o[2] * k, dx = o[1] * k * cs, dy = o[1] * k * sn;
+    const p = function (x, z, t) { return [x + t * dx, -z - t * dy]; };   // x — bo'yi, z — balandlik, t — chuqurlik (0..1)
+    const yoq = d.yoq || "", shaffof = d.shaffof === 1 || yoq === "ost";
+    const RANG = { "ko'k": ["#eef4fe", "#dde8fb", "#c9daf6"], yashil: ["#ecf8f2", "#d6f0e3", "#bfe5d2"], sariq: ["#fff6e6", "#ffeccc", "#ffdfa8"] };
+    const r = RANG[d.rang] || RANG["ko'k"];
+    let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+    const qamra = function (x, y) { minx = Math.min(minx, x); maxx = Math.max(maxx, x); miny = Math.min(miny, y); maxy = Math.max(maxy, y); };
+    const yo = function (n) { return n.map(function (q) { qamra(q[0], q[1]); return q[0].toFixed(1) + " " + q[1].toFixed(1); }).join(" L"); };
+    const YOQ = {
+      old: [p(0, 0, 0), p(A, 0, 0), p(A, H, 0), p(0, H, 0)],
+      ust: [p(0, H, 0), p(A, H, 0), p(A, H, 1), p(0, H, 1)],
+      yon: [p(A, 0, 0), p(A, 0, 1), p(A, H, 1), p(A, H, 0)],
+      ost: [p(0, 0, 0), p(A, 0, 0), p(A, 0, 1), p(0, 0, 1)]
+    };
+    const bor = "#f6b48a", borQ = "#d4501b";
+    let s = "";
+    const yuz = function (n, fill, extra) { return '<path d="M' + yo(n) + ' Z" fill="' + fill + '"' + (extra || "") + "/>"; };
+    const chiz = function (a, b, extra) { return '<path d="M' + yo([a, b]) + '" fill="none" stroke="#3b4a6b" stroke-width="1.8" stroke-linecap="round"' + (extra || "") + "/>"; };
+    if (shaffof) {
+      if (yoq) s += yuz(YOQ[yoq], bor, ' fill-opacity="0.8"');
+      const dash = ' stroke-dasharray="5 4" stroke="#8a93a8" stroke-width="1.4"';
+      s += chiz(p(0, 0, 1), p(A, 0, 1), dash) + chiz(p(0, 0, 1), p(0, H, 1), dash) + chiz(p(0, 0, 0), p(0, 0, 1), dash);
+    } else {
+      s += yuz(YOQ.old, yoq === "old" ? bor : r[0]) + yuz(YOQ.ust, yoq === "ust" ? bor : r[1]) + yuz(YOQ.yon, yoq === "yon" ? bor : r[2]);
+    }
+    // ko'rinadigan qirralar
+    [[p(0, 0, 0), p(A, 0, 0)], [p(A, 0, 0), p(A, H, 0)], [p(A, H, 0), p(0, H, 0)], [p(0, H, 0), p(0, 0, 0)],
+      [p(0, H, 0), p(0, H, 1)], [p(A, H, 0), p(A, H, 1)], [p(A, 0, 0), p(A, 0, 1)], [p(0, H, 1), p(A, H, 1)], [p(A, 0, 1), p(A, H, 1)]]
+      .forEach(function (q) { s += chiz(q[0], q[1]); });
+    if (yoq) s += yuz(YOQ[yoq], "none", ' stroke="' + borQ + '" stroke-width="2.2" stroke-linejoin="round"');
+    const matn = function (x, y, t, anchor, rang, fs) {
+      const w = t.length * (fs || 15) * 0.56;
+      qamra(anchor === "end" ? x - w : anchor === "start" ? x : x - w / 2, y - 13);
+      qamra(anchor === "end" ? x : anchor === "start" ? x + w : x + w / 2, y + 4);
+      return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + anchor + '" font-size="' + (fs || 15) + '" font-weight="800" fill="' + rang + '">' + t + "</text>";
+    };
+    // qirralar yozuvi: "?" — qizil, qirra qalin qizil
+    const QIRRA = [[p(0, 0, 0), p(A, 0, 0)], [p(A, 0, 0), p(A, 0, 1)], [p(0, 0, 0), p(0, H, 0)]];
+    const RNG = ["#d4501b", "#1f5fd6", "#6d3fc0"];
+    yoz.forEach(function (t, i) {
+      if (!t || i > 2) return;
+      const sav = t.trim() === "?";
+      if (sav) s += '<path d="M' + yo(QIRRA[i]) + '" stroke="#d6454f" stroke-width="3.6" stroke-linecap="round"/>';
+      const rang = sav ? "#d6454f" : RNG[i], f = sav ? 18 : 15;
+      if (i === 0) s += matn(A / 2, 21, t, "middle", rang, f);
+      else if (i === 1) { const m = p(A, 0, 0.5); s += matn(m[0] + 9, m[1] + 13, t, "start", rang, f); }
+      else s += matn(-9, -H / 2 + 6, t, "end", rang, f);
+    });
+    // bo'yalgan yoq yuzi yozuvi: sig'sa — ichida, sig'masa — tashqarida chiziqcha bilan
+    if (yoq && d.yuzi) {
+      const n = YOQ[yoq], t = d.yuzi, w = t.length * 13 * 0.56;
+      const cx = (n[0][0] + n[1][0] + n[2][0] + n[3][0]) / 4, cy = (n[0][1] + n[1][1] + n[2][1] + n[3][1]) / 4;
+      const xs = n.map(function (q) { return q[0]; }), ys = n.map(function (q) { return q[1]; });
+      const bw = yoq === "old" ? A : yoq === "yon" ? dx : A, bh = yoq === "old" ? H : yoq === "yon" ? H : dy;
+      const ichi = yoq === "yon" ? (dx >= w + 6 && H >= 24) : (bw >= w + 10 && bh >= 22);
+      if (ichi) s += matn(cx, cy + 5, t, "middle", "#7a2e0e", 13);
+      else if (yoq === "ost" && !yoz[0]) {
+        s += '<path d="M' + yo([[cx, cy], [cx, 7]]) + '" stroke="#7a2e0e" stroke-width="1.3"/>' + matn(cx, 21, t, "middle", "#7a2e0e", 14);
+      } else if (yoq === "ust") {
+        const ty = Math.min.apply(null, ys) - 16, tx = Math.max.apply(null, xs) + 4;
+        s += '<path d="M' + yo([[cx, cy], [tx - 2, ty + 3]]) + '" stroke="#7a2e0e" stroke-width="1.3"/>' + matn(tx, ty, t, "start", "#7a2e0e", 13);
+      } else {
+        const tx = Math.max.apply(null, xs) + (yoz[1] && yoq !== "old" ? 14 : 12), ty = yoq === "ost" ? cy + 30 : cy - H * 0.28;
+        s += '<path d="M' + yo([[cx, cy], [tx - 3, ty - 4]]) + '" stroke="#7a2e0e" stroke-width="1.3"/>' + matn(tx, ty, t, "start", "#7a2e0e", 13);
+      }
+    }
+    const m = 6, W = maxx - minx + 2 * m, Ht = maxy - miny + 2 * m;
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + W.toFixed(1) + " " + Ht.toFixed(1) + '" style="max-width:' + Math.round(W) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || "Kuboid: bo'yi " + (yoz[0] || o[0]) + ", eni " + (yoz[1] || o[1]) + ", balandligi " + (yoz[2] || o[2])) + '">' +
+      '<g transform="translate(' + (m - minx).toFixed(1) + " " + (m - miny).toFixed(1) + ')">' + s + "</g></svg>";
+  }
+
   // ---------- buyumlar qatori (nisbat): shakllar, kerak bo'lsa guruhlarga ajratilgan ----------
   const BUYUM_RANG = { "ko'k": ["#8fb3f5", "#1f5fd6"], qizil: ["#f59a9a", "#c81e1e"], yashil: ["#8fd6b4", "#12805c"], sariq: ["#fbd56b", "#b58105"],
     binafsha: ["#c4adf0", "#6d3fc0"], "to'q sariq": ["#fbb48a", "#d4501b"] };
@@ -3518,6 +3612,84 @@
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Spidometr (tezlik ko\'rsatkichi), ' + birlik + '">' + s + "</svg>";
   }
 
+  // ---------- ikki jism harakati (6-sinf 23-mavzu «Ikki jism harakati: uchrashish va quvib yetish») ----------
+  // Har jism — o'z qatori: jism rasmi, tezlik lavhasi, strelka (dan → gacha), ostida masofa; pastda umumiy yo'l, nuqtalar, qavslar.
+  // O'lchov haqiqiy: barcha "dan", "gacha", "oldin", nuqta va qavs qiymatlari bitta masshtabda (km, m — farqi yo'q).
+  function chizHarakat(el) {
+    const g = JSON.parse(el.dataset.harakat);
+    const J = g.jism || [], N = g.nuqta || [], Q = g.qavs || [];
+    const W = Number(g.eni) || 400, m = 26;
+    const pos = [];
+    J.forEach(function (j) { pos.push(Number(j.dan), Number(j.gacha)); if (j.oldin != null) pos.push(Number(j.oldin)); });
+    N.forEach(function (p) { pos.push(Number(p[0])); });
+    Q.forEach(function (q) { pos.push(Number(q[0]), Number(q[1])); });
+    if (g.uchrash != null) pos.push(Number(g.uchrash));
+    const a = Math.min.apply(null, pos), b = Math.max.apply(null, pos);
+    const X = function (v) { return m + (Number(v) - a) / ((b - a) || 1) * (W - 2 * m); };
+    const RANG = ["#1f5fd6", "#c2410c", "#7c3aed"], YASH = "#12805c", QORA = "#1f2433", KUL = "#9aa3b5", SAR = "#e8a400";
+    const T = function (x, y, txt, c, f, wt) { return '<text x="' + x.toFixed(1) + '" y="' + y + '" text-anchor="middle" font-size="' + (f || 14).toFixed(1) + '" font-weight="' + (wt || 800) + '" fill="' + c + '">' + txt + "</text>"; };
+    const L = function (x1, y1, x2, y2, c, w, d) { return '<line x1="' + x1.toFixed(1) + '" y1="' + y1 + '" x2="' + x2.toFixed(1) + '" y2="' + y2 + '" stroke="' + c + '" stroke-width="' + (w || 2) + '"' + (d ? ' stroke-dasharray="' + d + '"' : "") + "/>"; };
+    const sig = function (txt, px) { return Math.max(9, Math.min(13.5, (Math.abs(px) - 4) / (0.6 * Math.max(1, String(txt).length)))); };
+    const top = J[0] && /velosiped|piyoda/.test(J[0].t || "") ? 46 : 34;   // birinchi qatordagi odam boshi kesilmasin
+    const yR = top - 24 + 52 * J.length;
+    let s = "";
+    // qatorlardan yo'lga ingichka punktir chiziqlar (qayerdan qayergacha) va uchrashgan joy chizig'i — eng ostida
+    J.forEach(function (j, i) {
+      const yL = top + 52 * i;
+      [j.dan, j.gacha].concat(j.oldin != null ? [j.oldin] : []).forEach(function (v) { s += L(X(v), yL + 5, X(v), yR, KUL, 1, "3 3"); });
+    });
+    if (g.uchrash != null) s += L(X(g.uchrash), 4, X(g.uchrash), yR, SAR, 1.8, "6 4");
+    J.forEach(function (j, i) {
+      const c = j.rang || RANG[i % RANG.length], yL = top + 52 * i;
+      const xs = X(j.dan), xd = X(j.oldin != null ? j.oldin : j.dan), xe = X(j.gacha), dir = xe >= xd ? 1 : -1;
+      if (j.oldin != null) {   // oldinroq bosilgan qism — punktir
+        s += L(xs, yL, xd, yL, c, 2.2, "5 4") + L(xs, yL - 5, xs, yL + 5, c, 1.8);
+        if (j.oldinYoz) s += T((xs + xd) / 2, yL + 16, j.oldinYoz, c, sig(j.oldinYoz, xd - xs), 700);
+      }
+      s += L(xd, yL, xe - dir * 6, yL, c, 2.6) + L(xd, yL - 5, xd, yL + 5, c, 1.8) +
+        '<path d="M' + xe.toFixed(1) + " " + yL + " L" + (xe - dir * 10).toFixed(1) + " " + (yL - 5.5) + " L" + (xe - dir * 10).toFixed(1) + " " + (yL + 5.5) + ' Z" fill="' + c + '"/>';
+      const nb = Number(j.bolak) || 0;   // teng bo'laklar (masalan, har soatdagi yo'l)
+      for (let k = 1; k < nb; k++) { const xk = xd + (xe - xd) * k / nb; s += L(xk, yL - 4, xk, yL + 4, c, 1.6); }
+      if (j.yoz) s += T((xd + xe) / 2, yL + 16, j.yoz, c, sig(j.yoz, xe - xd));
+      const cx = xd + dir * 22, jism = yolJism(j.t || "mashina", cx, yL);
+      s += dir < 0 ? '<g transform="translate(' + (2 * cx).toFixed(1) + ' 0) scale(-1 1)">' + jism + "</g>" : jism;
+      if (j.tez) {
+        const tw = 7.2 * String(j.tez).length + 14;
+        let tx = dir > 0 ? cx + 30 : cx - 30 - tw;
+        tx = Math.max(2, Math.min(W - 2 - tw, tx));
+        s += '<rect x="' + tx.toFixed(1) + '" y="' + (yL - 26) + '" width="' + tw.toFixed(1) + '" height="19" rx="9.5" fill="#d9f2e6" stroke="' + YASH + '" stroke-width="1.3"/>' +
+          T(tx + tw / 2, yL - 12.5, j.tez, YASH, 12.5);
+      }
+    });
+    // yo'l
+    s += '<rect x="' + (m - 10) + '" y="' + yR + '" width="' + (W - 2 * m + 20) + '" height="14" rx="3" fill="#6b7280"/>' +
+      L(m - 6, yR + 7, W - m + 6, yR + 7, "#fff", 1.5, "7 6");
+    let pastBor = false;
+    N.forEach(function (p) {
+      const x = X(p[0]);
+      s += '<circle cx="' + x.toFixed(1) + '" cy="' + (yR + 7) + '" r="4.5" fill="#fff" stroke="' + QORA + '" stroke-width="2"/>';
+      const jo = function (txt, f) { const w2 = 0.31 * f * String(txt).length; return Math.max(w2 + 2, Math.min(W - w2 - 2, x)); };   // chetda kesilmasin
+      if (p[1]) s += T(jo(p[1], 15), yR + 31, p[1], QORA, 15);
+      if (p[2]) { s += T(jo(p[2], 12), yR + 46, p[2], "#5b6275", 12, 700); pastBor = true; }
+    });
+    if (g.uchrash != null) {   // uchrashgan joy — yulduzcha
+      const xu = X(g.uchrash), cy = yR + 7;
+      let d = "";
+      for (let k = 0; k < 10; k++) { const r = k % 2 ? 4 : 9, u = -Math.PI / 2 + k * Math.PI / 5; d += (k ? " L" : "M") + (xu + r * Math.cos(u)).toFixed(1) + " " + (cy + r * Math.sin(u)).toFixed(1); }
+      s += '<path d="' + d + ' Z" fill="#ffd23f" stroke="#b07f00" stroke-width="1.3" stroke-linejoin="round"/>';
+    }
+    let yq = yR + (pastBor ? 58 : 44);
+    Q.forEach(function (q) {
+      const x1 = X(q[0]), x2 = X(q[1]), c = q[3] || "#334155";
+      s += '<path d="M' + x1.toFixed(1) + " " + (yq - 7) + " V" + yq + " H" + x2.toFixed(1) + " V" + (yq - 7) + '" fill="none" stroke="' + c + '" stroke-width="2"/>' +
+        T((x1 + x2) / 2, yq + 17, q[2] || "", c, sig(q[2] || "", Math.max(60, x2 - x1)));
+      yq += 30;
+    });
+    const H = Q.length ? yq - 6 : yR + (pastBor ? 54 : 40);
+    el.classList.add("tasma");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Ikki jism harakati sxemasi">' + s + "</svg>";
+  }
+
   window.MaruzaChizma = {
     bolish: bolish,
     chiz: function (root) {
@@ -3546,6 +3718,7 @@
       root.querySelectorAll("[data-geo]").forEach(chizGeo);
       root.querySelectorAll("[data-kub]").forEach(chizKub);
       root.querySelectorAll("[data-idish]").forEach(chizIdish);
+      root.querySelectorAll("[data-kuboid]").forEach(chizKuboid);
       root.querySelectorAll("[data-menzurka]").forEach(chizMenzurka);
       root.querySelectorAll("[data-buyum]").forEach(chizBuyum);
       root.querySelectorAll("[data-panjara]").forEach(chizPanjara);
@@ -3577,6 +3750,7 @@
       root.querySelectorAll("[data-hayot]").forEach(chizHayot);
       root.querySelectorAll("[data-yol]").forEach(chizYol);
       root.querySelectorAll("[data-spidometr]").forEach(chizSpidometr);
+      root.querySelectorAll("[data-harakat]").forEach(chizHarakat);
     }
   };
 })();

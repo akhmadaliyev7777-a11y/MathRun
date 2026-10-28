@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kuboidning qirrasini topish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=39">
+</head>
+<body data-a4>
+<main class="m-wrap">
+
+<h1 class="m-title">Kuboidning qirrasini topish</h1>
+<p class="m-lead">Qutining hajmi va ikkita o'lchami ma'lum bo'lsa, uchinchi o'lchamini chizg'ichsiz ham topsa bo'ladi. Buning uchun hajm formulasini «teskari» ishlatamiz.</p>
+
+<!-- ============ 1-QISM: MAVZU ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Mavzu</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>Kuboid hajmi = bo'yi × eni × balandligi. Masalan, \(5 \cdot 3 \cdot 4 = 60\) cm³. &nbsp; Kub hajmi = qirrasi × qirrasi × qirrasi.</li>
+      <li>Noma'lum ko'paytuvchi: \(6 \cdot \square = 42\) bo'lsa, \(\square = 42 : 6 = 7\).</li>
+      <li>\(1\ \text{l} = 1000\) cm³. Idishdagi suv hajmi = idish bo'yi × eni × suv sathining balandligi.</li>
+    </ul>
+  </div>
+
+  <p>18 ta birlik kubdan uch xil kuboid yasaymiz. Har birida bo'yi va eni ma'lum. Balandligi nechaga teng? Bitta qatlamda bo'yi × eni ta kubcha bor. 18 ni shu songa bo'lsak, qatlamlar soni — balandlik chiqadi.</p>
+  <div class="kub-qator">
+    <div><div data-kub="3x2x3" data-olcham="13" data-yozuv="3|2|?" data-izoh="A kuboid: bo'yi 3, eni 2, balandligi noma'lum"></div><p>A</p></div>
+    <div><div data-kub="6x3x1" data-rang="ko'k" data-olcham="13" data-yozuv="6|3|?" data-izoh="B kuboid: bo'yi 6, eni 3, balandligi noma'lum"></div><p>B</p></div>
+    <div><div data-kub="9x1x2" data-rang="sariq" data-olcham="13" data-yozuv="9|1|?" data-izoh="C kuboid: bo'yi 9, eni 1, balandligi noma'lum"></div><p>C</p></div>
+  </div>
+  <div class="jad-wrap"><table class="jad">
+    <tr><th>Kuboid</th><th>Bo'yi</th><th>Eni</th><th>Bir qatlamda</th><th>Balandligi</th><th>Hajmi</th></tr>
+    <tr><td>A</td><td>3</td><td>2</td><td>\(3 \cdot 2 = 6\)</td><td>\(18 : 6 = \nat{3}\)</td><td>18</td></tr>
+    <tr><td>B</td><td>6</td><td>3</td><td>\(6 \cdot 3 = 18\)</td><td>\(18 : 18 = \nat{1}\)</td><td>18</td></tr>
+    <tr><td>C</td><td>9</td><td>1</td><td>\(9 \cdot 1 = 9\)</td><td>\(18 : 9 = \nat{2}\)</td><td>18</td></tr>
+  </table></div>
+
+  <div class="box qoida">
+    <span class="tag">Qoida · hajmi va ikkita qirrasiga ko'ra uchinchi qirrani topish</span>
+    <p style="text-align:center"><b>Kuboidning balandligi</b> \(= \dfrac{\text{hajmi}}{\text{bo'yi} \times \text{eni}}\)</p>
+    <p style="text-align:center"><b>Kuboidning bo'yi</b> \(= \dfrac{\text{hajmi}}{\text{eni} \times \text{balandligi}}\)</p>
+    <p style="text-align:center"><b>Kuboidning eni</b> \(= \dfrac{\text{hajmi}}{\text{bo'yi} \times \text{balandligi}}\)</p>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · bo'yini topish</span>
+    <p>Kuboidning hajmi 480 cm³, eni 5 cm, balandligi 8 cm. Bo'yini toping.</p>
+    <div data-kuboid='{"o":[12,5,8],"yoz":["?","5 cm","8 cm"],"eni":160,"boy":95}' data-izoh="Kuboid: bo'yi noma'lum, eni 5 cm, balandligi 8 cm"></div>
+    <div class="qadam"><b>1</b><span>Bo'yi \(= \dfrac{480}{5 \cdot 8} = \frac{480}{40} = \nat{12}\) cm.</span></div>
+    <div class="qadam"><b>✓</b><span>Tekshirish: \(12 \cdot 5 \cdot 8 = 480\) cm³.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · enini topish</span>
+    <p>Kuboidning hajmi 360 m³, bo'yi 12 m, balandligi 5 m. Enini toping.</p>
+    <div data-kuboid='{"o":[12,6,5],"yoz":["12 m","?","5 m"],"rang":"yashil","eni":160,"boy":95}' data-izoh="Kuboid: bo'yi 12 m, eni noma'lum, balandligi 5 m"></div>
+    <div class="qadam"><b>1</b><span>Eni \(= \dfrac{360}{12 \cdot 5} = \frac{360}{60} = \nat{6}\) m.</span></div>
+    <div class="qadam"><b>✓</b><span>Tekshirish: \(12 \cdot 6 \cdot 5 = 360\) m³.</span></div>
+  </div>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">3-misol · qirralardan biri o'nli kasr</span>
+    <p>Kuboidning hajmi 288 cm³, bo'yi 4,5 cm, eni 8 cm. Balandligini toping.</p>
+    <div data-kuboid='{"o":[4.5,8,8],"yoz":["4,5 cm","8 cm","?"],"rang":"sariq","eni":150,"boy":90}' data-izoh="Kuboid: bo'yi 4,5 cm, eni 8 cm, balandligi noma'lum"></div>
+    <div class="qadam"><b>1</b><span>Asosdagi ko'paytma: \(4,5 \cdot 8 = 36\).</span></div>
+    <div class="qadam"><b>2</b><span>Balandligi \(= \frac{288}{36} = \nat{8}\) cm.</span></div>
+    <div class="qadam"><b>✓</b><span>Tekshirish: \(4,5 \cdot 8 \cdot 8 = 288\) cm³.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">4-misol · javob o'nli kasr</span>
+    <p>Pechenye qutisiga 1200 cm³ pechenye sig'adi. Qutining tubi 16 cm ga 10 cm. Quti qanchalik baland?</p>
+    <div class="qadam"><b>1</b><span>Balandligi \(= \dfrac{1200}{16 \cdot 10} = \frac{1200}{160}\).</span></div>
+    <div class="qadam"><b>2</b><span>\(1200 : 160 = 7\) (qoldiq 80), \(80 : 160 = 0,5\) (yarim). Javob: \(\nat{7,5}\) cm.</span></div>
+    <div class="qadam"><b>✓</b><span>Tekshirish: \(16 \cdot 10 \cdot 7,5 = 1200\) cm³.</span></div>
+  </div>
+  </div>
+
+  <p>Endi bitta kuboidni uch xil qo'yib ko'ramiz. U 30 ta birlik kubdan yasalgan.</p>
+  <div class="kub-qator">
+    <div><div data-kub="5x3x2" data-olcham="13" data-yozuv="5|3|2" data-izoh="1-holat: asosi 5 ga 3, balandligi 2"></div><p>1-holat</p></div>
+    <div><div data-kub="5x2x3" data-rang="ko'k" data-olcham="13" data-yozuv="5|2|3" data-izoh="2-holat: asosi 5 ga 2, balandligi 3"></div><p>2-holat</p></div>
+    <div><div data-kub="3x2x5" data-rang="sariq" data-olcham="13" data-yozuv="3|2|5" data-izoh="3-holat: asosi 3 ga 2, balandligi 5"></div><p>3-holat</p></div>
+  </div>
+  <div class="jad-wrap"><table class="jad">
+    <tr><th>Holat</th><th>Asosi</th><th>Asosining yuzi</th><th>Balandligi</th><th>Hajmi</th></tr>
+    <tr><td>1</td><td>5 × 3</td><td>15</td><td>2</td><td>\(15 \cdot 2 = 30\)</td></tr>
+    <tr><td>2</td><td>5 × 2</td><td>10</td><td>3</td><td>\(10 \cdot 3 = 30\)</td></tr>
+    <tr><td>3</td><td>3 × 2</td><td>6</td><td>5</td><td>\(6 \cdot 5 = 30\)</td></tr>
+  </table></div>
+  <p>Bir xil kuboid 3 xil asos yuzi va balandlikka ega bo'lishi mumkin. Hajmi esa o'zgarmaydi.</p>
+
+  <div class="box qoida">
+    <span class="tag">Qoida · hajmi va asosining yuziga ko'ra balandlikni topish</span>
+    <p>Kuboidning pastki yog'i uning asosidir.</p>
+    <p style="text-align:center"><b>Kuboid asosining yuzi = bo'yi × eni</b></p>
+    <p style="text-align:center"><b>Kuboid balandligi</b> \(= \dfrac{\text{hajmi}}{\text{asosi yuzi}}\)</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">5-misol · asosining yuzi berilgan</span>
+    <p>Kuboid asosining yuzi 64 cm², hajmi 960 cm³. Kuboidning balandligini toping.</p>
+    <div data-kuboid='{"o":[8,8,15],"yoz":["","","?"],"yoq":"ost","yuzi":"Asosining yuzi = 64 cm²","eni":150,"boy":105}' data-izoh="Shaffof kuboid: asosi bo'yalgan, yuzi 64 cm², balandligi noma'lum"></div>
+    <div class="qadam"><b>1</b><span>Balandligi \(= \frac{960}{64} = \nat{15}\) cm.</span></div>
+    <div class="qadam"><b>✓</b><span>Tekshirish: \(64 \cdot 15 = 960\) cm³.</span></div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · bir yog'ining yuzi berilgan</span>
+    <p style="text-align:center"><b>Bo'yi</b> \(= \dfrac{\text{hajmi}}{\text{bo'yalgan yog'ining yuzi}}\) &nbsp; yoki &nbsp; <b>Eni</b> \(= \dfrac{\text{hajmi}}{\text{bo'yalgan yog'ining yuzi}}\)</p>
+  </div>
+  <div class="gap"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Bo'yalgan yoqning yuzi ikki qirraning ko'paytmasiga teng. Shu ikki qirrani bilmasak ham, hajmni yoq yuziga bo'lsak, uchinchi qirra chiqadi.</div></div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">6-misol · yon yog'i bo'yalgan</span>
+    <p>Kuboidning hajmi 1080 cm³. Bo'yalgan yog'ining yuzi 90 cm². Noma'lum qirrani toping.</p>
+    <div data-kuboid='{"o":[12,9,10],"yoz":["?","",""],"yoq":"yon","yuzi":"Yuzi = 90 cm²","eni":150,"boy":90}' data-izoh="Kuboid: o'ng yon yog'i bo'yalgan, yuzi 90 cm², bo'yi noma'lum"></div>
+    <div class="qadam"><b>1</b><span>Bo'yalgan yoq eni va balandligidan iborat. Noma'lum qirra — bo'yi.</span></div>
+    <div class="qadam"><b>2</b><span>Bo'yi \(= \frac{1080}{90} = \nat{12}\) cm.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">7-misol · old yog'i bo'yalgan</span>
+    <p>Kuboidning hajmi 600 m³. Bo'yalgan yog'ining yuzi 150 m². Noma'lum qirrani toping.</p>
+    <div data-kuboid='{"o":[15,4,10],"yoz":["","?",""],"yoq":"old","yuzi":"Yuzi = 150 m²","rang":"yashil","eni":150,"boy":90}' data-izoh="Kuboid: old yog'i bo'yalgan, yuzi 150 m², eni noma'lum"></div>
+    <div class="qadam"><b>1</b><span>Bo'yalgan yoq bo'yi va balandligidan iborat. Noma'lum qirra — eni.</span></div>
+    <div class="qadam"><b>2</b><span>Eni \(= \frac{600}{150} = \nat{4}\) m.</span></div>
+  </div>
+  </div>
+</section>
+
+<!-- ============ 2-QISM: MISOLLAR ISHLASH ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Misollar ishlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">1-misol · jadvalni to'ldirish</span>
+    <p>Jadvaldagi bo'sh kataklarni to'ldiring.</p>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Kuboid</th><th>Bo'yi (cm)</th><th>Eni (cm)</th><th>Balandligi (cm)</th><th>Hajmi (cm³)</th></tr>
+      <tr><td>P</td><td>7</td><td>3</td><td>2</td><td>\(\nat{42}\)</td></tr>
+      <tr><td>Q</td><td>8</td><td>\(\nat{4}\)</td><td>5</td><td>160</td></tr>
+      <tr><td>R</td><td>\(\nat{15}\)</td><td>12</td><td>3</td><td>540</td></tr>
+      <tr><td>S</td><td>2,5</td><td>4</td><td>\(\nat{6}\)</td><td>60</td></tr>
+    </table></div>
+    <div class="qadam"><b>1</b><span>Hajm bo'sh bo'lsa — uchala qirrani ko'paytiramiz. P: \(7 \cdot 3 \cdot 2 = 42\).</span></div>
+    <div class="qadam"><b>2</b><span>Qirra bo'sh bo'lsa — hajmni qolgan ikki qirraning ko'paytmasiga bo'lamiz. Q: \(\frac{160}{8 \cdot 5} = \frac{160}{40} = 4\). R: \(\frac{540}{12 \cdot 3} = \frac{540}{36} = 15\).</span></div>
+    <div class="qadam"><b>3</b><span>S: \(2,5 \cdot 4 = 10\), \(\frac{60}{10} = 6\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · bitta quti, uch xil qo'yilgan</span>
+    <p>Hajmi 720 cm³ bo'lgan quti stolga uch xil qo'yildi. Asosining yuzi birinchi holatda 120 cm², ikkinchisida 72 cm², uchinchisida 60 cm². Har holatda qutining balandligi qancha?</p>
+    <div class="kub-qator">
+      <div><div data-kuboid='{"o":[12,10,6],"yoz":["","","?"],"yoq":"ost","yuzi":"120 cm²","eni":170,"boy":120}' data-izoh="1-holat: asosi 120 cm²"></div><p>1-holat</p></div>
+      <div><div data-kuboid='{"o":[12,6,10],"yoz":["","","?"],"yoq":"ost","yuzi":"72 cm²","eni":170,"boy":120}' data-izoh="2-holat: asosi 72 cm²"></div><p>2-holat</p></div>
+      <div><div data-kuboid='{"o":[10,6,12],"yoz":["","","?"],"yoq":"ost","yuzi":"60 cm²","eni":170,"boy":120}' data-izoh="3-holat: asosi 60 cm²"></div><p>3-holat</p></div>
+    </div>
+    <div class="qadam"><b>1</b><span>Hajm har holatda bir xil — 720 cm³. O'zgaradigani faqat asos va balandlik.</span></div>
+    <div class="qadam"><b>2</b><span>\(\frac{720}{120} = \nat{6}\) cm, &nbsp; \(\frac{720}{72} = \nat{10}\) cm, &nbsp; \(\frac{720}{60} = \nat{12}\) cm.</span></div>
+    <p>Uchta balandlik — qutining uchta qirrasi: 12 cm, 10 cm va 6 cm. Tekshirish: \(12 \cdot 10 \cdot 6 = 720\) cm³. Asos kattaroq bo'lsa, balandlik kichikroq chiqadi.</p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-misol · hajm litrda berilgan</span>
+    <p>Akvariumning bo'yi 50 cm, eni 30 cm, balandligi 50 cm. Unga 60 l suv quyildi. Suv sathi qanday balandlikda?</p>
+    <div data-idish="50x30x50" data-suv="40" data-yozuv="50 cm|30 cm|50 cm|?" data-izoh="Akvarium: bo'yi 50 cm, eni 30 cm, balandligi 50 cm, suv sathi noma'lum"></div>
+    <div class="qadam"><b>1</b><span>Litrni cm³ ga aylantiramiz: \(60\ \text{l} = 60 \cdot 1000 = 60\,000\) cm³.</span></div>
+    <div class="qadam"><b>2</b><span>Suv egallagan qism ham kuboid. Uning asosi — akvarium tubi: \(50 \cdot 30 = 1500\) cm².</span></div>
+    <div class="qadam"><b>3</b><span>Suv sathi \(= \frac{60000}{1500} = \nat{40}\) cm.</span></div>
+    <p>Agar savol «akvarium to'lishi uchun yana necha litr suv kerak?» bo'lsa: bo'sh qism balandligi \(50 - 40 = 10\) cm, hajmi \(1500 \cdot 10 = 15\,000\) cm³ \(= 15\) l.</p>
+  </div>
+
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Hajm litrda, qirralar santimetrda bo'lsa, avval litrni cm³ ga aylantiring: 1 l = 1000 cm³.</div></div>
+  <div class="box diqqat">
+    <span class="tag">Diqqat!</span>
+    <ol>
+      <li>Avval ikki qirrani ko'paytiring, keyin hajmni shu songa bo'ling: <span class="xato">\(480 : 5 \cdot 8 = 768\)</span> &nbsp; <span class="togri">\(480 : (5 \cdot 8) = 480 : 40 = 12\)</span></li>
+      <li>Hajmni qirralar yig'indisiga bo'lmang: <span class="xato">\(480 : (5 + 8)\)</span> &nbsp; <span class="togri">\(480 : (5 \cdot 8)\)</span></li>
+      <li>Qirra — cm da, yuz — cm² da, hajm — cm³ da yoziladi: <span class="xato">balandligi 15 cm³</span> &nbsp; <span class="togri">balandligi 15 cm</span></li>
+      <li>Hajm litrda berilsa, avval cm³ ga aylantiring: <span class="xato">\(60 : 1500\)</span> &nbsp; <span class="togri">\(60\,000 : 1500 = 40\) cm</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 3-QISM: MUSTAHKAMLASH ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Mustahkamlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Hajmini toping.<br>a) Qirrasi 5 m bo'lgan kub. &nbsp; b) Bo'yi 9 cm, eni 4 cm, balandligi 3 cm bo'lgan kuboid. &nbsp; c) Qirrasi 7 cm bo'lgan kub. &nbsp; d) Bo'yi 12 m, eni 5 m, balandligi 2 m bo'lgan kuboid.</li>
+    <li>Rasmga qarab kuboidning noma'lum qirrasini toping.
+      <div class="kub-qator">
+        <div><div data-kuboid='{"o":[5,4,6],"yoz":["5 cm","4 cm","?"],"eni":170,"boy":120}' data-izoh="a) bo'yi 5 cm, eni 4 cm, balandligi noma'lum"></div><p>a) Hajmi 120 cm³</p></div>
+        <div><div data-kuboid='{"o":[9,10,3],"yoz":["9 m","?","3 m"],"rang":"yashil","eni":170,"boy":120}' data-izoh="b) bo'yi 9 m, eni noma'lum, balandligi 3 m"></div><p>b) Hajmi 270 m³</p></div>
+        <div><div data-kuboid='{"o":[8,4,5],"yoz":["?","4 cm","5 cm"],"rang":"sariq","eni":170,"boy":120}' data-izoh="c) bo'yi noma'lum, eni 4 cm, balandligi 5 cm"></div><p>c) Hajmi 160 cm³</p></div>
+      </div></li>
+    <li>Jadvalni daftaringizga chizib to'ldiring.
+      <div class="jad-wrap"><table class="jad">
+        <tr><th>Kuboid</th><th>Bo'yi (cm)</th><th>Eni (cm)</th><th>Balandligi (cm)</th><th>Hajmi (cm³)</th></tr>
+        <tr><td>A</td><td>9</td><td>5</td><td>2</td><td>?</td></tr>
+        <tr><td>B</td><td>12</td><td>5</td><td>?</td><td>300</td></tr>
+        <tr><td>C</td><td>15</td><td>?</td><td>6</td><td>540</td></tr>
+        <tr><td>D</td><td>?</td><td>8</td><td>2,5</td><td>220</td></tr>
+        <tr><td>E</td><td>20</td><td>20</td><td>?</td><td>2000</td></tr>
+      </table></div></li>
+    <li>40 ta birlik kubdan uch xil kuboid yasaldi. Noma'lum o'lchamni toping.<br>a) bo'yi 5, eni 4, balandligi ?; &nbsp; b) bo'yi 10, eni ?, balandligi 1; &nbsp; c) bo'yi ?, eni 2, balandligi 2.</li>
+    <li>Kuboid shaklidagi sovun bo'lagining bo'yi 9 cm, eni 6 cm, hajmi 162 cm³. Sovunning qalinligi (balandligi) qancha?</li>
+    <li>Kuboid shaklidagi muz bo'lagi asosining yuzi 36 cm², hajmi 324 cm³. Muz bo'lagining balandligini toping.</li>
+    <li>Kuboidning bo'yalgan yog'i yuziga ko'ra noma'lum qirrasini toping.
+      <div class="kub-qator">
+        <div><div data-kuboid='{"o":[10,8,7],"yoz":["","","?"],"yoq":"ust","yuzi":"Yuzi = 80 cm²","eni":170,"boy":120}' data-izoh="a) ustki yog'i bo'yalgan, yuzi 80 cm², balandligi noma'lum"></div><p>a) Hajmi 560 cm³</p></div>
+        <div><div data-kuboid='{"o":[12,10,15],"yoz":["?","",""],"yoq":"yon","yuzi":"Yuzi = 150 m²","rang":"yashil","eni":170,"boy":120}' data-izoh="b) yon yog'i bo'yalgan, yuzi 150 m², bo'yi noma'lum"></div><p>b) Hajmi 1800 m³</p></div>
+        <div><div data-kuboid='{"o":[15,6,7],"yoz":["","?",""],"yoq":"old","yuzi":"Yuzi = 105 cm²","rang":"sariq","eni":170,"boy":120}' data-izoh="c) old yog'i bo'yalgan, yuzi 105 cm², eni noma'lum"></div><p>c) Hajmi 630 cm³</p></div>
+      </div></li>
+    <li>Hajmi 360 cm³ bo'lgan o'yinchoq yog'och g'ishtcha uch xil qo'yildi. Har holatda asosining yuzi rasmda yozilgan. Har holatda balandlikni toping. G'ishtchaning qirralari qancha?
+      <div class="kub-qator">
+        <div><div data-kuboid='{"o":[15,4,6],"yoz":["","","?"],"yoq":"ost","yuzi":"60 cm²","eni":170,"boy":120}' data-izoh="1-holat: asosi 60 cm²"></div><p>1-holat</p></div>
+        <div><div data-kuboid='{"o":[15,6,4],"yoz":["","","?"],"yoq":"ost","yuzi":"90 cm²","eni":170,"boy":120}' data-izoh="2-holat: asosi 90 cm²"></div><p>2-holat</p></div>
+        <div><div data-kuboid='{"o":[4,6,15],"yoz":["","","?"],"yoq":"ost","yuzi":"24 cm²","eni":170,"boy":120}' data-izoh="3-holat: asosi 24 cm²"></div><p>3-holat</p></div>
+      </div></li>
+    <li>Basseynga 450 m³ suv quyildi. Basseynning bo'yi 25 m, eni 12 m. Suvning chuqurligi qancha?</li>
+    <li>Akvariumning bo'yi 40 cm, eni 30 cm, balandligi 35 cm. U to'lishi uchun yana 18 l suv kerak.<br>a) Akvariumning bo'sh qismi balandligi necha cm?<br>b) Suv sathi necha cm balandlikda?</li>
+    <li>Kuboidning bo'yi 15 cm, eni bo'yidan 5 cm qisqa. Hajmi 1200 cm³. Kuboidning balandligini toping.</li>
+    <li>Ikki qutining hajmi bir xil. Birinchi quti bo'yi 16 cm, eni 10 cm, balandligi 6 cm. Ikkinchi qutining asosi 12 cm ga 8 cm.<br>a) Ikkinchi qutining balandligi qancha?<br>b) Qaysi quti balandroq va necha cm ga?</li>
+  </ol>
+</section>
+
+<!-- ============ 4-QISM: MUSTAQIL ISH ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Mustaqil ish</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Kuboidning noma'lum qirrasini toping.<br>a) Hajmi 168 cm³, bo'yi 7 cm, eni 4 cm. &nbsp; b) Hajmi 480 m³, bo'yi 16 m, balandligi 6 m. &nbsp; c) Hajmi 96 cm³, eni 4 cm, balandligi 1,5 cm.</li>
+    <li>Rasmga qarab noma'lum qirrani toping.
+      <div class="kub-qator">
+        <div><div data-kuboid='{"o":[11,9,7],"yoz":["","","?"],"yoq":"ust","yuzi":"Yuzi = 99 cm²","eni":170,"boy":120}' data-izoh="a) ustki yog'i bo'yalgan, yuzi 99 cm², balandligi noma'lum"></div><p>a) Hajmi 693 cm³</p></div>
+        <div><div data-kuboid='{"o":[15,10,9],"yoz":["","?",""],"yoq":"old","yuzi":"Yuzi = 135 cm²","rang":"yashil","eni":170,"boy":120}' data-izoh="b) old yog'i bo'yalgan, yuzi 135 cm², eni noma'lum"></div><p>b) Hajmi 1350 cm³</p></div>
+      </div></li>
+    <li>Lug'at kitobining hajmi 1800 cm³, bo'yi 20 cm, eni 15 cm. Kitobning qalinligi qancha?</li>
+    <li>Jadvalni to'ldiring.
+      <div class="jad-wrap"><table class="jad">
+        <tr><th>Kuboid</th><th>Bo'yi (cm)</th><th>Eni (cm)</th><th>Balandligi (cm)</th><th>Hajmi (cm³)</th></tr>
+        <tr><td>K</td><td>8</td><td>?</td><td>5</td><td>240</td></tr>
+        <tr><td>L</td><td>?</td><td>6</td><td>6</td><td>396</td></tr>
+        <tr><td>M</td><td>4</td><td>5</td><td>?</td><td>90</td></tr>
+      </table></div></li>
+    <li>Hajmi 210 cm³ bo'lgan quti uch xil qo'yildi. Asosining yuzi: 35 cm², 42 cm², 30 cm². Har holatda qutining balandligi qancha?</li>
+    <li>Bo'yi 60 cm, eni 25 cm bo'lgan idishga 45 l suv quyildi. Suv sathi qanday balandlikda?</li>
+    <li><b>Xatoni toping.</b> Kuboidning hajmi 360 cm³, bo'yi 10 cm, eni 4 cm. Sardor balandlikni shunday topdi: \(360 : 10 \cdot 4 = 144\) cm. Xato nimada? To'g'ri javob qancha?</li>
+    <li><b>Qiyinroq.</b> Asosi kvadrat bo'lgan ustunning hajmi 540 cm³, kvadrat tomoni 6 cm.<br>a) Ustunning balandligi qancha?<br>b) Ikkita shunday ustun ustma-ust qo'yildi. Hosil bo'lgan kuboidning balandligi va hajmi qancha?</li>
+  </ol>
+</section>
+
+<!-- ============ 5-QISM: JAVOBLAR ============ -->
+<div class="m-qism q-javob"><div class="q-n">5-qism</div><h2>Javoblar</h2></div>
+
+<section class="m-sec qism-ichi">
+  <h3>Mustahkamlash</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(5 \cdot 5 \cdot 5 = 125\) m³. b) \(9 \cdot 4 \cdot 3 = 108\) cm³. c) \(7 \cdot 7 \cdot 7 = 343\) cm³. d) \(12 \cdot 5 \cdot 2 = 120\) m³.</details>
+  <details class="javob"><summary>2-masala</summary>a) \(\frac{120}{5 \cdot 4} = \frac{120}{20} = 6\) cm. b) \(\frac{270}{9 \cdot 3} = \frac{270}{27} = 10\) m. c) \(\frac{160}{4 \cdot 5} = \frac{160}{20} = 8\) cm.</details>
+  <details class="javob"><summary>3-masala</summary>A: \(9 \cdot 5 \cdot 2 = 90\). B: \(\frac{300}{12 \cdot 5} = \frac{300}{60} = 5\). C: \(\frac{540}{15 \cdot 6} = \frac{540}{90} = 6\). D: \(8 \cdot 2,5 = 20\), \(\frac{220}{20} = 11\). E: \(\frac{2000}{20 \cdot 20} = \frac{2000}{400} = 5\).</details>
+  <details class="javob"><summary>4-masala</summary>a) \(40 : (5 \cdot 4) = 40 : 20 = 2\). b) \(40 : (10 \cdot 1) = 40 : 10 = 4\). c) \(40 : (2 \cdot 2) = 40 : 4 = 10\).</details>
+  <details class="javob"><summary>5-masala</summary>\(\frac{162}{9 \cdot 6} = \frac{162}{54} = 3\) cm.</details>
+  <details class="javob"><summary>6-masala</summary>\(\frac{324}{36} = 9\) cm.</details>
+  <details class="javob"><summary>7-masala</summary>a) \(\frac{560}{80} = 7\) cm (balandligi). b) \(\frac{1800}{150} = 12\) m (bo'yi). c) \(\frac{630}{105} = 6\) cm (eni).</details>
+  <details class="javob"><summary>8-masala</summary>\(\frac{360}{60} = 6\) cm, \(\frac{360}{90} = 4\) cm, \(\frac{360}{24} = 15\) cm. G'ishtchaning qirralari: 15 cm, 6 cm, 4 cm (\(15 \cdot 6 \cdot 4 = 360\)).</details>
+  <details class="javob"><summary>9-masala</summary>Asosi: \(25 \cdot 12 = 300\) m². Chuqurligi: \(\frac{450}{300} = 1,5\) m.</details>
+  <details class="javob"><summary>10-masala</summary>a) \(18\ \text{l} = 18\,000\) cm³. Asosi: \(40 \cdot 30 = 1200\) cm². Bo'sh qism: \(18\,000 : 1200 = 15\) cm. b) \(35 - 15 = 20\) cm.</details>
+  <details class="javob"><summary>11-masala</summary>Eni: \(15 - 5 = 10\) cm. Balandligi: \(\frac{1200}{15 \cdot 10} = \frac{1200}{150} = 8\) cm.</details>
+  <details class="javob"><summary>12-masala</summary>a) Hajmi: \(16 \cdot 10 \cdot 6 = 960\) cm³. Balandligi: \(\frac{960}{12 \cdot 8} = \frac{960}{96} = 10\) cm. b) Ikkinchi quti \(10 - 6 = 4\) cm ga balandroq.</details>
+
+  <h3>Mustaqil ish</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(\frac{168}{7 \cdot 4} = \frac{168}{28} = 6\) cm (balandligi). b) \(\frac{480}{16 \cdot 6} = \frac{480}{96} = 5\) m (eni). c) \(4 \cdot 1,5 = 6\), \(\frac{96}{6} = 16\) cm (bo'yi).</details>
+  <details class="javob"><summary>2-masala</summary>a) \(\frac{693}{99} = 7\) cm. b) \(\frac{1350}{135} = 10\) cm.</details>
+  <details class="javob"><summary>3-masala</summary>\(\frac{1800}{20 \cdot 15} = \frac{1800}{300} = 6\) cm.</details>
+  <details class="javob"><summary>4-masala</summary>K: \(\frac{240}{8 \cdot 5} = \frac{240}{40} = 6\). L: \(\frac{396}{6 \cdot 6} = \frac{396}{36} = 11\). M: \(\frac{90}{4 \cdot 5} = \frac{90}{20} = 4,5\).</details>
+  <details class="javob"><summary>5-masala</summary>\(\frac{210}{35} = 6\) cm, \(\frac{210}{42} = 5\) cm, \(\frac{210}{30} = 7\) cm.</details>
+  <details class="javob"><summary>6-masala</summary>\(45\ \text{l} = 45\,000\) cm³. Asosi: \(60 \cdot 25 = 1500\) cm². Suv sathi: \(45\,000 : 1500 = 30\) cm.</details>
+  <details class="javob"><summary>7-masala</summary>Sardor 360 ni 10 ga bo'lib, keyin 4 ga ko'paytirgan. Hajmni ikki qirraning ko'paytmasiga bo'lish kerak: \(\frac{360}{10 \cdot 4} = \frac{360}{40} = 9\) cm.</details>
+  <details class="javob"><summary>8-masala</summary>a) Asosi: \(6 \cdot 6 = 36\) cm². Balandligi: \(\frac{540}{36} = 15\) cm. b) Balandligi \(15 + 15 = 30\) cm, hajmi \(36 \cdot 30 = 1080\) cm³.</details>
+</section>
+
+<p class="m-foot">Mathlearn · 6-sinf matematika</p>
+</main>
+<script src="chizma.js?v=70"></script>
+<script src="maruza.js?v=13"></script>
+</body>
+</html>
