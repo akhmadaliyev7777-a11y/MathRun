@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 169;
+const LESSON_VER = 170;
 
 function sec(title) {
   return { title: title, text: null };
@@ -234,7 +234,7 @@ const SITE_DATA = {
                   "<p>Bog'da 48 ta olma va 36 ta nok bor. Ularni bir xil sonli, imkon qadar ko'p savatga baravar joylashtirmoqchimiz. Nechta savat kerak va har birida nechtadan meva bo'ladi?</p>"
                 )
               ],
-              lecture: { embedUrl: "maruza/7-ekub.html" }, interactive: "lessons/7-matematika-ekub.html", test: "test.html?sinf=7&fan=matematika-2026&mavzu=ekub"
+              lecture: { embedUrl: "maruza/7-ekub.html" }, interactive: "lessons/7-ekuk-ekub-harakatda.html#ekub", newSim: true, test: "test.html?sinf=7&fan=matematika-2026&mavzu=ekub"
             },
             {
               id: "ekuk", icon: "img/mavzu/7-ekuk.webp", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "15-bet",
@@ -261,7 +261,7 @@ const SITE_DATA = {
                   "<p>Bir bekatdan avtobus har 12 daqiqada, trolleybus har 18 daqiqada jo'naydi. Ular soat 8:00 da birga jo'nadi. Keyingi safar qachon birga jo'naydi?</p>"
                 )
               ],
-              lecture: { embedUrl: "maruza/7-ekuk.html" }, interactive: "lessons/7-matematika-ekuk.html", test: "test.html?sinf=7&fan=matematika-2026&mavzu=ekuk"
+              lecture: { embedUrl: "maruza/7-ekuk.html" }, interactive: "lessons/7-ekuk-ekub-harakatda.html#ekuk", newSim: true, test: "test.html?sinf=7&fan=matematika-2026&mavzu=ekuk"
             },
             {
               id: "kvadrat-kub-ildiz", icon: "img/mavzu/7-kvadrat-kub-ildiz.webp", title: "1.4 Sonning kvadrat ildizi va kub ildizi", page: "21-bet",

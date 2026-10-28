@@ -768,8 +768,10 @@ function renderTopicPage() {
     ? '<div class="sim-plan admin-only"><div class="sim-plan-title">Simulyatsiya rejasi</div><p>' + topic.simPlan + '</p></div>'
     : "";
   if (topic.interactive) {
-    const lv = typeof LESSON_VER !== "undefined" ? (topic.interactive.indexOf("?") < 0 ? "?v=" : "&v=") + LESSON_VER : "";
-    interactiveEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" data-src="' + topic.interactive + lv + '" allowfullscreen></iframe>' + planHtml;
+    /* ?v= manzildagi #bo'lim dan oldin qo'yiladi (masalan lessons/x.html#ekub) */
+    const hi = topic.interactive.indexOf("#"), yol = hi < 0 ? topic.interactive : topic.interactive.slice(0, hi), hash = hi < 0 ? "" : topic.interactive.slice(hi);
+    const lv = typeof LESSON_VER !== "undefined" ? (yol.indexOf("?") < 0 ? "?v=" : "&v=") + LESSON_VER : "";
+    interactiveEl.innerHTML = '<iframe class="embed-frame embed-frame-tall" data-src="' + yol + lv + hash + '" allowfullscreen></iframe>' + planHtml;
   } else {
     interactiveEl.innerHTML = '<div class="placeholder">🚧 Interaktiv ko\'rgazma tez orada qo\'shiladi</div>' + planHtml;
   }
