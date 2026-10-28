@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doiraviy diagrammada ma'lumotlarni taqdim etish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=39">
+</head>
+<body data-a4>
+<main class="m-wrap">
+
+<h1 class="m-title">Doiraviy diagrammada ma'lumotlarni taqdim etish</h1>
+<p class="m-lead">Jadval va ustunli diagramma har bir miqdorni alohida ko'rsatadi. Butun narsa qanday qismlardan iboratligini bir qarashda ko'rish uchun esa doiraviy diagramma qulay.</p>
+
+<!-- ============ 1-QISM: MAVZU ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Mavzu</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>Qism butunning qanday ulushi ekanini kasr ko'rsatadi: 30 ta daftardan 10 tasi — \(\frac{10}{30} = \frac{1}{3}\) qismi.</li>
+      <li>Kasrni foizga aylantirish uchun uni 100% ga ko'paytiramiz: \(\frac{3}{4} \cdot 100\% = 75\%\).</li>
+      <li>Doira teng ikkiga bo'linsa — yarim doira, teng to'rtga bo'linsa — chorak doira hosil bo'ladi. Chorak doiraning markazdagi burchagi — to'g'ri burchak.</li>
+    </ul>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Qoida · doiraviy diagramma</span>
+    <p>Doiraviy diagrammada doira bir butunni ifodalaydi. Barcha ulushlarning yig'indisi esa 1 ga teng.</p>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · sonlar bilan</span>
+    <p>Sinfdagi 28 o'quvchidan maktabga qanday kelishini so'rashdi.</p>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Qanday keladi</th><th>O'quvchilar soni</th></tr>
+      <tr><td>Piyoda</td><td>14</td></tr>
+      <tr><td>Avtobusda</td><td>7</td></tr>
+      <tr><td>Velosipedda</td><td>7</td></tr>
+    </table></div>
+    <div data-diagramma='{"q":[["Piyoda",14],["Avtobusda",7],["Velosipedda",7]],"yoz":["nom","qiymat"],"tik":1,"eni":220}'></div>
+    <div class="qadam"><b>1</b><span>14 — 28 ning yarmi. Piyoda keluvchilar — yarim doira.</span></div>
+    <div class="qadam"><b>2</b><span>Avtobusda va velosipedda keluvchilar soni teng (7 tadan). Ularning bo'laklari ham teng — har biri chorak doira.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · ulushlar bilan</span>
+    <p>Bog'dagi daraxtlarning \(\frac{1}{2}\) qismi olma, \(\frac{1}{4}\) qismi o'rik, \(\frac{1}{8}\) qismi gilos, \(\frac{1}{8}\) qismi nok.</p>
+    <div data-diagramma='{"q":[["Olma","1/2"],["O&#39;rik","1/4"],["Gilos","1/8"],["Nok","1/8"]],"yoz":["nom","qiymat"],"tik":1,"rang":["#e0525c","#f0a81c","#8a5cf0","#1f9a6a"],"eni":220}'></div>
+    <div class="qadam"><b>1</b><span>Olma — yarim doira, o'rik — chorak doira. Gilos va nok — chorakning yarmidan.</span></div>
+    <div class="qadam"><b>2</b><span>Tekshiramiz: \(\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{8} = \frac{4}{8} + \frac{2}{8} + \frac{1}{8} + \frac{1}{8} = \nat{1}\).</span></div>
+  </div>
+  </div>
+  <div class="gap"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Bo'lak qancha katta bo'lsa, butunning shuncha katta qismini ko'rsatadi. Teng sonlarga teng bo'laklar to'g'ri keladi.</div></div>
+
+  <div class="box qoida">
+    <span class="tag">Qoida · foizlar bilan</span>
+    <p>Doira 100% ni ifodalaydi.</p>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">3-misol · qolgan qism</span>
+    <p>Telefon xotirasining 30% ini rasmlar, 45% ini o'yinlar egallagan. Qolgan qismi bo'sh.</p>
+    <div data-diagramma='{"q":[["Rasmlar",30],["O&#39;yinlar",45],["Bo&#39;sh",25]],"yoz":["nom","foiz"],"tik":1,"rang":["#3b6fd8","#e07b39","#ffffff"],"eni":220}'></div>
+    <div class="qadam"><b>1</b><span>Butun xotira — 100%. Bo'sh qism: \(100\% - 30\% - 45\% = \nat{25\%}\).</span></div>
+    <div class="qadam"><b>2</b><span>25% — butunning \(\frac{1}{4}\) qismi, shuning uchun bo'sh qism — chorak doira.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">4-misol · to'g'ri burchak belgisi</span>
+    <p>Maktab hovlisiga mevali va manzarali ko'chatlar ekildi. Diagrammada mevali ko'chatlar bo'lagida to'g'ri burchak belgisi bor. Har bir bo'lak necha foiz?</p>
+    <div data-diagramma='{"q":[["Mevali",1,"?%"],["Manzarali",3,"?%"]],"yoz":["nom"],"tik":1,"rang":["#1f9a6a","#17a2b8"],"eni":220}'></div>
+    <div class="qadam"><b>1</b><span>To'g'ri burchakli bo'lak — chorak doira: \(\frac{1}{4} \cdot 100\% = \nat{25\%}\). Mevali ko'chatlar — 25%.</span></div>
+    <div class="qadam"><b>2</b><span>Manzarali ko'chatlar: \(100\% - 25\% = \nat{75\%}\).</span></div>
+  </div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · sonlar, kasrlar va foizlar</span>
+    <div class="qadam"><b>1</b><span>Jamini topamiz.</span></div>
+    <div class="qadam"><b>2</b><span>Kasr ko'rinishida: \(\frac{\text{soni}}{\text{jami}}\), so'ng kasrni qisqartiramiz.</span></div>
+    <div class="qadam"><b>3</b><span>Foiz ko'rinishida: \(\frac{\text{soni}}{\text{jami}} \cdot 100\%\).</span></div>
+    <p>Xuddi shu ma'lumotlarni doiraviy diagramma orqali sonlar, kasrlar yoki foizlarda ifodalash mumkin.</p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">5-misol · bitta ma'lumot — uch xil yozuv</span>
+    <p>Maktab oshxonasida bir tanaffusda 200 ta ichimlik olindi.</p>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th></th><th>Choy</th><th>Kompot</th><th>Sharbat</th><th>Suv</th><th>Jami</th></tr>
+      <tr><td>Soni</td><td>70</td><td>50</td><td>30</td><td>50</td><td>200</td></tr>
+      <tr><td>Kasr ko'rinishida</td><td>\(\frac{70}{200} = \nat{\frac{7}{20}}\)</td><td>\(\frac{50}{200} = \nat{\frac{1}{4}}\)</td><td>\(\frac{30}{200} = \nat{\frac{3}{20}}\)</td><td>\(\frac{50}{200} = \nat{\frac{1}{4}}\)</td><td>1</td></tr>
+      <tr><td>Foiz ko'rinishida</td><td>\(\frac{7}{20} \cdot 100\% = \nat{35\%}\)</td><td>\(\frac{1}{4} \cdot 100\% = \nat{25\%}\)</td><td>\(\frac{3}{20} \cdot 100\% = \nat{15\%}\)</td><td>\(\frac{1}{4} \cdot 100\% = \nat{25\%}\)</td><td>100%</td></tr>
+    </table></div>
+    <div class="geo-qator">
+      <div><div data-diagramma='{"q":[["Choy",70],["Kompot",50],["Sharbat",30],["Suv",50]],"yoz":["nom","qiymat"],"tik":1,"eni":240}'></div><p>Sonlar</p></div>
+      <div><div data-diagramma='{"q":[["Choy",70],["Kompot",50],["Sharbat",30],["Suv",50]],"yoz":["nom","kasr"],"tik":1,"eni":240}'></div><p>Kasrlar</p></div>
+      <div><div data-diagramma='{"q":[["Choy",70],["Kompot",50],["Sharbat",30],["Suv",50]],"yoz":["nom","foiz"],"tik":1,"eni":240}'></div><p>Foizlar</p></div>
+    </div>
+    <p>Tekshiramiz: \(35\% + 25\% + 15\% + 25\% = 100\%\).</p>
+  </div>
+  <div class="gap ong"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Uchala diagrammada bo'laklar bir xil. Faqat yozuvlari boshqa: son, kasr yoki foiz.</div></div>
+</section>
+
+<!-- ============ 2-QISM: MISOLLAR ISHLASH ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Misollar ishlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">1-misol · qaysi diagramma to'g'ri?</span>
+    <p>Maktab kutubxonasidan bir haftada 48 ta kitob olindi: 12 ta ertak, 6 ta she'riy kitob, 18 ta sarguzasht va 12 ta ilmiy kitob. Qaysi diagramma bu ma'lumotni to'g'ri ifodalagan?</p>
+    <div class="geo-qator">
+      <div><div data-diagramma='{"q":[["Ertak",12],["She&#39;r",6],["Sarguzasht",18],["Ilmiy",12]],"chiz":[12,6,12,18],"yoz":["nom","qiymat"],"tik":1,"eni":240}'></div><p>A</p></div>
+      <div><div data-diagramma='{"q":[["Ertak",12],["She&#39;r",6],["Sarguzasht",18],["Ilmiy",12]],"chiz":[12,12,12,12],"yoz":["nom","qiymat"],"tik":1,"eni":240}'></div><p>B</p></div>
+      <div><div data-diagramma='{"q":[["Ertak",12],["She&#39;r",6],["Sarguzasht",18],["Ilmiy",12]],"yoz":["nom","qiymat"],"tik":1,"eni":240}'></div><p>C</p></div>
+    </div>
+    <div class="qadam"><b>1</b><span>Har bir ulushni topamiz: ertak va ilmiy — \(\frac{12}{48} = \frac{1}{4}\), she'r — \(\frac{6}{48} = \frac{1}{8}\), sarguzasht — \(\frac{18}{48} = \frac{3}{8}\).</span></div>
+    <div class="qadam"><b>2</b><span>Demak ertak va ilmiy kitoblar — teng chorak doiralar, sarguzasht — eng katta bo'lak, she'r — eng kichik bo'lak.</span></div>
+    <div class="qadam"><b>3</b><span>A da ilmiy kitoblar bo'lagi sarguzashtnikidan katta — xato. B da hamma bo'laklar teng, lekin 6 va 18 teng emas — xato. To'g'ri javob: \(\nat{C}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · qolgan qismning ulushi</span>
+    <p>Do'kondagi havo sharlarining \(\frac{1}{4}\) qismi ko'k, \(\frac{1}{3}\) qismi sariq, qolganlari qizil. Doiraviy diagrammada qizil sharlar bo'lagiga qanday kasr yoziladi? Qaysi bo'lak eng katta bo'ladi?</p>
+    <div data-diagramma='{"q":[["Ko&#39;k","1/4"],["Sariq","1/3"],["Qizil","5/12"]],"yoz":["nom","qiymat"],"yashir":[2],"tik":1,"rang":["#3b6fd8","#f0a81c","#e0525c"],"eni":260}'></div>
+    <div class="qadam"><b>1</b><span>Hamma sharlar — 1. Kasrlarni 12 maxrajga keltiramiz: \(\frac{1}{4} = \frac{3}{12}\), \(\frac{1}{3} = \frac{4}{12}\).</span></div>
+    <div class="qadam"><b>2</b><span>Qizil sharlar: \(1 - \frac{3}{12} - \frac{4}{12} = \frac{12}{12} - \frac{7}{12} = \nat{\frac{5}{12}}\).</span></div>
+    <div class="qadam"><b>3</b><span>\(\frac{5}{12}\) — eng katta ulush, shuning uchun eng katta bo'lak — qizil sharlarniki.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-misol · ustunli diagrammadan doiraviy diagrammaga</span>
+    <p>Ustunli diagrammada issiqxonadan bir kunda uzilgan hosil ko'rsatilgan. Doiraviy diagrammaning bo'sh bo'laklariga nom va massani yozing.</p>
+    <div data-ustunli="Pomidor:300|Bodring:200|Qalampir:100|Baqlajon:600" data-qadam="100" data-yozuv="Massasi (kg)" data-qiymat="1"></div>
+    <div data-diagramma='{"q":[["Pomidor",300,"300 kg"],["?",600,""],["?",200,""],["?",100,""]],"yoz":["nom"],"tik":1,"rang":["#e0525c","#8a5cf0","#1f9a6a","#f0a81c"],"eni":260}'></div>
+    <div class="qadam"><b>1</b><span>Jami: \(300 + 200 + 100 + 600 = 1200\) kg.</span></div>
+    <div class="qadam"><b>2</b><span>Ulushlar: pomidor \(\frac{300}{1200} = \frac{1}{4}\), bodring \(\frac{200}{1200} = \frac{1}{6}\), qalampir \(\frac{100}{1200} = \frac{1}{12}\), baqlajon \(\frac{600}{1200} = \frac{1}{2}\).</span></div>
+    <div class="qadam"><b>3</b><span>Yarim doira — baqlajon (600 kg). Qolgan ikki bo'lakdan kattasi — bodring (200 kg), eng kichigi — qalampir (100 kg).</span></div>
+    <div class="qadam"><b>4</b><span>Tekshiramiz: pomidor — chorak doira, qolgan uchtasi birga — \(\frac{3}{4}\) qism: \(600 + 200 + 100 = 900\) kg. Chorak doira: \(900 : 3 = 300\) kg — pomidor massasiga teng.</span></div>
+    <div data-diagramma='{"q":[["Pomidor",300,"300 kg"],["Baqlajon",600,"600 kg"],["Bodring",200,"200 kg"],["Qalampir",100,"100 kg"]],"yoz":["nom"],"tik":1,"rang":["#e0525c","#8a5cf0","#1f9a6a","#f0a81c"],"eni":260}'></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">4-misol · foizlardan kasrlarga</span>
+    <p>Diagrammada sayyohlar shaharga qanday kelgani foizlarda ko'rsatilgan. Jadvalni to'ldiring.</p>
+    <div class="misol-ustun">
+    <div data-diagramma='{"q":[["Poyezd",40],["Samolyot",25,"?"],["Avtobus",15],["Mashina",20,"?"]],"yoz":["nom","foiz"],"tik":1,"eni":260}'></div>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>Transport</th><th>Foizi</th><th>Qismi</th></tr>
+      <tr><td>Poyezd</td><td>40%</td><td>\(\frac{40}{100} = \nat{\frac{2}{5}}\)</td></tr>
+      <tr><td>Samolyot</td><td>\(\nat{25\%}\)</td><td>\(\nat{\frac{1}{4}}\)</td></tr>
+      <tr><td>Avtobus</td><td>15%</td><td>\(\frac{15}{100} = \nat{\frac{3}{20}}\)</td></tr>
+      <tr><td>Mashina</td><td>\(\nat{20\%}\)</td><td>\(\frac{20}{100} = \nat{\frac{1}{5}}\)</td></tr>
+    </table></div>
+    </div>
+    <div class="qadam"><b>1</b><span>Samolyot bo'lagida to'g'ri burchak belgisi bor — chorak doira, ya'ni 25%.</span></div>
+    <div class="qadam"><b>2</b><span>Mashina: \(100\% - 40\% - 25\% - 15\% = 20\%\).</span></div>
+    <div class="qadam"><b>3</b><span>Foizni kasrga aylantiramiz: foizni 100 ga bo'lib, kasrni qisqartiramiz. Masalan \(15\% = \frac{15}{100} = \frac{3}{20}\).</span></div>
+  </div>
+
+  <div class="gap ong"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Diagramma tayyormi? Ulushlarni qo'shib tekshiring: kasrlar yig'indisi 1, foizlar yig'indisi 100% chiqishi kerak.</div></div>
+  <div class="box diqqat">
+    <span class="tag">Diqqat!</span>
+    <ol>
+      <li>Kasr — soni : jami. 48 ta kitobdan 12 tasi ertak: <span class="xato">\(\frac{12}{36}\) (qolganlarga bo'lingan)</span> &nbsp; <span class="togri">\(\frac{12}{48} = \frac{1}{4}\)</span></li>
+      <li>Sonni foiz deb yozmang. 80 o'quvchidan 20 tasi: <span class="xato">20%</span> &nbsp; <span class="togri">\(\frac{20}{80} \cdot 100\% = 25\%\)</span></li>
+      <li>Kasrlarni qo'shishda maxrajlarni qo'shmang: <span class="xato">\(1 - \frac{1}{4} - \frac{1}{3} = 1 - \frac{2}{7} = \frac{5}{7}\)</span> &nbsp; <span class="togri">\(1 - \frac{3}{12} - \frac{4}{12} = \frac{5}{12}\)</span></li>
+      <li>Teng sonlarga teng bo'laklar, katta songa katta bo'lak to'g'ri keladi. 6 ta va 18 ta bir xil bo'lak bilan ko'rsatilmaydi.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 3-QISM: MUSTAHKAMLASH ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Mustahkamlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Jadvalda bog'dan ikki kunda uzilgan mevalar (kg) ko'rsatilgan.
+      <div class="jad-wrap"><table class="jad">
+        <tr><th></th><th>1-kun</th><th>2-kun</th><th>Jami</th></tr>
+        <tr><td>Olma</td><td>48</td><td>?</td><td>110</td></tr>
+        <tr><td>Nok</td><td>?</td><td>35</td><td>75</td></tr>
+        <tr><td>Behi</td><td>27</td><td>33</td><td>?</td></tr>
+        <tr><td>Jami</td><td>?</td><td>?</td><td>?</td></tr>
+      </table></div>
+      a) Jadvalni daftaringizga chizib to'ldiring.<br>b) Qaysi kuni ko'proq meva uzildi va qancha ko'p?<br>c) 2-kuni nok olmadan necha kg kam uzildi?<br>d) Ikki kunda uzilgan barcha mevalarning qanday qismi behi? Javobni qisqarmas kasr bilan yozing.</li>
+    <li>Ustunli diagrammada avtoturargohdagi mashinalar rangi ko'rsatilgan.
+      <div data-ustunli="Oq:24|Qora:18|Kulrang:12|Qizil:6" data-qadam="6" data-yozuv="Mashinalar soni"></div>
+      a) Avtoturargohda jami nechta mashina bor?<br>b) Oq mashinalar qizil mashinalardan necha marta ko'p?<br>c) Har bir mashina bir soat uchun 3000 so'm to'laydi. Kulrang mashinalar bir soatda jami qancha to'laydi?<br>d) Mashinalarning qanday qismi qora? Javobni qisqarmas kasr bilan yozing.</li>
+    <li>Chiziqli diagrammada do'konda 5 kun davomida sotilgan muzqaymoqlar soni ko'rsatilgan.
+      <div data-grafik="1:40,2:50,3:70,4:60,5:90" data-siniq="1" data-xyoz="Dush|Sesh|Chor|Pay|Juma" data-xmax="5.5" data-ymax="100" data-yqadam="10" data-nom="Sotilgan muzqaymoqlar" data-x="Kunlar" data-y="Muzqaymoqlar soni"></div>
+      a) Chorshanba kuni nechta muzqaymoq sotildi?<br>b) Qaysi kuni sotuv oldingi kundagidan kamaydi?<br>c) 5 kunda jami nechta muzqaymoq sotildi?<br>d) Bir kunda o'rtacha nechta muzqaymoq sotilgan?</li>
+    <li>To'garakka qatnaydigan 36 o'quvchidan 9 tasi shaxmat, 12 tasi rasm, 6 tasi musiqa, 9 tasi raqs bilan shug'ullanadi. Qaysi diagramma bu ma'lumotga mos? Qolgan ikkitasida qanday xato bor?
+      <div class="geo-qator">
+        <div><div data-diagramma='{"q":[["Shaxmat",9],["Rasm",12],["Musiqa",6],["Raqs",9]],"chiz":[9,6,12,9],"yoz":["nom","qiymat"],"tik":1,"eni":240}'></div><p>A</p></div>
+        <div><div data-diagramma='{"q":[["Shaxmat",9],["Rasm",12],["Musiqa",6],["Raqs",9]],"yoz":["nom","qiymat"],"tik":1,"eni":240}'></div><p>B</p></div>
+        <div><div data-diagramma='{"q":[["Shaxmat",9],["Rasm",12],["Musiqa",6],["Raqs",9]],"chiz":[6,12,9,9],"yoz":["nom","qiymat"],"tik":1,"eni":240}'></div><p>C</p></div>
+      </div></li>
+    <li>Akvariumdagi baliqlarning \(\frac{3}{8}\) qismi qizil, \(\frac{1}{4}\) qismi sariq, qolganlari kulrang.<br>a) Kulrang baliqlar baliqlarning qanday qismini tashkil etadi?<br>b) Doiraviy diagrammada qaysi ikki bo'lak teng bo'ladi?<br>c) Doirani 8 ta teng bo'lakka bo'lib, diagrammani daftaringizga chizing.</li>
+    <li>Sayyohlar bosib o'tgan yo'lning 40% i asfalt yo'l, 35% i tuproq yo'l, qolgani tog' so'qmog'i.<br>a) Tog' so'qmog'i yo'lning necha foizi?<br>b) Doiraviy diagrammada qaysi bo'lakka to'g'ri burchak belgisi qo'yiladi?</li>
+    <li>Sport maydonchasida bir hafta davomida 60 o'quvchi mashg'ulot qildi: 24 tasi futbol, 18 tasi voleybol, 18 tasi basketbol o'ynadi. Jadvalni to'ldiring. Doiraviy diagrammada qaysi ikki bo'lak teng bo'ladi?
+      <div class="jad-wrap"><table class="jad">
+        <tr><th></th><th>Futbol</th><th>Voleybol</th><th>Basketbol</th><th>Jami</th></tr>
+        <tr><td>Soni</td><td>24</td><td>18</td><td>18</td><td>60</td></tr>
+        <tr><td>Kasr ko'rinishida</td><td>?</td><td>?</td><td>?</td><td>1</td></tr>
+        <tr><td>Foiz ko'rinishida</td><td>?</td><td>?</td><td>?</td><td>100%</td></tr>
+      </table></div></li>
+    <li>Ustunli diagrammada maktab sinflari yiqqan qog'oz chiqindisi ko'rsatilgan. Doiraviy diagrammaning bo'laklariga sinf va massani yozing.
+      <div data-ustunli="5-sinf:30|6-sinf:60|7-sinf:18|8-sinf:12" data-qadam="10" data-yozuv="Massasi (kg)" data-qiymat="1"></div>
+      <div data-diagramma='{"q":[["?",18,""],["?",60,""],["?",30,""],["?",12,""]],"yoz":["nom"],"tik":1,"rang":["#1f9a6a","#3b6fd8","#f0a81c","#e0525c"],"eni":260}'></div></li>
+    <li>Doiraviy diagrammada fermer dalasidagi ekinlar ko'rsatilgan.
+      <div data-diagramma='{"q":[["Paxta",6,"?"],["Sabzi",4],["Piyoz",2],["Bug&#39;doy",12,"?"]],"yoz":["nom","kasr"],"tik":1,"rang":["#17a2b8","#e07b39","#8a5cf0","#f0a81c"],"eni":260}'></div>
+      a) Bo'sh qolgan kasrlarni toping.<br>b) Qaysi ikki ekin birgalikda paxta bilan teng joy egallagan?</li>
+    <li>Doiraviy diagrammada asalarichi bir mavsumda yig'gan asal massasi (kg) ko'rsatilgan. Jadvalni to'ldiring.
+      <div class="misol-ustun">
+      <div data-diagramma='{"q":[["Gul asali",75],["Paxta asali",45],["Tog&#39; asali",30]],"yoz":["nom","qiymat"],"rang":["#f0a81c","#3b6fd8","#1f9a6a"],"eni":260}'></div>
+      <div class="jad-wrap"><table class="jad">
+        <tr><th>Asal turi</th><th>Qismi</th><th>Foizi</th></tr>
+        <tr><td>Gul asali</td><td>?</td><td>?</td></tr>
+        <tr><td>Paxta asali</td><td>?</td><td>?</td></tr>
+        <tr><td>Tog' asali</td><td>?</td><td>?</td></tr>
+      </table></div>
+      </div></li>
+    <li>Doiraviy diagrammada shahar parkidagi daraxtlar foizlarda ko'rsatilgan. Jadvalni to'ldiring.
+      <div class="misol-ustun">
+      <div data-diagramma='{"q":[["Chinor",35,"?"],["Archa",25,"?"],["Terak",10],["Qayrag&#39;och",30]],"yoz":["nom","foiz"],"tik":1,"eni":260}'></div>
+      <div class="jad-wrap"><table class="jad">
+        <tr><th>Daraxt</th><th>Qismi</th><th>Foizi</th></tr>
+        <tr><td>Chinor</td><td>?</td><td>?</td></tr>
+        <tr><td>Archa</td><td>?</td><td>?</td></tr>
+        <tr><td>Terak</td><td>?</td><td>10%</td></tr>
+        <tr><td>Qayrag'och</td><td>?</td><td>30%</td></tr>
+      </table></div>
+      </div></li>
+  </ol>
+</section>
+
+<!-- ============ 4-QISM: MUSTAQIL ISH ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Mustaqil ish</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Ustunli diagrammada qishloqdagi bir hovlida boqiladigan hayvonlar soni ko'rsatilgan.
+      <div data-ustunli="Tovuq:40|Qo'y:25|Sigir:10|Echki:15" data-qadam="5" data-yozuv="Hayvonlar soni"></div>
+      a) Hovlida jami nechta hayvon bor?<br>b) Qo'ylar echkilardan nechta ko'p?<br>c) Hayvonlarning qanday qismi tovuq? Javobni qisqarmas kasr bilan yozing.</li>
+    <li>Kutubxona javonidagi kitoblarning \(\frac{1}{4}\) qismi darslik, \(\frac{1}{6}\) qismi lug'at, qolgani badiiy kitob. Qaysi diagramma to'g'ri chizilgan? Boshqalarida nima xato?
+      <div class="geo-qator">
+        <div><div data-diagramma='{"q":[["Darslik","1/4"],["Lug&#39;at","1/6"],["Badiiy","7/12",""]],"chiz":["1/6","1/4","7/12"],"yoz":["nom","qiymat"],"tik":1,"rang":["#3b6fd8","#1f9a6a","#f0a81c"],"eni":240}'></div><p>A</p></div>
+        <div><div data-diagramma='{"q":[["Darslik","1/4"],["Lug&#39;at","1/6"],["Badiiy","7/12",""]],"chiz":["1/4","1/4","1/2"],"yoz":["nom","qiymat"],"tik":1,"rang":["#3b6fd8","#1f9a6a","#f0a81c"],"eni":240}'></div><p>B</p></div>
+        <div><div data-diagramma='{"q":[["Darslik","1/4"],["Lug&#39;at","1/6"],["Badiiy","7/12",""]],"chiz":["1/4","1/6","7/12"],"yoz":["nom","qiymat"],"tik":1,"rang":["#3b6fd8","#1f9a6a","#f0a81c"],"eni":240}'></div><p>C</p></div>
+      </div></li>
+    <li>Shahar bog'iga bir kunda 200 kishi keldi: 120 tasi katta yoshlilar, 60 tasi bolalar, 20 tasi o'smirlar. Har bir guruhning ulushini kasr va foiz ko'rinishida yozing. Doiraviy diagrammada qaysi guruhning bo'lagi yarim doiradan katta bo'ladi?</li>
+    <li>Qishloq yerlarining 45% i ekin maydoni, 30% i yaylov, qolgani bog'.<br>a) Bog'lar yerning necha foizini egallaydi?<br>b) Doiraviy diagrammada qaysi bo'lakka to'g'ri burchak belgisi qo'yiladi?</li>
+    <li>Ustunli diagrammada do'konda bir kunda sotilgan sharbat (litr) ko'rsatilgan. Doiraviy diagrammaning bo'laklariga sharbat nomi va kasrini yozing.
+      <div data-ustunli="Olma:20|Uzum:10|O'rik:6|Gilos:4" data-qadam="5" data-yozuv="Sharbat (litr)" data-qiymat="1"></div>
+      <div data-diagramma='{"q":[["?",6,""],["?",20,""],["?",4,""],["?",10,""]],"yoz":["nom"],"tik":1,"rang":["#f0a81c","#e0525c","#8a5cf0","#1f9a6a"],"eni":260}'></div></li>
+    <li>Doiraviy diagrammada guldastadagi gullar ko'rsatilgan.
+      <div data-diagramma='{"q":[["Atirgul",9,"?"],["Lola",12],["Chinnigul",3],["Nargis",12,"?"]],"yoz":["nom","kasr"],"tik":1,"rang":["#e0525c","#3b6fd8","#f0a81c","#1f9a6a"],"eni":260}'></div>
+      a) Bo'sh qolgan kasrlarni toping.<br>b) Atirgul va chinnigul birgalikda guldastaning qanday qismini tashkil etadi?</li>
+    <li><b>Xatoni toping.</b> Sport to'garagidagi 60 o'quvchidan 15 tasi suzish bilan shug'ullanadi. Sardor doiraviy diagrammaga «Suzish — 15%» deb yozdi. Xato nimada? To'g'ri foiz qancha?</li>
+    <li><b>O'ylab ko'ring.</b> Doiraviy diagramma uchta bo'lakdan iborat. Birinchi bo'lak ikkinchisidan 2 marta katta. Uchinchi bo'lakda to'g'ri burchak belgisi bor. Har bir bo'lak necha foiz?</li>
+  </ol>
+</section>
+
+<!-- ============ 5-QISM: JAVOBLAR ============ -->
+<div class="m-qism q-javob"><div class="q-n">5-qism</div><h2>Javoblar</h2></div>
+
+<section class="m-sec qism-ichi">
+  <h3>Mustahkamlash</h3>
+  <details class="javob"><summary>1-masala</summary>a) Olma 2-kuni: \(110 - 48 = 62\); nok 1-kuni: \(75 - 35 = 40\); behi jami: \(27 + 33 = 60\). 1-kun jami: \(48 + 40 + 27 = 115\), 2-kun jami: \(62 + 35 + 33 = 130\), hammasi: \(245\) kg. b) 2-kuni, \(130 - 115 = 15\) kg ko'p. c) \(62 - 35 = 27\) kg kam. d) \(\frac{60}{245} = \frac{12}{49}\).</details>
+  <details class="javob"><summary>2-masala</summary>a) \(24 + 18 + 12 + 6 = 60\) ta. b) \(24 : 6 = 4\) marta. c) \(12 \cdot 3000 = 36\,000\) so'm. d) \(\frac{18}{60} = \frac{3}{10}\).</details>
+  <details class="javob"><summary>3-masala</summary>a) 70 ta. b) Payshanba (70 tadan 60 taga kamaydi). c) \(40 + 50 + 70 + 60 + 90 = 310\) ta. d) \(310 : 5 = 62\) ta.</details>
+  <details class="javob"><summary>4-masala</summary>B. Shaxmat va raqs — \(\frac{9}{36} = \frac{1}{4}\) dan (teng chorak doiralar), rasm — \(\frac{12}{36} = \frac{1}{3}\) (eng katta bo'lak), musiqa — \(\frac{6}{36} = \frac{1}{6}\) (eng kichik bo'lak). A da musiqa bo'lagi rasmnikidan katta, C da shaxmat va raqs bo'laklari teng emas.</details>
+  <details class="javob"><summary>5-masala</summary>a) \(1 - \frac{3}{8} - \frac{2}{8} = \frac{3}{8}\). b) Qizil va kulrang baliqlar (\(\frac{3}{8}\) dan). c) Qizil — 3 bo'lak, sariq — 2 bo'lak, kulrang — 3 bo'lak:
+    <div data-diagramma='{"q":[["Qizil","3/8"],["Sariq","1/4"],["Kulrang","3/8"]],"yoz":["nom","qiymat"],"tik":1,"rang":["#e0525c","#f0a81c","#7b8597"],"eni":240}'></div></details>
+  <details class="javob"><summary>6-masala</summary>a) \(100\% - 40\% - 35\% = 25\%\). b) Tog' so'qmog'i bo'lagiga (25% — chorak doira).</details>
+  <details class="javob"><summary>7-masala</summary>Futbol: \(\frac{24}{60} = \frac{2}{5}\), 40%; voleybol: \(\frac{18}{60} = \frac{3}{10}\), 30%; basketbol: \(\frac{3}{10}\), 30%. Voleybol va basketbol bo'laklari teng.
+    <div data-diagramma='{"q":[["Futbol",24],["Voleybol",18],["Basketbol",18]],"yoz":["nom","foiz"],"eni":240}'></div></details>
+  <details class="javob"><summary>8-masala</summary>Jami: \(30 + 60 + 18 + 12 = 120\) kg. Yarim doira — 6-sinf (60 kg), chorak doira — 5-sinf (30 kg). Qolgan ikkitasidan kattasi — 7-sinf (18 kg), kichigi — 8-sinf (12 kg). Tepadan soat mili bo'yicha: 7-sinf, 6-sinf, 5-sinf, 8-sinf.</details>
+  <details class="javob"><summary>9-masala</summary>a) Paxta — to'g'ri burchak belgisi: \(\frac{1}{4}\). Bug'doy: \(1 - \frac{1}{4} - \frac{1}{6} - \frac{1}{12} = \frac{12}{12} - \frac{3}{12} - \frac{2}{12} - \frac{1}{12} = \frac{6}{12} = \frac{1}{2}\). b) Sabzi va piyoz: \(\frac{2}{12} + \frac{1}{12} = \frac{3}{12} = \frac{1}{4}\) — paxta bilan teng.</details>
+  <details class="javob"><summary>10-masala</summary>Jami: \(75 + 45 + 30 = 150\) kg. Gul asali \(\frac{75}{150} = \frac{1}{2}\), 50%; paxta asali \(\frac{45}{150} = \frac{3}{10}\), 30%; tog' asali \(\frac{30}{150} = \frac{1}{5}\), 20%.</details>
+  <details class="javob"><summary>11-masala</summary>Archa — chorak doira: 25%, \(\frac{1}{4}\). Chinor: \(100\% - 25\% - 10\% - 30\% = 35\%\), \(\frac{35}{100} = \frac{7}{20}\). Terak \(\frac{10}{100} = \frac{1}{10}\), qayrag'och \(\frac{30}{100} = \frac{3}{10}\).</details>
+
+  <h3>Mustaqil ish</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(40 + 25 + 10 + 15 = 90\) ta. b) \(25 - 15 = 10\) ta. c) \(\frac{40}{90} = \frac{4}{9}\).</details>
+  <details class="javob"><summary>2-masala</summary>Badiiy kitoblar: \(1 - \frac{3}{12} - \frac{2}{12} = \frac{7}{12}\) — yarim doiradan katta. Darslik — chorak doira, lug'at undan kichik. To'g'ri javob: C. A da darslik va lug'at bo'laklari almashib qolgan, B da lug'at ham chorak doira qilib chizilgan.</details>
+  <details class="javob"><summary>3-masala</summary>Katta yoshlilar \(\frac{120}{200} = \frac{3}{5}\), 60%; bolalar \(\frac{60}{200} = \frac{3}{10}\), 30%; o'smirlar \(\frac{20}{200} = \frac{1}{10}\), 10%. Katta yoshlilar bo'lagi yarim doiradan katta (60% &gt; 50%).
+    <div data-diagramma='{"q":[["Kattalar",120],["Bolalar",60],["O&#39;smirlar",20]],"yoz":["nom","foiz"],"eni":240}'></div></details>
+  <details class="javob"><summary>4-masala</summary>a) \(100\% - 45\% - 30\% = 25\%\). b) Bog' bo'lagiga.</details>
+  <details class="javob"><summary>5-masala</summary>Jami: \(20 + 10 + 6 + 4 = 40\) litr. Olma \(\frac{20}{40} = \frac{1}{2}\) (yarim doira), uzum \(\frac{1}{4}\) (chorak doira), o'rik \(\frac{6}{40} = \frac{3}{20}\), gilos \(\frac{4}{40} = \frac{1}{10}\) (eng kichik). Tepadan soat mili bo'yicha: o'rik, olma, gilos, uzum.</details>
+  <details class="javob"><summary>6-masala</summary>a) Atirgul — chorak doira: \(\frac{1}{4}\). Nargis: \(1 - \frac{3}{12} - \frac{4}{12} - \frac{1}{12} = \frac{4}{12} = \frac{1}{3}\). b) \(\frac{3}{12} + \frac{1}{12} = \frac{4}{12} = \frac{1}{3}\) — lola yoki nargis bo'lagiday.</details>
+  <details class="javob"><summary>7-masala</summary>Sardor sonni foiz deb yozgan. To'g'risi: \(\frac{15}{60} = \frac{1}{4}\), \(\frac{1}{4} \cdot 100\% = 25\%\).</details>
+  <details class="javob"><summary>8-masala</summary>Uchinchi bo'lak — 25%. Qolgan ikkitasi birga: \(100\% - 25\% = 75\%\). Ikkinchi bo'lakni 1 qism desak, birinchisi 2 qism, jami 3 qism: \(75\% : 3 = 25\%\). Birinchi bo'lak 50%, ikkinchisi 25%, uchinchisi 25%.</details>
+</section>
+
+<p class="m-foot">Mathlearn · 6-sinf matematika</p>
+</main>
+<script src="chizma.js?v=71"></script>
+<script src="maruza.js?v=13"></script>
+</body>
+</html>

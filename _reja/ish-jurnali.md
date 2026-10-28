@@ -10,10 +10,17 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
 - **5-sinf:** 47/47 — 1–12 qayta yozildi (5 qism), 13–18 to'liq tekshirib joyida tuzatildi, 19–47 «Anti sun'iylik» tekshiruvidan o'tdi (2026-10-25); 18–47 qoida ramkalari kitob bilan solishtirildi (kitob matni / «Usul» / olib tashlandi). 5-sinf ko'rib chiqish tugadi.
-- **6-sinf:** 1–26-mavzular tayyor (17–20 — 2026-10-27, 21–26 — 2026-10-28), hammasida mavzu PDF'i (A4) va testlar PDF'i bor. Navbat: 27-mavzu «Doiraviy diagrammada ma'lumotlarni taqdim etish».
+- **6-sinf:** 1–28-mavzular tayyor (17–20 — 2026-10-27, 21–28 — 2026-10-28), hammasida mavzu PDF'i (A4) va testlar PDF'i bor. Navbat: 29-mavzu «Konus, silindr, prizma va piramida».
 - **Interaktiv darslar «kasblarda» uslubida:** 8-sinf «Modul kasblarda», 6-sinf 5-mavzu «Kasr bo'lish kasblarda» (kasb rasmlari GPT'dan kutilmoqda).
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
-- **Oxirgi yozuvdan beri tugagan mavzular:** 4 / 6 (23–26).
+- **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+
+---
+
+## 2026-10-28 — m.shukurillo hisobi
+**Qilindi:** 6-sinf 23 «Ikki jism harakati» (yangi chizma `data-harakat`), 24 «Kuboidning qirrasini topish» (`data-kuboid`), 25 «Kubning qirrasini topish», 26 «Kuboid va kubning bir yog'i yuzi», 27 «Doiraviy diagrammada ma'lumotlarni taqdim etish» (yangi `data-diagramma`), 28 «Doiraviy diagrammani o'qish va talqin qilish» — ma'ruza + 20+20 test + PDF (6 ta mavzu). Har biri: bitta yozuvchi + bitta mustaqil tekshiruvchi (ikki mavzu parallel). Doiraviy diagramma bobida kitob burchak/transportir ishlatmaydi — kiritilmadi; 28 da kitobda yo'q «ikki diagrammani solishtirish» turi olib tashlandi.
+**Chala:** kasb rasmlari (img/kasb/*.webp) — foydalanuvchi GPT'da yasaydi.
+**Navbatda:** 6-sinf 29 «Konus, silindr, prizma va piramida», 30, 31 — 6-sinf tugaydi.
 
 ---
 

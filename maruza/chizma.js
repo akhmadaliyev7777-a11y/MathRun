@@ -83,6 +83,8 @@
                                           yopib topiladigan qoida (jami = me'yor · soni; me'yor = jami : soni; soni = jami : me'yor) pastda yoziladi
    data-grafik="1:12,2:24,3:36" data-x="Vaqt (soat)" data-y="Masofa (km)" [data-xmax="4"] [data-ymax="48"] [data-yqadam="12"] [data-xqadam="1"] [data-bosh="30"] [data-nom="Velosipedchi"] —
                                           chiziqli grafik: nuqtalar (x:y) va ularni to'g'ri chiziq (0 dan; bosh berilsa — tik o'qdagi shu nuqtadan); tik o'qda yqadam, gorizontal o'qda xqadam oralig'ida belgilar
+                                          [data-siniq="1"] — nuqtalar ketma-ket siniq chiziq bilan tutashtiriladi (o'zgaruvchan miqdor: sotuv, harorat; 6-sinf 27-mavzu);
+                                          [data-xyoz="Dush|Sesh|Chor"] — gorizontal o'qdagi 1, 2, 3, … belgilar o'rniga shu yozuvlar (0 yozilmaydi)
    data-foiz="60" [data-pastki="hammasi"] [data-sor="20,40"] [data-mayda="1"] [data-belgi="1"] — foiz tasmasi (o'lchov tasmasi):
                                           tepada 0%…100% (har 10%), tasma 10 bo'lakka bo'lingan, 60% gacha yashil bo'yalgan (0 — bo'yalmaydi);
                                           pastda o'nli kasrlar: odatda 0; 0,5; 1 — pastki="hammasi" bo'lsa 0; 0,1; …; 1,0;
@@ -226,6 +228,18 @@
        Pastda umumiy yo'l: "nuqta":[[o'rni, nomi, (ostidagi kichik yozuv — soat)]], "uchrash" — uchrashgan joy (yulduzcha va to'q sariq punktir),
        "qavs":[[dan, gacha, yozuv, (rang)]] — yo'l ostidagi qavslar (umumiy masofa, oradagi masofa). Barcha qiymatlar bitta masshtabda (haqiqiy o'lcham);
        manfiy ham bo'lishi mumkin (bir joydan ikki tomonga tarqalish). "eni" — kenglik (test rasmi uchun 300).
+   data-diagramma='{"q":[["Futbol",120],["Shaxmat",60],["Suzish",90],["Kurash",90]],"yoz":["nom","foiz"],"birlik":"ta","eni":300}' — doiraviy
+       diagramma (6-sinf 27–28-mavzular): sektorlar qiymatga mos (360° · qiymat : jami), soat strelkasi bo'yicha, tepadan boshlab ("boshi":90 — gradus).
+       "yoz" — sektor yozuvi tarkibi: "nom", "qiymat" (son + birlik), "foiz" (%), "burchak" (°); "yashir":[1] — shu sektorlarning son yozuvi «?»;
+       "rang":["#..",..] — o'z ranglari; "afsona":1 — yozuvlar doira yonidagi ro'yxatda (kichik sektorlar ko'p bo'lsa); "burchak":1 — markazda
+       har sektor burchagi yoyi bilan; "ajrat":[0] — sektor biroz tashqariga chiqariladi; "nom":"Sevimli sport" — doira ostidagi sarlavha.
+       Kichik sektor (< 28°) yozuvi tashqarida chiziqcha bilan. Qiymatlar yig'indisi istalgan son (foiz, burchak o'zi hisoblanadi).
+       28-mavzu: "yoz" ga "kasr" — qisqarmas kasr «1/4» (qiymat : jami); sektorning 3-elementi — o'z yozuvi: ["Kofe",80,"?"], ["Choy",32,"32|kishi"]
+       ("|" — yangi qator; "" — faqat nom; "yoz" dagi son turlari o'rniga); "tik":1 — 90° li sektorlar markazida to'g'ri burchak belgisi (chorak).
+       Qiymat kasr satri ham bo'lishi mumkin: ["Qizil","1/3"] (hisob aniq kasrlarda). Qo'shimcha (27-mavzu): "yoz" ga "kasr" — ulush qisqarmas
+       kasr ko'rinishida (qism : jami, surat ustida maxraj); nomda "\n" — yangi qator; "tik":1 — chorak (90°) sektorida markazda to'g'ri burchak
+       belgisi; "chiz":[10,8,14,8] — sektorlar shu sonlarga mos chiziladi, yozuv esa "q" dagi qiymat (noto'g'ri diagramma misollari uchun); och rang
+       ("#ffffff", och sariq) bo'lsa yozuv to'q, chegaralar kulrang ("chegara":1 — har doim kulrang chegara).
 */
 (function () {
   "use strict";
@@ -2043,15 +2057,19 @@
     for (let v = 0; v <= ym + 1e-9; v += yq)
       svg += '<line x1="' + L + '" y1="' + Y(v) + '" x2="' + (W - R) + '" y2="' + Y(v) + '" stroke="#d5d9e4" stroke-width="1"/>' +
         '<text x="' + (L - 6) + '" y="' + (Y(v) + 5) + '" text-anchor="end" font-size="13" fill="#5b6275">' + onliSon(v) + "</text>";
-    const xq = Number(el.dataset.xqadam) || 1, y0 = Number(el.dataset.bosh) || 0;
+    const xq = Number(el.dataset.xqadam) || 1, y0 = Number(el.dataset.bosh) || 0, xyoz = el.dataset.xyoz ? el.dataset.xyoz.split("|") : null;
     for (let v = 0; v <= xm + 1e-9; v += xq)
       svg += '<line x1="' + X(v) + '" y1="' + T + '" x2="' + X(v) + '" y2="' + Y(0) + '" stroke="#eceff5" stroke-width="1"/>' +
-        '<text x="' + X(v) + '" y="' + (Y(0) + 18) + '" text-anchor="middle" font-size="13" fill="#5b6275">' + v + "</text>";
+        '<text x="' + X(v) + '" y="' + (Y(0) + 18) + '" text-anchor="middle" font-size="13" fill="#5b6275">' + (xyoz ? (v >= 1 && xyoz[v - 1] != null ? xyoz[v - 1] : "") : v) + "</text>";
     svg += '<line x1="' + L + '" y1="' + T + '" x2="' + L + '" y2="' + Y(0) + '" stroke="#1f2433" stroke-width="2"/>' +
       '<line x1="' + L + '" y1="' + Y(0) + '" x2="' + (W - R) + '" y2="' + Y(0) + '" stroke="#1f2433" stroke-width="2"/>';
-    const last = n[n.length - 1], k = (last[1] - y0) / last[0];
-    const xe = Math.min(xm, (ym - y0) / k, last[0] + xm * 0.12);
-    svg += '<line x1="' + X(0) + '" y1="' + Y(y0) + '" x2="' + X(xe) + '" y2="' + Y(y0 + k * xe) + '" stroke="#1f5fd6" stroke-width="3" stroke-linecap="round"/>';
+    if (el.dataset.siniq) {
+      svg += '<polyline points="' + n.map(function (q) { return X(q[0]).toFixed(1) + "," + Y(q[1]).toFixed(1); }).join(" ") + '" fill="none" stroke="#1f5fd6" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>';
+    } else {
+      const last = n[n.length - 1], k = (last[1] - y0) / last[0];
+      const xe = Math.min(xm, (ym - y0) / k, last[0] + xm * 0.12);
+      svg += '<line x1="' + X(0) + '" y1="' + Y(y0) + '" x2="' + X(xe) + '" y2="' + Y(y0 + k * xe) + '" stroke="#1f5fd6" stroke-width="3" stroke-linecap="round"/>';
+    }
     n.forEach(function (q) { svg += '<circle cx="' + X(q[0]) + '" cy="' + Y(q[1]) + '" r="5" fill="#d4501b" stroke="#fff" stroke-width="1.5"/>'; });
     if (el.dataset.nom) svg += '<text x="' + (W / 2) + '" y="18" text-anchor="middle" font-size="15" font-weight="800" fill="#1f2433">' + el.dataset.nom + "</text>";
     if (el.dataset.x) svg += '<text x="' + (L + iW / 2) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="13" fill="#5b6275">' + el.dataset.x + "</text>";
@@ -3612,6 +3630,124 @@
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Spidometr (tezlik ko\'rsatkichi), ' + birlik + '">' + s + "</svg>";
   }
 
+  // ---------- doiraviy diagramma (6-sinf 27–28-mavzular) ----------
+  function chizDiagramma(el) {
+    const g = JSON.parse(el.dataset.diagramma);
+    const Q = g.q || [];
+    // aniq kasrlar: qiymat son (12, 37,5) yoki "1/4" satri bo'lishi mumkin
+    const ekub = function (a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { const t = a % b; a = b; b = t; } return a || 1; };
+    const qisq = function (n, d) { const k = ekub(n, d); return [n / k, d / k]; };
+    const kasr = function (v) {
+      if (typeof v === "string" && v.indexOf("/") > 0) { const p = v.split("/"); return qisq(Number(p[0]), Number(p[1])); }
+      v = Number(String(v).replace(",", ".")); let d = 1;
+      while (Math.abs(v * d - Math.round(v * d)) > 1e-9 && d < 1e6) d *= 10;
+      return qisq(Math.round(v * d), d);
+    };
+    const K = Q.map(function (x) { return kasr(x[1]); });
+    const J = K.reduce(function (t, f) { return qisq(t[0] * f[1] + f[0] * t[1], t[1] * f[1]); }, [0, 1]);
+    const son = function (f) { return f[0] / f[1]; };
+    const jami = son(J) || 1;
+    // chizilgan o'lcham: odatda qiymatning o'zi; "chiz":[...] berilsa — sektorlar shu sonlarga mos chiziladi (noto'g'ri diagramma misollari uchun)
+    const C = Q.map(function (x, i) { return g.chiz && g.chiz[i] != null ? son(kasr(g.chiz[i])) : son(K[i]); });
+    const cJami = C.reduce(function (t, v) { return t + v; }, 0) || 1;
+    const RANG = g.rang || ["#3b6fd8", "#f0a81c", "#1f9a6a", "#e0525c", "#8a5cf0", "#17a2b8", "#e07b39", "#7b8597"];
+    const yoz = g.yoz || ["nom", "foiz"], yash = g.yashir || [], ajr = g.ajrat || [], afs = !!g.afsona;
+    const W = Number(g.eni) || 320, r = afs ? W * 0.27 : W * 0.3, cx = afs ? r + 18 : W / 2, top = afs ? 14 : 34;
+    const cy = top + r, H = cy + r + (afs ? 14 : 34) + (g.nom ? 22 : 0);
+    const fmt = function (x) { const v = Math.round(x * 10) / 10; return String(v).replace(".", ","); };
+    const P = function (a, rr, dx, dy) { return [cx + (dx || 0) + rr * Math.cos(a), cy + (dy || 0) - rr * Math.sin(a)]; };
+    // och rang (oq, och sariq) — yozuv to'q, chegaralar kulrang
+    const och = function (c) {
+      const m = /^#([0-9a-f]{6})$/i.exec(c); if (!m) return false;
+      const n = parseInt(m[1], 16); return (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255 > 0.72;
+    };
+    const chegara = !!g.chegara || Q.some(function (x, i) { return och(RANG[i % RANG.length]); });
+    const chiz = chegara ? '" stroke="#5b6275" stroke-width="1.3"' : '" stroke="#fff" stroke-width="2"';
+    const isKasr = function (z) { return /^\d+\/\d+$/.test(z); };
+    const matn = function (i) {
+      const x = Q[i], q = yash.indexOf(i) >= 0;
+      const ul = qisq(K[i][0] * J[1], K[i][1] * J[0]);
+      // 3-element — sektorning o'z yozuvi ("|" — yangi qator, "" — faqat nom)
+      if (typeof x[2] === "string") return (yoz.indexOf("nom") >= 0 ? String(x[0]).split("\n") : []).concat(x[2] === "" ? [] : x[2].split("|"));
+      return yoz.reduce(function (acc, k) {
+        if (k === "nom") return acc.concat(String(x[0]).split("\n"));
+        if (q) return acc.indexOf("?") >= 0 ? acc : acc.concat("?");
+        if (k === "qiymat") return acc.concat(typeof x[1] === "string" && x[1].indexOf("/") > 0 ? x[1] + (g.birlik ? " " + g.birlik : "") : fmt(son(K[i])) + (g.birlik ? " " + g.birlik : ""));
+        if (k === "kasr") return acc.concat(ul[1] === 1 ? String(ul[0]) : ul[0] + "/" + ul[1]);
+        if (k === "foiz") return acc.concat(fmt(son(ul) * 100) + "%");
+        if (k === "burchak") return acc.concat(fmt(son(ul) * 360) + "°");
+        return acc;
+      }, []);
+    };
+    // bir nechta qatorli yozuv (kasr — surat, chiziq, maxraj)
+    const blok = function (t, x, yM, fs, rang, soya) {
+      const hh = t.map(function (z) { return isKasr(z) ? fs * 2.1 : fs * 1.15; });
+      let y = yM - hh.reduce(function (a, b) { return a + b; }, 0) / 2, o = "";
+      const st = soya ? ' style="paint-order:stroke" stroke="rgba(0,0,0,.18)" stroke-width="2"' : "";
+      t.forEach(function (z, j) {
+        if (isKasr(z)) {
+          const p = z.split("/"), fk = fs * 0.95, w = Math.max(p[0].length, p[1].length) * fk * 0.62 + 4;
+          o += '<text x="' + x.toFixed(1) + '" y="' + (y + fk * 0.85).toFixed(1) + '" text-anchor="middle" font-size="' + fk.toFixed(1) + '" font-weight="800" fill="' + rang + '"' + st + ">" + p[0] + "</text>" +
+            '<line x1="' + (x - w / 2).toFixed(1) + '" y1="' + (y + fk * 1.07).toFixed(1) + '" x2="' + (x + w / 2).toFixed(1) + '" y2="' + (y + fk * 1.07).toFixed(1) + '" stroke="' + rang + '" stroke-width="1.5"/>' +
+            '<text x="' + x.toFixed(1) + '" y="' + (y + fk * 2.0).toFixed(1) + '" text-anchor="middle" font-size="' + fk.toFixed(1) + '" font-weight="800" fill="' + rang + '"' + st + ">" + p[1] + "</text>";
+        } else {
+          o += '<text x="' + x.toFixed(1) + '" y="' + (y + fs * 0.85).toFixed(1) + '" text-anchor="middle" font-size="' + fs.toFixed(1) + '" font-weight="800" fill="' + rang + '"' + st + ">" + z + "</text>";
+        }
+        y += hh[j];
+      });
+      return o;
+    };
+    const uzun = function (t) { return Math.max(3, Math.max.apply(null, t.map(function (z) { return isKasr(z) ? Math.max.apply(null, z.split("/").map(function (y) { return y.length; })) : z.length; }))); };
+    let s = "", yozuv = "", chapX = 0, ongX = W, yuqY = afs ? 0 : cy - r - 12, pastY = afs ? H : cy + r + 12, a = (g.boshi != null ? Number(g.boshi) : 90) * Math.PI / 180;
+    Q.forEach(function (x, i) {
+      const d = C[i] / cJami * 2 * Math.PI, a1 = a - d, am = a - d / 2, c = RANG[i % RANG.length];
+      const sh = ajr.indexOf(i) >= 0 ? 8 : 0, dx = sh * Math.cos(am), dy = -sh * Math.sin(am);
+      if (d >= 2 * Math.PI - 1e-9) s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="' + c + chiz + "/>";
+      else if (d > 1e-9) {
+        const p0 = P(a, r, dx, dy), p1 = P(a1, r, dx, dy);
+        s += '<path d="M' + (cx + dx).toFixed(1) + " " + (cy + dy).toFixed(1) + " L" + p0[0].toFixed(1) + " " + p0[1].toFixed(1) + " A" + r + " " + r + " 0 " + (d > Math.PI ? 1 : 0) + " 1 " + p1[0].toFixed(1) + " " + p1[1].toFixed(1) + ' Z" fill="' + c + chiz + ' stroke-linejoin="round"/>';
+      }
+      if (g.burchak && d < 2 * Math.PI - 1e-9) {
+        const rb = Math.min(22, r * 0.22), b0 = P(a, rb, dx, dy), b1 = P(a1, rb, dx, dy);
+        s += '<path d="M' + b0[0].toFixed(1) + " " + b0[1].toFixed(1) + " A" + rb + " " + rb + " 0 " + (d > Math.PI ? 1 : 0) + " 1 " + b1[0].toFixed(1) + " " + b1[1].toFixed(1) + '" fill="none" stroke="' + (och(c) ? "#1f2433" : "#fff") + '" stroke-width="1.6"/>';
+      }
+      // "tik":1 — chorak doira (90°) sektorida markazda to'g'ri burchak belgisi
+      if (g.tik && Math.abs(d - Math.PI / 2) < 1e-6) {
+        const k = Math.max(7, r * 0.09), u = P(a, k, dx, dy), w = P(a1, k, dx, dy);
+        const m = [u[0] + w[0] - cx - dx, u[1] + w[1] - cy - dy];
+        s += '<path d="M' + u[0].toFixed(1) + " " + u[1].toFixed(1) + " L" + m[0].toFixed(1) + " " + m[1].toFixed(1) + " L" + w[0].toFixed(1) + " " + w[1].toFixed(1) + '" fill="none" stroke="' + (och(c) ? "#1f2433" : "#fff") + '" stroke-width="1.5"/>';
+      }
+      const t = matn(i), tr = och(c) ? "#1f2433" : "#fff";
+      if (afs) {
+        const ly = top + 6 + i * 24, lx = cx + r + 22;
+        yozuv += '<rect x="' + lx + '" y="' + (ly - 11) + '" width="14" height="14" rx="3" fill="' + c + '"' + (och(c) ? ' stroke="#5b6275" stroke-width="1"' : "") + "/>" +
+          '<text x="' + (lx + 20) + '" y="' + ly + '" font-size="13" font-weight="700" fill="#1f2433">' + t.join(" — ") + "</text>";
+      } else if (d >= 28 * Math.PI / 180 && (d >= Math.PI / 2 || r * d * 0.55 / uzun(t) / 0.62 >= 9.5)) {
+        const uz = uzun(t);
+        const kk = t.filter(isKasr).length, rr = r * (t.length + kk > 2 ? 0.56 : t.length > 1 ? 0.6 : 0.62);
+        const p = P(am, rr, dx, dy), fs = Math.max(10.5, Math.min(14, r * d * 0.55 / uz / 0.62, (d >= Math.PI ? 99 : r * 1.1 / (t.length * 1.15 + kk))));
+        const hw = uz * fs * 0.31, xq = Math.min(Math.max(p[0], cx + dx - r * 0.9 + hw), cx + dx + r * 0.9 - hw);
+        yozuv += blok(t, xq, p[1], fs, tr, tr === "#fff");
+      } else {
+        const p0 = P(am, r - 4, dx, dy), p1 = P(am, r + 12, dx, dy), p2 = P(am, r + 16, dx, dy), lft = Math.cos(am) < -0.15, mid = Math.abs(Math.cos(am)) <= 0.15;
+        const tw = t.join(" ").length * 7.2, x0 = mid ? p2[0] - tw / 2 : lft ? p2[0] - tw : p2[0];
+        const ty = p2[1] + 4.5 + (mid ? (Math.sin(am) > 0 ? -4 : 8) : 0);
+        chapX = Math.min(chapX, x0 - 4); ongX = Math.max(ongX, x0 + tw + 4); yuqY = Math.min(yuqY, ty - 15); pastY = Math.max(pastY, ty + 6);
+        yozuv += '<line x1="' + p0[0].toFixed(1) + '" y1="' + p0[1].toFixed(1) + '" x2="' + p1[0].toFixed(1) + '" y2="' + p1[1].toFixed(1) + '" stroke="#5b6275" stroke-width="1.2"/>' +
+          '<text x="' + p2[0].toFixed(1) + '" y="' + (p2[1] + 4.5 + (mid ? (Math.sin(am) > 0 ? -4 : 8) : 0)).toFixed(1) + '" text-anchor="' + (mid ? "middle" : lft ? "end" : "start") + '" font-size="12" font-weight="800" fill="#1f2433">' + t.join(" ") + "</text>";
+      }
+      a = a1;
+    });
+    if (chegara) s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="#5b6275" stroke-width="1.4"/>';
+    if (g.nom && !afs) pastY += 24;
+    if (g.nom) yozuv += '<text x="' + cx + '" y="' + ((afs ? H : pastY) - 8) + '" text-anchor="middle" font-size="14" font-weight="800" fill="#1f2433">' + g.nom + "</text>";
+    const WW = afs ? Math.max(W, cx + r + 40 + 8 * Math.max.apply(null, Q.map(function (x, i) { return matn(i).join(" — ").length; }))) : ongX - chapX;
+    const HH = afs ? Math.max(H, top + Q.length * 24 + 8) : pastY - yuqY;
+    el.classList.add("tasma");
+    el.style.maxWidth = WW + "px";
+    el.innerHTML = '<svg viewBox="' + Math.round(afs ? 0 : chapX) + " " + Math.round(yuqY) + " " + Math.round(WW) + " " + Math.round(HH) + '" role="img" aria-label="Doiraviy diagramma' + (g.nom ? ": " + g.nom : "") + '">' + s + yozuv + "</svg>";
+  }
+
   // ---------- ikki jism harakati (6-sinf 23-mavzu «Ikki jism harakati: uchrashish va quvib yetish») ----------
   // Har jism — o'z qatori: jism rasmi, tezlik lavhasi, strelka (dan → gacha), ostida masofa; pastda umumiy yo'l, nuqtalar, qavslar.
   // O'lchov haqiqiy: barcha "dan", "gacha", "oldin", nuqta va qavs qiymatlari bitta masshtabda (km, m — farqi yo'q).
@@ -3751,6 +3887,7 @@
       root.querySelectorAll("[data-yol]").forEach(chizYol);
       root.querySelectorAll("[data-spidometr]").forEach(chizSpidometr);
       root.querySelectorAll("[data-harakat]").forEach(chizHarakat);
+      root.querySelectorAll("[data-diagramma]").forEach(chizDiagramma);
     }
   };
 })();

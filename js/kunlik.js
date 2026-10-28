@@ -4,8 +4,10 @@
 window.KUNLIK = [
   {
     sana: "2026-10-28",
-    qisqa: "6-sinf 21–26-mavzular tayyor: harakat masalalari va kuboid-kub boblari tugadi.",
+    qisqa: "6-sinf 21–28-mavzular tayyor: harakat, kuboid-kub va doiraviy diagramma boblari tugadi.",
     ishlar: [
+      ["6-sinf", "27-mavzu «Doiraviy diagrammada ma'lumotlarni taqdim etish» — ma'ruza (yangi doiraviy diagramma chizmasi), 20+20 test, PDF."],
+      ["6-sinf", "28-mavzu «Doiraviy diagrammani o'qish va talqin qilish» — ma'ruza (42 ta diagramma), 20+20 test, PDF; kitobda yo'q tur olib tashlandi."],
       ["6-sinf", "25-mavzu «Kubning qirrasini topish» — ma'ruza (kvadrat va kub ildiz, 1–12 jadvali), 20+20 test, PDF."],
       ["6-sinf", "26-mavzu «Kuboid va kubning bir yog'i yuzini topish» — ma'ruza (suv sathi, idishdan idishga quyish, matnli masalalar), 20+20 test, PDF."],
       ["6-sinf", "23-mavzu «Ikki jism harakati: uchrashish va quvib yetish» — ma'ruza (yangi harakat chizmasi: yo'laklar, strelkalar, uchrashish nuqtasi), 20+20 test, PDF."],

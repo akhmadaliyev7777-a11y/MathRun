@@ -140,9 +140,13 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 2026-10-28. Ma'ruza (5 qism, 26 chizma) va 20+20 test (7 ta chizmali savol), PDF.
 **Kitob bilan solishtirildi:** hajm va qirradan yoq yuzi ✅; kub yog'i yuzi hajmidan ✅; jadval ✅; ishlangan misollar 1–8 (kvadrat yoq, suv sathi, idishning qismi, quyib olish, idishdan idishga, jo'mrak) ✅; mashqlar 1–9 va «O'ylab ko'ring» ✅; daftar turlari (bo'yalgan sirt, qutilarni joylash, kesilgan bo'laklar, oqim) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; ikki idish chizmasi bir masshtabga keltirildi; kitobga o'xshagan 10 ta mashq va 7 ta test savoli almashtirildi; kalkulyator eslatmalari qo'shildi.
 
-#### ☐ 27. Doiraviy diagrammada ma'lumotlarni taqdim etish — D2 52–56; M2 63–70
+#### ✅ 27. Doiraviy diagrammada ma'lumotlarni taqdim etish — D2 52–56; M2 63–70
+2026-10-28. Ma'ruza (5 qism, 35 chizma — yangi `data-diagramma`; `data-grafik` ga `data-siniq`, `data-xyoz`) va 20+20 test (12 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** qoidalar «doira bir butunni ifodalaydi, ulushlar yig'indisi 1» va «doira 100%» (aynan) ✅; ma'lumot son, kasr, foiz ko'rinishida ✅; qolgan qism ulushi ✅; to'g'ri diagrammani tanlash ✅; ustunli diagramma → doiraviy ✅; to'g'ri burchak belgisi va yarim doira ✅; Eslang (jadval, ustunli, siniq chiziq) ✅. Kitobda burchak (360°) va transportir yo'q — kiritilmadi. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 28-mavzuga tegishli savollar va kitobga o'xshaganlar almashtirildi, grafik qadamlari to'g'rilandi.
 
-#### ☐ 28. Doiraviy diagrammani o'qish va talqin qilish — D2 57–72; M2 71–80
+#### ✅ 28. Doiraviy diagrammani o'qish va talqin qilish — D2 57–72; M2 71–80
+2026-10-28. Ma'ruza (5 qism, 42 doiraviy + 4 ustunli diagramma) va 20+20 test (24 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** «Qarang va o'rganing» 1–6 ✅; sondan, kasrdan, foizdan jami va qism ✅; «k marta ko'p» ✅; nisbat ✅; «Bu fikr to'g'rimi?» ✅; jadval → diagramma, ustunli bilan moslash, diagramma turini tanlash ✅; «Bajaring» 1–7 va daftar 71–80 ✅. Kiritilmadi: guruh so'rovi, fikr diagrammalari, o'zini tekshirish ro'yxati. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitobga o'xshagan 4 ta mashq va 7 ta test savoli almashtirildi; kitobda yo'q «ikki diagrammani solishtirish» turi (misol, Diqqat, 3 ta test savoli) kitobdagi turlar bilan almashtirildi.
 
 #### ☐ 29. Konus, silindr, prizma va piramida — D2 74–77; M2 81–84
 
