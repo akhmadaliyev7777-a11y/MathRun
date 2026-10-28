@@ -44,7 +44,7 @@ function initXabar(key) {
   document.body.insertAdjacentHTML("beforeend",
     '<div class="xabar-modal" id="xabar-modal" hidden>' +
       '<form class="xabar-box" id="xabar-form" role="dialog" aria-modal="true" aria-labelledby="xabar-title">' +
-        '<div class="xabar-head"><b id="xabar-title">Kamchilik haqida yozing</b>' +
+        '<div class="xabar-head"><div><b id="xabar-title">Izoh yoki kamchilik</b><small class="xabar-mavzu" id="xabar-mavzu"></small></div>' +
           '<button type="button" class="xabar-close" id="xabar-close" aria-label="Yopish">&times;</button></div>' +
         '<div class="xabar-label">Qayerda?</div>' +
         '<div class="xabar-chips" id="xabar-chips">' +
@@ -76,6 +76,8 @@ function initXabar(key) {
   function open() {
     form.hidden = false; done.hidden = true; err.hidden = true;
     const cur = xabarCurrentSection();
+    const tt = document.getElementById("topic-title");
+    document.getElementById("xabar-mavzu").textContent = tt ? "Mavzu: " + tt.textContent.trim() : "";
     form.querySelectorAll('input[name="xabar-bolim"]').forEach(function (r) { r.checked = r.value === cur; });
     modal.hidden = false;
     setTimeout(function () { document.getElementById("xabar-matn").focus(); }, 50);

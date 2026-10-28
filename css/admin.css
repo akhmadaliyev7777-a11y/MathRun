@@ -823,3 +823,10 @@ body.adm-page[data-view="mavzular"] .adm-btrack { height: 170px; }
   .adm-kday-date i { margin: 0 0 0 auto; }
   .adm-kitems li { flex-direction: column; gap: 4px; }
 }
+
+/* izoh qaysi bo'limdan yozilgani (xabarlar) */
+.adm-bolim { display: inline-flex; align-items: center; gap: 4px; font-size: .74rem; font-weight: 800; padding: 2px 9px; border-radius: 999px; color: #fff; background: var(--bc, #64748b); margin-right: 6px; white-space: nowrap; }
+.adm-bolim::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #fff; opacity: .85; }
+.adm-bolim[data-b="maruza"] { --bc: #4f46e5; }
+.adm-bolim[data-b="interaktiv"] { --bc: #0d9488; }
+.adm-bolim[data-b="test"] { --bc: #c026d3; }

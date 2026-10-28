@@ -34,7 +34,9 @@ let DB = null;
 let dbState = "loading";       // "loading" | "ok" | "off" (baza yoqilmagan yoki ruxsat yo'q)
 let NOTES = [];                // { id, src: "izoh" | "xabar", k, title, text, bolim, ism, done, t } — izohlar (admin) va saytdagi xabarlar
 let xabarOff = false;          // "xabarlar" to'plamiga ruxsat yo'q (qoidalar yangilanmagan)
-const BOLIM_NAMES = { maruza: "Nazariya", interaktiv: "Interaktiv panel", test: "Test" };
+const BOLIM_NAMES = { maruza: "Ma'ruza (Nazariya)", interaktiv: "Interaktiv panel", test: "Test" };
+/* xabar qaysi bo'limdan yozilgani — rangli belgi */
+function bolimChip(n) { return n.src === "xabar" && BOLIM_NAMES[n.bolim] ? '<span class="adm-bolim" data-b="' + n.bolim + '">' + BOLIM_NAMES[n.bolim] + "</span>" : ""; }
 let RESULTS = [];              // { k, h, s, n, t }
 
 // 1–4 sinflar ma'lumoti (mathrunner-web bo'limidan yuklanadi)
@@ -1332,7 +1334,7 @@ function renderNotesCard() {
 // izoh yoki xabar kimdan va qaysi bo'limdan kelgani (qisqa belgi)
 function noteSource(n) {
   if (n.src !== "xabar") return "";
-  return '<span class="adm-src">👤 ' + escapeHtml(n.ism || "Saytdan") + (BOLIM_NAMES[n.bolim] ? " · " + BOLIM_NAMES[n.bolim] : "") + '</span> ';
+  return bolimChip(n) + '<span class="adm-src">👤 ' + escapeHtml(n.ism || "Saytdan") + '</span> ';
 }
 
 function copyNotesForClaude(btn) {
@@ -1799,7 +1801,7 @@ function renderNotesFull() {
     return '<article class="adm-nitem' + (n.done ? " is-done" : "") + (n.src === "xabar" ? " is-xabar" : "") + '">' +
       '<div class="adm-nitem-head">' +
         '<span class="adm-status adm-status--' + (n.done ? "done" : "open") + '">' + (n.done ? "Bajarildi" : "Ochiq") + '</span>' +
-        '<span class="adm-nitem-src">' + (n.src === "xabar" ? "Saytdan xabar" + (BOLIM_NAMES[n.bolim] ? " · " + BOLIM_NAMES[n.bolim] : "") : "Admin izohi") + '</span>' +
+        '<span class="adm-nitem-src">' + (n.src === "xabar" ? "Saytdan xabar" : "Admin izohi") + '</span>' + bolimChip(n) +
         (n.src === "xabar" ? '<span class="adm-nitem-who">👤 ' + escapeHtml(n.ism || "ismsiz") + '</span>' : "") +
         '<time>' + fmtDateTime(n.t) + '</time>' +
       '</div>' +

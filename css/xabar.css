@@ -47,3 +47,5 @@
 :root[data-theme="dark"] .xabar-send { background: var(--btn); border-color: var(--btn); color: #fff; }
 :root[data-theme="dark"] .xabar-send:hover { background: var(--btn-hover); }
 :root[data-theme="dark"] .xabar-error { background: rgba(229, 72, 77, 0.16); color: #ffb3b6; }
+
+.xabar-mavzu { display: block; margin-top: 2px; font-size: .85rem; font-weight: 600; color: var(--muted); }
