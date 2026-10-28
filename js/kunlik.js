@@ -4,8 +4,12 @@
 window.KUNLIK = [
   {
     sana: "2026-10-28",
-    qisqa: "6-sinf 21–28-mavzular tayyor: harakat, kuboid-kub va doiraviy diagramma boblari tugadi.",
+    qisqa: "6-sinf yakunlandi (31/31): 21–31-mavzular — harakat, kuboid-kub, doiraviy diagramma va fazoviy jismlar boblari.",
     ishlar: [
+      ["6-sinf", "29-mavzu «Konus, silindr, prizma va piramida» — ma'ruza (yangi fazoviy jism chizmasi), 20+20 test, PDF."],
+      ["6-sinf", "30-mavzu «Uch o'lchamli panjarada fazoviy jismlarni chizish» — ma'ruza (izometrik panjara chizmalari, qadamma-qadam), 20+20 test, PDF."],
+      ["6-sinf", "31-mavzu «Fazoviy jismlarning yoyilmasi» — ma'ruza (75 ta yoyilma, buklab tekshirilgan), 20+20 test, PDF. 6-sinf ma'ruzalari tugadi."],
+      ["Sayt", "Reklama videosi uchun saytdan telefon skrinshotlari va GPT promptlari tayyorlandi."],
       ["6-sinf", "27-mavzu «Doiraviy diagrammada ma'lumotlarni taqdim etish» — ma'ruza (yangi doiraviy diagramma chizmasi), 20+20 test, PDF."],
       ["6-sinf", "28-mavzu «Doiraviy diagrammani o'qish va talqin qilish» — ma'ruza (42 ta diagramma), 20+20 test, PDF; kitobda yo'q tur olib tashlandi."],
       ["6-sinf", "25-mavzu «Kubning qirrasini topish» — ma'ruza (kvadrat va kub ildiz, 1–12 jadvali), 20+20 test, PDF."],

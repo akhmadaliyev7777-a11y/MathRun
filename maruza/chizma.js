@@ -62,6 +62,17 @@
                                oxirgi bosqich qalin chiziladi
        [data-yozuv="bo'yi|eni|balandligi"] — qirralar yonida yozuv; [data-yashirin="1"] — ko'rinmaydigan 3 qirra punktir;
        [data-bolak="1"] — yoqlar birlik kvadratlarga bo'linadi; [data-olcham="22"] — 1 birlik (px)
+   data-izo='{"jism":"prizma","asos":[[3,0],[0,2],[3,2]],"h":4}' — uch o'lchamli nuqtali panjarada jism (6-sinf 30-mavzu); faqat ko'rinadigan chiziqlar
+       (koordinatalar panjara birligida: x — o'ngga-pastga, y — chapga-pastga, z — tepaga; o'q bo'ylab qirralar data-panjara ranglarida, qolganlari to'q):
+       "jism":"kuboid","o":[bo'yi,eni,balandligi] | "prizma","asos":[[a,b],...],"tekislik":"xy|xz|yz","h":uzunligi (asos shu tekislikda, h — uchinchi o'q bo'ylab)
+       | "piramida","asos":[[x,y],...] (z = 0),"uch":[x,y,h] | "silindr","k":2,"h":3,"oq":"z|x|y" | "konus","k":2,"h":3,"teskari":1 (asosi tepada);
+       silindr/konus asosi — k × k kvadratning 4 uchi orqali o'tadigan oval (tik silindrda — eng chap, o'ng, yuqori, past nuqtalari panjara nuqtasida).
+       "bosqich":1..3 — chizish bosqichlari (1 ko'rinadigan asos, 2 parallel qirralar yoki uchi, 3 qolgani; oxirgisi qalin;
+                        piramida/konusda 1–2-bosqichda va «chala»da asosning orqa qismi yordamchi punktir);
+       "chala":n — faqat 1..n bosqich, ingichka, bo'yoqsiz («yakuniga yetkazing» uchun); "yashirin":1 — ko'rinmas chiziqlar punktir;
+       "hammasi":1 — ko'rinmas chiziqlar ham yaxlit (xato chizma namunasi); "bal":1 — piramida/konus balandligi qizil punktir;
+       "kvadrat":1 — oval chiziladigan kvadrat punktir; "yoz":[[[x,y,z],[x,y,z],"3 birlik",(dx,dy)],...] — kesma yonida yozuv;
+       "harf":{"A":[x,y,z]} — nomli nuqta; "panjara":0 — nuqtalarsiz; "bo":0 — bo'yoqsiz; "olcham":22 — 1 birlik (px).
    data-idish="40x25x30" [data-suv="18"] — kuboid shaklidagi shisha idish (bo'yi x eni x balandligi), ichida suv sathi
                                           (o'sha birlikda; bo'lmasa — bo'sh idish); o'lchamlar taxminan nisbatda chiziladi
        [data-yozuv="40 cm|25 cm|30 cm|18 cm|12 cm"] — bo'yi | eni | balandligi | suv sathi | bo'sh qism (bo'sh — yozilmaydi)
@@ -240,6 +251,28 @@
        kasr ko'rinishida (qism : jami, surat ustida maxraj); nomda "\n" — yangi qator; "tik":1 — chorak (90°) sektorida markazda to'g'ri burchak
        belgisi; "chiz":[10,8,14,8] — sektorlar shu sonlarga mos chiziladi, yozuv esa "q" dagi qiymat (noto'g'ri diagramma misollari uchun); och rang
        ("#ffffff", och sariq) bo'lsa yozuv to'q, chegaralar kulrang ("chegara":1 — har doim kulrang chegara).
+   data-jism='{"t":"prizma","n":5,"bel":["asos"],"yoz":{"asos":"Asoslari","yon":"Yon yog'i"}}' — fazoviy jism (6-sinf 29-mavzu): 3D model yuqoridan-yondan
+       ko'rinishda; ko'rinadigan qirralar tutash, ko'rinmaydiganlari punktir; yassi yoqlar va egri sirt har xil rangda, yoqlar soyali.
+       "t": "konus" | "silindr" | "prizma" | "piramida" | "kub" | "kuboid"; "n": asos ko'pburchagining tomonlari soni (prizma/piramida, 3..10);
+       "kop": [[x,z],...] — o'zimizning asos ko'pburchagi (qavariq, masalan trapetsiya), "uchjoy": [x,z] — piramida uchining asos ustidagi joyi;
+       "o": [bo'yi, eni, balandligi] — kuboid nisbati; "h" — balandlik (asos radiusi 1); "yot":1 — yotqizilgan (o'qi yotiq: prizma qirrasi
+       bilan, konus/silindr yon sirti bilan yotadi), "egik": gradus — og'dirish (180 — teskari turgan); "bur": asosni burish (gradus);
+       "qarash": [azimut, balandlik] gradus (odatda [-28, 20], yotganda [-40, 22]);
+       "bel": ["asos"] — asos(lar) to'q sariq, ["yon"] — yon sirt/yoqlar yashil, ["uch"] — piramida/konus uchi qizil nuqta,
+       ["uchlar"] — ko'pyoqning barcha uchlari, ["qirralar"] — qirralar to'q sariq; "yashir":1 — punktir qirralar chizilmaydi;
+       "yoz": {"asos":"Asosi","yon":"Yon sirti","uch":"Uchi"} — chiziqcha bilan tashqarida yozuv (asos — o'ngda, yon — chapda, uch — tepada);
+       "rang": "ko'k" | "yashil" | "sariq" | "binafsha" | "qizil"; "eni" / "boy" — chizma o'lchami (px, odatda 200 / eni·0,8; test rasmi uchun "eni":300).
+   data-yoyilma='{"kv":[[1,0],[0,1],[1,1],[2,1],[3,1],[1,2]],"rang":["ko'k","sariq",...],"yoz":["A","B",...]}' — fazoviy jism yoyilmasi (6-sinf 31-mavzu):
+       tekis yoqlar birlikda (y pastga): "kv":[[x,y],...] — birlik kvadratlar (kub yoyilmasi); "tt":[[x,y,eni,bo'yi],...] — to'g'ri to'rtburchaklar;
+       "ut":[[x1,y1,x2,y2,(h),(-1)],...] — kesmaga yopishgan uchburchak (h — balandligi, bo'lmasa teng tomonli; uchi o'zi boshqa yoqlardan
+       tashqariga qaraydi, -1 — teskari tomonga); "kop":[[x1,y1,x2,y2,x3,y3,...]] — istalgan ko'pburchak. Yoqlar tartibi: kv, tt, ut, kop.
+       Ikki yoqning umumiy tomoni — buklash chizig'i (punktir, "buk":0 — yaxlit), qolgani — qalin chegara (o'zi topiladi).
+       "rang": bitta rang yoki yoqlar tartibida ro'yxat / {"2":"sariq"} (ko'k, sariq, yashil, pushti, binafsha, qizil, to'q sariq, kulrang, oq yoki #rrggbb;
+       odatda to'rtburchaklar ko'k, uchburchaklar sariq; atributda apostrofsiz: "kok", "toqsariq"); "yoz": yoq ichidagi yozuv (ro'yxat yoki {"0":"A"});
+       "o":[[x1,y1,x2,y2,"5 cm",(-1),(rang)]] — kesma yonida, yoyilmadan tashqarida yozuv (1–2 belgili yozuv qizil, bitta harf kursiv);
+       "bush":[[x,y,eni,bo'yi,"a"], {"ut":[...],"yoz":"b"}, {"kop":[x1,y1,...],"yoz":"c"}] — punktir bo'sh yoq (qo'shiladigan variant); "belgi":[[x1,y1,x2,y2,"qizil"]] — qalin rangli
+       tomon (buklanganda ustma-ust tushadigan tomonlar); "ol":[[x1,y1,x2,y2,"18 cm",(0.6)]] — o'lcham chizig'i (strelkali, kesmaga parallel, tashqarida);
+       yoq ichidagi yozuv sig'masa — kichraytiriladi; "panjara":1 — katakli fon; "katak":34 — 1 birlik (px); "eni":320 / "boy" — eng katta o'lcham (px).
 */
 (function () {
   "use strict";
@@ -2599,6 +2632,223 @@
       (el.dataset.izoh || "Nuqtali panjarada chizilgan " + X + " × " + Y + " × " + Z + " kuboid") + '">' + svg + "</svg>";
   }
 
+  // ---------- uch o'lchamli nuqtali panjarada jism: kuboid, prizma, piramida, silindr, konus (6-sinf 30-mavzu) ----------
+  function chizIzo(el) {
+    let g;
+    try { g = JSON.parse(el.dataset.izo); } catch (e) { return; }
+    const s = Number(g.olcham || 22), c = 0.866, r2 = Math.SQRT1_2;
+    const P = function (p) { return [(p[0] - p[1]) * c * s, (p[0] + p[1]) * 0.5 * s - p[2] * s]; };
+    const RANG = { x: "#d4501b", y: "#1f5fd6", z: "#6d3fc0", q: "#2f3a56" };
+    const qosh = function (a, b, k) { k = k === undefined ? 1 : k; return [a[0] + k * b[0], a[1] + k * b[1], a[2] + k * b[2]]; };
+    const ayir = function (a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; };
+    const skal = function (a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; };
+    const kv = function (a, b) { return a[0] * b[1] - a[1] * b[0]; };
+    const yon = function (a, b) {
+      const d = ayir(b, a), n = d.filter(function (v) { return Math.abs(v) > 1e-9; }).length;
+      if (n !== 1) return "q";
+      return Math.abs(d[0]) > 1e-9 ? "x" : Math.abs(d[1]) > 1e-9 ? "y" : "z";
+    };
+    const butun = function (p) { return p.every(function (v) { return Math.abs(v - Math.round(v)) < 1e-6; }); };
+    const ekub = function (a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { const t = a % b; a = b; b = t; } return a; };
+    // kesma ustidagi panjara nuqtalari (uchlari butun koordinatali bo'lsa)
+    const kesmaNuq = function (a, b) {
+      if (!butun(a) || !butun(b)) return [];
+      const d = ayir(b, a).map(Math.round), n = ekub(ekub(d[0], d[1]), d[2]) || 1, out = [];
+      for (let i = 0; i <= n; i++) out.push(P(qosh(a, d, i / n)));
+      return out;
+    };
+    const chiz = [], yuzlar = [], nuqtalar = [], yordam = [], kvadrat = [];
+    const VIEW = [1, 1, 1];
+    const yuzRang = function (n) {
+      const a = n.map(Math.abs);
+      return a[2] >= a[0] && a[2] >= a[1] ? "#f2f6fd" : a[1] >= a[0] ? "#e0e9f9" : "#d0ddf5";
+    };
+    // qavariq ko'pyoqli: V — uchlar, F — yoqlar (uchlar raqamlari), qadam(i, j) — qirra chiziladigan bosqich
+    const kopyoq = function (V, F, qadam) {
+      const C = [0, 0, 0];
+      V.forEach(function (v) { C[0] += v[0] / V.length; C[1] += v[1] / V.length; C[2] += v[2] / V.length; });
+      const qirra = {};
+      F.forEach(function (f) {
+        const n = [0, 0, 0], m = [0, 0, 0];
+        f.forEach(function (i, k) {
+          const a = V[i], b = V[f[(k + 1) % f.length]];
+          n[0] += (a[1] - b[1]) * (a[2] + b[2]); n[1] += (a[2] - b[2]) * (a[0] + b[0]); n[2] += (a[0] - b[0]) * (a[1] + b[1]);
+          m[0] += a[0] / f.length; m[1] += a[1] / f.length; m[2] += a[2] / f.length;
+        });
+        if (skal(n, ayir(m, C)) < 0) { n[0] = -n[0]; n[1] = -n[1]; n[2] = -n[2]; }
+        const kor = skal(n, VIEW) > 1e-9;
+        if (kor) yuzlar.push({ pts: f.map(function (i) { return P(V[i]); }), fill: yuzRang(n) });
+        f.forEach(function (i, k) {
+          const j = f[(k + 1) % f.length], kl = Math.min(i, j) + "-" + Math.max(i, j);
+          qirra[kl] = qirra[kl] || { i: Math.min(i, j), j: Math.max(i, j), kor: false };
+          if (kor) qirra[kl].kor = true;
+        });
+      });
+      Object.keys(qirra).forEach(function (kl) {
+        const e = qirra[kl], a = V[e.i], b = V[e.j];
+        chiz.push({ pts: [P(a), P(b)], kor: e.kor, q: qadam(e.i, e.j), r: RANG[yon(a, b)], nuq: e.kor ? kesmaNuq(a, b) : [] });
+      });
+    };
+    // aylana: markazi M, k × k kvadrat uchlari orqali o'tadi (radiusi k/√2), o'q — "x" | "y" | "z"
+    const aylana = function (M, k, oq) {
+      const R = k * r2;
+      const e = oq === "x" ? [[0, r2, -r2], [0, r2, r2]] : oq === "y" ? [[r2, 0, -r2], [r2, 0, r2]] : [[r2, -r2, 0], [r2, r2, 0]];
+      return {
+        p: function (t) { return qosh(qosh(M, e[0], R * Math.cos(t)), e[1], R * Math.sin(t)); },
+        d: function (t) { return P(qosh(qosh([0, 0, 0], e[0], -R * Math.sin(t)), e[1], R * Math.cos(t))); }
+      };
+    };
+    const yoySamp = function (A, t0, t1) { const out = [], n = 48; for (let i = 0; i <= n; i++) out.push(P(A.p(t0 + (t1 - t0) * i / n))); return out; };
+    // f(t) ishorasi o'zgaradigan ikki nuqta (t1 < t2)
+    const ildiz = function (f) {
+      const N = 720, d0 = 0.0123, out = [];
+      let fa = f(d0);
+      for (let i = 1; i <= N && out.length < 2; i++) {
+        const t = d0 + 2 * Math.PI * i / N, fb = f(t);
+        if ((fa < 0) !== (fb < 0)) { const t0 = d0 + 2 * Math.PI * (i - 1) / N; out.push(t0 + (t - t0) * fa / (fa - fb)); }
+        fa = fb;
+      }
+      return out;
+    };
+    const ICHKI = [0, 0.5, 1, 1.5].map(function (v) { return v * Math.PI; });
+    const burchakIchida = function (t, t0, t1) { const T = 2 * Math.PI; t = ((t - t0) % T + T) % T; return t <= (t1 - t0) + 1e-6; };
+    const birlik = function (oq) { return oq === "x" ? [1, 0, 0] : oq === "y" ? [0, 1, 0] : [0, 0, 1]; };
+    const jism = g.jism || "kuboid";
+    let fillTartib = [];  // egri jismlar: [pts, rang] tartib bilan
+    if (jism === "kuboid" || jism === "prizma") {
+      let B, d;
+      if (jism === "kuboid") {
+        const o = g.o; B = [[0, 0, 0], [o[0], 0, 0], [o[0], o[1], 0], [0, o[1], 0]]; d = [0, 0, o[2]];
+      } else {
+        const tk = g.tekislik || "xy", h = g.h;
+        B = g.asos.map(function (q) { return tk === "xz" ? [q[0], 0, q[1]] : tk === "yz" ? [0, q[0], q[1]] : [q[0], q[1], 0]; });
+        d = tk === "xz" ? [0, h, 0] : tk === "yz" ? [h, 0, 0] : [0, 0, h];
+      }
+      const k = B.length, V = B.concat(B.map(function (p) { return qosh(p, d); }));
+      const F = [B.map(function (_, i) { return i; }), B.map(function (_, i) { return k + i; })];
+      for (let i = 0; i < k; i++) F.push([i, (i + 1) % k, k + (i + 1) % k, k + i]);
+      kopyoq(V, F, function (i, j) { return i >= k && j >= k ? 1 : i < k && j < k ? 3 : 2; });
+    } else if (jism === "piramida") {
+      const B = g.asos.map(function (q) { return [q[0], q[1], 0]; }), A = g.uch, k = B.length;
+      const V = B.concat([A]), F = [B.map(function (_, i) { return i; })];
+      for (let i = 0; i < k; i++) F.push([i, (i + 1) % k, k]);
+      kopyoq(V, F, function (i, j) { return i < k && j < k ? 1 : 3; });
+      yordam.push({ a: P([A[0], A[1], 0]), b: P(A), uch: P(A) });
+    } else if (jism === "silindr") {
+      const kk = g.k || 2, h = g.h, oq = g.oq || "z", u = birlik(oq);
+      const M0 = oq === "x" ? [0, kk / 2, kk / 2] : oq === "y" ? [kk / 2, 0, kk / 2] : [kk / 2, kk / 2, 0];
+      const M1 = qosh(M0, u, h), A0 = aylana(M0, kk, oq), A1 = aylana(M1, kk, oq), a = P(qosh([0, 0, 0], u, h));
+      const tt = ildiz(function (t) { return kv(a, A0.d(t)); });
+      const t1 = tt[0], t2 = tt[1];
+      // uzoqdagi asos: o'qqa teskari tomondagi yoy ko'rinadi
+      const ko1 = skal([P(A0.p((t1 + t2) / 2))[0] - P(M0)[0], P(A0.p((t1 + t2) / 2))[1] - P(M0)[1], 0], [a[0], a[1], 0]) < 0;
+      chiz.push({ pts: yoySamp(A1, 0, 2 * Math.PI), kor: true, q: 1, r: RANG.q, nuq: ICHKI.map(function (t) { return P(A1.p(t)); }) });
+      [t1, t2].forEach(function (t) {
+        const p = A0.p(t), q = A1.p(t);
+        chiz.push({ pts: [P(p), P(q)], kor: true, q: 2, r: RANG[yon(p, q)], nuq: kesmaNuq(p, q) });
+      });
+      const yA = yoySamp(A0, t1, t2), yB = yoySamp(A0, t2, t1 + 2 * Math.PI);
+      const nq = function (k0, k1) { return ICHKI.filter(function (t) { return burchakIchida(t, k0, k1); }).map(function (t) { return P(A0.p(t)); }); };
+      chiz.push({ pts: yA, kor: ko1, q: 3, r: RANG.q, nuq: ko1 ? nq(t1, t2) : [] });
+      chiz.push({ pts: yB, kor: !ko1, q: 3, r: RANG.q, nuq: !ko1 ? nq(t2, t1 + 2 * Math.PI) : [] });
+      ICHKI.forEach(function (t) { kvadrat.push(P(A1.p(t))); });
+      fillTartib = [[yoySamp(A0, 0, 2 * Math.PI), "#e0e9f9"], [[P(A0.p(t1)), P(A0.p(t2)), P(A1.p(t2)), P(A1.p(t1))], "#e0e9f9"], [yoySamp(A1, 0, 2 * Math.PI), "#f2f6fd"]];
+    } else if (jism === "konus") {
+      const kk = g.k || 2, h = g.h, tes = !!g.teskari;
+      const M = [kk / 2, kk / 2, tes ? h : 0], A = [kk / 2, kk / 2, tes ? 0 : h], Ap = P(A), Ay = aylana(M, kk, "z");
+      const tt = ildiz(function (t) { const p = P(Ay.p(t)); return kv([p[0] - Ap[0], p[1] - Ap[1]], Ay.d(t)); });
+      const t1 = tt[0], t2 = tt[1];
+      const asosKor = skal(ayir(M, A), VIEW) > 0;
+      const yA = yoySamp(Ay, t1, t2), yB = yoySamp(Ay, t2, t1 + 2 * Math.PI);
+      const uz = function (pts) { const m = pts[24]; return Math.hypot(m[0] - Ap[0], m[1] - Ap[1]); };
+      const koA = asosKor || uz(yA) > uz(yB), koB = asosKor || !koA;
+      const nq = function (k0, k1) { return ICHKI.filter(function (t) { return burchakIchida(t, k0, k1); }).map(function (t) { return P(Ay.p(t)); }); };
+      chiz.push({ pts: yA, kor: koA, q: 1, r: RANG.q, nuq: koA ? nq(t1, t2) : [] });
+      chiz.push({ pts: yB, kor: koB, q: 1, r: RANG.q, nuq: koB ? nq(t2, t1 + 2 * Math.PI) : [] });
+      [t1, t2].forEach(function (t) { chiz.push({ pts: [Ap, P(Ay.p(t))], kor: true, q: 3, r: RANG.q, nuq: [] }); });
+      yordam.push({ a: P(M), b: Ap, uch: Ap });
+      ICHKI.forEach(function (t) { kvadrat.push(P(Ay.p(t))); });
+      fillTartib = [[yoySamp(Ay, 0, 2 * Math.PI), "#e0e9f9"], [[Ap, P(Ay.p(t1)), P(Ay.p(t2))], "#e0e9f9"]];
+      if (asosKor) fillTartib.push([yoySamp(Ay, 0, 2 * Math.PI), "#f2f6fd"]);
+    }
+    const bosq = Number(g.bosqich || 0), chala = Number(g.chala || 0);
+    const maxQ = bosq || chala || 3, toliq = !chala && (!bosq || bosq >= 3);
+    // yozuvlar: [[a], [b], matn, (dx, dy)] — kesma o'rtasida, jismdan tashqariga
+    const hamma = [];
+    chiz.forEach(function (e) { if (e.kor || g.yashirin) e.pts.forEach(function (p) { hamma.push(p); }); });
+    yordam.forEach(function (y) { hamma.push(y.a, y.b); });
+    if (!hamma.length) return;
+    let mx = 0, my = 0;
+    hamma.forEach(function (p) { mx += p[0] / hamma.length; my += p[1] / hamma.length; });
+    const matnlar = [];
+    (g.yoz || []).forEach(function (z) {
+      const a = P(z[0]), b = P(z[1]), o = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+      let nx = -(b[1] - a[1]), ny = b[0] - a[0];
+      const L = Math.hypot(nx, ny) || 1; nx /= L; ny /= L;
+      if (nx * (o[0] - mx) + ny * (o[1] - my) < 0) { nx = -nx; ny = -ny; }
+      let x = o[0] + nx * 16, y = o[1] + ny * 16 + 5;
+      if (z[3]) { x = o[0] + z[3][0]; y = o[1] + z[3][1]; }
+      const anc = z[3] ? (z[3][0] < -4 ? "end" : z[3][0] > 4 ? "start" : "middle") : (nx < -0.35 ? "end" : nx > 0.35 ? "start" : "middle");
+      const w = String(z[2]).length * 8.3;
+      matnlar.push({ x: x, y: y, t: z[2], anc: anc, r: RANG[yon(z[0], z[1])] === RANG.q ? "#2f3a56" : RANG[yon(z[0], z[1])] });
+      hamma.push([anc === "end" ? x - w : anc === "middle" ? x - w / 2 : x, y - 14], [anc === "end" ? x : anc === "middle" ? x + w / 2 : x + w, y + 4]);
+    });
+    Object.keys(g.harf || {}).forEach(function (h) {
+      const p = P(g.harf[h]); let dx = p[0] - mx, dy = p[1] - my; const L = Math.hypot(dx, dy) || 1; dx /= L; dy /= L;
+      matnlar.push({ x: p[0] + dx * 15, y: p[1] + dy * 15 + 5, t: h, anc: "middle", r: "#d6454f", nuqta: p });
+      hamma.push([p[0] + dx * 15 - 8, p[1] + dy * 15 - 10], [p[0] + dx * 15 + 8, p[1] + dy * 15 + 8]);
+    });
+    const pad = Math.max(24, 1.2 * s);
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    hamma.forEach(function (p) { x0 = Math.min(x0, p[0]); x1 = Math.max(x1, p[0]); y0 = Math.min(y0, p[1]); y1 = Math.max(y1, p[1]); });
+    const gx0 = x0 - pad, gx1 = x1 + pad, gy0 = y0 - pad, gy1 = y1 + pad;
+    const f = function (v) { return v.toFixed(1); };
+    const yol = function (pts, yopiq) { return "M" + pts.map(function (p) { return f(p[0] - gx0) + " " + f(p[1] - gy0); }).join(" L") + (yopiq ? " Z" : ""); };
+    let svg = "";
+    if (g.panjara !== 0) {
+      for (let a = Math.ceil(gx0 / (c * s)); a <= Math.floor(gx1 / (c * s)); a++) {
+        const x = a * c * s;
+        for (let m = Math.ceil((gy0 - a * 0.5 * s) / s); m <= Math.floor((gy1 - a * 0.5 * s) / s); m++) {
+          svg += '<circle cx="' + f(x - gx0) + '" cy="' + f((a * 0.5 + m) * s - gy0) + '" r="1.7" fill="#9aa3b5"/>';
+        }
+      }
+    }
+    if (toliq && g.bo !== 0) {
+      yuzlar.forEach(function (y) { svg += '<path d="' + yol(y.pts, 1) + '" fill="' + y.fill + '"/>'; });
+      fillTartib.forEach(function (y) { svg += '<path d="' + yol(y[0], 1) + '" fill="' + y[1] + '"/>'; });
+    }
+    if (g.kvadrat && kvadrat.length) svg += '<path d="' + yol(kvadrat, 1) + '" fill="none" stroke="#d6454f" stroke-width="1.6" stroke-dasharray="4 4"/>';
+    if (g.yashirin || g.hammasi || (maxQ < 3 && (jism === "konus" || jism === "piramida"))) {
+      chiz.forEach(function (e) {
+        if (!e.kor && e.q <= maxQ) svg += '<path d="' + yol(e.pts) + '" fill="none" stroke="' + e.r + '" stroke-width="' + (g.hammasi ? 2.4 : 2) + '"' + (g.hammasi ? ' stroke-linecap="round"' : ' stroke-dasharray="5 4" opacity=".55"') + "/>";
+      });
+    }
+    if ((bosq === 2 || g.bal) && yordam.length && maxQ >= 2) {
+      yordam.forEach(function (y) {
+        svg += '<path d="' + yol([y.a, y.b]) + '" fill="none" stroke="#d6454f" stroke-width="1.8" stroke-dasharray="4 4"/>' +
+          '<circle cx="' + f(y.a[0] - gx0) + '" cy="' + f(y.a[1] - gy0) + '" r="3.2" fill="#d6454f"/>';
+      });
+    }
+    chiz.forEach(function (e) {
+      if (!e.kor || e.q > maxQ) return;
+      const hozir = bosq && bosq < 3 && e.q === bosq;
+      const w = chala ? 2.2 : hozir ? 3.6 : 2.4, xira = bosq && bosq < 3 && !hozir ? ' opacity=".6"' : "";
+      svg += '<path d="' + yol(e.pts) + '" fill="none" stroke="' + e.r + '" stroke-width="' + w + '" stroke-linecap="round" stroke-linejoin="round"' + xira + "/>";
+      e.nuq.forEach(function (p) { nuqtalar.push([p, e.r, hozir]); });
+    });
+    nuqtalar.forEach(function (n) { svg += '<circle cx="' + f(n[0][0] - gx0) + '" cy="' + f(n[0][1] - gy0) + '" r="' + (n[2] ? 3.6 : 2.8) + '" fill="' + n[1] + '"/>'; });
+    if (maxQ >= 2) yordam.forEach(function (y) { svg += '<circle cx="' + f(y.uch[0] - gx0) + '" cy="' + f(y.uch[1] - gy0) + '" r="' + (bosq === 2 ? 4.6 : 3.2) + '" fill="' + (bosq === 2 ? "#d6454f" : "#2f3a56") + '"/>'; });
+    matnlar.forEach(function (m) {
+      if (m.nuqta) svg += '<circle cx="' + f(m.nuqta[0] - gx0) + '" cy="' + f(m.nuqta[1] - gy0) + '" r="4" fill="#d6454f"/>';
+      svg += '<text x="' + f(m.x - gx0) + '" y="' + f(m.y - gy0) + '" text-anchor="' + m.anc + '" font-size="15" font-weight="800" fill="' + m.r + '" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">' + m.t + "</text>";
+    });
+    const W = gx1 - gx0, H = gy1 - gy0;
+    const nomi = { kuboid: "kuboid", prizma: "prizma", piramida: "piramida", silindr: "silindr", konus: "konus" }[jism] || "jism";
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + f(W) + " " + f(H) + '" style="max-width:' + Math.round(W) + 'px" role="img" aria-label="' +
+      String(el.dataset.izoh || "Uch o'lchamli nuqtali panjarada chizilgan " + nomi).replace(/"/g, "") + '">' + svg + "</svg>";
+  }
+
   // ---------- jismning yuqoridan, olddan, yondan ko'rinishlari (kvadratli panjarada) ----------
   function chizKorinish(el) {
     const xarita = el.dataset.korinish.trim().split("|").map(function (q) { return q.split(",").map(Number); });
@@ -3826,6 +4076,365 @@
     el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Ikki jism harakati sxemasi">' + s + "</svg>";
   }
 
+  // ---------- fazoviy jismlar: konus, silindr, prizma, piramida, kub, kuboid (6-sinf 29-mavzu) ----------
+  // Jism 3D modeli (uchlar va yoqlar) qurilib, yuqoridan-yondan qaralganda chiziladi: ko'rinadigan qirralar — tutash,
+  // ko'rinmaydiganlari — punktir; yassi yoqlar va egri sirt boshqa-boshqa ranglarda; asos, yon sirt va uch belgilanishi mumkin.
+  function chizJism(el) {
+    let g;
+    try { g = JSON.parse(el.dataset.jism); } catch (e) { return; }
+    const t = g.t || "kub", N = 64, V = [], F = [];
+    const n = Math.max(3, Math.min(10, Number(g.n) || (t === "prizma" || t === "piramida" ? 3 : 4)));
+    const yotgan = g.yot || Math.abs(Number(g.egik) || 0) > 45;
+    const h = Number(g.h) || (yotgan ? (t === "konus" ? 2.3 : t === "silindr" ? 2.4 : 2.6) : t === "konus" || t === "piramida" ? 1.7 : t === "silindr" ? 1.5 : 1.6);
+    const ustun = function (pol, y) { return pol.map(function (q) { V.push([q[0], y, q[1]]); return V.length - 1; }); };
+    // asos ko'pburchagi (x, z tekisligida): muntazam n burchak, "kop" — o'zimizning uchlar, kuboid — to'g'ri to'rtburchak
+    let pol;
+    if (t === "kub" || t === "kuboid") {
+      const o = t === "kub" ? [1.4, 1.4, 1.4] : (g.o || [2.2, 1.2, 1.3]).map(Number);
+      pol = [[-o[0] / 2, o[1] / 2], [o[0] / 2, o[1] / 2], [o[0] / 2, -o[1] / 2], [-o[0] / 2, -o[1] / 2]];
+      const a = ustun(pol, 0), b = ustun(pol, o[2]);
+      F.push({ v: a, tur: "asos" }, { v: b, tur: "asos" });
+      for (let i = 0; i < 4; i++) F.push({ v: [a[i], a[(i + 1) % 4], b[(i + 1) % 4], b[i]], tur: "yon" });
+    } else {
+      const silliq = t === "konus" || t === "silindr", k = silliq ? N : n;
+      const tok = k % 2 ? (k === 3 ? (t === "piramida" ? -60 : -100) : -90) : 90 + 180 / k;
+      const bur = (g.bur != null ? Number(g.bur) : yotgan ? (k % 2 ? 0 : 180 / k) : tok) * Math.PI / 180;
+      pol = g.kop ? g.kop.map(function (q) { return [Number(q[0]), Number(q[1])]; }) : [];
+      if (!g.kop) for (let i = 0; i < k; i++) pol.push([Math.cos(bur + 2 * Math.PI * i / k), Math.sin(bur + 2 * Math.PI * i / k)]);
+      const m = pol.length, a = ustun(pol, 0), tur = silliq ? "egri" : "yon";
+      F.push({ v: a, tur: "asos" });
+      if (t === "silindr" || t === "prizma") {
+        const b = ustun(pol, h);
+        F.push({ v: b, tur: "asos" });
+        for (let i = 0; i < m; i++) F.push({ v: [a[i], a[(i + 1) % m], b[(i + 1) % m], b[i]], tur: tur });
+      } else {
+        const u = g.uchjoy || [0, 0];
+        V.push([Number(u[0]), h, Number(u[1])]);
+        const c = V.length - 1;
+        for (let i = 0; i < m; i++) F.push({ v: [a[i], a[(i + 1) % m], c], tur: tur });
+      }
+    }
+    // jismni markazga, "egik" gradusga (90 — yotqizilgan) og'dirish, keyin qarash burchaklari
+    const cen = [0, 1, 2].map(function (j) { let s = 0; V.forEach(function (p) { s += p[j]; }); return s / V.length; });
+    const eg = (g.yot ? 90 : Number(g.egik) || 0) * Math.PI / 180;
+    const q = g.qarash || (yotgan ? [-40, 22] : [-28, 20]), az = Number(q[0]) * Math.PI / 180, el_ = Number(q[1]) * Math.PI / 180;
+    const ayl = function (p) {
+      let x = p[0], y = p[1], z = p[2];
+      let x1 = x * Math.cos(eg) - y * Math.sin(eg), y1 = x * Math.sin(eg) + y * Math.cos(eg);
+      x = x1; y = y1;
+      x1 = x * Math.cos(az) + z * Math.sin(az); const z1 = -x * Math.sin(az) + z * Math.cos(az);
+      return [x1, y * Math.cos(el_) - z1 * Math.sin(el_), y * Math.sin(el_) + z1 * Math.cos(el_)];
+    };
+    const P = V.map(function (p) { return ayl([p[0] - cen[0], p[1] - cen[1], p[2] - cen[2]]); });
+    // yoq normali tashqariga qaraydi (qavariq jism); z > 0 — ko'rinadi
+    F.forEach(function (f) {
+      let nx = 0, ny = 0, nz = 0, cx = 0, cy = 0, cz = 0;
+      f.v.forEach(function (i, j) {
+        const a = P[i], b = P[f.v[(j + 1) % f.v.length]];
+        nx += (a[1] - b[1]) * (a[2] + b[2]); ny += (a[2] - b[2]) * (a[0] + b[0]); nz += (a[0] - b[0]) * (a[1] + b[1]);
+        cx += a[0]; cy += a[1]; cz += a[2];
+      });
+      const L = Math.hypot(nx, ny, nz) || 1, k = f.v.length;
+      f.c = [cx / k, cy / k, cz / k];
+      if (nx * f.c[0] + ny * f.c[1] + nz * f.c[2] < 0) { nx = -nx; ny = -ny; nz = -nz; }
+      f.n = [nx / L, ny / L, nz / L];
+      f.kor = f.n[2] > 1e-6;
+    });
+    // o'lcham: eni / boy ga sig'diriladi
+    let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+    P.forEach(function (p) { x0 = Math.min(x0, p[0]); x1 = Math.max(x1, p[0]); y0 = Math.min(y0, p[1]); y1 = Math.max(y1, p[1]); });
+    const eni = Number(g.eni) || 200, boy = Number(g.boy) || eni * 0.8;
+    const S = Math.min((eni - 8) / (x1 - x0), (boy - 8) / (y1 - y0));
+    const X = function (p) { return [(p[0] - x0) * S, (y1 - p[1]) * S]; };
+    const f1 = function (v) { return v.toFixed(1); };
+    const yol = function (idx) { return idx.map(function (i) { const s = X(P[i]); return f1(s[0]) + " " + f1(s[1]); }).join(" L"); };
+    // ranglar: yassi yoq va egri sirt alohida; belgilangan asos — to'q sariq, yon sirt — yashil
+    const RANG = { "ko'k": [[96, 146, 230], [70, 170, 215]], yashil: [[60, 170, 120], [120, 180, 70]], sariq: [[240, 170, 50], [230, 140, 60]],
+      binafsha: [[140, 100, 220], [190, 110, 200]], qizil: [[225, 90, 90], [230, 120, 70]] };
+    const rg = RANG[g.rang] || RANG["ko'k"], bel = g.bel || [];
+    const nur = [-0.45, 0.65, 0.62], nl = Math.hypot(nur[0], nur[1], nur[2]);
+    const bo = function (f) {
+      const c = bel.indexOf("asos") >= 0 && f.tur === "asos" ? [240, 130, 60] : bel.indexOf("yon") >= 0 && f.tur !== "asos" ? [40, 160, 100] : f.tur === "egri" ? rg[1] : rg[0];
+      const d = Math.max(0, (f.n[0] * nur[0] + f.n[1] * nur[1] + f.n[2] * nur[2]) / nl), k = 0.62 - 0.32 * d;
+      return "rgb(" + c.map(function (v) { return Math.round(255 - (255 - v) * k); }).join(",") + ")";
+    };
+    let s = "";
+    F.forEach(function (f) { if (f.kor) s += '<path d="M' + yol(f.v) + ' Z" fill="' + bo(f) + '" fill-opacity="0.82" stroke="' + bo(f) + '" stroke-opacity="0.82" stroke-width="0.6" stroke-linejoin="round"/>'; });
+    // belgilangan, lekin orqada qolgan yoq (masalan konusning asosi) — shaffof jism orqali ko'rinadi (old yoqlar ustidan och rangda)
+    F.forEach(function (f) {
+      if (!f.kor && ((bel.indexOf("asos") >= 0 && f.tur === "asos") || (bel.indexOf("yon") >= 0 && f.tur !== "asos")))
+        s += '<path d="M' + yol(f.v) + ' Z" fill="' + bo(f) + '" fill-opacity="0.6"/>';
+    });
+    // qirralar: ikki egri bo'lak orasidagisi faqat kontur bo'lsa (biri ko'rinadi, biri yo'q) chiziladi
+    const Q = {};
+    F.forEach(function (f) {
+      f.v.forEach(function (a, j) {
+        const b = f.v[(j + 1) % f.v.length], key = Math.min(a, b) + "_" + Math.max(a, b);
+        (Q[key] = Q[key] || { a: a, b: b, f: [] }).f.push(f);
+      });
+    });
+    // kesmalar uzluksiz chiziqlarga ulanadi (aks holda egri chiziqdagi mayda punktirlar tutash bo'lib ko'rinadi)
+    const zanjir = function (kes) {
+      const qo = {}, ish = kes.map(function () { return false; }), out = [];
+      kes.forEach(function (e, i) { (qo[e[0]] = qo[e[0]] || []).push(i); (qo[e[1]] = qo[e[1]] || []).push(i); });
+      const yur = function (v, z) {
+        for (;;) {
+          const i = (qo[v] || []).filter(function (j) { return !ish[j]; })[0];
+          if (i == null) return;
+          ish[i] = true; v = kes[i][0] === v ? kes[i][1] : kes[i][0]; z.push(v);
+        }
+      };
+      kes.forEach(function (e, i) {
+        if (ish[i]) return;
+        ish[i] = true;
+        const z = [e[0], e[1]]; yur(e[1], z);
+        const b = [e[0]]; yur(e[0], b);
+        out.push(b.reverse().slice(0, -1).concat(z));
+      });
+      return out;
+    };
+    const korK = [], yashK = [];
+    Object.keys(Q).forEach(function (key) {
+      const e = Q[key], fs = e.f, korin = fs.some(function (f) { return f.kor; });
+      const silliq = fs.length === 2 && fs[0].tur === "egri" && fs[1].tur === "egri";
+      if (silliq && fs[0].kor === fs[1].kor) return;
+      (korin ? korK : yashK).push([e.a, e.b]);
+    });
+    const qrang = bel.indexOf("qirralar") >= 0 ? "#d4501b" : "#2f3b57";
+    if (!g.yashir) zanjir(yashK).forEach(function (z) { s += '<path d="M' + yol(z) + '" stroke="#7d869c" stroke-width="1.3" stroke-dasharray="5 4" fill="none" stroke-linejoin="round"/>'; });
+    zanjir(korK).forEach(function (z) { s += '<path d="M' + yol(z) + '" stroke="' + qrang + '" stroke-width="' + (bel.indexOf("qirralar") >= 0 ? 2.4 : 1.8) + '" stroke-linecap="round" stroke-linejoin="round" fill="none"/>'; });
+    // nuqtalar (uchlar)
+    let yx0 = 0, yx1 = (x1 - x0) * S, yy0 = 0, yy1 = (y1 - y0) * S;
+    const silliqJ = t === "konus" || t === "silindr";
+    const uchI = (t === "konus" || t === "piramida") ? V.length - 1 : -1;
+    const nuqta = function (i, r, c) { const p = X(P[i]); return '<circle cx="' + f1(p[0]) + '" cy="' + f1(p[1]) + '" r="' + r + '" fill="' + c + '" stroke="#fff" stroke-width="1.2"/>'; };
+    if (bel.indexOf("uchlar") >= 0 && !silliqJ) V.forEach(function (v, i) { s += nuqta(i, 4, "#d6454f"); });
+    else if (bel.indexOf("uch") >= 0 && uchI >= 0) s += nuqta(uchI, 4.5, "#d6454f");
+    // yozuvlar: "yoz":{"asos":"Asosi","yon":"Yon sirti","uch":"Uchi"} — chiziqcha bilan tashqarida
+    const yoz = g.yoz || {}, FS = 14;
+    const matn = function (txt, x, y, anchor) {
+      const w = txt.length * FS * 0.56;
+      yx0 = Math.min(yx0, anchor === "end" ? x - w : x); yx1 = Math.max(yx1, anchor === "end" ? x : x + w);
+      yy0 = Math.min(yy0, y - 12); yy1 = Math.max(yy1, y + 5);
+      return '<text x="' + f1(x) + '" y="' + f1(y + 5) + '" text-anchor="' + anchor + '" font-size="' + FS + '" font-weight="700" fill="#1f2433">' + txt + "</text>";
+    };
+    const chiziq = function (a, b) { return '<path d="M' + f1(a[0]) + " " + f1(a[1]) + " L" + f1(b[0]) + " " + f1(b[1]) + '" stroke="#1f2433" stroke-width="1.1"/>'; };
+    const W0 = (x1 - x0) * S, H0 = (y1 - y0) * S;
+    const markaz = function (f) { let sx = 0, sy = 0; f.v.forEach(function (i) { const p = X(P[i]); sx += p[0]; sy += p[1]; }); return [sx / f.v.length, sy / f.v.length]; };
+    if (yoz.asos) {
+      const as = F.filter(function (f) { return f.tur === "asos"; }).map(markaz);
+      const ty = as.reduce(function (s, p) { return s + p[1]; }, 0) / as.length + (as.length > 1 ? 0 : H0 * 0.08);
+      const tx = W0 + 16;
+      as.forEach(function (p) { s += chiziq(p, [tx - 4, ty]); });
+      s += matn(yoz.asos, tx, ty, "start");
+    }
+    if (yoz.yon) {
+      // yon sirtdagi nuqta: ko'rinadigan yon yoqlar ichida eng chapdagisi markazi (egri sirtda — chap qismi)
+      const yon = F.filter(function (f) { return f.tur !== "asos" && f.kor; });
+      let best = null;
+      yon.forEach(function (f) { const c = markaz(f); if (!best || c[0] < best[0]) best = c; });
+      if (best) {
+        if (silliqJ) { const all = yon.map(markaz).sort(function (a, b) { return a[0] - b[0]; }); best = all[Math.floor(all.length * 0.22)]; }
+        const tx = -16, ty = best[1] - H0 * 0.04;
+        s += chiziq(best, [tx + 4, ty]) + matn(yoz.yon, tx, ty, "end");
+      }
+    }
+    if (yoz.uch && uchI >= 0) {
+      const p = X(P[uchI]), tx = p[0] + 26, ty = p[1] + 2;
+      s += chiziq([p[0] + 3, p[1]], [tx - 3, ty]) + matn(yoz.uch, tx, ty, "start");
+    }
+    const m = 5, W = yx1 - yx0 + 2 * m, H = yy1 - yy0 + 2 * m;
+    const NOM = { konus: "Konus", silindr: "Silindr", prizma: "Prizma", piramida: "Piramida", kub: "Kub", kuboid: "Kuboid" };
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + f1(W) + " " + f1(H) + '" style="max-width:' + Math.round(W) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || NOM[t] || "Fazoviy jism") + '"><g transform="translate(' + f1(m - yx0) + " " + f1(m - yy0) + ')">' + s + "</g></svg>";
+  }
+
+  // ---------- fazoviy jism yoyilmasi: kvadratlar, to'g'ri to'rtburchaklar, uchburchaklar (6-sinf 31-mavzu) ----------
+  function chizYoyilma(el) {
+    let g;
+    try { g = JSON.parse(el.dataset.yoyilma); } catch (e) { return; }
+    const EPS = 1e-6;
+    const RANG = {
+      "ko'k": ["#d6e6fb", "#3a6fb5"], sariq: ["#fde9b0", "#b8860b"], yashil: ["#d3efdc", "#2f8a4c"], pushti: ["#f8d5e3", "#b03a6a"],
+      binafsha: ["#e3daf7", "#6a4fb0"], qizil: ["#f9d3cf", "#c0392b"], "to'q sariq": ["#fddcbf", "#d4501b"], kulrang: ["#eceef2", "#6b7280"], oq: ["#ffffff", "#6b7280"]
+    };
+    RANG.kok = RANG["ko'k"]; RANG.toqsariq = RANG["to'q sariq"];   // HTML atributida apostrofsiz yozish uchun
+    const QALIN = { qizil: "#d6454f", "ko'k": "#2f6fd6", yashil: "#12805c", "to'q sariq": "#e07b00", binafsha: "#7a4fd0", pushti: "#d0457f" };
+    // yoqlar (ko'pburchaklar) — birlikda, y pastga
+    const F = [];
+    (g.kv || []).forEach(function (q) { const x = +q[0], y = +q[1]; F.push([[x, y], [x + 1, y], [x + 1, y + 1], [x, y + 1]]); });
+    (g.tt || []).forEach(function (q) { const x = +q[0], y = +q[1], w = +q[2], h = +q[3]; F.push([[x, y], [x + w, y], [x + w, y + h], [x, y + h]]); });
+    const ichida = function (p, poly) {           // nuqta ko'pburchak ichidami (chegarada emas)
+      let c = false;
+      for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+        const a = poly[i], b = poly[j];
+        if ((a[1] > p[1]) !== (b[1] > p[1]) && p[0] < (b[0] - a[0]) * (p[1] - a[1]) / (b[1] - a[1]) + a[0]) c = !c;
+      }
+      return c;
+    };
+    const ogir = function (poly) { let x = 0, y = 0; poly.forEach(function (p) { x += p[0]; y += p[1]; }); return [x / poly.length, y / poly.length]; };
+    // "ut": [x1,y1,x2,y2,(h),(s)] — kesmaga yopishgan uchburchak: h — balandligi (bo'lmasa — teng tomonli),
+    // uchi avtomatik boshqa yoqlardan tashqariga qaraydi; s = -1 — teskari tomonga
+    const utYasa = function (q) {
+      const a = [+q[0], +q[1]], b = [+q[2], +q[3]];
+      const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy);
+      const h = q[4] != null && q[4] !== 0 ? +q[4] : L * Math.sqrt(3) / 2;
+      const n = [dy / L, -dx / L], m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+      let u = [m[0] + n[0] * h, m[1] + n[1] * h];
+      const tri = [a, b, u], c = ogir(tri);
+      if (F.some(function (P) { return ichida(c, P); })) u = [m[0] - n[0] * h, m[1] - n[1] * h];
+      if (q[5] === -1) u = [2 * m[0] - u[0], 2 * m[1] - u[1]];
+      return [a, b, u];
+    };
+    (g.ut || []).forEach(function (q) { F.push(utYasa(q)); });
+    (g.kop || []).forEach(function (q) { const P = []; for (let i = 0; i + 1 < q.length; i += 2) P.push([+q[i], +q[i + 1]]); F.push(P); });
+    if (!F.length && !(g.bush || []).length) return;
+    // bo'sh (punktir) yoqlar — qo'shiladigan variantlar: [x,y,w,h,yozuv] yoki {"ut":[...],"yoz":"a"}
+    const B = (g.bush || []).map(function (q) {
+      if (Array.isArray(q)) { const x = +q[0], y = +q[1], w = +q[2], h = +q[3]; return { p: [[x, y], [x + w, y], [x + w, y + h], [x, y + h]], yoz: q[4] || "" }; }
+      if (q.ut) return { p: utYasa(q.ut), yoz: q.yoz || "" };
+      if (q.kop) { const P = []; for (let i = 0; i + 1 < q.kop.length; i += 2) P.push([+q.kop[i], +q.kop[i + 1]]); return { p: P, yoz: q.yoz || "" }; }
+      return { p: [], yoz: "" };
+    });
+    // masshtab
+    let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    F.concat(B.map(function (b) { return b.p; })).forEach(function (P) { P.forEach(function (p) { x0 = Math.min(x0, p[0]); y0 = Math.min(y0, p[1]); x1 = Math.max(x1, p[0]); y1 = Math.max(y1, p[1]); }); });
+    let gx0 = 0, gy0 = 0, gx1 = 0, gy1 = 0;
+    if (g.panjara) {
+      gx0 = Math.floor(x0 + EPS) - 1; gy0 = Math.floor(y0 + EPS) - 1; gx1 = Math.ceil(x1 - EPS) + 1; gy1 = Math.ceil(y1 - EPS) + 1;
+      x0 = gx0; y0 = gy0; x1 = gx1; y1 = gy1;
+    }
+    const eni = Number(g.eni || 320), boyM = Number(g.boy || 1e9);
+    const k = Math.min(Number(g.katak || 34), (eni - 70) / Math.max(x1 - x0, EPS), (boyM - 60) / Math.max(y1 - y0, EPS));
+    const X = function (p) { return [(p[0] - x0) * k, (p[1] - y0) * k]; };
+    const f1 = function (v) { return v.toFixed(1); };
+    const yo = function (P) { return P.map(function (p) { const q = X(p); return f1(q[0]) + " " + f1(q[1]); }).join(" L"); };
+    let s = "";
+    const kesmaP = function (a, b) { const p = X(a), q = X(b); return '<line x1="' + f1(p[0]) + '" y1="' + f1(p[1]) + '" x2="' + f1(q[0]) + '" y2="' + f1(q[1]) + '" stroke="#d5dae3" stroke-width="1"/>'; };
+    // katakli fon
+    if (g.panjara) {
+      for (let x = gx0; x <= gx1; x++) s += kesmaP([x, gy0], [x, gy1]);
+      for (let y = gy0; y <= gy1; y++) s += kesmaP([gx0, y], [gx1, y]);
+    }
+    // ranglar
+    const rang = function (i) {
+      let r = g.rang;
+      if (Array.isArray(r)) r = r[i];
+      else if (r && typeof r === "object") r = r[i];
+      return RANG[r] || (r && r.charAt && r.charAt(0) === "#" ? [r, "#3b4a6b"] : RANG[F[i].length === 3 ? "sariq" : "ko'k"]);
+    };
+    F.forEach(function (P, i) { s += '<path d="M' + yo(P) + ' Z" fill="' + rang(i)[0] + '"/>'; });
+    // tomonlar: boshqa yoq bilan umumiy qismi — buklash chizig'i (punktir), qolgani — chegara (yaxlit)
+    const qirra = function (P) { return P.map(function (p, i) { return [p, P[(i + 1) % P.length]]; }); };
+    const ustma = function (e, d) {               // d kesmaning e ustidagi qismi [t0, t1] (e bo'ylab 0..1) yoki null
+      const ax = e[1][0] - e[0][0], ay = e[1][1] - e[0][1], L2 = ax * ax + ay * ay;
+      const kr = function (p) { return (ax * (p[1] - e[0][1]) - ay * (p[0] - e[0][0])) / Math.sqrt(L2); };
+      if (Math.abs(kr(d[0])) > 1e-4 || Math.abs(kr(d[1])) > 1e-4) return null;
+      const t = function (p) { return (ax * (p[0] - e[0][0]) + ay * (p[1] - e[0][1])) / L2; };
+      const a = Math.max(0, Math.min(t(d[0]), t(d[1]))), b = Math.min(1, Math.max(t(d[0]), t(d[1])));
+      return b - a > 1e-4 ? [a, b] : null;
+    };
+    const nuqta = function (e, t) { return [e[0][0] + (e[1][0] - e[0][0]) * t, e[0][1] + (e[1][1] - e[0][1]) * t]; };
+    const kesma = function (a, b, c, w, dash) {
+      const p = X(a), q = X(b);
+      return '<line x1="' + f1(p[0]) + '" y1="' + f1(p[1]) + '" x2="' + f1(q[0]) + '" y2="' + f1(q[1]) + '" stroke="' + c + '" stroke-width="' + w + '" stroke-linecap="round"' + (dash ? ' stroke-dasharray="' + dash + '"' : "") + "/>";
+    };
+    let chegara = "", buk = "";
+    const bukDash = g.buk === 0 ? "" : "5 4";
+    F.forEach(function (P, i) {
+      qirra(P).forEach(function (e) {
+        const ost = [];
+        F.forEach(function (Q, j) {
+          if (j === i) return;
+          qirra(Q).forEach(function (d) { const r = ustma(e, d); if (r) ost.push([r[0], r[1], j]); });
+        });
+        ost.sort(function (u, v) { return u[0] - v[0]; });
+        let t = 0;
+        ost.forEach(function (r) {
+          if (r[0] > t + 1e-4) chegara += kesma(nuqta(e, t), nuqta(e, r[0]), "#2e3a52", 2);
+          if (i < r[2]) buk += kesma(nuqta(e, r[0]), nuqta(e, r[1]), "#56607a", 1.4, bukDash);
+          t = Math.max(t, r[1]);
+        });
+        if (t < 1 - 1e-4) chegara += kesma(nuqta(e, t), e[1], "#2e3a52", 2);
+      });
+    });
+    s += buk + chegara;
+    // punktir bo'sh yoqlar
+    B.forEach(function (b) {
+      if (!b.p.length) return;
+      s += '<path d="M' + yo(b.p) + ' Z" fill="rgba(255,255,255,0.6)" stroke="#8a93a6" stroke-width="1.5" stroke-dasharray="5 4"/>';
+    });
+    // buklanganda ustma-ust tushadigan tomonlar (qalin rangli)
+    (g.belgi || []).forEach(function (q) { s += kesma([+q[0], +q[1]], [+q[2], +q[3]], QALIN[q[4]] || q[4] || "#d6454f", 4.5); });
+    // yozuvlar
+    const fs = Math.max(12, Math.min(17, k * 0.5));
+    const matn = function (t, p, anchor, rangi, kat, kursiv) {
+      return '<text x="' + f1(p[0]) + '" y="' + f1(p[1]) + '" text-anchor="' + (anchor || "middle") + '" dominant-baseline="central" font-size="' + f1(kat || fs) +
+        '" font-weight="700"' + (kursiv ? ' font-style="italic"' : "") + ' fill="' + (rangi || "#1f2433") + '" font-family="Nunito Sans, sans-serif">' + t + "</text>";
+    };
+    const yoz = g.yoz || {};
+    F.forEach(function (P, i) {
+      const t = Array.isArray(yoz) ? yoz[i] : yoz[i];
+      if (t == null || t === "") return;
+      const c = ogir(P), q = X(c);
+      let en = 1e9;                                   // yozuv yoq ichiga sig'sin
+      P.forEach(function (p) { en = Math.min(en, Math.abs(X(p)[0] - q[0]) * (P.length === 3 ? 1.1 : 2)); });
+      const kt = Math.max(9, Math.min(fs * 1.05, 0.92 * en / (String(t).length * 0.6)));
+      s += matn(t, P.length === 3 ? [q[0], q[1] + 2] : q, "middle", rang(i)[1] === "#3b4a6b" ? "#1f2433" : rang(i)[1], kt);
+    });
+    B.forEach(function (b) { if (b.p.length && b.yoz) s += matn(b.yoz, X(ogir(b.p)), "middle", "#5b6275", fs, true); });
+    // o'lchamlar: [x1,y1,x2,y2,yozuv,(s)] — kesma yonida, yoyilmadan tashqari tomonda (s = -1 — teskari)
+    let lx0 = 0, ly0 = 0, lx1 = (x1 - x0) * k, ly1 = (y1 - y0) * k;
+    (g.o || []).forEach(function (q) {
+      const a = [+q[0], +q[1]], b = [+q[2], +q[3]];
+      const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1;
+      let n = [dy / L, -dx / L];
+      const m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], sin = 0.08;
+      if (F.some(function (P) { return ichida([m[0] + n[0] * sin, m[1] + n[1] * sin], P); })) n = [-n[0], -n[1]];
+      if (q[5] === -1) n = [-n[0], -n[1]];
+      const M = X(m), d = 8 + fs * 0.35;
+      const p = [M[0] + n[0] * d, M[1] + n[1] * d];
+      const anchor = Math.abs(n[0]) > 0.6 ? (n[0] > 0 ? "start" : "end") : "middle";
+      const qisqa = String(q[4]).length <= 2;
+      const rq = q[6] ? (QALIN[q[6]] || q[6]) : (qisqa ? "#d6454f" : "#1f2433");
+      s += matn(q[4], [p[0] + (anchor === "middle" ? 0 : 0), p[1] + (anchor === "middle" ? n[1] * fs * 0.25 : 0)], anchor, rq, fs * 0.95, qisqa && /^[a-z]$/.test(q[4]));
+      const w = String(q[4]).length * fs * 0.55;
+      lx0 = Math.min(lx0, anchor === "end" ? p[0] - w : p[0] - w / 2); lx1 = Math.max(lx1, anchor === "start" ? p[0] + w : p[0] + w / 2);
+      ly0 = Math.min(ly0, p[1] - fs); ly1 = Math.max(ly1, p[1] + fs);
+    });
+    // o'lcham chizig'i: [x1,y1,x2,y2,yozuv,(siljish birlikda, odatda 0,6)] — kesmaga parallel, yoyilmadan tashqarida, uchlari strelkali
+    (g.ol || []).forEach(function (q) {
+      const a = [+q[0], +q[1]], b = [+q[2], +q[3]];
+      const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1, u = [dx / L, dy / L];
+      let n = [dy / L, -dx / L];
+      const mm = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+      if (F.some(function (P) { return ichida([mm[0] + n[0] * 0.08, mm[1] + n[1] * 0.08], P); })) n = [-n[0], -n[1]];
+      const sd = (q[5] != null ? +q[5] : 0.6) * Math.min(1, 26 / k) ;
+      const A = X([a[0] + n[0] * sd, a[1] + n[1] * sd]), Bq = X([b[0] + n[0] * sd, b[1] + n[1] * sd]);
+      const c = "#5b6275", st = function (p, q2) { return '<line x1="' + f1(p[0]) + '" y1="' + f1(p[1]) + '" x2="' + f1(q2[0]) + '" y2="' + f1(q2[1]) + '" stroke="' + c + '" stroke-width="1.3"/>'; };
+      s += st(A, Bq);
+      [[A, 1], [Bq, -1]].forEach(function (z) {
+        const p = z[0], sg = z[1];
+        s += st([p[0] - n[0] * 5, p[1] - n[1] * 5], [p[0] + n[0] * 5, p[1] + n[1] * 5]);
+        s += '<path d="M' + f1(p[0]) + " " + f1(p[1]) + " L" + f1(p[0] + sg * u[0] * 7 + n[0] * 3) + " " + f1(p[1] + sg * u[1] * 7 + n[1] * 3) +
+          " L" + f1(p[0] + sg * u[0] * 7 - n[0] * 3) + " " + f1(p[1] + sg * u[1] * 7 - n[1] * 3) + ' Z" fill="' + c + '"/>';
+      });
+      const M = [(A[0] + Bq[0]) / 2 + n[0] * (fs * 0.75), (A[1] + Bq[1]) / 2 + n[1] * (fs * 0.75)];
+      const anchor = Math.abs(n[0]) > 0.6 ? (n[0] > 0 ? "start" : "end") : "middle";
+      s += matn(q[4], M, anchor, "#1f2433", fs * 0.95);
+      const w = String(q[4]).length * fs * 0.55;
+      [A, Bq, M].forEach(function (p) {
+        lx0 = Math.min(lx0, p[0] - (anchor === "middle" ? w / 2 : anchor === "end" ? w : 0) - 4); lx1 = Math.max(lx1, p[0] + (anchor === "middle" ? w / 2 : anchor === "start" ? w : 0) + 4);
+        ly0 = Math.min(ly0, p[1] - fs); ly1 = Math.max(ly1, p[1] + fs);
+      });
+    });
+    const m = 6, W = lx1 - lx0 + 2 * m, H = ly1 - ly0 + 2 * m;
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + f1(W) + " " + f1(H) + '" style="max-width:' + Math.round(W) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || "Fazoviy jism yoyilmasi") + '"><g transform="translate(' + f1(m - lx0) + " " + f1(m - ly0) + ')">' + s + "</g></svg>";
+  }
+
   window.MaruzaChizma = {
     bolish: bolish,
     chiz: function (root) {
@@ -3858,6 +4467,7 @@
       root.querySelectorAll("[data-menzurka]").forEach(chizMenzurka);
       root.querySelectorAll("[data-buyum]").forEach(chizBuyum);
       root.querySelectorAll("[data-panjara]").forEach(chizPanjara);
+      root.querySelectorAll("[data-izo]").forEach(chizIzo);
       root.querySelectorAll("[data-korinish]").forEach(chizKorinish);
       root.querySelectorAll("[data-meyor]").forEach(chizMeyor);
       root.querySelectorAll("[data-grafik]").forEach(chizGrafik);
@@ -3888,6 +4498,8 @@
       root.querySelectorAll("[data-spidometr]").forEach(chizSpidometr);
       root.querySelectorAll("[data-harakat]").forEach(chizHarakat);
       root.querySelectorAll("[data-diagramma]").forEach(chizDiagramma);
+      root.querySelectorAll("[data-jism]").forEach(chizJism);
+      root.querySelectorAll("[data-yoyilma]").forEach(chizYoyilma);
     }
   };
 })();

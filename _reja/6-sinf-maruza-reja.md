@@ -148,8 +148,14 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 2026-10-28. Ma'ruza (5 qism, 42 doiraviy + 4 ustunli diagramma) va 20+20 test (24 ta chizmali savol), PDF.
 **Kitob bilan solishtirildi:** «Qarang va o'rganing» 1–6 ✅; sondan, kasrdan, foizdan jami va qism ✅; «k marta ko'p» ✅; nisbat ✅; «Bu fikr to'g'rimi?» ✅; jadval → diagramma, ustunli bilan moslash, diagramma turini tanlash ✅; «Bajaring» 1–7 va daftar 71–80 ✅. Kiritilmadi: guruh so'rovi, fikr diagrammalari, o'zini tekshirish ro'yxati. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitobga o'xshagan 4 ta mashq va 7 ta test savoli almashtirildi; kitobda yo'q «ikki diagrammani solishtirish» turi (misol, Diqqat, 3 ta test savoli) kitobdagi turlar bilan almashtirildi.
 
-#### ☐ 29. Konus, silindr, prizma va piramida — D2 74–77; M2 81–84
+#### ✅ 29. Konus, silindr, prizma va piramida — D2 74–77; M2 81–84
+2026-10-28. Ma'ruza (5 qism, 35 chizma — yangi `data-jism`: ko'rinmas qirralar punktir, asos/yon sirt/uch belgilanadi) va 20+20 test (14 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** konus, silindr, prizma, piramida ta'riflari (aynan) ✅; kub va kuboid ham prizma ✅; prizma va piramidaning o'xshash va farqli tomonlari ✅; buyumlardan jismni tanish ✅; rasmdagi jism yoqlari ✅. **Tekshiruv:** mustaqil tekshiruvchi — kitobda yo'q umumiy formulalar (n+2, n+1), teskari savollar va kub sirti savoli olib tashlandi; test rasmlarining yashirin yozuvidagi javob olib tashlandi.
 
-#### ☐ 30. Uch o'lchamli panjarada fazoviy jismlarni chizish — D2 78–81; M2 85–88
+#### ✅ 30. Uch o'lchamli panjarada fazoviy jismlarni chizish — D2 78–81; M2 85–88
+2026-10-28. Ma'ruza (5 qism, 68 chizma — yangi `data-izo`: izometrik nuqtali panjarada kub, kuboid, prizma, piramida, silindr, konus; qadamma-qadam, chala chizma) va 20+20 test (20 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** panjarada kub, kuboid, prizma, piramida, silindr, konus chizish ✅; chizmani tugatish ✅; rasmni panjaraga ko'chirish ✅; buyumni jismga o'xshatish ✅. Guruh loyihasi uy vazifasi qilindi. **Tekshiruv:** mustaqil tekshiruvchi — buzilgan 1 chizma, javobi ikki xil 1 savol, javobni oshkor qilgan yashirin yozuvlar va ma'ruzani takrorlagan 3 test savoli tuzatildi.
 
-#### ☐ 31. Fazoviy jismlarning yoyilmasi — D2 82–90; M2 89–100
+#### ✅ 31. Fazoviy jismlarning yoyilmasi — D2 82–90; M2 89–100
+2026-10-28. Ma'ruza (5 qism, 75 yoyilma — yangi `data-yoyilma`) va 20+20 test (24 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** qoida «yoyilmani buklab jism hosil qilish mumkin» (aynan) ✅; kub, kuboid, prizma, piramida yoyilmalari ✅; quti o'lchamlari ↔ yoyilmadagi kesmalar ✅; «Bajaring» 1–5 ✅; yoqlar + uchlar − qirralar jadvali ✅; daftar turlari ✅. Kitobda silindr/konus yoyilmasi va sirt yuzi yo'q — kiritilmadi. **Tekshiruv:** mustaqil tekshiruvchi — buklanib tekshirildi; noto'g'ri javobli 1 savol va rasmsiz 1 savol tuzatildi; kub yoyilmasini tekshirish «qoidasi» kitob qadamlariga keltirildi; kitob gaplari almashtirildi.

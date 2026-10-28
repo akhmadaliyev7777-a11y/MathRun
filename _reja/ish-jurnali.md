@@ -10,10 +10,17 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
 - **5-sinf:** 47/47 — 1–12 qayta yozildi (5 qism), 13–18 to'liq tekshirib joyida tuzatildi, 19–47 «Anti sun'iylik» tekshiruvidan o'tdi (2026-10-25); 18–47 qoida ramkalari kitob bilan solishtirildi (kitob matni / «Usul» / olib tashlandi). 5-sinf ko'rib chiqish tugadi.
-- **6-sinf:** 1–28-mavzular tayyor (17–20 — 2026-10-27, 21–28 — 2026-10-28), hammasida mavzu PDF'i (A4) va testlar PDF'i bor. Navbat: 29-mavzu «Konus, silindr, prizma va piramida».
+- **6-sinf:** 31/31 — TUGADI (2026-10-28). Hammasida 5 qismli ma'ruza, 20+20 test, mavzu va testlar PDF'i. Keyingi ish — foydalanuvchi aytadi (7-sinf rejasi yoki interaktiv darslar).
 - **Interaktiv darslar «kasblarda» uslubida:** 8-sinf «Modul kasblarda», 6-sinf 5-mavzu «Kasr bo'lish kasblarda» (kasb rasmlari GPT'dan kutilmoqda).
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
-- **Oxirgi yozuvdan beri tugagan mavzular:** 0 / 6.
+- **Oxirgi yozuvdan beri tugagan mavzular:** 3 / 6 (29–31).
+
+---
+
+## 2026-10-28 kech — m.shukurillo hisobi
+**Qilindi:** 6-sinf 29 «Konus, silindr, prizma va piramida» (yangi `data-jism`), 30 «Uch o'lchamli panjarada chizish» (yangi `data-izo`), 31 «Fazoviy jismlarning yoyilmasi» (yangi `data-yoyilma`) — ma'ruza + 20+20 test + PDF, uchalasi parallel; har biri mustaqil tekshiruvdan o'tdi. **6-sinf 31/31 tugadi.** Reklama videosi: ~/Desktop/mathlearn-video/ (skrinshotlar, GPT promptlari, kadr 1–3 tayyor).
+**Chala:** kasb rasmlari (img/kasb/*.webp); video kadr 4–9.
+**Navbatda:** foydalanuvchi aytadi (7-sinf ma'ruza rejasi yoki boshqa ish).
 
 ---
 
