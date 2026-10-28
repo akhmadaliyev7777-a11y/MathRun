@@ -808,14 +808,14 @@ body.adm-page[data-view="mavzular"] .adm-btrack { height: 170px; }
 .adm-ktag[data-b="Admin"] { --kc: #64748b; }
 .adm-ktag[data-b="Ish tartibi"] { --kc: #a16207; }
 .adm-ktag[data-b] { background: color-mix(in srgb, var(--kc, #64748b) 16%, #fff); color: color-mix(in srgb, var(--kc, #64748b) 80%, #000); }
-:root[data-theme="dark"] .adm-ktag[data-b] { background: color-mix(in srgb, var(--kc, #64748b) 30%, #1a221d); color: color-mix(in srgb, var(--kc, #64748b) 45%, #fff); }
+:root[data-theme="dark"] .adm-ktag[data-b] { background: color-mix(in srgb, var(--kc, #64748b) 80%, #000); color: #fff; }
 /* ish turi belgilari: ma'ruza, test, interaktiv, PDF — matndan o'zi topiladi (admin.js kunlikList) */
 .adm-ktur { display: inline-block; font-size: .7rem; font-weight: 700; padding: 0 7px; margin-right: 5px; border-radius: 6px; vertical-align: 1px; color: #fff; background: var(--tc); }
 .adm-ktur[data-t="maruza"] { --tc: #4f46e5; }
 .adm-ktur[data-t="test"] { --tc: #c026d3; }
 .adm-ktur[data-t="interaktiv"] { --tc: #0d9488; }
 .adm-ktur[data-t="pdf"] { --tc: #64748b; }
-:root[data-theme="dark"] .adm-ktur { background: color-mix(in srgb, var(--tc) 70%, #000); }
+:root[data-theme="dark"] .adm-ktur { background: var(--tc); color: #fff; box-shadow: 0 0 0 1px color-mix(in srgb, var(--tc) 60%, #fff); }
 @media (max-width: 560px) {
   .adm-kday { grid-template-columns: 1fr; gap: 10px; }
   .adm-kday-date { flex-direction: row; gap: 6px; align-items: baseline; justify-content: flex-start; padding: 8px 12px; }
