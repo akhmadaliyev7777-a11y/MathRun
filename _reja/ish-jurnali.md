@@ -10,10 +10,10 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
 - **5-sinf:** 47/47 — 1–12 qayta yozildi (5 qism), 13–18 to'liq tekshirib joyida tuzatildi, 19–47 «Anti sun'iylik» tekshiruvidan o'tdi (2026-10-25); 18–47 qoida ramkalari kitob bilan solishtirildi (kitob matni / «Usul» / olib tashlandi). 5-sinf ko'rib chiqish tugadi.
-- **6-sinf:** 1–24-mavzular tayyor (17–20 — 2026-10-27, 21–24 — 2026-10-28), hammasida mavzu PDF'i (A4) va testlar PDF'i bor. Navbat: 25-mavzu «Kubning qirrasini topish».
+- **6-sinf:** 1–26-mavzular tayyor (17–20 — 2026-10-27, 21–26 — 2026-10-28), hammasida mavzu PDF'i (A4) va testlar PDF'i bor. Navbat: 27-mavzu «Doiraviy diagrammada ma'lumotlarni taqdim etish».
 - **Interaktiv darslar «kasblarda» uslubida:** 8-sinf «Modul kasblarda», 6-sinf 5-mavzu «Kasr bo'lish kasblarda» (kasb rasmlari GPT'dan kutilmoqda).
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
-- **Oxirgi yozuvdan beri tugagan mavzular:** 2 / 6 (23–24).
+- **Oxirgi yozuvdan beri tugagan mavzular:** 4 / 6 (23–26).
 
 ---
 

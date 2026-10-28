@@ -132,9 +132,13 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 2026-10-28. Ma'ruza (5 qism, yangi chizma `data-kuboid` — o'lchamga mos kuboid, «?» qirra qizil, bo'yalgan yoq yuzi) va 20+20 test (7 ta chizmali savol), PDF.
 **Kitob bilan solishtirildi:** qirrani hajm va ikki qirradan topish (kitob formulalari aynan) ✅; o'nli kasrli qirra/javob ✅; asos yuzi va balandlik (kitob gapi aynan) ✅; bitta kuboid — 3 xil asos ✅; bo'yalgan yoq yuzi berilgan ✅; jadval ✅; idishdagi suv (litr) ✅; daftar turlari ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitobga o'xshagan 2 ta misol va 3 ta test savoli almashtirildi, chalg'ituvchilar xilma-xil qilindi.
 
-#### ☐ 25. Kubning qirrasini topish — D2 35–38; M2 35–36
+#### ✅ 25. Kubning qirrasini topish — D2 35–38; M2 35–36
+2026-10-28. Ma'ruza (5 qism, 15 chizma — `data-kub`, `data-kuboid`, `data-qismlar`; 1–12 kvadrat va kublar jadvali) va 20+20 test (8 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** kub hajmi qoidasi, kvadrat ildiz va kub ildiz (kitob matni aynan) ✅; yoq yuzidan qirra (√) ✅; hajmdan qirra (∛) ✅; kalkulyator ✅; tekshirish ✅; kvadratni kichik kvadratlarga bo'lish ✅; daftar turlari ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; «Usul» ramkasidan kitobda yo'q qadamlar olib tashlandi; mavzudan tashqari 2 ta va kitobga o'xshagan 2 ta test savoli almashtirildi.
 
-#### ☐ 26. Kuboid va kubning bir yog'i yuzi (+ matnli masalalar) — D2 39–48; M2 37–56
+#### ✅ 26. Kuboid va kubning bir yog'i yuzi (+ matnli masalalar) — D2 39–48; M2 37–56
+2026-10-28. Ma'ruza (5 qism, 26 chizma) va 20+20 test (7 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** hajm va qirradan yoq yuzi ✅; kub yog'i yuzi hajmidan ✅; jadval ✅; ishlangan misollar 1–8 (kvadrat yoq, suv sathi, idishning qismi, quyib olish, idishdan idishga, jo'mrak) ✅; mashqlar 1–9 va «O'ylab ko'ring» ✅; daftar turlari (bo'yalgan sirt, qutilarni joylash, kesilgan bo'laklar, oqim) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; ikki idish chizmasi bir masshtabga keltirildi; kitobga o'xshagan 10 ta mashq va 7 ta test savoli almashtirildi; kalkulyator eslatmalari qo'shildi.
 
 #### ☐ 27. Doiraviy diagrammada ma'lumotlarni taqdim etish — D2 52–56; M2 63–70
 
