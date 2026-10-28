@@ -33,11 +33,14 @@ function initXabar(key) {
   const container = document.querySelector(".page-container");
   if (!container) return;
 
-  container.insertAdjacentHTML("beforeend",
-    '<div class="xabar-bar">' +
-      '<span>Xato yoki kamchilik topdingizmi?</span>' +
-      '<button type="button" class="xabar-open" id="xabar-open">✏️ Yozib qoldirish</button>' +
-    '</div>');
+  /* tugma sahifa tepasida (2026-10-28) */
+  const ikon = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.6A8 8 0 1 1 21 12z"/><path d="M12 8v4.2"/><circle cx="12" cy="15.6" r=".6" fill="currentColor"/></svg>';
+  const tugma = '<button type="button" class="xabar-open" id="xabar-open" title="Xato, kamchilik yoki taklifni yozib qoldiring" aria-label="Izoh yoki kamchilik yozish">' + ikon + '<span>Izoh yoki kamchilik</span></button>';
+  /* yopishgan bosqichlar qatorida (Nazariya · Interaktiv · Test · PDF) — doim ko'rinib turadi */
+  const nav = document.getElementById("topic-steps");
+  if (nav) nav.insertAdjacentHTML("beforeend", tugma);
+  else container.insertAdjacentHTML("afterbegin", '<div class="xabar-bar">' + tugma + '</div>');
   document.body.insertAdjacentHTML("beforeend",
     '<div class="xabar-modal" id="xabar-modal" hidden>' +
       '<form class="xabar-box" id="xabar-form" role="dialog" aria-modal="true" aria-labelledby="xabar-title">' +
