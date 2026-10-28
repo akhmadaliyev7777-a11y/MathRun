@@ -1704,7 +1704,13 @@ function kunlikDay(iso) {
 }
 function kunlikList(ish) {
   return '<ul class="adm-kitems">' + ish.map(function (i) {
-    return '<li><span class="adm-ktag" data-b="' + escapeHtml(i[0]) + '">' + escapeHtml(i[0]) + '</span><span>' + escapeHtml(i[1]) + '</span></li>';
+    const t = i[1].toLowerCase(), tur = [];
+    if (/ma'ruza|maruza|5e uslub/.test(t)) tur.push(["maruza", "Ma'ruza"]);
+    if (/test/.test(t)) tur.push(["test", "Test"]);
+    if (/interaktiv/.test(t) || i[0] === "Interaktiv") tur.push(["interaktiv", "Interaktiv"]);
+    if (/pdf/.test(t)) tur.push(["pdf", "PDF"]);
+    const belgi = tur.map(function (x) { return '<span class="adm-ktur" data-t="' + x[0] + '">' + x[1] + '</span>'; }).join("");
+    return '<li><span class="adm-ktag" data-b="' + escapeHtml(i[0]) + '">' + escapeHtml(i[0]) + '</span><span>' + (belgi ? '<span class="adm-kturlar">' + belgi + '</span> ' : "") + escapeHtml(i[1]) + '</span></li>';
   }).join("") + '</ul>';
 }
 

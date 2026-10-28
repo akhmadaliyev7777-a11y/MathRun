@@ -14,6 +14,7 @@ window.KUNLIK = [
       ["Sayt", "Ma'ruzalarda rang mavzulari: har mavzu o'z rangida (qism sarlavhalari, qoida ramkasi, misol yorliqlari, qadam raqamlari); mavzu kartochkalarida rangli chiziq. Tugmalar o'zgarmadi."],
       ["7-sinf", "1.2 «Eng katta umumiy bo'luvchi (EKUB)» — birinchi marta 5E uslubida (Qiziqtiramiz, Sinab ko'ramiz, Tushunamiz, Qo'llaymiz, Tekshiramiz), 20+20 test, PDF; haqiqiy qalam va daftar rasmlari, sonlar alohida tub ko'paytuvchilarga ajratilgan chizma."],
       ["7-sinf", "1.1 «Tub sonlar» — 20+20 test (4 ta chizmali savol), PDF; EKUB misollarida har son alohida tub ko'paytuvchilarga ajratildi (orasida chiziq)."],
+      ["Admin", "Kunlik ish: bo'limlar o'z rangida (5-, 6-, 7-sinf, Interaktiv, Sayt…), har ishda Ma'ruza / Test / Interaktiv / PDF belgilari; har bir yuklash shu yerga yoziladi."],
       ["Interaktiv", "7-sinf EKUK va EKUB uchun yangi harakatli dars: tishli g'ildiraklar, poyga yo'li, sayyoralar; lentalar, plitkalar, sovg'a xaltalari — qadamma-qadam tugma, har qadam tushuntirishi, yonida tub ko'paytuvchilarga ajratish."],
       ["7-sinf", "1.3 «Eng kichik umumiy karrali (EKUK)» — 5E uslubida (tishli g'ildiraklar, aylana yo'l, sayyoralar, budilniklar chizmalari), 20+20 test, PDF. 7-sinf 1-bobi tugadi."],
       ["7-sinf", "1.4 «Sonning kvadrat ildizi va kub ildizi» — 5E uslubida (plitkali pol, bog', qand kubiklari, ko'paytuvchilarni juft/uchlik guruhlash chizmalari), 20+20 test, PDF."],

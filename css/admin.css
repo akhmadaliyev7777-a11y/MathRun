@@ -798,13 +798,24 @@ body.adm-page[data-view="mavzular"] .adm-btrack { height: 170px; }
 .adm-kitems { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .adm-kitems li { display: flex; gap: 10px; align-items: baseline; color: var(--a-text); line-height: 1.45; }
 .adm-ktag { flex: none; min-width: 74px; text-align: center; font-size: .74rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--a-sage); color: var(--a-ink); }
-.adm-ktag[data-b="5-sinf"] { background: #dbe8f8; color: #1f4f8f; }
-.adm-ktag[data-b="6-sinf"] { background: #dcefe2; color: #1f6a3c; }
-.adm-ktag[data-b="7-sinf"] { background: #efe3f7; color: #6a3590; }
-.adm-ktag[data-b="8-sinf"] { background: #fbe6d6; color: #9a4a12; }
-.adm-ktag[data-b="Interaktiv"] { background: #fdf0c8; color: #7a5a00; }
-.adm-ktag[data-b="1–4-sinf"] { background: #f8dfe4; color: #9b2c48; }
-:root[data-theme="dark"] .adm-ktag { background: var(--a-soft) !important; color: var(--a-text) !important; }
+.adm-ktag[data-b="5-sinf"] { --kc: #2563eb; }
+.adm-ktag[data-b="6-sinf"] { --kc: #16a34a; }
+.adm-ktag[data-b="7-sinf"] { --kc: #9333ea; }
+.adm-ktag[data-b="8-sinf"] { --kc: #ea580c; }
+.adm-ktag[data-b="1–4-sinf"] { --kc: #db2777; }
+.adm-ktag[data-b="Interaktiv"] { --kc: #0d9488; }
+.adm-ktag[data-b="Sayt"] { --kc: #0284c7; }
+.adm-ktag[data-b="Admin"] { --kc: #64748b; }
+.adm-ktag[data-b="Ish tartibi"] { --kc: #a16207; }
+.adm-ktag[data-b] { background: color-mix(in srgb, var(--kc, #64748b) 16%, #fff); color: color-mix(in srgb, var(--kc, #64748b) 80%, #000); }
+:root[data-theme="dark"] .adm-ktag[data-b] { background: color-mix(in srgb, var(--kc, #64748b) 30%, #1a221d); color: color-mix(in srgb, var(--kc, #64748b) 45%, #fff); }
+/* ish turi belgilari: ma'ruza, test, interaktiv, PDF — matndan o'zi topiladi (admin.js kunlikList) */
+.adm-ktur { display: inline-block; font-size: .7rem; font-weight: 700; padding: 0 7px; margin-right: 5px; border-radius: 6px; vertical-align: 1px; color: #fff; background: var(--tc); }
+.adm-ktur[data-t="maruza"] { --tc: #4f46e5; }
+.adm-ktur[data-t="test"] { --tc: #c026d3; }
+.adm-ktur[data-t="interaktiv"] { --tc: #0d9488; }
+.adm-ktur[data-t="pdf"] { --tc: #64748b; }
+:root[data-theme="dark"] .adm-ktur { background: color-mix(in srgb, var(--tc) 70%, #000); }
 @media (max-width: 560px) {
   .adm-kday { grid-template-columns: 1fr; gap: 10px; }
   .adm-kday-date { flex-direction: row; gap: 6px; align-items: baseline; justify-content: flex-start; padding: 8px 12px; }
