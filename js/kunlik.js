@@ -3,6 +3,15 @@
    bolim: "5-sinf", "6-sinf", "7-sinf", "8-sinf", "1–4-sinf", "Interaktiv", "Sayt", "Admin", "Ish tartibi" */
 window.KUNLIK = [
   {
+    sana: "2026-10-28",
+    qisqa: "6-sinf 21–22-mavzular (harakat masalalari) tayyor.",
+    ishlar: [
+      ["6-sinf", "21-mavzu «Ikki xil tezlikdagi harakat» — ma'ruza (yo'l chizmasi har xil bo'laklar va tezliklar bilan), 20+20 test, PDF."],
+      ["6-sinf", "22-mavzu «O'rtacha tezlik» — ma'ruza (kitob qoidasi, «tezliklarni qo'shib 2 ga bo'lish» tuzog'i), 20+20 test, PDF."],
+      ["6-sinf", "19–20-mavzular saytga chiqdi; barcha ma'ruzalar yangi chizmalar bilan qayta tekshirildi."]
+    ]
+  },
+  {
     sana: "2026-10-27",
     qisqa: "6-sinf 17–20-mavzular tayyor (doira yuzi bobi tugadi, «Tezlik» boshlandi); interaktiv darslar «kasblarda» uslubida; admin panelda «Kunlik ish».",
     ishlar: [

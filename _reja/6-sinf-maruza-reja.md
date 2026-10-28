@@ -116,9 +116,13 @@ Ish tartibi 5-sinfdagidek (`_reja/CLAUDE-ish-tartibi.md`): ma'ruza `maruza/6-<id
 2026-10-27. Ma'ruza (5 qism, yangi chizmalar `data-yol` — yo'l bo'laklari, masofa/vaqt, mashina; `data-spidometr`) va 20+20 test (5 ta chizmali savol), PDF.
 **Kitob bilan solishtirildi:** me'yor (eslatma) ✅; tezlik ta'rifi va birliklari (km/soat, m/min, m/s) ✅; uch formula, ikki usul (1 soatga keltirib / formula) ✅; uchburchak ✅; jadvalni to'ldirish ✅; yarim va chorak soat ✅; boshlanish/tugash vaqti ✅; spidometr ✅; hayvonlar tezligi jadvali (qushlar bilan) ✅; kim tezroq va qanchaga ✅; o'sha masofa yangi tezlikda ✅. Kiritilmadi: Usain Bolt hikoyasi, internetdan izlash, juftlikda muhokama. **Tekshiruv:** mustaqil tekshiruvchi — 1 ta test chalg'ituvchisi tuzatildi; daftarga o'xshagan 7 ta mashq va 4 ta test savolining vaziyati almashtirildi.
 
-#### ☐ 21. Ikki xil tezlikdagi harakat — D2 12–14; M2 11–14
+#### ✅ 21. Ikki xil tezlikdagi harakat — D2 12–14; M2 11–14
+2026-10-28. Ma'ruza (5 qism, `data-yol` kengaytirildi: "bolak" — har xil uzunlikdagi bo'laklar, "tez" — bo'lak tezligi, oraliq nuqtalar) va 20+20 test (5 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** yo'lning qismi → butun yo'l va tezlik ✅; masofalar yig'indisi (kasr soat) ✅; jami vaqt (ayirib topilgan masofa) ✅; borib-kelish ✅; soat va minut ✅; daftar 1–4 ✅. Kitobda qoida gapi yo'q — «Usul · …». **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 2 ta chizma masshtabga keltirildi (biri olib tashlandi), ma'ruzada ko'rsatilmagan usul talab qilgan 2 ta savol va kitobga/ma'ruzaga o'xshagan 5 ta test savoli almashtirildi.
 
-#### ☐ 22. O'rtacha tezlik — D2 15–19; M2 15–18
+#### ✅ 22. O'rtacha tezlik — D2 15–19; M2 15–18
+2026-10-28. Ma'ruza (5 qism, 8 ta `data-yol` chizma) va 20+20 test (5 ta chizmali savol), PDF.
+**Kitob bilan solishtirildi:** qoida «O'rtacha tezlik = jami masofa : jami vaqt» (aynan) ✅; «Qarang va o'rganing» 1–5 (uch bo'lak, vaqtni avval topish, butun bo'lmagan javob, o'rtacha tezlikdan vaqt, yo'lning qismi) ✅; «Bajaring» 1–5 va daftar turlari ✅; tezliklar o'rtachasi ≠ o'rtacha tezlik — misol va Diqqat'da ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; qoida ramkasidagi o'zimizning gap olib tashlandi; kitobga o'xshagan 4 ta mashq va 6 ta test savoli almashtirildi; qiyin testda bir xil tuzoq 9 tadan 3 taga kamaytirildi.
 
 #### ☐ 23. Ikki jism harakati: uchrashish va quvib yetish — D2 20–26; M2 19–28
 

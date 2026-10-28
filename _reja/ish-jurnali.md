@@ -10,10 +10,10 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ## Hozir qayerdamiz (har yozuvda yangilanadi)
 - **5-sinf:** 47/47 — 1–12 qayta yozildi (5 qism), 13–18 to'liq tekshirib joyida tuzatildi, 19–47 «Anti sun'iylik» tekshiruvidan o'tdi (2026-10-25); 18–47 qoida ramkalari kitob bilan solishtirildi (kitob matni / «Usul» / olib tashlandi). 5-sinf ko'rib chiqish tugadi.
-- **6-sinf:** 1–20-mavzular tayyor (17–20 — 2026-10-27), hammasida mavzu PDF'i (A4) va testlar PDF'i bor. Navbat: 21-mavzu «Ikki xil tezlikdagi harakat».
+- **6-sinf:** 1–22-mavzular tayyor (17–20 — 2026-10-27, 21–22 — 2026-10-28), hammasida mavzu PDF'i (A4) va testlar PDF'i bor. Navbat: 23-mavzu «Ikki jism harakati».
 - **Interaktiv darslar «kasblarda» uslubida:** 8-sinf «Modul kasblarda», 6-sinf 5-mavzu «Kasr bo'lish kasblarda» (kasb rasmlari GPT'dan kutilmoqda).
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
-- **Oxirgi yozuvdan beri tugagan mavzular:** 4 / 6.
+- **Oxirgi yozuvdan beri tugagan mavzular:** 6 / 6.
 
 ---
 

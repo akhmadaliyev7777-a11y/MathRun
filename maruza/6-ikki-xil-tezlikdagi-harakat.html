@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ikki xil tezlikdagi harakat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=39">
+</head>
+<body data-a4>
+<main class="m-wrap">
+
+<h1 class="m-title">Ikki xil tezlikdagi harakat</h1>
+<p class="m-lead">Avtobus shahar ichida sekin, katta yo'lda esa tez yuradi. Yo'l ikki qismdan iborat bo'lsa va har qismda tezlik boshqacha bo'lsa, masalani qanday yechamiz?</p>
+
+<!-- ============ 1-QISM: MAVZU ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Mavzu</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>Masofa = tezlik · vaqt; &nbsp; Tezlik = masofa : vaqt; &nbsp; Vaqt = masofa : tezlik.</li>
+      <li>Minutni soatga aylantirish uchun 60 ga bo'lamiz: 20 min = \(\frac{20}{60} = \frac{1}{3}\) soat, &nbsp; 45 min = \(\frac{45}{60} = \frac{3}{4}\) soat.</li>
+      <li>Yo'lning \(\frac{2}{5}\) qismi bosib o'tilgan bo'lsa, \(1 - \frac{2}{5} = \frac{3}{5}\) qismi qolgan.</li>
+    </ul>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · jami masofani topish</span>
+    <p style="text-align:center">1-qism masofasi = 1-qism tezligi · 1-qism vaqti</p>
+    <p style="text-align:center">2-qism masofasi = 2-qism tezligi · 2-qism vaqti</p>
+    <p style="text-align:center;font-size:1.1em"><b>Jami masofa = 1-qism masofasi + 2-qism masofasi</b></p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · vaqt soatlarda</span>
+    <p>Avtobus A qishloqdan B shaharchagacha 48 km/soat tezlikda \(\frac{3}{4}\) soat yurdi. Keyin shaharcha ichida 30 km/soat tezlikda \(\frac{2}{5}\) soat yurib, C bekatga yetdi. Avtobus hammasi bo'lib qancha yo'l yurdi?</p>
+    <div data-yol='{"bolak":[3,1],"ust":["? km","? km"],"tez":["48 km/soat","30 km/soat"],"past":["3/4 soat","2/5 soat"],"jami":"?","nom":["A","B","C"],"jism":"avtobus"}'></div>
+    <div class="qadam"><b>1</b><span>A dan B gacha: \(48 \cdot \frac{3}{4} = 36\) km.</span></div>
+    <div class="qadam"><b>2</b><span>B dan C gacha: \(30 \cdot \frac{2}{5} = 12\) km.</span></div>
+    <div class="qadam"><b>3</b><span>Jami: \(36 + 12 = \nat{48}\) km.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · vaqt minutlarda</span>
+    <p>Velosipedchi tekis yo'lda 18 km/soat tezlikda 20 minut yurdi. So'ng tepalikka 9 km/soat tezlikda 40 minut chiqdi. U qancha yo'l yurdi?</p>
+    <div data-yol='{"bolak":[1,1],"ust":["? km","? km"],"tez":["18 km/soat","9 km/soat"],"past":["20 min","40 min"],"jami":"?","jism":"velosiped"}'></div>
+    <div class="qadam"><b>1</b><span>20 min = \(\frac{1}{3}\) soat. Tekis yo'l: \(18 \cdot \frac{1}{3} = 6\) km.</span></div>
+    <div class="qadam"><b>2</b><span>40 min = \(\frac{2}{3}\) soat. Tepalik: \(9 \cdot \frac{2}{3} = 6\) km.</span></div>
+    <div class="qadam"><b>3</b><span>Jami: \(6 + 6 = \nat{12}\) km.</span></div>
+  </div>
+  </div>
+
+  <div class="gap ong"><img src="personaj/aziz-tushuntiradi.webp" alt="Aziz tushuntirmoqda" width="120" height="140"><div class="pufak">Har qismning o'z tezligi va o'z vaqti bor. 18 km/soat ni 40 minutga ko'paytirib bo'lmaydi — ular har xil qismdan.</div></div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · jami vaqtni topish</span>
+    <p style="text-align:center">1-qism vaqti = 1-qism masofasi : 1-qism tezligi</p>
+    <p style="text-align:center">2-qism vaqti = 2-qism masofasi : 2-qism tezligi</p>
+    <p style="text-align:center;font-size:1.1em"><b>Jami vaqt = 1-qism vaqti + 2-qism vaqti</b></p>
+    <p>Bir qismning masofasi berilmagan bo'lsa, uni topamiz: jami masofa − ikkinchi qism masofasi.</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · bir qism masofasi berilmagan</span>
+    <p>Poyezd shahardan dengiz bo'yigacha 150 km yo'l yurdi. Dastlab tog'lar orasidagi 90 km ni 2 soatda o'tdi. Keyin tekislikda 80 km/soat tezlikda yurdi. Butun yo'lga qancha vaqt ketdi?</p>
+    <div data-yol='{"bolak":[3,2],"ust":["90 km","? km"],"tez":["","80 km/soat"],"past":["2 soat","?"],"jami":"150 km","vaqt":"?","jism":"poyezd"}'></div>
+    <div class="qadam"><b>1</b><span>Tekislikdagi yo'l: \(150 - 90 = 60\) km.</span></div>
+    <div class="qadam"><b>2</b><span>Unga ketgan vaqt: \(60 : 80 = \frac{60}{80} = \frac{3}{4}\) soat.</span></div>
+    <div class="qadam"><b>3</b><span>Jami: \(2 + \frac{3}{4} = 2\frac{3}{4}\) soat = \(\nat{2}\) soat \(\nat{45}\) min.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · borib kelish</span>
+    <p>Dron fermadan dalagacha 12 km ni 36 km/soat tezlikda uchdi. Qaytishda shamol qarshi esdi va dron 24 km/soat tezlikda uchdi. Borib kelishga qancha vaqt ketdi?</p>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th></th><th>Masofa</th><th>Tezlik</th><th>Vaqt</th></tr>
+      <tr><td>Borish</td><td>12 km</td><td>36 km/soat</td><td>?</td></tr>
+      <tr><td>Qaytish</td><td>12 km</td><td>24 km/soat</td><td>?</td></tr>
+    </table></div>
+    <div class="qadam"><b>1</b><span>Borish: \(12 : 36 = \frac{1}{3}\) soat = 20 min.</span></div>
+    <div class="qadam"><b>2</b><span>Qaytish: \(12 : 24 = \frac{1}{2}\) soat = 30 min.</span></div>
+    <div class="qadam"><b>3</b><span>Jami: \(20 + 30 = \nat{50}\) min.</span></div>
+  </div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · yo'lning qismi berilgan</span>
+    <div class="row" style="justify-content:space-between;align-items:center;gap:4px 16px">
+      <div style="flex:1 1 280px">
+        <p>Yo'lning \(\frac{3}{8}\) qismi o'tildi, qolgan 150 km. Butun yo'l qancha?</p>
+        <div class="qadam"><b>1</b><span>Qolgan qism: \(1 - \frac{3}{8} = \frac{5}{8}\). Demak, yo'lning \(\frac{5}{8}\) qismi = 150 km.</span></div>
+        <div class="qadam"><b>2</b><span>Yo'lning \(\frac{1}{8}\) qismi: \(150 : 5 = 30\) km.</span></div>
+        <div class="qadam"><b>3</b><span>Butun yo'l (\(\frac{8}{8}\) qism): \(30 \cdot 8 = 240\) km.</span></div>
+      </div>
+      <div style="flex:1 1 240px"><div data-foizyol="5/8:150" data-birlik="km"></div></div>
+    </div>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · butun yo'l va tezlik</span>
+    <p>Kema yo'lning \(\frac{3}{8}\) qismini 5 soatda suzib o'tdi. Qolgan 150 km ni 25 km/soat tezlikda suzdi.<br>a) Butun yo'l necha km?<br>b) Yo'lning birinchi qismida kema qanday tezlikda suzgan?<br>c) Butun yo'lga qancha vaqt ketgan?</p>
+    <div data-yol='{"bolak":[3,5],"ust":["? km","150 km"],"tez":["?","25 km/soat"],"past":["5 soat",""],"jami":"?","jism":""}'></div>
+    <div class="qadam"><b>a</b><span>Yuqoridagi usul bilan: butun yo'l \(\nat{240}\) km.</span></div>
+    <div class="qadam"><b>b</b><span>Yo'lning \(\frac{3}{8}\) qismi: \(30 \cdot 3 = 90\) km. Tezlik: \(90 : 5 = \nat{18}\) km/soat.</span></div>
+    <div class="qadam"><b>c</b><span>Qolgan yo'lga: \(150 : 25 = 6\) soat. Jami: \(5 + 6 = \nat{11}\) soat.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · butun yo'lga ketgan vaqt</span>
+    <p>Turist yo'lning \(\frac{3}{4}\) qismini velosipedda 12 km/soat tezlikda o'tdi. Qolgan 6 km tog' so'qmog'ini piyoda 1,5 soatda yurdi. Butun yo'lga qancha vaqt ketdi?</p>
+    <div data-yol='{"bolak":[3,1],"ust":["? km","6 km"],"tez":["12 km/soat",""],"past":["?","1,5 soat"],"vaqt":"?","jism":"velosiped"}'></div>
+    <div class="qadam"><b>1</b><span>Qolgan qism: \(1 - \frac{3}{4} = \frac{1}{4}\). Yo'lning \(\frac{1}{4}\) qismi = 6 km.</span></div>
+    <div class="qadam"><b>2</b><span>Butun yo'l: \(6 \cdot 4 = 24\) km. Velosipedda: \(24 - 6 = 18\) km.</span></div>
+    <div class="qadam"><b>3</b><span>Velosipedda ketgan vaqt: \(18 : 12 = 1,5\) soat.</span></div>
+    <div class="qadam"><b>4</b><span>Jami: \(1,5 + 1,5 = \nat{3}\) soat.</span></div>
+  </div>
+  </div>
+  <div class="gap"><img src="personaj/madina-oylaydi.webp" alt="Madina o'ylanmoqda" width="120" height="140"><div class="pufak">Qolgan 6 km — yo'lning \(\frac{1}{4}\) qismi, \(\frac{3}{4}\) qismi emas. Butun yo'lda shunday 4 ta bo'lak bor.</div></div>
+</section>
+
+<!-- ============ 2-QISM: MISOLLAR ISHLASH ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Misollar ishlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="gap ong"><img src="personaj/ustoz-tushuntiradi.webp" alt="Ustoz tushuntirmoqda" width="120" height="140"><div class="pufak">Yo'lni ikki qismga bo'lib chizing. Har qism ustiga uning masofasini, ostiga tezligi va vaqtini yozing — nima ma'lum, nima noma'lum, darrov ko'rinadi.</div></div>
+
+  <div class="box namuna">
+    <span class="tag">1-misol · qaytishga ketgan vaqt</span>
+    <p>Sut tashiydigan mashina fermadan zavodga 60 km/soat tezlikda 50 minutda yetib bordi. Qaytishda u 75 km/soat tezlikda yurdi. Qaytishga qancha vaqt ketdi?</p>
+    <div class="qadam"><b>1</b><span>50 min = \(\frac{50}{60} = \frac{5}{6}\) soat.</span></div>
+    <div class="qadam"><b>2</b><span>Fermadan zavodgacha: \(60 \cdot \frac{5}{6} = 50\) km. Qaytishda ham shu 50 km.</span></div>
+    <div class="qadam"><b>3</b><span>Qaytish vaqti: \(50 : 75 = \frac{50}{75} = \frac{2}{3}\) soat.</span></div>
+    <div class="qadam"><b>4</b><span>\(\frac{2}{3}\) soat = \(60 : 3 \cdot 2 = \nat{40}\) min. Tezlik ortdi — vaqt kamaydi.</span></div>
+    <p>Agar borib kelishga ketgan jami vaqt so'ralsa: 50 min + 40 min = 90 min = 1 soat 30 min.</p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · soat nechada yetib keladi?</span>
+    <p>Avtobus soat 08:20 da yo'lga chiqdi. U 75 km/soat tezlikda 2 soat yurib, yo'lning \(\frac{3}{5}\) qismini o'tdi. Qolgan yo'lni 60 km/soat tezlikda yurdi. Avtobus manzilga soat nechada yetib keldi?</p>
+    <div data-yol='{"bolak":[3,2],"ust":["? km","? km"],"tez":["75 km/soat","60 km/soat"],"past":["2 soat","?"],"jism":"avtobus"}'></div>
+    <div class="qadam"><b>1</b><span>Birinchi qism: \(75 \cdot 2 = 150\) km. Bu — yo'lning \(\frac{3}{5}\) qismi.</span></div>
+    <div class="qadam"><b>2</b><span>Yo'lning \(\frac{1}{5}\) qismi: \(150 : 3 = 50\) km. Qolgani \(\frac{2}{5}\) qism: \(50 \cdot 2 = 100\) km.</span></div>
+    <div class="qadam"><b>3</b><span>Qolgan yo'lga: \(100 : 60 = 1\frac{40}{60} = 1\frac{2}{3}\) soat = 1 soat 40 min.</span></div>
+    <div class="qadam"><b>4</b><span>Yo'lda jami: 2 soat + 1 soat 40 min = 3 soat 40 min.</span></div>
+    <div class="qadam"><b>5</b><span>08:20 + 3 soat = 11:20, yana 40 min — \(\nat{12:00}\) da yetib keldi.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-misol · ikkinchi qismdagi tezlik</span>
+    <p>Velosipedchi 30 km yo'lni 2 soatda o'tdi. Birinchi 18 km ni u 12 km/soat tezlikda yurdi, qolgan yo'l qiyalikdan pastga edi. Qiyalikda velosipedchining tezligi qancha bo'lgan?</p>
+    <div data-yol='{"bolak":[3,2],"ust":["18 km","? km"],"tez":["12 km/soat","?"],"past":["?","?"],"jami":"30 km","vaqt":"2 soat","jism":"velosiped"}'></div>
+    <div class="qadam"><b>1</b><span>Birinchi qismga: \(18 : 12 = 1,5\) soat.</span></div>
+    <div class="qadam"><b>2</b><span>Qiyalikka qolgan vaqt: \(2 - 1,5 = 0,5\) soat. Qiyalik: \(30 - 18 = 12\) km.</span></div>
+    <div class="qadam"><b>3</b><span>Tezlik: \(12 : 0,5 = \nat{24}\) km/soat.</span></div>
+  </div>
+
+  <div class="gap"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Ikki tezlikni qo'shib bo'lmaydi: \(48 + 30 = 78\) — bu hech qaysi qismning tezligi emas. Qo'shiladi faqat masofalar yoki vaqtlar.</div></div>
+  <div class="box diqqat">
+    <span class="tag">Diqqat!</span>
+    <ol>
+      <li>2 soat 50 km/soat, keyin 1 soat 80 km/soat tezlikda: <span class="xato">\((50 + 80) \cdot 3 = 390\) km</span> &nbsp; <span class="togri">\(50 \cdot 2 + 80 \cdot 1 = 180\) km</span></li>
+      <li>Minutni soatga to'g'ri aylantiring: <span class="xato">40 min = 0,4 soat</span> &nbsp; <span class="togri">40 min = \(\frac{40}{60} = \frac{2}{3}\) soat</span></li>
+      <li>Yo'lning \(\frac{3}{8}\) qismi o'tildi, qolgani 150 km: <span class="xato">\(\frac{3}{8}\) qism = 150 km</span> &nbsp; <span class="togri">\(\frac{5}{8}\) qism = 150 km</span></li>
+      <li>Borib kelishda masofa bir xil, tezlik boshqacha bo'lsa — vaqt boshqacha bo'ladi.</li>
+      <li>Masalada keraksiz son ham bo'lishi mumkin. Avval nima so'ralganini o'qing, keyin kerakli sonlarni tanlang.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 3-QISM: MUSTAHKAMLASH ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Mustahkamlash</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Soatda ifodalang.<br>a) 30 min &nbsp; b) 35 min &nbsp; c) 12 min &nbsp; d) 50 min &nbsp; e) 1 soat 15 min</li>
+    <li>a) Yo'lning \(\frac{2}{7}\) qismi o'tildi. Yo'lning qancha qismi qoldi?<br>b) Yo'lning \(\frac{5}{9}\) qismi o'tildi. Yo'lning qancha qismi qoldi?<br>c) Yo'lning \(\frac{3}{5}\) qismi qoldi, bu 90 km. Butun yo'l necha km?</li>
+    <li>Kema daryoda 24 km/soat tezlikda 3 soat suzdi, keyin ko'lda 30 km/soat tezlikda 2 soat suzdi. Kema hammasi bo'lib qancha yo'l suzdi?</li>
+    <li>Turist A qishloqdan B bekatgacha piyoda yurdi, B bekatdan C shahargacha avtobusda bordi. Rasmga qarab, u hammasi bo'lib qancha yo'l bosganini toping.
+      <div data-yol='{"bolak":[1,2],"ust":["? km","? km"],"tez":["5 km/soat","40 km/soat"],"past":["2 soat","1/2 soat"],"jami":"?","nom":["A","B","C"],"jism":"piyoda"}'></div></li>
+    <li>Yuk poyezdi birinchi stansiyagacha 120 km ni 60 km/soat tezlikda yurdi. Keyingi stansiyagacha 90 km ni 45 km/soat tezlikda yurdi. Poyezd hammasi bo'lib qancha vaqt yo'lda bo'ldi?</li>
+    <li>Chang'ichi tekislikda 12 km/soat tezlikda 40 minut yurdi, keyin qiyalikdan 30 km/soat tezlikda 6 minut tushdi. U hammasi bo'lib necha km yo'l bosdi?</li>
+    <li>Kater orolgacha 45 km suzdi. Dastlab u 36 km/soat tezlikda suzdi, qolgan 18 km ni esa \(\frac{1}{2}\) soatda o'tdi. Butun yo'lga qancha vaqt ketdi?</li>
+    <li>Bolalarni lagerga olib boruvchi avtobus 50 km/soat tezlikda 1 soat 12 minutda yetib bordi. Qaytishda 45 km/soat tezlikda yurdi. Qaytishga qancha vaqt ketdi?</li>
+    <li>Yuk mashinasi yo'lning \(\frac{3}{10}\) qismini 3,5 soatda bosib o'tdi. Qolgan 490 km ni 70 km/soat tezlikda yurdi.<br>a) Butun yo'l necha km?<br>b) Birinchi qismda mashina qanday tezlikda yurgan?<br>c) Mashina yo'lda jami necha soat bo'lgan?</li>
+    <li>Ot aravasi qishloqdan bozorgacha yo'lning \(\frac{5}{6}\) qismini 10 km/soat tezlikda o'tdi. Qolgan 4 km ni \(\frac{1}{2}\) soatda yurdi. Butun yo'lga qancha vaqt ketdi?</li>
+    <li>Sayyohlar kemasi soat 07:45 da jo'nadi. U birinchi 60 km ni 24 km/soat tezlikda, keyingi 36 km ni 18 km/soat tezlikda suzdi. Kema manzilga soat nechada yetib keldi?</li>
+  </ol>
+</section>
+
+<!-- ============ 4-QISM: MUSTAQIL ISH ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Mustaqil ish</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Mashina 70 km/soat tezlikda 2 soat yurdi, keyin 50 km/soat tezlikda 3 soat yurdi. Mashina hammasi bo'lib qancha yo'l yurdi?</li>
+    <li>Rasmga qarab, mashina A dan C gacha qancha vaqtda yetganini toping.
+      <div data-yol='{"bolak":[36,25],"ust":["36 km","25 km"],"tez":["72 km/soat","50 km/soat"],"past":["?","?"],"vaqt":"?","nom":["A","B","C"],"jism":"mashina"}'></div></li>
+    <li>Ko'l bo'yidagi yo'lakning uzunligi 18 km. Bola uning bir uchidan ikkinchi uchigacha elektrosamokatda 12 km/soat tezlikda bordi, qaytishda 9 km/soat tezlikda yurdi. Borib kelishga qancha vaqt ketdi?</li>
+    <li>Yo'lovchi poyezdi 210 km yo'l yurdi. Birinchi 3 soatda u 50 km/soat tezlikda yurdi, qolgan yo'lni 60 km/soat tezlikda o'tdi. Poyezd yo'lda qancha vaqt bo'ldi?</li>
+    <li>Velosipedchi yo'lning \(\frac{1}{4}\) qismini \(\frac{1}{2}\) soatda o'tdi. Qolgan 36 km ni 18 km/soat tezlikda yurdi.<br>a) Butun yo'l necha km?<br>b) Birinchi qismda velosipedchining tezligi qancha bo'lgan?</li>
+    <li>Avtobus yo'lning \(\frac{3}{5}\) qismini 60 km/soat tezlikda yurdi. Qolgan 80 km ni 2 soatda o'tdi. Butun yo'lga qancha vaqt ketdi?</li>
+    <li>Yuk mashinasi 150 km yo'lni 3 soatda o'tdi. Dastlabki 90 km ni u 60 km/soat tezlikda yurdi. Qolgan yo'lda mashinaning tezligi qancha bo'lgan?</li>
+    <li><b>Xatoni toping.</b> Mashina 1 soat 60 km/soat tezlikda, keyin 2 soat 90 km/soat tezlikda yurdi. Sherzod jami masofani shunday topdi: \((60 + 90) \cdot 3 = 450\) km. Xato nimada? To'g'ri javob qancha?</li>
+    <li><b>Qiyinroq.</b> Kater soat 09:10 da qirg'oqdan jo'nab, 20 km/soat tezlikda 45 minutda orolga yetdi. Orolda 25 minut turdi va 15 km/soat tezlikda qaytdi. Kater qirg'oqqa soat nechada qaytib keldi?</li>
+  </ol>
+</section>
+
+<!-- ============ 5-QISM: JAVOBLAR ============ -->
+<div class="m-qism q-javob"><div class="q-n">5-qism</div><h2>Javoblar</h2></div>
+
+<section class="m-sec qism-ichi">
+  <h3>Mustahkamlash</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(\frac{30}{60} = \frac{1}{2}\) soat; b) \(\frac{35}{60} = \frac{7}{12}\) soat; c) \(\frac{12}{60} = \frac{1}{5}\) soat; d) \(\frac{50}{60} = \frac{5}{6}\) soat; e) \(1\frac{15}{60} = 1\frac{1}{4}\) soat.</details>
+  <details class="javob"><summary>2-masala</summary>a) \(1 - \frac{2}{7} = \frac{5}{7}\); b) \(1 - \frac{5}{9} = \frac{4}{9}\); c) \(\frac{1}{5}\) qism: \(90 : 3 = 30\) km, butun yo'l: \(30 \cdot 5 = 150\) km.</details>
+  <details class="javob"><summary>3-masala</summary>\(24 \cdot 3 = 72\) km, \(30 \cdot 2 = 60\) km. Jami: \(72 + 60 = 132\) km.</details>
+  <details class="javob"><summary>4-masala</summary>Piyoda: \(5 \cdot 2 = 10\) km. Avtobusda: \(40 \cdot \frac{1}{2} = 20\) km. Jami: \(10 + 20 = 30\) km.</details>
+  <details class="javob"><summary>5-masala</summary>\(120 : 60 = 2\) soat, \(90 : 45 = 2\) soat. Jami: \(2 + 2 = 4\) soat.</details>
+  <details class="javob"><summary>6-masala</summary>40 min = \(\frac{2}{3}\) soat: \(12 \cdot \frac{2}{3} = 8\) km. 6 min = \(\frac{1}{10}\) soat: \(30 \cdot \frac{1}{10} = 3\) km. Jami: \(8 + 3 = 11\) km.</details>
+  <details class="javob"><summary>7-masala</summary>Dastlabki yo'l: \(45 - 18 = 27\) km, vaqti: \(27 : 36 = \frac{3}{4}\) soat. Jami: \(\frac{3}{4} + \frac{1}{2} = 1\frac{1}{4}\) soat = 1 soat 15 min.</details>
+  <details class="javob"><summary>8-masala</summary>1 soat 12 min = \(1\frac{12}{60} = 1\frac{1}{5}\) soat. Masofa: \(50 \cdot 1\frac{1}{5} = 50 + 10 = 60\) km. Qaytish: \(60 : 45 = 1\frac{1}{3}\) soat = 1 soat 20 min.</details>
+  <details class="javob"><summary>9-masala</summary>Qolgan qism: \(1 - \frac{3}{10} = \frac{7}{10}\), bu 490 km. \(\frac{1}{10}\) qism: \(490 : 7 = 70\) km.<br>a) \(70 \cdot 10 = 700\) km; b) birinchi qism \(70 \cdot 3 = 210\) km, tezlik \(210 : 3,5 = 60\) km/soat; c) qolgan yo'lga \(490 : 70 = 7\) soat, jami \(3,5 + 7 = 10,5\) soat = 10 soat 30 min.</details>
+  <details class="javob"><summary>10-masala</summary>Qolgan qism: \(1 - \frac{5}{6} = \frac{1}{6}\), bu 4 km. Butun yo'l: \(4 \cdot 6 = 24\) km. Birinchi qism: \(24 - 4 = 20\) km, vaqti \(20 : 10 = 2\) soat. Jami: \(2 + \frac{1}{2} = 2\frac{1}{2}\) soat = 2 soat 30 min.</details>
+  <details class="javob"><summary>11-masala</summary>\(60 : 24 = 2,5\) soat, \(36 : 18 = 2\) soat. Yo'lda: 4 soat 30 min. 07:45 + 4 soat = 11:45, yana 30 min — <b>12:15</b>.</details>
+
+  <h3>Mustaqil ish</h3>
+  <details class="javob"><summary>1-masala</summary>\(70 \cdot 2 = 140\) km, \(50 \cdot 3 = 150\) km. Jami: \(140 + 150 = 290\) km.</details>
+  <details class="javob"><summary>2-masala</summary>A dan B gacha: \(36 : 72 = \frac{1}{2}\) soat. B dan C gacha: \(25 : 50 = \frac{1}{2}\) soat. Jami: 1 soat.</details>
+  <details class="javob"><summary>3-masala</summary>Borish: \(18 : 12 = 1,5\) soat. Qaytish: \(18 : 9 = 2\) soat. Jami: 3,5 soat = 3 soat 30 min.</details>
+  <details class="javob"><summary>4-masala</summary>Birinchi qism: \(50 \cdot 3 = 150\) km. Qolgan yo'l: \(210 - 150 = 60\) km, vaqti \(60 : 60 = 1\) soat. Jami: \(3 + 1 = 4\) soat.</details>
+  <details class="javob"><summary>5-masala</summary>Qolgan qism: \(1 - \frac{1}{4} = \frac{3}{4}\), bu 36 km. \(\frac{1}{4}\) qism: \(36 : 3 = 12\) km.<br>a) \(12 \cdot 4 = 48\) km; b) \(12 : \frac{1}{2} = 24\) km/soat.</details>
+  <details class="javob"><summary>6-masala</summary>Qolgan qism: \(1 - \frac{3}{5} = \frac{2}{5}\), bu 80 km. \(\frac{1}{5}\) qism: 40 km, \(\frac{3}{5}\) qism: 120 km. Vaqti: \(120 : 60 = 2\) soat. Jami: \(2 + 2 = 4\) soat.</details>
+  <details class="javob"><summary>7-masala</summary>Dastlabki yo'lga: \(90 : 60 = 1,5\) soat. Qolgan vaqt: \(3 - 1,5 = 1,5\) soat, qolgan yo'l: \(150 - 90 = 60\) km. Tezlik: \(60 : 1,5 = 40\) km/soat.</details>
+  <details class="javob"><summary>8-masala</summary>Sherzod tezliklarni qo'shib, jami vaqtga ko'paytirgan. Har qism alohida hisoblanadi: \(60 \cdot 1 + 90 \cdot 2 = 60 + 180 = 240\) km.</details>
+  <details class="javob"><summary>9-masala</summary>45 min = \(\frac{3}{4}\) soat. Orolgacha: \(20 \cdot \frac{3}{4} = 15\) km. Qaytish: \(15 : 15 = 1\) soat.<br>09:10 + 45 min = 09:55; + 25 min = 10:20; + 1 soat = <b>11:20</b>.</details>
+</section>
+
+<p class="m-foot">Mathlearn · 6-sinf matematika</p>
+</main>
+<script src="chizma.js?v=69"></script>
+<script src="maruza.js?v=13"></script>
+</body>
+</html>

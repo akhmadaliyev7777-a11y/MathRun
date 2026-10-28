@@ -209,6 +209,9 @@
        "jami" — tepada butun masofa qavsi, "vaqt" — pastda butun vaqt qavsi ("?" bo'lishi mumkin); "nom" — boshi va oxiri nomlari;
        "jism": "mashina" (odatda) | "avtobus" | "velosiped" | "piyoda" | "poyezd" | "" (jismsiz); "joy" — jism nechanchi bo'lak chegarasida (odatda 0);
        "tezlik" — jism yonidagi yashil yozuv; "bayroq":0 — oxiridagi marra bayrog'i chizilmaydi; "eni" — chizma kengligi (odatda 400; test rasmi uchun 300).
+       22-mavzu («O'rtacha tezlik»): "bolak":[4,5,3] — har xil uzunlikdagi bo'laklar (nisbiy uzunliklar, n o'rniga; ust/past — ro'yxat);
+       "nom":["A","B","C"] — 3 va undan ko'p nom: oraliq nomlar bo'laklar chegarasida (yo'l ustida harf); "tez":["","60 km/soat"] — bo'lak ichidagi
+       yashil tezlik yozuvi (masofa chizig'i ostida; "tez" bilan birga "tezlik" ishlatilmasin).
    data-spidometr="70" [data-max="160"] [data-qadam="20"] [data-birlik="km/soat"] — spidometr (tezlik ko'rsatkichi): 0 dan max gacha shkala,
        har qadamda son, yarim qadamda kichik chiziq; qizil mil berilgan tezlikni ko'rsatadi (son yozilmaydi — o'quvchi o'qiydi).
 */
@@ -3412,20 +3415,27 @@
 
   function chizYol(el) {
     const g = JSON.parse(el.dataset.yol);
-    const n = Number(g.n) || 1, butun = Math.floor(n + 1e-9), chala = n - butun > 1e-9 ? n - butun : 0;
+    // "bolak":[4,5,3] — har xil uzunlikdagi bo'laklar (22-mavzu «O'rtacha tezlik»); bo'lmasa — n ta teng bo'lak
+    const bolakli = Array.isArray(g.bolak) && g.bolak.length > 0;
+    const n = bolakli ? g.bolak.reduce(function (a, b) { return a + Number(b); }, 0) : (Number(g.n) || 1);
+    const butun = Math.floor(n + 1e-9), chala = !bolakli && n - butun > 1e-9 ? n - butun : 0;
     const bol = [];
-    for (let i = 0; i < butun; i++) bol.push(1);
-    if (chala) bol.push(chala);
+    if (bolakli) g.bolak.forEach(function (b) { bol.push(Number(b)); });
+    else {
+      for (let i = 0; i < butun; i++) bol.push(1);
+      if (chala) bol.push(chala);
+    }
     const yoz = function (v, i, j) {
       if (Array.isArray(v)) return v[i] == null ? "" : String(v[i]);
       if (chala && i === bol.length - 1) return g.chala ? String(g.chala[j] || "") : "";
       return v == null ? "" : String(v);
     };
-    const nom = g.nom || [], W = Number(g.eni) || 400, x0 = nom[0] ? 40 : 30, x1 = W - (nom[1] ? 40 : 30);
+    const nom = g.nom || [], nomO = nom.length > 1 ? nom[nom.length - 1] : "";   // nom: [boshi, (oraliq nuqtalar…), oxiri]
+    const W = Number(g.eni) || 400, x0 = nom[0] ? 40 : 30, x1 = W - (nomO ? 40 : 30);
     const w = (x1 - x0) / n, X = [x0];
     bol.forEach(function (b) { X.push(X[X.length - 1] + b * w); });
-    const KOK = "#1f5fd6", SAR = "#d4501b", QORA = "#1f2433";
-    const fs = w < 48 ? 11.5 : 14;
+    const KOK = "#1f5fd6", SAR = "#d4501b", QORA = "#1f2433", YASH = "#12805c";
+    const fs = (bolakli ? Math.min.apply(null, bol) * w : w) < 48 ? 11.5 : 14;
     const sigdir = function (y, b) { return Math.max(9, Math.min(fs, (b * w - 6) / (0.62 * Math.max(1, y.length)))); };   // yozuv bo'lakka sig'sin
     const ustBor = bol.some(function (b, i) { return yoz(g.ust, i, 0); });
     const t = g.jami ? 40 : 6, yD = t + 22, yR = t + 64;
@@ -3438,15 +3448,24 @@
       s += '<line x1="' + x0 + '" y1="' + yD + '" x2="' + X[X.length - 1].toFixed(1) + '" y2="' + yD + '" stroke="' + KOK + '" stroke-width="1.6"/>';
       X.forEach(function (x, i) {
         s += '<line x1="' + x.toFixed(1) + '" y1="' + (yD - 5) + '" x2="' + x.toFixed(1) + '" y2="' + (yD + 5) + '" stroke="' + KOK + '" stroke-width="1.6"/>';
-        if (i > 0) s += '<line x1="' + x.toFixed(1) + '" y1="' + (yD + 5) + '" x2="' + x.toFixed(1) + '" y2="' + yR + '" stroke="#9aa3b5" stroke-width="1" stroke-dasharray="3 3"/>';
+        const oraNom = nom.length > 2 && i > 0 && i < X.length - 1 && nom[i];
+        if (i > 0) s += '<line x1="' + x.toFixed(1) + '" y1="' + (yD + 5) + '" x2="' + x.toFixed(1) + '" y2="' + (oraNom ? yR - 22 : yR) + '" stroke="#9aa3b5" stroke-width="1" stroke-dasharray="3 3"/>';
       });
       bol.forEach(function (b, i) { const y = yoz(g.ust, i, 0); s += T((X[i] + X[i + 1]) / 2, yD - 7, y, KOK, sigdir(y, b)); });
     }
+    // "tez":["", "60 km/soat"] — bo'lak ichidagi tezlik (yashil, masofa chizig'i ostida)
+    if (Array.isArray(g.tez)) bol.forEach(function (b, i) {
+      const y = g.tez[i] == null ? "" : String(g.tez[i]);
+      if (y) s += T((X[i] + X[i + 1]) / 2, yD + 15, y, YASH, Math.min(12.5, sigdir(y, b)));
+    });
     // yo'l
     s += '<rect x="' + (x0 - 8) + '" y="' + yR + '" width="' + (x1 - x0 + 16) + '" height="16" rx="3" fill="#6b7280"/>' +
       '<line x1="' + (x0 - 4) + '" y1="' + (yR + 8) + '" x2="' + (x1 + 4) + '" y2="' + (yR + 8) + '" stroke="#fff" stroke-width="1.6" stroke-dasharray="7 6"/>';
     if (nom[0]) s += '<circle cx="' + x0 + '" cy="' + (yR + 8) + '" r="4.5" fill="#fff" stroke="' + QORA + '" stroke-width="2"/>' + T(x0 - 22, yR + 14, nom[0], QORA, 16);
-    if (nom[1]) s += '<circle cx="' + x1 + '" cy="' + (yR + 8) + '" r="4.5" fill="#fff" stroke="' + QORA + '" stroke-width="2"/>' + T(x1 + 22, yR + 14, nom[1], QORA, 16);
+    if (nomO) s += '<circle cx="' + x1 + '" cy="' + (yR + 8) + '" r="4.5" fill="#fff" stroke="' + QORA + '" stroke-width="2"/>' + T(x1 + 22, yR + 14, nomO, QORA, 16);
+    // oraliq nuqtalar (nom 3 va undan ko'p bo'lsa): bo'laklar chegarasida, yo'l ustida harfi
+    for (let i = 1; i < nom.length - 1 && i < X.length - 1; i++) if (nom[i])
+      s += '<circle cx="' + X[i].toFixed(1) + '" cy="' + (yR + 8) + '" r="4.5" fill="#fff" stroke="' + QORA + '" stroke-width="2"/>' + T(X[i], yR - 7, nom[i], QORA, 15);
     // marra bayrog'i
     if (g.bayroq !== 0) {
       s += '<line x1="' + x1 + '" y1="' + yR + '" x2="' + x1 + '" y2="' + (yR - 30) + '" stroke="' + QORA + '" stroke-width="2"/>';
