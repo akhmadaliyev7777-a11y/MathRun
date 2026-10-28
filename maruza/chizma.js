@@ -293,13 +293,21 @@
        uzil="1" (n > 5) — 5 ta ustun/qator chiziladi, 4-si «…» (ko'p bo'lganda); yozuv — tepa | chap tomondagi qavsli yozuv (qizil).
    data-kub ga data-rang="oq" — oq kubchalar (masalan, qand kubiklari).
    data-qisqa="48,180" data-alohida="1" data-ekuk="1" (7-sinf 1.3 EKUK) — alohida zinapoyalar: umumiy tub ko'paytuvchilar yashil, qolganlari
-       kulrang emas, to'q sariq (EKUK = umumiylari bir marta × qolganlari).
+       kulrang emas, to'q sariq (EKUK = umumiylari bir marta × qolganlari). data-alohida bilan [data-olcham="0.8"] — chizma kengligi ko'paytuvchisi.
    data-karrali="6,9" [data-gacha="54"] [data-nom="Aziz|Dadasi"] [data-belgi="iz,iz"] [data-soat="07:00"] [data-birlik="cm"] [data-yashir="1"] [data-olcham="1.25"] —
        karralilar son o'qida (7-sinf 1.3): har son uchun alohida o'q, 0 dan gacha gacha har karralida nuqta va sakrash yoyi
        (belgi berilsa — yoy o'rniga rasmcha: shakl() turlari, masalan "iz" — oyoq izi, "budilnik"); umumiy karralilar yashil punktir chiziq
        (yashir="1" — ajratilmaydi, o'quvchi topadi); soat="07:00" — son o'rniga soat (boshlanish vaqti + minut); gacha berilmasa — EKUK;
        olcham — eng katta kenglik ko'paytuvchisi (odatda 1.25).
        data-buyum shakllari yana: budilnik, iz.
+   data-tishli='{"tish":[12,18]}' — ikki ilashgan tishli g'ildirak (7-sinf 1.3 EKUK): o'lchami tishlar soniga mos, gupchak va teshiklar,
+       tegib turgan belgilangan tishlar qizil ("belgi":0 — yo'q), aylanish strelkalari ("strelka":0 — yo'q); "nom":["A","B"] — pastdagi yozuv
+       (odatda «12 ta tish»); "modul":7 — tish o'lchami (px); "olcham":1.1 — eng katta kenglik ko'paytuvchisi.
+   data-trek='{"vaqt":[6,8],"jism":["mashina","mototsikl"]}' — aylana poyga yo'li (yuqoridan): asfalt, punktir yo'lak chizig'i, shaxmat katakli
+       START chizig'i va bayroqcha, start oldida jismlar (yolJism turlari: mashina, avtobus, velosiped; yana mototsikl), ichida «Mashina: 1 aylana — 6 min»;
+       "birlik":"min" — vaqt birligi; vaqt o'rnida null — «?».
+   data-sayyora='{"davr":[3,5],"yil":0}' — Quyosh atrofida 2–3 sayyora (soddalashtirilgan model): orbitalar punktir, "yil":0 — hammasi Quyosh
+       bilan bir chiziqda (sariq punktir), yil = t bo'lsa — t yildan keyingi joylari (soat strelkasiga teskari); "nom":["A","B"]; pastda har birining davri.
 */
 (function () {
   "use strict";
@@ -4609,7 +4617,7 @@
     });
     const VW = x0 - 14;
     el.classList.add("kub");
-    el.innerHTML = '<svg viewBox="0 0 ' + VW + " " + VH + '" style="max-width:' + Math.round(VW * 1.15) + 'px" role="img" aria-label="' +
+    el.innerHTML = '<svg viewBox="0 0 ' + VW + " " + VH + '" style="max-width:' + Math.round(VW * 1.15 * (Number(el.dataset.olcham) || 1)) + 'px" role="img" aria-label="' +
       (el.dataset.izoh || (sonlar.join(" va ") + " ni alohida tub ko'paytuvchilarga ajratish")) + '">' + s + "</svg>";
   }
   function chizQisqaKop(el) {
@@ -4805,6 +4813,134 @@
       (el.dataset.izoh || (son.join(" va ") + " ning karralilari son o'qida")) + '">' + s + "</svg>";
   }
 
+  // ---------- EKUK hayotda: tishli g'ildiraklar, aylana yo'l, sayyoralar (7-sinf 1.3) ----------
+  const f1 = function (v) { return (Math.round(v * 10) / 10).toString(); };
+  function chizTishli(el) {
+    const g = JSON.parse(el.dataset.tishli), tish = g.tish || [12, 18], m = Number(g.modul) || 7;
+    const nom = g.nom || tish.map(function (n) { return n + " ta tish"; });
+    const RANG = [["#c9d3e3", "#4a5368"], ["#f6cf7a", "#a87412"], ["#b9e3cf", "#12805c"]];
+    const R = tish.map(function (n) { return n * m / 2; });
+    const Rmax = Math.max.apply(null, R) + m * 1.2;
+    let x = 10 + R[0] + m * 1.2;
+    const cx = [x];
+    for (let i = 1; i < tish.length; i++) { x += R[i - 1] + R[i]; cx.push(x); }
+    const cy = 10 + Rmax, W = x + R[R.length - 1] + m * 1.2 + 10, H = cy + Rmax + 30;
+    let s = "";
+    tish.forEach(function (n, i) {
+      const P = 2 * Math.PI / n, Rr = R[i] - m * 1.15, Rt = R[i] + m, c = RANG[i % 3];
+      // birinchi g'ildirakda tish o'ngga qaragan (0°), keyingisida chapga qaragan joyda bo'shliq — tishlar ilashadi
+      const bosh = i === 0 ? 0 : Math.PI + P / 2;
+      const pt = function (r, a) { return f1(cx[i] + r * Math.cos(a)) + " " + f1(cy - r * Math.sin(a)); };
+      let d = "";
+      for (let k = 0; k < n; k++) {
+        const a = bosh + k * P;
+        d += (k ? " L" : "M") + pt(Rr, a - P * 0.28) + " L" + pt(Rt, a - P * 0.13) + " L" + pt(Rt, a + P * 0.13) + " L" + pt(Rr, a + P * 0.28);
+      }
+      s += '<path d="' + d + ' Z" fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="1.6" stroke-linejoin="round"/>';
+      s += '<circle cx="' + f1(cx[i]) + '" cy="' + f1(cy) + '" r="' + f1(Rr * 0.62) + '" fill="none" stroke="' + c[1] + '" stroke-width="1.2" stroke-opacity=".55"/>';
+      const tesh = n >= 14 ? 5 : 4;   // yengillashtirish teshiklari
+      for (let k = 0; k < tesh; k++) {
+        const a = k * 2 * Math.PI / tesh + 0.4;
+        s += '<circle cx="' + f1(cx[i] + Rr * 0.4 * Math.cos(a)) + '" cy="' + f1(cy - Rr * 0.4 * Math.sin(a)) + '" r="' + f1(Rr * 0.13) + '" fill="#fff" stroke="' + c[1] + '" stroke-width="1"/>';
+      }
+      s += '<circle cx="' + f1(cx[i]) + '" cy="' + f1(cy) + '" r="' + f1(Math.max(5, Rr * 0.16)) + '" fill="#fff" stroke="' + c[1] + '" stroke-width="2"/>' +
+        '<circle cx="' + f1(cx[i]) + '" cy="' + f1(cy) + '" r="2.2" fill="' + c[1] + '"/>';
+      if (g.belgi !== 0) {   // belgilangan tishlar: tegib turgan joyda qizil
+        const ab = i === 0 ? 0 : Math.PI + P / 2;
+        const tp = function (r, a) { return pt(r, a); };
+        s += '<path d="M' + tp(Rr, ab - P * 0.28) + " L" + tp(Rt, ab - P * 0.13) + " L" + tp(Rt, ab + P * 0.13) + " L" + tp(Rr, ab + P * 0.28) + ' Z" fill="#e5484d" stroke="#a3222c" stroke-width="1.4"/>';
+      }
+      if (g.strelka !== 0) {   // aylanish yo'nalishi: qo'shni g'ildiraklar qarama-qarshi aylanadi
+        const r = Rt + 5, a0 = Math.PI * 0.62, a1 = Math.PI * 0.38, soat = i % 2 === 0;
+        const A = soat ? a0 : a1, B = soat ? a1 : a0;
+        const p0 = [cx[i] + r * Math.cos(A), cy - r * Math.sin(A)], p1 = [cx[i] + r * Math.cos(B), cy - r * Math.sin(B)];
+        s += '<path d="M' + f1(p0[0]) + " " + f1(p0[1]) + " A" + f1(r) + " " + f1(r) + " 0 0 " + (soat ? 1 : 0) + " " + f1(p1[0]) + " " + f1(p1[1]) +
+          '" fill="none" stroke="#6d3fc0" stroke-width="2" marker-end="url(#ts' + chizTishli.n + ')"/>';
+      }
+      s += '<text x="' + f1(cx[i]) + '" y="' + f1(cy + Rmax + 22) + '" text-anchor="middle" font-size="15" font-weight="800" fill="' + c[1] + '">' + nom[i] + "</text>";
+    });
+    const mk = '<defs><marker id="ts' + chizTishli.n + '" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#6d3fc0"/></marker></defs>';
+    chizTishli.n++;
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + f1(W) + " " + f1(H) + '" style="max-width:' + Math.round(W * (Number(g.olcham) || 1.1)) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || ("Tishli g'ildiraklar: " + tish.join(" va ") + " ta tish, belgilangan tishlar qizil")) + '">' + mk + s + "</svg>";
+  }
+  chizTishli.n = 0;
+
+  function mototsikl(cx, b) {   // yon tomondan: ikki g'ildirak, qizil bak, o'rindiq, haydovchi dubulg'ada
+    const g = function (x, y, r, f) { return '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + r + '" fill="' + f + '"/>'; };
+    const gild = function (x) { return g(x, b - 6, 6, "#1f2433") + g(x, b - 6, 2.6, "#e5e7eb"); };
+    return gild(cx - 13) + gild(cx + 13) +
+      '<path d="M' + f1(cx - 13) + " " + (b - 6) + " L" + f1(cx - 4) + " " + (b - 14) + " L" + f1(cx + 8) + " " + (b - 14) + " L" + f1(cx + 13) + " " + (b - 6) +
+      '" fill="none" stroke="#4a5368" stroke-width="2.2" stroke-linejoin="round"/>' +
+      '<path d="M' + f1(cx - 6) + " " + (b - 14) + " Q" + f1(cx - 4) + " " + (b - 21) + " " + f1(cx + 4) + " " + (b - 20) + " L" + f1(cx + 9) + " " + (b - 15) + ' Z" fill="#1f5fd6" stroke="#163f8f" stroke-width="1.2"/>' +
+      '<line x1="' + f1(cx + 8) + '" y1="' + (b - 15) + '" x2="' + f1(cx + 12) + '" y2="' + (b - 23) + '" stroke="#1f2433" stroke-width="2" stroke-linecap="round"/>' +
+      '<path d="M' + f1(cx - 5) + " " + (b - 19) + " L" + f1(cx - 1) + " " + (b - 30) + " L" + f1(cx + 9) + " " + (b - 24) + '" fill="none" stroke="#2b2f3a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>' +
+      g(cx, b - 34, 5.2, "#f2b705") + '<rect x="' + f1(cx + 1) + '" y="' + (b - 36) + '" width="5" height="3" rx="1" fill="#2b2f3a"/>';
+  }
+  function chizTrek(el) {
+    const g = JSON.parse(el.dataset.trek), vaqt = g.vaqt || [6, 8], jism = g.jism || ["mashina", "mototsikl"];
+    const NOM = { mashina: "Mashina", mototsikl: "Mototsikl", avtobus: "Avtobus", velosiped: "Velosiped" };
+    const W = 380, H = 244, x0 = 14, x1 = 366, y0 = 12, y1 = 214, yo = 62;   // tashqi chegara va yo'l eni
+    const st = function (a, b, c, d, r) { return '<rect x="' + a + '" y="' + b + '" width="' + (c - a) + '" height="' + (d - b) + '" rx="' + r + '"/>'; };
+    let s = '<g fill="#8fd6b4" stroke="#12805c" stroke-width="1.5">' + st(x0 - 6, y0 - 6, x1 + 6, y1 + 6, (y1 - y0) / 2 + 6) + "</g>";
+    s += '<g fill="#6b7385" stroke="#3d4454" stroke-width="2">' + st(x0, y0, x1, y1, (y1 - y0) / 2) + "</g>";
+    s += '<g fill="#8fd6b4" stroke="#3d4454" stroke-width="2">' + st(x0 + yo, y0 + yo, x1 - yo, y1 - yo, (y1 - y0) / 2 - yo) + "</g>";
+    s += '<g fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="10 8">' + st(x0 + yo / 2, y0 + yo / 2, x1 - yo / 2, y1 - yo / 2, (y1 - y0) / 2 - yo / 2) + "</g>";
+    // start chizig'i: pastki to'g'ri bo'lakda shaxmat katakli
+    const sx = 236, kat = 6;
+    for (let r = 0; r < yo / kat; r++) for (let c = 0; c < 2; c++)
+      s += '<rect x="' + (sx + c * kat) + '" y="' + (y1 - yo + r * kat) + '" width="' + kat + '" height="' + Math.min(kat, y1 - (y1 - yo + r * kat)) + '" fill="' + ((r + c) % 2 ? "#1f2433" : "#fff") + '"/>';
+    s += '<text x="' + (sx + kat) + '" y="' + (y1 + 22) + '" text-anchor="middle" font-size="13" font-weight="800" fill="#1f2433">START</text>';
+    const qator = [y1 - yo / 2 - 3, y1 - 3];   // ichki va tashqi yo'lak (jism turadigan chiziq)
+    jism.forEach(function (j, i) {
+      const cx = sx - 40 - (i % 2) * 40, b = qator[i % 2];
+      s += '<g transform="translate(' + cx + " " + b + ') scale(1.3) translate(' + (-cx) + " " + (-b) + ')">' + (j === "mototsikl" ? mototsikl(cx, b) : yolJism(j, cx, b)) + "</g>";
+    });
+    const yt = (y0 + y1) / 2 - (jism.length - 1) * 10 - 8;
+    jism.forEach(function (j, i) {
+      s += '<text x="' + W / 2 + '" y="' + (yt + i * 20) + '" text-anchor="middle" font-size="14" font-weight="800" fill="#0b5e43">' +
+        (NOM[j] || j) + ": 1 aylana — " + (vaqt[i] == null ? "?" : vaqt[i]) + " " + (g.birlik || "min") + "</text>";
+    });
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="max-width:' + Math.round(W * (Number(g.olcham) || 1.1)) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || ("Aylana yo'l: " + jism.map(function (j, i) { return (NOM[j] || j) + " " + vaqt[i] + " minutda bir aylana"; }).join(", "))) + '">' + s + "</svg>";
+  }
+
+  function chizSayyora(el) {
+    const g = JSON.parse(el.dataset.sayyora), davr = g.davr || [3, 5], yil = Number(g.yil) || 0;
+    const nom = g.nom || davr.map(function (d, i) { return "ABCD"[i]; });
+    const RANG = ["#1f5fd6", "#d4501b", "#6d3fc0"], OCH = ["#8fb3f5", "#fbb48a", "#c4adf0"];
+    const R0 = 46, DR = davr.length > 2 ? 30 : 36, Rmax = R0 + DR * (davr.length - 1);
+    const cx = Rmax + 16, cy = Rmax + 16, W = 2 * cx, H = 2 * cy + 8 + 19 * davr.length;
+    let s = '<rect x="0" y="0" width="' + W + '" height="' + (2 * cy) + '" rx="14" fill="#1d2440"/>';
+    for (let k = 0; k < 26; k++) {   // yulduzchalar (har safar bir xil joyda)
+      const a = (k * 137.5) % 360 * Math.PI / 180, r = 18 + (k * 53) % (Rmax + 8);
+      const x = cx + r * Math.cos(a) * 1.05, y = cy + r * Math.sin(a);
+      if (x > 4 && x < W - 4 && y > 4 && y < 2 * cy - 4) s += '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + (k % 3 ? 0.9 : 1.4) + '" fill="#fff" fill-opacity=".7"/>';
+    }
+    davr.forEach(function (d, i) { s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (R0 + DR * i) + '" fill="none" stroke="#9aa3b5" stroke-width="1.2" stroke-dasharray="4 4"/>'; });
+    if (g.chiziq !== 0 && !yil) s += '<line x1="' + cx + '" y1="' + cy + '" x2="' + (cx + Rmax + 12) + '" y2="' + cy + '" stroke="#f2b705" stroke-width="1.6" stroke-dasharray="6 4"/>';
+    for (let k = 0; k < 12; k++) {
+      const a = k * Math.PI / 6;
+      s += '<line x1="' + f1(cx + 17 * Math.cos(a)) + '" y1="' + f1(cy + 17 * Math.sin(a)) + '" x2="' + f1(cx + 24 * Math.cos(a)) + '" y2="' + f1(cy + 24 * Math.sin(a)) + '" stroke="#fbd56b" stroke-width="2.2" stroke-linecap="round"/>';
+    }
+    s += '<circle cx="' + cx + '" cy="' + cy + '" r="15" fill="#f9c440" stroke="#e08a00" stroke-width="2"/>';
+    davr.forEach(function (d, i) {
+      const r = R0 + DR * i, a = 2 * Math.PI * (yil % d) / d;   // soat strelkasiga teskari
+      const x = cx + r * Math.cos(a), y = cy - r * Math.sin(a), rp = 7 + i;
+      s += '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + rp + '" fill="' + OCH[i % 3] + '" stroke="' + RANG[i % 3] + '" stroke-width="2"/>' +
+        '<text x="' + f1(x) + '" y="' + f1(y - rp - 4) + '" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">' + nom[i] + "</text>";
+    });
+    davr.forEach(function (d, i) {
+      s += '<text x="' + cx + '" y="' + (2 * cy + 19 + 19 * i) + '" text-anchor="middle" font-size="14" font-weight="800" fill="' + RANG[i % 3] + '">' +
+        nom[i] + " — " + d + " yilda 1 aylana</text>";
+    });
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" style="max-width:' + Math.round(W * (Number(g.olcham) || 1.1)) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || ("Quyosh atrofida sayyoralar: " + davr.join(", ") + " yilda bir aylana")) + '">' + s + "</svg>";
+  }
+
   window.MaruzaChizma = {
     bolish: bolish,
     chiz: function (root) {
@@ -4873,6 +5009,9 @@
       root.querySelectorAll("[data-daraxt]").forEach(chizDaraxt);
       root.querySelectorAll("[data-qisqa]").forEach(chizQisqa);
       root.querySelectorAll("[data-karrali]").forEach(chizKarrali);
+      root.querySelectorAll("[data-tishli]").forEach(chizTishli);
+      root.querySelectorAll("[data-trek]").forEach(chizTrek);
+      root.querySelectorAll("[data-sayyora]").forEach(chizSayyora);
       root.querySelectorAll("[data-guruhla]").forEach(chizGuruhla);
       root.querySelectorAll("[data-pol]").forEach(chizPol);
     }

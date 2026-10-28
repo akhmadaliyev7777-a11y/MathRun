@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 167;
+const LESSON_VER = 168;
 
 function sec(title) {
   return { title: title, text: null };
@@ -291,7 +291,7 @@ const SITE_DATA = {
                   "<p>Tomoni butun son bo'lgan kvadratning yuzi 144 cm<sup>2</sup>. Tomoni qancha? Endi yuzi 200 cm<sup>2</sup> bo'lsa, tomonini butun songacha yaxlitlab ayting.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-kvadrat-kub-ildiz.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=kvadrat-kub-ildiz"
             },
             {
               id: "manfiy-son-sonlar-oqi", icon: "img/mavzu/7-manfiy-son-sonlar-oqi.webp", title: "2.1 Manfiy son tushunchasi va sonlar o'qi", page: "32-bet",

@@ -15,7 +15,8 @@ Saytdagi 27 ta mavzu nomi darslik mundarijasi bilan solishtirildi (2026-10-28): 
 2026-10-28. **5E uslubida (sinov):** 1 Qiziqtiramiz · 2 Sinab ko'ramiz · 3 Tushunamiz · 4 Qo'llaymiz · 5 Tekshiramiz; `data-qisqa="420,630"` (ikki son uchun qisqa bo'lish); 20+20 test, PDF.
 **Kitob bilan solishtirildi:** EKUB ta'rifi, o'zaro tub sonlar, 1-usul (eng kichik darajalar), 2-usul (qisqa bo'lish) va Eslatma, kasrni EKUB bilan qisqartirish (aynan) ✅; bo'luvchilar ro'yxati («Usul») ✅; darslik va daftar turlari ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; o'ylab topilgan qoida ramkasi «Usul» ga keltirildi; daftarga o'xshagan 10 ta mashq va 9 ta test savoli almashtirildi.
 #### ☐ 1.3 Eng kichik umumiy karrali (EKUK) — D 15–20; M 13–18
-#### ☐ 1.4 Sonning kvadrat ildizi va kub ildizi — D 21–26; M 19–24
+#### ✅ 1.4 Sonning kvadrat ildizi va kub ildizi — D 21–26; M 19–24
+2026-10-28. 5E uslubida; yangi chizmalar `data-guruhla` (ko'paytuvchilarni juft/uchlik guruhlash), `data-pol` (plitkali pol, bog'), `data-kub` oq; 20+20 test (5 ta chizmali), PDF. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitob/ma'ruzaga o'xshagan 3 mashq va 5 test savoli almashtirildi; ta'riflar kitob gaplari (sonlar o'zimizniki).
 
 ## 2-bob. Haqiqiy sonlar
 
