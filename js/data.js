@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 166;
+const LESSON_VER = 167;
 
 function sec(title) {
   return { title: title, text: null };
@@ -207,7 +207,7 @@ const SITE_DATA = {
                   "<p>Ikki xonali eng katta sonni tub ko'paytuvchilarga ajrating. Uning nechta bo'luvchisi bor? (Maslahat: agar son p<sup>a</sup>·q<sup>b</sup> ko'rinishida bo'lsa, bo'luvchilari soni (a+1)(b+1) ga teng.)</p>"
                 )
               ],
-              lecture: { embedUrl: "maruza/7-tub-sonlar-daraja.html" }, interactive: "lessons/7-matematika-tub-sonlar.html", test: null
+              lecture: { embedUrl: "maruza/7-tub-sonlar-daraja.html" }, interactive: "lessons/7-matematika-tub-sonlar.html", test: "test.html?sinf=7&fan=matematika-2026&mavzu=tub-sonlar-daraja"
             },
             {
               id: "ekub", icon: "img/mavzu/7-ekub.webp", title: "1.2 Eng katta umumiy bo'luvchi (EKUB)", page: "9-bet",

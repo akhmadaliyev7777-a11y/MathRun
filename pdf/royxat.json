@@ -1136,14 +1136,14 @@
  "7-ekub": {
   "fayl": "7-sinf Eng katta umumiy bo'luvchi (EKUB).pdf",
   "sahifa": 18,
-  "hajm": 815941,
-  "v": "def63e6e"
+  "hajm": 824807,
+  "v": "5ddb532c"
  },
  "7-ekub-1-test": {
   "fayl": "7-sinf Eng katta umumiy bo'luvchi (EKUB) 1-test.pdf",
-  "sahifa": 5,
-  "hajm": 246274,
-  "v": "a07ac82b"
+  "sahifa": 4,
+  "hajm": 245345,
+  "v": "21105517"
  },
  "7-ekub-2-test": {
   "fayl": "7-sinf Eng katta umumiy bo'luvchi (EKUB) 2-test.pdf",
@@ -1156,6 +1156,18 @@
   "sahifa": 15,
   "hajm": 810298,
   "v": "a7b34041"
+ },
+ "7-tub-sonlar-daraja-1-test": {
+  "fayl": "7-sinf Tub sonlar, tub ko'paytuvchilarga ajratish va daraja 1-test.pdf",
+  "sahifa": 5,
+  "hajm": 221623,
+  "v": "98ec52fd"
+ },
+ "7-tub-sonlar-daraja-2-test": {
+  "fayl": "7-sinf Tub sonlar, tub ko'paytuvchilarga ajratish va daraja 2-test.pdf",
+  "sahifa": 4,
+  "hajm": 229271,
+  "v": "6be78b19"
  },
  "8-modul-tengsizliklar": {
   "fayl": "8-sinf Sonning moduli Modul qatnashgan tenglama va tengsizliklar.pdf",

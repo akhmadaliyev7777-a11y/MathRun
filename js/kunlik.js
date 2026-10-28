@@ -13,6 +13,7 @@ window.KUNLIK = [
       ["7-sinf", "7-sinf boshlandi: 27 ta mavzu darslik mundarijasi bilan solishtirildi (hammasi mos), reja tuzildi; 1.1 «Tub sonlar, tub ko'paytuvchilarga ajratish va daraja» — ma'ruza (ko'paytuvchilar daraxti va qisqa bo'lish chizmalari), PDF."],
       ["Sayt", "Ma'ruzalarda rang mavzulari: har mavzu o'z rangida (qism sarlavhalari, qoida ramkasi, misol yorliqlari, qadam raqamlari); mavzu kartochkalarida rangli chiziq. Tugmalar o'zgarmadi."],
       ["7-sinf", "1.2 «Eng katta umumiy bo'luvchi (EKUB)» — birinchi marta 5E uslubida (Qiziqtiramiz, Sinab ko'ramiz, Tushunamiz, Qo'llaymiz, Tekshiramiz), 20+20 test, PDF; haqiqiy qalam va daftar rasmlari, sonlar alohida tub ko'paytuvchilarga ajratilgan chizma."],
+      ["7-sinf", "1.1 «Tub sonlar» — 20+20 test (4 ta chizmali savol), PDF; EKUB misollarida har son alohida tub ko'paytuvchilarga ajratildi (orasida chiziq)."],
       ["Sayt", "5 ta rang to'plami (Okean, Bahor, Shafaq, Lavanda, Quyosh) — har mavzu o'z to'plamida; kartochkalardagi ikonka foni va tugmalar o'zgarmadi."],
       ["Sayt", "Yangi qism sarlavhasi (o'rtada yostiqcha, «n-qism» yorlig'i, ikki chetida tasma) — barcha ma'ruzalarda, 5-sinfning eski bo'lim sarlavhalarida ham; Diqqat'dagi ✗/✓ doirachada; matndagi «30/100» kasrlar ustunli. Ma'ruza PDF'lari qayta yasaldi."],
       ["6-sinf", "27-mavzu «Doiraviy diagrammada ma'lumotlarni taqdim etish» — ma'ruza (yangi doiraviy diagramma chizmasi), 20+20 test, PDF."],
