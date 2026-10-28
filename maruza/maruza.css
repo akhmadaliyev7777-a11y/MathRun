@@ -413,17 +413,19 @@ table.jad th { background: var(--gray-s); font-weight: 700; }
 @media (max-width: 480px) {
   .m-qism h2 { font-size: 20px; padding: 14px 20px 10px; min-width: 0; max-width: 86%; }
 }
-/* rang mavzulari (2026-10-28): har mavzu sahifasi 7 ta rang to'plamidan biriga ega (maruza.js — data-tema).
-   Asosiy rang (qoida ramkasi, chegaralar) va ochiq foni almashadi; qism sarlavhalari 7 rangdan ketma-ket 5 tasini oladi.
+/* rang mavzulari (2026-10-28): har mavzu sahifasi 5 ta rang to'plamidan biriga ega (Okean, Bahor, Shafaq, Lavanda, Quyosh — _reja/ranglar-namuna.html; maruza.js — data-tema).
+   Asosiy rang (qoida ramkasi, chegaralar) va ochiq foni almashadi; qism sarlavhalari to'plamning 7 rangidan oladi (--q1..--q7).
    Ma'noli ranglar (surat — ko'k, maxraj — to'q sariq, natija — yashil, Diqqat — sariq) o'zgarmaydi. */
-html[data-tema] { --c0: #4f5bd5; --c1: #0f8f84; --c2: #d9604a; --c3: #c2477a; --c4: #1b8bc4; --c5: #7a4fd0; --c6: #3a8d47; }
-html[data-tema="0"] { --primary: #4f5bd5; --primary-s: #eef0fc; --primary-l: #d9ddf7; --primary-d: #2e37a0; --q1: var(--c0); --q2: var(--c1); --q3: var(--c2); --q4: var(--c3); --q5: var(--c4); }
-html[data-tema="1"] { --primary: #0f8f84; --primary-s: #e6f5f3; --primary-l: #c3e7e2; --primary-d: #0b5f58; --q1: var(--c1); --q2: var(--c2); --q3: var(--c3); --q4: var(--c4); --q5: var(--c5); }
-html[data-tema="2"] { --primary: #d9604a; --primary-s: #fdf0ec; --primary-l: #f5d3ca; --primary-d: #9a3424; --q1: var(--c2); --q2: var(--c3); --q3: var(--c4); --q4: var(--c5); --q5: var(--c6); }
-html[data-tema="3"] { --primary: #c2477a; --primary-s: #fceef4; --primary-l: #f2cfdd; --primary-d: #85234f; --q1: var(--c3); --q2: var(--c4); --q3: var(--c5); --q4: var(--c6); --q5: var(--c0); }
-html[data-tema="4"] { --primary: #1b8bc4; --primary-s: #e8f4fb; --primary-l: #c5e3f3; --primary-d: #0f5b82; --q1: var(--c4); --q2: var(--c5); --q3: var(--c6); --q4: var(--c0); --q5: var(--c1); }
-html[data-tema="5"] { --primary: #7a4fd0; --primary-s: #f3eefc; --primary-l: #e2d6f7; --primary-d: #4e2a96; --q1: var(--c5); --q2: var(--c6); --q3: var(--c0); --q4: var(--c1); --q5: var(--c2); }
-html[data-tema="6"] { --primary: #3a8d47; --primary-s: #eaf5ec; --primary-l: #c8e6cd; --primary-d: #23602d; --q1: var(--c6); --q2: var(--c0); --q3: var(--c1); --q4: var(--c2); --q5: var(--c3); }
+/* 0: Okean */
+html[data-tema="0"] { --primary: #3b82f6; --primary-s: #dbeafe; --primary-l: #c0d7fc; --primary-d: #2b59a9; --q1: #3b82f6; --q2: #0891b2; --q3: #0d9488; --q4: #6366f1; --q5: #0284c7; --q6: #059669; --q7: #8b5cf6; }
+/* 1: Bahor */
+html[data-tema="1"] { --primary: #16a34a; --primary-s: #dcfce7; --primary-l: #b4e2c5; --primary-d: #146d3e; --q1: #16a34a; --q2: #ec4899; --q3: #0284c7; --q4: #0d9488; --q5: #d946ef; --q6: #d97706; --q7: #f43f5e; }
+/* 2: Shafaq */
+html[data-tema="2"] { --primary: #ea580c; --primary-s: #ffedd5; --primary-l: #f8cab1; --primary-d: #973f18; --q1: #ea580c; --q2: #f43f5e; --q3: #d946ef; --q4: #8b5cf6; --q5: #d97706; --q6: #ec4899; --q7: #a855f7; }
+/* 3: Lavanda */
+html[data-tema="3"] { --primary: #8b5cf6; --primary-s: #ede9fe; --primary-l: #dacbfc; --primary-d: #5c41a9; --q1: #8b5cf6; --q2: #6366f1; --q3: #ec4899; --q4: #a855f7; --q5: #0284c7; --q6: #d946ef; --q7: #3b82f6; }
+/* 4: Quyosh */
+html[data-tema="4"] { --primary: #d97706; --primary-s: #fef3c7; --primary-l: #f3d3af; --primary-d: #8d5214; --q1: #d97706; --q2: #ea580c; --q3: #0d9488; --q4: #f43f5e; --q5: #059669; --q6: #ef4444; --q7: #0284c7; }
 .m-sec.qism-ichi { margin-top: 18px; }
 /* bitta qoidaga ikki misol — keng ekranda yonma-yon */
 .misol-juft { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 0 14px; align-items: start; }

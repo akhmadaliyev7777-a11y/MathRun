@@ -653,14 +653,14 @@ window.addEventListener("message", function (e) {
   });
 });
 
-// rang mavzusi (0..6): ma'ruza sahifasidagi bilan bir xil — ma'ruza fayli nomidan (maruza.js da ham shunday), yo'q bo'lsa mavzu id dan
+// rang mavzusi (0..4): ma'ruza sahifasidagi bilan bir xil — ma'ruza fayli nomidan (maruza.js da ham shunday), yo'q bo'lsa mavzu id dan
 function topicTema(topic) {
   const u = topic.lecture && topic.lecture.embedUrl;
   const nom = u ? u.split("/").pop().replace(/\.html$/, "") : String(topic.id || "");
   let h = 2166136261;
   for (let i = 0; i < nom.length; i++) h = Math.imul(h ^ nom.charCodeAt(i), 16777619) >>> 0;
   h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0; h = (h ^ (h >>> 13)) >>> 0;
-  return h % 7;
+  return h % 5;
 }
 // mavzu kartochkasi (sinf sahifasi va Interaktiv darslar bo'limi uchun umumiy)
 function topicCardHtml(topic, i, href, parts, btn, interactiveFirst) {

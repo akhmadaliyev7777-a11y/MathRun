@@ -11,7 +11,9 @@ Saytdagi 27 ta mavzu nomi darslik mundarijasi bilan solishtirildi (2026-10-28): 
 #### ✅ 1.1 Tub sonlar, tub ko'paytuvchilarga ajratish va daraja — D 2–8; M 1–6
 2026-10-28. Ma'ruza (5 qism; yangi chizmalar `data-daraxt` — tub ko'paytuvchilar daraxti, `data-qisqa` — burchak usulida bo'lish), PDF. Test hali yo'q.
 **Kitob bilan solishtirildi:** karrali, ko'paytuvchi (bo'luvchi), tub va murakkab son (Eslatma bilan), tub ko'paytuvchilarga ajratish, daraja ta'riflari (aynan) ✅; daraxt va burchak usuli («Usul») ✅; bo'luvchilarni juft qilib topish ✅; eng kichik ko'paytuvchi (karrali bo'lishi uchun) ✅; darslik 17 + daftar 12 mashq turi ✅. Kiritilmadi: ko'paytuvchilar soni bo'yicha guruhlash jadvali, «belgilash»/«yagona» izohlari. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 1 noaniq savol, ko'rsatilmagan usul (eng yaqin karrali — misol qo'shildi) va kitobga o'xshagan 4 ta mashq tuzatildi.
-#### ☐ 1.2 Eng katta umumiy bo'luvchi (EKUB) — D 9–14; M 7–12
+#### ✅ 1.2 Eng katta umumiy bo'luvchi (EKUB) — D 9–14; M 7–12
+2026-10-28. **5E uslubida (sinov):** 1 Qiziqtiramiz · 2 Sinab ko'ramiz · 3 Tushunamiz · 4 Qo'llaymiz · 5 Tekshiramiz; `data-qisqa="420,630"` (ikki son uchun qisqa bo'lish); 20+20 test, PDF.
+**Kitob bilan solishtirildi:** EKUB ta'rifi, o'zaro tub sonlar, 1-usul (eng kichik darajalar), 2-usul (qisqa bo'lish) va Eslatma, kasrni EKUB bilan qisqartirish (aynan) ✅; bo'luvchilar ro'yxati («Usul») ✅; darslik va daftar turlari ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; o'ylab topilgan qoida ramkasi «Usul» ga keltirildi; daftarga o'xshagan 10 ta mashq va 9 ta test savoli almashtirildi.
 #### ☐ 1.3 Eng kichik umumiy karrali (EKUK) — D 15–20; M 13–18
 #### ☐ 1.4 Sonning kvadrat ildizi va kub ildizi — D 21–26; M 19–24
 

@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 165;
+const LESSON_VER = 166;
 
 function sec(title) {
   return { title: title, text: null };
@@ -234,7 +234,7 @@ const SITE_DATA = {
                   "<p>Bog'da 48 ta olma va 36 ta nok bor. Ularni bir xil sonli, imkon qadar ko'p savatga baravar joylashtirmoqchimiz. Nechta savat kerak va har birida nechtadan meva bo'ladi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: "lessons/7-matematika-ekub.html", test: null
+              lecture: { embedUrl: "maruza/7-ekub.html" }, interactive: "lessons/7-matematika-ekub.html", test: "test.html?sinf=7&fan=matematika-2026&mavzu=ekub"
             },
             {
               id: "ekuk", icon: "img/mavzu/7-ekuk.webp", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "15-bet",

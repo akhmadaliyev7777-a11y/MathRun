@@ -82,6 +82,7 @@
        "ost" yoki "shaffof":1 — shaffof jism, orqa qirralar punktir; "rang":"ko'k|yashil|sariq"; "eni"/"boy" — chizma o'lchami (px, 240/150)
    data-menzurka="600/1000"        — o'lchov idishi (menzurka): shkala 0 dan 1000 ml gacha, ichida 600 ml suyuqlik
    data-buyum="Doiralar:doira:ko'k:6|Kvadratlar:kvadrat:sariq:4" [data-guruh="2"] [data-olcham="24"] — buyumlar qatori (nisbat uchun):
+       shakl turlari yana: qalam (haqiqiy qalam — rangli tana, yog'och uchi, o'chirg'ich), daftar (spiral daftar) — 7-sinf 1.2.
                                           har qator "nomi:shakli:rangi:soni" (shakl: doira, kvadrat, uchburchak, romb, yulduz;
                                           rang: ko'k, qizil, yashil, sariq, binafsha, to'q sariq; nomi bo'sh bo'lsa — yozilmaydi);
                                           guruh="2" — har qatordagi buyumlar 2 tadan punktir ramkali guruhlarga ajratiladi
@@ -280,6 +281,8 @@
        eng kichik tub bo'luvchilar (o'zi hisoblanadi), oxirida 1; qadam="2" — faqat dastlabki 2 ta bo'lish yoziladi, qolgani bo'sh qatorlar (mashq uchun).
        data-qisqa="750,225" (2–3 ta son, vergul bilan; 7-sinf 1.2 EKUB) — sonlar yonma-yon ustunlarda, hammasi bo'linadigan eng kichik umumiy tub songa
        birin-ketin bo'linadi; umumiy tub bo'luvchi qolmaganda to'xtaydi (oxirgi qator kulrang); qadam="1" — mashq uchun (yuqoridagidek).
+       data-alohida="1" (bir nechta son bilan) — har bir son ALOHIDA qisqa bo'linadi (yonma-yon zinapoyalar, oxirida 1); umumiy tub ko'paytuvchilar
+       yashil, umumiy bo'lmaganlari kulrang.
 */
 (function () {
   "use strict";
@@ -3051,6 +3054,25 @@
       for (let k = 0; k < 10; k++) { const a = Math.PI * k / 5, q = k % 2 ? r * 0.45 : r * 1.05; p.push([cx + q * Math.sin(a), cy - q * Math.cos(a) + r * 0.08]); }
       return nuqtalar(p);
     }
+    if (tur === "qalam") {   // haqiqiy qalam: rangli tanasi, yog'och uchi, grafit, temir halqa, o'chirg'ich
+      const w = r * 0.3, f = function (v) { return v.toFixed(1); };
+      return '<g stroke-linejoin="round">' +
+        '<rect x="' + f(cx - w) + '" y="' + f(cy - r * 0.5) + '" width="' + f(2 * w) + '" height="' + f(r * 1.2) + '" fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="1.4"/>' +
+        '<rect x="' + f(cx - w * 0.18) + '" y="' + f(cy - r * 0.5) + '" width="' + f(w * 0.36) + '" height="' + f(r * 1.2) + '" fill="#fff" fill-opacity=".35"/>' +
+        '<path d="M' + f(cx - w) + " " + f(cy - r * 0.5) + " L" + f(cx + w) + " " + f(cy - r * 0.5) + " L" + f(cx) + " " + f(cy - r * 1.02) + ' Z" fill="#f3d3a4" stroke="#b9864c" stroke-width="1.2"/>' +
+        '<path d="M' + f(cx - w * 0.36) + " " + f(cy - r * 0.83) + " L" + f(cx + w * 0.36) + " " + f(cy - r * 0.83) + " L" + f(cx) + " " + f(cy - r * 1.02) + ' Z" fill="#2b2f3a"/>' +
+        '<rect x="' + f(cx - w) + '" y="' + f(cy + r * 0.7) + '" width="' + f(2 * w) + '" height="' + f(r * 0.14) + '" fill="#c3c9d3" stroke="#7d8594" stroke-width="1"/>' +
+        '<rect x="' + f(cx - w) + '" y="' + f(cy + r * 0.84) + '" width="' + f(2 * w) + '" height="' + f(r * 0.18) + '" rx="' + f(w * 0.5) + '" fill="#f4a7b9" stroke="#c76b84" stroke-width="1"/></g>';
+    }
+    if (tur === "daftar") {   // haqiqiy daftar: muqova, yorliq, chiziqlar, chap chetida spiral halqalar
+      const f = function (v) { return v.toFixed(1); }, x0 = cx - r * 0.62, x1 = cx + r * 0.78, y0 = cy - r * 0.92, y1 = cy + r * 0.92;
+      let g = '<rect x="' + f(x0) + '" y="' + f(y0) + '" width="' + f(x1 - x0) + '" height="' + f(y1 - y0) + '" rx="' + f(r * 0.12) + '" fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="1.4"/>' +
+        '<rect x="' + f(cx - r * 0.25) + '" y="' + f(cy - r * 0.55) + '" width="' + f(r * 0.85) + '" height="' + f(r * 0.42) + '" rx="' + f(r * 0.06) + '" fill="#fff" stroke="' + c[1] + '" stroke-width=".8"/>' +
+        '<line x1="' + f(cx - r * 0.14) + '" y1="' + f(cy - r * 0.4) + '" x2="' + f(cx + r * 0.48) + '" y2="' + f(cy - r * 0.4) + '" stroke="#9aa3b5" stroke-width=".9"/>' +
+        '<line x1="' + f(cx - r * 0.14) + '" y1="' + f(cy - r * 0.26) + '" x2="' + f(cx + r * 0.34) + '" y2="' + f(cy - r * 0.26) + '" stroke="#9aa3b5" stroke-width=".9"/>';
+      for (let k = 0; k < 5; k++) { const yy = y0 + r * 0.25 + k * r * 0.36; g += '<circle cx="' + f(x0) + '" cy="' + f(yy) + '" r="' + f(r * 0.1) + '" fill="#fff" stroke="#5b6275" stroke-width="1.1"/>'; }
+      return g;
+    }
     return '<circle cx="' + cx + '" cy="' + cy + '" r="' + r * 0.92 + st;
   }
   function chizBuyum(el) {
@@ -4518,8 +4540,40 @@
   }
 
   // bir nechta son — umumiy tub bo'luvchilarga birin-ketin bo'lish (EKUB)
+  // har bir son alohida qisqa bo'linadi (data-alohida="1"): yonma-yon zinapoyalar, umumiy tub ko'paytuvchilar yashil, qolganlari kulrang
+  function chizQisqaAlohida(el, sonlar) {
+    const ajrat = function (n) { const r = []; let d = 2; while (n > 1) { while (n % d === 0) { r.push(d); n /= d; } d++; } return r; };
+    const tub = sonlar.map(ajrat);
+    const qolgan = tub[0].slice();   // umumiy ko'paytuvchilar (takrorlanishi bilan)
+    tub.slice(1).forEach(function (t) { const k = t.slice(); for (let i = qolgan.length - 1; i >= 0; i--) { const j = k.indexOf(qolgan[i]); if (j < 0) qolgan.splice(i, 1); else k.splice(j, 1); } });
+    const fs = 17, DY = 23;
+    let x0 = 4, s = "", VH = 0;
+    sonlar.forEach(function (n, si) {
+      const umumiy = qolgan.slice();
+      const w = Math.max(String(n).length * 10.5 + 14, 34);
+      const L = x0 + w + 6;
+      let joriy = n;
+      tub[si].forEach(function (d, i) {
+        const y = 22 + i * DY, k = umumiy.indexOf(d), um = k >= 0;
+        if (um) umumiy.splice(k, 1);
+        s += '<text x="' + (x0 + w - 6) + '" y="' + y + '" text-anchor="end" font-size="' + fs + '" font-weight="700" fill="#1f2433">' + joriy + "</text>";
+        s += '<text x="' + (L + 12) + '" y="' + y + '" font-size="' + fs + '" font-weight="800" fill="' + (um ? "#12805c" : "#9aa3b5") + '">' + d + "</text>";
+        joriy /= d;
+      });
+      const yo = 22 + tub[si].length * DY;
+      s += '<text x="' + (x0 + w - 6) + '" y="' + yo + '" text-anchor="end" font-size="' + fs + '" font-weight="700" fill="#7a8194">1</text>';
+      s += '<line x1="' + L + '" y1="4" x2="' + L + '" y2="' + (yo - 15) + '" stroke="#1f2433" stroke-width="2"/>';
+      VH = Math.max(VH, yo + 9);
+      x0 = L + 46;
+    });
+    const VW = x0 - 14;
+    el.classList.add("kub");
+    el.innerHTML = '<svg viewBox="0 0 ' + VW + " " + VH + '" style="max-width:' + Math.round(VW * 1.15) + 'px" role="img" aria-label="' +
+      (el.dataset.izoh || (sonlar.join(" va ") + " ni alohida tub ko'paytuvchilarga ajratish")) + '">' + s + "</svg>";
+  }
   function chizQisqaKop(el) {
     const sonlar = String(el.dataset.qisqa).split(",").map(function (t) { return Number(t.replace(/\s/g, "")); });
+    if (el.dataset.alohida === "1") return chizQisqaAlohida(el, sonlar);
     const qadam = el.dataset.qadam != null ? Number(el.dataset.qadam) : Infinity;
     const qator = [];
     let joriy = sonlar.slice();
