@@ -1,6 +1,8 @@
 # 7-sinf «Matematika. Tadqiqot va kashfiyot» (2026) — ma'ruzalar rejasi
 
 Darslik: «7-sinf matematika» (I qism — mashq daftari 1–5-boblar; 6–7-boblar mashq daftarining II qismida). PDF: `~/Desktop/maktab darsliklari/7-sinf matematika 1-darslik.pdf` — **hozircha faqat 1-bob (1–30-betlar)**; mashq daftari ham faqat 1-bob (1–27-betlar). PDF indeks = darslik beti + 5; mashq daftari: indeks = bet + 3.
+
+**2026-10-28: 2–4-boblar keldi** (`~/Desktop/maktab darsliklari/Matematika 7-sinf(1) N-bob.pdf` va `... daftar N-bob.pdf`). Indeks: darslik 2-bob = bet − 31, 3-bob = bet − 65, 4-bob = bet − 89; daftar 2-bob = bet − 27, 3-bob = bet − 53, 4-bob = bet − 71. 5–7-boblar hali yo'q.
 Saytda: fan id `matematika-2026`, ma'ruza `maruza/7-<id>.html`, test kaliti `"7|matematika-2026|<id>"`. Ish tartibi 6-sinfdagidek (5 qism, 20+20 test, PDF, bitta yozuvchi + bitta tekshiruvchi).
 
 Saytdagi 27 ta mavzu nomi darslik mundarijasi bilan solishtirildi (2026-10-28): **hammasi mos**. Kitob betlari (`page`) tuzatildi — avval bob boshlari yozilgan edi.
@@ -21,24 +23,28 @@ Saytdagi 27 ta mavzu nomi darslik mundarijasi bilan solishtirildi (2026-10-28): 
 
 ## 2-bob. Haqiqiy sonlar
 
-#### ☐ 2.1 Manfiy son tushunchasi va sonlar o'qi — D 32–36; M 27–30  ·  **kitob PDF'i hali yo'q**
-#### ☐ 2.2 Butun sonlarni qo'shish va ayirish — D 37–43; M 31–34  ·  **kitob PDF'i hali yo'q**
-#### ☐ 2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar — D 44–50; M 35–40  ·  **kitob PDF'i hali yo'q**
-#### ☐ 2.4 Ratsional, irratsional va haqiqiy sonlar — D 51–53; M 41–44  ·  **kitob PDF'i hali yo'q**
-#### ☐ 2.5 Haqiqiy sonlar ustida amallar — D 54–60; M 45–50  ·  **kitob PDF'i hali yo'q**
+#### ✅ 2.1 Manfiy son tushunchasi va sonlar o'qi — D 32–36; M 27–30
+2026-10-29. 5E uslubida; yangi chizma `data-manfiy` (oq — sonlar o'qi, termo — ko'cha termometri, sath — dengiz sathi); `data-hayot` lift; 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** musbat/manfiy/butun son ta'riflari, sonlar o'qi va xossalari, taqqoslash, tengsizlik belgilari (aynan) ✅; darslik va daftar mashq turlari ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitob/daftar qolipidagi 13 joy almashtirildi.
+#### ✅ 2.2 Butun sonlarni qo'shish va ayirish — D 37–43; M 31–34
+2026-10-29. 5E uslubida; yangi chizmalar `data-fishka` (algebraik tugmalar, nol juftliklar), `data-ozgarish` (son o'qi/termometr/dengiz); 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** algebraik tugma, ag'darish, nol juftlik, qarama-qarshi son, ayirish = qarama-qarshisini qo'shish (aynan) ✅; vaqt mintaqalari (GMT) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 6 mashq va 5 test savoli almashtirildi.
+#### ✅ 2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar — D 44–50; M 35–40
+2026-10-29. 5E uslubida; yangi chizmalar `data-tugmaguruh`, `data-sakrash`, `data-kunharorat`, `data-ishora`; 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** ishora qoidalari, manfiy son darajasi, algebraik kvadrat ildiz ±, teskari son, amallar tartibi (aynan) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 3 mashq va 5 test savoli almashtirildi. 1–3-qismlar ~7,5 A4 varaq (kitobda qoida ko'p).
+#### ✅ 2.4 Ratsional, irratsional va haqiqiy sonlar — D 51–53; M 41–44
+2026-10-29. 5E uslubida; yangi chizmalar `data-toplam`, `data-davriy`, `data-haqiqiy`; 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** ratsional son ta'rifi, chekli/davriy o'nli kasr, irratsional (π, √2), haqiqiy sonlar (aynan) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 11 mashq va 4 test savoli almashtirildi.
+#### ☐ 2.5 Haqiqiy sonlar ustida amallar — D 54–60; M 45–50
 
 ## 3-bob. Sonlarni yaxlitlash va chamalash
 
-#### ☐ 3.1 Sonlarni belgilangan xonasigacha yaxlitlash — D 66–71; M 53–56  ·  **kitob PDF'i hali yo'q**
-#### ☐ 3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash — D 72–77; M 57–?  ·  **kitob PDF'i hali yo'q**
-#### ☐ 3.3 Chamalash — D 78–86; M ?–68  ·  **kitob PDF'i hali yo'q**
+#### ☐ 3.1 Sonlarni belgilangan xonasigacha yaxlitlash — D 66–71; M 53–56
+#### ☐ 3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash — D 72–77; M 57–60
+#### ☐ 3.3 Chamalash — D 78–86; M 61–70
 
 ## 4-bob. Algebra asoslari va algebraik almashtirishlar
 
-#### ☐ 4.1 Algebraga kirish — D 90–99; M 71–76  ·  **kitob PDF'i hali yo'q**
-#### ☐ 4.2 Chiziqli ifodalarni soddalashtirish — D 100–105; M 77–80  ·  **kitob PDF'i hali yo'q**
-#### ☐ 4.3 Chiziqli ifodalarda qavslarni ochish — D 106–113; M 81–?  ·  **kitob PDF'i hali yo'q**
-#### ☐ 4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish — D 114–116; M ?–92  ·  **kitob PDF'i hali yo'q**
+#### ☐ 4.1 Algebraga kirish — D 90–99; M 71–76
+#### ☐ 4.2 Chiziqli ifodalarni soddalashtirish — D 100–105; M 77–80
+#### ☐ 4.3 Chiziqli ifodalarda qavslarni ochish — D 106–113; M 81–86
+#### ☐ 4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish — D 114–116; M 87–100
 
 ## 5-bob. Bir o'zgaruvchili sodda tenglamalar
 

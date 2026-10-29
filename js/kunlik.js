@@ -3,6 +3,17 @@
    bolim: "5-sinf", "6-sinf", "7-sinf", "8-sinf", "1–4-sinf", "Interaktiv", "Sayt", "Admin", "Ish tartibi" */
 window.KUNLIK = [
   {
+    sana: "2026-10-29",
+    qisqa: "7-sinf 2-bob «Haqiqiy sonlar»: 2.1–2.4-mavzular — 5E uslubida ma'ruza, 20+20 test, PDF.",
+    ishlar: [
+      ["7-sinf", "2–4-boblar darsligi va mashq daftari ko'rib chiqildi, rejaga betlari yozildi."],
+      ["7-sinf", "2.1 «Manfiy son tushunchasi va sonlar o'qi» — 5E uslubida ma'ruza (ko'cha termometri, dengiz sathi: tog', samolyot, g'avvos, suv osti kemasi; sonlar o'qi, lift), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "2.2 «Butun sonlarni qo'shish va ayirish» — 5E uslubida ma'ruza (+1/−1 fishkalar va nol juftliklar, sonlar o'qida sakrash, vaqt mintaqalari, termometr, dengiz), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "2.3 «Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar» — 5E uslubida ma'ruza (tugmalar guruhlari, bir xil sakrashlar, kunlik termometrlar, ishoralar jadvali), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "2.4 «Ratsional, irratsional va haqiqiy sonlar» — 5E uslubida ma'ruza (sonlar to'plamlari ichma-ich, bo'lishda qoldiqlar zanjiri — davriy kasr, sonlar o'qida √2 va π), 20+20 test (6 ta chizmali), PDF."]
+    ]
+  },
+  {
     sana: "2026-10-28",
     qisqa: "6-sinf yakunlandi (31/31): 21–31-mavzular — harakat, kuboid-kub, doiraviy diagramma va fazoviy jismlar boblari.",
     ishlar: [

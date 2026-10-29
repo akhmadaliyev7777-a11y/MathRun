@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 170;
+const LESSON_VER = 171;
 
 function sec(title) {
   return { title: title, text: null };
@@ -330,7 +330,7 @@ const SITE_DATA = {
                   "<p>Kunduzi harorat +3°, kechasi −8° bo'ldi. Harorat necha gradusga o'zgardi? Sonlar o'qida bu o'zgarishni ko'rsating.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: "lessons/6-matematika-musbat-manfiy-sonlar.html", test: null
+              lecture: { embedUrl: "maruza/7-manfiy-son-sonlar-oqi.html" }, interactive: "lessons/6-matematika-musbat-manfiy-sonlar.html", test: "test.html?sinf=7&fan=matematika-2026&mavzu=manfiy-son-sonlar-oqi"
             },
             {
               id: "butun-sonlar-qoshish-ayirish", icon: "img/mavzu/7-butun-sonlar-qoshish-ayirish.webp", title: "2.2 Butun sonlarni qo'shish va ayirish", page: "37-bet",
@@ -370,7 +370,7 @@ const SITE_DATA = {
                   "<p>Liftda odam 7-qavatdan 3 qavat pastga, keyin 8 qavat yuqoriga, so'ng 2 qavat pastga chiqdi. U nechanchi qavatda? Amalni butun sonlar qo'shindisi ko'rinishida yozing.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-butun-sonlar-qoshish-ayirish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=butun-sonlar-qoshish-ayirish"
             },
             {
               id: "butun-sonlar-kopaytirish-bolish", icon: "img/mavzu/7-butun-sonlar-kopaytirish-bolish.webp", title: "2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar", page: "44-bet",
@@ -397,7 +397,7 @@ const SITE_DATA = {
                   "<p>(−1)<sup>2026</sup> + (−1)<sup>2027</sup> ifodaning qiymatini hisoblang. Umuman, (−1)<sup>n</sup> qiymati n ning qanday bo'lishiga bog'liq?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-butun-sonlar-kopaytirish-bolish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=butun-sonlar-kopaytirish-bolish"
             },
             {
               id: "ratsional-irratsional-haqiqiy-sonlar", icon: "img/mavzu/7-ratsional-irratsional-haqiqiy-sonlar.webp", title: "2.4 Ratsional, irratsional va haqiqiy sonlar", page: "51-bet",
@@ -433,7 +433,7 @@ const SITE_DATA = {
                   "<p>0,1010010001… (har safar birlar orasida nollar soni bittaga ortadi) — bu son ratsionalmi yoki irratsionalmi? Nega?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-ratsional-irratsional-haqiqiy-sonlar.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=ratsional-irratsional-haqiqiy-sonlar"
             },
             {
               id: "haqiqiy-sonlar-amallar", icon: "img/mavzu/7-haqiqiy-sonlar-amallar.webp", title: "2.5 Haqiqiy sonlar ustida amallar", page: "54-bet",
