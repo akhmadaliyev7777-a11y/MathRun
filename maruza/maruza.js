@@ -5,14 +5,15 @@
    Rangli makroslar: \sur{3} — surat (ko'k), \mx{4} — maxraj (to'q sariq), \nat{0,75} — natija (yashil). */
 (function () {
   "use strict";
-  // rang mavzusi: har sahifa 5 ta rang to'plamidan biriga ega — fayl nomidan (har safar bir xil, mavzudan mavzuga har xil); ?tema=0..4 bilan tanlasa bo'ladi
+  // rang mavzusi: har sahifa 5 ta rang to'plamidan biriga ega — fayl nomidan (har safar bir xil, mavzudan mavzuga har xil); ?tema=0..4 yoki <html data-tema="N"> bilan tanlasa bo'ladi (qo'shni mavzular bir xil chiqsa)
   (function () {
     const q = /[?&]tema=([0-4])/.exec(location.search);
     const nom = location.pathname.split("/").pop().replace(/\.html$/, "");
     let h = 2166136261;
     for (let i = 0; i < nom.length; i++) h = Math.imul(h ^ nom.charCodeAt(i), 16777619) >>> 0;
     h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0; h = (h ^ (h >>> 13)) >>> 0;
-    document.documentElement.setAttribute("data-tema", q ? q[1] : String(h % 5));
+    const o = document.documentElement.getAttribute("data-tema");   /* sahifada <html data-tema="N"> berilsa — shu */
+    document.documentElement.setAttribute("data-tema", q ? q[1] : (/^[0-4]$/.test(o || "") ? o : String(h % 5)));
   })();
   // eski 9 bo'limli sahifalar (5-sinf): «1 Eslab olaylik» sarlavhalari ham yangi ko'rinishda — yostiqcha, «n-bo'lim» yorlig'i, tasma
   document.querySelectorAll(".m-sec > h2 > .n:first-child").forEach(function (n, i) {

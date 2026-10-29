@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="uz" data-tema="3">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Algebraik ifodalarni ko'paytuvchilarga ajratish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=49">
+</head>
+<body data-a4>
+<main class="m-wrap">
+
+<h1 class="m-title">Algebraik ifodalarni ko'paytuvchilarga ajratish</h1>
+<!-- ============ 1-QISM: QIZIQTIRAMIZ ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Qiziqtiramiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">Savol · sovg'a savatlari</span>
+    <p>Bog'bon bobo bayramga 12 ta olma va 18 ta nokni bir xil savatlarga joylamoqchi: har bir savatda olmalar soni bir xil, noklar soni ham bir xil bo'lsin, birorta meva ortib qolmasin.</p>
+    <div data-ajrat44='{"tur":"sovga","q":[["olma",12,"olma"],["nok",18,"nok"]],"bosqich":1}' data-izoh="Stol ustida 12 ta olma va 18 ta nok"></div>
+    <p><b>1-savol.</b> Ko'pi bilan nechta savat tayyorlash mumkin? Har bir savatga nima tushadi?</p>
+    <p><b>2-savol.</b> Bitta olma \(a\) so'm, bitta nok \(n\) so'm tursa, hamma mevalar \(12a + 18n\) so'm turadi. Shu summani «savatlar soni × bitta savat narxi» ko'rinishida yozsa bo'ladimi?</p>
+  </div>
+  <div class="gap"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylamoqda" width="120" height="140"><div class="pufak">Savatlar soni 12 ni ham, 18 ni ham bo'lishi kerak. Ifodani ko'paytma qilib yozishda ham xuddi shu son kerak bo'ladi.</div></div>
+
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>EKUB — sonlarning eng katta umumiy bo'luvchisi: \(\text{EKUB}(18;\ 24) = 6\), chunki \(18 = 2 \cdot 3 \cdot 3\), \(24 = 2 \cdot 2 \cdot 2 \cdot 3\).</li>
+      <li>Qavslarni ochish: \(4(2x + 5) = 8x + 20\), &nbsp; \(-3(a - 2b) = -3a + 6b\).</li>
+      <li>Daraja: \(a^2 = a \cdot a\), &nbsp; \(5m^2n = 5 \cdot m \cdot m \cdot n\).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 2-QISM: SINAB KO'RAMIZ ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Sinab ko'ramiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-topshiriq · ikki to'g'ri to'rtburchak</span>
+    <p>Ikkala to'g'ri to'rtburchakning bo'yi 4 ga teng, yuzlari \(4x\) va 12. Ularni yonma-yon qo'yib, bitta katta to'g'ri to'rtburchak yasaymiz.</p>
+    <div data-ajrat44='{"tur":"maydon","k":"4","q":[["x","4x"],["3","12"]],"bosqich":1,"yoz":{"q":"?"},"eni":360}' data-izoh="Bo'yi 4 bo'lgan ikki to'g'ri to'rtburchak: yuzlari 4x va 12, enlari noma'lum"></div>
+    <p>a) Har birining eni nechaga teng?<br>b) Katta to'g'ri to'rtburchakning bo'yi va eni qanday?<br>c) \(4x + 12\) ni ikki ifodaning ko'paytmasi qilib yozing.</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>
+      a) \(x\) va 3 (chunki \(4 \cdot x = 4x\), \(4 \cdot 3 = 12\)).<br>b) Bo'yi 4, eni \(x + 3\).<br>c) \(4x + 12 = 4(x + 3)\).</details>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-topshiriq · plitkalar</span>
+    <p>Yashil uzun plitka — \(x\), sariq kvadratcha — 1. Rasmda \(6x + 9\).</p>
+    <div data-ajrat44='{"tur":"guruh","x":6,"bir":9,"bosqich":1}' data-izoh="6 ta x plitka va 9 ta birlik kvadratcha"></div>
+    <p>a) Plitkalarni 3 ta teng guruhga ajrating. Har bir guruhda nechta yashil va nechta sariq plitka bor?<br>b) 2 ta teng guruhga ajratsa bo'ladimi?<br>c) \(6x + 9\) ni ko'paytma qilib yozing.</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>
+      a) Har guruhda 2 ta yashil va 3 ta sariq: \(2x + 3\).<br>b) Yo'q: 9 ta sariq kvadratcha 2 ga teng bo'linmaydi.<br>c) \(6x + 9 = 3(2x + 3)\).</details>
+  </div>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">3-topshiriq · kim haq?</span>
+    <p>Sardor: \(12x + 18 = 2(6x + 9)\). &nbsp; Lola: \(12x + 18 = 6(2x + 3)\).</p>
+    <p>Qavslarni ochib tekshiring: ikkalasi ham to'g'rimi? Kimning qavsi ichida hali umumiy ko'paytuvchi bor?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>
+      \(2(6x + 9) = 12x + 18\) va \(6(2x + 3) = 12x + 18\) — ikkala tenglik ham to'g'ri. Lekin Sardorning qavsida \(6x + 9\) ning hadlari hali ham 3 ga bo'linadi. Lolaning qavsidagi \(2x + 3\) da umumiy ko'paytuvchi qolmagan.</details>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">4-topshiriq · tez hisob</span>
+    <p>Kalkulyatorsiz hisoblang: \(47 \cdot 36 + 47 \cdot 64\). Ikkala ko'paytmada qaysi son takrorlanmoqda?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>
+      47 ikkala ko'paytmada bor: \(47 \cdot 36 + 47 \cdot 64 = 47 \cdot (36 + 64) = 47 \cdot 100 = 4\,700\).</details>
+  </div>
+  </div>
+</section>
+
+<!-- ============ 3-QISM: TUSHUNAMIZ ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Tushunamiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box qoida">
+    <span class="tag">Ta'rif · ko'paytuvchilarga ajratish</span>
+    <p>Algebraik ifodani ko'paytuvchilarining ko'paytmasi ko'rinishida yozish jarayoni <b>ko'paytuvchilarga ajratish</b> deyiladi.</p>
+    <p>Ko'paytuvchilarga ajratish qavslarni ochishga <b>teskari amaldir</b>.</p>
+  </div>
+  <div data-ajrat44='{"tur":"teskari","chap":"3(x + 2y)","ong":"3x + 6y"}' data-izoh="3(x + 2y) qavslar ochilsa 3x + 6y; 3x + 6y ko'paytuvchilarga ajratilsa 3(x + 2y)"></div>
+  <p>Bu yerda \(3x + 6y\) ifodaning ko'paytuvchilari: 3 va \((x + 2y)\).</p>
+
+  <div class="box qoida">
+    <span class="tag">Usul · umumiy ko'paytuvchini qavsdan chiqarish</span>
+    <div class="qadam"><b>1</b><span>Hadlarning umumiy ko'paytuvchisini aniqlaymiz: soni — koeffitsiyentlarning EKUBi, harflari — har bir hadda bor harflar.</span></div>
+    <div class="qadam"><b>2</b><span>Har bir hadni umumiy ko'paytuvchi va qolgan ko'paytuvchilarning ko'paytmasi ko'rinishida yozamiz.</span></div>
+    <div class="qadam"><b>3</b><span>Umumiy ko'paytuvchini qavs tashqarisiga chiqaramiz.</span></div>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-misol · faqat son umumiy</span>
+    <p>\(18a + 24b\). EKUB\((18;\ 24) = 6\), harflar har xil.</p>
+    <p>\(18a + 24b = 6(3a) + 6(4b) = \nat{6(3a + 4b)}\).</p>
+    <div data-ajrat44='{"tur":"maydon","k":"6","q":[["3a","18a"],["4b","24b"]],"eni":380}' data-izoh="Maydon modeli: bo'yi 6, enlari 3a va 4b, yuzlari 18a va 24b"></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-misol · son va harf umumiy</span>
+    <p>\(30mx - 42my\). Har bir hadni ko'paytuvchilarga yoyamiz — ikkalasida bor ko'paytuvchilar yashil:</p>
+    <div data-ajrat44='{"tur":"had","q":["30mx","−42my"]}' data-izoh="30mx = 2·3·m·5·x, 42my = 2·3·m·7·y; umumiy ko'paytuvchi 6m"></div>
+    <p>\(30mx - 42my = 6m(5x) - 6m(7y) = \nat{6m(5x - 7y)}\).</p>
+  </div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Qoida · ajratish tugallandimi?</span>
+    <p>Hadlarning umumiy ko'paytuvchilari qolmasa, ko'paytuvchilarga ajratish tugallangan hisoblanadi.</p>
+    <p>Ifodani ko'paytuvchilarga ajratish uchun barcha umumiy ko'paytuvchilarni qavsdan tashqariga chiqarishimiz kerak.</p>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">3-misol · chala qolgan ajratish</span>
+    <p>\(20pk - 30pm = 10(2pk - 3pm)\) — hali tugamagan: qavs ichidagi ikkala hadda \(p\) bor.</p>
+    <p>\(p\) ni ham chiqaramiz: \(10(2pk - 3pm) = \nat{10p(2k - 3m)}\). Endi \(2k\) va \(3m\) da umumiy ko'paytuvchi yo'q.</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">4-misol · had butunlay chiqsa</span>
+    <p>\(6ky + 9kz + 3k = 3k(2y) + 3k(3z) + 3k(1) = \nat{3k(2y + 3z + 1)}\).</p>
+    <div data-ajrat44='{"tur":"maydon","k":"3k","q":[["2y","6ky"],["3z","9kz"],["1","3k",1.6]],"eni":380}' data-izoh="Maydon modeli: bo'yi 3k, enlari 2y, 3z va 1"></div>
+    <p>Uchinchi had \(3k\) butunlay chiqdi — uning o'rnida qavsda 1 qoladi.</p>
+  </div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Eslatma · tekshirish</span>
+    <p>Ko'paytuvchilarga ajratish to'g'riligini tekshirish uchun qavslarni ochish va soddalashtirish orqali berilgan ifoda bilan taqqoslash mumkin.</p>
+    <p>Ko'paytuvchilarga ajratishning har bir bosqichidagi ifodalar o'zaro teng. Masalan, \(5x + 15\) va \(5(x + 3)\): \(x = 2\) da \(5 \cdot 2 + 15 = 25\) va \(5 \cdot (2 + 3) = 25\).</p>
+  </div>
+  <div class="gap ong"><img src="personaj/madina-tushuntiradi.webp" alt="Madina tushuntirmoqda" width="120" height="140"><div class="pufak">Qavsni ochganda berilgan ifoda chiqsa — ajratish to'g'ri. Qavs ichida yana umumiy ko'paytuvchi qolmasa — tugallangan.</div></div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · birinchi had manfiy bo'lsa</span>
+    <p>Umumiy ko'paytuvchini minus ishorasi bilan chiqaramiz. Shunda qavs ichidagi har bir hadning ishorasi almashadi.</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">5-misol · hamma had manfiy</span>
+    <p>\(-20 - 15xy - 10x = -5(4) - 5(3xy) - 5(2x)\)<br>\(= -[5(4) + 5(3xy) + 5(2x)] = \nat{-5(4 + 3xy + 2x)}\).</p>
+    <div data-ajrat44='{"tur":"had","q":["−20","−15xy","−10x"],"minus":1}' data-izoh="20 = 5·2·2, 15xy = 5·3·x·y, 10x = 5·2·x; umumiy ko'paytuvchi −5"></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">6-misol · ishoralar aralash</span>
+    <p>\(-8a + 12b\). Minus bilan chiqaramiz: \(-8a + 12b = -4(2a) - 4(-3b) = \nat{-4(2a - 3b)}\).</p>
+    <p>Tekshiramiz: \(-4 \cdot 2a = -8a\), \(-4 \cdot (-3b) = +12b\) ✓. (Minussiz ham to'g'ri: \(4(-2a + 3b)\).)</p>
+  </div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · umumiy ko'paytuvchi — qavs</span>
+    <p>Ikkala hadda bir xil qavs bo'lsa, shu qavsning o'zi umumiy ko'paytuvchi: uni butunligicha chiqaramiz.</p>
+  </div>
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">7-misol · qavs chiqadi</span>
+    <p>\(7k(2a + b) - 3m(2a + b) = \nat{(2a + b)(7k - 3m)}\).</p>
+    <p>\(11y(p - q) - 4y(p - q) = (p - q)(11y - 4y) = (p - q)(7y) = \nat{7y(p - q)}\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">8-misol · sonlar bilan</span>
+    <p>Taqsimot qonuni hisobni ham osonlashtiradi: 73 ikkala ko'paytmada bor.</p>
+    <p>\(73 \cdot 58 + 73 \cdot 42 = 73 \cdot (58 + 42) = 73 \cdot 100 = \nat{7\,300}\).</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ 4-QISM: QO'LLAYMIZ ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Qo'llaymiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">1-misol · darajali hadlar</span>
+    <p>Ko'paytuvchilarga ajrating: \(12a^2b - 18ab^2\).</p>
+    <div data-ajrat44='{"tur":"had","q":["12a^2b","−18ab^2"]}' data-izoh="12a²b = 2·2·3·a·a·b, 18ab² = 2·3·3·a·b·b; umumiy ko'paytuvchi 6ab"></div>
+    <div class="qadam"><b>1</b><span>EKUB\((12;\ 18) = 6\). Harflar: \(a\) ham, \(b\) ham ikkala hadda bor — har biridan bittadan olamiz. Umumiy ko'paytuvchi — \(6ab\).</span></div>
+    <div class="qadam"><b>2</b><span>\(12a^2b = 6ab \cdot 2a\), &nbsp; \(18ab^2 = 6ab \cdot 3b\).</span></div>
+    <div class="qadam"><b>3</b><span>\(12a^2b - 18ab^2 = \nat{6ab(2a - 3b)}\).</span></div>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">2-misol · qavslar qarama-qarshi</span>
+    <p>\(5x(3m - n) - 2y(n - 3m)\).</p>
+    <div class="qadam"><b>1</b><span>\(n - 3m = -(3m - n)\), shuning uchun \(-2y(n - 3m) = +2y(3m - n)\).</span></div>
+    <div class="qadam"><b>2</b><span>\(5x(3m - n) + 2y(3m - n) = \nat{(3m - n)(5x + 2y)}\).</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">3-misol · avval soddalashtiramiz</span>
+    <p>\(3(4x - 5) - 2(3x - 9)\).</p>
+    <div class="qadam"><b>1</b><span>Qavslarni ochamiz: \(12x - 15 - 6x + 18\).</span></div>
+    <div class="qadam"><b>2</b><span>O'xshash hadlarni ixchamlaymiz: \(6x + 3\).</span></div>
+    <div class="qadam"><b>3</b><span>Ajratamiz: \(6x + 3 = \nat{3(2x + 1)}\).</span></div>
+  </div>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">4-misol · juftlab ajratamiz</span>
+    <p>\((3ab + 12a) - (8 + 2b)\).</p>
+    <div class="qadam"><b>1</b><span>Har bir qavsni alohida ajratamiz: \(3ab + 12a = 3a(b + 4)\), &nbsp; \(8 + 2b = 2(4 + b) = 2(b + 4)\).</span></div>
+    <div class="qadam"><b>2</b><span>Endi \(3a(b + 4) - 2(b + 4)\) — umumiy ko'paytuvchi \((b + 4)\).</span></div>
+    <div class="qadam"><b>3</b><span>\(= \nat{(b + 4)(3a - 2)}\).</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">5-misol · kalkulyatorsiz</span>
+    <p>a) \(0{,}64 \cdot 37 + 37 \cdot 0{,}36 = 37 \cdot (0{,}64 + 0{,}36) = 37 \cdot 1 = \nat{37}\).</p>
+    <p>b) \(58 \cdot (-27) - 58 \cdot 73 = 58 \cdot (-27 - 73) = 58 \cdot (-100) = \nat{-5\,800}\).</p>
+  </div>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">6-misol · noma'lum tomon</span>
+    <p>To'g'ri to'rtburchakning yuzi \(6pq + 9p\), bo'yi \(3p\). Enini toping.</p>
+    <div data-ajrat44='{"tur":"maydon","k":"3p","q":[["2q","6pq"],["3","9p"]],"yoz":{"q":"?"},"formula":0,"eni":360}' data-izoh="Yuzi 6pq + 9p, bo'yi 3p bo'lgan to'g'ri to'rtburchak, eni noma'lum"></div>
+    <p>\(6pq + 9p = 3p(2q + 3)\). Yuz = bo'yi × eni, demak eni \(\nat{2q + 3}\).</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">7-misol · plitkalarni teng guruhlarga</span>
+    <p>\(8x + 12\) ta plitkani bir nechta teng guruhga ajratish kerak. EKUB\((8;\ 12) = 4\), demak ko'pi bilan 4 ta guruh:</p>
+    <div data-ajrat44='{"tur":"guruh","x":8,"bir":12,"k":4}' data-izoh="8x + 12 plitka 4 ta teng guruhda: har birida 2x + 3"></div>
+    <p>2 ta guruh ham bo'ladi: \(8x + 12 = 2(4x + 6)\) — lekin bu ajratish tugallanmagan.</p>
+  </div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">8-misol · bo'linishni isbotlash</span>
+    <p>\(n\) — natural son. \(6n + 6n^2\) har doim 12 ga bo'linishini ko'rsating.</p>
+    <div class="qadam"><b>1</b><span>\(6n + 6n^2 = 6n(1 + n) = 6 \cdot n(n + 1)\).</span></div>
+    <div class="qadam"><b>2</b><span>\(n\) va \(n + 1\) — ketma-ket ikki son, ulardan biri albatta juft. Demak \(n(n + 1)\) juft: \(n(n + 1) = 2t\).</span></div>
+    <div class="qadam"><b>3</b><span>\(6 \cdot 2t = 12t\) — 12 ga bo'linadi. Tekshiruv: \(n = 3\) da \(18 + 54 = 72 = 12 \cdot 6\) ✓.</span></div>
+  </div>
+
+  <div class="gap"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Had butunlay chiqib ketsa, qavsda 1 qoladi — uni tashlab ketish oson. Men shu joyda ko'p adashardim!</div></div>
+  <div class="box diqqat">
+    <span class="tag">Diqqat!</span>
+    <ol>
+      <li><span class="xato">\(16pq - 24pr = 4(4pq - 6pr)\)</span> &nbsp; <span class="togri">qavsda hali \(2p\) bor: \(8p(2q - 3r)\)</span></li>
+      <li><span class="xato">\(6ky + 9kz + 3k = 3k(2y + 3z)\)</span> &nbsp; <span class="togri">\(3k(2y + 3z + 1)\)</span></li>
+      <li><span class="xato">\(-6x - 9 = -3(2x - 3)\)</span> &nbsp; <span class="togri">\(-3(2x + 3)\): \(-3 \cdot 3 = -9\)</span></li>
+      <li><span class="xato">\(4x + 6xy + 2y = 2x(2 + 3y + y)\)</span> &nbsp; <span class="togri">\(2y\) da \(x\) yo'q: \(2(2x + 3xy + y)\)</span></li>
+      <li><span class="xato">\(2m(x + y) + (x + y) = 2m(x + y)\)</span> &nbsp; <span class="togri">ikkinchi hadda 1 qoladi: \((x + y)(2m + 1)\)</span></li>
+    </ol>
+  </div>
+
+  <h3>Mashqlar</h3>
+  <ol class="masalalar">
+    <li>Ko'paytuvchilarga ajrating.<br>a)&nbsp;\(4m + 10n\) &nbsp;&nbsp; b)&nbsp;\(9p - 12q\) &nbsp;&nbsp; c)&nbsp;\(15k + 35\) &nbsp;&nbsp; d)&nbsp;\(12 + 12t\) &nbsp;&nbsp; e)&nbsp;\(22 - 11c\)</li>
+    <li>Ko'paytuvchilarga ajrating.<br>a)&nbsp;\(27kx - 18ky\) &nbsp;&nbsp; b)&nbsp;\(-12cm - 4c\) &nbsp;&nbsp; c)&nbsp;\(10ab + 5bt\)<br>d)&nbsp;\(7x - 63xy\) &nbsp;&nbsp; e)&nbsp;\(-8pt - 20pq\) &nbsp;&nbsp; f)&nbsp;\(36mn + 12n\)</li>
+    <li>Ko'paytuvchilarga ajrating.<br>a)&nbsp;\(6x - 10y + 4\) &nbsp;&nbsp; b)&nbsp;\(3ab - 12ac + 3a\) &nbsp;&nbsp; c)&nbsp;\(-15 - 25t - 5mt\) &nbsp;&nbsp; d)&nbsp;\(12mk - 20nk + 28k\)</li>
+    <li>Xatoni toping va tuzating.<br>a)&nbsp;Bekzod: \(18pq - 27pr = 3(6pq - 9pr)\)<br>b)&nbsp;Malika: \(10xy - 15xz + 5x = 5x(2y - 3z)\)<br>c)&nbsp;Doston: \(-9a - 12b = -3(3a - 4b)\)</li>
+    <li>Ko'paytuvchilarga ajrating.<br>a)&nbsp;\(3x(2a + 5) - 4y(2a + 5)\) &nbsp;&nbsp; b)&nbsp;\(k(3p - 2) + (3p - 2)\)<br>c)&nbsp;\(5b(m - n) + 13b(m - n)\) &nbsp;&nbsp; d)&nbsp;\(8a(c - d) - 12b(c - d)\)</li>
+    <li>Ko'paytuvchilarga to'liq ajrating.<br>a)&nbsp;\(x^2 + 7x\) &nbsp;&nbsp; b)&nbsp;\(8a^2b + 12ab\) &nbsp;&nbsp; c)&nbsp;\(15m^2n - 10mn^2\)<br>d)&nbsp;\(p^3 + 4p^2q - p^2\) &nbsp;&nbsp; e)&nbsp;\(-x^2y^3 - x^3y^2\)</li>
+    <li>Kalkulyatorsiz hisoblang.<br>a)&nbsp;\(56 \cdot 23 + 56 \cdot 77\) &nbsp;&nbsp; b)&nbsp;\(4{,}7 \cdot 0{,}38 + 0{,}62 \cdot 4{,}7\) &nbsp;&nbsp; c)&nbsp;\(135 \cdot 41 - 35 \cdot 41\)<br>d)&nbsp;\(-6{,}2 \cdot 19 - 19 \cdot 3{,}8\) &nbsp;&nbsp; e)&nbsp;\(77 \cdot (-48) + 77 \cdot 148\)</li>
+    <li>Avval ko'paytuvchilarga ajrating, keyin qiymatini toping.<br>a)&nbsp;\(mk + mt\), bunda \(m = 13\), \(k = 62\), \(t = 38\)<br>b)&nbsp;\(6pk - 18pm\), bunda \(p = 4\), \(k = 35\), \(m = 9\)</li>
+    <li>Soddalashtiring va ko'paytuvchilarga ajrating.<br>a)&nbsp;\(5(3x + 2) - 3(x - 6)\) &nbsp;&nbsp; b)&nbsp;\(4(5a - b) - 2(-a + 3b)\)</li>
+    <li>Ko'paytuvchilarga ajrating (qavslarga diqqat!).<br>a)&nbsp;\(4a(2x - y) - 3b(y - 2x)\) &nbsp;&nbsp; b)&nbsp;\((m - 5n) - 3n(-m + 5n)\)</li>
+    <li>Juftlab ajrating.<br>a)&nbsp;\((5xy + 10x) + (3y + 6)\) &nbsp;&nbsp; b)&nbsp;\((4ab + 12a) - (7b + 21)\)</li>
+    <li>a) To'g'ri to'rtburchakning yuzi \(8mn + 20m\), bo'yi \(4m\). Enini toping.<br>b) To'g'ri to'rtburchakning yuzi \(7xy - 14x\). Uning tomonlari qanday bo'lishi mumkin? Ikki xil javob yozing.
+      <div data-ajrat44='{"tur":"maydon","k":"4m","q":[["?","8mn"],["?","20m"]],"yoz":{"q":"?"},"formula":0,"eni":340}' data-izoh="a) yuzi 8mn + 20m, bo'yi 4m; eni noma'lum"></div></li>
+    <li>\(15x + 10y + 25\) ta plitka bor (yashil — \(x\), binafsha — \(y\), sariq — 1). Ularni 1 tadan ko'p teng guruhlarga ajratishning barcha usullarini toping. Har guruhda nima bo'ladi?</li>
+    <li>Kitob do'koniga 28 quti daftar (har qutida \(a\) dona) va 42 quti ruchka (har qutida \(b\) dona) keldi. Qutilar ochilmasdan bir nechta maktabga teng bo'linadi: har bir maktabga daftar qutilari ham, ruchka qutilari ham bir xil sonda.<br>a) Jami buyumlar sonini ifoda bilan yozing.<br>b) Ko'pi bilan nechta maktabga bo'lish mumkin? Ifodani ko'paytuvchilarga ajratib yozing.</li>
+    <li>a) \(n^2 + 3n\) ni ko'paytuvchilarga ajrating.<br>b) \(n\) natural son bo'lganda \(n^2 + 3n\) har doim juft ekanini ko'rsating.<br>c) \(5k + 5k^2\) har doim 10 ga bo'linishini ko'rsating (\(k\) — natural son).</li>
+    <li>a) \((3ab + 9a) - (6b + 18)\) ni ko'paytuvchilarga to'liq ajrating.<br>b) \(a\) ning qanday qiymatida ifoda \(b\) ning har qanday qiymatida 0 ga teng bo'ladi?<br>c) \(a = 5\), \(b = 7\) bo'lsa, ifodaning qiymatini toping.</li>
+    <li>A to'g'ri to'rtburchakning tomonlari \(5x\) va \(2y + 3\), B to'g'ri to'rtburchakniki — \(3x\) va \(4y + 1\) (\(x\) va \(y\) musbat).<br>a) B ning yuzidan A ning yuzini ayiring va natijani ko'paytuvchilarga ajrating.<br>b) \(y\) ning qanday qiymatida yuzlar teng? \(y = 10\) bo'lsa, qaysi yuz katta?</li>
+    <li>Qaysi ifodalarni \((m - 2n)\) ga ko'paytma qilib yozsa bo'ladi?<br>a)&nbsp;\(3m - 6n\) &nbsp;&nbsp; b)&nbsp;\(2m - n\) &nbsp;&nbsp; c)&nbsp;\(am - 2an\) &nbsp;&nbsp; d)&nbsp;\(-5m + 10n\) &nbsp;&nbsp; e)&nbsp;\(m^2 - 2mn\)<br>Shunday ifodadan yana bittasini o'zingiz tuzing.</li>
+  </ol>
+</section>
+
+<!-- ============ 5-QISM: TEKSHIRAMIZ ============ -->
+<div class="m-qism" style="--qc: var(--q5)"><div class="q-n">5-qism</div><h2>Tekshiramiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Ko'paytuvchilarga ajrating: a)&nbsp;\(7a + 14b\) &nbsp;&nbsp; b)&nbsp;\(24x - 18\) &nbsp;&nbsp; c)&nbsp;\(9mn + 6m\)</li>
+    <li>Ko'paytuvchilarga ajrating: a)&nbsp;\(45pq - 30pr\) &nbsp;&nbsp; b)&nbsp;\(-12y - 20xy\) &nbsp;&nbsp; c)&nbsp;\(8ab - 4a + 12ac\)</li>
+    <li>Nodira \(14xz - 21yz = 7(2xz - 3yz)\) deb yozdi. Ajratish tugallanganmi? Kerak bo'lsa, tuzating.</li>
+    <li>Ko'paytuvchilarga ajrating: \(2t(5a - c) + 9t(5a - c)\).</li>
+    <li>Ko'paytuvchilarga to'liq ajrating: \(18m^2n + 27mn^2\).</li>
+    <li>Kalkulyatorsiz hisoblang: a)&nbsp;\(93 \cdot 64 + 93 \cdot 36\) &nbsp;&nbsp; b)&nbsp;\(2{,}5 \cdot 7{,}3 - 2{,}5 \cdot 3{,}3\)</li>
+    <li>Soddalashtiring va ko'paytuvchilarga ajrating: \(6(2x - 1) - 4(x - 3)\).</li>
+    <li>To'g'ri to'rtburchakning yuzi \(12ab + 30a\), bo'yi \(6a\). Enini toping.</li>
+    <li>Ko'paytuvchilarga ajrating: \(3a(m - 4) - 5b(4 - m)\).</li>
+    <li>Juftlab ajrating: \((6xy + 18x) + (5y + 15)\).</li>
+  </ol>
+
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men hadlarning umumiy ko'paytuvchisini (EKUB va umumiy harflar) topa olaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men umumiy ko'paytuvchini qavsdan chiqarib, ajratish tugallanganini va to'g'riligini tekshira olaman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men manfiy ishorani va qavsni umumiy ko'paytuvchi sifatida chiqara olaman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men ko'paytuvchilarga ajratish bilan hisobni osonlashtira va masala yecha olaman.</label></li>
+    </ul>
+  </div>
+</section>
+
+<h3 class="q-javob">Javoblar</h3>
+
+<section class="m-sec qism-ichi">
+  <h3>4-qism · Mashqlar</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(2(2m + 5n)\) &nbsp; b) \(3(3p - 4q)\) &nbsp; c) \(5(3k + 7)\) &nbsp; d) \(12(1 + t)\) &nbsp; e) \(11(2 - c)\).</details>
+  <details class="javob"><summary>2-masala</summary>a) \(9k(3x - 2y)\) &nbsp; b) \(-4c(3m + 1)\) &nbsp; c) \(5b(2a + t)\) &nbsp; d) \(7x(1 - 9y)\) &nbsp; e) \(-4p(2t + 5q)\) &nbsp; f) \(12n(3m + 1)\).</details>
+  <details class="javob"><summary>3-masala</summary>a) \(2(3x - 5y + 2)\) &nbsp; b) \(3a(b - 4c + 1)\) &nbsp; c) \(-5(3 + 5t + mt)\) &nbsp; d) \(4k(3m - 5n + 7)\).</details>
+  <details class="javob"><summary>4-masala</summary>a) Tugallanmagan: qavsda hali \(3p\) bor. To'g'risi: \(9p(2q - 3r)\).<br>b) \(5x\) chiqqanda uchinchi had o'rnida 1 qolishi kerak: \(5x(2y - 3z + 1)\).<br>c) Ishora xato: \(-3 \cdot (-4b) = +12b\). To'g'risi: \(-3(3a + 4b)\).</details>
+  <details class="javob"><summary>5-masala</summary>a) \((2a + 5)(3x - 4y)\) &nbsp; b) ikkinchi hadda 1 qoladi: \((3p - 2)(k + 1)\) &nbsp; c) \((m - n)(5b + 13b) = 18b(m - n)\) &nbsp; d) \((c - d)(8a - 12b) = 4(c - d)(2a - 3b)\).</details>
+  <details class="javob"><summary>6-masala</summary>a) \(x(x + 7)\) &nbsp; b) \(4ab(2a + 3)\) &nbsp; c) \(5mn(3m - 2n)\) &nbsp; d) \(p^2(p + 4q - 1)\) &nbsp; e) \(-x^2y^2(y + x)\).</details>
+  <details class="javob"><summary>7-masala</summary>a) \(56 \cdot 100 = 5\,600\) &nbsp; b) \(4{,}7 \cdot 1 = 4{,}7\) &nbsp; c) \(100 \cdot 41 = 4\,100\) &nbsp; d) \(19 \cdot (-10) = -190\) &nbsp; e) \(77 \cdot 100 = 7\,700\).</details>
+  <details class="javob"><summary>8-masala</summary>a) \(m(k + t) = 13 \cdot 100 = 1\,300\).<br>b) \(6p(k - 3m) = 24 \cdot (35 - 27) = 24 \cdot 8 = 192\).</details>
+  <details class="javob"><summary>9-masala</summary>a) \(15x + 10 - 3x + 18 = 12x + 28 = 4(3x + 7)\).<br>b) \(20a - 4b + 2a - 6b = 22a - 10b = 2(11a - 5b)\).</details>
+  <details class="javob"><summary>10-masala</summary>a) \(-3b(y - 2x) = +3b(2x - y)\): \((2x - y)(4a + 3b)\).<br>b) \(-3n(-m + 5n) = +3n(m - 5n)\): \((m - 5n) + 3n(m - 5n) = (m - 5n)(1 + 3n)\).</details>
+  <details class="javob"><summary>11-masala</summary>a) \(5x(y + 2) + 3(y + 2) = (y + 2)(5x + 3)\).<br>b) \(4a(b + 3) - 7(b + 3) = (b + 3)(4a - 7)\).</details>
+  <details class="javob"><summary>12-masala</summary>a) \(8mn + 20m = 4m(2n + 5)\) — eni \(2n + 5\).<br>b) Masalan: \(7xy - 14x = 7x(y - 2)\) — tomonlari \(7x\) va \(y - 2\); yoki \(7xy - 14x = x(7y - 14)\) — tomonlari \(x\) va \(7y - 14\).</details>
+  <details class="javob"><summary>13-masala</summary>EKUB\((15;\ 10;\ 25) = 5\). 5 ning 1 dan katta bo'luvchisi faqat 5 — demak yagona usul: 5 ta guruh, har birida \(3x + 2y + 5\): \(15x + 10y + 25 = 5(3x + 2y + 5)\).</details>
+  <details class="javob"><summary>14-masala</summary>a) \(28a + 42b\).<br>b) EKUB\((28;\ 42) = 14\) — ko'pi bilan 14 ta maktab, har biriga 2 quti daftar va 3 quti ruchka: \(28a + 42b = 14(2a + 3b)\).</details>
+  <details class="javob"><summary>15-masala</summary>a) \(n(n + 3)\).<br>b) \(n\) juft bo'lsa, ko'paytma juft. \(n\) toq bo'lsa, \(n + 3\) juft (toq + toq = juft) — ko'paytma yana juft.<br>c) \(5k + 5k^2 = 5k(1 + k) = 5 \cdot k(k + 1)\); \(k(k + 1)\) juft, demak \(5 \cdot 2t = 10t\) — 10 ga bo'linadi.</details>
+  <details class="javob"><summary>16-masala</summary>a) \(3a(b + 3) - 6(b + 3) = (b + 3)(3a - 6) = 3(b + 3)(a - 2)\).<br>b) \(a - 2 = 0\), ya'ni \(a = 2\) bo'lsa, ifoda har doim 0.<br>c) \(3 \cdot (7 + 3) \cdot (5 - 2) = 3 \cdot 10 \cdot 3 = 90\).</details>
+  <details class="javob"><summary>17-masala</summary>a) \(S_B - S_A = 3x(4y + 1) - 5x(2y + 3) = 12xy + 3x - 10xy - 15x = 2xy - 12x = 2x(y - 6)\).<br>b) \(y = 6\) da ayirma 0 — yuzlar teng. \(y = 10\) da \(2x \cdot 4 = 8x \gt 0\) — B ning yuzi katta.</details>
+  <details class="javob"><summary>18-masala</summary>a) \(3(m - 2n)\) &nbsp; c) \(a(m - 2n)\) &nbsp; d) \(-5(m - 2n)\) &nbsp; e) \(m(m - 2n)\). b) bo'lmaydi: \(2m - n\) hadlarida umumiy ko'paytuvchi yo'q, u \(m - 2n\) ning o'zi ham emas. Masalan, yana: \(4y(m - 2n) = 4my - 8ny\).</details>
+
+  <h3>5-qism · Tekshiramiz</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(7(a + 2b)\) &nbsp; b) \(6(4x - 3)\) &nbsp; c) \(3m(3n + 2)\).</details>
+  <details class="javob"><summary>2-masala</summary>a) \(15p(3q - 2r)\) &nbsp; b) \(-4y(3 + 5x)\) &nbsp; c) \(4a(2b - 1 + 3c)\).</details>
+  <details class="javob"><summary>3-masala</summary>Tugallanmagan: qavsdagi ikkala hadda \(z\) bor. To'g'risi: \(7z(2x - 3y)\).</details>
+  <details class="javob"><summary>4-masala</summary>\((5a - c)(2t + 9t) = (5a - c)(11t) = 11t(5a - c)\).</details>
+  <details class="javob"><summary>5-masala</summary>\(9mn(2m + 3n)\).</details>
+  <details class="javob"><summary>6-masala</summary>a) \(93 \cdot 100 = 9\,300\) &nbsp; b) \(2{,}5 \cdot 4 = 10\).</details>
+  <details class="javob"><summary>7-masala</summary>\(12x - 6 - 4x + 12 = 8x + 6 = 2(4x + 3)\).</details>
+  <details class="javob"><summary>8-masala</summary>\(12ab + 30a = 6a(2b + 5)\) — eni \(2b + 5\).</details>
+  <details class="javob"><summary>9-masala</summary>\(-5b(4 - m) = +5b(m - 4)\): \((m - 4)(3a + 5b)\).</details>
+  <details class="javob"><summary>10-masala</summary>\(6x(y + 3) + 5(y + 3) = (y + 3)(6x + 5)\).</details>
+</section>
+
+<p class="m-foot">Mathlearn · 7-sinf matematika</p>
+</main>
+<script src="chizma.js?v=79"></script>
+<script src="maruza.js?v=20"></script>
+</body>
+</html>

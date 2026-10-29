@@ -13,7 +13,16 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 - **6-sinf:** 31/31 — TUGADI (2026-10-28). Hammasida 5 qismli ma'ruza, 20+20 test, mavzu va testlar PDF'i. Keyingi ish — foydalanuvchi aytadi (7-sinf rejasi yoki interaktiv darslar).
 - **Interaktiv darslar «kasblarda» uslubida:** 8-sinf «Modul kasblarda», 6-sinf 5-mavzu «Kasr bo'lish kasblarda» (kasb rasmlari GPT'dan kutilmoqda).
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
-- **Oxirgi yozuvdan beri tugagan mavzular:** 3 / 6 (29–31).
+- **7-sinf (Matematika 2026):** 1.1–4.4 tayyor (16/27; 1.2 dan boshlab 5E uslubida). Kitob: 1–4-boblar bor, 5–7-boblar yo'q. Navbat: 5-bob (kitob kutilmoqda; foydalanuvchi «5–7-boblarga o'tmay tur» dedi).
+- **Oxirgi yozuvdan beri tugagan mavzular:** 4 / 6 (4.1–4.4).
+
+---
+
+## 2026-10-29 — m.shukurillo hisobi
+**Qilindi:** 7-sinf 2–4-boblar kitobi ko'rib chiqildi, rejaga betlar yozildi. 2.1 «Manfiy son va sonlar o'qi», 2.2 «Butun sonlarni qo'shish va ayirish», 2.3 «Ko'paytirish, bo'lish va amallar», 2.4 «Ratsional, irratsional va haqiqiy sonlar», 2.5 «Haqiqiy sonlar ustida amallar», 3.1 «Xonasigacha yaxlitlash», 3.2 «Ahamiyatli raqamgacha yaxlitlash», 3.3 «Chamalash» — 5E ma'ruza + 20+20 test + PDF; 4 tadan parallel, har biri bitta yozuvchi + bitta mustaqil tekshiruvchi. Ko'p yangi chizmalar (data-manfiy, data-fishka, data-ozgarish, data-tugmaguruh, data-sakrash, data-kunharorat, data-ishora, data-toplam, data-davriy, data-haqiqiy, data-kalk25, data-ustun25, data-xonagacha, data-araqam, data-asbob, data-chamachek, data-guruhiy, data-andoza, data-kalk). Eslatma: test matnida formuladan tashqari oddiy «<» formulalarni buzadi — \\lt ishlatiladi.
+**Chala:** 2.1 va 2.3 da 1–3-qismlar 6,5–7,5 A4 varaq (foydalanuvchi qaror qilmadi). Kasb rasmlari, video kadr 4–9.
+**Keyin:** 4.1–4.4 «Algebraik ifodalar» ham tayyor (5E, 20+20, PDF; 4 yozuvchi + 4 tekshiruvchi parallel).
+**Navbatda:** foydalanuvchi aytadi (5–7-boblar hozircha kutadi).
 
 ---
 

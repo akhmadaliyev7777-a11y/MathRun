@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 170;
+const LESSON_VER = 173;
 
 function sec(title) {
   return { title: title, text: null };
@@ -237,7 +237,7 @@ const SITE_DATA = {
               lecture: { embedUrl: "maruza/7-ekub.html" }, interactive: "lessons/7-ekuk-ekub-harakatda.html#ekub", newSim: true, test: "test.html?sinf=7&fan=matematika-2026&mavzu=ekub"
             },
             {
-              id: "ekuk", icon: "img/mavzu/7-ekuk.webp", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "15-bet",
+              tema: 0, id: "ekuk", icon: "img/mavzu/7-ekuk.webp", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "15-bet",
               sections: [
                 secText("Eslang",
                   "<p>Sonning <strong>karralilari</strong> — uni butun songa ko'paytirishdan hosil bo'ladigan sonlar. Masalan, 4 ning karralilari: 4, 8, 12, 16, 20, 24, …</p>"
@@ -330,7 +330,7 @@ const SITE_DATA = {
                   "<p>Kunduzi harorat +3°, kechasi −8° bo'ldi. Harorat necha gradusga o'zgardi? Sonlar o'qida bu o'zgarishni ko'rsating.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: "lessons/6-matematika-musbat-manfiy-sonlar.html", test: null
+              lecture: { embedUrl: "maruza/7-manfiy-son-sonlar-oqi.html" }, interactive: "lessons/6-matematika-musbat-manfiy-sonlar.html", test: "test.html?sinf=7&fan=matematika-2026&mavzu=manfiy-son-sonlar-oqi"
             },
             {
               id: "butun-sonlar-qoshish-ayirish", icon: "img/mavzu/7-butun-sonlar-qoshish-ayirish.webp", title: "2.2 Butun sonlarni qo'shish va ayirish", page: "37-bet",
@@ -370,10 +370,10 @@ const SITE_DATA = {
                   "<p>Liftda odam 7-qavatdan 3 qavat pastga, keyin 8 qavat yuqoriga, so'ng 2 qavat pastga chiqdi. U nechanchi qavatda? Amalni butun sonlar qo'shindisi ko'rinishida yozing.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-butun-sonlar-qoshish-ayirish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=butun-sonlar-qoshish-ayirish"
             },
             {
-              id: "butun-sonlar-kopaytirish-bolish", icon: "img/mavzu/7-butun-sonlar-kopaytirish-bolish.webp", title: "2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar", page: "44-bet",
+              tema: 0, id: "butun-sonlar-kopaytirish-bolish", icon: "img/mavzu/7-butun-sonlar-kopaytirish-bolish.webp", title: "2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar", page: "44-bet",
               sections: [
                 secText("Ishoralar qoidasi",
                   "<div class='lecture-rule'><strong>Qoida:</strong> ishoralari <em>bir xil</em> ikki sonning ko'paytmasi (va bo'linmasi) — <strong>musbat</strong>; ishoralari <em>har xil</em> bo'lsa — <strong>manfiy</strong>.</div>" +
@@ -397,7 +397,7 @@ const SITE_DATA = {
                   "<p>(−1)<sup>2026</sup> + (−1)<sup>2027</sup> ifodaning qiymatini hisoblang. Umuman, (−1)<sup>n</sup> qiymati n ning qanday bo'lishiga bog'liq?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-butun-sonlar-kopaytirish-bolish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=butun-sonlar-kopaytirish-bolish"
             },
             {
               id: "ratsional-irratsional-haqiqiy-sonlar", icon: "img/mavzu/7-ratsional-irratsional-haqiqiy-sonlar.webp", title: "2.4 Ratsional, irratsional va haqiqiy sonlar", page: "51-bet",
@@ -433,7 +433,7 @@ const SITE_DATA = {
                   "<p>0,1010010001… (har safar birlar orasida nollar soni bittaga ortadi) — bu son ratsionalmi yoki irratsionalmi? Nega?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-ratsional-irratsional-haqiqiy-sonlar.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=ratsional-irratsional-haqiqiy-sonlar"
             },
             {
               id: "haqiqiy-sonlar-amallar", icon: "img/mavzu/7-haqiqiy-sonlar-amallar.webp", title: "2.5 Haqiqiy sonlar ustida amallar", page: "54-bet",
@@ -459,7 +459,7 @@ const SITE_DATA = {
                   "<p>√3 · √3 ratsionalmi? √2 + (−√2) ning qiymati qanday? Irratsional sonlar yig'indisi doim irratsional bo'ladimi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-haqiqiy-sonlar-amallar.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=haqiqiy-sonlar-amallar"
             },
             {
               id: "xonagacha-yaxlitlash", icon: "img/mavzu/7-xonagacha-yaxlitlash.webp", title: "3.1 Sonlarni belgilangan xonasigacha yaxlitlash", page: "66-bet",
@@ -488,7 +488,7 @@ const SITE_DATA = {
                   "<p>Bir sonni o'nlargacha yaxlitlaganda 750, yuzlargacha yaxlitlaganda 700 chiqdi. Bu son qanday oraliqda yotadi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-xonagacha-yaxlitlash.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=xonagacha-yaxlitlash"
             },
             {
               id: "ahamiyatli-raqamgacha-yaxlitlash", icon: "img/mavzu/7-ahamiyatli-raqamgacha-yaxlitlash.webp", title: "3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash", page: "72-bet",
@@ -510,7 +510,7 @@ const SITE_DATA = {
                   "<p>Yorug'lik tezligi 299 792 458 m/s. Uni: a) 1 ta; b) 2 ta; d) 3 ta ahamiyatli raqamgacha yaxlitlang.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-ahamiyatli-raqamgacha-yaxlitlash.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=ahamiyatli-raqamgacha-yaxlitlash"
             },
             {
               id: "chamalash", icon: "img/mavzu/7-chamalash.webp", title: "3.3 Chamalash", page: "78-bet",
@@ -532,7 +532,7 @@ const SITE_DATA = {
                   "<p>Bir maktabda 28 sinf, har birida o'rtacha 26 o'quvchi. Maktabda taxminan nechta o'quvchi bor? Aniq son 728 dan qanchalik farq qiladi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-chamalash.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=chamalash"
             },
             {
               id: "algebraga-kirish", icon: "img/mavzu/7-algebraga-kirish.webp", title: "4.1 Algebraga kirish", page: "90-bet",
@@ -557,7 +557,7 @@ const SITE_DATA = {
                   "<p>«Bir sonning uch baravaridan 4 ni ayirsak, 20 chiqadi» jumlasini algebraik ifoda (tenglama) shaklida yozing. O'zgaruvchini o'zingiz tanlang.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-algebraga-kirish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=algebraga-kirish"
             },
             {
               id: "chiziqli-ifodalarni-soddalashtirish", icon: "img/mavzu/7-chiziqli-ifodalarni-soddalashtirish.webp", title: "4.2 Chiziqli ifodalarni soddalashtirish", page: "100-bet",
@@ -581,10 +581,10 @@ const SITE_DATA = {
                   "<p>a(x + 1) + b(x − 1) ifodani soddalashtiring. Natija faqat ozod haddan iborat bo'lishi uchun a va b qanday bog'liq bo'lishi kerak?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-chiziqli-ifodalarni-soddalashtirish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=chiziqli-ifodalarni-soddalashtirish"
             },
             {
-              id: "qavslarni-ochish", icon: "img/mavzu/7-qavslarni-ochish.webp", title: "4.3 Chiziqli ifodalarda qavslarni ochish", page: "106-bet",
+              tema: 0, id: "qavslarni-ochish", icon: "img/mavzu/7-qavslarni-ochish.webp", title: "4.3 Chiziqli ifodalarda qavslarni ochish", page: "106-bet",
               sections: [
                 secText("Qavs oldida «+» bo'lsa",
                   "<div class='lecture-rule'><strong>Qoida:</strong> qavs oldida «+» ishorasi (yoki hech narsa) tursa, qavs shundoqqina olib tashlanadi, hadlar ishorasi o'zgarmaydi.</div>" +
@@ -605,10 +605,10 @@ const SITE_DATA = {
                   "<p>−(−(−(x − 1))) ifodani soddalashtiring. Nechta minus bo'lganda ifoda x − 1 ga, nechtasida 1 − x ga teng bo'ladi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-qavslarni-ochish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=qavslarni-ochish"
             },
             {
-              id: "kopaytuvchilarga-ajratish", icon: "img/mavzu/7-kopaytuvchilarga-ajratish.webp", title: "4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish", page: "114-bet",
+              tema: 3, id: "kopaytuvchilarga-ajratish", icon: "img/mavzu/7-kopaytuvchilarga-ajratish.webp", title: "4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish", page: "114-bet",
               sections: [
                 secText("Ko'paytuvchilarga ajratish nima?",
                   "<p><strong>Ko'paytuvchilarga ajratish</strong> — ko'phadni bir nechta ifodaning ko'paytmasi ko'rinishida yozish. Bu qavs ochishga teskari amal.</p>"
@@ -629,7 +629,7 @@ const SITE_DATA = {
                   "<p>Interaktiv ko'rgazmadan foydalanib, 2x<sup>2</sup> + 4x + 2 ifodani to'liq ko'paytuvchilarga ajrating (avval umumiy ko'paytuvchi, keyin formulani qo'llang).</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: "lessons/7-algebra-kopaytuvchilarga-ajratish.html", test: null
+              lecture: { embedUrl: "maruza/7-kopaytuvchilarga-ajratish.html" }, interactive: "lessons/7-algebra-kopaytuvchilarga-ajratish.html", test: "test.html?sinf=7&fan=matematika-2026&mavzu=kopaytuvchilarga-ajratish"
             },
             {
               id: "sodda-chiziqli-tenglamalar", icon: "img/mavzu/7-sodda-chiziqli-tenglamalar.webp", title: "5.1 Sodda chiziqli tenglamalar", page: "124-bet",

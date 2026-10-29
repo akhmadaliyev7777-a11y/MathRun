@@ -4,9 +4,23 @@
 window.KUNLIK = [
   {
     sana: "2026-10-29",
-    qisqa: "8-sinf algebra boshlandi: darslik mundarijasi bo'yicha 31 ta mavzu saytga qo'yildi.",
+    qisqa: "7-sinf 2-bob «Haqiqiy sonlar» 3-bob «Yaxlitlash va chamalash» va 4-bob «Algebraik ifodalar» tugadi: 2.1–4.4 (12 ta mavzu) — 5E uslubida ma'ruza, 20+20 test, PDF. 8-sinf algebra: 31 ta mavzu saytga qo'yildi.",
     ishlar: [
-      ["8-sinf", "Algebra: darslik mundarijasi bo'yicha 31 ta mavzu (4 bob — algebraik kasrlar, tengsizliklar, kvadrat tenglamalar, ma'lumotlar tahlili) betlari bilan saytga qo'yildi; eski 5 ta umumiy nom olib tashlandi; tayyor «Sonning moduli» — 17-mavzu. Reja tuzildi."],
+      ["7-sinf", "2–4-boblar darsligi va mashq daftari ko'rib chiqildi, rejaga betlari yozildi."],
+      ["7-sinf", "2.1 «Manfiy son tushunchasi va sonlar o'qi» — 5E uslubida ma'ruza (ko'cha termometri, dengiz sathi: tog', samolyot, g'avvos, suv osti kemasi; sonlar o'qi, lift), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "2.2 «Butun sonlarni qo'shish va ayirish» — 5E uslubida ma'ruza (+1/−1 fishkalar va nol juftliklar, sonlar o'qida sakrash, vaqt mintaqalari, termometr, dengiz), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "2.3 «Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar» — 5E uslubida ma'ruza (tugmalar guruhlari, bir xil sakrashlar, kunlik termometrlar, ishoralar jadvali), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "2.4 «Ratsional, irratsional va haqiqiy sonlar» — 5E uslubida ma'ruza (sonlar to'plamlari ichma-ich, bo'lishda qoldiqlar zanjiri — davriy kasr, sonlar o'qida √2 va π), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "2.5 «Haqiqiy sonlar ustida amallar» — 5E uslubida ma'ruza (haqiqiy kalkulyator rasmi, o'nli kasrlarni ustunda qo'shish/ayirish/ko'paytirish), 20+20 test (6 ta chizmali), PDF. 7-sinf 2-bobi tugadi."],
+      ["7-sinf", "3.1 «Sonlarni belgilangan xonasigacha yaxlitlash» — 5E uslubida ma'ruza (sonlar o'qida yaqin tomon, do'nglik, xonalar jadvali, tarozi, narx yorlig'i, chizg'ich), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "3.2 «Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash» — 5E uslubida ma'ruza (raqamlar kataklarda, stadion tablosi, Yer–Oy–Quyosh masofalari, o'lchov asboblari), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "3.3 «Chamalash» — 5E uslubida ma'ruza (xarid savatchasi, guruhiy qiymat, andoza bilan balandlik, kalkulyator javobini tekshirish), 20+20 test (6 ta chizmali), PDF. 7-sinf 3-bobi tugadi."],
+      ["7-sinf", "4.1 «Algebraga kirish» — 5E uslubida ma'ruza (qutilar va xaltalar, gugurt cho'plaridan shakllar, o'rniga qo'yish, gulzor), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "4.2 «Chiziqli ifodalarni soddalashtirish» — 5E uslubida ma'ruza (o'xshash hadlar rangli plitkalar bilan), 20+20 test, PDF."],
+      ["7-sinf", "4.3 «Chiziqli ifodalarda qavslarni ochish» — 5E uslubida ma'ruza (to'g'ri to'rtburchak yuzini bo'laklash, bir xil to'plamlar), 20+20 test, PDF."],
+      ["7-sinf", "4.4 «Algebraik ifodalarni ko'paytuvchilarga ajratish» — 5E uslubida ma'ruza (umumiy ko'paytuvchini qavsdan chiqarish, EKUB bilan), 20+20 test, PDF. 7-sinf 4-bobi tugadi."],
+      ["Sayt", "Ketma-ket mavzular bir xil rangda chiqmasligi uchun 7-sinf 1.3, 2.3, 4.3, 4.4 ning rang to'plami almashtirildi (ma'ruza va kartochkada bir xil)."],
+      ["8-sinf", "Algebra: darslik mundarijasi bo'yicha 31 ta mavzu (4 bob — algebraik kasrlar, tengsizliklar, kvadrat tenglamalar, ma'lumotlar tahlili) betlari bilan saytga qo'yildi; eski 5 ta umumiy nom olib tashlandi; tayyor «Sonning moduli» — 17-mavzu. Reja tuzildi."],,
       ["Admin", "8-sinf algebra mavzulari admin panelda boblar bo'yicha ko'rinadi."]
     ]
   },

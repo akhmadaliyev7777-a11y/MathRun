@@ -1133,6 +1133,114 @@
   "hajm": 302231,
   "v": "734dc191"
  },
+ "7-ahamiyatli-raqamgacha-yaxlitlash": {
+  "fayl": "7-sinf Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash.pdf",
+  "sahifa": 16,
+  "hajm": 978162,
+  "v": "3a9c7a85"
+ },
+ "7-ahamiyatli-raqamgacha-yaxlitlash-1-test": {
+  "fayl": "7-sinf Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash 1-test.pdf",
+  "sahifa": 4,
+  "hajm": 367933,
+  "v": "fb0e8f23"
+ },
+ "7-ahamiyatli-raqamgacha-yaxlitlash-2-test": {
+  "fayl": "7-sinf Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash 2-test.pdf",
+  "sahifa": 4,
+  "hajm": 233280,
+  "v": "63c7a957"
+ },
+ "7-algebraga-kirish": {
+  "fayl": "7-sinf Algebraga kirish.pdf",
+  "sahifa": 17,
+  "hajm": 991050,
+  "v": "0ca3a1d0"
+ },
+ "7-algebraga-kirish-1-test": {
+  "fayl": "7-sinf Algebraga kirish 1-test.pdf",
+  "sahifa": 4,
+  "hajm": 343443,
+  "v": "617ab0b3"
+ },
+ "7-algebraga-kirish-2-test": {
+  "fayl": "7-sinf Algebraga kirish 2-test.pdf",
+  "sahifa": 5,
+  "hajm": 312818,
+  "v": "956527a7"
+ },
+ "7-butun-sonlar-kopaytirish-bolish": {
+  "fayl": "7-sinf Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar.pdf",
+  "sahifa": 19,
+  "hajm": 1080940,
+  "v": "ead7faa8"
+ },
+ "7-butun-sonlar-kopaytirish-bolish-1-test": {
+  "fayl": "7-sinf Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar 1-test.pdf",
+  "sahifa": 4,
+  "hajm": 302975,
+  "v": "48f1c07f"
+ },
+ "7-butun-sonlar-kopaytirish-bolish-2-test": {
+  "fayl": "7-sinf Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar 2-test.pdf",
+  "sahifa": 4,
+  "hajm": 321217,
+  "v": "a8786028"
+ },
+ "7-butun-sonlar-qoshish-ayirish": {
+  "fayl": "7-sinf Butun sonlarni qo'shish va ayirish.pdf",
+  "sahifa": 17,
+  "hajm": 1419014,
+  "v": "1fb0c131"
+ },
+ "7-butun-sonlar-qoshish-ayirish-1-test": {
+  "fayl": "7-sinf Butun sonlarni qo'shish va ayirish 1-test.pdf",
+  "sahifa": 4,
+  "hajm": 318027,
+  "v": "b6b82ec2"
+ },
+ "7-butun-sonlar-qoshish-ayirish-2-test": {
+  "fayl": "7-sinf Butun sonlarni qo'shish va ayirish 2-test.pdf",
+  "sahifa": 4,
+  "hajm": 377185,
+  "v": "b745759b"
+ },
+ "7-chamalash": {
+  "fayl": "7-sinf Chamalash.pdf",
+  "sahifa": 16,
+  "hajm": 936834,
+  "v": "5217857a"
+ },
+ "7-chamalash-1-test": {
+  "fayl": "7-sinf Chamalash 1-test.pdf",
+  "sahifa": 5,
+  "hajm": 356876,
+  "v": "4b52a793"
+ },
+ "7-chamalash-2-test": {
+  "fayl": "7-sinf Chamalash 2-test.pdf",
+  "sahifa": 5,
+  "hajm": 355526,
+  "v": "1d5b934a"
+ },
+ "7-chiziqli-ifodalarni-soddalashtirish": {
+  "fayl": "7-sinf Chiziqli ifodalarni soddalashtirish.pdf",
+  "sahifa": 16,
+  "hajm": 1299165,
+  "v": "30c001f0"
+ },
+ "7-chiziqli-ifodalarni-soddalashtirish-1-test": {
+  "fayl": "7-sinf Chiziqli ifodalarni soddalashtirish 1-test.pdf",
+  "sahifa": 4,
+  "hajm": 369878,
+  "v": "e78091df"
+ },
+ "7-chiziqli-ifodalarni-soddalashtirish-2-test": {
+  "fayl": "7-sinf Chiziqli ifodalarni soddalashtirish 2-test.pdf",
+  "sahifa": 5,
+  "hajm": 412860,
+  "v": "5b6e6f75"
+ },
  "7-ekub": {
   "fayl": "7-sinf Eng katta umumiy bo'luvchi (EKUB).pdf",
   "sahifa": 18,
@@ -1154,8 +1262,8 @@
  "7-ekuk": {
   "fayl": "7-sinf Eng kichik umumiy karrali (EKUK).pdf",
   "sahifa": 19,
-  "hajm": 996271,
-  "v": "240a7ece"
+  "hajm": 1005188,
+  "v": "408b75cb"
  },
  "7-ekuk-1-test": {
   "fayl": "7-sinf Eng kichik umumiy karrali (EKUK) 1-test.pdf",
@@ -1168,6 +1276,42 @@
   "sahifa": 4,
   "hajm": 280327,
   "v": "a5c8a51e"
+ },
+ "7-haqiqiy-sonlar-amallar": {
+  "fayl": "7-sinf Haqiqiy sonlar ustida amallar.pdf",
+  "sahifa": 16,
+  "hajm": 1149244,
+  "v": "43120bf8"
+ },
+ "7-haqiqiy-sonlar-amallar-1-test": {
+  "fayl": "7-sinf Haqiqiy sonlar ustida amallar 1-test.pdf",
+  "sahifa": 4,
+  "hajm": 388272,
+  "v": "0debfd04"
+ },
+ "7-haqiqiy-sonlar-amallar-2-test": {
+  "fayl": "7-sinf Haqiqiy sonlar ustida amallar 2-test.pdf",
+  "sahifa": 5,
+  "hajm": 414025,
+  "v": "e22c57cc"
+ },
+ "7-kopaytuvchilarga-ajratish": {
+  "fayl": "7-sinf Algebraik ifodalarni ko'paytuvchilarga ajratish.pdf",
+  "sahifa": 15,
+  "hajm": 1058920,
+  "v": "9195995f"
+ },
+ "7-kopaytuvchilarga-ajratish-1-test": {
+  "fayl": "7-sinf Algebraik ifodalarni ko'paytuvchilarga ajratish 1-test.pdf",
+  "sahifa": 4,
+  "hajm": 291898,
+  "v": "8d3fb4dc"
+ },
+ "7-kopaytuvchilarga-ajratish-2-test": {
+  "fayl": "7-sinf Algebraik ifodalarni ko'paytuvchilarga ajratish 2-test.pdf",
+  "sahifa": 4,
+  "hajm": 253306,
+  "v": "c6d06eaf"
  },
  "7-kvadrat-kub-ildiz": {
   "fayl": "7-sinf Sonning kvadrat ildizi va kub ildizi.pdf",
@@ -1187,6 +1331,60 @@
   "hajm": 279221,
   "v": "c545795b"
  },
+ "7-manfiy-son-sonlar-oqi": {
+  "fayl": "7-sinf Manfiy son tushunchasi va sonlar o'qi.pdf",
+  "sahifa": 20,
+  "hajm": 1100204,
+  "v": "1a06760b"
+ },
+ "7-manfiy-son-sonlar-oqi-1-test": {
+  "fayl": "7-sinf Manfiy son tushunchasi va sonlar o'qi 1-test.pdf",
+  "sahifa": 5,
+  "hajm": 314342,
+  "v": "ba361c54"
+ },
+ "7-manfiy-son-sonlar-oqi-2-test": {
+  "fayl": "7-sinf Manfiy son tushunchasi va sonlar o'qi 2-test.pdf",
+  "sahifa": 5,
+  "hajm": 339358,
+  "v": "13ae646c"
+ },
+ "7-qavslarni-ochish": {
+  "fayl": "7-sinf Chiziqli ifodalarda qavslarni ochish.pdf",
+  "sahifa": 16,
+  "hajm": 1168452,
+  "v": "e598e67a"
+ },
+ "7-qavslarni-ochish-1-test": {
+  "fayl": "7-sinf Chiziqli ifodalarda qavslarni ochish 1-test.pdf",
+  "sahifa": 4,
+  "hajm": 307746,
+  "v": "ddde8058"
+ },
+ "7-qavslarni-ochish-2-test": {
+  "fayl": "7-sinf Chiziqli ifodalarda qavslarni ochish 2-test.pdf",
+  "sahifa": 5,
+  "hajm": 333607,
+  "v": "af69ab77"
+ },
+ "7-ratsional-irratsional-haqiqiy-sonlar": {
+  "fayl": "7-sinf Ratsional, irratsional va haqiqiy sonlar.pdf",
+  "sahifa": 17,
+  "hajm": 936015,
+  "v": "a00a5152"
+ },
+ "7-ratsional-irratsional-haqiqiy-sonlar-1-test": {
+  "fayl": "7-sinf Ratsional, irratsional va haqiqiy sonlar 1-test.pdf",
+  "sahifa": 4,
+  "hajm": 312027,
+  "v": "8e261eac"
+ },
+ "7-ratsional-irratsional-haqiqiy-sonlar-2-test": {
+  "fayl": "7-sinf Ratsional, irratsional va haqiqiy sonlar 2-test.pdf",
+  "sahifa": 5,
+  "hajm": 351504,
+  "v": "4a070ee1"
+ },
  "7-tub-sonlar-daraja": {
   "fayl": "7-sinf Tub sonlar, tub ko'paytuvchilarga ajratish va daraja.pdf",
   "sahifa": 15,
@@ -1204,6 +1402,24 @@
   "sahifa": 4,
   "hajm": 229271,
   "v": "6be78b19"
+ },
+ "7-xonagacha-yaxlitlash": {
+  "fayl": "7-sinf Sonlarni belgilangan xonasigacha yaxlitlash.pdf",
+  "sahifa": 16,
+  "hajm": 943373,
+  "v": "3d2db986"
+ },
+ "7-xonagacha-yaxlitlash-1-test": {
+  "fayl": "7-sinf Sonlarni belgilangan xonasigacha yaxlitlash 1-test.pdf",
+  "sahifa": 4,
+  "hajm": 360482,
+  "v": "e034e487"
+ },
+ "7-xonagacha-yaxlitlash-2-test": {
+  "fayl": "7-sinf Sonlarni belgilangan xonasigacha yaxlitlash 2-test.pdf",
+  "sahifa": 4,
+  "hajm": 306362,
+  "v": "f335afd8"
  },
  "8-modul-tengsizliklar": {
   "fayl": "8-sinf Sonning moduli Modul qatnashgan tenglama va tengsizliklar.pdf",
