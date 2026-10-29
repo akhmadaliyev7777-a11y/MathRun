@@ -27,7 +27,7 @@ window.KUNLIK = [
       ["9-sinf", "Geometriya: darslik mundarijasi bo'yicha 35 ta mavzu (4 bob — o'xshashlik va geometrik almashtirishlar, sinuslar va kosinuslar teoremalari, aylana uzunligi va doira yuzi, proporsional kesmalar) betlari bilan saytga qo'yildi; «O'xshash uchburchaklar» — 2-mavzu; eski 4 ta umumiy nom olib tashlandi. Reja tuzildi."],
       ["10-sinf", "Algebra va analiz asoslari: darslik mundarijasi bo'yicha 29 ta mavzu (6 bob — elementar funksiyalar, ratsional va irratsional tenglamalar, ko'rsatkichli va logarifmik funksiyalar, trigonometrik funksiyalar va tenglamalar, ehtimollar) betlari bilan saytga qo'yildi; eski 4 ta umumiy nom olib tashlandi; avvalgi trigonometriya interaktiv darsi 23-mavzuga ulandi. Reja tuzildi."],
       ["10-sinf", "Geometriya: darslik mundarijasi bo'yicha 17 ta mavzu (4 bob — planimetriyani takrorlash, stereometriyaga kirish, fazoda parallellik, fazoda perpendikulyarlik) betlari bilan saytga qo'yildi; eski 3 ta umumiy nom olib tashlandi. Reja tuzildi."],
-      ["Sayt", "Sinf sahifalaridagi mavzu kartochkalari endi hammasi bir xil rangda (tepadagi chiziq va raqam — saytning asosiy rangi); ma'ruzalar ichi o'z rangida qoldi."]
+      ["Sayt", "Sinf sahifalaridagi mavzu kartochkalari endi hammasi bir xil: ramka hamma tomondan bir xil ingichka, tepada alohida rangli chiziq yo'q, raqam — saytning asosiy rangida; ma'ruzalar ichi o'z rangida qoldi."]
     ]
   },
   {

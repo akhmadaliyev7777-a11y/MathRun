@@ -2326,9 +2326,7 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
   .site-login-btn.is-user { padding: 0 1px; }
 }
 
-/* mavzu kartochkalari — hammasi bir xil rangda (foydalanuvchi qarori, 2026-10-29: har xil rang g'alati ko'rinadi). Ma'ruza sahifalari o'z rang to'plamida qoladi */
+/* mavzu kartochkalari — hammasi bir xil: ramka hamma tomondan bir xil ingichka, tepada alohida rangli chiziq yo'q (foydalanuvchi qarori, 2026-10-29). Ma'ruza sahifalari o'z rang to'plamida qoladi */
 .topic-card[data-tema] { --tc: var(--primary); --tc-l: color-mix(in srgb, var(--primary) 45%, transparent); }
-.topic-card[data-tema] { border-top: 3px solid var(--tc); }
 .topic-card[data-tema] .tc-num { color: var(--tc); }
-.topic-card[data-tema]:hover { border-color: var(--tc-l); border-top-color: var(--tc); }
 .topic-card[data-tema] .tc-main:hover .tc-title { color: var(--tc); }
