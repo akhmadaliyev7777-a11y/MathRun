@@ -20,6 +20,9 @@ const CHAPTERS = {
   ],
   "8|algebra": [
     [1, "Algebraik kasrlar va ular ustida amallar"], [11, "Tengsizliklar"], [22, "Kvadrat tenglamalar"], [28, "Ma'lumotlar tahlili"]
+  ],
+  "8|geometriya": [
+    [1, "To'rtburchaklar"], [9, "To'g'ri burchakli uchburchakning tomonlari va burchaklari"], [19, "Koordinatalar usuli. Vektorlar"], [27, "Yuz"], [32, "Aylana"]
   ]
 };
 let FOCUS_GRADE = "5";         // hozir ustida ishlanayotgan sinf («Bugungi ish» shu sinf bo'yicha) — computeFocusGrade() aniqlaydi
