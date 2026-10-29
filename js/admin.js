@@ -26,6 +26,9 @@ const CHAPTERS = {
   ],
   "9|algebra": [
     [1, "Kvadrat funksiya. Kvadrat tengsizliklar"], [13, "Tenglamalar va tengsizliklar sistemalari"], [17, "Trigonometriya elementlari"], [28, "Sonli ketma-ketliklar. Progressiyalar"], [34, "Ehtimollar va statistika elementlari"]
+  ],
+  "9|geometriya": [
+    [1, "Geometrik almashtirishlar va o'xshashlik"], [15, "Uchburchak tomonlari va burchaklari orasidagi munosabatlar"], [22, "Aylana uzunligi va doira yuzi"], [31, "Uchburchak va aylanadagi metrik munosabatlar"]
   ]
 };
 let FOCUS_GRADE = "5";         // hozir ustida ishlanayotgan sinf («Bugungi ish» shu sinf bo'yicha) — computeFocusGrade() aniqlaydi

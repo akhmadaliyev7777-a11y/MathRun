@@ -1,0 +1,317 @@
+{
+ "1": {
+  "id": "kopburchaklar-oxshashligi",
+  "nom": "Ko'pburchaklarning o'xshashligi",
+  "darslik": [
+   28,
+   29
+  ],
+  "kitob_mavzu": 6
+ },
+ "2": {
+  "id": "oxshash-uchburchaklar",
+  "nom": "O'xshash uchburchaklar va ularning xossalari",
+  "darslik": [
+   30,
+   31
+  ],
+  "kitob_mavzu": 7
+ },
+ "3": {
+  "id": "oxshashlik-birinchi-alomati",
+  "nom": "Uchburchaklar o'xshashligining birinchi alomati",
+  "darslik": [
+   32,
+   33
+  ],
+  "kitob_mavzu": 8
+ },
+ "4": {
+  "id": "oxshashlik-ikkinchi-alomati",
+  "nom": "Uchburchaklar o'xshashligining ikkinchi alomati",
+  "darslik": [
+   34,
+   35
+  ],
+  "kitob_mavzu": 9
+ },
+ "5": {
+  "id": "oxshashlik-uchinchi-alomati",
+  "nom": "Uchburchaklar o'xshashligining uchinchi alomati",
+  "darslik": [
+   36,
+   37
+  ],
+  "kitob_mavzu": 10
+ },
+ "6": {
+  "id": "togri-burchakli-oxshashlik",
+  "nom": "To'g'ri burchakli uchburchaklarning o'xshashlik alomatlari",
+  "darslik": [
+   38,
+   39
+  ],
+  "kitob_mavzu": 11
+ },
+ "7": {
+  "id": "oxshashlik-tatbiqlari",
+  "nom": "O'xshashlik alomatlarining isbotlashga doir masalalarga tatbiqlari",
+  "darslik": [
+   40,
+   41
+  ],
+  "kitob_mavzu": 12
+ },
+ "8": {
+  "id": "harakat-parallel-kochirish",
+  "nom": "Tekislikda geometrik almashtirishlar. Harakat va parallel ko'chirish",
+  "darslik": [
+   48,
+   49
+  ],
+  "kitob_mavzu": 15
+ },
+ "9": {
+  "id": "oqqa-nisbatan-simmetriya",
+  "nom": "O'qqa nisbatan simmetriya",
+  "darslik": [
+   50,
+   51
+  ],
+  "kitob_mavzu": 16
+ },
+ "10": {
+  "id": "markaziy-simmetriya-burish",
+  "nom": "Markaziy simmetriya va burish",
+  "darslik": [
+   52,
+   57
+  ],
+  "kitob_mavzu": 17
+ },
+ "11": {
+  "id": "shakllar-oxshashligi",
+  "nom": "Geometrik shakllarning o'xshashligi",
+  "darslik": [
+   58,
+   59
+  ],
+  "kitob_mavzu": 18
+ },
+ "12": {
+  "id": "oxshash-kopburchaklar-xossalari",
+  "nom": "O'xshash ko'pburchaklarning xossalari",
+  "darslik": [
+   60,
+   61
+  ],
+  "kitob_mavzu": 19
+ },
+ "13": {
+  "id": "gomotetiya",
+  "nom": "Gomotetiya va o'xshashlik",
+  "darslik": [
+   62,
+   63
+  ],
+  "kitob_mavzu": 20
+ },
+ "14": {
+  "id": "oxshash-kopburchaklarni-yasash",
+  "nom": "O'xshash ko'pburchaklarni yasash",
+  "darslik": [
+   64,
+   65
+  ],
+  "kitob_mavzu": 21
+ },
+ "15": {
+  "id": "sin-cos-0-180",
+  "nom": "0° dan 180° gacha bo'lgan burchakning sinusi, kosinusi, tangensi va kotangensi",
+  "darslik": [
+   76,
+   77
+  ],
+  "kitob_mavzu": 25
+ },
+ "16": {
+  "id": "uchburchak-yuzi-sinus",
+  "nom": "Uchburchak yuzini burchak sinusi yordamida hisoblash",
+  "darslik": [
+   82,
+   83
+  ],
+  "kitob_mavzu": 27
+ },
+ "17": {
+  "id": "sinuslar-teoremasi",
+  "nom": "Sinuslar teoremasi",
+  "darslik": [
+   84,
+   85
+  ],
+  "kitob_mavzu": 28
+ },
+ "18": {
+  "id": "kosinuslar-teoremasi",
+  "nom": "Kosinuslar teoremasi",
+  "darslik": [
+   86,
+   87
+  ],
+  "kitob_mavzu": 29
+ },
+ "19": {
+  "id": "teoremalar-tatbiqlari",
+  "nom": "Sinuslar va kosinuslar teoremalarining ba'zi tatbiqlari",
+  "darslik": [
+   88,
+   89
+  ],
+  "kitob_mavzu": 30
+ },
+ "20": {
+  "id": "skalar-kopaytma",
+  "nom": "Ikki vektor orasidagi burchak va ularning skalar ko'paytmasi",
+  "darslik": [
+   90,
+   93
+  ],
+  "kitob_mavzu": 31
+ },
+ "21": {
+  "id": "uchburchaklarni-yechish",
+  "nom": "Uchburchaklarni yechish",
+  "darslik": [
+   94,
+   95
+  ],
+  "kitob_mavzu": 32
+ },
+ "22": {
+  "id": "ichki-chizilgan-kopburchak",
+  "nom": "Aylanaga ichki chizilgan ko'pburchak",
+  "darslik": [
+   104,
+   105
+  ],
+  "kitob_mavzu": 36
+ },
+ "23": {
+  "id": "tashqi-chizilgan-kopburchak",
+  "nom": "Aylanaga tashqi chizilgan ko'pburchak",
+  "darslik": [
+   106,
+   107
+  ],
+  "kitob_mavzu": 37
+ },
+ "24": {
+  "id": "muntazam-kopburchaklar",
+  "nom": "Muntazam ko'pburchaklar",
+  "darslik": [
+   108,
+   109
+  ],
+  "kitob_mavzu": 38
+ },
+ "25": {
+  "id": "muntazam-aylanalar",
+  "nom": "Muntazam ko'pburchakka ichki va tashqi chizilgan aylanalar",
+  "darslik": [
+   110,
+   111
+  ],
+  "kitob_mavzu": 39
+ },
+ "26": {
+  "id": "tomon-va-radiuslar",
+  "nom": "Muntazam ko'pburchakning tomoni bilan tashqi va ichki chizilgan aylanalar radiuslari orasidagi bog'lanish",
+  "darslik": [
+   112,
+   113
+  ],
+  "kitob_mavzu": 40
+ },
+ "27": {
+  "id": "aylana-uzunligi",
+  "nom": "Aylana uzunligi",
+  "darslik": [
+   116,
+   117
+  ],
+  "kitob_mavzu": 42
+ },
+ "28": {
+  "id": "yoy-uzunligi-radian",
+  "nom": "Aylana yoyi uzunligi. Burchakning radian o'lchovi",
+  "darslik": [
+   118,
+   119
+  ],
+  "kitob_mavzu": 43
+ },
+ "29": {
+  "id": "doira-yuzi",
+  "nom": "Doira yuzi",
+  "darslik": [
+   120,
+   121
+  ],
+  "kitob_mavzu": 44
+ },
+ "30": {
+  "id": "doira-bolaklari-yuzi",
+  "nom": "Doira bo'laklari yuzi",
+  "darslik": [
+   122,
+   123
+  ],
+  "kitob_mavzu": 45
+ },
+ "31": {
+  "id": "kesmalar-proyeksiyasi",
+  "nom": "Kesmalar proyeksiyasi va proporsionallik",
+  "darslik": [
+   130,
+   131
+  ],
+  "kitob_mavzu": 48
+ },
+ "32": {
+  "id": "proporsional-kesmalar",
+  "nom": "Proporsional kesmalarning xossalari",
+  "darslik": [
+   132,
+   133
+  ],
+  "kitob_mavzu": 49
+ },
+ "33": {
+  "id": "togri-burchakli-proporsional",
+  "nom": "To'g'ri burchakli uchburchakdagi proporsional kesmalar",
+  "darslik": [
+   134,
+   135
+  ],
+  "kitob_mavzu": 50
+ },
+ "34": {
+  "id": "orta-proporsional-yasash",
+  "nom": "Berilgan ikkita kesmaga o'rta proporsional kesmani yasash",
+  "darslik": [
+   136,
+   137
+  ],
+  "kitob_mavzu": 51
+ },
+ "35": {
+  "id": "aylanadagi-proporsional",
+  "nom": "Aylanadagi proporsional kesmalar",
+  "darslik": [
+   138,
+   139
+  ],
+  "kitob_mavzu": 52
+ }
+}
