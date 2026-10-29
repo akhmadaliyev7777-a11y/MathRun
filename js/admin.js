@@ -29,6 +29,9 @@ const CHAPTERS = {
   ],
   "9|geometriya": [
     [1, "Geometrik almashtirishlar va o'xshashlik"], [15, "Uchburchak tomonlari va burchaklari orasidagi munosabatlar"], [22, "Aylana uzunligi va doira yuzi"], [31, "Uchburchak va aylanadagi metrik munosabatlar"]
+  ],
+  "10|algebra": [
+    [1, "Elementar funksiyalar"], [8, "Ratsional tenglamalar va tengsizliklar. Irratsional tenglamalar"], [14, "Ko'rsatkichli va logarifmik funksiyalar"], [23, "Trigonometrik funksiyalar"], [25, "Trigonometrik tenglamalar"], [28, "Ehtimollar nazariyasi"]
   ]
 };
 let FOCUS_GRADE = "5";         // hozir ustida ishlanayotgan sinf («Bugungi ish» shu sinf bo'yicha) — computeFocusGrade() aniqlaydi

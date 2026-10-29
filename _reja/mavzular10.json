@@ -1,0 +1,234 @@
+{
+ "1": {
+  "id": "funksiya-berilish-usullari",
+  "nom": "Funksiya. Funksiyaning berilish usullari",
+  "darslik": [
+   24,
+   27
+  ]
+ },
+ "2": {
+  "id": "aniqlanish-qiymatlar-sohasi",
+  "nom": "Funksiyaning aniqlanish sohasi va qiymatlar to'plami",
+  "darslik": [
+   28,
+   32
+  ]
+ },
+ "3": {
+  "id": "funksiyalar-ustida-amallar",
+  "nom": "Funksiyalar ustida arifmetik amallar",
+  "darslik": [
+   33,
+   35
+  ]
+ },
+ "4": {
+  "id": "murakkab-teskari-davriy",
+  "nom": "Murakkab, teskari, davriy funksiyalar",
+  "darslik": [
+   36,
+   42
+  ]
+ },
+ "5": {
+  "id": "funksiya-xossalari",
+  "nom": "Funksiya xossalari",
+  "darslik": [
+   43,
+   47
+  ]
+ },
+ "6": {
+  "id": "grafik-almashtirishlar",
+  "nom": "Funksiya grafiklari ustida sodda almashtirishlar",
+  "darslik": [
+   48,
+   56
+  ]
+ },
+ "7": {
+  "id": "chiziqli-kvadratik-modellashtirish",
+  "nom": "Chiziqli va kvadratik modellashtirishlar",
+  "darslik": [
+   57,
+   60
+  ]
+ },
+ "8": {
+  "id": "ratsional-tenglamalar",
+  "nom": "Ratsional tenglamalar",
+  "darslik": [
+   64,
+   74
+  ]
+ },
+ "9": {
+  "id": "ratsional-tenglamalar-sistemasi",
+  "nom": "Ratsional tenglamalar sistemasi",
+  "darslik": [
+   75,
+   78
+  ]
+ },
+ "10": {
+  "id": "ratsional-tengsizliklar",
+  "nom": "Ratsional tengsizliklar",
+  "darslik": [
+   79,
+   82
+  ]
+ },
+ "11": {
+  "id": "ratsional-tengsizliklar-sistemasi",
+  "nom": "Ratsional tengsizliklar sistemasi",
+  "darslik": [
+   83,
+   85
+  ]
+ },
+ "12": {
+  "id": "irratsional-tenglamalar",
+  "nom": "Irratsional tenglamalar",
+  "darslik": [
+   86,
+   99
+  ]
+ },
+ "13": {
+  "id": "irratsional-tenglamalar-sistemasi",
+  "nom": "Irratsional tenglamalar sistemasi",
+  "darslik": [
+   100,
+   107
+  ]
+ },
+ "14": {
+  "id": "korsatkichli-funksiya",
+  "nom": "Ko'rsatkichli funksiya va uning xossalari. Grafigi",
+  "darslik": [
+   108,
+   110
+  ]
+ },
+ "15": {
+  "id": "logarifmik-funksiya",
+  "nom": "Logarifm haqida tushuncha. Logarifmik funksiya va uning xossalari, grafigi",
+  "darslik": [
+   111,
+   112
+  ]
+ },
+ "16": {
+  "id": "logarifmik-ayniy-almashtirish",
+  "nom": "Logarifmik ifodalarni ayniy almashtirish",
+  "darslik": [
+   113,
+   117
+  ]
+ },
+ "17": {
+  "id": "korsatkichli-tenglamalar",
+  "nom": "Ko'rsatkichli tenglamalar",
+  "darslik": [
+   118,
+   120
+  ]
+ },
+ "18": {
+  "id": "logarifmik-tenglamalar",
+  "nom": "Sodda logarifmik tenglamalar",
+  "darslik": [
+   121,
+   123
+  ]
+ },
+ "19": {
+  "id": "kors-log-sistemalar",
+  "nom": "Ko'rsatkichli va logarifmik tenglamalar sistemasi",
+  "darslik": [
+   124,
+   127
+  ]
+ },
+ "20": {
+  "id": "korsatkichli-tengsizliklar",
+  "nom": "Ko'rsatkichli tengsizliklar",
+  "darslik": [
+   128,
+   130
+  ]
+ },
+ "21": {
+  "id": "logarifmik-tengsizliklar",
+  "nom": "Logarifmik tengsizliklar",
+  "darslik": [
+   131,
+   132
+  ]
+ },
+ "22": {
+  "id": "korsatkichli-modellashtirish",
+  "nom": "Ko'rsatkichli modellashtirish. Murakkab foiz formulasi va uning tatbiqlari. O'sish hodisalari. Radioaktiv yemirilish",
+  "darslik": [
+   133,
+   138
+  ]
+ },
+ "23": {
+  "id": "trigonometrik-funksiyalar",
+  "nom": "Trigonometrik funksiyalar va ularning xossalari, grafigi. Davriy jarayonlar",
+  "darslik": [
+   139,
+   143
+  ]
+ },
+ "24": {
+  "id": "teskari-trigonometrik",
+  "nom": "Teskari trigonometrik funksiyalar va ularning xossalari, grafigi",
+  "darslik": [
+   144,
+   149
+  ]
+ },
+ "25": {
+  "id": "trigonometrik-tenglamalar",
+  "nom": "Trigonometrik tenglamalar",
+  "darslik": [
+   153,
+   157
+  ]
+ },
+ "26": {
+  "id": "trig-tenglama-usullari",
+  "nom": "Ba'zi trigonometrik tenglamalarni yechish usullari",
+  "darslik": [
+   158,
+   160
+  ]
+ },
+ "27": {
+  "id": "trigonometrik-tengsizliklar",
+  "nom": "Trigonometrik tengsizliklar",
+  "darslik": [
+   161,
+   166
+  ]
+ },
+ "28": {
+  "id": "tasodifiy-hodisalar",
+  "nom": "Tasodifiy hodisalar",
+  "darslik": [
+   167,
+   169
+  ]
+ },
+ "29": {
+  "id": "ehtimollik-tariflari",
+  "nom": "Ehtimollik ta'riflari",
+  "darslik": [
+   170,
+   170
+  ]
+ }
+}
