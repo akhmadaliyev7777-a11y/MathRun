@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Algebraga kirish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="maruza.css?v=49">
+</head>
+<body data-a4>
+<main class="m-wrap">
+
+<h1 class="m-title">Algebraga kirish</h1>
+<!-- ============ 1-QISM: QIZIQTIRAMIZ ============ -->
+<div class="m-qism"><div class="q-n">1-qism</div><h2>Qiziqtiramiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-savol · taksi</span>
+    <p>Shahar taksisiga o'tirishning o'zi 6 000 so'm. Har bir kilometr uchun yana 2 500 so'm to'lanadi.</p>
+    <p>4 km yo'l necha so'm turadi? 10 km-chi? Yo'l necha kilometr bo'lishini hali bilmasangiz, narxni qanday yozib qo'yasiz?</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-savol · gugurt cho'plari</span>
+    <div data-gugurt41='{"tur":"uchburchak","n":[1,2,3],"son":1}' data-izoh="Gugurt cho'plaridan qatorasiga 1, 2 va 3 ta uchburchak: 3, 5 va 7 ta cho'p"></div>
+    <p>Gugurt cho'plaridan qatorasiga uchburchaklar terildi. 10 ta uchburchak uchun nechta cho'p kerak? Rasmini chizmasdan topa olasizmi?</p>
+  </div>
+  </div>
+  <div class="gap"><img src="personaj/ustoz-oylaydi.webp" alt="Ustoz o'ylamoqda" width="120" height="140"><div class="pufak">Kilometrlar soni har safar boshqacha. Har safar qaytadan hisoblamay, hamma holatga yaraydigan bitta yozuv topsak-chi?</div></div>
+
+  <div class="box eslab">
+    <span class="tag">Eslab olaylik</span>
+    <ul>
+      <li>Amallar tartibi: avval qavs, keyin daraja, keyin ko'paytirish va bo'lish, oxirida qo'shish va ayirish: \(6\,000 + 2\,500 \cdot 4 = 16\,000\).</li>
+      <li>Daraja: \(3^4 = 3 \cdot 3 \cdot 3 \cdot 3 = 81\) — 3 daraja asosi, 4 daraja ko'rsatkichi.</li>
+      <li>Ishoralar: \(5 \cdot (-3) = -15\), &nbsp; \((-3)^2 = 9\), &nbsp; \((-2)^3 = -8\).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 2-QISM: SINAB KO'RAMIZ ============ -->
+<div class="m-qism q-misol"><div class="q-n">2-qism</div><h2>Sinab ko'ramiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">1-topshiriq · javondagi qutilar</span>
+    <div data-quti41='{"q":[{"t":"quti","n":3,"h":"n"},{"t":"dona","n":2,"b":"qalam"}]}' data-izoh="Javonda uchta yopiq quti, har birida n ta qalam, yonida yana 2 ta qalam"></div>
+    <p>Uchta yopiq qutida bir xil sondagi qalam bor — yorlig'ida faqat «n ta». Yonida yana 2 ta qalam.</p>
+    <p>a) Qutilarni ochmasdan jami qalamlar sonini qanday yozasiz? b) Har qutida 12 ta qalam bo'lsa, jami nechta?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>
+      a) \(n + n + n + 2\), qisqasi \(3 \cdot n + 2\). b) \(3 \cdot 12 + 2 = 38\) ta qalam.</details>
+  </div>
+  <div class="box namuna">
+    <span class="tag">2-topshiriq · jadvalni to'ldiring</span>
+    <div class="jad-wrap"><table class="jad">
+      <tr><th>\(n\)</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+      <tr><th>\(n + n + n\)</th><td>3</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><th>\(3 \cdot n\)</th><td>3</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><th>\(n \cdot n\)</th><td>1</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+    </table></div>
+    <p>Qaysi ikki qator hamma ustunda bir xil chiqdi? Uchinchi qator ular bilan qayerda teng bo'ldi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>
+      \(n + n + n\): 3, 6, 9, 12, 15. &nbsp; \(3 \cdot n\): 3, 6, 9, 12, 15 — har doim bir xil.<br>
+      \(n \cdot n\): 1, 4, 9, 16, 25 — faqat \(n = 3\) da teng, boshqa ustunlarda farq qiladi.</details>
+  </div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-topshiriq · cho'plar qonuniyati</span>
+    <p>2-savoldagi uchburchaklarga qarang: 4 va 5 ta uchburchak uchun nechta cho'p kerak? Har yangi uchburchak uchun nechta cho'p qo'shiladi? Qaysi cho'p hamma shaklda «ortiqcha» bo'lib qoladi?</p>
+    <details class="javob"><summary>Javobni ko'rish</summary>
+      4-shakl — 9, 5-shakl — 11 ta cho'p. Har yangi uchburchakka 2 ta cho'p qo'shiladi. Eng chapdagi bitta cho'p esa har doim bor: cho'plar soni = 2 · (uchburchaklar soni) + 1.</details>
+  </div>
+</section>
+
+<!-- ============ 3-QISM: TUSHUNAMIZ ============ -->
+<div class="m-qism q-mustah"><div class="q-n">3-qism</div><h2>Tushunamiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box qoida">
+    <span class="tag">Ta'rif · o'zgaruvchi va algebraik ifoda</span>
+    <p>Arifmetikada biz aniq qiymatga ega sonlar ustida amallar bajardik. Algebrada sonlarni ifodalash uchun \(a, b, c, \dots\) harflaridan ham foydalanamiz; harflar har qanday sonli qiymatlarni anglatishi mumkin.</p>
+    <p>\(6\,000 + 2\,500 \cdot n\) ifodada kilometrlar sonini ko'rsatish uchun \(n\) harfini qo'lladik. \(n\) — <b>o'zgaruvchi</b>, \(6\,000 + 2\,500 \cdot n\) esa <b>algebraik ifoda</b> deb ataladi.</p>
+    <p><b>Algebraik ifodalar amal belgilari va qavslar bilan birlashtirilgan sonlar va o'zgaruvchilardan tuziladi.</b></p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">1-misol · 1-savol</span>
+    <p>4 km: \(6\,000 + 2\,500 \cdot 4 = 16\,000\) so'm.<br>10 km: \(6\,000 + 2\,500 \cdot 10 = 31\,000\) so'm.<br>\(n\) km: \((6\,000 + 2\,500n)\) so'm — bitta yozuv hamma yo'lga yaraydi.</p>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Qoida · ko'paytirish belgisi</span>
+    <p>Harf bilan harf, son bilan harf orasidagi ko'paytirish belgisi — «×» yoki «·» nuqta ko'pincha tushirib qoldiriladi.</p>
+    <p>\(a \cdot b = ab\), &nbsp; \(3 \cdot y = 3y\), &nbsp; \(1 \cdot y = y \cdot 1 = y\), &nbsp; \(8 \cdot ab^2 = 8ab^2\). Son harfdan oldin yoziladi: \(y \cdot 5 = 5y\).</p>
+    <p>Bo'lish kasr ko'rinishida yoziladi: \(x : y = \frac{x}{y}\), bu yerda \(y \ne 0\).</p>
+  </div>
+
+  <div class="jad-wrap"><table class="jad">
+    <tr><th>Amal</th><th>Aytilishi</th><th>Yozilishi</th></tr>
+    <tr><td>Qo'shish</td><td>\(p\) plyus \(q\); \(p\) va \(q\) ning yig'indisi</td><td>\(p + q\)</td></tr>
+    <tr><td>Ayirish</td><td>\(p\) minus \(q\); \(p\) dan \(q\) ni ayirish</td><td>\(p - q\)</td></tr>
+    <tr><td>Ko'paytirish</td><td>\(p\) va \(q\) ning ko'paytmasi; \(p\) ni ikkilangani</td><td>\(pq\); &nbsp;\(2p\)</td></tr>
+    <tr><td>Bo'lish</td><td>\(p\) ning \(q\) ga bo'linmasi, \(q \ne 0\)</td><td>\(\frac{p}{q}\)</td></tr>
+    <tr><td>Qarama-qarshi son</td><td>\(p\) ning qarama-qarshisi</td><td>\(-p\)</td></tr>
+  </table></div>
+
+  <div class="misol-juft">
+  <div class="box qoida">
+    <span class="tag">Qoida · daraja</span>
+    <p>Algebrada daraja belgisi arifmetikadagidek qo'llanadi:</p>
+    <p>\(a \cdot a = a^2\) — «\(a\) kvadrat» yoki «\(a\) ning kvadrati»;<br>\(b \cdot b \cdot b = b^3\) — «\(b\) kub» yoki «\(b\) ning kubi»;<br>\(c \cdot c \cdot c \cdot c = c^4\) — «\(c\) ning to'rtinchi darajasi».</p>
+    <p><b>E'tibor bering:</b> \(a^2 \ne a + a\), demak \(a^2 \ne 2a\); &nbsp; \(b^3 \ne 3b\); &nbsp; \(c^4 \ne 4c\).</p>
+  </div>
+  <div data-daraja41='{"a":4}' data-izoh="a = 4 bo'lganda a kvadrat 16 ta katak, 2a esa 8 ta katak — teng emas"></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · jumladan ifodaga</span>
+    <div class="qadam"><b>a</b><span>«\(p\) ning kvadratini \(q\) ga ko'paytirib, natijadan \(r\) ni ayirish»: kvadrat \(p^2\), ko'paytma \(p^2q\); natija \(\nat{p^2q - r}\).</span></div>
+    <div class="qadam"><b>b</b><span>«\(m\) va \(n\) ning yig'indisini ularning ko'paytmasiga bo'lish»: yig'indi \(m + n\) butunligicha bo'linadi — \(\nat{\frac{m + n}{mn}}\).</span></div>
+  </div>
+
+  <h3>Ifodaning qiymatini hisoblash</h3>
+  <div class="box qoida">
+    <span class="tag">Ta'rif · o'rniga qo'yish</span>
+    <p>Algebraik ifodadagi har bir o'zgaruvchining son qiymatini bilsak, ifodaning qiymatini hisoblay olamiz.</p>
+    <p><b>Algebraik ifodaning qiymatini topish uchun har bir o'zgaruvchini uning son qiymati bilan almashtirish jarayoni o'rniga qo'yish deyiladi.</b></p>
+    <p><b>Usul.</b> Manfiy son va kasrni qavs ichida qo'yamiz; tushirib qoldirilgan ko'paytirish belgisini qaytaramiz. Keyin amallar tartibi bilan hisoblaymiz.</p>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">3-misol · ikki o'zgaruvchi</span>
+    <div data-qoy41='{"ifoda":"5 − 2xy","q":{"x":"-3","y":"2"},"qadam":["5 + 12"],"natija":"17"}' data-izoh="5 − 2xy ifodaga x = −3, y = 2 qo'yildi: 5 + 12 = 17"></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">4-misol · daraja bilan</span>
+    <div data-qoy41='{"ifoda":"xy^2 − x^2","q":{"x":"-3","y":"2"},"qadam":["−3 · 4 − 9"],"natija":"-21"}' data-izoh="xy² − x² ifodaga x = −3, y = 2 qo'yildi: −12 − 9 = −21"></div>
+    <p>\((-3)^2 = 9\) — qavs bo'lmasa, \(-3^2 = -9\) bo'lib, javob xato chiqadi.</p>
+  </div>
+  </div>
+
+  <div class="box qoida">
+    <span class="tag">Usul · teng kuchli ifodalar</span>
+    <p>Ikki ifodaga o'zgaruvchining turli qiymatlarini qo'yib, qiymatlarini taqqoslaymiz. O'zgaruvchining <b>barcha</b> qiymatlarida qiymatlari teng bo'lsa — ifodalar <b>teng kuchli</b>. Birorta qiymatda farq qilsa — teng kuchli emas.</p>
+    <p>2-topshiriq: \(n + n + n\) va \(3n\) — teng kuchli. \(3n\) va \(n^2\) esa \(n = 0\) va \(n = 3\) da bir xil qiymatga ega bo'lsa ham, \(n = 1\) da \(3 \ne 1\) — teng kuchli emas.</p>
+  </div>
+
+  <h3>Formulalar</h3>
+  <div class="box qoida">
+    <span class="tag">Ta'rif · formula</span>
+    <p><b>Formula — ikki yoki undan ortiq o'zgaruvchini bir-biriga bog'lovchi tenglik.</b></p>
+    <p>To'g'ri to'rtburchakning eni \(a\), bo'yi \(b\), perimetri \(P\) bo'lsa: \(P = 2(a + b)\) — formula; \(2(a + b)\) — algebraik ifoda.</p>
+    <p>Javobni \(\pi\) orqali topishda \(\pi\) ning kalkulyator yordamida yoki yaxlitlangan 3,142 yoki \(\frac{22}{7}\) qiymatlarini o'rniga qo'yib hisoblamaymiz. Yakuniy javob \(\pi\) belgi bilan yoziladi.</p>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">5-misol · maysazor</span>
+    <div data-maydon41='{"o":[10,10],"r":3,"yoz":["a [m]","","r [m]"]}' data-izoh="Tomoni a m kvadrat maysazor, o'rtasida radiusi r m doira gulzor"></div>
+    <p>Kvadrat maydon tomoni \(a\) m, o'rtasida radiusi \(r\) m gulzor. Maysa yuzi: \(S = a^2 - \pi r^2\).</p>
+    <p>\(a = 10\), \(r = 3\): \(S = 10^2 - \pi \cdot 3^2 = \nat{(100 - 9\pi)}\) m².</p>
+  </div>
+  <div class="box namuna">
+    <span class="tag">6-misol · 2-savol</span>
+    <p>\(n\) ta uchburchak uchun cho'plar soni: \(N = 2n + 1\).<br>\(n = 10\): \(N = 2 \cdot 10 + 1 = \nat{21}\) ta cho'p.</p>
+  </div>
+  </div>
+</section>
+
+<!-- ============ 4-QISM: QO'LLAYMIZ ============ -->
+<div class="m-qism q-mustaqil"><div class="q-n">4-qism</div><h2>Qo'llaymiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <div class="box namuna">
+    <span class="tag">1-misol · qisqa yozing</span>
+    <div class="qadam"><b>a</b><span>\(x \cdot 5 \cdot y \cdot 3\): sonlarni ko'paytirib oldinga yozamiz \(5 \cdot 3 = 15\), harflarni yonma-yon yozamiz: \(\nat{15xy}\).</span></div>
+    <div class="qadam"><b>b</b><span>\(k \cdot 3 \cdot k \cdot k\): son — 3, \(k \cdot k \cdot k = k^3\): \(\nat{3k^3}\).</span></div>
+    <div class="qadam"><b>c</b><span>\(2m : n \cdot k\): chapdan o'ngga — avval \(\frac{2m}{n}\), keyin \(k\) ga ko'paytiramiz (\(k\) suratga yoziladi): \(\nat{\frac{2mk}{n}}\).</span></div>
+    <div class="qadam"><b>d</b><span>\(6p : 2q - r\): avval bo'lish: \(\frac{6p}{2q} = \frac{3p}{q}\); natija \(\nat{\frac{3p}{q} - r}\) (\(r\) bo'linmaydi).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">2-misol · lift</span>
+    <p>Lift ko'pi bilan 650 kg ko'taradi. Unga har biri \(m\) kg bo'lgan 4 ta quti va \(d\) kg li aravacha kiritildi. Lift yana qancha yuk ko'tara oladi?</p>
+    <div class="qadam"><b>1</b><span>Yuk: \(4m + d\) kg. Qolgan imkoniyat: \(\nat{650 - (4m + d)}\) kg.</span></div>
+    <div class="qadam"><b>2</b><span>\(m = 85\), \(d = 40\) bo'lsa: \(650 - (340 + 40) = 270\) kg.</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">3-misol · ikki xil harf</span>
+    <div data-quti41='{"q":[{"t":"xalta","n":2,"h":"m"},{"t":"quti","n":1,"h":"k"},{"t":"dona","n":3,"b":"olma"}],"ifoda":"2m + k + 3"}' data-izoh="Ikki qopda m tadan, qutida k ta olma, yana 3 ta olma: 2m + k + 3"></div>
+    <p>Ikki qopda \(m\) tadan, qutida \(k\) ta olma bor. Qop va qutidagi son har xil bo'lishi mumkin — shuning uchun harflar ham har xil.</p>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">4-misol · ko'chat qatorlari</span>
+    <p>1-qatorga \(k\) ta ko'chat ekildi, 2-qatorga undan 6 ta kam, 3-qatorga esa 2-qatordagidan 3 marta ko'p.</p>
+    <div data-model='{"q":[["1-qator",[["k",4]]],["2-qator",[["k − 6",3]]],["3-qator",[["k − 6",3,2],["k − 6",3,2],["k − 6",3,2]]]],"qavs":[[0,3,4,"6 ta","past"]],"chiziq":[3]}' data-izoh="1-qator k, 2-qator k − 6, 3-qator uch marta k − 6"></div>
+    <p>2-qator: \(k - 6\). &nbsp; 3-qator: \(\nat{3(k - 6)}\) — ayirma butunligicha 3 ga ko'paytiriladi, shuning uchun qavs kerak.</p>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">5-misol · qarama-qarshi va ildiz</span>
+    <div class="qadam"><b>a</b><span>«\(k\) ning qarama-qarshisiga 5 ni qo'shib, natijani \(m\) ning kvadratiga bo'lish»: \(\nat{\frac{-k + 5}{m^2}}\).</span></div>
+    <div class="qadam"><b>b</b><span>«\(x\) ning kvadrat ildizini 4 ga ko'paytirib, natijadan \(y\) ni ayirish»: \(\nat{4\sqrt{x} - y}\).</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">6-misol · formuladan topish</span>
+    <div class="qadam"><b>a</b><span>\(y = \frac{p^2 - q}{p + q}\), \(p = -4\), \(q = 2\): \(y = \frac{16 - 2}{-2} = \nat{-7}\).</span></div>
+    <div class="qadam"><b>b</b><span>\(\frac{1}{x} = \frac{1}{a} + \frac{1}{b}\), \(a = 3\), \(b = 6\): \(\frac{1}{x} = \frac{2}{6} + \frac{1}{6} = \frac{1}{2}\), demak \(x = \nat{2}\).</span></div>
+  </div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">7-misol · kasr qiymat</span>
+    <p>\(a = \frac{1}{3}\), \(b = 6\), \(c = -4\) bo'lsa: &nbsp; a) \(9a^2 + bc\); &nbsp; b) \(\frac{c - ab}{a + c}\).</p>
+    <div class="qadam"><b>a</b><span>\(9 \cdot \left(\frac{1}{3}\right)^2 + 6 \cdot (-4) = 9 \cdot \frac{1}{9} - 24 = 1 - 24 = \nat{-23}\).</span></div>
+    <div class="qadam"><b>b</b><span>Surat: \(-4 - \frac{1}{3} \cdot 6 = -4 - 2 = -6\). Maxraj: \(\frac{1}{3} + (-4) = -\frac{11}{3}\). &nbsp; \(-6 : \left(-\frac{11}{3}\right) = \frac{6 \cdot 3}{11} = \frac{18}{11} = \nat{1\frac{7}{11}}\).</span></div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">8-misol · natural sonlar yig'indisi</span>
+    <p>Dastlabki \(n\) ta natural son yig'indisi \(S = \frac{1}{2}n(n + 1)\) formula orqali topiladi.</p>
+    <p>Quvurlar uyum qilib taxlangan: eng pastki qatorda 40 ta, har yuqoriroq qatorda bittadan kam, eng tepada 1 ta. a) Uyumda nechta quvur bor? b) Yuqoridagi 12 qatorni olib ketishdi. Nechta quvur qoldi?</p>
+    <div class="qadam"><b>a</b><span>Jami: \(1 + 2 + \dots + 40\), \(n = 40\): \(S = \frac{1}{2} \cdot 40 \cdot 41 = \nat{820}\).</span></div>
+    <div class="qadam"><b>b</b><span>Olib ketilgani: \(1 + 2 + \dots + 12 = \frac{1}{2} \cdot 12 \cdot 13 = 78\). Qolgani \(13 + 14 + \dots + 40 = 820 - 78 = \nat{742}\).</span></div>
+  </div>
+
+  <div class="misol-juft">
+  <div class="box namuna">
+    <span class="tag">9-misol · o'rtacha tezlik</span>
+    <p>Avtobus 3 soat \(v\) km/soat tezlikda, keyin yana 2 soat 60 km/soat tezlikda yurdi. Butun yo'ldagi o'rtacha tezlik qancha?</p>
+    <div class="qadam"><b>1</b><span>Jami yo'l = tezlik · vaqt: \(3v + 2 \cdot 60 = 3v + 120\) km.</span></div>
+    <div class="qadam"><b>2</b><span>O'rtacha tezlik = jami yo'l : jami vaqt: \(\nat{\frac{3v + 120}{5}}\) km/soat. &nbsp; \(v = 70\) bo'lsa: \(\frac{330}{5} = 66\) km/soat.</span></div>
+  </div>
+  <div class="box namuna">
+    <span class="tag">10-misol · o'lchamlar o'zgarsa</span>
+    <p>To'g'ri to'rtburchak yuzi \(S = ab\). Ikkinchisining eni 3 marta uzun, bo'yi 2 cm qisqa.</p>
+    <div class="qadam"><b>1</b><span>Formuladagi \(a\) o'rniga \(3a\), \(b\) o'rniga \((b - 2)\) qo'yamiz: \(S_2 = \nat{3a(b - 2)}\).</span></div>
+    <div class="qadam"><b>2</b><span>\(a = 4\), \(b = 7\): \(S_2 = 3 \cdot 4 \cdot 5 = 60\) cm².</span></div>
+  </div>
+  </div>
+
+  <div class="box namuna">
+    <span class="tag">11-misol · ifodaga vaziyat o'ylab toping</span>
+    <p>\(5x + 2\,000\): masalan, «har biri \(x\) so'mlik 5 ta daftar va 2 000 so'mlik paket olindi — jami narx». &nbsp; \(\frac{60}{t}\): «60 km yo'l \(t\) soatda bosib o'tildi — tezlik».</p>
+  </div>
+
+  <div class="gap"><img src="personaj/aziz-diqqat.webp" alt="Aziz ogohlantirmoqda" width="120" height="140"><div class="pufak">Manfiy sonni qavssiz qo'ysam, kvadrati manfiy chiqib qoladi! Endi har doim qavs bilan qo'yaman.</div></div>
+  <div class="box diqqat">
+    <span class="tag">Diqqat!</span>
+    <ol>
+      <li><span class="xato">\(x = 5\): \(x^2 = 2 \cdot 5 = 10\)</span> &nbsp; <span class="togri">\(x^2 = 5 \cdot 5 = 25\)</span></li>
+      <li><span class="xato">\(x = -3\): \(x^2 = -3^2 = -9\)</span> &nbsp; <span class="togri">\(x^2 = (-3)^2 = 9\)</span></li>
+      <li><span class="xato">\(x = 4\): \(3x = 34\)</span> &nbsp; <span class="togri">\(3x = 3 \cdot 4 = 12\)</span></li>
+      <li><span class="xato">\(n = 2\): \(3n^2 = (3 \cdot 2)^2 = 36\)</span> &nbsp; <span class="togri">\(3n^2 = 3 \cdot 2^2 = 12\); \((3n)^2 = 36\) — boshqa ifoda</span></li>
+      <li><span class="xato">\(1y\), \(y3\), \(100 - 9\pi = 91\pi\)</span> &nbsp; <span class="togri">\(y\), \(3y\), \(100 - 9\pi\) shundayligicha qoladi</span></li>
+    </ol>
+  </div>
+
+  <h3>Mashqlar</h3>
+  <ol class="masalalar">
+    <li>Algebraik ifoda bilan yozing.<br>a) \(x\) va 9 ning yig'indisi &nbsp; b) 15 dan \(k\) ni ayirish &nbsp; c) \(m\) ning 6 ga ko'paytmasi<br>d) \(a\) ning \(b\) ga bo'linmasi &nbsp; e) \(t\) ning kubi &nbsp; f) \(p\) ni uchlangani va \(q\) ning ayirmasi</li>
+    <li>Qisqa yozing.<br>a) \(b \cdot 9 \cdot a\) &nbsp; b) \(m \cdot m \cdot n \cdot n \cdot n\) &nbsp; c) \(x \cdot 1\) &nbsp; d) \(n \cdot 4\) &nbsp; e) \(2a \cdot 5b \cdot c\)<br>f) \(3t \cdot 4t\) &nbsp; g) \(15x : 5y\) &nbsp; h) \(m : n \cdot 4\) &nbsp; i) \(3u - v : 2\) &nbsp; j) \(14k : 7 \cdot n\)</li>
+    <li>Bir soatda 60 minut bor. \(t\) soat 15 minut necha minut bo'lishini ifoda bilan yozing. \(t = 2\) bo'lsa, necha minut?</li>
+    <li>\(x = 3\) bo'lsa, hisoblang: a) \(4x - 5\) &nbsp; b) \(x^2 + x\) &nbsp; c) \(2x^2\) &nbsp; d) \((2x)^2\) &nbsp; e) \(10 - x^3\)</li>
+    <li>\(a = -2\), \(b = 5\) bo'lsa, hisoblang: a) \(3a + 2b\) &nbsp; b) \(ab - b^2\) &nbsp; c) \(a^2b\) &nbsp; d) \((a - b)^2\) &nbsp; e) \(\frac{b - a}{a + b}\) &nbsp; f) \(2a^3 - 4\)</li>
+    <li>\(p = \frac{1}{2}\), \(q = -3\), \(r = 4\) bo'lsa, hisoblang: a) \(6p - q\) &nbsp; b) \(pqr\) &nbsp; c) \(r^2 - 8pq\) &nbsp; d) \(\frac{r + q}{p}\) &nbsp; e) \(\frac{r}{p} + \frac{q}{r}\)</li>
+    <li>Formulalarda \(y\) ning qiymatini toping.<br>a) \(y = 2a(b - 4)\), \(a = 3\), \(b = 1\) &nbsp; b) \(y = (k + 2)^2 - k\), \(k = -5\) &nbsp; c) \(y = \frac{m + n}{m - n}\), \(m = 3\), \(n = -1\)<br>d) \(y = \frac{c^2}{2} - 3c\), \(c = -4\) &nbsp; e) \(y = \frac{12}{p^2 - 1}\), \(p = -3\) &nbsp; f) \(y = h^3 + 2h\), \(h = -2\) &nbsp; g) \(y = \frac{s}{t} + st\), \(s = 6\), \(t = -2\)</li>
+    <li>\(n = 0, 1, 2, -1\) qiymatlarni qo'yib tekshiring: ifodalar teng kuchlimi?<br>a) \(n - 5\) va \(5 - n\) &nbsp; b) \(n \cdot n\) va \(n^2\) &nbsp; c) \(n + n + n + n\) va \(4n\) &nbsp; d) \(n^2 + 1\) va \((n + 1)^2\) &nbsp; e) \(3n^2\) va \((3n)^2\)</li>
+    <li>Sport do'konida futbolka \(x\) so'm, kepka \(y\) so'm turadi. Murabbiy 4 ta futbolka va 2 ta kepka olib, kassaga 100 000 so'm berdi.<br>a) Jami to'lovni va qaytimni \(x\), \(y\) orqali yozing. b) \(x = 18\,000\), \(y = 9\,000\) bo'lsa, qaytim qancha?</li>
+    <li>Velosiped ijarasi: birinchi soati 15 000 so'm, keyingi har soati 10 000 so'm. \(t\) soatlik ijara narxini yozing (\(t \ge 1\)). 4 soat necha so'm?</li>
+    <li>Uch javonda kitob bor: 1-javonda \(k\) ta, 2-javonda 1-javondagidan 2 marta ko'p, 3-javonda 2-javondagidan 9 ta kam.<br>a) Har bir javondagi kitoblar sonini \(k\) orqali yozing. b) \(k = 15\) bo'lsa, 3-javonda nechta kitob bor?</li>
+    <li>Bo'yi \(a\) cm, eni \(b\) cm bo'lgan karton varaqning to'rtta burchagidan tomoni \(c\) cm bo'lgan kvadratlar qirqib olindi. a) Qolgan qismning yuzini yozing. b) \(a = 20\), \(b = 12\), \(c = 3\) bo'lsa, uni toping.</li>
+    <li>Farengeyt shkalasidagi \(F\) haroratni Selsiy shkalasiga o'tkazish formulasi: \(C = \frac{5}{9}(F - 32)\). Selsiyda ifodalang: a) 50 °F &nbsp; b) 14 °F &nbsp; c) 95 °F</li>
+    <li>\(S = \frac{1}{2}n(n + 1)\) formulasidan foydalanib toping: a) \(1 + 2 + \dots + 30\) &nbsp; b) \(26 + 27 + \dots + 60\) &nbsp; c) \(3 + 6 + 9 + \dots + 90\)</li>
+    <li>Bo'yi \(a\) cm, eni \(b\) cm li metall listdan radiusi \(r\) cm bo'lgan ikkita doira qirqib olindi.
+      <div data-maydon41='{"tur":"list","o":[30,16],"r":5,"doira":2,"yoz":["a [cm]","b [cm]","r [cm]"]}' data-izoh="Bo'yi a cm, eni b cm metall listda radiusi r cm ikkita doira teshik"></div>
+      a) Qolgan qismning yuzini \(a\), \(b\), \(r\) va \(\pi\) orqali yozing. b) \(a = 30\), \(b = 16\), \(r = 5\) bo'lsa, yuzini \(\pi\) orqali ifodalang.</li>
+    <li>a) Bir xil 12 ta kitob ustma-ust taxlandi, taxlam balandligi \(h\) cm. Bitta kitobning qalinligini \(h\) orqali yozing.<br>b) To'g'ri to'rtburchakning yuzi 48 cm², eni \(x\) cm. Bo'yini \(x\) orqali yozing.</li>
+    <li>Avtobusda \(a\) nafar yo'lovchi bor edi. Bekatda \(b\) nafari tushdi, chiqqanlar esa tushganlarning 2 baravaridan 3 nafar ko'p edi. a) Avtobusda endi nechta yo'lovchi bor? b) \(a = 25\), \(b = 6\) bo'lsa-chi?</li>
+    <li>Gugurt cho'plaridan qatorasiga kvadratlar terildi.
+      <div data-gugurt41='{"tur":"kvadrat","n":[1,2,3],"jadval":[1,2,3,4,8,"n"],"sor":[4,8,"n"]}' data-izoh="Gugurt cho'plaridan 1, 2, 3 ta kvadrat; jadvalda 4, 8 va n so'raladi"></div>
+      a) Jadvalni to'ldiring. b) 30 ta kvadrat uchun nechta cho'p kerak? c) 100 ta cho'pdan nechta kvadrat chiqadi?</li>
+    <li>Bog'dagi 20 tup olma daraxtining har biridan o'rtacha \(m\) kg, yana 5 tup yosh daraxtning har biridan o'rtacha 12 kg hosil olindi.<br>a) Jami hosilni \(m\) orqali yozing. b) Bir tupga o'rtacha qancha hosil to'g'ri keladi? c) \(m = 40\) bo'lsa, buni hisoblang.</li>
+    <li>Uzunligi \(x\) m bo'lgan tasmadan 3 ta sovg'a qutisini bog'lash uchun har biriga \(y\) m ketdi. Qolganini \(k\) nafar bola teng bo'lib oldi.<br>a) Har bir bolaga necha metr tasma tegdi? b) \(x = 12\), \(y = 1{,}5\), \(k = 5\) bo'lsa-chi?</li>
+    <li>Kuboid hajmi \(V = abc\). Ikkinchi kuboidning bo'yi birinchisidan 2 marta uzun, eni 3 cm qisqa, balandligi bir xil.<br>a) Ikkinchi kuboid hajmini \(a\), \(b\), \(c\) orqali yozing. b) \(a = 5\), \(b = 8\), \(c = 4\) bo'lsa, uni toping.</li>
+    <li>Quyidagi ifodalar bilan yoziladigan hayotiy vaziyat o'ylab toping: a) \(3x + 2y\) &nbsp; b) \(100 - 4k\) &nbsp; c) \(\frac{s}{20}\)</li>
+  </ol>
+</section>
+
+<!-- ============ 5-QISM: TEKSHIRAMIZ ============ -->
+<div class="m-qism" style="--qc: var(--q5)"><div class="q-n">5-qism</div><h2>Tekshiramiz</h2></div>
+
+<section class="m-sec qism-ichi">
+  <ol class="masalalar">
+    <li>Algebraik ifoda bilan yozing: a) \(a\) ning kvadratidan \(b\) ni ayirish; b) \(m\) va \(n\) ning yig'indisini 4 ga bo'lish; c) \(x\) ning qarama-qarshisidan \(y\) ning kubini ayirish.</li>
+    <li>Qisqa yozing: a) \(6 \cdot c \cdot d\) &nbsp; b) \(k \cdot k \cdot k \cdot k\) &nbsp; c) \(2a \cdot 3a\) &nbsp; d) \(p : q \cdot r\)</li>
+    <li>\(x = -2\), \(y = 3\) bo'lsa, hisoblang: a) \(5x + 2y\) &nbsp; b) \(x^2y\) &nbsp; c) \((x - y)^2\) &nbsp; d) \(\frac{y - x}{x + y}\)</li>
+    <li>\(m = \frac{1}{4}\) bo'lsa, hisoblang: a) \(8m + 1\) &nbsp; b) \(16m^2\)</li>
+    <li>\(S = \frac{1}{2}n(n + 1)\) formulasi bilan \(1 + 2 + \dots + 24\) ni toping.</li>
+    <li>Mashina bakida 50 litr benzin bor. Har bir kilometrga 0,08 litr sarflanadi. \(s\) km yurgandan keyin bakda qancha benzin qolishini yozing. \(s = 300\) bo'lsa-chi?</li>
+    <li>\(n^3\) va \(3n\) teng kuchlimi? Javobingizni bitta son bilan asoslang.</li>
+    <li>Rasmdagi uychalar qatori uchun cho'plar sonini yozing. 8 ta uycha uchun nechta cho'p kerak?
+      <div data-gugurt41='{"tur":"uy","n":[1,2,3],"son":1}' data-izoh="Gugurt cho'plaridan 1, 2, 3 ta uycha: 6, 11, 16 ta cho'p"></div></li>
+    <li>To'g'ri to'rtburchak gilamning bo'yi \(a\) m, eni \(b\) m, o'rtasida radiusi \(r\) m dumaloq naqsh bor. Naqshdan tashqari qism yuzini yozing va \(a = 4\), \(b = 3\), \(r = 1\) da \(\pi\) orqali ifodalang.</li>
+    <li>Aziz: «\(x = -5\) bo'lsa, \(x^2 = -25\)», — dedi. Aziz haqmi?</li>
+  </ol>
+
+  <div class="box">
+    <ul class="tekshir">
+      <li><input type="checkbox" id="t1"><label for="t1">Men jumlani va hayotiy vaziyatni algebraik ifoda bilan yoza olaman.</label></li>
+      <li><input type="checkbox" id="t2"><label for="t2">Men ko'paytirish belgisini tushirib, daraja va kasr bilan qisqa yoza olaman; \(a^2\) va \(2a\) ni adashtirmayman.</label></li>
+      <li><input type="checkbox" id="t3"><label for="t3">Men manfiy son va kasrni qavsda o'rniga qo'yib, ifoda qiymatini topa olaman.</label></li>
+      <li><input type="checkbox" id="t4"><label for="t4">Men formulaga qiymatlarni qo'yib hisoblay olaman, \(\pi\) li javobni \(\pi\) bilan yozaman.</label></li>
+    </ul>
+  </div>
+</section>
+
+<h3 class="q-javob">Javoblar</h3>
+
+<section class="m-sec qism-ichi">
+  <h3>4-qism · Mashqlar</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(x + 9\) &nbsp; b) \(15 - k\) &nbsp; c) \(6m\) &nbsp; d) \(\frac{a}{b}\) &nbsp; e) \(t^3\) &nbsp; f) \(3p - q\)</details>
+  <details class="javob"><summary>2-masala</summary>a) \(9ab\) &nbsp; b) \(m^2n^3\) &nbsp; c) \(x\) &nbsp; d) \(4n\) &nbsp; e) \(10abc\) &nbsp; f) \(12t^2\) &nbsp; g) \(\frac{3x}{y}\) &nbsp; h) \(\frac{4m}{n}\) &nbsp; i) \(3u - \frac{v}{2}\) &nbsp; j) \(\frac{14k}{7} \cdot n = 2kn\)</details>
+  <details class="javob"><summary>3-masala</summary>\(60t + 15\) minut; \(t = 2\): \(60 \cdot 2 + 15 = 135\) minut.</details>
+  <details class="javob"><summary>4-masala</summary>a) \(4 \cdot 3 - 5 = 7\) &nbsp; b) \(9 + 3 = 12\) &nbsp; c) \(2 \cdot 9 = 18\) &nbsp; d) \(6^2 = 36\) &nbsp; e) \(10 - 27 = -17\)</details>
+  <details class="javob"><summary>5-masala</summary>a) \(-6 + 10 = 4\) &nbsp; b) \(-10 - 25 = -35\) &nbsp; c) \(4 \cdot 5 = 20\) &nbsp; d) \((-7)^2 = 49\) &nbsp; e) \(\frac{7}{3} = 2\frac{1}{3}\) &nbsp; f) \(2 \cdot (-8) - 4 = -20\)</details>
+  <details class="javob"><summary>6-masala</summary>a) \(3 + 3 = 6\) &nbsp; b) \(\frac{1}{2} \cdot (-3) \cdot 4 = -6\) &nbsp; c) \(16 - (-12) = 28\) &nbsp; d) \(1 : \frac{1}{2} = 2\) &nbsp; e) \(8 - \frac{3}{4} = 7\frac{1}{4}\)</details>
+  <details class="javob"><summary>7-masala</summary>a) \(6 \cdot (1 - 4) = -18\) &nbsp; b) \((-3)^2 - (-5) = 9 + 5 = 14\) &nbsp; c) \(\frac{2}{4} = \frac{1}{2}\) &nbsp; d) \(\frac{16}{2} + 12 = 20\) &nbsp; e) \(\frac{12}{8} = 1\frac{1}{2}\) &nbsp; f) \(-8 + (-4) = -12\) &nbsp; g) \(-3 + (-12) = -15\)</details>
+  <details class="javob"><summary>8-masala</summary>a) Yo'q (\(n = 0\): \(-5\) va 5). b) Ha (\(n \cdot n\) ning o'zi \(n^2\)). c) Ha. d) Yo'q (\(n = 1\): 2 va 4). e) Yo'q (\(n = 1\): 3 va 9).</details>
+  <details class="javob"><summary>9-masala</summary>a) To'lov \(4x + 2y\) so'm, qaytim \(100\,000 - (4x + 2y)\) so'm. b) \(72\,000 + 18\,000 = 90\,000\); qaytim 10 000 so'm.</details>
+  <details class="javob"><summary>10-masala</summary>\(15\,000 + 10\,000(t - 1)\) so'm; \(t = 4\): \(15\,000 + 30\,000 = 45\,000\) so'm.</details>
+  <details class="javob"><summary>11-masala</summary>a) \(k\), \(2k\), \(2k - 9\). b) \(2 \cdot 15 - 9 = 21\) ta.</details>
+  <details class="javob"><summary>12-masala</summary>a) \(ab - 4c^2\) cm². b) \(240 - 36 = 204\) cm².</details>
+  <details class="javob"><summary>13-masala</summary>a) \(\frac{5}{9} \cdot 18 = 10\) °C &nbsp; b) \(\frac{5}{9} \cdot (-18) = -10\) °C &nbsp; c) \(\frac{5}{9} \cdot 63 = 35\) °C</details>
+  <details class="javob"><summary>14-masala</summary>a) \(\frac{1}{2} \cdot 30 \cdot 31 = 465\). b) \(\frac{1}{2} \cdot 60 \cdot 61 - \frac{1}{2} \cdot 25 \cdot 26 = 1\,830 - 325 = 1\,505\). c) \(3 \cdot (1 + 2 + \dots + 30) = 3 \cdot 465 = 1\,395\).</details>
+  <details class="javob"><summary>15-masala</summary>a) \(ab - 2\pi r^2\) cm². b) \(480 - 50\pi\) cm².</details>
+  <details class="javob"><summary>16-masala</summary>a) \(\frac{h}{12}\) cm. b) \(\frac{48}{x}\) cm.</details>
+  <details class="javob"><summary>17-masala</summary>a) \(a - b + (2b + 3)\). b) \(25 - 6 + 15 = 34\) nafar.</details>
+  <details class="javob"><summary>18-masala</summary>a) 4 → 13, 8 → 25, \(n\) → \(3n + 1\). b) \(3 \cdot 30 + 1 = 91\) ta. c) \(3n + 1 = 100\), \(n = 33\) ta kvadrat.</details>
+  <details class="javob"><summary>19-masala</summary>a) \(20m + 60\) kg. b) \(\frac{20m + 60}{25}\) kg. c) \(\frac{860}{25} = 34{,}4\) kg.</details>
+  <details class="javob"><summary>20-masala</summary>a) \(\frac{x - 3y}{k}\) m. b) \(\frac{12 - 4{,}5}{5} = 1{,}5\) m.</details>
+  <details class="javob"><summary>21-masala</summary>a) \(V_2 = 2a(b - 3)c\). b) \(2 \cdot 5 \cdot 5 \cdot 4 = 200\) cm³.</details>
+  <details class="javob"><summary>22-masala</summary>Masalan: a) \(x\) so'mlik 3 ta non va \(y\) so'mlik 2 ta sut — jami narx. b) 100 sahifali kitobdan har kuni 4 sahifadan \(k\) kun o'qilgandan keyin qolgan sahifalar. c) \(s\) km yo'lni 20 km/soat tezlikda bosib o'tish vaqti.</details>
+
+  <h3>5-qism · Tekshiramiz</h3>
+  <details class="javob"><summary>1-masala</summary>a) \(a^2 - b\) &nbsp; b) \(\frac{m + n}{4}\) &nbsp; c) \(-x - y^3\)</details>
+  <details class="javob"><summary>2-masala</summary>a) \(6cd\) &nbsp; b) \(k^4\) &nbsp; c) \(6a^2\) &nbsp; d) \(\frac{pr}{q}\)</details>
+  <details class="javob"><summary>3-masala</summary>a) \(-10 + 6 = -4\) &nbsp; b) \(4 \cdot 3 = 12\) &nbsp; c) \((-5)^2 = 25\) &nbsp; d) \(\frac{5}{1} = 5\)</details>
+  <details class="javob"><summary>4-masala</summary>a) \(2 + 1 = 3\) &nbsp; b) \(16 \cdot \frac{1}{16} = 1\)</details>
+  <details class="javob"><summary>5-masala</summary>\(\frac{1}{2} \cdot 24 \cdot 25 = 300\).</details>
+  <details class="javob"><summary>6-masala</summary>\(50 - 0{,}08s\) litr; \(s = 300\): \(50 - 24 = 26\) litr.</details>
+  <details class="javob"><summary>7-masala</summary>Yo'q: \(n = 1\) da \(n^3 = 1\), \(3n = 3\).</details>
+  <details class="javob"><summary>8-masala</summary>Har yangi uychaga 5 ta cho'p qo'shiladi: \(5n + 1\). \(n = 8\): \(41\) ta cho'p.</details>
+  <details class="javob"><summary>9-masala</summary>\(ab - \pi r^2\); \((12 - \pi)\) m².</details>
+  <details class="javob"><summary>10-masala</summary>Yo'q: manfiy sonni qavs ichida qo'yish kerak: \((-5)^2 = 25\).</details>
+</section>
+
+<p class="m-foot">Mathlearn · 7-sinf matematika</p>
+</main>
+<script src="chizma.js?v=79"></script>
+<script src="maruza.js?v=20"></script>
+</body>
+</html>

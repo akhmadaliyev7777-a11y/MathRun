@@ -45,10 +45,14 @@ Saytdagi 27 ta mavzu nomi darslik mundarijasi bilan solishtirildi (2026-10-28): 
 
 ## 4-bob. Algebra asoslari va algebraik almashtirishlar
 
-#### ☐ 4.1 Algebraga kirish — D 90–99; M 71–76
-#### ☐ 4.2 Chiziqli ifodalarni soddalashtirish — D 100–105; M 77–80
-#### ☐ 4.3 Chiziqli ifodalarda qavslarni ochish — D 106–113; M 81–86
-#### ☐ 4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish — D 114–116; M 87–100
+#### ✅ 4.1 Algebraga kirish — D 90–99; M 71–76
+2026-10-29. 5E uslubida; yangi chizmalar `data-quti41`, `data-gugurt41`, `data-qoy41`, `data-daraja41`, `data-maydon41`; 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** o'zgaruvchi, algebraik ifoda, o'rniga qo'yish, formula, yozish qoidalari, daraja (aynan) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitob qolipidagi ~12 misol/mashq va 9 test savoli almashtirildi.
+#### ✅ 4.2 Chiziqli ifodalarni soddalashtirish — D 100–105; M 77–80
+2026-10-29. 5E uslubida; 20+20 test, PDF. **Kitob bilan solishtirildi:** o'xshash hadlar, soddalashtirish (aynan) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitob qoliplari almashtirildi.
+#### ✅ 4.3 Chiziqli ifodalarda qavslarni ochish — D 106–113; M 81–86
+2026-10-29. 5E uslubida; 20+20 test, PDF. **Kitob bilan solishtirildi:** taqsimot qonuni, qavslarni ochish (aynan) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitob qoliplari almashtirildi.
+#### ✅ 4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish — D 114–116; M 87–100
+2026-10-29. 5E uslubida; 20+20 test, PDF; interaktiv dars ulangan. **Kitob bilan solishtirildi:** umumiy ko'paytuvchini qavsdan chiqarish (aynan) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitob qoliplari almashtirildi.
 
 ## 5-bob. Bir o'zgaruvchili sodda tenglamalar
 

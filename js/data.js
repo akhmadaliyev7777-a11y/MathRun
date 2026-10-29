@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 172;
+const LESSON_VER = 173;
 
 function sec(title) {
   return { title: title, text: null };
@@ -237,7 +237,7 @@ const SITE_DATA = {
               lecture: { embedUrl: "maruza/7-ekub.html" }, interactive: "lessons/7-ekuk-ekub-harakatda.html#ekub", newSim: true, test: "test.html?sinf=7&fan=matematika-2026&mavzu=ekub"
             },
             {
-              id: "ekuk", icon: "img/mavzu/7-ekuk.webp", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "15-bet",
+              tema: 0, id: "ekuk", icon: "img/mavzu/7-ekuk.webp", title: "1.3 Eng kichik umumiy karrali (EKUK)", page: "15-bet",
               sections: [
                 secText("Eslang",
                   "<p>Sonning <strong>karralilari</strong> — uni butun songa ko'paytirishdan hosil bo'ladigan sonlar. Masalan, 4 ning karralilari: 4, 8, 12, 16, 20, 24, …</p>"
@@ -373,7 +373,7 @@ const SITE_DATA = {
               lecture: { embedUrl: "maruza/7-butun-sonlar-qoshish-ayirish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=butun-sonlar-qoshish-ayirish"
             },
             {
-              id: "butun-sonlar-kopaytirish-bolish", icon: "img/mavzu/7-butun-sonlar-kopaytirish-bolish.webp", title: "2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar", page: "44-bet",
+              tema: 0, id: "butun-sonlar-kopaytirish-bolish", icon: "img/mavzu/7-butun-sonlar-kopaytirish-bolish.webp", title: "2.3 Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar", page: "44-bet",
               sections: [
                 secText("Ishoralar qoidasi",
                   "<div class='lecture-rule'><strong>Qoida:</strong> ishoralari <em>bir xil</em> ikki sonning ko'paytmasi (va bo'linmasi) — <strong>musbat</strong>; ishoralari <em>har xil</em> bo'lsa — <strong>manfiy</strong>.</div>" +
@@ -557,7 +557,7 @@ const SITE_DATA = {
                   "<p>«Bir sonning uch baravaridan 4 ni ayirsak, 20 chiqadi» jumlasini algebraik ifoda (tenglama) shaklida yozing. O'zgaruvchini o'zingiz tanlang.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-algebraga-kirish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=algebraga-kirish"
             },
             {
               id: "chiziqli-ifodalarni-soddalashtirish", icon: "img/mavzu/7-chiziqli-ifodalarni-soddalashtirish.webp", title: "4.2 Chiziqli ifodalarni soddalashtirish", page: "100-bet",
@@ -581,10 +581,10 @@ const SITE_DATA = {
                   "<p>a(x + 1) + b(x − 1) ifodani soddalashtiring. Natija faqat ozod haddan iborat bo'lishi uchun a va b qanday bog'liq bo'lishi kerak?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-chiziqli-ifodalarni-soddalashtirish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=chiziqli-ifodalarni-soddalashtirish"
             },
             {
-              id: "qavslarni-ochish", icon: "img/mavzu/7-qavslarni-ochish.webp", title: "4.3 Chiziqli ifodalarda qavslarni ochish", page: "106-bet",
+              tema: 0, id: "qavslarni-ochish", icon: "img/mavzu/7-qavslarni-ochish.webp", title: "4.3 Chiziqli ifodalarda qavslarni ochish", page: "106-bet",
               sections: [
                 secText("Qavs oldida «+» bo'lsa",
                   "<div class='lecture-rule'><strong>Qoida:</strong> qavs oldida «+» ishorasi (yoki hech narsa) tursa, qavs shundoqqina olib tashlanadi, hadlar ishorasi o'zgarmaydi.</div>" +
@@ -605,10 +605,10 @@ const SITE_DATA = {
                   "<p>−(−(−(x − 1))) ifodani soddalashtiring. Nechta minus bo'lganda ifoda x − 1 ga, nechtasida 1 − x ga teng bo'ladi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-qavslarni-ochish.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=qavslarni-ochish"
             },
             {
-              id: "kopaytuvchilarga-ajratish", icon: "img/mavzu/7-kopaytuvchilarga-ajratish.webp", title: "4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish", page: "114-bet",
+              tema: 3, id: "kopaytuvchilarga-ajratish", icon: "img/mavzu/7-kopaytuvchilarga-ajratish.webp", title: "4.4 Algebraik ifodalarni ko'paytuvchilarga ajratish", page: "114-bet",
               sections: [
                 secText("Ko'paytuvchilarga ajratish nima?",
                   "<p><strong>Ko'paytuvchilarga ajratish</strong> — ko'phadni bir nechta ifodaning ko'paytmasi ko'rinishida yozish. Bu qavs ochishga teskari amal.</p>"
@@ -629,7 +629,7 @@ const SITE_DATA = {
                   "<p>Interaktiv ko'rgazmadan foydalanib, 2x<sup>2</sup> + 4x + 2 ifodani to'liq ko'paytuvchilarga ajrating (avval umumiy ko'paytuvchi, keyin formulani qo'llang).</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: "lessons/7-algebra-kopaytuvchilarga-ajratish.html", test: null
+              lecture: { embedUrl: "maruza/7-kopaytuvchilarga-ajratish.html" }, interactive: "lessons/7-algebra-kopaytuvchilarga-ajratish.html", test: "test.html?sinf=7&fan=matematika-2026&mavzu=kopaytuvchilarga-ajratish"
             },
             {
               id: "sodda-chiziqli-tenglamalar", icon: "img/mavzu/7-sodda-chiziqli-tenglamalar.webp", title: "5.1 Sodda chiziqli tenglamalar", page: "124-bet",

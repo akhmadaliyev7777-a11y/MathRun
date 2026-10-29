@@ -655,6 +655,7 @@ window.addEventListener("message", function (e) {
 
 // rang mavzusi (0..4): ma'ruza sahifasidagi bilan bir xil — ma'ruza fayli nomidan (maruza.js da ham shunday), yo'q bo'lsa mavzu id dan
 function topicTema(topic) {
+  if (topic.tema != null) return topic.tema;   /* data.js da tema: N — ma'ruzadagi <html data-tema="N"> bilan bir xil */
   const u = topic.lecture && topic.lecture.embedUrl;
   const nom = u ? u.split("/").pop().replace(/\.html$/, "") : String(topic.id || "");
   let h = 2166136261;
