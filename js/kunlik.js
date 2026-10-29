@@ -4,7 +4,7 @@
 window.KUNLIK = [
   {
     sana: "2026-10-29",
-    qisqa: "7-sinf 2-bob «Haqiqiy sonlar» 3-bob «Yaxlitlash va chamalash» va 4-bob «Algebraik ifodalar» tugadi: 2.1–4.4 (12 ta mavzu) — 5E uslubida ma'ruza, 20+20 test, PDF. 8-sinf algebra (31 ta) va geometriya (37 ta) mavzulari saytga qo'yildi.",
+    qisqa: "7-sinf 2-bob «Haqiqiy sonlar» 3-bob «Yaxlitlash va chamalash» va 4-bob «Algebraik ifodalar» tugadi: 2.1–4.4 (12 ta mavzu) — 5E uslubida ma'ruza, 20+20 test, PDF. 8-sinf algebra (31 ta) va geometriya (37 ta), 9-sinf algebra (38 ta) mavzulari saytga qo'yildi.",
     ishlar: [
       ["7-sinf", "2–4-boblar darsligi va mashq daftari ko'rib chiqildi, rejaga betlari yozildi."],
       ["7-sinf", "2.1 «Manfiy son tushunchasi va sonlar o'qi» — 5E uslubida ma'ruza (ko'cha termometri, dengiz sathi: tog', samolyot, g'avvos, suv osti kemasi; sonlar o'qi, lift), 20+20 test (6 ta chizmali), PDF."],
@@ -22,7 +22,8 @@ window.KUNLIK = [
       ["Sayt", "Ketma-ket mavzular bir xil rangda chiqmasligi uchun 7-sinf 1.3, 2.3, 4.3, 4.4 ning rang to'plami almashtirildi (ma'ruza va kartochkada bir xil)."],
       ["8-sinf", "Algebra: darslik mundarijasi bo'yicha 31 ta mavzu (4 bob — algebraik kasrlar, tengsizliklar, kvadrat tenglamalar, ma'lumotlar tahlili) betlari bilan saytga qo'yildi; eski 5 ta umumiy nom olib tashlandi; tayyor «Sonning moduli» — 17-mavzu. Reja tuzildi."],,
       ["Admin", "8-sinf algebra mavzulari admin panelda boblar bo'yicha ko'rinadi."],
-      ["8-sinf", "Geometriya: darslik mundarijasi bo'yicha 37 ta mavzu (5 bob — to'rtburchaklar, to'g'ri burchakli uchburchak va trigonometriya, koordinatalar va vektorlar, yuz, aylana) betlari bilan saytga qo'yildi; ikki soatli darslar bitta mavzu; eski 4 ta umumiy nom olib tashlandi. Reja tuzildi."]
+      ["8-sinf", "Geometriya: darslik mundarijasi bo'yicha 37 ta mavzu (5 bob — to'rtburchaklar, to'g'ri burchakli uchburchak va trigonometriya, koordinatalar va vektorlar, yuz, aylana) betlari bilan saytga qo'yildi; ikki soatli darslar bitta mavzu; eski 4 ta umumiy nom olib tashlandi. Reja tuzildi."],
+      ["9-sinf", "Algebra: darslik mundarijasi bo'yicha 38 ta mavzu (5 bob — kvadrat funksiya va tengsizliklar, sistemalar, trigonometriya, progressiyalar, ehtimollar va statistika) betlari bilan saytga qo'yildi; eski 4 ta umumiy nom olib tashlandi. Reja tuzildi."]
     ]
   },
   {

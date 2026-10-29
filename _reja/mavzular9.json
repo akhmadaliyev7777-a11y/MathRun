@@ -1,0 +1,306 @@
+{
+ "1": {
+  "id": "kvadrat-funksiya",
+  "nom": "Kvadrat funksiyaning ta'rifi",
+  "darslik": [
+   5,
+   6
+  ]
+ },
+ "2": {
+  "id": "y-x2-funksiya",
+  "nom": "y = x² funksiya",
+  "darslik": [
+   7,
+   9
+  ]
+ },
+ "3": {
+  "id": "y-ax2-funksiya",
+  "nom": "y = ax² funksiya",
+  "darslik": [
+   10,
+   13
+  ]
+ },
+ "4": {
+  "id": "y-ax2-bx-c-funksiya",
+  "nom": "y = ax² + bx + c funksiya",
+  "darslik": [
+   14,
+   17
+  ]
+ },
+ "5": {
+  "id": "kvadrat-funksiya-grafigi",
+  "nom": "Kvadrat funksiyaning grafigini yasash",
+  "darslik": [
+   18,
+   23
+  ]
+ },
+ "6": {
+  "id": "kvadrat-tengsizlik",
+  "nom": "Kvadrat tengsizlik va uning yechimi",
+  "darslik": [
+   24,
+   27
+  ]
+ },
+ "7": {
+  "id": "kvadrat-tengsizlik-grafik",
+  "nom": "Kvadrat tengsizlikni kvadrat funksiya grafigi yordamida yechish",
+  "darslik": [
+   28,
+   31
+  ]
+ },
+ "8": {
+  "id": "intervallar-usuli",
+  "nom": "Intervallar usuli",
+  "darslik": [
+   32,
+   36
+  ]
+ },
+ "9": {
+  "id": "aniqlanish-sohasi",
+  "nom": "Funksiyaning aniqlanish sohasi",
+  "darslik": [
+   37,
+   40
+  ]
+ },
+ "10": {
+  "id": "osish-kamayish",
+  "nom": "Funksiyaning o'sishi va kamayishi",
+  "darslik": [
+   41,
+   45
+  ]
+ },
+ "11": {
+  "id": "juft-toq-funksiya",
+  "nom": "Funksiyaning juftligi va toqligi",
+  "darslik": [
+   46,
+   50
+  ]
+ },
+ "12": {
+  "id": "darajali-tengsizlik-tenglama",
+  "nom": "Daraja qatnashgan tengsizlik va tenglamalar",
+  "darslik": [
+   51,
+   55
+  ]
+ },
+ "13": {
+  "id": "sodda-sistemalar",
+  "nom": "Ikkinchi darajali tenglama qatnashgan eng sodda sistemalarni yechish",
+  "darslik": [
+   68,
+   71
+  ]
+ },
+ "14": {
+  "id": "sistemalarni-yechish-usullari",
+  "nom": "Tenglamalar sistemasini yechishning turli usullari",
+  "darslik": [
+   72,
+   76
+  ]
+ },
+ "15": {
+  "id": "tengsizliklar-sistemalari",
+  "nom": "Ikkinchi darajali bir noma'lumli tengsizliklar sistemalari",
+  "darslik": [
+   77,
+   79
+  ]
+ },
+ "16": {
+  "id": "tengsizliklarni-isbotlash",
+  "nom": "Sodda tengsizliklarni isbotlash",
+  "darslik": [
+   80,
+   83
+  ]
+ },
+ "17": {
+  "id": "radian-olchov",
+  "nom": "Burchakning radian o'lchovi",
+  "darslik": [
+   93,
+   96
+  ]
+ },
+ "18": {
+  "id": "nuqtani-burish",
+  "nom": "Nuqtani koordinatalar boshi atrofida burish",
+  "darslik": [
+   97,
+   102
+  ]
+ },
+ "19": {
+  "id": "sin-cos-tg-ctg-tarifi",
+  "nom": "Burchakning sinusi, kosinusi, tangensi va kotangensi ta'riflari",
+  "darslik": [
+   103,
+   108
+  ]
+ },
+ "20": {
+  "id": "ishoralar",
+  "nom": "Sinus, kosinus va tangensning ishoralari",
+  "darslik": [
+   109,
+   111
+  ]
+ },
+ "21": {
+  "id": "bir-burchak-munosabatlari",
+  "nom": "Ayni bir burchakning sinusi, kosinusi va tangensi orasidagi munosabatlar",
+  "darslik": [
+   112,
+   116
+  ]
+ },
+ "22": {
+  "id": "trigonometrik-ayniyatlar",
+  "nom": "Trigonometrik ayniyatlar",
+  "darslik": [
+   117,
+   119
+  ]
+ },
+ "23": {
+  "id": "alfa-minus-alfa",
+  "nom": "α va −α burchaklarning sinusi, kosinusi, tangensi va kotangensi",
+  "darslik": [
+   120,
+   120
+  ]
+ },
+ "24": {
+  "id": "qoshish-formulalari",
+  "nom": "Qo'shish formulalari",
+  "darslik": [
+   121,
+   125
+  ]
+ },
+ "25": {
+  "id": "ikkilangan-burchak",
+  "nom": "Ikkilangan burchakning sinusi va kosinusi",
+  "darslik": [
+   126,
+   128
+  ]
+ },
+ "26": {
+  "id": "keltirish-formulalari",
+  "nom": "Keltirish formulalari",
+  "darslik": [
+   129,
+   134
+  ]
+ },
+ "27": {
+  "id": "yigindi-ayirma-formulalari",
+  "nom": "Sinuslar yig'indisi va ayirmasi. Kosinuslar yig'indisi va ayirmasi",
+  "darslik": [
+   135,
+   137
+  ]
+ },
+ "28": {
+  "id": "sonli-ketma-ketliklar",
+  "nom": "Sonli ketma-ketliklar",
+  "darslik": [
+   150,
+   152
+  ]
+ },
+ "29": {
+  "id": "arifmetik-progressiya",
+  "nom": "Arifmetik progressiya",
+  "darslik": [
+   153,
+   157
+  ]
+ },
+ "30": {
+  "id": "arifmetik-progressiya-yigindisi",
+  "nom": "Arifmetik progressiya dastlabki n ta hadining yig'indisi",
+  "darslik": [
+   158,
+   161
+  ]
+ },
+ "31": {
+  "id": "geometrik-progressiya",
+  "nom": "Geometrik progressiya",
+  "darslik": [
+   162,
+   166
+  ]
+ },
+ "32": {
+  "id": "geometrik-progressiya-yigindisi",
+  "nom": "Geometrik progressiya dastlabki n ta hadining yig'indisi",
+  "darslik": [
+   167,
+   170
+  ]
+ },
+ "33": {
+  "id": "cheksiz-kamayuvchi-progressiya",
+  "nom": "Cheksiz kamayuvchi geometrik progressiya",
+  "darslik": [
+   171,
+   176
+  ]
+ },
+ "34": {
+  "id": "hodisalar",
+  "nom": "Hodisalar",
+  "darslik": [
+   186,
+   189
+  ]
+ },
+ "35": {
+  "id": "hodisa-ehtimolligi",
+  "nom": "Hodisaning ehtimolligi",
+  "darslik": [
+   190,
+   193
+  ]
+ },
+ "36": {
+  "id": "nisbiy-chastota",
+  "nom": "Tasodifiy hodisaning nisbiy chastotasi",
+  "darslik": [
+   194,
+   197
+  ]
+ },
+ "37": {
+  "id": "tasodifiy-miqdorlar",
+  "nom": "Tasodifiy miqdorlar",
+  "darslik": [
+   198,
+   205
+  ]
+ },
+ "38": {
+  "id": "sonli-xarakteristikalar",
+  "nom": "Tasodifiy miqdorlarning sonli xarakteristikalari",
+  "darslik": [
+   206,
+   212
+  ]
+ }
+}
