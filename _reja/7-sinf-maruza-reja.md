@@ -31,13 +31,17 @@ Saytdagi 27 ta mavzu nomi darslik mundarijasi bilan solishtirildi (2026-10-28): 
 2026-10-29. 5E uslubida; yangi chizmalar `data-tugmaguruh`, `data-sakrash`, `data-kunharorat`, `data-ishora`; 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** ishora qoidalari, manfiy son darajasi, algebraik kvadrat ildiz ±, teskari son, amallar tartibi (aynan) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 3 mashq va 5 test savoli almashtirildi. 1–3-qismlar ~7,5 A4 varaq (kitobda qoida ko'p).
 #### ✅ 2.4 Ratsional, irratsional va haqiqiy sonlar — D 51–53; M 41–44
 2026-10-29. 5E uslubida; yangi chizmalar `data-toplam`, `data-davriy`, `data-haqiqiy`; 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** ratsional son ta'rifi, chekli/davriy o'nli kasr, irratsional (π, √2), haqiqiy sonlar (aynan) ✅. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 11 mashq va 4 test savoli almashtirildi.
-#### ☐ 2.5 Haqiqiy sonlar ustida amallar — D 54–60; M 45–50
+#### ✅ 2.5 Haqiqiy sonlar ustida amallar — D 54–60; M 45–50
+2026-10-29. 5E uslubida; yangi chizmalar `data-kalk25` (kalkulyator), `data-ustun25` (o'nli kasrlar ustunda); 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** qisqarmas/to'g'ri/noto'g'ri kasr, aralash son, qo'shish-ayirish qoidalari kasrlarga ham, bo'lish = teskarisiga ko'paytirish, kalkulyator S⇔D (aynan) ✅; kitobdagi «bo'linuvchi» xatosi ko'chirilmadi. **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 10 masala, mashqlar 6–8 va 5 test savoli almashtirildi; kalkulyatorda daraja tugmasi va «qismiga ko'ra butun» misoli qo'shildi.
 
 ## 3-bob. Sonlarni yaxlitlash va chamalash
 
-#### ☐ 3.1 Sonlarni belgilangan xonasigacha yaxlitlash — D 66–71; M 53–56
-#### ☐ 3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash — D 72–77; M 57–60
-#### ☐ 3.3 Chamalash — D 78–86; M 61–70
+#### ✅ 3.1 Sonlarni belgilangan xonasigacha yaxlitlash — D 66–71; M 53–56
+2026-10-29. 5E uslubida; yangi chizma `data-xonagacha` (son o'qi, tepa, xona jadvali, tarozi, narx, chizg'ich, oraliq); 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** yaxlitlash ta'rifi, taqribiy qiymat, o'rta nuqta, butun va o'nli sonlar qoidasi, ≈ va «= (aniqlik)» yozuvi (aynan) ✅; chegaralar — «Usul». **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; kitob qolipidagi 14 mashq va 4 test savoli almashtirildi.
+#### ✅ 3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash — D 72–77; M 57–60
+2026-10-29. 5E uslubida; yangi chizmalar `data-araqam` (raqamlar kataklarda), `data-asbob` (tablo, kosmos, kalkulyator, shtangen, tarozi); 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** ahamiyatli raqam ta'rifi, 1–5-qoidalar, yaxlitlash qoidasi (aynan) ✅; eng kichik/katta qiymat — «Usul». **Tekshiruv:** mustaqil tekshiruvchi — hisob xatosi yo'q; 6 mashq va 3 test savoli almashtirildi.
+#### ✅ 3.3 Chamalash — D 78–86; M 61–70
+2026-10-29. 5E uslubida; yangi chizmalar `data-chamachek`, `data-guruhiy`, `data-andoza`, `data-kalk`; 20+20 test (6 chizmali), PDF. **Kitob bilan solishtirildi:** chamalash, kami/ko'pi bilan, guruhiy qiymat, andoza o'lchov, bo'laklash-yig'ish, natijaviy aniqlik (aynan) ✅. **Tekshiruv:** mustaqil tekshiruvchi.
 
 ## 4-bob. Algebra asoslari va algebraik almashtirishlar
 

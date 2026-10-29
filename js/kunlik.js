@@ -4,13 +4,17 @@
 window.KUNLIK = [
   {
     sana: "2026-10-29",
-    qisqa: "7-sinf 2-bob «Haqiqiy sonlar»: 2.1–2.4-mavzular — 5E uslubida ma'ruza, 20+20 test, PDF.",
+    qisqa: "7-sinf 2-bob «Haqiqiy sonlar» va 3-bob «Yaxlitlash va chamalash» tugadi: 2.1–3.3 (8 ta mavzu) — 5E uslubida ma'ruza, 20+20 test, PDF.",
     ishlar: [
       ["7-sinf", "2–4-boblar darsligi va mashq daftari ko'rib chiqildi, rejaga betlari yozildi."],
       ["7-sinf", "2.1 «Manfiy son tushunchasi va sonlar o'qi» — 5E uslubida ma'ruza (ko'cha termometri, dengiz sathi: tog', samolyot, g'avvos, suv osti kemasi; sonlar o'qi, lift), 20+20 test (6 ta chizmali), PDF."],
       ["7-sinf", "2.2 «Butun sonlarni qo'shish va ayirish» — 5E uslubida ma'ruza (+1/−1 fishkalar va nol juftliklar, sonlar o'qida sakrash, vaqt mintaqalari, termometr, dengiz), 20+20 test (6 ta chizmali), PDF."],
       ["7-sinf", "2.3 «Butun sonlarni ko'paytirish, bo'lish va ular ustida amallar» — 5E uslubida ma'ruza (tugmalar guruhlari, bir xil sakrashlar, kunlik termometrlar, ishoralar jadvali), 20+20 test (6 ta chizmali), PDF."],
       ["7-sinf", "2.4 «Ratsional, irratsional va haqiqiy sonlar» — 5E uslubida ma'ruza (sonlar to'plamlari ichma-ich, bo'lishda qoldiqlar zanjiri — davriy kasr, sonlar o'qida √2 va π), 20+20 test (6 ta chizmali), PDF."]
+      ["7-sinf", "2.5 «Haqiqiy sonlar ustida amallar» — 5E uslubida ma'ruza (haqiqiy kalkulyator rasmi, o'nli kasrlarni ustunda qo'shish/ayirish/ko'paytirish), 20+20 test (6 ta chizmali), PDF. 7-sinf 2-bobi tugadi."],
+      ["7-sinf", "3.1 «Sonlarni belgilangan xonasigacha yaxlitlash» — 5E uslubida ma'ruza (sonlar o'qida yaqin tomon, do'nglik, xonalar jadvali, tarozi, narx yorlig'i, chizg'ich), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "3.2 «Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash» — 5E uslubida ma'ruza (raqamlar kataklarda, stadion tablosi, Yer–Oy–Quyosh masofalari, o'lchov asboblari), 20+20 test (6 ta chizmali), PDF."],
+      ["7-sinf", "3.3 «Chamalash» — 5E uslubida ma'ruza (xarid savatchasi, guruhiy qiymat, andoza bilan balandlik, kalkulyator javobini tekshirish), 20+20 test (6 ta chizmali), PDF. 7-sinf 3-bobi tugadi."],
     ]
   },
   {

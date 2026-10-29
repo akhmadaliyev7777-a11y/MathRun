@@ -41,7 +41,7 @@
 */
 
 // lessons/ dagi ko'rgazmalar versiyasi: fayl o'zgarsa oshiriladi — brauzer yangisini yuklaydi
-const LESSON_VER = 171;
+const LESSON_VER = 172;
 
 function sec(title) {
   return { title: title, text: null };
@@ -459,7 +459,7 @@ const SITE_DATA = {
                   "<p>√3 · √3 ratsionalmi? √2 + (−√2) ning qiymati qanday? Irratsional sonlar yig'indisi doim irratsional bo'ladimi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-haqiqiy-sonlar-amallar.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=haqiqiy-sonlar-amallar"
             },
             {
               id: "xonagacha-yaxlitlash", icon: "img/mavzu/7-xonagacha-yaxlitlash.webp", title: "3.1 Sonlarni belgilangan xonasigacha yaxlitlash", page: "66-bet",
@@ -488,7 +488,7 @@ const SITE_DATA = {
                   "<p>Bir sonni o'nlargacha yaxlitlaganda 750, yuzlargacha yaxlitlaganda 700 chiqdi. Bu son qanday oraliqda yotadi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-xonagacha-yaxlitlash.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=xonagacha-yaxlitlash"
             },
             {
               id: "ahamiyatli-raqamgacha-yaxlitlash", icon: "img/mavzu/7-ahamiyatli-raqamgacha-yaxlitlash.webp", title: "3.2 Sonlarni belgilangan ahamiyatli raqamgacha yaxlitlash", page: "72-bet",
@@ -510,7 +510,7 @@ const SITE_DATA = {
                   "<p>Yorug'lik tezligi 299 792 458 m/s. Uni: a) 1 ta; b) 2 ta; d) 3 ta ahamiyatli raqamgacha yaxlitlang.</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-ahamiyatli-raqamgacha-yaxlitlash.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=ahamiyatli-raqamgacha-yaxlitlash"
             },
             {
               id: "chamalash", icon: "img/mavzu/7-chamalash.webp", title: "3.3 Chamalash", page: "78-bet",
@@ -532,7 +532,7 @@ const SITE_DATA = {
                   "<p>Bir maktabda 28 sinf, har birida o'rtacha 26 o'quvchi. Maktabda taxminan nechta o'quvchi bor? Aniq son 728 dan qanchalik farq qiladi?</p>"
                 )
               ],
-              lecture: { embedUrl: null }, interactive: null, test: null
+              lecture: { embedUrl: "maruza/7-chamalash.html" }, interactive: null, test: "test.html?sinf=7&fan=matematika-2026&mavzu=chamalash"
             },
             {
               id: "algebraga-kirish", icon: "img/mavzu/7-algebraga-kirish.webp", title: "4.1 Algebraga kirish", page: "90-bet",
