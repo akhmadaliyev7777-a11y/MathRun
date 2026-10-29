@@ -1,0 +1,242 @@
+{
+ "1": {
+  "id": "orttirma-urinma",
+  "nom": "O'zgaruvchi miqdorlar orttirmalarining nisbati va uning ma'nosi. Urinma ta'rifi. Funksiya orttirmasi",
+  "qism": 1,
+  "darslik": [
+   3,
+   11
+  ],
+  "kitob_dars": "1–2"
+ },
+ "2": {
+  "id": "limit",
+  "nom": "Limit haqida tushuncha",
+  "qism": 1,
+  "darslik": [
+   12,
+   15
+  ],
+  "kitob_dars": "3–4"
+ },
+ "3": {
+  "id": "hosila-manosi",
+  "nom": "Hosila, uning geometrik va fizik ma'nosi",
+  "qism": 1,
+  "darslik": [
+   16,
+   23
+  ],
+  "kitob_dars": "5–6"
+ },
+ "4": {
+  "id": "hosila-qoidalari",
+  "nom": "Hosilani hisoblash qoidalari",
+  "qism": 1,
+  "darslik": [
+   24,
+   29
+  ],
+  "kitob_dars": "7–9"
+ },
+ "5": {
+  "id": "murakkab-funksiya-hosilasi",
+  "nom": "Murakkab funksiyaning hosilasi",
+  "qism": 1,
+  "darslik": [
+   30,
+   33
+  ],
+  "kitob_dars": "10–12"
+ },
+ "6": {
+  "id": "urinma-normal",
+  "nom": "Funksiya grafigiga o'tkazilgan urinma va normal tenglamalari",
+  "qism": 1,
+  "darslik": [
+   34,
+   38
+  ],
+  "kitob_dars": "13–14"
+ },
+ "7": {
+  "id": "funksiyani-tekshirish",
+  "nom": "Hosila yordamida funksiyani tekshirish va grafiklarni yasash",
+  "qism": 1,
+  "darslik": [
+   42,
+   49
+  ],
+  "kitob_dars": "18–21"
+ },
+ "8": {
+  "id": "ekstremal-masalalar",
+  "nom": "Geometrik, fizik, iqtisodiy mazmunli ekstremal masalalarni yechishda differensial hisob usullari",
+  "qism": 1,
+  "darslik": [
+   50,
+   55
+  ],
+  "kitob_dars": "22–25"
+ },
+ "9": {
+  "id": "taqribiy-hisoblashlar",
+  "nom": "Taqribiy hisoblashlar",
+  "qism": 1,
+  "darslik": [
+   56,
+   61
+  ],
+  "kitob_dars": "26–28"
+ },
+ "10": {
+  "id": "hosila-modellashtirish",
+  "nom": "Hosila yordamida modellashtirish",
+  "qism": 1,
+  "darslik": [
+   62,
+   72
+  ],
+  "kitob_dars": "29–32"
+ },
+ "11": {
+  "id": "aniqmas-integral",
+  "nom": "Boshlang'ich funksiya va aniqmas integral tushunchalari",
+  "qism": 1,
+  "darslik": [
+   79,
+   85
+  ],
+  "kitob_dars": "37–39"
+ },
+ "12": {
+  "id": "integrallar-jadvali",
+  "nom": "Integrallar jadvali. Integrallashning eng sodda qoidalari",
+  "qism": 1,
+  "darslik": [
+   86,
+   95
+  ],
+  "kitob_dars": "40–43"
+ },
+ "13": {
+  "id": "nyuton-leybnis",
+  "nom": "Aniq integral. Nyuton–Leybnis formulasi",
+  "qism": 1,
+  "darslik": [
+   96,
+   105
+  ],
+  "kitob_dars": "44–46"
+ },
+ "14": {
+  "id": "aniq-integral-tatbiqlari",
+  "nom": "Aniq integralning tatbiqlari",
+  "qism": 2,
+  "darslik": [
+   3,
+   9
+  ],
+  "kitob_dars": "47–50"
+ },
+ "15": {
+  "id": "taqribiy-integrallash",
+  "nom": "Taqribiy integrallash",
+  "qism": 2,
+  "darslik": [
+   10,
+   12
+  ],
+  "kitob_dars": "51"
+ },
+ "16": {
+  "id": "kombinatorika",
+  "nom": "Kombinatorika masalalari",
+  "qism": 2,
+  "darslik": [
+   27,
+   32
+  ],
+  "kitob_dars": "57–58"
+ },
+ "17": {
+  "id": "nyuton-binomi",
+  "nom": "Nyuton binomi",
+  "qism": 2,
+  "darslik": [
+   33,
+   36
+  ],
+  "kitob_dars": "59–60"
+ },
+ "18": {
+  "id": "statistik-malumotlar",
+  "nom": "Statistik ma'lumotlar. Statistik ma'lumotlarning turli ko'rinishlari",
+  "qism": 2,
+  "darslik": [
+   37,
+   44
+  ],
+  "kitob_dars": "61–64"
+ },
+ "19": {
+  "id": "orta-qiymat-chetlanish",
+  "nom": "O'rta qiymat, moda va mediana. Chetlanish, standart chetlanish",
+  "qism": 2,
+  "darslik": [
+   45,
+   56
+  ],
+  "kitob_dars": "65–67"
+ },
+ "20": {
+  "id": "malumotlar-bogliqligi",
+  "nom": "Ikkita tur ma'lumotlar o'rtasida bog'liqlikni tadqiq qilish",
+  "qism": 2,
+  "darslik": [
+   57,
+   67
+  ],
+  "kitob_dars": "68–70"
+ },
+ "21": {
+  "id": "tasodifiy-hodisalar",
+  "nom": "Tasodifiy hodisalar va ularning ehtimolligi haqida tushuncha",
+  "qism": 2,
+  "darslik": [
+   68,
+   77
+  ],
+  "kitob_dars": "71–73"
+ },
+ "22": {
+  "id": "hodisalar-ustida-amallar",
+  "nom": "Qarama-qarshi hodisalar. Hodisalar ustida amallar va ularni Eyler–Venn diagrammalarida tasvirlash",
+  "qism": 2,
+  "darslik": [
+   78,
+   82
+  ],
+  "kitob_dars": "74–77"
+ },
+ "23": {
+  "id": "ehtimollarni-qoshish-kopaytirish",
+  "nom": "Ehtimolliklarni qo'shish va ko'paytirish. Hodisalarning ehtimolligini hisoblash usullari",
+  "qism": 2,
+  "darslik": [
+   83,
+   90
+  ],
+  "kitob_dars": "78–80"
+ },
+ "24": {
+  "id": "binomial-normal-taqsimot",
+  "nom": "Binomial va normal taqsimot haqida tushuncha",
+  "qism": 2,
+  "darslik": [
+   91,
+   96
+  ],
+  "kitob_dars": "81–85"
+ }
+}

@@ -1760,9 +1760,30 @@ const SITE_DATA = {
           id: "algebra",
           name: "Algebra",
           topics: [
-            { id: "hosila", title: "Hosila va uning tatbiqlari", lecture: { text: "Hosila tushunchasi, funksiyani tekshirishda qo'llanilishi.", embedUrl: null }, interactive: null, test: null },
-            { id: "integral", title: "Integral", lecture: { text: "Boshlang'ich funksiya va aniq integral.", embedUrl: null }, interactive: null, test: null },
-            { id: "ehtimollar-nazariyasi", title: "Ehtimollar nazariyasi asoslari", lecture: { text: "Ehtimollikni hisoblashning asosiy usullari.", embedUrl: null }, interactive: null, test: null }
+            { id: "orttirma-urinma", title: "1. O'zgaruvchi miqdorlar orttirmalarining nisbati va uning ma'nosi. Urinma ta'rifi. Funksiya orttirmasi", page: "3-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "limit", title: "2. Limit haqida tushuncha", page: "12-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "hosila-manosi", title: "3. Hosila, uning geometrik va fizik ma'nosi", page: "16-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "hosila-qoidalari", title: "4. Hosilani hisoblash qoidalari", page: "24-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "murakkab-funksiya-hosilasi", title: "5. Murakkab funksiyaning hosilasi", page: "30-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "urinma-normal", title: "6. Funksiya grafigiga o'tkazilgan urinma va normal tenglamalari", page: "34-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "funksiyani-tekshirish", title: "7. Hosila yordamida funksiyani tekshirish va grafiklarni yasash", page: "42-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "ekstremal-masalalar", title: "8. Geometrik, fizik, iqtisodiy mazmunli ekstremal masalalarni yechishda differensial hisob usullari", page: "50-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "taqribiy-hisoblashlar", title: "9. Taqribiy hisoblashlar", page: "56-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "hosila-modellashtirish", title: "10. Hosila yordamida modellashtirish", page: "62-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "aniqmas-integral", title: "11. Boshlang'ich funksiya va aniqmas integral tushunchalari", page: "79-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "integrallar-jadvali", title: "12. Integrallar jadvali. Integrallashning eng sodda qoidalari", page: "86-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "nyuton-leybnis", title: "13. Aniq integral. Nyuton–Leybnis formulasi", page: "96-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "aniq-integral-tatbiqlari", title: "14. Aniq integralning tatbiqlari", page: "2-qism, 3-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "taqribiy-integrallash", title: "15. Taqribiy integrallash", page: "2-qism, 10-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kombinatorika", title: "16. Kombinatorika masalalari", page: "2-qism, 27-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "nyuton-binomi", title: "17. Nyuton binomi", page: "2-qism, 33-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "statistik-malumotlar", title: "18. Statistik ma'lumotlar. Statistik ma'lumotlarning turli ko'rinishlari", page: "2-qism, 37-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "orta-qiymat-chetlanish", title: "19. O'rta qiymat, moda va mediana. Chetlanish, standart chetlanish", page: "2-qism, 45-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "malumotlar-bogliqligi", title: "20. Ikkita tur ma'lumotlar o'rtasida bog'liqlikni tadqiq qilish", page: "2-qism, 57-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "tasodifiy-hodisalar", title: "21. Tasodifiy hodisalar va ularning ehtimolligi haqida tushuncha", page: "2-qism, 68-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "hodisalar-ustida-amallar", title: "22. Qarama-qarshi hodisalar. Hodisalar ustida amallar va ularni Eyler–Venn diagrammalarida tasvirlash", page: "2-qism, 78-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "ehtimollarni-qoshish-kopaytirish", title: "23. Ehtimolliklarni qo'shish va ko'paytirish. Hodisalarning ehtimolligini hisoblash usullari", page: "2-qism, 83-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "binomial-normal-taqsimot", title: "24. Binomial va normal taqsimot haqida tushuncha", page: "2-qism, 91-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null }
           ]
         },
         {

@@ -35,6 +35,9 @@ const CHAPTERS = {
   ],
   "10|geometriya": [
     [1, "Planimetriyani tizimli takrorlash"], [3, "Stereometriyaga kirish"], [8, "Fazoda parallellik"], [13, "Fazoda perpendikulyarlik"]
+  ],
+  "11|algebra": [
+    [1, "Hosila va uning tatbiqlari"], [11, "Integral va uning tatbiqlari"], [16, "Ma'lumotlar tahlili. Ehtimollik"]
   ]
 };
 let FOCUS_GRADE = "5";         // hozir ustida ishlanayotgan sinf («Bugungi ish» shu sinf bo'yicha) — computeFocusGrade() aniqlaydi
