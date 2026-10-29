@@ -14,7 +14,15 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 - **Interaktiv darslar «kasblarda» uslubida:** 8-sinf «Modul kasblarda», 6-sinf 5-mavzu «Kasr bo'lish kasblarda» (kasb rasmlari GPT'dan kutilmoqda).
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **7-sinf (Matematika 2026):** 1.1–4.4 tayyor (16/27; 1.2 dan boshlab 5E uslubida). Kitob: 1–4-boblar bor, 5–7-boblar yo'q. Navbat: 5-bob (kitob kutilmoqda; foydalanuvchi «5–7-boblarga o'tmay tur» dedi).
+- **8–11-sinf mavzu ro'yxatlari:** kitob mundarijasi bo'yicha saytga qo'yildi (2026-10-29): 8 — algebra 31, geometriya 37; 9 — 38, 35; 10 — 29, 17; 11 — 24, 12. Rejalar `_reja/8…11-sinf-*-reja.md`, `mavzular8/8g/9/9g/10/10g/11/11g.json`. Kitob PDF'lari hali yo'q (faqat mundarija rasmlari).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 4 / 6 (4.1–4.4).
+
+---
+
+## 2026-10-29 kech — m.shukurillo hisobi (bulut sessiyasi)
+**Qilindi:** 7-sinf 1.1–1.4 tekshirildi (160 test savoli Python bilan — javoblar to'g'ri; 6 ta kichik matn kamchiligi topildi, hali TUZATILMAGAN: kvadrat-kub-ildiz 9-misol «25 dan» → «5 dan»; ekub Mustaqil 12a javobi «katta darajalarni» yarim to'g'ri; ekub/ekuk javoblar sarlavhasi «Mustaqil ish» → «Tekshiramiz»; ekub qiyin 10 izohida «k son»; kvadrat-kub-ildiz oson 9 noto'g'ri variant izohi; qiyin 19 «darajani 2 ga» → «3 ning darajasini 2 ga»). 8–11-sinf algebra va geometriya mavzulari kitob mundarijasi bo'yicha (223 ta, boblar admin panelda; tayyor 8-sinf «Modul» — 17-mavzu, 10-sinf trigonometriya interaktiv darsi — 23-mavzu). Kunlik ishdagi tushib qolgan vergul tuzatildi. Mavzu kartochkalari bir xil rangda, tepadagi rangli chiziqsiz (foydalanuvchi qarori).
+**Chala:** 7-sinfdagi 6 kamchilik; 7-sinf algebra/geometriya bo'limlarida eski ro'yxatlar; «Tub sonlar» interaktiv darsi telefonda 18 px yonga suriladi.
+**Navbatda:** foydalanuvchi aytadi (8–11-sinf kitob PDF'lari kelsa — ma'ruzalar).
 
 ---
 
