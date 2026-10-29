@@ -1790,9 +1790,18 @@ const SITE_DATA = {
           id: "geometriya",
           name: "Geometriya",
           topics: [
-            { id: "aylanish-jismlari", title: "Aylanish jismlari (silindr, konus, shar)", lecture: { text: "Aylanish jismlarining tuzilishi va yoyilmasi.", embedUrl: null }, interactive: null, test: null },
-            { id: "yuza-hajm", title: "Ko'pyoqlar va aylanish jismlarining yuzasi, hajmi", lecture: { text: "Fazoviy shakllarning yuza va hajmini hisoblash formulalari.", embedUrl: null }, interactive: null, test: null },
-            { id: "fazoda-koordinatalar-vektor", title: "Koordinatalar va vektorlar metodi fazoda", lecture: { text: "Fazoviy masalalarni koordinata va vektor usulida yechish.", embedUrl: null }, interactive: null, test: null }
+            { id: "dekart-koordinatalari", title: "1. Fazoda dekart koordinatalari sistemasi", page: "113-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "fazoda-vektorlar", title: "2. Fazoda vektorlar va ular ustida amallar", page: "122-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "fazoda-almashtirishlar", title: "3. Fazoda almashtirishlar va o'xshashlik", page: "133-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kopyoqli-burchaklar", title: "4. Ko'pyoqli burchaklar va ko'pyoqlar", page: "146-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "prizma-sirti", title: "5. Prizma va uning sirti", page: "153-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "prizma-hajmi", title: "6. Prizmaning hajmi", page: "161-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "silindr", title: "7. Silindrning sirti va hajmi", page: "172-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "piramida", title: "8. Piramida va kesik piramida", page: "2-qism, 113-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "konus", title: "9. Konus va kesik konus", page: "2-qism, 127-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "shar-elementlari", title: "10. Shar va uning elementlari", page: "2-qism, 146-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "shar-hajmi", title: "11. Shar va uning bo'laklari hajmi", page: "2-qism, 155-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "sfera-yuzi", title: "12. Sfera sirtining yuzi", page: "2-qism, 165-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null }
           ]
         }
       ]

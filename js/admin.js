@@ -38,6 +38,9 @@ const CHAPTERS = {
   ],
   "11|algebra": [
     [1, "Hosila va uning tatbiqlari"], [11, "Integral va uning tatbiqlari"], [16, "Ma'lumotlar tahlili. Ehtimollik"]
+  ],
+  "11|geometriya": [
+    [1, "Fazoda koordinatalar sistemasi va vektorlar"], [4, "Prizma va silindr"], [8, "Piramida va konus"], [10, "Sfera va shar"]
   ]
 };
 let FOCUS_GRADE = "5";         // hozir ustida ishlanayotgan sinf («Bugungi ish» shu sinf bo'yicha) — computeFocusGrade() aniqlaydi

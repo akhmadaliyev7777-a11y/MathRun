@@ -1,0 +1,122 @@
+{
+ "1": {
+  "id": "dekart-koordinatalari",
+  "nom": "Fazoda dekart koordinatalari sistemasi",
+  "qism": 1,
+  "darslik": [
+   113,
+   121
+  ],
+  "kitob_mavzu": 1
+ },
+ "2": {
+  "id": "fazoda-vektorlar",
+  "nom": "Fazoda vektorlar va ular ustida amallar",
+  "qism": 1,
+  "darslik": [
+   122,
+   132
+  ],
+  "kitob_mavzu": 2
+ },
+ "3": {
+  "id": "fazoda-almashtirishlar",
+  "nom": "Fazoda almashtirishlar va o'xshashlik",
+  "qism": 1,
+  "darslik": [
+   133,
+   141
+  ],
+  "kitob_mavzu": 3
+ },
+ "4": {
+  "id": "kopyoqli-burchaklar",
+  "nom": "Ko'pyoqli burchaklar va ko'pyoqlar",
+  "qism": 1,
+  "darslik": [
+   146,
+   152
+  ],
+  "kitob_mavzu": 5
+ },
+ "5": {
+  "id": "prizma-sirti",
+  "nom": "Prizma va uning sirti",
+  "qism": 1,
+  "darslik": [
+   153,
+   160
+  ],
+  "kitob_mavzu": 6
+ },
+ "6": {
+  "id": "prizma-hajmi",
+  "nom": "Prizmaning hajmi",
+  "qism": 1,
+  "darslik": [
+   161,
+   171
+  ],
+  "kitob_mavzu": 7
+ },
+ "7": {
+  "id": "silindr",
+  "nom": "Silindrning sirti va hajmi",
+  "qism": 1,
+  "darslik": [
+   172,
+   183
+  ],
+  "kitob_mavzu": 8
+ },
+ "8": {
+  "id": "piramida",
+  "nom": "Piramida va kesik piramida",
+  "qism": 2,
+  "darslik": [
+   113,
+   126
+  ],
+  "kitob_mavzu": 10
+ },
+ "9": {
+  "id": "konus",
+  "nom": "Konus va kesik konus",
+  "qism": 2,
+  "darslik": [
+   127,
+   139
+  ],
+  "kitob_mavzu": 11
+ },
+ "10": {
+  "id": "shar-elementlari",
+  "nom": "Shar va uning elementlari",
+  "qism": 2,
+  "darslik": [
+   146,
+   154
+  ],
+  "kitob_mavzu": 13
+ },
+ "11": {
+  "id": "shar-hajmi",
+  "nom": "Shar va uning bo'laklari hajmi",
+  "qism": 2,
+  "darslik": [
+   155,
+   164
+  ],
+  "kitob_mavzu": 14
+ },
+ "12": {
+  "id": "sfera-yuzi",
+  "nom": "Sfera sirtining yuzi",
+  "qism": 2,
+  "darslik": [
+   165,
+   170
+  ],
+  "kitob_mavzu": 15
+ }
+}
