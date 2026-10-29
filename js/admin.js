@@ -17,6 +17,9 @@ const CHAPTERS = {
     [1, "Natural sonlar"], [2, "Sonlar ustida to'rt amal"], [5, "Oddiy kasrlar"], [12, "Uchburchakning yuzi"],
     [15, "Hajm"], [21, "Nisbatlar"], [26, "O'nli kasrlar"], [29, "Me'yor"], [32, "Foizlar"],
     [36, "O'rtacha qiymat"], [38, "Burchaklar"], [42, "Uchburchakning xossalari"], [45, "Parallelogramm, romb va trapetsiya"]
+  ],
+  "8|algebra": [
+    [1, "Algebraik kasrlar va ular ustida amallar"], [11, "Tengsizliklar"], [22, "Kvadrat tenglamalar"], [28, "Ma'lumotlar tahlili"]
   ]
 };
 let FOCUS_GRADE = "5";         // hozir ustida ishlanayotgan sinf («Bugungi ish» shu sinf bo'yicha) — computeFocusGrade() aniqlaydi

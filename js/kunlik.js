@@ -3,6 +3,14 @@
    bolim: "5-sinf", "6-sinf", "7-sinf", "8-sinf", "1–4-sinf", "Interaktiv", "Sayt", "Admin", "Ish tartibi" */
 window.KUNLIK = [
   {
+    sana: "2026-10-29",
+    qisqa: "8-sinf algebra boshlandi: darslik mundarijasi bo'yicha 31 ta mavzu saytga qo'yildi.",
+    ishlar: [
+      ["8-sinf", "Algebra: darslik mundarijasi bo'yicha 31 ta mavzu (4 bob — algebraik kasrlar, tengsizliklar, kvadrat tenglamalar, ma'lumotlar tahlili) betlari bilan saytga qo'yildi; eski 5 ta umumiy nom olib tashlandi; tayyor «Sonning moduli» — 17-mavzu. Reja tuzildi."],
+      ["Admin", "8-sinf algebra mavzulari admin panelda boblar bo'yicha ko'rinadi."]
+    ]
+  },
+  {
     sana: "2026-10-28",
     qisqa: "6-sinf yakunlandi (31/31): 21–31-mavzular — harakat, kuboid-kub, doiraviy diagramma va fazoviy jismlar boblari.",
     ishlar: [

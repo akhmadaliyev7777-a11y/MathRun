@@ -1,0 +1,250 @@
+{
+ "1": {
+  "id": "algebraik-ifodalar",
+  "nom": "Algebraik ifodalar",
+  "darslik": [
+   7,
+   11
+  ]
+ },
+ "2": {
+  "id": "algebraik-kasr-qisqartirish",
+  "nom": "Algebraik kasr. Kasrlarni qisqartirish",
+  "darslik": [
+   12,
+   17
+  ]
+ },
+ "3": {
+  "id": "umumiy-maxrajga-keltirish",
+  "nom": "Kasrlarni umumiy maxrajga keltirish",
+  "darslik": [
+   18,
+   21
+  ]
+ },
+ "4": {
+  "id": "algebraik-kasrlarni-qoshish-ayirish",
+  "nom": "Algebraik kasrlarni qo'shish va ayirish",
+  "darslik": [
+   22,
+   26
+  ]
+ },
+ "5": {
+  "id": "algebraik-kasrlarni-kopaytirish-bolish",
+  "nom": "Algebraik kasrlarni ko'paytirish va bo'lish",
+  "darslik": [
+   27,
+   29
+  ]
+ },
+ "6": {
+  "id": "kasr-ratsional-ifodalar",
+  "nom": "Kasr-ratsional ifodalarni ayniy almashtirish",
+  "darslik": [
+   30,
+   33
+  ]
+ },
+ "7": {
+  "id": "y-k-x-funksiya",
+  "nom": "y = k/x funksiya. Xossalari, grafigi",
+  "darslik": [
+   34,
+   38
+  ]
+ },
+ "8": {
+  "id": "arifmetik-ildiz-xossalari",
+  "nom": "Natural ko'rsatkichli darajaning arifmetik ildizi va uning xossalari",
+  "darslik": [
+   39,
+   41
+  ]
+ },
+ "9": {
+  "id": "ratsional-korsatkichli-daraja",
+  "nom": "Ratsional ko'rsatkichli daraja va uning xossalari",
+  "darslik": [
+   42,
+   48
+  ]
+ },
+ "10": {
+  "id": "ratsional-daraja-soddalashtirish",
+  "nom": "Ratsional ko'rsatkichli daraja qatnashgan algebraik ifodalarni soddalashtirish",
+  "darslik": [
+   49,
+   52
+  ]
+ },
+ "11": {
+  "id": "sonli-tengsizliklar",
+  "nom": "Sonli tengsizliklar",
+  "darslik": [
+   68,
+   70
+  ]
+ },
+ "12": {
+  "id": "tengsizliklar-xossalari",
+  "nom": "Sonli tengsizliklarning asosiy xossalari",
+  "darslik": [
+   71,
+   74
+  ]
+ },
+ "13": {
+  "id": "tengsizliklarni-qoshish-kopaytirish",
+  "nom": "Tengsizliklarni qo'shish va ko'paytirish",
+  "darslik": [
+   75,
+   79
+  ]
+ },
+ "14": {
+  "id": "tengsizliklarni-darajaga-kotarish",
+  "nom": "Sonli tengsizliklarni darajaga ko'tarish",
+  "darslik": [
+   80,
+   84
+  ]
+ },
+ "15": {
+  "id": "bir-nomalumli-tengsizliklar",
+  "nom": "Bir noma'lumli tengsizliklar",
+  "darslik": [
+   85,
+   93
+  ]
+ },
+ "16": {
+  "id": "tengsizliklar-sistemalari",
+  "nom": "Bir noma'lumli tengsizliklar sistemalari. Sonli oraliqlar",
+  "darslik": [
+   94,
+   104
+  ]
+ },
+ "17": {
+  "id": "modul-tengsizliklar",
+  "nom": "Sonning moduli. Modul qatnashgan tenglama va tengsizliklar",
+  "darslik": [
+   105,
+   110
+  ]
+ },
+ "18": {
+  "id": "taqribiy-hisoblashlar",
+  "nom": "Taqribiy hisoblashlar. Miqdorlarning taqribiy qiymatlari. Yaqinlashish xatoligi",
+  "darslik": [
+   111,
+   113
+  ]
+ },
+ "19": {
+  "id": "xatolikni-baholash",
+  "nom": "Xatolikni baholash",
+  "darslik": [
+   114,
+   116
+  ]
+ },
+ "20": {
+  "id": "sonlarni-yaxlitlash",
+  "nom": "Sonlarni yaxlitlash",
+  "darslik": [
+   117,
+   118
+  ]
+ },
+ "21": {
+  "id": "nisbiy-xatolik",
+  "nom": "Nisbiy xatolik",
+  "darslik": [
+   119,
+   120
+  ]
+ },
+ "22": {
+  "id": "kvadrat-tenglama",
+  "nom": "Kvadrat tenglama va uning ildizlari",
+  "darslik": [
+   135,
+   138
+  ]
+ },
+ "23": {
+  "id": "chala-kvadrat-tenglamalar",
+  "nom": "Chala kvadrat tenglamalar va ularni yechish",
+  "darslik": [
+   139,
+   140
+  ]
+ },
+ "24": {
+  "id": "diskriminant",
+  "nom": "Kvadrat tenglamaning ildizlarini topish formulalari. Diskriminant",
+  "darslik": [
+   141,
+   148
+  ]
+ },
+ "25": {
+  "id": "viyet-teoremasi",
+  "nom": "Viyet teoremasi. Kvadrat uchhadni chiziqli ko'paytuvchilarga ajratish",
+  "darslik": [
+   149,
+   155
+  ]
+ },
+ "26": {
+  "id": "bikvadrat-tenglama",
+  "nom": "Bikvadrat tenglama. Kvadrat tenglamaga keltiriladigan tenglamalar",
+  "darslik": [
+   156,
+   162
+  ]
+ },
+ "27": {
+  "id": "kvadrat-tenglama-masalalar",
+  "nom": "Kvadrat tenglamalar yordamida masalalar yechish",
+  "darslik": [
+   163,
+   166
+  ]
+ },
+ "28": {
+  "id": "malumotlarni-tasvirlash",
+  "nom": "Ma'lumotlar tahlili. Ma'lumotlarni tasvirlash",
+  "darslik": [
+   188,
+   193
+  ]
+ },
+ "29": {
+  "id": "orta-qiymat-moda-mediana",
+  "nom": "O'rta qiymat. Moda. Mediana",
+  "darslik": [
+   194,
+   199
+  ]
+ },
+ "30": {
+  "id": "tanlash-usuli-kombinatorika",
+  "nom": "Tanlash usuli bilan kombinatorik masalalarni yechish",
+  "darslik": [
+   200,
+   202
+  ]
+ },
+ "31": {
+  "id": "kombinatorika-asosiy-qoidasi",
+  "nom": "Kombinatorikaning asosiy qoidasi va uni masalalar yechishda qo'llash",
+  "darslik": [
+   203,
+   209
+  ]
+ }
+}
