@@ -4,7 +4,7 @@
 window.KUNLIK = [
   {
     sana: "2026-10-29",
-    qisqa: "7-sinf 2-bob «Haqiqiy sonlar» 3-bob «Yaxlitlash va chamalash» va 4-bob «Algebraik ifodalar» tugadi: 2.1–4.4 (12 ta mavzu) — 5E uslubida ma'ruza, 20+20 test, PDF. 8-sinf algebra (31 ta) va geometriya (37 ta), 9-sinf algebra (38 ta) va geometriya (35 ta), 10-sinf algebra (29 ta) mavzulari saytga qo'yildi.",
+    qisqa: "7-sinf 2-bob «Haqiqiy sonlar» 3-bob «Yaxlitlash va chamalash» va 4-bob «Algebraik ifodalar» tugadi: 2.1–4.4 (12 ta mavzu) — 5E uslubida ma'ruza, 20+20 test, PDF. 8-sinf algebra (31 ta) va geometriya (37 ta), 9-sinf algebra (38 ta) va geometriya (35 ta), 10-sinf algebra (29 ta) va geometriya (17 ta) mavzulari saytga qo'yildi.",
     ishlar: [
       ["7-sinf", "2–4-boblar darsligi va mashq daftari ko'rib chiqildi, rejaga betlari yozildi."],
       ["7-sinf", "2.1 «Manfiy son tushunchasi va sonlar o'qi» — 5E uslubida ma'ruza (ko'cha termometri, dengiz sathi: tog', samolyot, g'avvos, suv osti kemasi; sonlar o'qi, lift), 20+20 test (6 ta chizmali), PDF."],
@@ -25,7 +25,8 @@ window.KUNLIK = [
       ["8-sinf", "Geometriya: darslik mundarijasi bo'yicha 37 ta mavzu (5 bob — to'rtburchaklar, to'g'ri burchakli uchburchak va trigonometriya, koordinatalar va vektorlar, yuz, aylana) betlari bilan saytga qo'yildi; ikki soatli darslar bitta mavzu; eski 4 ta umumiy nom olib tashlandi. Reja tuzildi."],
       ["9-sinf", "Algebra: darslik mundarijasi bo'yicha 38 ta mavzu (5 bob — kvadrat funksiya va tengsizliklar, sistemalar, trigonometriya, progressiyalar, ehtimollar va statistika) betlari bilan saytga qo'yildi; eski 4 ta umumiy nom olib tashlandi. Reja tuzildi."],
       ["9-sinf", "Geometriya: darslik mundarijasi bo'yicha 35 ta mavzu (4 bob — o'xshashlik va geometrik almashtirishlar, sinuslar va kosinuslar teoremalari, aylana uzunligi va doira yuzi, proporsional kesmalar) betlari bilan saytga qo'yildi; «O'xshash uchburchaklar» — 2-mavzu; eski 4 ta umumiy nom olib tashlandi. Reja tuzildi."],
-      ["10-sinf", "Algebra va analiz asoslari: darslik mundarijasi bo'yicha 29 ta mavzu (6 bob — elementar funksiyalar, ratsional va irratsional tenglamalar, ko'rsatkichli va logarifmik funksiyalar, trigonometrik funksiyalar va tenglamalar, ehtimollar) betlari bilan saytga qo'yildi; eski 4 ta umumiy nom olib tashlandi; avvalgi trigonometriya interaktiv darsi 23-mavzuga ulandi. Reja tuzildi."]
+      ["10-sinf", "Algebra va analiz asoslari: darslik mundarijasi bo'yicha 29 ta mavzu (6 bob — elementar funksiyalar, ratsional va irratsional tenglamalar, ko'rsatkichli va logarifmik funksiyalar, trigonometrik funksiyalar va tenglamalar, ehtimollar) betlari bilan saytga qo'yildi; eski 4 ta umumiy nom olib tashlandi; avvalgi trigonometriya interaktiv darsi 23-mavzuga ulandi. Reja tuzildi."],
+      ["10-sinf", "Geometriya: darslik mundarijasi bo'yicha 17 ta mavzu (4 bob — planimetriyani takrorlash, stereometriyaga kirish, fazoda parallellik, fazoda perpendikulyarlik) betlari bilan saytga qo'yildi; eski 3 ta umumiy nom olib tashlandi. Reja tuzildi."]
     ]
   },
   {

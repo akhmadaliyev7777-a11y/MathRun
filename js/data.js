@@ -1731,9 +1731,23 @@ const SITE_DATA = {
           id: "geometriya",
           name: "Geometriya",
           topics: [
-            { id: "fazoda-togri-chiziq-tekislik", title: "Fazoda to'g'ri chiziq va tekisliklar", lecture: { text: "Stereometriyaga kirish: fazoviy joylashuv holatlari.", embedUrl: null }, interactive: null, test: null },
-            { id: "kopyoqlar", title: "Ko'pyoqlar (prizma, piramida)", lecture: { text: "Prizma va piramidaning tuzilishi va xossalari.", embedUrl: null }, interactive: null, test: null },
-            { id: "parallellik-perpendikulyarlik", title: "Parallellik va perpendikulyarlik", lecture: { text: "Fazoda to'g'ri chiziq va tekisliklarning o'zaro joylashuvi.", embedUrl: null }, interactive: null, test: null }
+            { id: "mantiqiy-tuzilish", title: "1. Geometriyaning mantiqiy tuzilishi", page: "8-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "masalalarni-yechish-usullari", title: "2. Geometrik masalalar va ularni yechish usullari", page: "15-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "stereometriya-asosiy-tushunchalari", title: "3. Stereometriyaning asosiy tushunchalari", page: "32-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "fazoda-togri-chiziq-tekislik", title: "4. Fazoda to'g'ri chiziqlar va tekisliklar", page: "39-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kopyoqlar", title: "5. Fazoviy geometrik shakllar. Ko'pyoqlar", page: "44-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kopyoqlarni-tasvirlash", title: "6. Ko'pyoqlarni tasvirlash va modelini yasash", page: "58-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kopyoq-kesimlari", title: "7. Ko'pyoqlarning sodda kesimlarini yasash", page: "64-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "togri-chiziqlar-joylashuvi", title: "8. Fazoda to'g'ri chiziqlarning o'zaro joylashuvi", page: "88-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "ayqash-togri-chiziqlar", title: "9. Ayqash to'g'ri chiziqlar", page: "95-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "togri-chiziq-tekislik-joylashuvi", title: "10. Fazoda to'g'ri chiziq va tekisliklarning o'zaro joylashuvi", page: "98-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "tekisliklar-joylashuvi", title: "11. Fazoda tekisliklarning o'zaro joylashuvi", page: "103-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "parallel-proyeksiyalash", title: "12. Fazoda parallel proyeksiyalash", page: "109-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "perpendikulyar-chiziq-tekislik", title: "13. Fazoda perpendikulyar to'g'ri chiziqlar va tekisliklar", page: "120-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "perpendikulyar-ogma-masofa", title: "14. Fazoda perpendikulyar, og'ma va masofa", page: "127-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "uch-perpendikulyar", title: "15. Uch perpendikulyar haqidagi teorema", page: "135-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "tekisliklar-perpendikulyarligi", title: "16. Fazoda tekisliklarning perpendikulyarligi", page: "142-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "ortogonal-proyeksiya", title: "17. Fazoda ortogonal proyeksiya va undan texnikada foydalanish", page: "148-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null }
           ]
         }
       ]

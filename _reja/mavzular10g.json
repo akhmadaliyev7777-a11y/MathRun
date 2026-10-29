@@ -1,0 +1,155 @@
+{
+ "1": {
+  "id": "mantiqiy-tuzilish",
+  "nom": "Geometriyaning mantiqiy tuzilishi",
+  "darslik": [
+   8,
+   14
+  ],
+  "kitob_mavzu": 1
+ },
+ "2": {
+  "id": "masalalarni-yechish-usullari",
+  "nom": "Geometrik masalalar va ularni yechish usullari",
+  "darslik": [
+   15,
+   25
+  ],
+  "kitob_mavzu": 2
+ },
+ "3": {
+  "id": "stereometriya-asosiy-tushunchalari",
+  "nom": "Stereometriyaning asosiy tushunchalari",
+  "darslik": [
+   32,
+   38
+  ],
+  "kitob_mavzu": 4
+ },
+ "4": {
+  "id": "fazoda-togri-chiziq-tekislik",
+  "nom": "Fazoda to'g'ri chiziqlar va tekisliklar",
+  "darslik": [
+   39,
+   43
+  ],
+  "kitob_mavzu": 5
+ },
+ "5": {
+  "id": "kopyoqlar",
+  "nom": "Fazoviy geometrik shakllar. Ko'pyoqlar",
+  "darslik": [
+   44,
+   57
+  ],
+  "kitob_mavzu": 6
+ },
+ "6": {
+  "id": "kopyoqlarni-tasvirlash",
+  "nom": "Ko'pyoqlarni tasvirlash va modelini yasash",
+  "darslik": [
+   58,
+   63
+  ],
+  "kitob_mavzu": 7
+ },
+ "7": {
+  "id": "kopyoq-kesimlari",
+  "nom": "Ko'pyoqlarning sodda kesimlarini yasash",
+  "darslik": [
+   64,
+   73
+  ],
+  "kitob_mavzu": 8
+ },
+ "8": {
+  "id": "togri-chiziqlar-joylashuvi",
+  "nom": "Fazoda to'g'ri chiziqlarning o'zaro joylashuvi",
+  "darslik": [
+   88,
+   94
+  ],
+  "kitob_mavzu": 11
+ },
+ "9": {
+  "id": "ayqash-togri-chiziqlar",
+  "nom": "Ayqash to'g'ri chiziqlar",
+  "darslik": [
+   95,
+   97
+  ],
+  "kitob_mavzu": 12
+ },
+ "10": {
+  "id": "togri-chiziq-tekislik-joylashuvi",
+  "nom": "Fazoda to'g'ri chiziq va tekisliklarning o'zaro joylashuvi",
+  "darslik": [
+   98,
+   102
+  ],
+  "kitob_mavzu": 13
+ },
+ "11": {
+  "id": "tekisliklar-joylashuvi",
+  "nom": "Fazoda tekisliklarning o'zaro joylashuvi",
+  "darslik": [
+   103,
+   108
+  ],
+  "kitob_mavzu": 14
+ },
+ "12": {
+  "id": "parallel-proyeksiyalash",
+  "nom": "Fazoda parallel proyeksiyalash",
+  "darslik": [
+   109,
+   112
+  ],
+  "kitob_mavzu": 15
+ },
+ "13": {
+  "id": "perpendikulyar-chiziq-tekislik",
+  "nom": "Fazoda perpendikulyar to'g'ri chiziqlar va tekisliklar",
+  "darslik": [
+   120,
+   126
+  ],
+  "kitob_mavzu": 17
+ },
+ "14": {
+  "id": "perpendikulyar-ogma-masofa",
+  "nom": "Fazoda perpendikulyar, og'ma va masofa",
+  "darslik": [
+   127,
+   134
+  ],
+  "kitob_mavzu": 18
+ },
+ "15": {
+  "id": "uch-perpendikulyar",
+  "nom": "Uch perpendikulyar haqidagi teorema",
+  "darslik": [
+   135,
+   141
+  ],
+  "kitob_mavzu": 19
+ },
+ "16": {
+  "id": "tekisliklar-perpendikulyarligi",
+  "nom": "Fazoda tekisliklarning perpendikulyarligi",
+  "darslik": [
+   142,
+   147
+  ],
+  "kitob_mavzu": 20
+ },
+ "17": {
+  "id": "ortogonal-proyeksiya",
+  "nom": "Fazoda ortogonal proyeksiya va undan texnikada foydalanish",
+  "darslik": [
+   148,
+   151
+  ],
+  "kitob_mavzu": 21
+ }
+}

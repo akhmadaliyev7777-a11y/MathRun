@@ -32,6 +32,9 @@ const CHAPTERS = {
   ],
   "10|algebra": [
     [1, "Elementar funksiyalar"], [8, "Ratsional tenglamalar va tengsizliklar. Irratsional tenglamalar"], [14, "Ko'rsatkichli va logarifmik funksiyalar"], [23, "Trigonometrik funksiyalar"], [25, "Trigonometrik tenglamalar"], [28, "Ehtimollar nazariyasi"]
+  ],
+  "10|geometriya": [
+    [1, "Planimetriyani tizimli takrorlash"], [3, "Stereometriyaga kirish"], [8, "Fazoda parallellik"], [13, "Fazoda perpendikulyarlik"]
   ]
 };
 let FOCUS_GRADE = "5";         // hozir ustida ishlanayotgan sinf («Bugungi ish» shu sinf bo'yicha) — computeFocusGrade() aniqlaydi
