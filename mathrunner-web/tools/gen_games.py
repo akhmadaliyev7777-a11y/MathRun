@@ -729,7 +729,7 @@ def gen_protractor(seeds, need, rng, lid):
 
 GENS = {'numberOrder': gen_order, 'placeValue': gen_place, 'algorithmConveyor': gen_conv, 'set': gen_set,
         'balanceScale': gen_balance, 'equationGrid': gen_grid, 'symmetry': gen_sym, 'netFold': gen_net,
-        'fractionStrip': gen_fraction, 'motionLine': gen_motion, 'protractor': gen_protractor}
+        'fractionStrip': gen_fraction, 'protractor': gen_protractor}
 
 
 # ---------------------------------------------------------------- tekshiruv

@@ -8,6 +8,7 @@ export const YUQORI = [
   L(5, 'Matematika', '32. Foiz tushunchasi', 'y5_foiz', 'fractionStrip'),
   L(5, 'Matematika', "33. Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish", 'y5_kasr_foiz', 'fractionStrip'),
   L(6, 'Matematika', '4. Tenglamalarni yechish', 'y6_tenglama', 'balanceScale'),
+  L(6, 'Matematika', '23. Ikki jism harakati: uchrashish va quvib yetish', 'y6_harakat', 'motionLine'),
   L(6, 'Matematika', '29. Konus, silindr, prizma va piramida', 'y6_jismlar', 'netFold'),
   L(6, 'Matematika', '31. Fazoviy jismlarning yoyilmasi', 'y6_yoyilma', 'netFold'),
   L(7, 'Matematika', '5.1 Sodda chiziqli tenglamalar', 'y7_chiziqli', 'balanceScale'),

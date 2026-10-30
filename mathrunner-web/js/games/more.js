@@ -1,4 +1,4 @@
-// Qo'shimcha o'yinlar: harakat chizig'i, transportir (koordinata — index.js da, «xazina oroli»).
+// Qo'shimcha o'yinlar: transportir (koordinata va harakat — index.js da).
 // Har biri (ctx) -> render -> tugagach ctx.finish(correct, total, extra). Qobiq — shell.js.
 import { el, shuffle } from '../util.js';
 import { shell, checkBtn } from './shell.js';
@@ -32,51 +32,6 @@ function runner(ctx, s, tasks, renderTask) {
     renderTask(tasks[idx], done, () => locked);
   }
   show();
-}
-
-// ================= motionLine: slayder bilan vaqtni topish =================
-const EMO = [[/poyezd/i, '🚆'], [/velosiped/i, '🚲'], [/piyoda|Anvar|Bek/i, '🚶'], [/mashina|avtomobil/i, '🚗']];
-const emoOf = (label) => (EMO.find(([re]) => re.test(label)) || [0, '●'])[1];
-
-function gameMotionLine(ctx) {
-  const tasks = ctx.bank;
-  const s = shell(ctx, tasks[0].prompt, 'spark', true);
-  runner(ctx, s, tasks, (t, done, isLocked) => {
-    const runners = [t.runnerA, t.runnerB];
-    const posAt = (r, h) => r.startPosition + r.direction * r.speed * Math.max(0, h - (r.startHour || 0));
-    const L = t.roadLength;
-    let hour = 0;
-    const marks = runners.map((r, i) => el('div', { class: 'ml-mark ml-mark--' + (i ? 'b' : 'a') }, el('span', {}, emoOf(r.label))));
-    const road = el('div', { class: 'ml-road' },
-      el('div', { class: 'ml-line' }), ...marks,
-      el('span', { class: 'ml-end ml-end--l' }, '0 km'), el('span', { class: 'ml-end ml-end--r' }, `${L} km`));
-    const read = el('div', { class: 'ml-read' });
-    const legend = el('div', { class: 'ml-legend' }, ...runners.map((r, i) => el('div', { class: 'ml-card ml-card--' + (i ? 'b' : 'a') },
-      el('b', {}, `${emoOf(r.label)} ${r.label}`),
-      el('span', {}, `${r.startPosition} km dan, ${r.direction > 0 ? "o'ngga" : 'chapga'}, ${r.speed} km/soat`
-        + (r.startHour ? ` · ${r.startHour} soatdan keyin yo'lga chiqadi` : '')))));
-    const label = el('div', { class: 'ml-time' });
-    const slider = el('input', { type: 'range', min: 0, max: t.maxHours, step: 1, value: 0, class: 'ml-slider', 'aria-label': 'Vaqt (soat)' });
-    function paint() {
-      hour = Number(slider.value);
-      runners.forEach((r, i) => {
-        const p = Math.max(0, Math.min(L, posAt(r, hour)));
-        marks[i].style.left = `${(p / L) * 100}%`;
-      });
-      const pa = posAt(runners[0], hour), pb = posAt(runners[1], hour);
-      label.textContent = `Vaqt: ${hour} soat`;
-      read.textContent = `${runners[0].label}: ${Math.round(pa)} km · ${runners[1].label}: ${Math.round(pb)} km · orasidagi masofa: ${Math.round(Math.abs(pa - pb))} km`;
-    }
-    slider.addEventListener('input', () => { if (!isLocked()) paint(); });
-    paint();
-    s.area.replaceChildren(el('div', { class: 'ml-wrap' },
-      legend, road, label, slider, read,
-      el('div', { class: 'ml-hint' }, t.hint + (runners.some(r => r.startHour) ? ' (vaqt birinchi chiqqan paytdan boshlab sanaladi)' : ''))));
-    s.foot.replaceChildren(checkBtn('Tekshirish', () => {
-      const ok = hour === t.answerHour;
-      done(ok, ok ? '' : `Javob: ${t.answerHour} soat.`);
-    }));
-  });
 }
 
 // ================= protractor: burchakni o'lchash va yasash =================
@@ -155,6 +110,5 @@ function gameProtractor(ctx) {
 }
 
 export const MORE = {
-  motionLine: gameMotionLine,
   protractor: gameProtractor,
 };

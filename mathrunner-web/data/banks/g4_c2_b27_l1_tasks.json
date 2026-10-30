@@ -1,402 +1,722 @@
 [
-  {
-    "id": "sinf4_chorak2_blok27_level1_birga_01",
-    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ikki mashina uchrashadigan soatga suring",
-    "roadLength": 60,
-    "maxHours": 3,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Ko'k mashina",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Qizil mashina",
-      "startPosition": 60,
-      "speed": 10,
-      "direction": -1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok27_level1_birga_02",
-    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ikki piyoda uchrashadigan soatga suring",
-    "roadLength": 90,
-    "maxHours": 4,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "Anvar",
-      "startPosition": 0,
-      "speed": 15,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Bek",
-      "startPosition": 90,
-      "speed": 15,
-      "direction": -1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok27_level1_birga_03",
-    "prompt": "Ikki velosipedchi bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 60,
-    "maxHours": 6,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "1-velosipedchi",
-      "startPosition": 0,
-      "speed": 6,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-velosipedchi",
-      "startPosition": 60,
-      "speed": 6,
-      "direction": -1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok27_level1_birga_04",
-    "prompt": "Ikki avtomobil bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ikki avtomobil uchrashadigan soatga suring",
-    "roadLength": 150,
-    "maxHours": 4,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "1-avtomobil",
-      "startPosition": 0,
-      "speed": 30,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-avtomobil",
-      "startPosition": 150,
-      "speed": 20,
-      "direction": -1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok27_level1_birga_05",
-    "prompt": "Ikki poyezd bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ikki poyezd uchrashadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "1-poyezd",
-      "startPosition": 0,
-      "speed": 10,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-poyezd",
-      "startPosition": 100,
-      "speed": 15,
-      "direction": -1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok27_level1_birga_06",
-    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 110,
-    "maxHours": 3,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Sariq mashina",
-      "startPosition": 0,
-      "speed": 22,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Yashil mashina",
-      "startPosition": 110,
-      "speed": 33,
-      "direction": -1
-    }
-  },
-  {
-    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 192,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Sariq mashina",
-      "startPosition": 0,
-      "speed": 26,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Yashil mashina",
-      "startPosition": 192,
-      "speed": 6,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x01"
-  },
-  {
-    "prompt": "Ikki poyezd bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 300,
-    "maxHours": 7,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "1-poyezd",
-      "startPosition": 0,
-      "speed": 27,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-poyezd",
-      "startPosition": 300,
-      "speed": 23,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x02"
-  },
-  {
-    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 228,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Ko'k mashina",
-      "startPosition": 0,
-      "speed": 27,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Qizil mashina",
-      "startPosition": 228,
-      "speed": 30,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x03"
-  },
-  {
-    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 72,
-    "maxHours": 4,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Sardor",
-      "startPosition": 0,
-      "speed": 5,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Jasur",
-      "startPosition": 72,
-      "speed": 31,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x04"
-  },
-  {
-    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 168,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Anvar",
-      "startPosition": 0,
-      "speed": 21,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Bek",
-      "startPosition": 168,
-      "speed": 21,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x05"
-  },
-  {
-    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 70,
-    "maxHours": 3,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Sardor",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Jasur",
-      "startPosition": 70,
-      "speed": 15,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x06"
-  },
-  {
-    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 155,
-    "maxHours": 6,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "Sardor",
-      "startPosition": 0,
-      "speed": 22,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Jasur",
-      "startPosition": 155,
-      "speed": 9,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x07"
-  },
-  {
-    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 60,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Sardor",
-      "startPosition": 0,
-      "speed": 6,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Jasur",
-      "startPosition": 60,
-      "speed": 9,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x08"
-  },
-  {
-    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 164,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Sardor",
-      "startPosition": 0,
-      "speed": 10,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Jasur",
-      "startPosition": 164,
-      "speed": 31,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x09"
-  },
-  {
-    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 288,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Ko'k mashina",
-      "startPosition": 0,
-      "speed": 35,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Qizil mashina",
-      "startPosition": 288,
-      "speed": 13,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x10"
-  },
-  {
-    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 234,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Oq mashina",
-      "startPosition": 0,
-      "speed": 7,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Qora mashina",
-      "startPosition": 234,
-      "speed": 32,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x11"
-  },
-  {
-    "prompt": "Ikki poyezd bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "1-poyezd",
-      "startPosition": 0,
-      "speed": 5,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-poyezd",
-      "startPosition": 100,
-      "speed": 15,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x12"
-  },
-  {
-    "prompt": "Ikki mashina bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 135,
-    "maxHours": 5,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "Oq mashina",
-      "startPosition": 0,
-      "speed": 23,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Qora mashina",
-      "startPosition": 135,
-      "speed": 22,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x13"
-  },
-  {
-    "prompt": "Ikki piyoda bir-biriga qarab yo'lga chiqdi. Ular necha soatdan keyin uchrashadi?",
-    "hint": "Slayderni ular uchrashadigan soatga suring",
-    "roadLength": 94,
-    "maxHours": 3,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Anvar",
-      "startPosition": 0,
-      "speed": 34,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Bek",
-      "startPosition": 94,
-      "speed": 13,
-      "direction": -1
-    },
-    "id": "sinf4_chorak2_blok27_level1_birga_x14"
-  }
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Gulzor va Bog'iston orasi 20 km. Bir vaqtda bir-biriga qarab Gulzordan Malika (5 km/soat), Bog'istondan Bobur (5 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Malika",
+    "rasm": "piyoda",
+    "v": 5,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 5,
+    "x0": 20,
+    "yon": -1
+   }
+  ],
+  "yol": 20,
+  "T": 2,
+  "qishloq": [
+   "Gulzor",
+   "Bog'iston"
+  ],
+  "javob": 2,
+  "birlik": "soat",
+  "options": [
+   1,
+   3,
+   2,
+   4
+  ],
+  "id": "g4c2b27l1_yol_01"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "qoldi",
+  "savol": "Bog'iston va Archazor orasi 425 km. Bir vaqtda bir-biriga qarab Bog'istondan avtobus (45 km/soat), Archazordan oq mashina (40 km/soat) yo'lga chiqdi. 4 soatdan keyin ular orasida necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 45,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 40,
+    "x0": 425,
+    "yon": -1
+   }
+  ],
+  "yol": 425,
+  "T": 4,
+  "qishloq": [
+   "Bog'iston",
+   "Archazor"
+  ],
+  "javob": 85,
+  "birlik": "km",
+  "options": [
+   265,
+   245,
+   85,
+   340
+  ],
+  "id": "g4c2b27l1_yol_02"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Do'stlik va Sohilobod orasi 580 km. Bir vaqtda bir-biriga qarab Do'stlikdan sariq taksi (85 km/soat), Sohiloboddan ko'k mashina (60 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 85,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 60,
+    "x0": 580,
+    "yon": -1
+   }
+  ],
+  "yol": 580,
+  "T": 4,
+  "qishloq": [
+   "Do'stlik",
+   "Sohilobod"
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   6,
+   4,
+   3,
+   5
+  ],
+  "id": "g4c2b27l1_yol_03"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "S",
+  "savol": "Yangioboddan velosipedchi (13 km/soat), Zarbuloqdan mototsiklchi (30 km/soat) bir vaqtda bir-biriga qarab yo'lga chiqdi va 4 soatdan keyin uchrashdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 13,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 30,
+    "x0": 172,
+    "yon": -1
+   }
+  ],
+  "yol": 172,
+  "T": 4,
+  "qishloq": [
+   "Yangiobod",
+   "Zarbuloq"
+  ],
+  "javob": 172,
+  "birlik": "km",
+  "options": [
+   120,
+   68,
+   52,
+   172
+  ],
+  "id": "g4c2b27l1_yol_04"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Tolzor va Gulzor orasi 375 km. Bir vaqtda bir-biriga qarab Tolzordan yuk mashinasi (60 km/soat), Gulzordan ko'k mashina (65 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 60,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 65,
+    "x0": 375,
+    "yon": -1
+   }
+  ],
+  "yol": 375,
+  "T": 3,
+  "qishloq": [
+   "Tolzor",
+   "Gulzor"
+  ],
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   3,
+   75,
+   4,
+   2
+  ],
+  "id": "g4c2b27l1_yol_05"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Chinorli va Qumariq orasi 36 km. Bir vaqtda bir-biriga qarab Chinorlidan Malika (3 km/soat), Qumariqdan sayyoh (6 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Malika",
+    "rasm": "piyoda",
+    "v": 3,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Sayyoh",
+    "rasm": "piyoda",
+    "v": 6,
+    "x0": 36,
+    "yon": -1
+   }
+  ],
+  "yol": 36,
+  "T": 4,
+  "qishloq": [
+   "Chinorli",
+   "Qumariq"
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   4,
+   3,
+   5,
+   12
+  ],
+  "id": "g4c2b27l1_yol_06"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "qoldi",
+  "savol": "Qumariq va Bog'iston orasi 440 km. Bir vaqtda bir-biriga qarab Qumariqdan yuk mashinasi (55 km/soat), Bog'istondan avtobus (55 km/soat) yo'lga chiqdi. 1 soatdan keyin ular orasida necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 55,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 55,
+    "x0": 440,
+    "yon": -1
+   }
+  ],
+  "yol": 440,
+  "T": 1,
+  "qishloq": [
+   "Qumariq",
+   "Bog'iston"
+  ],
+  "javob": 330,
+  "birlik": "km",
+  "options": [
+   331,
+   330,
+   385,
+   110
+  ],
+  "id": "g4c2b27l1_yol_07"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Do'stlik va Archazor orasi 375 km. Bir vaqtda bir-biriga qarab Do'stlikdan mototsiklchi (40 km/soat), Archazordan oq mashina (85 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 85,
+    "x0": 375,
+    "yon": -1
+   }
+  ],
+  "yol": 375,
+  "T": 3,
+  "qishloq": [
+   "Do'stlik",
+   "Archazor"
+  ],
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   5,
+   3,
+   4,
+   2
+  ],
+  "id": "g4c2b27l1_yol_08"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "S",
+  "savol": "Qumariqdan piyoda (3 km/soat), Zarbuloqdan Malika (5 km/soat) bir vaqtda bir-biriga qarab yo'lga chiqdi va 3 soatdan keyin uchrashdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Piyoda",
+    "rasm": "piyoda",
+    "v": 3,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Malika",
+    "rasm": "piyoda",
+    "v": 5,
+    "x0": 24,
+    "yon": -1
+   }
+  ],
+  "yol": 24,
+  "T": 3,
+  "qishloq": [
+   "Qumariq",
+   "Zarbuloq"
+  ],
+  "javob": 24,
+  "birlik": "km",
+  "options": [
+   15,
+   24,
+   6,
+   9
+  ],
+  "id": "g4c2b27l1_yol_09"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Sohilobod va Do'stlik orasi 525 km. Bir vaqtda bir-biriga qarab Sohiloboddan mototsiklchi (45 km/soat), Do'stlikdan qizil mashina (60 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 45,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 60,
+    "x0": 525,
+    "yon": -1
+   }
+  ],
+  "yol": 525,
+  "T": 5,
+  "qishloq": [
+   "Sohilobod",
+   "Do'stlik"
+  ],
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   5,
+   4,
+   35,
+   6
+  ],
+  "id": "g4c2b27l1_yol_10"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "qoldi",
+  "savol": "Chinorli va Uzumzor orasi 220 km. Bir vaqtda bir-biriga qarab Chinorlidan yuk mashinasi (30 km/soat), Uzumzordan sariq taksi (80 km/soat) yo'lga chiqdi. 1 soatdan keyin ular orasida necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 30,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 80,
+    "x0": 220,
+    "yon": -1
+   }
+  ],
+  "yol": 220,
+  "T": 1,
+  "qishloq": [
+   "Chinorli",
+   "Uzumzor"
+  ],
+  "javob": 110,
+  "birlik": "km",
+  "options": [
+   190,
+   110,
+   111,
+   140
+  ],
+  "id": "g4c2b27l1_yol_11"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "S",
+  "savol": "Sohiloboddan velosipedchi (13 km/soat), Qumariqdan Jasur (15 km/soat) bir vaqtda bir-biriga qarab yo'lga chiqdi va 5 soatdan keyin uchrashdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 13,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 15,
+    "x0": 140,
+    "yon": -1
+   }
+  ],
+  "yol": 140,
+  "T": 5,
+  "qishloq": [
+   "Sohilobod",
+   "Qumariq"
+  ],
+  "javob": 140,
+  "birlik": "km",
+  "options": [
+   140,
+   10,
+   75,
+   65
+  ],
+  "id": "g4c2b27l1_yol_12"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Yangiobod va Olmazor orasi 150 km. Bir vaqtda bir-biriga qarab Yangioboddan Jasur (15 km/soat), Olmazordan mototsiklchi (60 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 15,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 60,
+    "x0": 150,
+    "yon": -1
+   }
+  ],
+  "yol": 150,
+  "T": 2,
+  "qishloq": [
+   "Yangiobod",
+   "Olmazor"
+  ],
+  "javob": 2,
+  "birlik": "soat",
+  "options": [
+   3,
+   10,
+   2,
+   1
+  ],
+  "id": "g4c2b27l1_yol_13"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "qoldi",
+  "savol": "Gulzor va Bog'iston orasi 58 km. Bir vaqtda bir-biriga qarab Gulzordan Jasur (16 km/soat), Bog'istondan velosipedchi (13 km/soat) yo'lga chiqdi. 1 soatdan keyin ular orasida necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 16,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 13,
+    "x0": 58,
+    "yon": -1
+   }
+  ],
+  "yol": 58,
+  "T": 1,
+  "qishloq": [
+   "Gulzor",
+   "Bog'iston"
+  ],
+  "javob": 29,
+  "birlik": "km",
+  "options": [
+   42,
+   29,
+   30,
+   45
+  ],
+  "id": "g4c2b27l1_yol_14"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Uzumzor va Bog'iston orasi 210 km. Bir vaqtda bir-biriga qarab Uzumzordan mototsiklchi (50 km/soat), Bog'istondan qizil mashina (55 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 50,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 55,
+    "x0": 210,
+    "yon": -1
+   }
+  ],
+  "yol": 210,
+  "T": 2,
+  "qishloq": [
+   "Uzumzor",
+   "Bog'iston"
+  ],
+  "javob": 2,
+  "birlik": "soat",
+  "options": [
+   2,
+   3,
+   1,
+   42
+  ],
+  "id": "g4c2b27l1_yol_15"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "qoldi",
+  "savol": "Archazor va Chinorli orasi 18 km. Bir vaqtda bir-biriga qarab Archazordan piyoda (4 km/soat), Chinorlidan Bobur (5 km/soat) yo'lga chiqdi. 1 soatdan keyin ular orasida necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Piyoda",
+    "rasm": "piyoda",
+    "v": 4,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 5,
+    "x0": 18,
+    "yon": -1
+   }
+  ],
+  "yol": 18,
+  "T": 1,
+  "qishloq": [
+   "Archazor",
+   "Chinorli"
+  ],
+  "javob": 9,
+  "birlik": "km",
+  "options": [
+   13,
+   10,
+   14,
+   9
+  ],
+  "id": "g4c2b27l1_yol_16"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "S",
+  "savol": "Tolzordan Malika (4 km/soat), Zarbuloqdan Nilufar (11 km/soat) bir vaqtda bir-biriga qarab yo'lga chiqdi va 4 soatdan keyin uchrashdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Malika",
+    "rasm": "piyoda",
+    "v": 4,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 11,
+    "x0": 60,
+    "yon": -1
+   }
+  ],
+  "yol": 60,
+  "T": 4,
+  "qishloq": [
+   "Tolzor",
+   "Zarbuloq"
+  ],
+  "javob": 60,
+  "birlik": "km",
+  "options": [
+   16,
+   28,
+   60,
+   44
+  ],
+  "id": "g4c2b27l1_yol_17"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Do'stlik va Bog'iston orasi 72 km. Bir vaqtda bir-biriga qarab Do'stlikdan Bobur (6 km/soat), Bog'istondan Nilufar (12 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 6,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 12,
+    "x0": 72,
+    "yon": -1
+   }
+  ],
+  "yol": 72,
+  "T": 4,
+  "qishloq": [
+   "Do'stlik",
+   "Bog'iston"
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   3,
+   4,
+   12,
+   5
+  ],
+  "id": "g4c2b27l1_yol_18"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "qoldi",
+  "savol": "Qumariq va Olmazor orasi 105 km. Bir vaqtda bir-biriga qarab Qumariqdan velosipedchi (11 km/soat), Olmazordan Jasur (10 km/soat) yo'lga chiqdi. 4 soatdan keyin ular orasida necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 11,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 10,
+    "x0": 105,
+    "yon": -1
+   }
+  ],
+  "yol": 105,
+  "T": 4,
+  "qishloq": [
+   "Qumariq",
+   "Olmazor"
+  ],
+  "javob": 21,
+  "birlik": "km",
+  "options": [
+   84,
+   21,
+   61,
+   65
+  ],
+  "id": "g4c2b27l1_yol_19"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Yangiobod va Chinorli orasi 420 km. Bir vaqtda bir-biriga qarab Yangioboddan yuk mashinasi (55 km/soat), Chinorlidan ko'k mashina (50 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 55,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 50,
+    "x0": 420,
+    "yon": -1
+   }
+  ],
+  "yol": 420,
+  "T": 4,
+  "qishloq": [
+   "Yangiobod",
+   "Chinorli"
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   5,
+   4,
+   3,
+   84
+  ],
+  "id": "g4c2b27l1_yol_20"
+ }
 ]

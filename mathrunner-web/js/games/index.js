@@ -5,7 +5,7 @@ import { ICON } from '../icons.js';
 
 import { shell, checkBtn, flash } from './shell.js?v=3';
 import { hud, buddy, sfx, floatText } from './hud.js?v=4';
-import { MORE } from './more.js?v=2';
+import { MORE } from './more.js?v=3';
 import { gameSet } from './venn.js?v=7';
 import { gameNumberOrder } from './tartib.js?v=11';
 import { gameEquationGrid } from './jadval.js?v=2';
@@ -1799,6 +1799,263 @@ function gameCoordinate(ctx) {
   round();
 }
 
+// ================= motionLine (Harakat — dasht yo'li) =================
+// Tog'lar ostidagi dasht yo'li: chetlarida qishloqlar, km ustunlari, ikki qator — ikki yurgan (mashina, avtobus, velosipedchi…).
+// O'quvchi javobni tanlaydi, keyin soat-soat yurish ko'rsatiladi: har soat belgisi, oradagi masofa, uchrashish/quvib yetish.
+// Bank — tools/gen_harakat.py: tur (bitta, uchrash, ketish, quv, kech), sor (t, S, v, qoldi, joy, oldin).
+const MASHINA_RANG = [[/ko'k/i, '#2f6fe0'], [/qizil/i, '#e0453a'], [/oq/i, '#f4f6fa'], [/sariq|taksi/i, '#ffc928']];
+const gildirakSVG = (cls) => `<g class="${cls}"><circle r="7" fill="#22252e"/><circle r="3.4" fill="#c9ced8"/><path d="M0 -6.5V6.5M-6.5 0H6.5" stroke="#8b919e" stroke-width="1.2"/></g>`;
+function transportSVG(y) {
+  const rang = (MASHINA_RANG.find(([re]) => re.test(y.nom)) || [0, '#2fae6a'])[1];
+  const k = {
+    mashina: `<path d="M4 26 L6 17 Q8 14 14 13 L22 6 Q25 4 30 4 L44 4 Q49 4 52 8 L57 13 Q63 14 64 19 L64 26Z" fill="${rang}" stroke="#1f2430" stroke-width="1.6"/>
+      <path d="M24 8 L30 7 L36 7 L36 13 L19 13Z M39 7 L45 7 Q48 7 50 10 L52 13 L39 13Z" fill="#bfe3ff" stroke="#1f2430" stroke-width="1.2"/>
+      ${/taksi/i.test(y.nom) ? '<rect x="30" y="0" width="10" height="4" rx="1" fill="#1f2430"/><path d="M10 19h48" stroke="#1f2430" stroke-width="2" stroke-dasharray="3 3"/>' : ''}
+      <rect x="58" y="16" width="5" height="3" rx="1" fill="#ffe680"/><g transform="translate(16 26)">${gildirakSVG('gildirak')}</g><g transform="translate(52 26)">${gildirakSVG('gildirak')}</g>`,
+    avtobus: `<rect x="2" y="2" width="70" height="24" rx="5" fill="#ff9f1c" stroke="#1f2430" stroke-width="1.6"/><rect x="2" y="17" width="70" height="3" fill="#fff3d6"/>
+      ${[8, 20, 32, 44].map(x => `<rect x="${x}" y="6" width="9" height="8" rx="1.5" fill="#bfe3ff" stroke="#1f2430" stroke-width="1"/>`).join('')}<rect x="57" y="6" width="12" height="15" rx="2" fill="#bfe3ff" stroke="#1f2430" stroke-width="1"/>
+      <g transform="translate(16 27)">${gildirakSVG('gildirak')}</g><g transform="translate(58 27)">${gildirakSVG('gildirak')}</g>`,
+    yuk: `<rect x="2" y="2" width="44" height="22" rx="2" fill="#7c8a9c" stroke="#1f2430" stroke-width="1.6"/><path d="M8 7h32M8 12h32M8 17h32" stroke="#5e6b7c" stroke-width="1.4"/>
+      <path d="M48 24 V9 Q48 6 52 6 L60 6 Q63 6 65 10 L68 16 L68 24Z" fill="#e0453a" stroke="#1f2430" stroke-width="1.6"/><path d="M52 9h7l3 6h-10Z" fill="#bfe3ff" stroke="#1f2430" stroke-width="1"/>
+      <g transform="translate(14 26)">${gildirakSVG('gildirak')}</g><g transform="translate(32 26)">${gildirakSVG('gildirak')}</g><g transform="translate(58 26)">${gildirakSVG('gildirak')}</g>`,
+    velosiped: `<g transform="translate(12 26)">${gildirakSVG('gildirak')}</g><g transform="translate(46 26)">${gildirakSVG('gildirak')}</g>
+      <path d="M12 26 L24 14 L40 14 L46 26 M24 14 L30 26 L40 14 M22 11 h6 M40 14 L38 8 h5" fill="none" stroke="#2f6fe0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M26 11 L33 -2 L39 9" fill="none" stroke="#e0453a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="-7" r="5" fill="#f2c9a0" stroke="#7a4b22" stroke-width="1"/>
+      <path d="M30 -10 q5 -5 10 0" fill="#3b2a1a"/><path d="M30 6 L28 18 M33 4 L32 18" stroke="#2c3e66" stroke-width="3" stroke-linecap="round"/>`,
+    moto: `<g transform="translate(12 26)">${gildirakSVG('gildirak')}</g><g transform="translate(52 26)">${gildirakSVG('gildirak')}</g>
+      <path d="M12 26 L24 16 L44 16 L52 26" fill="none" stroke="#2c2f38" stroke-width="3" stroke-linecap="round"/><path d="M22 14 Q30 8 42 12 L48 16 L24 18Z" fill="#7b4dd6" stroke="#1f2430" stroke-width="1.4"/>
+      <path d="M30 12 L34 0 L42 8" fill="none" stroke="#2c3e66" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="37" cy="-5" r="5.5" fill="#e0453a" stroke="#1f2430" stroke-width="1.2"/><path d="M38 -6 h5" stroke="#bfe3ff" stroke-width="2.5"/>`,
+    piyoda: `<circle cx="32" cy="0" r="5" fill="#f2c9a0" stroke="#7a4b22" stroke-width="1"/><path d="M27 -3 q5 -6 10 0" fill="#3b2a1a"/>
+      <path d="M32 5 L32 17" stroke="${/Malika|Nilufar/.test(y.nom) ? '#d6457a' : '#2fae6a'}" stroke-width="6" stroke-linecap="round"/><rect x="24" y="6" width="6" height="9" rx="2" fill="#a8703a"/>
+      <g class="oyoq"><path d="M32 17 L27 31 M32 17 L37 31" stroke="#2c3e66" stroke-width="3" stroke-linecap="round"/></g><path d="M32 8 L38 14 M32 8 L27 14" stroke="#f2c9a0" stroke-width="2.4" stroke-linecap="round"/>`,
+  }[y.rasm] || '';
+  return `<svg viewBox="0 -14 74 50" aria-hidden="true">${k}</svg>`;
+}
+const UY = (rang) => `<svg viewBox="0 0 60 44" aria-hidden="true"><rect x="6" y="18" width="22" height="20" fill="#f6e7c8" stroke="#7a4b22" stroke-width="1.4"/><path d="M3 19 L17 6 L31 19Z" fill="${rang}" stroke="#7a4b22" stroke-width="1.4"/><rect x="13" y="26" width="7" height="12" fill="#8b5a2b"/>
+  <rect x="32" y="22" width="20" height="16" fill="#fff3d6" stroke="#7a4b22" stroke-width="1.4"/><path d="M30 23 L42 12 L54 23Z" fill="#c0392b" stroke="#7a4b22" stroke-width="1.4"/><rect x="38" y="27" width="7" height="6" fill="#bfe3ff" stroke="#7a4b22"/>
+  <circle cx="54" cy="12" r="6" fill="#4caf50"/><rect x="53" y="16" width="2" height="22" fill="#7a4b22"/></svg>`;
+
+const pozitsiya = (y, h) => y.x0 + y.yon * y.v * Math.max(0, h - (y.t0 || 0));
+function harakatSabab(t, tanlov) {
+  const [A, B] = t.yurganlar, v1 = A.v, v2 = B?.v, T = t.T;
+  let pre = '';
+  if (tanlov != null && tanlov !== t.javob) {
+    pre = `${tanlov} emas. `;
+    if (t.tur === 'uchrash' && t.sor === 't' && v1 !== v2 && tanlov * Math.abs(v1 - v2) === t.yol) pre = `${tanlov} emas — bir-biriga qarab yurganda tezliklar qo'shiladi. `;
+    if (t.tur === 'quv' && t.sor === 't' && tanlov * (v1 + v2) === A.x0) pre = `${tanlov} emas — bir tomonga yurganda tezliklar ayiriladi. `;
+    if (t.tur === 'kech' && t.sor === 't' && tanlov === T) pre = `${tanlov} emas — bu birinchisi chiqqandan beri. `;
+    if (t.sor === 'qoldi' && t.tur === 'uchrash' && tanlov === (v1 + v2) * T) pre = `${tanlov} emas — bu yaqinlashgan masofa. `;
+    if (t.sor === 'qoldi' && t.tur === 'uchrash' && (tanlov === t.yol - v1 * T || tanlov === t.yol - v2 * T)) pre = `${tanlov} emas — ikkalasi ham yurdi, faqat bittasini hisobladingiz. `;
+  }
+  const yaq = v1 + (v2 || 0), farq = Math.abs((v2 || 0) - v1);
+  const s = {
+    bitta: { t: `Har soatda ${v1} km: ${t.yol} : ${v1} = ${T} soat.`, S: `Har soatda ${v1} km, ${T} soatda: ${v1} · ${T} = ${t.yol} km.`, v: `1 soatdagi yo'l: ${t.yol} : ${T} = ${v1} km/soat.` },
+    uchrash: { t: `Har soatda ${v1} + ${v2} = ${yaq} km yaqinlashadi: ${t.yol} : ${yaq} = ${T} soat.`,
+      qoldi: `Har soatda ${yaq} km yaqinlashadi, ${T} soatda ${yaq * T} km: ${t.yol} − ${yaq * T} = ${t.javob} km qoladi.`,
+      S: `Har soatda ${v1} + ${v2} = ${yaq} km yaqinlashadi, ${T} soatda: ${yaq} · ${T} = ${t.yol} km.` },
+    ketish: { S: `Har soatda ${v1} + ${v2} = ${yaq} km uzoqlashadi, ${T} soatda: ${yaq} · ${T} = ${t.yol} km.`,
+      t: `Har soatda ${v1} + ${v2} = ${yaq} km uzoqlashadi: ${t.yol} : ${yaq} = ${T} soat.`,
+      v: `Har soatda ${t.yol} : ${T} = ${yaq} km uzoqlashdi: ${yaq} − ${v1} = ${v2} km/soat.` },
+    quv: { t: `Har soatda ${v2} − ${v1} = ${farq} km yaqinlashadi: ${A.x0} : ${farq} = ${T} soat.`,
+      qoldi: `Har soatda ${farq} km yaqinlashadi, ${T} soatda ${farq * T} km: ${A.x0} − ${farq * T} = ${t.javob} km qoladi.`,
+      joy: `${A.x0} : ${farq} = ${T} soatda quvib yetadi; ${v2} · ${T} = ${t.javob} km.` },
+    kech: t.tur !== 'kech' ? {} : (() => {
+      const t0 = B.t0, bosh = v1 * t0, tt = T - t0;
+      return { oldin: `${t0} soatda ${/^(Bobur|Malika|Jasur|Nilufar)/.test(A.nom) ? A.nom : A.nom[0].toLowerCase() + A.nom.slice(1)} ${v1} · ${t0} = ${bosh} km yurib qo'ygan.`,
+        t: `Chiqqanda farq ${v1} · ${t0} = ${bosh} km; har soatda ${v2} − ${v1} = ${farq} km yaqinlashadi: ${bosh} : ${farq} = ${tt} soat.`,
+        joy: `Farq ${bosh} km, har soatda ${farq} km yaqinlashadi — ${tt} soat; ${v2} · ${tt} = ${t.javob} km.` };
+    })(),
+  }[t.tur][t.sor];
+  return pre + s;
+}
+
+function gameMotionLine(ctx) {
+  const all = ctx.bank.filter((t) => t.tur);
+  const s = shell(ctx, '', 'motion');
+  const H = hud(3);
+  const B = buddy();
+  const RAUND = 5;
+  const rounds = [];
+  for (let i = 0; i < all.length; i += RAUND) rounds.push(all.slice(i, i + RAUND));
+  let ri = 0, right = 0, total = 0, longest = 0, done = 0, ii = 0, items = [], xatolar = 0;
+  const times = [];
+  let onKey = null;
+  const timers = new Set();
+  const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); };
+  const keyH = (ev) => onKey && onKey(ev);
+  addEventListener('keydown', keyH);
+  addEventListener('hashchange', () => { removeEventListener('keydown', keyH); timers.forEach(clearTimeout); }, { once: true });
+
+  const savol = el('div', { class: 'dasht-savol' });
+  const belgi = el('div', { class: 'dasht-belgi' }, savol);
+  const kartalar = el('div', { class: 'dasht-kartalar' });
+  const soat = el('b', {}, '0');
+  const oraliq = el('span', { class: 'dasht-oraliq' });
+  const soatPanel = el('div', { class: 'dasht-soat' }, el('span', { class: 'dasht-soat__ikon' }, '⏱'), soat, ' soat', oraliq);
+  const yol = el('div', { class: 'dasht-yol' });
+  const javoblar = el('div', { class: 'dasht-javoblar' });
+  let t = null, busy = true, startedAt = 0, mk = [], izlar = null, qavs = null;
+
+  const ekran = (x) => 7 + (x / t.yol) * 86;      // yo'l uzunligi → foiz
+  function chiz(tt) {
+    t = tt;
+    savol.textContent = t.savol;
+    belgi.classList.remove('yangi'); void belgi.offsetWidth; belgi.classList.add('yangi');
+    const nomalum = (i) => (t.sor === 'v' && (t.tur === 'bitta' ? i === 0 : i === 1));
+    kartalar.replaceChildren(...t.yurganlar.map((y, i) => el('div', { class: 'dasht-karta dasht-karta--' + (i ? 'b' : 'a') },
+      el('span', { class: 'dasht-karta__rasm', html: transportSVG(y) }),
+      el('span', {}, el('b', {}, y.nom), el('small', {}, `${nomalum(i) ? '?' : y.v} km/soat ${y.yon > 0 ? '→' : '←'}${y.t0 ? ` · ${y.t0} soat kech` : ''}`)))));
+    // yo'l: qishloqlar, km ustunlari, qatorlar
+    const qadamlar = [1, 2, 5, 10, 20, 25, 50, 100, 200];
+    const qadam = qadamlar.find((q) => t.yol / q <= 8) || 200;
+    const ustun = [];
+    for (let x = 0; x <= t.yol + 1e-9; x += qadam) {
+      const yoz = t.tur === 'ketish' ? Math.abs(x - t.yurganlar[0].x0) : x;
+      ustun.push(el('span', { class: 'dasht-km', style: `left:${ekran(x)}%` }, el('i'), el('small', {}, yoz)));
+    }
+    const qishloqlar = [];
+    if (t.qishloq) t.qishloq.forEach((n, i) => { if (n) qishloqlar.push(el('div', { class: 'dasht-qishloq dasht-qishloq--' + (i ? 'ong' : 'chap'), html: UY(i ? '#2f6fe0' : '#2fae6a') }, el('small', {}, n))); });
+    if (t.tur === 'ketish') qishloqlar.push(el('div', { class: 'dasht-bekat', style: `left:${ekran(t.yurganlar[0].x0)}%` }, el('i'), el('small', {}, 'start')));
+    mk = t.yurganlar.map((y, i) => el('div', { class: 'dasht-yurgan dasht-yurgan--' + (i ? 'b' : 'a') + (y.yon < 0 ? ' chapga' : ''), style: `left:${ekran(pozitsiya(y, 0))}%`, html: transportSVG(y) }));
+    izlar = el('div', { class: 'dasht-izlar' });
+    qavs = el('div', { class: 'dasht-qavs', hidden: true }, el('small'));
+    yol.replaceChildren(el('div', { class: 'dasht-asfalt' }, el('i', { class: 'dasht-chiziq' })), ...ustun, ...qishloqlar, izlar, qavs, ...mk);
+    yol.classList.toggle('dasht-yol--bitta', t.yurganlar.length === 1);
+    soatYoz(0);
+    javoblar.replaceChildren(...t.options.map((o, i) => el('button', { type: 'button', class: 'dasht-jt', onclick: (e) => tanla(o, e.currentTarget) },
+      el('b', {}, o), el('small', {}, ` ${t.birlik}`), el('small', { class: 'dasht-jt__key' }, i + 1))));
+  }
+  function soatYoz(h) {
+    soat.textContent = h;
+    const [A, Bq] = t.yurganlar;
+    if (!Bq) { oraliq.textContent = ` · yurgan yo'l: ${Math.round(Math.abs(pozitsiya(A, h) - A.x0))} km`; return; }
+    const d = Math.abs(pozitsiya(Bq, h) - pozitsiya(A, h));
+    oraliq.textContent = ` · oradagi masofa: ${d} km`;
+    const a = ekran(pozitsiya(A, h)), b = ekran(pozitsiya(Bq, h));
+    qavs.hidden = d === 0;
+    qavs.style.left = `${Math.min(a, b)}%`; qavs.style.width = `${Math.abs(a - b)}%`;
+    qavs.firstChild.textContent = `${d} km`;
+  }
+  // soat-soat yurish
+  function yurgiz(oxiri) {
+    const T = t.T;
+    mk.forEach((m) => m.classList.add('yur'));
+    let h = 0;
+    const qadam = () => {
+      h++;
+      t.yurganlar.forEach((y, i) => {
+        mk[i].style.left = `${ekran(pozitsiya(y, h))}%`;
+        mk[i].classList.toggle('kutyapti', !!y.t0 && h <= y.t0);
+        if (!y.t0 || h > y.t0) izlar.append(el('span', { class: 'dasht-iz dasht-iz--' + (i ? 'b' : 'a'), style: `left:${ekran(pozitsiya(y, h))}%` }, `${h} s`));
+      });
+      later(() => soatYoz(h), 600);
+      if (h < T) later(qadam, 760);
+      else later(() => { mk.forEach((m) => m.classList.remove('yur')); oxiri(); }, 700);
+    };
+    later(qadam, 200);
+  }
+  function natija(ok, btn) {
+    busy = true; onKey = null;
+    total++; done++;
+    times.push(performance.now() - startedAt);
+    const sabab = harakatSabab(t, ok ? null : btn.__qiymat);
+    const yakun = () => {
+      const [A, Bq] = t.yurganlar;
+      if (Bq && (t.sor === 't' || t.sor === 'joy' || t.sor === 'S') && t.tur !== 'ketish' && pozitsiya(A, t.T) === pozitsiya(Bq, t.T)) {
+        yol.append(el('div', { class: 'dasht-portla', style: `left:${Math.min(84, Math.max(16, ekran(pozitsiya(A, t.T))))}%` }, t.tur === 'uchrash' ? 'Uchrashdi!' : 'Quvib yetdi!'));
+      }
+      if (t.sor === 'qoldi' || t.sor === 'oldin' || t.tur === 'ketish') qavs.classList.add('yondi');
+    };
+    if (ok) {
+      right++;
+      const mlt = H.hit(); longest = Math.max(longest, H.st.combo);
+      const fast = performance.now() - startedAt < 12000;
+      sfx.ok();
+      H.add(10 * mlt + (fast ? 5 : 0), btn);
+      if (fast && mlt < 2) floatText('⚡ Tez!', btn, 'hud-float--tez');
+      B.say([el('span', { class: 'rchip rchip--ha' }, 'To\'g\'ri ✓'), ' ', sabab], 'ok');
+      yurgiz(() => { yakun(); later(() => { ii++; next(); }, 1600); });
+    } else {
+      xatolar++; H.miss(); sfx.bad();
+      const left = H.loseHeart();
+      B.say([el('span', { class: 'rchip rchip--yoq' }, 'Xato'), ' ', sabab], 'bad');
+      yurgiz(() => {
+        yakun();
+        const davom = () => { onKey = null; s.foot.replaceChildren(); ii++; left === 0 ? autoRest() : next(); };
+        s.foot.replaceChildren(el('button', { class: 'btn btn--accent', type: 'button', onclick: davom }, 'Davom etish ➜'));
+        onKey = (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); davom(); } };
+      });
+    }
+  }
+  function tanla(o, btn) {
+    if (busy) return;
+    busy = true;
+    btn.__qiymat = o;
+    const ok = o === t.javob;
+    [...javoblar.children].forEach((b, i) => { b.disabled = true; if (t.options[i] === t.javob) b.classList.add('is-ok'); });
+    btn.classList.add(ok ? 'is-ok' : 'is-bad');
+    natija(ok, btn);
+  }
+  const maslahat = () => ({
+    bitta: 'Har soatda tezlikcha yo\'l bosiladi: yo\'l = tezlik · vaqt.',
+    uchrash: 'Bir-biriga qarab yurishsa — har soatda qancha yaqinlashadi?',
+    ketish: 'Qarama-qarshi tomonga yurishsa — har soatda qancha uzoqlashadi?',
+    quv: 'Bir tomonga yurishsa — orqadagi har soatda qancha yaqinlashadi?',
+    kech: 'Ikkinchisi chiqquncha birinchisi qancha yurib qo\'ydi?',
+  })[t.tur];
+  function next() {
+    if (ii >= items.length) return endRound();
+    busy = false;
+    s.setProg(done, all.length);
+    chiz(items[ii]);
+    B.say([maslahat()], 'idle');
+    startedAt = performance.now();
+    onKey = (ev) => { const n = +ev.key; if (n >= 1 && n <= javoblar.children.length) { ev.preventDefault(); javoblar.children[n - 1].click(); } };
+  }
+  function autoRest() {
+    onKey = null;
+    B.say(['Yuraklar tugadi. Qolganlarini kuzating.'], 'think');
+    const go = () => {
+      if (ii >= items.length) return endRound();
+      chiz(items[ii]); busy = true; total++; done++; s.setProg(done, all.length);
+      [...javoblar.children].forEach((b, i) => { b.disabled = true; if (t.options[i] === t.javob) b.classList.add('is-ok'); });
+      B.say([harakatSabab(t)], 'think');
+      yurgiz(() => later(() => { ii++; go(); }, 1500));
+    };
+    later(go, 1000);
+  }
+  function endRound() {
+    onKey = null; busy = true;
+    const clean = xatolar === 0;
+    if (clean) { H.add(30, yol); sfx.win(); }
+    s.setProg(done, all.length);
+    const lastR = ri + 1 >= rounds.length;
+    s.foot.replaceChildren(
+      el('div', { class: 'rend ' + (clean ? 'rend--ok' : '') },
+        el('b', {}, clean ? 'Xatosiz! +30 bonus' : xatolar === 1 ? 'Bitta xato bilan — yaxshi!' : `${xatolar} ta xato — keyingisida diqqat bilan!`),
+        el('button', { class: 'btn btn--accent', type: 'button', onclick: () => {
+          ri++;
+          if (ri >= rounds.length) {
+            const avgMs = times.length ? times.reduce((a, b) => a + b, 0) / times.length : 0;
+            ctx.finish(right, total, { longestStreak: longest, avgMs, score: H.st.score });
+          } else { s.foot.replaceChildren(); round(); }
+        } }, lastR ? 'Natijani ko\'rish' : 'Keyingi partiya ➜')));
+  }
+  function round() { items = rounds[ri]; ii = 0; xatolar = 0; H.resetHearts(); next(); }
+
+  const bar = ctx.root.querySelector('.prompt'); if (bar) bar.hidden = true;
+  const sahna = el('div', { class: 'sahna sahna--dasht' },
+    el('i', { class: 'dasht__quyosh' }), el('i', { class: 'dasht__tog' }),
+    H.node, B.node, belgi, kartalar, soatPanel, yol, javoblar);
+  s.area.replaceChildren(sahna);
+  s.foot.replaceChildren();
+  if (innerWidth < 700) requestAnimationFrame(() => {
+    const head = document.querySelector('.site-header')?.offsetHeight || 0;
+    scrollTo({ top: sahna.getBoundingClientRect().top + scrollY - head - 6, behavior: 'auto' });
+  });
+  round();
+}
+
 export const GAMES = {
   set: gameSet,
   numberOrder: gameNumberOrder,
@@ -1811,4 +2068,5 @@ export const GAMES = {
   ...MORE,
   fractionStrip: gameFractionStrip,
   coordinatePath: gameCoordinate,
+  motionLine: gameMotionLine,
 };

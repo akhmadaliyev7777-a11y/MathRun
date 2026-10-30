@@ -1,422 +1,742 @@
 [
-  {
-    "id": "sinf4_chorak2_blok30_level1_kechik_01",
-    "prompt": "Birinchi mashina yo'lga chiqqach, 3 soatdan so'ng ikkinchisi jo'nadi. Ikkinchi mashina birinchisini necha soatdan keyin quvib yetadi?",
-    "hint": "Ikkinchi mashina kechroq chiqdi. Slayderni quvib yetadigan soatga suring",
-    "roadLength": 150,
-    "maxHours": 7,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 15,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 30,
-      "direction": 1,
-      "startHour": 3
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok30_level1_kechik_02",
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 40,
-      "direction": 1,
-      "startHour": 2
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok30_level1_kechik_03",
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 6,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 12,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 36,
-      "direction": 1,
-      "startHour": 2
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok30_level1_kechik_04",
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 300,
-    "maxHours": 9,
-    "answerHour": 8,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 30,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 40,
-      "direction": 1,
-      "startHour": 2
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok30_level1_kechik_05",
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 120,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 12,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1,
-      "startHour": 2
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok30_level1_kechik_06",
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 120,
-    "maxHours": 9,
-    "answerHour": 7,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 10,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 14,
-      "direction": 1,
-      "startHour": 2
-    }
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 260,
-    "maxHours": 10,
-    "answerHour": 8,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 24,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 32,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x01"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 130,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 15,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 25,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x02"
-  },
-  {
-    "prompt": "Birinchi mashina 1 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 250,
-    "maxHours": 8,
-    "answerHour": 7,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 30,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 35,
-      "direction": 1,
-      "startHour": 1
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x03"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 230,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 27,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 45,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x04"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 60,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 10,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x05"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 160,
-    "maxHours": 10,
-    "answerHour": 8,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 15,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x06"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 80,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 12,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 24,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x07"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 50,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 8,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 16,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x08"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 170,
-    "maxHours": 8,
-    "answerHour": 7,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 28,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x09"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 110,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 13,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 26,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x10"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 90,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 15,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 30,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x11"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 110,
-    "maxHours": 7,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 14,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 21,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x12"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 120,
-    "maxHours": 7,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 16,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 24,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x13"
-  },
-  {
-    "prompt": "Birinchi mashina 2 soat oldin chiqdi. Ikkinchi mashina birinchisini necha soatda quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 0,
-      "speed": 24,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 0,
-      "speed": 40,
-      "direction": 1,
-      "startHour": 2
-    },
-    "id": "sinf4_chorak2_blok30_level1_kechik_x14"
-  }
+ {
+  "tur": "kech",
+  "sor": "oldin",
+  "savol": "Avtobus Bog'istondan 45 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin xuddi shu yo'ldan yuk mashinasi 60 km/soat tezlikda chiqdi. Yuk mashinasi yo'lga chiqqanda avtobus undan necha km oldinda edi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 45,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 60,
+    "x0": 0,
+    "yon": 1,
+    "t0": 1
+   }
+  ],
+  "yol": 45,
+  "T": 1,
+  "qishloq": [
+   "Bog'iston",
+   ""
+  ],
+  "javob": 45,
+  "birlik": "km",
+  "options": [
+   90,
+   46,
+   45,
+   60
+  ],
+  "id": "g4c2b30l1_yol_01"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Velosipedchi Do'stlikdan 12 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin xuddi shu yo'ldan Jasur 16 km/soat tezlikda chiqdi. Jasur yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 12,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 16,
+    "x0": 0,
+    "yon": 1,
+    "t0": 1
+   }
+  ],
+  "yol": 48,
+  "T": 4,
+  "qishloq": [
+   "Do'stlik",
+   ""
+  ],
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   5,
+   4,
+   2,
+   3
+  ],
+  "id": "g4c2b30l1_yol_02"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Sayyoh Archazordan 6 km/soat tezlikda yo'lga chiqdi. 3 soatdan keyin xuddi shu yo'ldan Nilufar 12 km/soat tezlikda chiqdi. Nilufar yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Sayyoh",
+    "rasm": "piyoda",
+    "v": 6,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 12,
+    "x0": 0,
+    "yon": 1,
+    "t0": 3
+   }
+  ],
+  "yol": 36,
+  "T": 6,
+  "qishloq": [
+   "Archazor",
+   ""
+  ],
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   4,
+   3,
+   6,
+   2
+  ],
+  "id": "g4c2b30l1_yol_03"
+ },
+ {
+  "tur": "kech",
+  "sor": "joy",
+  "savol": "Avtobus Tolzordan 40 km/soat tezlikda yo'lga chiqdi. 3 soatdan keyin xuddi shu yo'ldan qizil mashina 60 km/soat tezlikda chiqdi. Tolzordan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 60,
+    "x0": 0,
+    "yon": 1,
+    "t0": 3
+   }
+  ],
+  "yol": 360,
+  "T": 9,
+  "qishloq": [
+   "Tolzor",
+   ""
+  ],
+  "javob": 360,
+  "birlik": "km",
+  "options": [
+   120,
+   360,
+   240,
+   540
+  ],
+  "id": "g4c2b30l1_yol_04"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Ko'k mashina Zarbuloqdan 45 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin xuddi shu yo'ldan avtobus 60 km/soat tezlikda chiqdi. Avtobus yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 45,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 60,
+    "x0": 0,
+    "yon": 1,
+    "t0": 1
+   }
+  ],
+  "yol": 180,
+  "T": 4,
+  "qishloq": [
+   "Zarbuloq",
+   ""
+  ],
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "id": "g4c2b30l1_yol_05"
+ },
+ {
+  "tur": "kech",
+  "sor": "oldin",
+  "savol": "Qizil mashina Chinorlidan 50 km/soat tezlikda yo'lga chiqdi. 3 soatdan keyin xuddi shu yo'ldan ko'k mashina 80 km/soat tezlikda chiqdi. Ko'k mashina yo'lga chiqqanda qizil mashina undan necha km oldinda edi?",
+  "yurganlar": [
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 50,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 80,
+    "x0": 0,
+    "yon": 1,
+    "t0": 3
+   }
+  ],
+  "yol": 150,
+  "T": 3,
+  "qishloq": [
+   "Chinorli",
+   ""
+  ],
+  "javob": 150,
+  "birlik": "km",
+  "options": [
+   240,
+   200,
+   150,
+   53
+  ],
+  "id": "g4c2b30l1_yol_06"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Avtobus Tolzordan 40 km/soat tezlikda yo'lga chiqdi. 3 soatdan keyin xuddi shu yo'ldan sariq taksi 80 km/soat tezlikda chiqdi. Sariq taksi yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 80,
+    "x0": 0,
+    "yon": 1,
+    "t0": 3
+   }
+  ],
+  "yol": 240,
+  "T": 6,
+  "qishloq": [
+   "Tolzor",
+   ""
+  ],
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   2,
+   4,
+   6,
+   3
+  ],
+  "id": "g4c2b30l1_yol_07"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Qizil mashina Olmazordan 40 km/soat tezlikda yo'lga chiqdi. 3 soatdan keyin xuddi shu yo'ldan avtobus 70 km/soat tezlikda chiqdi. Avtobus yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 70,
+    "x0": 0,
+    "yon": 1,
+    "t0": 3
+   }
+  ],
+  "yol": 280,
+  "T": 7,
+  "qishloq": [
+   "Olmazor",
+   ""
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   4,
+   5,
+   3,
+   7
+  ],
+  "id": "g4c2b30l1_yol_08"
+ },
+ {
+  "tur": "kech",
+  "sor": "joy",
+  "savol": "Malika Zarbuloqdan 3 km/soat tezlikda yo'lga chiqdi. 2 soatdan keyin xuddi shu yo'ldan piyoda 5 km/soat tezlikda chiqdi. Zarbuloqdan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Malika",
+    "rasm": "piyoda",
+    "v": 3,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Piyoda",
+    "rasm": "piyoda",
+    "v": 5,
+    "x0": 0,
+    "yon": 1,
+    "t0": 2
+   }
+  ],
+  "yol": 15,
+  "T": 5,
+  "qishloq": [
+   "Zarbuloq",
+   ""
+  ],
+  "javob": 15,
+  "birlik": "km",
+  "options": [
+   6,
+   15,
+   9,
+   25
+  ],
+  "id": "g4c2b30l1_yol_09"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Avtobus Bog'istondan 45 km/soat tezlikda yo'lga chiqdi. 2 soatdan keyin xuddi shu yo'ldan oq mashina 60 km/soat tezlikda chiqdi. Oq mashina yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 45,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 60,
+    "x0": 0,
+    "yon": 1,
+    "t0": 2
+   }
+  ],
+  "yol": 360,
+  "T": 8,
+  "qishloq": [
+   "Bog'iston",
+   ""
+  ],
+  "javob": 6,
+  "birlik": "soat",
+  "options": [
+   8,
+   6,
+   5,
+   7
+  ],
+  "id": "g4c2b30l1_yol_10"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Malika Yangioboddan 4 km/soat tezlikda yo'lga chiqdi. 3 soatdan keyin xuddi shu yo'ldan Bobur 6 km/soat tezlikda chiqdi. Bobur yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Malika",
+    "rasm": "piyoda",
+    "v": 4,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 6,
+    "x0": 0,
+    "yon": 1,
+    "t0": 3
+   }
+  ],
+  "yol": 36,
+  "T": 9,
+  "qishloq": [
+   "Yangiobod",
+   ""
+  ],
+  "javob": 6,
+  "birlik": "soat",
+  "options": [
+   7,
+   6,
+   2,
+   9
+  ],
+  "id": "g4c2b30l1_yol_11"
+ },
+ {
+  "tur": "kech",
+  "sor": "oldin",
+  "savol": "Yuk mashinasi Archazordan 40 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin xuddi shu yo'ldan sariq taksi 50 km/soat tezlikda chiqdi. Sariq taksi yo'lga chiqqanda yuk mashinasi undan necha km oldinda edi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 50,
+    "x0": 0,
+    "yon": 1,
+    "t0": 1
+   }
+  ],
+  "yol": 40,
+  "T": 1,
+  "qishloq": [
+   "Archazor",
+   ""
+  ],
+  "javob": 40,
+  "birlik": "km",
+  "options": [
+   41,
+   40,
+   80,
+   50
+  ],
+  "id": "g4c2b30l1_yol_12"
+ },
+ {
+  "tur": "kech",
+  "sor": "joy",
+  "savol": "Ko'k mashina Gulzordan 50 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin xuddi shu yo'ldan mototsiklchi 60 km/soat tezlikda chiqdi. Gulzordan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 50,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 60,
+    "x0": 0,
+    "yon": 1,
+    "t0": 1
+   }
+  ],
+  "yol": 300,
+  "T": 6,
+  "qishloq": [
+   "Gulzor",
+   ""
+  ],
+  "javob": 300,
+  "birlik": "km",
+  "options": [
+   360,
+   250,
+   50,
+   300
+  ],
+  "id": "g4c2b30l1_yol_13"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Yuk mashinasi Do'stlikdan 30 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin xuddi shu yo'ldan avtobus 40 km/soat tezlikda chiqdi. Avtobus yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 30,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 40,
+    "x0": 0,
+    "yon": 1,
+    "t0": 1
+   }
+  ],
+  "yol": 120,
+  "T": 4,
+  "qishloq": [
+   "Do'stlik",
+   ""
+  ],
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   2,
+   4,
+   3,
+   5
+  ],
+  "id": "g4c2b30l1_yol_14"
+ },
+ {
+  "tur": "kech",
+  "sor": "joy",
+  "savol": "Avtobus Gulzordan 45 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin xuddi shu yo'ldan yuk mashinasi 60 km/soat tezlikda chiqdi. Gulzordan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 45,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 60,
+    "x0": 0,
+    "yon": 1,
+    "t0": 1
+   }
+  ],
+  "yol": 180,
+  "T": 4,
+  "qishloq": [
+   "Gulzor",
+   ""
+  ],
+  "javob": 180,
+  "birlik": "km",
+  "options": [
+   45,
+   180,
+   135,
+   240
+  ],
+  "id": "g4c2b30l1_yol_15"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Velosipedchi Bog'istondan 12 km/soat tezlikda yo'lga chiqdi. 2 soatdan keyin xuddi shu yo'ldan Nilufar 18 km/soat tezlikda chiqdi. Nilufar yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 12,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 18,
+    "x0": 0,
+    "yon": 1,
+    "t0": 2
+   }
+  ],
+  "yol": 72,
+  "T": 6,
+  "qishloq": [
+   "Bog'iston",
+   ""
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   3,
+   6,
+   5,
+   4
+  ],
+  "id": "g4c2b30l1_yol_16"
+ },
+ {
+  "tur": "kech",
+  "sor": "oldin",
+  "savol": "Oq mashina Archazordan 40 km/soat tezlikda yo'lga chiqdi. 2 soatdan keyin xuddi shu yo'ldan yuk mashinasi 60 km/soat tezlikda chiqdi. Yuk mashinasi yo'lga chiqqanda oq mashina undan necha km oldinda edi?",
+  "yurganlar": [
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 60,
+    "x0": 0,
+    "yon": 1,
+    "t0": 2
+   }
+  ],
+  "yol": 80,
+  "T": 2,
+  "qishloq": [
+   "Archazor",
+   ""
+  ],
+  "javob": 80,
+  "birlik": "km",
+  "options": [
+   81,
+   120,
+   42,
+   80
+  ],
+  "id": "g4c2b30l1_yol_17"
+ },
+ {
+  "tur": "kech",
+  "sor": "joy",
+  "savol": "Jasur Gulzordan 12 km/soat tezlikda yo'lga chiqdi. 2 soatdan keyin xuddi shu yo'ldan velosipedchi 16 km/soat tezlikda chiqdi. Gulzordan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 12,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 16,
+    "x0": 0,
+    "yon": 1,
+    "t0": 2
+   }
+  ],
+  "yol": 96,
+  "T": 8,
+  "qishloq": [
+   "Gulzor",
+   ""
+  ],
+  "javob": 96,
+  "birlik": "km",
+  "options": [
+   72,
+   96,
+   24,
+   128
+  ],
+  "id": "g4c2b30l1_yol_18"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Yuk mashinasi Uzumzordan 30 km/soat tezlikda yo'lga chiqdi. 3 soatdan keyin xuddi shu yo'ldan oq mashina 45 km/soat tezlikda chiqdi. Oq mashina yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 30,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 45,
+    "x0": 0,
+    "yon": 1,
+    "t0": 3
+   }
+  ],
+  "yol": 270,
+  "T": 9,
+  "qishloq": [
+   "Uzumzor",
+   ""
+  ],
+  "javob": 6,
+  "birlik": "soat",
+  "options": [
+   2,
+   9,
+   6,
+   7
+  ],
+  "id": "g4c2b30l1_yol_19"
+ },
+ {
+  "tur": "kech",
+  "sor": "joy",
+  "savol": "Malika Olmazordan 4 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin xuddi shu yo'ldan piyoda 6 km/soat tezlikda chiqdi. Olmazordan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Malika",
+    "rasm": "piyoda",
+    "v": 4,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Piyoda",
+    "rasm": "piyoda",
+    "v": 6,
+    "x0": 0,
+    "yon": 1,
+    "t0": 1
+   }
+  ],
+  "yol": 12,
+  "T": 3,
+  "qishloq": [
+   "Olmazor",
+   ""
+  ],
+  "javob": 12,
+  "birlik": "km",
+  "options": [
+   4,
+   18,
+   8,
+   12
+  ],
+  "id": "g4c2b30l1_yol_20"
+ }
 ]

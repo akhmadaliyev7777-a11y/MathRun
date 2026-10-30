@@ -1,402 +1,582 @@
 [
-  {
-    "id": "sinf4_chorak2_blok26_level1_yvt_01",
-    "prompt": "Mashina 20 km/soat tezlikda 100 km uzoqlikdagi manzilga yo'l oldi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni mashina 100 km manzilga yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 6,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "Mashina",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 0,
-      "speed": 10,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok26_level1_yvt_02",
-    "prompt": "Mashina 30 km/soat tezlikda 120 km yo'lga chiqdi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni mashina 120 km manzilga yetadigan soatga suring",
-    "roadLength": 120,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Mashina",
-      "startPosition": 0,
-      "speed": 30,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Velosiped",
-      "startPosition": 20,
-      "speed": 15,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok26_level1_yvt_03",
-    "prompt": "Mashina 25 km/soat tezlikda 150 km yo'l bosishi kerak. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni mashina 150 km manzilga yetadigan soatga suring",
-    "roadLength": 150,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Mashina",
-      "startPosition": 0,
-      "speed": 25,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 0,
-      "speed": 15,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok26_level1_yvt_04",
-    "prompt": "Poyezd 40 km/soat tezlikda 200 km yo'lga chiqdi. Necha soatda manzilga yetadi?",
-    "hint": "Slayderni poyezd 200 km manzilga yetadigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "Poyezd",
-      "startPosition": 0,
-      "speed": 40,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Yuk poyezdi",
-      "startPosition": 0,
-      "speed": 25,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok26_level1_yvt_05",
-    "prompt": "Mashina 10-chi kilometrdan boshlab 15 km/soat tezlikda yuradi. U 100-chi kilometrga necha soatda yetadi?",
-    "hint": "Slayderni mashina 100 km belgisiga yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Mashina",
-      "startPosition": 10,
-      "speed": 15,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 0,
-      "speed": 10,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok26_level1_yvt_06",
-    "prompt": "Mashina 12 km/soat tezlikda 72 km yo'l bosadi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni mashina 72 km manzilga yetadigan soatga suring",
-    "roadLength": 72,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Mashina",
-      "startPosition": 0,
-      "speed": 12,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 5,
-      "speed": 8,
-      "direction": 1
-    }
-  },
-  {
-    "prompt": "Velosipedchi 50 km/soat tezlikda 100 km yo'lga chiqdi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni velosipedchi 100 km manzilga yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 3,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Velosipedchi",
-      "startPosition": 0,
-      "speed": 50,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 5,
-      "speed": 5,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x01"
-  },
-  {
-    "prompt": "Poyezd 20 km/soat tezlikda 100 km yo'lga chiqdi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni poyezd 100 km manzilga yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "Poyezd",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 5,
-      "speed": 8,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x02"
-  },
-  {
-    "prompt": "Mashina 40 km/soat tezlikda 200 km yo'lga chiqdi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni mashina 200 km manzilga yetadigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "Mashina",
-      "startPosition": 0,
-      "speed": 40,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 5,
-      "speed": 12,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x03"
-  },
-  {
-    "prompt": "Velosipedchi 45 km/soat tezlikda 180 km yo'lga chiqdi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni velosipedchi 180 km manzilga yetadigan soatga suring",
-    "roadLength": 180,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Velosipedchi",
-      "startPosition": 0,
-      "speed": 45,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 0,
-      "speed": 8,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x04"
-  },
-  {
-    "prompt": "Avtobus 25 km/soat tezlikda 100 km yo'lga chiqdi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni avtobus 100 km manzilga yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Avtobus",
-      "startPosition": 0,
-      "speed": 25,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 5,
-      "speed": 12,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x05"
-  },
-  {
-    "prompt": "Mashina 50 km/soat tezlikda 300 km yo'lga chiqdi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni mashina 300 km manzilga yetadigan soatga suring",
-    "roadLength": 300,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Mashina",
-      "startPosition": 0,
-      "speed": 50,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 0,
-      "speed": 12,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x06"
-  },
-  {
-    "prompt": "Velosipedchi 10-chi kilometrdan boshlab 12 km/soat tezlikda yuradi. U 46-chi kilometrga necha soatda yetadi?",
-    "hint": "Slayderni velosipedchi 46 km belgisiga yetadigan soatga suring",
-    "roadLength": 46,
-    "maxHours": 4,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "Velosipedchi",
-      "startPosition": 10,
-      "speed": 12,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 5,
-      "speed": 8,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x07"
-  },
-  {
-    "prompt": "Mashina 10-chi kilometrdan boshlab 45 km/soat tezlikda yuradi. U 280-chi kilometrga necha soatda yetadi?",
-    "hint": "Slayderni mashina 280 km belgisiga yetadigan soatga suring",
-    "roadLength": 280,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Mashina",
-      "startPosition": 10,
-      "speed": 45,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 0,
-      "speed": 15,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x08"
-  },
-  {
-    "prompt": "Avtobus 50 km/soat tezlikda 100 km yo'lga chiqdi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni avtobus 100 km manzilga yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 4,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Avtobus",
-      "startPosition": 0,
-      "speed": 50,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 0,
-      "speed": 5,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x09"
-  },
-  {
-    "prompt": "Mashina 20-chi kilometrdan boshlab 45 km/soat tezlikda yuradi. U 200-chi kilometrga necha soatda yetadi?",
-    "hint": "Slayderni mashina 200 km belgisiga yetadigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Mashina",
-      "startPosition": 20,
-      "speed": 45,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 0,
-      "speed": 5,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x10"
-  },
-  {
-    "prompt": "Mashina 20-chi kilometrdan boshlab 45 km/soat tezlikda yuradi. U 155-chi kilometrga necha soatda yetadi?",
-    "hint": "Slayderni mashina 155 km belgisiga yetadigan soatga suring",
-    "roadLength": 155,
-    "maxHours": 4,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "Mashina",
-      "startPosition": 20,
-      "speed": 45,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 5,
-      "speed": 5,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x11"
-  },
-  {
-    "prompt": "Velosipedchi 10-chi kilometrdan boshlab 25 km/soat tezlikda yuradi. U 135-chi kilometrga necha soatda yetadi?",
-    "hint": "Slayderni velosipedchi 135 km belgisiga yetadigan soatga suring",
-    "roadLength": 135,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "Velosipedchi",
-      "startPosition": 10,
-      "speed": 25,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 0,
-      "speed": 10,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x12"
-  },
-  {
-    "prompt": "Velosipedchi 45 km/soat tezlikda 270 km yo'lga chiqdi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni velosipedchi 270 km manzilga yetadigan soatga suring",
-    "roadLength": 270,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Velosipedchi",
-      "startPosition": 0,
-      "speed": 45,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 5,
-      "speed": 15,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x13"
-  },
-  {
-    "prompt": "Avtobus 45 km/soat tezlikda 180 km yo'lga chiqdi. U necha soatda manzilga yetadi?",
-    "hint": "Slayderni avtobus 180 km manzilga yetadigan soatga suring",
-    "roadLength": 180,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Avtobus",
-      "startPosition": 0,
-      "speed": 45,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Hamroh",
-      "startPosition": 0,
-      "speed": 8,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok26_level1_yvt_x14"
-  }
+ {
+  "tur": "bitta",
+  "sor": "t",
+  "savol": "Yangiobod va Sohilobod orasi 200 km. Sariq taksi 40 km/soat tezlikda Yangioboddan yo'lga chiqdi. Necha soatda Sohilobodga yetib boradi?",
+  "yurganlar": [
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 200,
+  "T": 5,
+  "qishloq": [
+   "Yangiobod",
+   "Sohilobod"
+  ],
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   5,
+   7,
+   4,
+   6
+  ],
+  "id": "g4c2b26l1_yol_01"
+ },
+ {
+  "tur": "bitta",
+  "sor": "S",
+  "savol": "Avtobus Qumariqdan 40 km/soat tezlikda 2 soat yurib, Bog'istonga yetdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 80,
+  "T": 2,
+  "qishloq": [
+   "Qumariq",
+   "Bog'iston"
+  ],
+  "javob": 80,
+  "birlik": "km",
+  "options": [
+   80,
+   42,
+   40,
+   120
+  ],
+  "id": "g4c2b26l1_yol_02"
+ },
+ {
+  "tur": "bitta",
+  "sor": "v",
+  "savol": "Olmazor va Uzumzor orasi 20 km. Nilufar bu yo'lni 2 soatda bosib o'tdi. Uning tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 10,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 20,
+  "T": 2,
+  "qishloq": [
+   "Olmazor",
+   "Uzumzor"
+  ],
+  "javob": 10,
+  "birlik": "km/soat",
+  "options": [
+   15,
+   5,
+   10,
+   18
+  ],
+  "id": "g4c2b26l1_yol_03"
+ },
+ {
+  "tur": "bitta",
+  "sor": "t",
+  "savol": "Sohilobod va Qumariq orasi 160 km. Yuk mashinasi 40 km/soat tezlikda Sohiloboddan yo'lga chiqdi. Necha soatda Qumariqga yetib boradi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 160,
+  "T": 4,
+  "qishloq": [
+   "Sohilobod",
+   "Qumariq"
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   4,
+   3,
+   5,
+   6
+  ],
+  "id": "g4c2b26l1_yol_04"
+ },
+ {
+  "tur": "bitta",
+  "sor": "S",
+  "savol": "Avtobus Uzumzordan 70 km/soat tezlikda 5 soat yurib, Gulzorga yetdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 70,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 350,
+  "T": 5,
+  "qishloq": [
+   "Uzumzor",
+   "Gulzor"
+  ],
+  "javob": 350,
+  "birlik": "km",
+  "options": [
+   75,
+   350,
+   420,
+   280
+  ],
+  "id": "g4c2b26l1_yol_05"
+ },
+ {
+  "tur": "bitta",
+  "sor": "t",
+  "savol": "Archazor va Do'stlik orasi 360 km. Qizil mashina 60 km/soat tezlikda Archazordan yo'lga chiqdi. Necha soatda Do'stlikga yetib boradi?",
+  "yurganlar": [
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 60,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 360,
+  "T": 6,
+  "qishloq": [
+   "Archazor",
+   "Do'stlik"
+  ],
+  "javob": 6,
+  "birlik": "soat",
+  "options": [
+   7,
+   8,
+   6,
+   5
+  ],
+  "id": "g4c2b26l1_yol_06"
+ },
+ {
+  "tur": "bitta",
+  "sor": "S",
+  "savol": "Velosipedchi Chinorlidan 12 km/soat tezlikda 2 soat yurib, Do'stlikga yetdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 12,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 24,
+  "T": 2,
+  "qishloq": [
+   "Chinorli",
+   "Do'stlik"
+  ],
+  "javob": 24,
+  "birlik": "km",
+  "options": [
+   12,
+   36,
+   14,
+   24
+  ],
+  "id": "g4c2b26l1_yol_07"
+ },
+ {
+  "tur": "bitta",
+  "sor": "v",
+  "savol": "Tolzor va Zarbuloq orasi 240 km. Mototsiklchi bu yo'lni 6 soatda bosib o'tdi. Uning tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 240,
+  "T": 6,
+  "qishloq": [
+   "Tolzor",
+   "Zarbuloq"
+  ],
+  "javob": 40,
+  "birlik": "km/soat",
+  "options": [
+   45,
+   35,
+   40,
+   234
+  ],
+  "id": "g4c2b26l1_yol_08"
+ },
+ {
+  "tur": "bitta",
+  "sor": "t",
+  "savol": "Bog'iston va Yangiobod orasi 220 km. Yuk mashinasi 55 km/soat tezlikda Bog'istondan yo'lga chiqdi. Necha soatda Yangiobodga yetib boradi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 55,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 220,
+  "T": 4,
+  "qishloq": [
+   "Bog'iston",
+   "Yangiobod"
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   6,
+   3,
+   4,
+   5
+  ],
+  "id": "g4c2b26l1_yol_09"
+ },
+ {
+  "tur": "bitta",
+  "sor": "S",
+  "savol": "Mototsiklchi Chinorlidan 35 km/soat tezlikda 2 soat yurib, Archazorga yetdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 35,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 70,
+  "T": 2,
+  "qishloq": [
+   "Chinorli",
+   "Archazor"
+  ],
+  "javob": 70,
+  "birlik": "km",
+  "options": [
+   70,
+   35,
+   105,
+   37
+  ],
+  "id": "g4c2b26l1_yol_10"
+ },
+ {
+  "tur": "bitta",
+  "sor": "v",
+  "savol": "Uzumzor va Zarbuloq orasi 240 km. Mototsiklchi bu yo'lni 4 soatda bosib o'tdi. Uning tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 60,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 240,
+  "T": 4,
+  "qishloq": [
+   "Uzumzor",
+   "Zarbuloq"
+  ],
+  "javob": 60,
+  "birlik": "km/soat",
+  "options": [
+   60,
+   55,
+   236,
+   65
+  ],
+  "id": "g4c2b26l1_yol_11"
+ },
+ {
+  "tur": "bitta",
+  "sor": "t",
+  "savol": "Olmazor va Chinorli orasi 120 km. Mototsiklchi 30 km/soat tezlikda Olmazordan yo'lga chiqdi. Necha soatda Chinorliga yetib boradi?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 30,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 120,
+  "T": 4,
+  "qishloq": [
+   "Olmazor",
+   "Chinorli"
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   5,
+   6,
+   3,
+   4
+  ],
+  "id": "g4c2b26l1_yol_12"
+ },
+ {
+  "tur": "bitta",
+  "sor": "S",
+  "savol": "Ko'k mashina Tolzordan 65 km/soat tezlikda 2 soat yurib, Chinorliga yetdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 65,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 130,
+  "T": 2,
+  "qishloq": [
+   "Tolzor",
+   "Chinorli"
+  ],
+  "javob": 130,
+  "birlik": "km",
+  "options": [
+   67,
+   130,
+   195,
+   65
+  ],
+  "id": "g4c2b26l1_yol_13"
+ },
+ {
+  "tur": "bitta",
+  "sor": "v",
+  "savol": "Uzumzor va Do'stlik orasi 195 km. Avtobus bu yo'lni 3 soatda bosib o'tdi. Uning tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 65,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 195,
+  "T": 3,
+  "qishloq": [
+   "Uzumzor",
+   "Do'stlik"
+  ],
+  "javob": 65,
+  "birlik": "km/soat",
+  "options": [
+   70,
+   192,
+   60,
+   65
+  ],
+  "id": "g4c2b26l1_yol_14"
+ },
+ {
+  "tur": "bitta",
+  "sor": "t",
+  "savol": "Yangiobod va Uzumzor orasi 44 km. Velosipedchi 11 km/soat tezlikda Yangioboddan yo'lga chiqdi. Necha soatda Uzumzorga yetib boradi?",
+  "yurganlar": [
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 11,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 44,
+  "T": 4,
+  "qishloq": [
+   "Yangiobod",
+   "Uzumzor"
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   5,
+   4,
+   3,
+   6
+  ],
+  "id": "g4c2b26l1_yol_15"
+ },
+ {
+  "tur": "bitta",
+  "sor": "v",
+  "savol": "Qumariq va Archazor orasi 75 km. Nilufar bu yo'lni 5 soatda bosib o'tdi. Uning tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 15,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 75,
+  "T": 5,
+  "qishloq": [
+   "Qumariq",
+   "Archazor"
+  ],
+  "javob": 15,
+  "birlik": "km/soat",
+  "options": [
+   70,
+   20,
+   15,
+   10
+  ],
+  "id": "g4c2b26l1_yol_16"
+ },
+ {
+  "tur": "bitta",
+  "sor": "t",
+  "savol": "Do'stlik va Yangiobod orasi 425 km. Ko'k mashina 85 km/soat tezlikda Do'stlikdan yo'lga chiqdi. Necha soatda Yangiobodga yetib boradi?",
+  "yurganlar": [
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 85,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 425,
+  "T": 5,
+  "qishloq": [
+   "Do'stlik",
+   "Yangiobod"
+  ],
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   6,
+   5,
+   4,
+   7
+  ],
+  "id": "g4c2b26l1_yol_17"
+ },
+ {
+  "tur": "bitta",
+  "sor": "S",
+  "savol": "Nilufar Yangioboddan 13 km/soat tezlikda 2 soat yurib, Uzumzorga yetdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 13,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 26,
+  "T": 2,
+  "qishloq": [
+   "Yangiobod",
+   "Uzumzor"
+  ],
+  "javob": 26,
+  "birlik": "km",
+  "options": [
+   39,
+   15,
+   13,
+   26
+  ],
+  "id": "g4c2b26l1_yol_18"
+ },
+ {
+  "tur": "bitta",
+  "sor": "v",
+  "savol": "Tolzor va Zarbuloq orasi 350 km. Oq mashina bu yo'lni 5 soatda bosib o'tdi. Uning tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 70,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 350,
+  "T": 5,
+  "qishloq": [
+   "Tolzor",
+   "Zarbuloq"
+  ],
+  "javob": 70,
+  "birlik": "km/soat",
+  "options": [
+   70,
+   65,
+   345,
+   75
+  ],
+  "id": "g4c2b26l1_yol_19"
+ },
+ {
+  "tur": "bitta",
+  "sor": "t",
+  "savol": "Archazor va Yangiobod orasi 225 km. Avtobus 45 km/soat tezlikda Archazordan yo'lga chiqdi. Necha soatda Yangiobodga yetib boradi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 45,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 225,
+  "T": 5,
+  "qishloq": [
+   "Archazor",
+   "Yangiobod"
+  ],
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   5,
+   7,
+   6,
+   4
+  ],
+  "id": "g4c2b26l1_yol_20"
+ }
 ]

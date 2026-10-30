@@ -1,402 +1,642 @@
 [
-  {
-    "id": "sinf4_chorak2_blok28_level1_qarshi_01",
-    "prompt": "Ikki avtomobil bir shahardan qarama-qarshi tomonga jo'nadi (20 va 20 km/soat). Necha soatdan keyin ular orasidagi masofa 160 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 160 km bo'ladigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "1-avtomobil",
-      "startPosition": 100,
-      "speed": 20,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-avtomobil",
-      "startPosition": 100,
-      "speed": 20,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok28_level1_qarshi_02",
-    "prompt": "Ikki mashina bir joydan qarama-qarshi tomonga jo'nadi (15 va 25 km/soat). Necha soatdan keyin ular orasidagi masofa 120 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 120 km bo'ladigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 5,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 90,
-      "speed": 15,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 90,
-      "speed": 25,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok28_level1_qarshi_03",
-    "prompt": "Ikki piyoda bir nuqtadan qarama-qarshi yo'nalishda yurdi (10 va 15 km/soat). Necha soatdan keyin ular orasidagi masofa 125 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 125 km bo'ladigan soatga suring",
-    "roadLength": 160,
-    "maxHours": 6,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "1-piyoda",
-      "startPosition": 75,
-      "speed": 10,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-piyoda",
-      "startPosition": 75,
-      "speed": 15,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok28_level1_qarshi_04",
-    "prompt": "Ikki mashina bir joydan qarama-qarshi tomonga jo'nadi (20 va 30 km/soat). Necha soatdan keyin ular orasidagi masofa 100 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 100 km bo'ladigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 5,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 60,
-      "speed": 20,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 60,
-      "speed": 30,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok28_level1_qarshi_05",
-    "prompt": "Ikki velosipedchi bir joydan qarama-qarshi yo'nalishda yo'lga chiqdi (12 va 12 km/soat). Necha soatdan keyin ular orasidagi masofa 72 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 72 km bo'ladigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 5,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "1-velosipedchi",
-      "startPosition": 100,
-      "speed": 12,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-velosipedchi",
-      "startPosition": 100,
-      "speed": 12,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok28_level1_qarshi_06",
-    "prompt": "Ikki mashina bir joydan qarama-qarshi tomonga jo'nadi (18 va 12 km/soat). Necha soatdan keyin ular orasidagi masofa 150 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 150 km bo'ladigan soatga suring",
-    "roadLength": 240,
-    "maxHours": 6,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 90,
-      "speed": 18,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 90,
-      "speed": 12,
-      "direction": 1
-    }
-  },
-  {
-    "prompt": "Ikki piyoda bir nuqtadan qarama-qarshi yo'nalishda yurdi (21 va 10 km/soat). Necha soatdan keyin ular orasidagi masofa 62 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 62 km bo'ladigan soatga suring",
-    "roadLength": 180,
-    "maxHours": 4,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "1-piyoda",
-      "startPosition": 90,
-      "speed": 21,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-piyoda",
-      "startPosition": 90,
-      "speed": 10,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x01"
-  },
-  {
-    "prompt": "Ikki velosipedchi bir joydan qarama-qarshi yo'nalishda yo'lga chiqdi (22 va 21 km/soat). Necha soatdan keyin ular orasidagi masofa 172 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 172 km bo'ladigan soatga suring",
-    "roadLength": 280,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "1-velosipedchi",
-      "startPosition": 140,
-      "speed": 22,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-velosipedchi",
-      "startPosition": 140,
-      "speed": 21,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x02"
-  },
-  {
-    "prompt": "Ikki avtomobil bir shahardan qarama-qarshi tomonga jo'nadi (24 va 22 km/soat). Necha soatdan keyin ular orasidagi masofa 138 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 138 km bo'ladigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 4,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "1-avtomobil",
-      "startPosition": 100,
-      "speed": 24,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-avtomobil",
-      "startPosition": 100,
-      "speed": 22,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x03"
-  },
-  {
-    "prompt": "Ikki velosipedchi bir joydan qarama-qarshi yo'nalishda yo'lga chiqdi (22 va 18 km/soat). Necha soatdan keyin ular orasidagi masofa 120 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 120 km bo'ladigan soatga suring",
-    "roadLength": 180,
-    "maxHours": 4,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "1-velosipedchi",
-      "startPosition": 90,
-      "speed": 22,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-velosipedchi",
-      "startPosition": 90,
-      "speed": 18,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x04"
-  },
-  {
-    "prompt": "Ikki avtomobil bir shahardan qarama-qarshi tomonga jo'nadi (22 va 16 km/soat). Necha soatdan keyin ular orasidagi masofa 228 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 228 km bo'ladigan soatga suring",
-    "roadLength": 320,
-    "maxHours": 7,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "1-avtomobil",
-      "startPosition": 160,
-      "speed": 22,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-avtomobil",
-      "startPosition": 160,
-      "speed": 16,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x05"
-  },
-  {
-    "prompt": "Ikki mashina bir joydan qarama-qarshi tomonga jo'nadi (19 va 18 km/soat). Necha soatdan keyin ular orasidagi masofa 111 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 111 km bo'ladigan soatga suring",
-    "roadLength": 160,
-    "maxHours": 4,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 80,
-      "speed": 19,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 80,
-      "speed": 18,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x06"
-  },
-  {
-    "prompt": "Ikki velosipedchi bir joydan qarama-qarshi yo'nalishda yo'lga chiqdi (18 va 21 km/soat). Necha soatdan keyin ular orasidagi masofa 195 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 195 km bo'ladigan soatga suring",
-    "roadLength": 300,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "1-velosipedchi",
-      "startPosition": 150,
-      "speed": 18,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-velosipedchi",
-      "startPosition": 150,
-      "speed": 21,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x07"
-  },
-  {
-    "prompt": "Ikki avtomobil bir shahardan qarama-qarshi tomonga jo'nadi (16 va 15 km/soat). Necha soatdan keyin ular orasidagi masofa 62 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 62 km bo'ladigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 3,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "1-avtomobil",
-      "startPosition": 50,
-      "speed": 16,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-avtomobil",
-      "startPosition": 50,
-      "speed": 15,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x08"
-  },
-  {
-    "prompt": "Ikki avtomobil bir shahardan qarama-qarshi tomonga jo'nadi (11 va 23 km/soat). Necha soatdan keyin ular orasidagi masofa 68 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 68 km bo'ladigan soatga suring",
-    "roadLength": 200,
-    "maxHours": 4,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "1-avtomobil",
-      "startPosition": 100,
-      "speed": 11,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-avtomobil",
-      "startPosition": 100,
-      "speed": 23,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x09"
-  },
-  {
-    "prompt": "Ikki velosipedchi bir joydan qarama-qarshi yo'nalishda yo'lga chiqdi (13 va 24 km/soat). Necha soatdan keyin ular orasidagi masofa 222 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 222 km bo'ladigan soatga suring",
-    "roadLength": 400,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "1-velosipedchi",
-      "startPosition": 200,
-      "speed": 13,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-velosipedchi",
-      "startPosition": 200,
-      "speed": 24,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x10"
-  },
-  {
-    "prompt": "Ikki mashina bir joydan qarama-qarshi tomonga jo'nadi (22 va 21 km/soat). Necha soatdan keyin ular orasidagi masofa 172 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 172 km bo'ladigan soatga suring",
-    "roadLength": 280,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 140,
-      "speed": 22,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 140,
-      "speed": 21,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x11"
-  },
-  {
-    "prompt": "Ikki mashina bir joydan qarama-qarshi tomonga jo'nadi (17 va 18 km/soat). Necha soatdan keyin ular orasidagi masofa 70 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 70 km bo'ladigan soatga suring",
-    "roadLength": 120,
-    "maxHours": 3,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "1-mashina",
-      "startPosition": 60,
-      "speed": 17,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-mashina",
-      "startPosition": 60,
-      "speed": 18,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x12"
-  },
-  {
-    "prompt": "Ikki avtomobil bir shahardan qarama-qarshi tomonga jo'nadi (23 va 25 km/soat). Necha soatdan keyin ular orasidagi masofa 96 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 96 km bo'ladigan soatga suring",
-    "roadLength": 160,
-    "maxHours": 3,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "1-avtomobil",
-      "startPosition": 80,
-      "speed": 23,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-avtomobil",
-      "startPosition": 80,
-      "speed": 25,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x13"
-  },
-  {
-    "prompt": "Ikki avtomobil bir shahardan qarama-qarshi tomonga jo'nadi (23 va 14 km/soat). Necha soatdan keyin ular orasidagi masofa 185 km bo'ladi?",
-    "hint": "Slayderni ular orasidagi masofa 185 km bo'ladigan soatga suring",
-    "roadLength": 280,
-    "maxHours": 6,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "1-avtomobil",
-      "startPosition": 140,
-      "speed": 23,
-      "direction": -1
-    },
-    "runnerB": {
-      "label": "2-avtomobil",
-      "startPosition": 140,
-      "speed": 14,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok28_level1_qarshi_x14"
-  }
+ {
+  "tur": "ketish",
+  "sor": "S",
+  "savol": "Sariq taksi (45 km/soat) va ko'k mashina (60 km/soat) bir vaqtda avtobus bekatidan qarama-qarshi tomonga yo'lga chiqdi. 4 soatdan keyin ular orasi necha km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 45,
+    "x0": 180,
+    "yon": -1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 60,
+    "x0": 180,
+    "yon": 1
+   }
+  ],
+  "yol": 420,
+  "T": 4,
+  "javob": 420,
+  "birlik": "km",
+  "options": [
+   60,
+   105,
+   420,
+   240
+  ],
+  "id": "g4c2b28l1_yol_01"
+ },
+ {
+  "tur": "ketish",
+  "sor": "t",
+  "savol": "Avtobus (50 km/soat) va ko'k mashina (90 km/soat) bir vaqtda avtobus bekatidan qarama-qarshi tomonga yo'lga chiqdi. Necha soatdan keyin ular orasi 280 km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 50,
+    "x0": 100,
+    "yon": -1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 90,
+    "x0": 100,
+    "yon": 1
+   }
+  ],
+  "yol": 280,
+  "T": 2,
+  "javob": 2,
+  "birlik": "soat",
+  "options": [
+   3,
+   2,
+   1,
+   7
+  ],
+  "id": "g4c2b28l1_yol_02"
+ },
+ {
+  "tur": "ketish",
+  "sor": "S",
+  "savol": "Avtobus (60 km/soat) va qizil mashina (45 km/soat) bir vaqtda yoqilg'i shoxobchasidan qarama-qarshi tomonga yo'lga chiqdi. 4 soatdan keyin ular orasi necha km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 60,
+    "x0": 240,
+    "yon": -1
+   },
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 45,
+    "x0": 240,
+    "yon": 1
+   }
+  ],
+  "yol": 420,
+  "T": 4,
+  "javob": 420,
+  "birlik": "km",
+  "options": [
+   420,
+   60,
+   105,
+   285
+  ],
+  "id": "g4c2b28l1_yol_03"
+ },
+ {
+  "tur": "ketish",
+  "sor": "v",
+  "savol": "Sayyoh (6 km/soat) va Bobur (? km/soat) bir vaqtda yoqilg'i shoxobchasidan qarama-qarshi tomonga yo'lga chiqdi. 2 soatdan keyin ular orasi 20 km bo'ldi. Boburning tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Sayyoh",
+    "rasm": "piyoda",
+    "v": 6,
+    "x0": 12,
+    "yon": -1
+   },
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 4,
+    "x0": 12,
+    "yon": 1
+   }
+  ],
+  "yol": 20,
+  "T": 2,
+  "javob": 4,
+  "birlik": "km/soat",
+  "options": [
+   16,
+   9,
+   4,
+   10
+  ],
+  "id": "g4c2b28l1_yol_04"
+ },
+ {
+  "tur": "ketish",
+  "sor": "t",
+  "savol": "Yuk mashinasi (35 km/soat) va oq mashina (90 km/soat) bir vaqtda bozor oldidan qarama-qarshi tomonga yo'lga chiqdi. Necha soatdan keyin ular orasi 500 km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 35,
+    "x0": 140,
+    "yon": -1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 90,
+    "x0": 140,
+    "yon": 1
+   }
+  ],
+  "yol": 500,
+  "T": 4,
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   3,
+   4,
+   5,
+   6
+  ],
+  "id": "g4c2b28l1_yol_05"
+ },
+ {
+  "tur": "ketish",
+  "sor": "S",
+  "savol": "Sariq taksi (80 km/soat) va oq mashina (70 km/soat) bir vaqtda avtobus bekatidan qarama-qarshi tomonga yo'lga chiqdi. 4 soatdan keyin ular orasi necha km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 80,
+    "x0": 320,
+    "yon": -1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 70,
+    "x0": 320,
+    "yon": 1
+   }
+  ],
+  "yol": 600,
+  "T": 4,
+  "javob": 600,
+  "birlik": "km",
+  "options": [
+   600,
+   40,
+   390,
+   150
+  ],
+  "id": "g4c2b28l1_yol_06"
+ },
+ {
+  "tur": "ketish",
+  "sor": "t",
+  "savol": "Avtobus (70 km/soat) va oq mashina (40 km/soat) bir vaqtda yoqilg'i shoxobchasidan qarama-qarshi tomonga yo'lga chiqdi. Necha soatdan keyin ular orasi 440 km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 70,
+    "x0": 280,
+    "yon": -1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 40,
+    "x0": 280,
+    "yon": 1
+   }
+  ],
+  "yol": 440,
+  "T": 4,
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   3,
+   5,
+   4,
+   6
+  ],
+  "id": "g4c2b28l1_yol_07"
+ },
+ {
+  "tur": "ketish",
+  "sor": "S",
+  "savol": "Mototsiklchi (35 km/soat) va oq mashina (50 km/soat) bir vaqtda bozor oldidan qarama-qarshi tomonga yo'lga chiqdi. 4 soatdan keyin ular orasi necha km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 35,
+    "x0": 140,
+    "yon": -1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 50,
+    "x0": 140,
+    "yon": 1
+   }
+  ],
+  "yol": 340,
+  "T": 4,
+  "javob": 340,
+  "birlik": "km",
+  "options": [
+   340,
+   85,
+   190,
+   60
+  ],
+  "id": "g4c2b28l1_yol_08"
+ },
+ {
+  "tur": "ketish",
+  "sor": "v",
+  "savol": "Jasur (18 km/soat) va velosipedchi (? km/soat) bir vaqtda avtobus bekatidan qarama-qarshi tomonga yo'lga chiqdi. 5 soatdan keyin ular orasi 160 km bo'ldi. velosipedchining tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 18,
+    "x0": 90,
+    "yon": -1
+   },
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 14,
+    "x0": 90,
+    "yon": 1
+   }
+  ],
+  "yol": 160,
+  "T": 5,
+  "javob": 14,
+  "birlik": "km/soat",
+  "options": [
+   14,
+   50,
+   32,
+   19
+  ],
+  "id": "g4c2b28l1_yol_09"
+ },
+ {
+  "tur": "ketish",
+  "sor": "t",
+  "savol": "Avtobus (70 km/soat) va sariq taksi (45 km/soat) bir vaqtda bozor oldidan qarama-qarshi tomonga yo'lga chiqdi. Necha soatdan keyin ular orasi 575 km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 70,
+    "x0": 350,
+    "yon": -1
+   },
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 45,
+    "x0": 350,
+    "yon": 1
+   }
+  ],
+  "yol": 575,
+  "T": 5,
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   6,
+   5,
+   4,
+   23
+  ],
+  "id": "g4c2b28l1_yol_10"
+ },
+ {
+  "tur": "ketish",
+  "sor": "t",
+  "savol": "Velosipedchi (10 km/soat) va Nilufar (11 km/soat) bir vaqtda yoqilg'i shoxobchasidan qarama-qarshi tomonga yo'lga chiqdi. Necha soatdan keyin ular orasi 105 km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 10,
+    "x0": 50,
+    "yon": -1
+   },
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 11,
+    "x0": 50,
+    "yon": 1
+   }
+  ],
+  "yol": 105,
+  "T": 5,
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   6,
+   4,
+   105,
+   5
+  ],
+  "id": "g4c2b28l1_yol_11"
+ },
+ {
+  "tur": "ketish",
+  "sor": "S",
+  "savol": "Piyoda (3 km/soat) va Jasur (11 km/soat) bir vaqtda bozor oldidan qarama-qarshi tomonga yo'lga chiqdi. 3 soatdan keyin ular orasi necha km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Piyoda",
+    "rasm": "piyoda",
+    "v": 3,
+    "x0": 9,
+    "yon": -1
+   },
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 11,
+    "x0": 9,
+    "yon": 1
+   }
+  ],
+  "yol": 42,
+  "T": 3,
+  "javob": 42,
+  "birlik": "km",
+  "options": [
+   42,
+   14,
+   20,
+   24
+  ],
+  "id": "g4c2b28l1_yol_12"
+ },
+ {
+  "tur": "ketish",
+  "sor": "v",
+  "savol": "Qizil mashina (85 km/soat) va oq mashina (? km/soat) bir vaqtda avtobus bekatidan qarama-qarshi tomonga yo'lga chiqdi. 4 soatdan keyin ular orasi 580 km bo'ldi. oq mashinaning tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 85,
+    "x0": 340,
+    "yon": -1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 60,
+    "x0": 340,
+    "yon": 1
+   }
+  ],
+  "yol": 580,
+  "T": 4,
+  "javob": 60,
+  "birlik": "km/soat",
+  "options": [
+   145,
+   230,
+   60,
+   65
+  ],
+  "id": "g4c2b28l1_yol_13"
+ },
+ {
+  "tur": "ketish",
+  "sor": "S",
+  "savol": "Ko'k mashina (85 km/soat) va sariq taksi (50 km/soat) bir vaqtda ko'prik yonidan qarama-qarshi tomonga yo'lga chiqdi. 4 soatdan keyin ular orasi necha km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 85,
+    "x0": 340,
+    "yon": -1
+   },
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 50,
+    "x0": 340,
+    "yon": 1
+   }
+  ],
+  "yol": 540,
+  "T": 4,
+  "javob": 540,
+  "birlik": "km",
+  "options": [
+   140,
+   390,
+   540,
+   135
+  ],
+  "id": "g4c2b28l1_yol_14"
+ },
+ {
+  "tur": "ketish",
+  "sor": "t",
+  "savol": "Yuk mashinasi (45 km/soat) va qizil mashina (55 km/soat) bir vaqtda bozor oldidan qarama-qarshi tomonga yo'lga chiqdi. Necha soatdan keyin ular orasi 400 km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 45,
+    "x0": 180,
+    "yon": -1
+   },
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 55,
+    "x0": 180,
+    "yon": 1
+   }
+  ],
+  "yol": 400,
+  "T": 4,
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   3,
+   4,
+   5,
+   40
+  ],
+  "id": "g4c2b28l1_yol_15"
+ },
+ {
+  "tur": "ketish",
+  "sor": "t",
+  "savol": "Sayyoh (6 km/soat) va Bobur (4 km/soat) bir vaqtda avtobus bekatidan qarama-qarshi tomonga yo'lga chiqdi. Necha soatdan keyin ular orasi 20 km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Sayyoh",
+    "rasm": "piyoda",
+    "v": 6,
+    "x0": 12,
+    "yon": -1
+   },
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 4,
+    "x0": 12,
+    "yon": 1
+   }
+  ],
+  "yol": 20,
+  "T": 2,
+  "javob": 2,
+  "birlik": "soat",
+  "options": [
+   2,
+   10,
+   3,
+   1
+  ],
+  "id": "g4c2b28l1_yol_16"
+ },
+ {
+  "tur": "ketish",
+  "sor": "S",
+  "savol": "Yuk mashinasi (50 km/soat) va avtobus (45 km/soat) bir vaqtda bozor oldidan qarama-qarshi tomonga yo'lga chiqdi. 2 soatdan keyin ular orasi necha km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 50,
+    "x0": 100,
+    "yon": -1
+   },
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 45,
+    "x0": 100,
+    "yon": 1
+   }
+  ],
+  "yol": 190,
+  "T": 2,
+  "javob": 190,
+  "birlik": "km",
+  "options": [
+   10,
+   95,
+   190,
+   145
+  ],
+  "id": "g4c2b28l1_yol_17"
+ },
+ {
+  "tur": "ketish",
+  "sor": "v",
+  "savol": "Sariq taksi (65 km/soat) va qizil mashina (? km/soat) bir vaqtda avtobus bekatidan qarama-qarshi tomonga yo'lga chiqdi. 4 soatdan keyin ular orasi 500 km bo'ldi. qizil mashinaning tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 65,
+    "x0": 260,
+    "yon": -1
+   },
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 60,
+    "x0": 260,
+    "yon": 1
+   }
+  ],
+  "yol": 500,
+  "T": 4,
+  "javob": 60,
+  "birlik": "km/soat",
+  "options": [
+   125,
+   190,
+   65,
+   60
+  ],
+  "id": "g4c2b28l1_yol_18"
+ },
+ {
+  "tur": "ketish",
+  "sor": "S",
+  "savol": "Jasur (11 km/soat) va mototsiklchi (55 km/soat) bir vaqtda bozor oldidan qarama-qarshi tomonga yo'lga chiqdi. 5 soatdan keyin ular orasi necha km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 11,
+    "x0": 55,
+    "yon": -1
+   },
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 55,
+    "x0": 55,
+    "yon": 1
+   }
+  ],
+  "yol": 330,
+  "T": 5,
+  "javob": 330,
+  "birlik": "km",
+  "options": [
+   220,
+   110,
+   66,
+   330
+  ],
+  "id": "g4c2b28l1_yol_19"
+ },
+ {
+  "tur": "ketish",
+  "sor": "t",
+  "savol": "Piyoda (4 km/soat) va sayyoh (5 km/soat) bir vaqtda ko'prik yonidan qarama-qarshi tomonga yo'lga chiqdi. Necha soatdan keyin ular orasi 45 km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Piyoda",
+    "rasm": "piyoda",
+    "v": 4,
+    "x0": 20,
+    "yon": -1
+   },
+   {
+    "nom": "Sayyoh",
+    "rasm": "piyoda",
+    "v": 5,
+    "x0": 20,
+    "yon": 1
+   }
+  ],
+  "yol": 45,
+  "T": 5,
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   4,
+   45,
+   5,
+   6
+  ],
+  "id": "g4c2b28l1_yol_20"
+ }
 ]

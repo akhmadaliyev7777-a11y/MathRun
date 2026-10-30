@@ -1,0 +1,686 @@
+[
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Archazor va Chinorli orasi 315 km. Bir vaqtda bir-biriga qarab Archazordan yuk mashinasi (35 km/soat), Chinorlidan ko'k mashina (70 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 35,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 70,
+    "x0": 315,
+    "yon": -1
+   }
+  ],
+  "yol": 315,
+  "T": 3,
+  "qishloq": [
+   "Archazor",
+   "Chinorli"
+  ],
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   9,
+   4,
+   2,
+   3
+  ],
+  "id": "y6harakat_yol_01"
+ },
+ {
+  "tur": "ketish",
+  "sor": "S",
+  "savol": "Avtobus (60 km/soat) va ko'k mashina (55 km/soat) bir vaqtda bozor oldidan qarama-qarshi tomonga yo'lga chiqdi. 3 soatdan keyin ular orasi necha km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 60,
+    "x0": 180,
+    "yon": -1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 55,
+    "x0": 180,
+    "yon": 1
+   }
+  ],
+  "yol": 345,
+  "T": 3,
+  "javob": 345,
+  "birlik": "km",
+  "options": [
+   345,
+   115,
+   235,
+   15
+  ],
+  "id": "y6harakat_yol_02"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Velosipedchi 20 km oldinda, 10 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan Jasur 14 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 10,
+    "x0": 20,
+    "yon": 1
+   },
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 14,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 70,
+  "T": 5,
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   4,
+   5,
+   7,
+   6
+  ],
+  "id": "y6harakat_yol_03"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "qoldi",
+  "savol": "Archazor va Tolzor orasi 204 km. Bir vaqtda bir-biriga qarab Archazordan Jasur (11 km/soat), Tolzordan mototsiklchi (40 km/soat) yo'lga chiqdi. 1 soatdan keyin ular orasida necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 11,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 40,
+    "x0": 204,
+    "yon": -1
+   }
+  ],
+  "yol": 204,
+  "T": 1,
+  "qishloq": [
+   "Archazor",
+   "Tolzor"
+  ],
+  "javob": 153,
+  "birlik": "km",
+  "options": [
+   153,
+   164,
+   51,
+   193
+  ],
+  "id": "y6harakat_yol_04"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Piyoda Olmazordan 4 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin xuddi shu yo'ldan Bobur 5 km/soat tezlikda chiqdi. Bobur yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Piyoda",
+    "rasm": "piyoda",
+    "v": 4,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 5,
+    "x0": 0,
+    "yon": 1,
+    "t0": 1
+   }
+  ],
+  "yol": 20,
+  "T": 5,
+  "qishloq": [
+   "Olmazor",
+   ""
+  ],
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   5,
+   4,
+   6,
+   3
+  ],
+  "id": "y6harakat_yol_05"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "t",
+  "savol": "Olmazor va Bog'iston orasi 405 km. Bir vaqtda bir-biriga qarab Olmazordan avtobus (65 km/soat), Bog'istondan oq mashina (70 km/soat) yo'lga chiqdi. Necha soatdan keyin uchrashadi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 65,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 70,
+    "x0": 405,
+    "yon": -1
+   }
+  ],
+  "yol": 405,
+  "T": 3,
+  "qishloq": [
+   "Olmazor",
+   "Bog'iston"
+  ],
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   81,
+   2,
+   4,
+   3
+  ],
+  "id": "y6harakat_yol_06"
+ },
+ {
+  "tur": "ketish",
+  "sor": "S",
+  "savol": "Velosipedchi (10 km/soat) va Jasur (11 km/soat) bir vaqtda bozor oldidan qarama-qarshi tomonga yo'lga chiqdi. 4 soatdan keyin ular orasi necha km bo'ladi?",
+  "yurganlar": [
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 10,
+    "x0": 40,
+    "yon": -1
+   },
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 11,
+    "x0": 40,
+    "yon": 1
+   }
+  ],
+  "yol": 84,
+  "T": 4,
+  "javob": 84,
+  "birlik": "km",
+  "options": [
+   21,
+   4,
+   51,
+   84
+  ],
+  "id": "y6harakat_yol_07"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Sariq taksi 100 km oldinda, 40 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan yuk mashinasi 60 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 40,
+    "x0": 100,
+    "yon": 1
+   },
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 60,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 300,
+  "T": 5,
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   6,
+   4,
+   1,
+   5
+  ],
+  "id": "y6harakat_yol_08"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "qoldi",
+  "savol": "Bog'iston va Qumariq orasi 40 km. Bir vaqtda bir-biriga qarab Bog'istondan Bobur (5 km/soat), Qumariqdan velosipedchi (15 km/soat) yo'lga chiqdi. 1 soatdan keyin ular orasida necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 5,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 15,
+    "x0": 40,
+    "yon": -1
+   }
+  ],
+  "yol": 40,
+  "T": 1,
+  "qishloq": [
+   "Bog'iston",
+   "Qumariq"
+  ],
+  "javob": 20,
+  "birlik": "km",
+  "options": [
+   25,
+   21,
+   20,
+   35
+  ],
+  "id": "y6harakat_yol_09"
+ },
+ {
+  "tur": "kech",
+  "sor": "t",
+  "savol": "Yuk mashinasi Zarbuloqdan 40 km/soat tezlikda yo'lga chiqdi. 3 soatdan keyin xuddi shu yo'ldan oq mashina 80 km/soat tezlikda chiqdi. Oq mashina yo'lga chiqqanidan necha soat o'tib quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 80,
+    "x0": 0,
+    "yon": 1,
+    "t0": 3
+   }
+  ],
+  "yol": 240,
+  "T": 6,
+  "qishloq": [
+   "Zarbuloq",
+   ""
+  ],
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   3,
+   2,
+   6,
+   4
+  ],
+  "id": "y6harakat_yol_10"
+ },
+ {
+  "tur": "quv",
+  "sor": "qoldi",
+  "savol": "Bobur 9 km oldinda, 3 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan sayyoh 6 km/soat tezlikda yo'lga chiqdi. 2 soatdan keyin ular orasi necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 3,
+    "x0": 9,
+    "yon": 1
+   },
+   {
+    "nom": "Sayyoh",
+    "rasm": "piyoda",
+    "v": 6,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 15,
+  "T": 2,
+  "javob": 3,
+  "birlik": "km",
+  "options": [
+   6,
+   4,
+   15,
+   3
+  ],
+  "id": "y6harakat_yol_11"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "S",
+  "savol": "Tolzordan piyoda (3 km/soat), Qumariqdan Jasur (12 km/soat) bir vaqtda bir-biriga qarab yo'lga chiqdi va 5 soatdan keyin uchrashdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Piyoda",
+    "rasm": "piyoda",
+    "v": 3,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 12,
+    "x0": 75,
+    "yon": -1
+   }
+  ],
+  "yol": 75,
+  "T": 5,
+  "qishloq": [
+   "Tolzor",
+   "Qumariq"
+  ],
+  "javob": 75,
+  "birlik": "km",
+  "options": [
+   75,
+   45,
+   15,
+   60
+  ],
+  "id": "y6harakat_yol_12"
+ },
+ {
+  "tur": "kech",
+  "sor": "joy",
+  "savol": "Malika Zarbuloqdan 4 km/soat tezlikda yo'lga chiqdi. 3 soatdan keyin xuddi shu yo'ldan Bobur 6 km/soat tezlikda chiqdi. Zarbuloqdan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Malika",
+    "rasm": "piyoda",
+    "v": 4,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 6,
+    "x0": 0,
+    "yon": 1,
+    "t0": 3
+   }
+  ],
+  "yol": 36,
+  "T": 9,
+  "qishloq": [
+   "Zarbuloq",
+   ""
+  ],
+  "javob": 36,
+  "birlik": "km",
+  "options": [
+   24,
+   12,
+   36,
+   54
+  ],
+  "id": "y6harakat_yol_13"
+ },
+ {
+  "tur": "ketish",
+  "sor": "v",
+  "savol": "Yuk mashinasi (55 km/soat) va sariq taksi (? km/soat) bir vaqtda avtobus bekatidan qarama-qarshi tomonga yo'lga chiqdi. 3 soatdan keyin ular orasi 285 km bo'ldi. sariq taksining tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 55,
+    "x0": 165,
+    "yon": -1
+   },
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 40,
+    "x0": 165,
+    "yon": 1
+   }
+  ],
+  "yol": 285,
+  "T": 3,
+  "javob": 40,
+  "birlik": "km/soat",
+  "options": [
+   45,
+   40,
+   150,
+   95
+  ],
+  "id": "y6harakat_yol_14"
+ },
+ {
+  "tur": "quv",
+  "sor": "joy",
+  "savol": "Yuk mashinasi 80 km oldinda, 40 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan oq mashina 80 km/soat tezlikda yo'lga chiqdi. Oq mashina uni o'zi chiqqan joydan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 40,
+    "x0": 80,
+    "yon": 1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 80,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 160,
+  "T": 2,
+  "javob": 160,
+  "birlik": "km",
+  "options": [
+   80,
+   240,
+   160,
+   161
+  ],
+  "id": "y6harakat_yol_15"
+ },
+ {
+  "tur": "quv",
+  "sor": "qoldi",
+  "savol": "Mototsiklchi 60 km oldinda, 40 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan ko'k mashina 50 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin ular orasi necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 40,
+    "x0": 60,
+    "yon": 1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 50,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 100,
+  "T": 1,
+  "javob": 50,
+  "birlik": "km",
+  "options": [
+   10,
+   51,
+   50,
+   70
+  ],
+  "id": "y6harakat_yol_16"
+ },
+ {
+  "tur": "uchrash",
+  "sor": "S",
+  "savol": "Gulzordan avtobus (40 km/soat), Sohiloboddan oq mashina (75 km/soat) bir vaqtda bir-biriga qarab yo'lga chiqdi va 5 soatdan keyin uchrashdi. Qishloqlar orasi necha km?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 40,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 75,
+    "x0": 575,
+    "yon": -1
+   }
+  ],
+  "yol": 575,
+  "T": 5,
+  "qishloq": [
+   "Gulzor",
+   "Sohilobod"
+  ],
+  "javob": 575,
+  "birlik": "km",
+  "options": [
+   175,
+   575,
+   200,
+   375
+  ],
+  "id": "y6harakat_yol_17"
+ },
+ {
+  "tur": "kech",
+  "sor": "joy",
+  "savol": "Nilufar Bog'istondan 12 km/soat tezlikda yo'lga chiqdi. 2 soatdan keyin xuddi shu yo'ldan velosipedchi 18 km/soat tezlikda chiqdi. Bog'istondan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 12,
+    "x0": 0,
+    "yon": 1
+   },
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 18,
+    "x0": 0,
+    "yon": 1,
+    "t0": 2
+   }
+  ],
+  "yol": 72,
+  "T": 6,
+  "qishloq": [
+   "Bog'iston",
+   ""
+  ],
+  "javob": 72,
+  "birlik": "km",
+  "options": [
+   72,
+   108,
+   24,
+   48
+  ],
+  "id": "y6harakat_yol_18"
+ },
+ {
+  "tur": "ketish",
+  "sor": "v",
+  "savol": "Mototsiklchi (55 km/soat) va oq mashina (? km/soat) bir vaqtda ko'prik yonidan qarama-qarshi tomonga yo'lga chiqdi. 3 soatdan keyin ular orasi 300 km bo'ldi. oq mashinaning tezligi qancha?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 55,
+    "x0": 165,
+    "yon": -1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 45,
+    "x0": 165,
+    "yon": 1
+   }
+  ],
+  "yol": 300,
+  "T": 3,
+  "javob": 45,
+  "birlik": "km/soat",
+  "options": [
+   50,
+   155,
+   45,
+   100
+  ],
+  "id": "y6harakat_yol_19"
+ },
+ {
+  "tur": "quv",
+  "sor": "joy",
+  "savol": "Nilufar 24 km oldinda, 18 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan mototsiklchi 30 km/soat tezlikda yo'lga chiqdi. Mototsiklchi uni o'zi chiqqan joydan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 18,
+    "x0": 24,
+    "yon": 1
+   },
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 30,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 60,
+  "T": 2,
+  "javob": 60,
+  "birlik": "km",
+  "options": [
+   36,
+   84,
+   24,
+   60
+  ],
+  "id": "y6harakat_yol_20"
+ }
+]

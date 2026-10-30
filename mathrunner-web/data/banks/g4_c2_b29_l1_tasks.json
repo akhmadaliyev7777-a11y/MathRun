@@ -1,402 +1,642 @@
 [
-  {
-    "id": "sinf4_chorak2_blok29_level1_quvlama_01",
-    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni orqadagi mashina oldingisini quvib yetadigan soatga suring",
-    "roadLength": 150,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Oldingi mashina",
-      "startPosition": 40,
-      "speed": 15,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Orqadagi mashina",
-      "startPosition": 0,
-      "speed": 25,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok29_level1_quvlama_02",
-    "prompt": "Orqadagi mashina oldingisini necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 120,
-    "maxHours": 5,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Oldingi mashina",
-      "startPosition": 30,
-      "speed": 10,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Orqadagi mashina",
-      "startPosition": 0,
-      "speed": 25,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok29_level1_quvlama_03",
-    "prompt": "Orqadagi poyezd oldingi poyezdni necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 150,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "Oldingi poyezd",
-      "startPosition": 60,
-      "speed": 10,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Orqadagi poyezd",
-      "startPosition": 0,
-      "speed": 22,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok29_level1_quvlama_04",
-    "prompt": "Yengil mashina yuk mashinasini necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 150,
-    "maxHours": 6,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "Yuk mashinasi",
-      "startPosition": 45,
-      "speed": 15,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Yengil mashina",
-      "startPosition": 0,
-      "speed": 30,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok29_level1_quvlama_05",
-    "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 5,
-    "answerHour": 1,
-    "runnerA": {
-      "label": "Piyoda",
-      "startPosition": 12,
-      "speed": 8,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Velosipedchi",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1
-    }
-  },
-  {
-    "id": "sinf4_chorak2_blok29_level1_quvlama_06",
-    "prompt": "Tez mashina sekin mashinani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 180,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Sekin mashina",
-      "startPosition": 90,
-      "speed": 5,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Tez mashina",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1
-    }
-  },
-  {
-    "prompt": "Yengil mashina yuk mashinasini necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 50,
-    "maxHours": 3,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Yuk mashinasi",
-      "startPosition": 12,
-      "speed": 8,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Yengil mashina",
-      "startPosition": 0,
-      "speed": 14,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x01"
-  },
-  {
-    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 110,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Oldingi mashina",
-      "startPosition": 28,
-      "speed": 15,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Orqadagi mashina",
-      "startPosition": 0,
-      "speed": 22,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x02"
-  },
-  {
-    "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 150,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Piyoda",
-      "startPosition": 52,
-      "speed": 16,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Velosipedchi",
-      "startPosition": 0,
-      "speed": 29,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x03"
-  },
-  {
-    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 4,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "Oldingi mashina",
-      "startPosition": 24,
-      "speed": 16,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Orqadagi mashina",
-      "startPosition": 0,
-      "speed": 24,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x04"
-  },
-  {
-    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 4,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Oldingi mashina",
-      "startPosition": 26,
-      "speed": 12,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Orqadagi mashina",
-      "startPosition": 0,
-      "speed": 25,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x05"
-  },
-  {
-    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 4,
-    "answerHour": 2,
-    "runnerA": {
-      "label": "Oldingi mashina",
-      "startPosition": 40,
-      "speed": 5,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Orqadagi mashina",
-      "startPosition": 0,
-      "speed": 25,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x06"
-  },
-  {
-    "prompt": "Tez mashina sekin mashinani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 210,
-    "maxHours": 8,
-    "answerHour": 6,
-    "runnerA": {
-      "label": "Sekin mashina",
-      "startPosition": 72,
-      "speed": 14,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Tez mashina",
-      "startPosition": 0,
-      "speed": 26,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x07"
-  },
-  {
-    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 120,
-    "maxHours": 5,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "Oldingi mashina",
-      "startPosition": 18,
-      "speed": 18,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Orqadagi mashina",
-      "startPosition": 0,
-      "speed": 24,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x08"
-  },
-  {
-    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 180,
-    "maxHours": 7,
-    "answerHour": 5,
-    "runnerA": {
-      "label": "Oldingi mashina",
-      "startPosition": 65,
-      "speed": 12,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Orqadagi mashina",
-      "startPosition": 0,
-      "speed": 25,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x09"
-  },
-  {
-    "prompt": "Tez poyezd sekin poyezdni necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Sekin poyezd",
-      "startPosition": 24,
-      "speed": 14,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Tez poyezd",
-      "startPosition": 0,
-      "speed": 20,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x10"
-  },
-  {
-    "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 150,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Piyoda",
-      "startPosition": 20,
-      "speed": 19,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Velosipedchi",
-      "startPosition": 0,
-      "speed": 24,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x11"
-  },
-  {
-    "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 100,
-    "maxHours": 4,
-    "answerHour": 3,
-    "runnerA": {
-      "label": "Piyoda",
-      "startPosition": 57,
-      "speed": 6,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Velosipedchi",
-      "startPosition": 0,
-      "speed": 25,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x12"
-  },
-  {
-    "prompt": "Orqadagi mashina oldingi mashinani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 110,
-    "maxHours": 5,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Oldingi mashina",
-      "startPosition": 60,
-      "speed": 6,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Orqadagi mashina",
-      "startPosition": 0,
-      "speed": 21,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x13"
-  },
-  {
-    "prompt": "Velosipedchi piyodani necha soatdan keyin quvib yetadi?",
-    "hint": "Slayderni quvib yetadigan soatga suring",
-    "roadLength": 130,
-    "maxHours": 6,
-    "answerHour": 4,
-    "runnerA": {
-      "label": "Piyoda",
-      "startPosition": 36,
-      "speed": 12,
-      "direction": 1
-    },
-    "runnerB": {
-      "label": "Velosipedchi",
-      "startPosition": 0,
-      "speed": 21,
-      "direction": 1
-    },
-    "id": "sinf4_chorak2_blok29_level1_quvlama_x14"
-  }
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Yuk mashinasi 20 km oldinda, 40 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan avtobus 45 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 40,
+    "x0": 20,
+    "yon": 1
+   },
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 45,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 180,
+  "T": 4,
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   3,
+   5,
+   4,
+   6
+  ],
+  "id": "g4c2b29l1_yol_01"
+ },
+ {
+  "tur": "quv",
+  "sor": "qoldi",
+  "savol": "Mototsiklchi 50 km oldinda, 40 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan sariq taksi 50 km/soat tezlikda yo'lga chiqdi. 4 soatdan keyin ular orasi necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 40,
+    "x0": 50,
+    "yon": 1
+   },
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 50,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 210,
+  "T": 4,
+  "javob": 10,
+  "birlik": "km",
+  "options": [
+   40,
+   90,
+   10,
+   11
+  ],
+  "id": "g4c2b29l1_yol_02"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Ko'k mashina 20 km oldinda, 50 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan avtobus 55 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 50,
+    "x0": 20,
+    "yon": 1
+   },
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 55,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 220,
+  "T": 4,
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   4,
+   3,
+   6,
+   5
+  ],
+  "id": "g4c2b29l1_yol_03"
+ },
+ {
+  "tur": "quv",
+  "sor": "joy",
+  "savol": "Sariq taksi 15 km oldinda, 75 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan qizil mashina 80 km/soat tezlikda yo'lga chiqdi. Qizil mashina uni o'zi chiqqan joydan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 75,
+    "x0": 15,
+    "yon": 1
+   },
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 80,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 240,
+  "T": 3,
+  "javob": 240,
+  "birlik": "km",
+  "options": [
+   255,
+   15,
+   225,
+   240
+  ],
+  "id": "g4c2b29l1_yol_04"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Avtobus 40 km oldinda, 55 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan ko'k mashina 75 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 55,
+    "x0": 40,
+    "yon": 1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 75,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 150,
+  "T": 2,
+  "javob": 2,
+  "birlik": "soat",
+  "options": [
+   1,
+   2,
+   4,
+   3
+  ],
+  "id": "g4c2b29l1_yol_05"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Yuk mashinasi 60 km oldinda, 30 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan oq mashina 60 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 30,
+    "x0": 60,
+    "yon": 1
+   },
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 60,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 120,
+  "T": 2,
+  "javob": 2,
+  "birlik": "soat",
+  "options": [
+   3,
+   4,
+   1,
+   2
+  ],
+  "id": "g4c2b29l1_yol_06"
+ },
+ {
+  "tur": "quv",
+  "sor": "qoldi",
+  "savol": "Bobur 18 km oldinda, 5 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan velosipedchi 14 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin ular orasi necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 5,
+    "x0": 18,
+    "yon": 1
+   },
+   {
+    "nom": "Velosipedchi",
+    "rasm": "velosiped",
+    "v": 14,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 23,
+  "T": 1,
+  "javob": 9,
+  "birlik": "km",
+  "options": [
+   9,
+   27,
+   4,
+   10
+  ],
+  "id": "g4c2b29l1_yol_07"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Mototsiklchi 140 km oldinda, 35 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan ko'k mashina 70 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 35,
+    "x0": 140,
+    "yon": 1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 70,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 280,
+  "T": 4,
+  "javob": 4,
+  "birlik": "soat",
+  "options": [
+   3,
+   4,
+   2,
+   5
+  ],
+  "id": "g4c2b29l1_yol_08"
+ },
+ {
+  "tur": "quv",
+  "sor": "joy",
+  "savol": "Jasur 24 km oldinda, 13 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan Nilufar 17 km/soat tezlikda yo'lga chiqdi. Nilufar uni o'zi chiqqan joydan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 13,
+    "x0": 24,
+    "yon": 1
+   },
+   {
+    "nom": "Nilufar",
+    "rasm": "velosiped",
+    "v": 17,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 102,
+  "T": 6,
+  "javob": 102,
+  "birlik": "km",
+  "options": [
+   126,
+   102,
+   24,
+   78
+  ],
+  "id": "g4c2b29l1_yol_09"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Oq mashina 60 km oldinda, 50 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan yuk mashinasi 60 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 50,
+    "x0": 60,
+    "yon": 1
+   },
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 60,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 360,
+  "T": 6,
+  "javob": 6,
+  "birlik": "soat",
+  "options": [
+   7,
+   5,
+   6,
+   1
+  ],
+  "id": "g4c2b29l1_yol_10"
+ },
+ {
+  "tur": "quv",
+  "sor": "qoldi",
+  "savol": "Bobur 16 km oldinda, 5 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan Jasur 13 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin ular orasi necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 5,
+    "x0": 16,
+    "yon": 1
+   },
+   {
+    "nom": "Jasur",
+    "rasm": "velosiped",
+    "v": 13,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 21,
+  "T": 1,
+  "javob": 8,
+  "birlik": "km",
+  "options": [
+   3,
+   24,
+   9,
+   8
+  ],
+  "id": "g4c2b29l1_yol_11"
+ },
+ {
+  "tur": "quv",
+  "sor": "joy",
+  "savol": "Oq mashina 75 km oldinda, 40 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan ko'k mashina 65 km/soat tezlikda yo'lga chiqdi. Ko'k mashina uni o'zi chiqqan joydan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 40,
+    "x0": 75,
+    "yon": 1
+   },
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 65,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 195,
+  "T": 3,
+  "javob": 195,
+  "birlik": "km",
+  "options": [
+   75,
+   195,
+   270,
+   120
+  ],
+  "id": "g4c2b29l1_yol_12"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Bobur 10 km oldinda, 4 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan sayyoh 6 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Bobur",
+    "rasm": "piyoda",
+    "v": 4,
+    "x0": 10,
+    "yon": 1
+   },
+   {
+    "nom": "Sayyoh",
+    "rasm": "piyoda",
+    "v": 6,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 30,
+  "T": 5,
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   1,
+   4,
+   5,
+   6
+  ],
+  "id": "g4c2b29l1_yol_13"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Ko'k mashina 75 km oldinda, 40 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan mototsiklchi 55 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 40,
+    "x0": 75,
+    "yon": 1
+   },
+   {
+    "nom": "Mototsiklchi",
+    "rasm": "moto",
+    "v": 55,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 275,
+  "T": 5,
+  "javob": 5,
+  "birlik": "soat",
+  "options": [
+   4,
+   5,
+   7,
+   6
+  ],
+  "id": "g4c2b29l1_yol_14"
+ },
+ {
+  "tur": "quv",
+  "sor": "qoldi",
+  "savol": "Yuk mashinasi 40 km oldinda, 30 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan avtobus 50 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin ular orasi necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 30,
+    "x0": 40,
+    "yon": 1
+   },
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 50,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 70,
+  "T": 1,
+  "javob": 20,
+  "birlik": "km",
+  "options": [
+   60,
+   19,
+   20,
+   21
+  ],
+  "id": "g4c2b29l1_yol_15"
+ },
+ {
+  "tur": "quv",
+  "sor": "qoldi",
+  "savol": "Avtobus 100 km oldinda, 60 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan qizil mashina 85 km/soat tezlikda yo'lga chiqdi. 2 soatdan keyin ular orasi necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 60,
+    "x0": 100,
+    "yon": 1
+   },
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 85,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 220,
+  "T": 2,
+  "javob": 50,
+  "birlik": "km",
+  "options": [
+   51,
+   150,
+   49,
+   50
+  ],
+  "id": "g4c2b29l1_yol_16"
+ },
+ {
+  "tur": "quv",
+  "sor": "joy",
+  "savol": "Ko'k mashina 120 km oldinda, 45 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan sariq taksi 75 km/soat tezlikda yo'lga chiqdi. Sariq taksi uni o'zi chiqqan joydan necha km uzoqda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Ko'k mashina",
+    "rasm": "mashina",
+    "v": 45,
+    "x0": 120,
+    "yon": 1
+   },
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 75,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 300,
+  "T": 4,
+  "javob": 300,
+  "birlik": "km",
+  "options": [
+   120,
+   300,
+   420,
+   180
+  ],
+  "id": "g4c2b29l1_yol_17"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Oq mashina 30 km oldinda, 65 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan avtobus 70 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Oq mashina",
+    "rasm": "mashina",
+    "v": 65,
+    "x0": 30,
+    "yon": 1
+   },
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 70,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 420,
+  "T": 6,
+  "javob": 6,
+  "birlik": "soat",
+  "options": [
+   7,
+   8,
+   5,
+   6
+  ],
+  "id": "g4c2b29l1_yol_18"
+ },
+ {
+  "tur": "quv",
+  "sor": "t",
+  "savol": "Yuk mashinasi 90 km oldinda, 30 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan sariq taksi 60 km/soat tezlikda yo'lga chiqdi. Necha soatda quvib yetadi?",
+  "yurganlar": [
+   {
+    "nom": "Yuk mashinasi",
+    "rasm": "yuk",
+    "v": 30,
+    "x0": 90,
+    "yon": 1
+   },
+   {
+    "nom": "Sariq taksi",
+    "rasm": "mashina",
+    "v": 60,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 180,
+  "T": 3,
+  "javob": 3,
+  "birlik": "soat",
+  "options": [
+   2,
+   1,
+   4,
+   3
+  ],
+  "id": "g4c2b29l1_yol_19"
+ },
+ {
+  "tur": "quv",
+  "sor": "qoldi",
+  "savol": "Avtobus 30 km oldinda, 70 km/soat tezlikda ketyapti. Orqadan xuddi shu yo'ldan qizil mashina 75 km/soat tezlikda yo'lga chiqdi. 1 soatdan keyin ular orasi necha km qoladi?",
+  "yurganlar": [
+   {
+    "nom": "Avtobus",
+    "rasm": "avtobus",
+    "v": 70,
+    "x0": 30,
+    "yon": 1
+   },
+   {
+    "nom": "Qizil mashina",
+    "rasm": "mashina",
+    "v": 75,
+    "x0": 0,
+    "yon": 1
+   }
+  ],
+  "yol": 100,
+  "T": 1,
+  "javob": 25,
+  "birlik": "km",
+  "options": [
+   26,
+   35,
+   5,
+   25
+  ],
+  "id": "g4c2b29l1_yol_20"
+ }
 ]

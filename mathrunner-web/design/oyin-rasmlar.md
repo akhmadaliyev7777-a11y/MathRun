@@ -151,5 +151,9 @@ Xarita (pergament, orol, to'r) kodda chiziladi — rasm shart emas. Kerak bo'lsa
 no land in the middle (an old paper map will be placed there). Soft 3D cartoon style, no text. Portrait 1080×1600.
 **10.2 Sandiq** (`sandiq.png`): an open wooden pirate treasure chest with gold coins, soft 3D cartoon style, transparent background. 512×512.
 
+## 11. Harakat — dasht yo'li
+Sahna kodda chiziladi. Kerak bo'lsa: **11.1 Fon** (`dasht-yol.png`): a wide sunny steppe landscape with soft mountains far away, blue sky,
+a straight empty asphalt road crossing the lower part from left to right, small village houses at both ends. Soft 3D cartoon style, no text, no cars. Landscape 1600×900.
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
 Har birining promptlari o'sha o'yinga o'tganda yoziladi. **Musiqa** ham keyinroq qo'shiladi.
