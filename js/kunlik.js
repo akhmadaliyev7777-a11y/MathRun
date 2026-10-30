@@ -4,7 +4,7 @@
 window.KUNLIK = [
   {
     sana: "2026-10-30",
-    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan); o'yinga kirishdan oldin mavzu tanlanadi.",
+    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan), «Xona tarkibi» — shirinliklar fabrikasi; o'yinga kirishdan oldin mavzu tanlanadi.",
     ishlar: [
       ["1–4-sinf", "O'yinlar tahlil qilindi: 12 ta o'yindan 7 tasida javob to'g'ri-xatoligi aytilmasdi, sababi ko'rsatilmasdi, ish varag'iga o'xshardi. Har o'yin alohida, o'z «dunyosi»da qayta quriladi."],
       ["1–4-sinf", "Hamma o'yinlar uchun umumiy panel: yuraklar, ochko, kombo, «Tez!» bonusi, ovoz (o'chirish tugmasi), yangi o'yin personaji — kosmik robot Robi: har javobdan keyin sababini bir qatorda aytadi."],
@@ -18,6 +18,8 @@ window.KUNLIK = [
       ["1–4-sinf", "O'yinlardagi ovoz tugmasi zamonaviy ikonka bilan almashtirildi."],
       ["1–4-sinf", "«Tarozi» — sehrli bozor: mis tarozi haqiqiy tarozidek tebranib to'xtaydi (shkala, strelka, zanjirli kosalar); pallalarda sehrli kristall-figuralar; sinov toshi tanlanadi — to'g'ri bo'lsa muvozanat, xato bo'lsa og'ir tomonga og'adi, Robi sababini aytadi. 1-sinfdagi bitta juda oson misol almashtirildi."],
       ["Interaktiv", "«Tarozi» o'yiniga yuqori sinflar qo'shildi: 6-sinf «4. Tenglamalarni yechish», 7-sinf «5.1 Sodda chiziqli tenglamalar» va «25. Al-Xorazmiy usuli» — ikkala pallada figuralar, bir xil yuklar ikkala palladan olinadi. 180 misol va 720 sabab tekshirildi."],
+      ["1–4-sinf", "«Xona tarkibi» — shirinliklar fabrikasi: buyurtma bo'yicha qutiga konfet (birlik), rulon (o'nlik), lagan (yuzlik), sovg'a qutisi (ming) yig'iladi; quti xonalarga bo'lingan, tagida raqamlari; 10 tasi yig'ilsa mashina o'zi o'raydi (xonadan o'tish). Buyurtmalar son, so'z, xona birliklari va qo'shiluvchilar bilan; xatoda qaysi xona noto'g'ri aytiladi."],
+      ["1–4-sinf", "«Xona tarkibi»ga yangi mavzular: 2-sinf 5-mavzu (xona birliklari), 3-sinf 5-mavzu (minglar), 4-sinf 1-mavzu (joy qiymati); 1-sinfdagi takror sonlar almashtirildi. 120 buyurtma tekshirildi."],
       ["Ish tartibi", "O'yin rasmlari (Robi, fonlar, sayyoralar, meteorit, poyezd) GPT'da yasaladi — promptlar tayyor; keyinroq musiqa qo'shiladi."]
     ]
   },
