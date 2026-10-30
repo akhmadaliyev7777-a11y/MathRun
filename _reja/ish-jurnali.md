@@ -15,8 +15,15 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **7-sinf (Matematika 2026):** 1.1–4.4 tayyor (16/27; 1.2 dan boshlab 5E uslubida). Kitob: 1–4-boblar bor, 5–7-boblar yo'q. Navbat: 5-bob (kitob kutilmoqda; foydalanuvchi «5–7-boblarga o'tmay tur» dedi).
 - **8–11-sinf mavzu ro'yxatlari:** kitob mundarijasi bo'yicha saytga qo'yildi (2026-10-29): 8 — algebra 31, geometriya 37; 9 — 38, 35; 10 — 29, 17; 11 — 24, 12. Rejalar `_reja/8…11-sinf-*-reja.md`, `mavzular8/8g/9/9g/10/10g/11/11g.json`. Kitob PDF'lari hali yo'q (faqat mundarija rasmlari).
-- **1–4-sinf o'yinlari (2026-10-30 dan):** har o'yin o'z «dunyosi»da qayta qurilmoqda (qoidalar — `mathrunner-web/CLAUDE.md` oxiri). Tayyor: 1 To'plamlar (koinot), 2 Tartiblash (o'rmon-poyezd, kasrlar bilan), 3 Jadval (xazina g'ori), 4 Saralash (robot zavodi), 5 Tarozi (sehrli bozor; 6–7-sinf tenglamalari ham — `mathrunner-web/js/yuqori.js`), 6 Xona tarkibi (shirinliklar fabrikasi; 2–4-sinfga yangi mavzular), 7 Yoyilma (origami ustaxonasi, 3D buklanish; 6-sinf 29, 31 ham), 8 Ulush tasmasi (bog'dagi devor + Brilliant g'oyasidagi shakllar; 5-sinf 32, 33 ham). Navbatda: Koordinata, Harakat, Transportir, Simmetriya. GPT rasm promptlari — `mathrunner-web/design/oyin-rasmlar.md` (rasmlar hali kelmagan).
+- **1–4-sinf o'yinlari (2026-10-30 dan):** har o'yin o'z «dunyosi»da qayta qurilmoqda (qoidalar — `mathrunner-web/CLAUDE.md` oxiri). Tayyor (12/12): 1 To'plamlar, 2 Tartiblash, 3 Jadval, 4 Saralash, 5 Tarozi, 6 Xona tarkibi, 7 Yoyilma, 8 Ulush tasmasi, 9 Koordinata (xazina oroli; 7-sinf 26 ham), 10 Harakat (dasht yo'li; 6-sinf 23 ham), 11 Transportir (Ulug'bek rasadxonasi; 5-sinf 38 ham), 12 Simmetriya (koshinpaz ustaxonasi; 9-sinf geometriya 9, 10 ham). Rejadagi o'yinlar tugadi. GPT rasm promptlari — `mathrunner-web/design/oyin-rasmlar.md` (rasmlar hali kelmagan).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 4 / 6 (4.1–4.4).
+
+---
+
+## 2026-10-30 (kech) — m.shukurillo hisobi (bulut sessiyasi, o'yinlar 9–12)
+**Qilindi (hammasi saytda):** «Fikrlash o'yinlari»ning qolgan 4 tasi yangi dunyoda — 9) Koordinata — xazina oroli xaritasi (qazish, koordinata, kapitan yo'li, Robi qadamlari, masofa, koordinata nuri; 7-sinf «26. Dekart koordinatalar sistemasi»); 10) Harakat — dasht yo'li (chiroyli transportlar soat-soat yuradi, oradagi masofa; 6-sinf «23. Ikki jism harakati»); 11) Transportir — Ulug'bek rasadxonasi (ikki shkalali mis transportir, teleskop bilan yasash; 5-sinf «38»); 12) Simmetriya — koshinpaz ustaxonasi (naqshni o'q/markazga nisbatan terish, 90° burish; 9-sinf geometriya 9, 10). `more.js` olib tashlandi. Banklar: `tools/gen_koord.py`, `gen_harakat.py`, `gen_transportir.py`, `gen_simmetriya.py` (tekshiruv ichida).
+**Chala:** GPT rasmlari (promptlar `mathrunner-web/design/oyin-rasmlar.md`, 10–13-bo'limlar); «Bellashuv» telefonda; musiqa; 6–7-sinf o'yinida tepada «Boshlang'ich sinflar 1–4 sinf» yozuvi.
+**Navbatda:** foydalanuvchi aytadi.
 
 ---
 
