@@ -20,6 +20,18 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ---
 
+## 2026-10-30 13:40 — m.shukurillo hisobi (bulut sessiyasi, o'yinlar 5–8)
+**Qilindi (hammasi saytda):** «Fikrlash o'yinlari»dan 4 tasi yangi dunyoda qayta qurildi —
+5) **Tarozi** — sehrli bozor, mis tarozi haqiqiy mayatnikdek tebranadi, kristall-figuralar, ikkala pallada figura (al-muqobala); 6–7-sinf tenglama mavzulari ham (`mathrunner-web/js/yuqori.js`);
+6) **Xona tarkibi** — shirinliklar fabrikasi (konfet, rulon, lagan, sovg'a qutisi; 10 tasi o'zi o'raladi), buyurtmalar son/so'z/xona birliklari/qo'shiluvchilar bilan; 2-sinf 5, 3-sinf 5, 4-sinf 1-mavzularga yangi daraja;
+7) **Yoyilma** — origami ustaxonasi, yoyilma 3D da buklanadi; 5 xil topshiriq (jism, yig'iladimi, qarama-qarshi yoq, yoyilmasini tanlash, sirt yuzi); 6-sinf 29, 31-mavzular;
+8) **Ulush tasmasi** — bog'dagi devorni bo'yash (kasr, sonning ulushi, qo'shish/ayirish, foiz) + Brilliant g'oyasidagi har xil bo'lakli shakllar («1/4 mi?», «qancha qismi bo'yalgan?»); 5-sinf 32, 33-mavzular.
+Hamma o'yin kodi endi `mathrunner-web/js/games/index.js` da (foydalanuvchi so'rovi: «umumiy faylda»; eski `tarozi.js`, `nets.js` olib tashlandi). Banklar Python skriptlari bilan (`tools/gen_*.py`, tekshiruv ichida), har o'yin barcha mashqlari brauzerda oxirigacha o'ynab tekshirildi.
+**Chala:** qolgan o'yinlar; GPT rasmlari (promptlar `mathrunner-web/design/oyin-rasmlar.md`); 6–7-sinf o'yinida tepada «Boshlang'ich sinflar 1–4 sinf» yozuvi qoladi (kichik kamchilik).
+**Navbatda:** «Koordinata» o'yini, keyin Harakat, Transportir, Simmetriya; telefonda «Arqon tortish».
+
+---
+
 ## 2026-10-30 — m.shukurillo hisobi (bulut sessiyasi)
 **Qilindi:** 1–4-sinf «Fikrlash o'yinlari» tahlil qilindi va o'yin ko'rinishiga keltirila boshlandi: umumiy panel (yuraklar, ochko, kombo, ovoz), yangi o'yin personaji Robi (kodda chizilgan, GPT rasmi kutilmoqda). To'plamlar — koinot (sayyora maydonlari, meteoritlar); Tartiblash — o'rmondagi bekat va poyezd, 43-mavzuda haqiqiy kasrlar, 46-mavzuga yangi kasrlar o'yini (maxrajlari / suratlari bir xil); Jadval — xazina g'ori (qulf-tenglamalar, amal hadlari qoidasi). O'yinga kirishdan oldin mavzu tanlash. Hammasi saytga yuklandi.
 **Chala:** 7-sinf 1.1–1.4 dagi 6 ta kichik matn kamchiligi (2026-10-29 yozuvida); qolgan 9 ta o'yin; GPT rasmlari.
