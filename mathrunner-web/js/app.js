@@ -54,7 +54,7 @@ const routes = [
   { re: /^#\/test\/([\w-]+)$/, load: () => import('./screens/quiz.js'), name: 'quiz' },
   { re: /^#\/play\/([\w-]+)(?:\/(\d))?$/, load: () => import('./screens/play.js?v=36'), name: 'play' },
   { re: /^#\/sim\/(\d)\/(\d)\/(\d+)$/, load: () => import('./screens/sim.js'), name: 'sim' },
-  { re: /^#\/tug$/, load: () => import('./screens/tug.js?v=6'), name: 'tug' },
+  { re: /^#\/tug$/, load: () => import('./screens/tug.js?v=9'), name: 'tug' },
   { re: /^#\/(games|about)(?:\/(\w+))?$/, load: () => import('./screens/info.js?v=7'), name: 'info' },   // #/games/<o'yin turi> — mavzu tanlash
 ];
 

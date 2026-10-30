@@ -336,8 +336,10 @@ export async function render(root, _params) {
     };
     nextQ('blue'); nextQ('red');
 
+    let endPos = null;
     const pos = () => {
       // arqon ochkolar farqiga qarab siljiydi (xato ochkoni kamaytiradi — arqon ham raqib tomonga ketadi)
+      if (endPos !== null) return endPos;   // o'yin tugadi — g'olib arqonni oxirigacha tortgan holat
       const p = state.red.score - state.blue.score;
       return Math.max(-WIN, Math.min(WIN, p));
     };
@@ -417,14 +419,29 @@ export async function render(root, _params) {
         const fh = th * 180 / 475;
         flag.style.height = fh + 'px'; flag.style.top = (ropeY - fh * FLAG_ROPE) + 'px';
         arena.style.setProperty('--yer', (top + th * 0.96) + 'px');
-        // bayroqcha jamoalar orasidagi bo'shliqda yuradi; jamoalar va arqon ham shu tomonga biroz (pad gacha) siljiydi
-        const f = pos() / WIN;
-        const half = (W - 2 * pad - bw - rw) / 2 - fh * 0.3;
-        flag.style.transform = `translateX(-50%) translateX(${f * Math.max(0, half)}px)`;
-        sideBlue.style.transform = sideRed.style.transform = rope.style.transform = `translateX(${f * pad}px)`;
+        // tortish yaqqol ko'rinsin (foydalanuvchi, 2026-10-30): yutayotgan jamoa tortgan sari ekran chetidan chiqib ketaveradi
+        // (out — jamoa kengligining 3/4 qismigacha), yutqazayotgan jamoa arqon bilan uning ortidan sudraladi (drag + out);
+        // bayroqcha yutayotganlar qo'liga yaqinlashadi. Birinchi ochkolar ham sezilsin — siljish «tez boshlanib, sekin tugaydi».
+        const f0 = pos() / WIN, f = Math.sign(f0) * (1 - (1 - Math.abs(f0)) ** 1.5);
+        const gap0 = W - 2 * pad - bw - rw, drag = Math.max(0, gap0 - fh * 1.2);
+        const outB = pad + bw * 0.75, outR = pad + rw * 0.75;
+        const sB = f > 0 ? f * (drag + outR) : f * outB;   // ko'k: o'ngga sudraladi yoki chapga tortib chiqib ketadi
+        const sR = f < 0 ? f * (drag + outB) : f * outR;
+        sideBlue.style.transform = `translateX(${sB}px)`;
+        sideRed.style.transform = `translateX(${sR}px)`;
+        rope.style.left = (pad + bw - 6 + sB) + 'px'; rope.style.right = (pad + rw - 6 - sR) + 'px'; rope.style.transform = '';
+        const bR = pad + bw + sB, rL = W - pad - rw + sR;  // jamoalar ichki chetlari
+        const fx = (bR + rL) / 2 + f * Math.max(0, (rL - bR) / 2 - fh * 0.35) - W / 2;
+        flag.style.transform = `translateX(-50%) translateX(${fx}px)`;
       }
       scoreBlue.textContent = fmtScore(state.blue.score);
       scoreRed.textContent = fmtScore(state.red.score);
+    }
+
+    // to'g'ri javobda jamoa arqonni bir silkitib keskin tortadi (jamoa, arqon va bayroqcha birga)
+    function jerk(team) {
+      const cls = team === 'blue' ? 'is-tortdi-chap' : 'is-tortdi-ong';
+      for (const n of [sideBlue, sideRed, rope, flag]) { n.classList.remove('is-tortdi-chap', 'is-tortdi-ong'); void n.offsetWidth; n.classList.add(cls); }
     }
 
     function answer(team, optIdx, btn, box, side) {
@@ -432,7 +449,7 @@ export async function render(root, _params) {
       state.locked[team] = true;
       const ok = optIdx === state[team].q.correct;
       btn.classList.add(ok ? 'is-correct' : 'is-wrong');
-      if (ok) { state[team].correct++; state[team].score++; }
+      if (ok) { state[team].correct++; state[team].score++; jerk(team); }
       else {
         state[team].wrong++;
         state[team].score -= WRONG_PENALTY;
@@ -487,7 +504,15 @@ export async function render(root, _params) {
       const headline = winner
         ? `${names[winner]} — g'olib! 🎉`
         : 'Durrang!';
-      root.append(el('div', { class: 'tug-end' },
+      // g'olib arqonni oxirigacha tortib, o'z tomoniga uch marta silkitadi — natija oynasi shundan keyin
+      let kut = 0;
+      if (winner && !rig) {
+        endPos = winner === 'red' ? WIN : -WIN;
+        paintRig();
+        [450, 900, 1350].forEach(ms => setTimeout(() => jerk(winner), ms));
+        kut = 1900;
+      }
+      setTimeout(() => arena.isConnected && root.append(el('div', { class: 'tug-end' },
         el('div', { class: 'tug-end__card' },
           el('h1', {}, headline),
           el('p', { style: 'font-weight:700;color:var(--muted-soft);margin:-4px 0 4px' },
@@ -499,7 +524,7 @@ export async function render(root, _params) {
               el('small', { class: 'tug-end__detail' }, `✓ ${state.red.correct} · ✗ ${state.red.wrong}`))),
           el('div', { class: 'result__btns' },
             el('button', { class: 'btn', onclick: play }, el('span', { style: 'width:20px;height:20px', html: ICON.replay }), 'Qayta'),
-            el('button', { class: 'btn btn--ink', onclick: config }, 'Chiqish')))));
+            el('button', { class: 'btn btn--ink', onclick: config }, 'Chiqish'))))), kut);
     }
 
     function onKey(e) {
