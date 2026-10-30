@@ -4,8 +4,9 @@
 window.KUNLIK = [
   {
     sana: "2026-10-31",
-    qisqa: "«Bellashuv» o'yini telefon va planshetga moslandi: telefonda doim yotiq ko'rinish, savollar ikki chetda.",
+    qisqa: "«Bellashuv» o'yini telefon va planshetga moslandi (telefonda doim yotiq, savollar ikki chetda); yuqori sinf o'yinlarida sarlavha tuzatildi.",
     ishlar: [
+      ["Sayt", "5–11-sinf o'yinlarida tepada endi «Fikrlash o'yinlari · N-sinf» chiqadi (avval «Boshlang'ich sinflar 1–4 sinf» chiqardi); saytning yuqori menyusida «O'yinlar» belgilanadi."],
       ["1–4-sinf", "«Bellashuv»: telefonda avval qizil jamoa paneli ekrandan pastda qolib ketardi. Endi telefonda o'yin doim yotiq ko'rinishda — ko'k jamoa savollari chapda, qizilniki o'ngda, arqon o'rtada; Android'da ekran yotiq holatga qotiriladi, iPhone'da o'yin o'zi burilib chiqadi (telefonni yonboshlab o'ynaladi). Planshet tik turganda — yuzma-yuz ko'rinish (qizil jamoa paneli ag'darilgan). Kompyuterda o'zgarish yo'q."],
     ],
   },
