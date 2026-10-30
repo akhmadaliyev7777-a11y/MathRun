@@ -590,6 +590,33 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .btn--tug-start:active { box-shadow: 0 1px 0 #2f9d57; }
 
 .tug-setup { max-width: 1080px; }
+/* Bellashuv: qahramon kartochkalari va fon tanlash */
+.bq-bolim { margin: 18px 0 10px; font-weight: 800; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-soft); }
+.bq-kartalar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.bq-karta { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 190px; padding: 0; overflow: hidden; border-radius: var(--r-xl); border: 3px solid transparent;
+  background: #1b1f33; color: #fff; font: inherit; text-align: left; cursor: pointer; box-shadow: var(--shadow-soft); transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease; }
+.bq-karta img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.bq-karta::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(12, 14, 30, .85), rgba(12, 14, 30, 0) 55%); }
+.bq-karta:hover { transform: translateY(-3px); } .bq-karta:hover img { transform: scale(1.05); }
+.bq-karta.is-active { border-color: var(--peri); box-shadow: 0 0 0 4px color-mix(in srgb, var(--peri) 30%, transparent), var(--shadow-soft); }
+.bq-karta__matn { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; }
+.bq-karta__matn b { font-size: 19px; font-weight: 900; text-shadow: 0 1px 6px rgba(0, 0, 0, .6); }
+.bq-karta__matn small { font-size: 13px; font-weight: 600; opacity: .9; text-shadow: 0 1px 6px rgba(0, 0, 0, .6); }
+.bq-karta__belgi { position: absolute; z-index: 2; top: 10px; right: 10px; width: 30px; height: 30px; display: none; align-items: center; justify-content: center; border-radius: 50%; background: var(--peri); color: #fff; font-weight: 900; }
+.bq-karta.is-active .bq-karta__belgi { display: flex; }
+.bq-karta.is-tez { cursor: default; background: linear-gradient(140deg, #8a6a4a, #4a3a2c); opacity: .75; }
+.bq-karta.is-tez:hover { transform: none; }
+.bq-karta__bosh { position: absolute; inset: 0; z-index: 0; display: flex; align-items: center; justify-content: center; font-size: 64px; padding-bottom: 40px; }
+.bq-fonlar { display: flex; flex-wrap: wrap; gap: 12px; }
+.bq-fon { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 6px; border-radius: 16px; border: 3px solid transparent; background: var(--surface, #fff); font: inherit; cursor: pointer; box-shadow: var(--shadow-soft); }
+.bq-fon img, .bq-fon__tas { width: 120px; height: 80px; border-radius: 11px; object-fit: cover; display: flex; align-items: center; justify-content: center; font-size: 34px; background: var(--tint); }
+.bq-fon small { font-size: 12px; font-weight: 700; color: var(--muted); }
+.bq-fon.is-active { border-color: var(--peri); }
+@media (max-width: 760px) {
+  .bq-kartalar { grid-template-columns: 1fr; }
+  .bq-karta { min-height: 150px; }
+  .bq-fonlar { gap: 8px; } .bq-fon img, .bq-fon__tas { width: 96px; height: 64px; }
+}
 .tug-setup__grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(300px,420px); gap: 28px; align-items: start; margin-top: 4px; }
 .tug-setup__col--upload { background: #fff; border: 2px solid var(--line); border-radius: var(--r-xl); box-shadow: var(--shadow-card); padding: 26px 28px; }
 
@@ -654,7 +681,6 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .tug-arena { position: relative; width: 100%; height: clamp(230px,21vw,400px); overflow: hidden; border-radius: var(--r-xl); background: #fff; border: 2px solid var(--line); box-shadow: var(--shadow-soft); }
 .tug-centerline { position: absolute; left: 50%; top: 24px; bottom: 24px; border-left: 2px dashed var(--line-strong); }
 .tug-rig { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 0; transition: transform .45s cubic-bezier(.22,1,.36,1); }
-.tug-arena:has(.tug-side) { background: linear-gradient(180deg, #e7eeff 0, #f3f6ff var(--yer, 70%), #cfe8b6 var(--yer, 70%), #b9dc9c 100%); }
 /* to'liq ekran: faqat o'yin (#app), fon sahifa rangida */
 #app:fullscreen { background: var(--cream); overflow-y: auto; }
 #app:-webkit-full-screen { background: var(--cream); overflow-y: auto; }
@@ -666,11 +692,25 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 /* fon butun o'yin sahifasi orqasida; o'lchami va joyi JS da (fonJoyla) — ufq bolalar turgan joyga to'g'ri keladi */
 .tug-sahna { position: relative; overflow: hidden; min-height: calc(100vh - 70px); min-height: calc(100dvh - 70px); }
 .tug-sahna > .tug-main { position: relative; z-index: 1; }
+/* keng ekran (foydalanuvchi, 2026-10-30): panellar chetlargacha, o'rtadagi maydon katta va ekran balandligini to'ldiradi */
+@media (min-width: 961px) {
+  .tug-sahna > .tug-main { width: 100%; max-width: none; padding: 14px 14px 18px; gap: 14px; grid-template-columns: minmax(0, 1fr) minmax(0, 2.15fr) minmax(0, 1fr);
+    align-items: stretch; min-height: calc(100vh - 78px); min-height: calc(100dvh - 78px); }
+  /* savol tepada, ostida darhol javoblar — panel balandligini katta tugmalar to'ldiradi (bo'sh joy qolmasin) */
+  .tug-sahna .tug-panel { justify-content: flex-start; padding: 16px; }
+  .tug-sahna .tug-q { flex: 0 0 auto; min-height: 0; height: auto; padding: 18px 10px; border-radius: var(--r-lg); background: color-mix(in srgb, currentColor 6%, transparent); }
+  .tug-sahna .tug-opts { flex: 1; margin-top: 14px; gap: 12px; }
+  .tug-sahna .tug-opt { flex: 1; height: auto; min-height: 64px; font-size: clamp(22px, 2.3vw, 34px); }
+  .tug-sahna .tug-opt i { width: clamp(32px, 2.6vw, 44px); height: clamp(32px, 2.6vw, 44px); font-size: clamp(14px, 1.3vw, 19px); }
+  .tug-sahna .tug-center { justify-content: flex-start; }
+  .tug-sahna .tug-arena { flex: 1; height: auto; min-height: 300px; }
+}
 .tug-fon { position: absolute; left: 0; top: 0; width: 100%; height: 100%; max-width: none; z-index: 0; pointer-events: none; user-select: none; }
 .tug-sahna .tug-panel { position: relative; z-index: 3; }
 .tug-sahna .tug-center { position: relative; z-index: 2; }
 :is(:root, :root[data-theme="dark"]) .tug-sahna .tug-arena { background: none; border-color: transparent; box-shadow: none; overflow: visible; }
 .tug-sahna .tug-timer { background: rgba(255, 255, 255, .9); }
+:root[data-theme="dark"] .tug-sahna .tug-timer { background: rgba(22, 26, 44, .88); border-color: #3a4263; color: #fff; }
 .tug-fon--tun { display: none; }
 :root[data-theme="dark"] .tug-fon--kun { display: none; }
 :root[data-theme="dark"] .tug-fon--tun { display: block; }
@@ -1002,7 +1042,6 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 :root[data-theme="dark"] .tug-opt i { background: rgba(255, 255, 255, 0.08); }
 /* sahna rasmi (shaffof PNG) — och maydonda yaxshi ko'rinadi */
 :root[data-theme="dark"] .tug-arena { background: #eef0f8; border-color: #3a4263; }
-:root[data-theme="dark"] .tug-arena:has(.tug-side) { background: linear-gradient(180deg, #e7eeff 0, #f3f6ff var(--yer, 70%), #cfe8b6 var(--yer, 70%), #b9dc9c 100%); }
 :root[data-theme="dark"] .tug-arena .tug-centerline { border-left-color: #b8bdd3; }
 :root[data-theme="dark"] .tug-end { background: rgba(0, 0, 0, 0.6); }
 :root[data-theme="dark"] .tug-end__card { background: var(--surface); border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); }

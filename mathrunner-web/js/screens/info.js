@@ -29,13 +29,13 @@ function renderGames(root) {
       el('span', { class: 'gcard__meta' }, `${pool.length} bosqich`,
         el('span', { class: 'gcard__go', html: ICON.arrowRight })));
   };
-  // Arqon tortish — butun kartochka rasm (maktab maydonida ikki jamoa), yozuv chap tepada
+  // Bellashuv (arqon tortish va boshqa qahramonlar) — butun kartochka rasm (maktab maydonida ikki jamoa), yozuv chap tepada
   const tugCard = el('a', { class: 'gfeature gfeature--art', href: '#/tug' },
     el('img', { class: 'gfeature__art', src: 'assets/kartochka/tug.webp', alt: '', decoding: 'async' }),
     el('div', { class: 'gfeature__text' },
       el('span', { class: 'gfeature__tag' }, 'Sinf uchun · 2 jamoa'),
-      el('h3', {}, 'Arqon tortish'),
-      el('p', {}, 'Sinf ikki jamoaga bo\'linadi. To\'g\'ri javob arqonni o\'z tomoningizga tortadi — vaqt tugaguncha kim kuchli?'),
+      el('h3', {}, 'Bellashuv'),
+      el('p', {}, 'Sinf ikki jamoaga bo\'linadi: arqon tortish, oq ayiqlar yoki bug\'ular — to\'g\'ri javob o\'z tomoningizga tortadi. Vaqt tugaguncha kim kuchli?'),
       el('span', { class: 'gfeature__btn' }, 'O\'ynash', el('span', { class: 'gcard__go', html: ICON.arrowRight }))),
   );
 

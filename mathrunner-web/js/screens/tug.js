@@ -7,7 +7,17 @@ import { loadXLSXLib, parseQuestionsWorkbook } from '../xlsxImport.js';
 // arqon tortish maydoni fonlari: har joyning kunduzgi (fon-<joy>.webp) va tungi (fon-<joy>-tun.webp) rasmi
 // (promptlar — design/oyin-kartochka-promptlar.md). TUN_BOR — tungi rasmi tayyor joylar; qolganlarida tunda tayyorlaridan biri chiqadi.
 const FON_JOY = ['maydon', 'sohil', 'qish', 'stadion', 'yaylov'];
+const FON_NOM = { maydon: 'Maktab maydoni', sohil: 'Dengiz sohili', qish: 'Qishki bog\'', stadion: 'Stadion', yaylov: 'Kuzgi yaylov' };
+// yangi qahramon rasmi hali bo'lmasa — shu ro'yxatga yoziladi, kartochka «tez orada» bo'lib chiqadi
+const TEZ_ORADA = [];
 const TUN_BOR = ['stadion', 'yaylov'];
+// qahramonlar (foydalanuvchi, 2026-10-30): har to'plam — chap/o'ng jamoa rasmi, o'rtadagi buyum, arqon bo'lagi va o'lchamlari
+// (jamoa rasmi balandligiga nisbatan: ropeY — arqon markazi, ropeH — qalinligi; markaz — buyum balandligi (ch) va undagi arqon joyi (cr))
+const QAHRAMON = {
+  bolalar: { nom: 'Arqon tortish', izoh: 'Bolalar arqonni o\'z tomoniga tortadi', rasm: 'k-bolalar', kok: 'kok', qizil: 'qizil', markaz: 'bayroq', arqon: 'arqon', ar: 832 / 475, ropeY: 240.5 / 475, ropeH: 28 / 475, ch: 180 / 475, cr: 30.5 / 180, cw: 0.35 },
+  ayiqlar: { nom: 'Oq ayiqlar', izoh: 'Ayiqlar chanadagi qutini tortadi', rasm: 'k-ayiq', kok: 'ayiq-kok', qizil: 'ayiq-qizil', markaz: 'ayiq-chana', arqon: 'ayiq-arqon', ar: 604 / 187, ropeY: 90 / 187, ropeH: 18 / 187, ch: 1, cr: 90 / 187, cw: 0.55 },
+  bugular: { nom: "Bug'ular", izoh: "Bug'ular chanadagi sovg'ani tortadi", rasm: 'k-bugu', kok: 'bugu-kok', qizil: 'bugu-qizil', markaz: 'bugu-chana', arqon: 'bugu-arqon', ar: 598 / 300, ropeY: 190 / 300, ropeH: 14 / 300, ch: 1, cr: 190 / 300, cw: 0.55 },
+};
 // to'liq ekran belgisi: burchaklar tashqariga (kirish) va ichkariga (chiqish)
 const FS_KIR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/></svg>';
 const FS_CHIQ = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v3.5A1.5 1.5 0 0 1 7.5 9H4M20 9h-3.5A1.5 1.5 0 0 1 15 7.5V4M15 20v-3.5a1.5 1.5 0 0 1 1.5-1.5H20M4 15h3.5A1.5 1.5 0 0 1 9 16.5V20"/></svg>';
@@ -42,6 +52,8 @@ export async function render(root, _params) {
 
   let names = { blue: 'Ko\'k jamoa', red: 'Qizil jamoa' };
   let durationSec = 180;
+  let fonTanlov = (() => { try { const v = localStorage.getItem('mw-tug-fon'); return FON_JOY.includes(v) ? v : 'tasodifiy'; } catch { return 'tasodifiy'; } })();
+  let qahramon = (() => { try { return QAHRAMON[localStorage.getItem('mw-tug-qahramon')] ? localStorage.getItem('mw-tug-qahramon') : 'bolalar'; } catch { return 'bolalar'; } })();
   let catId = 'all';   // 'all' = aralash
   let goal = 15;       // birinchi shu ochkoga yetgan jamoa g'olib
   let grade = 'all';   // 'all' yoki sinf raqami — mavzular ro'yxatini filtrlaydi
@@ -79,6 +91,21 @@ export async function render(root, _params) {
       class: 'chorak-tab chorak-tab--sm' + (durationSec === s ? ' is-active' : ''),
       onclick: () => { durationSec = s; config(); },
     }, label);
+    // qahramon kartochkalari (rasmli) va fon tanlash (kichik rasmlar + «Tasodifiy»)
+    const qKarta = (k) => el('button', {
+      class: 'bq-karta' + (qahramon === k ? ' is-active' : ''), type: 'button',
+      onclick: () => { qahramon = k; try { localStorage.setItem('mw-tug-qahramon', k); } catch { /* */ } config(); },
+    }, el('img', { src: `assets/tug/${QAHRAMON[k].rasm}.webp`, alt: '', loading: 'lazy' }),
+      el('span', { class: 'bq-karta__matn' }, el('b', {}, QAHRAMON[k].nom), el('small', {}, QAHRAMON[k].izoh)),
+      el('span', { class: 'bq-karta__belgi', 'aria-hidden': 'true' }, '✓'));
+    const qKartaTez = (q) => el('div', { class: 'bq-karta is-tez' },
+      el('span', { class: 'bq-karta__bosh' }, '🦌'),
+      el('span', { class: 'bq-karta__matn' }, el('b', {}, q.nom), el('small', {}, 'Tez orada')));
+    const fonBtn = (j) => el('button', {
+      class: 'bq-fon' + (fonTanlov === j ? ' is-active' : ''), type: 'button', title: j === 'tasodifiy' ? 'Tasodifiy' : FON_NOM[j],
+      onclick: () => { fonTanlov = j; try { localStorage.setItem('mw-tug-fon', j); } catch { /* */ } config(); },
+    }, j === 'tasodifiy' ? el('span', { class: 'bq-fon__tas' }, '🎲') : el('img', { src: `assets/tug/t-${j}.webp`, alt: '', loading: 'lazy' }),
+      el('small', {}, j === 'tasodifiy' ? 'Tasodifiy' : FON_NOM[j]));
     const goalBtn = (g, label) => el('button', {
       class: 'chorak-tab chorak-tab--sm' + (goal === g ? ' is-active' : ''),
       onclick: () => { goal = g; config(); },
@@ -262,13 +289,17 @@ export async function render(root, _params) {
             el('span', { style: 'width:15px;height:15px;vertical-align:-2px;display:inline-block', html: ICON.arrowLeft }),
             ' Fikrlash o\'yinlari')),
         el('section', { class: 'section', style: 'padding-top:16px' },
-          el('h2', {}, 'Arqon tortish'),
+          el('h2', {}, 'Bellashuv'),
           el('p', { class: 'section__lead' },
             'Ikki jamoa yonma-yon o\'ynaydi. Har jamoaga o\'z savoli va A–D variantlari. ' +
-            'To\'g\'ri javob — +1 ochko, arqon o\'z tomoningga tortiladi; xato javob — ochkodan 1 ayiriladi. ' +
+            'To\'g\'ri javob — +1 ochko, qahramonlar o\'z tomoniga tortadi; xato javob — ochkodan 1 ayiriladi. ' +
             'Birinchi bo\'lib maqsad ochkoga yetgan jamoa g\'olib; vaqt tugasa ochkosi ko\'p jamoa yutadi. ' +
             'Ikkala jamoaga har raundda bir xil qiyinlikdagi misollar beriladi.'),
-          el('div', { class: 'tug-setup__grid' },
+          el('div', { class: 'bq-bolim' }, 'Qahramonlarni tanlang'),
+          el('div', { class: 'bq-kartalar' }, ...Object.keys(QAHRAMON).map(qKarta), ...TEZ_ORADA.map(qKartaTez)),
+          el('div', { class: 'bq-bolim' }, 'Orqa fon'),
+          el('div', { class: 'bq-fonlar' }, fonBtn('tasodifiy'), ...FON_JOY.map(fonBtn)),
+          el('div', { class: 'tug-setup__grid', style: 'margin-top:26px' },
             el('div', { class: 'tug-setup__col' },
               el('div', { class: 'tug-cfg' },
                 el('label', {}, 'Ko\'k jamoa nomi',
@@ -381,14 +412,15 @@ export async function render(root, _params) {
       paintRig();
     };
     const img = (cls, src) => el('img', { class: cls, src, alt: '', draggable: 'false', onerror: useFallback, onload: () => paintRig() });
-    const sideBlue = img('tug-side tug-side--blue', 'assets/tug/kok.webp');
-    const sideRed = img('tug-side tug-side--red', 'assets/tug/qizil.webp');
-    const flag = img('tug-flag', 'assets/tug/bayroq.webp');
-    const rope = el('div', { class: 'tug-arqon' });
+    const Q = QAHRAMON[qahramon] || QAHRAMON.bolalar;
+    const sideBlue = img('tug-side tug-side--blue', `assets/tug/${Q.kok}.webp`);
+    const sideRed = img('tug-side tug-side--red', `assets/tug/${Q.qizil}.webp`);
+    const flag = img('tug-flag', `assets/tug/${Q.markaz}.webp`);
+    const rope = el('div', { class: 'tug-arqon', style: `background-image:url('assets/tug/${Q.arqon}.webp')` });
     // fon (2026-10-30) — butun o'yin sahifasining orqasida: har o'yinda tasodifiy joy, kunduzgi rejimda uning kunduzgi,
     // tungi rejimda tungi rasmi (CSS qaysi biri ko'rinishini tanlaydi); ufq chizig'i bolalar turgan joyga moslanadi (fonJoyla)
     const tasodif = (a) => a[Math.floor(Math.random() * a.length)];
-    const joy = tasodif(FON_JOY), tunJoy = TUN_BOR.includes(joy) ? joy : tasodif(TUN_BOR);
+    const joy = FON_JOY.includes(fonTanlov) ? fonTanlov : tasodif(FON_JOY), tunJoy = TUN_BOR.includes(joy) ? joy : tasodif(TUN_BOR);
     const fonKun = el('img', { class: 'tug-fon tug-fon--kun', src: `assets/tug/fon-${joy}.webp`, alt: '', loading: 'lazy', decoding: 'async' });
     const fonTun = el('img', { class: 'tug-fon tug-fon--tun', src: `assets/tug/fon-${tunJoy}-tun.webp`, alt: '', loading: 'lazy', decoding: 'async' });
     const arena = el('div', { class: 'tug-arena' }, el('div', { class: 'tug-centerline' }), rope, sideBlue, sideRed, flag);
@@ -437,12 +469,13 @@ export async function render(root, _params) {
     const redPanel = panel('red', 'red');
 
     // jamoa rasmlari (3 tadan bola, asl kesim 475 px balandlikda): arqon markazi 240,5 px da, arqon bo'lagi 28 px; bayroqcha rasmida arqon 30,5/180
-    const ROPE_Y = 240.5 / 475, ROPE_H = 28 / 475, FLAG_ROPE = 30.5 / 180, TEAM_AR = 832 / 475;
+    const ROPE_Y = Q.ropeY, ROPE_H = Q.ropeH, FLAG_ROPE = Q.cr, TEAM_AR = Q.ar;
     function paintRig() {
       if (rig) rig.style.transform = `translate(-50%, -50%) translateX(${pos() * STEP_PX}px)`;
       else if (arena.isConnected) {
         const W = arena.clientWidth, H = arena.clientHeight, pad = W * 0.02;
-        const th = Math.min(H * 0.6, W * 0.4 / TEAM_AR);          // jamoa balandligi: ikkalasi ham bir xil o'lchamda
+        // jamoa balandligi (ikkalasi bir xil): ikki jamoa + o'rtadagi buyum maydon kengligiga sig'sin
+        const th = Math.min(H * 0.6, W * 0.4 / TEAM_AR, W * 0.94 / (2 * TEAM_AR + Q.ch * 1.62 + 0.3));
         const top = (H - th) / 2 + H * 0.02;
         for (const s of [sideBlue, sideRed]) { s.style.height = th + 'px'; s.style.top = top + 'px'; }
         sideBlue.style.left = pad + 'px'; sideRed.style.right = pad + 'px';
@@ -451,7 +484,7 @@ export async function render(root, _params) {
         const ropeY = top + th * ROPE_Y, rh = th * ROPE_H;
         rope.style.top = (ropeY - rh / 2) + 'px'; rope.style.height = rh + 'px';
         rope.style.left = (pad + bw - 6) + 'px'; rope.style.right = (pad + rw - 6) + 'px';
-        const fh = th * 180 / 475;
+        const fh = th * Q.ch, fw = flag.offsetWidth || fh * 0.5;
         flag.style.height = fh + 'px'; flag.style.top = (ropeY - fh * FLAG_ROPE) + 'px';
         arena.style.setProperty('--yer', (top + th * 0.96) + 'px');
         const sahna = arena.closest('.tug-sahna');
@@ -460,7 +493,7 @@ export async function render(root, _params) {
         // (out — jamoa kengligining 3/4 qismigacha), yutqazayotgan jamoa arqon bilan uning ortidan sudraladi (drag + out);
         // bayroqcha yutayotganlar qo'liga yaqinlashadi. Birinchi ochkolar ham sezilsin — siljish «tez boshlanib, sekin tugaydi».
         const f0 = pos() / WIN, f = Math.sign(f0) * (1 - (1 - Math.abs(f0)) ** 1.5);
-        const gap0 = W - 2 * pad - bw - rw, drag = Math.max(0, gap0 - fh * 1.2);
+        const gap0 = W - 2 * pad - bw - rw, drag = Math.max(0, gap0 - fw * 1.1 - fh * 0.3);
         const outB = pad + bw * 0.75, outR = pad + rw * 0.75;
         const sB = f > 0 ? f * (drag + outR) : f * outB;   // ko'k: o'ngga sudraladi yoki chapga tortib chiqib ketadi
         const sR = f < 0 ? f * (drag + outB) : f * outR;
@@ -468,7 +501,7 @@ export async function render(root, _params) {
         sideRed.style.transform = `translateX(${sR}px)`;
         rope.style.left = (pad + bw - 6 + sB) + 'px'; rope.style.right = (pad + rw - 6 - sR) + 'px'; rope.style.transform = '';
         const bR = pad + bw + sB, rL = W - pad - rw + sR;  // jamoalar ichki chetlari
-        const fx = (bR + rL) / 2 + f * Math.max(0, (rL - bR) / 2 - fh * 0.35) - W / 2;
+        const fx = (bR + rL) / 2 + f * Math.max(0, (rL - bR) / 2 - fw * Q.cw - 4) - W / 2;
         flag.style.transform = `translateX(-50%) translateX(${fx}px)`;
       }
       scoreBlue.textContent = fmtScore(state.blue.score);

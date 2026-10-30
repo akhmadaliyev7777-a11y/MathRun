@@ -16,8 +16,8 @@ export function render(root, _params) {
     '<div class="hs-slide hs-oyin">' +
       '<img src="assets/tug/jamoa.webp" alt="Arqon tortayotgan bolalar" loading="lazy">' +
       '<span class="hs-label">Sinf bilan o\'yin</span>' +
-      '<h3>Arqon tortish</h3>' +
-      '<p>To\'g\'ri javob — arqon sizning tomonga! Sinf ikki jamoaga bo\'linib bellashadi.</p>' +
+      '<h3>Bellashuv</h3>' +
+      '<p>To\'g\'ri javob — g\'alaba sizning tomonga! Sinf ikki jamoaga bo\'linib bellashadi.</p>' +
       '<a class="hs-btn" href="#/tug">O\'ynash →</a>' +
     '</div>',
     '<div class="hs-slide hs-feature">' +
