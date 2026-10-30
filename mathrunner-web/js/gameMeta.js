@@ -13,7 +13,7 @@ export const GAME_META = [
   { kind: 'equationGrid', art: 'assets/kartochka/equationGrid.webp', name: 'Jadval', desc: 'Bo\'sh katakni to\'g\'ri son bilan to\'ldiring', icon: 'grid', color: 'var(--amber, #E0A21E)', dark: '#b07d10' },
   { kind: 'algorithmConveyor', art: 'assets/kartochka/algorithmConveyor.webp', name: 'Saralash', desc: 'Har bir mulohaza uchun "Ha" yoki "Yo\'q"', icon: 'spark', color: 'var(--sky)', dark: '#2f7fb0' },
   { kind: 'fractionStrip', art: 'assets/kartochka/fractionStrip.webp', name: 'Ulush tasmasi', desc: "Devor va shakllarning kerakli qismini bo'yang: kasr, ulush, foiz", icon: 'frac', color: 'var(--pink)', dark: '#c43fa6' },
-  { kind: 'coordinatePath', art: 'assets/kartochka/coordinatePath.webp', name: 'Koordinata yo\'li', desc: 'Nuqtalarni koordinatalari bo\'yicha ketma-ket bosing', icon: 'axes', color: 'var(--green)', dark: '#2f9d57' },
+  { kind: 'coordinatePath', art: 'assets/kartochka/coordinatePath.webp', name: 'Koordinata', desc: 'Xazina oroli xaritasi: nuqtani toping, xazinani qazing, yo\'l chizing', icon: 'axes', color: 'var(--green)', dark: '#2f9d57' },
   { kind: 'motionLine', art: 'assets/kartochka/motionLine.webp', name: 'Harakat', desc: 'Slayder bilan uchrashish yoki quvib yetish vaqtini toping', icon: 'motion', color: 'var(--violet)', dark: '#5b3bbf' },
   { kind: 'protractor', art: 'assets/kartochka/protractor.webp', name: 'Transportir', desc: "Burchakni o'lchang yoki yasang", icon: 'angle', color: 'var(--orange)', dark: '#c47a12' },
 ];

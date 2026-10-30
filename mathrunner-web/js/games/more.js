@@ -1,4 +1,4 @@
-// Qo'shimcha o'yinlar: koordinata yo'li, harakat chizig'i, transportir.
+// Qo'shimcha o'yinlar: harakat chizig'i, transportir (koordinata — index.js da, «xazina oroli»).
 // Har biri (ctx) -> render -> tugagach ctx.finish(correct, total, extra). Qobiq — shell.js.
 import { el, shuffle } from '../util.js';
 import { shell, checkBtn } from './shell.js';
@@ -32,55 +32,6 @@ function runner(ctx, s, tasks, renderTask) {
     renderTask(tasks[idx], done, () => locked);
   }
   show();
-}
-
-// ================= coordinatePath: nuqtalarni tartib bilan bosish =================
-function gameCoordinatePath(ctx) {
-  const tasks = ctx.bank;
-  const s = shell(ctx, tasks[0].prompt, 'grid', true);
-  runner(ctx, s, tasks, (t, done, isLocked) => {
-    const N = t.gridSize, C = 46, P = 34, W = P * 2 + N * C;
-    const X = (x) => P + x * C, Y = (y) => P + (N - y) * C;       // y yuqoriga o'sadi
-    const root = svg('svg', { viewBox: `0 0 ${W} ${W}`, class: 'cp-svg', role: 'img' });
-    for (let i = 0; i <= N; i++) {
-      root.append(
-        svg('line', { x1: X(i), y1: Y(0), x2: X(i), y2: Y(N), class: i === 0 ? 'cp-axis' : 'cp-grid' }),
-        svg('line', { x1: X(0), y1: Y(i), x2: X(N), y2: Y(i), class: i === 0 ? 'cp-axis' : 'cp-grid' }),
-        svg('text', { x: X(i), y: Y(0) + 20, class: 'cp-num', 'text-anchor': 'middle' }, i),
-        svg('text', { x: X(0) - 12, y: Y(i) + 4, class: 'cp-num', 'text-anchor': 'middle' }, i));
-    }
-    root.append(svg('text', { x: W - 8, y: Y(0) + 4, class: 'cp-lab', 'text-anchor': 'end' }, 'x'),
-      svg('text', { x: X(0) + 8, y: 12, class: 'cp-lab' }, 'y'));
-    const lines = svg('g'), dots = svg('g'), hits = svg('g');
-    root.append(lines, dots, hits);
-    let k = 0, mistakes = 0;
-    const chips = el('div', { class: 'cp-chips' }, ...t.points.map((p, i) =>
-      el('span', { class: 'cp-chip' }, `(${p.x}; ${p.y})`, i < t.points.length - 1 ? el('i', {}, '→') : null)));
-    const mark = () => [...chips.querySelectorAll('.cp-chip')].forEach((c, i) => {
-      c.classList.toggle('done', i < k); c.classList.toggle('now', i === k);
-    });
-    mark();
-    for (let x = 0; x <= N; x++) for (let y = 0; y <= N; y++) {
-      const hit = svg('circle', { cx: X(x), cy: Y(y), r: 17, class: 'cp-hit' });
-      hit.addEventListener('click', () => {
-        if (isLocked() || k >= t.points.length) return;
-        const want = t.points[k];
-        if (x === want.x && y === want.y) {
-          if (k > 0) { const q = t.points[k - 1]; lines.append(svg('line', { x1: X(q.x), y1: Y(q.y), x2: X(x), y2: Y(y), class: 'cp-seg' })); }
-          dots.append(svg('circle', { cx: X(x), cy: Y(y), r: 6, class: 'cp-dot' }));
-          k++; mark();
-          if (k === t.points.length) done(mistakes === 0, mistakes ? `Xatolar soni: ${mistakes}.` : '');
-        } else {
-          mistakes++;
-          const bad = svg('circle', { cx: X(x), cy: Y(y), r: 8, class: 'cp-bad' });
-          dots.append(bad); setTimeout(() => bad.remove(), 450);
-        }
-      });
-      hits.append(hit);
-    }
-    s.area.replaceChildren(
-      el('div', { class: 'cp-wrap' }, el('div', { class: 'cp-hint' }, "Nuqtalarni ketma-ket bosing: "), chips, root));
-  });
 }
 
 // ================= motionLine: slayder bilan vaqtni topish =================
@@ -204,7 +155,6 @@ function gameProtractor(ctx) {
 }
 
 export const MORE = {
-  coordinatePath: gameCoordinatePath,
   motionLine: gameMotionLine,
   protractor: gameProtractor,
 };

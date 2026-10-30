@@ -12,6 +12,7 @@ export const YUQORI = [
   L(6, 'Matematika', '31. Fazoviy jismlarning yoyilmasi', 'y6_yoyilma', 'netFold'),
   L(7, 'Matematika', '5.1 Sodda chiziqli tenglamalar', 'y7_chiziqli', 'balanceScale'),
   L(7, 'Algebra', '25. Tenglamalar yechishning al-Xorazmiy usuli', 'y7a_xorazmiy', 'balanceScale'),
+  L(7, 'Algebra', '26. Dekart koordinatalar sistemasi', 'y7a_dekart', 'coordinatePath'),
 ];
 
 // boshlang'ich sinflardagi {grade, chorak, block, level} ko'rinishida (o'yin, natija va qaytish sahifalari shuni kutadi)

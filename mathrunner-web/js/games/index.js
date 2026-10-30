@@ -5,7 +5,7 @@ import { ICON } from '../icons.js';
 
 import { shell, checkBtn, flash } from './shell.js?v=3';
 import { hud, buddy, sfx, floatText } from './hud.js?v=4';
-import { MORE } from './more.js';
+import { MORE } from './more.js?v=2';
 import { gameSet } from './venn.js?v=7';
 import { gameNumberOrder } from './tartib.js?v=11';
 import { gameEquationGrid } from './jadval.js?v=2';
@@ -1360,6 +1360,445 @@ function gameFractionStrip(ctx) {
   round();
 }
 
+// ================= coordinatePath (Koordinata — xazina oroli xaritasi) =================
+// Eski pergament xarita: orol, to'r, o'qlar. Topshiriq (`tur`, bank — tools/gen_koord.py):
+// qaz (nuqtani bosib xazina qazish), top (buyum koordinatasini tanlash), yol (kapitan yo'li — nuqtalarni ketma-ket),
+// yur (Robi qadamlari — qayerga keladi), masofa (bir qatordagi ikki buyum orasi), nur (koordinata nuri, qayiq), chorak (7-sinf).
+const sn = (n) => String(n).replace('-', '−');
+const kf = (p) => `(${sn(p[0])}; ${sn(p[1])})`;
+const YON_UZ = { o: ["o'ngga", 1, 0, '→'], ch: ['chapga', -1, 0, '←'], yu: ['yuqoriga', 0, 1, '↑'], p: ['pastga', 0, -1, '↓'] };
+const BUYUM_UZ = { sandiq: 'Sandiq', palma: 'Palma', bayroq: 'Bayroq', langar: 'Langar', mayoq: 'Mayoq', toshbaqa: 'Toshbaqa' };
+const sv = (tag, attrs = {}, html) => {
+  const n = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (html != null) n.innerHTML = html;
+  return n;
+};
+// buyumlar: markazi (0; 0), o'lchami ~40 birlik
+const BUYUM_SVG = {
+  sandiq: `<path d="M-16 -5 Q0 -21 16 -5Z" fill="#a8703a" stroke="#4a2c10" stroke-width="1.6"/><rect x="-16" y="-6" width="32" height="18" rx="2" fill="#8b5a2b" stroke="#4a2c10" stroke-width="1.6"/>
+    <rect x="-16" y="-7" width="32" height="3" fill="#e0ad45"/><rect x="-10" y="-14" width="3.4" height="26" fill="#e0ad45"/><rect x="6.6" y="-14" width="3.4" height="26" fill="#e0ad45"/><rect x="-3" y="-4" width="6" height="7" rx="1" fill="#ffd54a" stroke="#7a5a10"/>`,
+  ochiq: `<circle r="22" fill="#ffe680" opacity=".5"/><path d="M-15 -6 L-12 -24 L12 -24 L15 -6Z" fill="#5e3a1a" stroke="#4a2c10" stroke-width="1.6"/>
+    <g fill="#ffd54a" stroke="#b8860b" stroke-width="1"><circle cx="-8" cy="-8" r="4.5"/><circle cx="1" cy="-11" r="4.5"/><circle cx="9" cy="-8" r="4.5"/><circle cx="-3" cy="-5" r="4.5"/><circle cx="5" cy="-4" r="4.5"/></g>
+    <rect x="-16" y="-4" width="32" height="16" rx="2" fill="#8b5a2b" stroke="#4a2c10" stroke-width="1.6"/><rect x="-10" y="-4" width="3.4" height="16" fill="#e0ad45"/><rect x="6.6" y="-4" width="3.4" height="16" fill="#e0ad45"/>`,
+  palma: `<ellipse cx="2" cy="15" rx="11" ry="3" fill="#c9a463" opacity=".7"/><path d="M2 15 Q-3 2 4 -11" stroke="#7a4b22" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <g fill="#2e9e4f" stroke="#1b6b33" stroke-width="1"><path d="M4 -11 Q-8 -21 -19 -10 Q-8 -15 4 -11Z"/><path d="M4 -11 Q16 -21 26 -9 Q15 -15 4 -11Z"/><path d="M4 -11 Q-2 -26 -12 -24 Q-3 -20 4 -11Z"/><path d="M4 -11 Q12 -27 21 -21 Q11 -20 4 -11Z"/></g>
+    <circle cx="1" cy="-9" r="2.6" fill="#6b3e16"/><circle cx="6" cy="-8" r="2.6" fill="#6b3e16"/>`,
+  bayroq: `<ellipse cx="-5" cy="15" rx="9" ry="3" fill="#c9a463" opacity=".7"/><line x1="-5" y1="15" x2="-5" y2="-17" stroke="#5a3a17" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M-5 -17 Q5 -19 15 -13 Q5 -9 -5 -5Z" fill="#d62f2f" stroke="#7a1414" stroke-width="1"/><circle cx="3" cy="-11" r="2.4" fill="#fff"/>`,
+  langar: `<g fill="none" stroke="#2f4256" stroke-width="3.2" stroke-linecap="round"><circle cx="0" cy="-13" r="3.6"/><line x1="0" y1="-9" x2="0" y2="13"/><line x1="-8" y1="-4" x2="8" y2="-4"/>
+    <path d="M-13 3 Q-11 14 0 13 Q11 14 13 3"/></g><path d="M-13 3 l-3 4 l5 0Z M13 3 l3 4 l-5 0Z" fill="#2f4256"/>`,
+  mayoq: `<path d="M-8 15 L8 15 L5 -9 L-5 -9Z" fill="#fff" stroke="#5b5b5b" stroke-width="1.4"/><path d="M-7.3 9 L7.3 9 L6.5 3 L-6.5 3Z M-6 -3 L6 -3 L5.4 -8 L-5.4 -8Z" fill="#d62f2f"/>
+    <rect x="-5" y="-15" width="10" height="6" fill="#ffe36b" stroke="#5b5b5b" stroke-width="1.2"/><path d="M-7 -15 L0 -21 L7 -15Z" fill="#d62f2f" stroke="#7a1414" stroke-width="1"/>`,
+  toshbaqa: `<circle cx="15" cy="1" r="4.5" fill="#8bc34a" stroke="#4e7d1e" stroke-width="1.2"/><circle cx="16.5" cy="0" r="1" fill="#1f2a1a"/>
+    <g fill="#8bc34a" stroke="#4e7d1e" stroke-width="1.2"><ellipse cx="-9" cy="8" rx="4" ry="2.6"/><ellipse cx="9" cy="8" rx="4" ry="2.6"/><ellipse cx="-9" cy="-7" rx="4" ry="2.6"/><ellipse cx="9" cy="-7" rx="4" ry="2.6"/></g>
+    <ellipse rx="13" ry="10" fill="#4caf50" stroke="#2e7d32" stroke-width="1.6"/><path d="M-5 -4 L5 -4 L7 2 L0 6 L-7 2Z" fill="none" stroke="#2e7d32" stroke-width="1.3"/>`,
+  kema: `<path d="M0 -20 L0 4" stroke="#5a3a17" stroke-width="2"/><path d="M1 -19 Q13 -8 1 1Z" fill="#fff8e6" stroke="#8a6a3a" stroke-width="1"/><path d="M-1 -16 Q-10 -8 -1 -1Z" fill="#fff8e6" stroke="#8a6a3a" stroke-width="1"/>
+    <path d="M0 -20 L8 -18 L0 -16Z" fill="#d62f2f"/><path d="M-17 3 L17 3 L11 12 L-11 12Z" fill="#8b5a2b" stroke="#4a2c10" stroke-width="1.5"/>`,
+  robi: `<line x1="0" y1="-12" x2="0" y2="-18" stroke="#2c3e66" stroke-width="2"/><circle cx="0" cy="-19" r="3" fill="#ff5a5a"/>
+    <rect x="-12" y="-12" width="24" height="20" rx="7" fill="#4aa3ff" stroke="#1d4fb8" stroke-width="1.8"/><rect x="-8" y="-7" width="16" height="9" rx="4" fill="#e9f5ff"/>
+    <circle cx="-3.5" cy="-2.5" r="2" fill="#1d2a4a"/><circle cx="3.5" cy="-2.5" r="2" fill="#1d2a4a"/><rect x="-7" y="8" width="5" height="5" rx="2" fill="#1d4fb8"/><rect x="2" y="8" width="5" height="5" rx="2" fill="#1d4fb8"/>`,
+};
+// deterministik «tasodif» — har topshiriqda orol shakli o'zgarmas
+const urug = (str) => { let h = 2166136261; for (const c of str) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return () => ((h = Math.imul(h ^ (h >>> 15), 2246822507) ^ Math.imul(h ^ (h >>> 13), 3266489909)) >>> 0) / 4294967296; };
+
+function koordSabab(t, b) {
+  const yo = (p) => {
+    const [x, y] = p;
+    const xs = x > 0 ? `o'ngga ${x}` : x < 0 ? `chapga ${-x}` : 'o\'ngga 0', ys = y > 0 ? `yuqoriga ${y}` : y < 0 ? `pastga ${-y}` : 'yuqoriga 0';
+    return `${xs}, ${ys}`;
+  };
+  const tur = t.tur;
+  if (tur === 'qaz' || tur === 'top') {
+    const p = t.nuqta;
+    if (b && b[0] === p[1] && b[1] === p[0]) return `${kf(b)} emas — sonlar o'rni almashdi. Birinchi son — x (${t.oraliq[0] < 0 ? "o'ngga yoki chapga" : "o'ngga"}), ikkinchisi — y (${t.oraliq[0] < 0 ? 'yuqoriga yoki pastga' : 'yuqoriga'}).`;
+    return `${b ? `${kf(b)} emas. ` : ''}${t.oraliq[0] < 0 ? 'O nuqtadan' : '0 dan'} ${yo(p)} → ${kf(p)}.`;
+  }
+  if (tur === 'yur') {
+    let [x, y] = t.nuqta; const h = [];
+    for (const [d, n] of t.qadam) {
+      const [nom, dx, dy] = YON_UZ[d];
+      if (dx) { const x2 = x + dx * n; h.push(`${nom} ${n}: x = ${sn(x)} ${dx > 0 ? '+' : '−'} ${n} = ${sn(x2)}`); x = x2; }
+      else { const y2 = y + dy * n; h.push(`${nom} ${n}: y = ${sn(y)} ${dy > 0 ? '+' : '−'} ${n} = ${sn(y2)}`); y = y2; }
+    }
+    const q = h.join('; ');
+    return `${b ? `${kf(b)} emas. ` : ''}${q[0].toUpperCase()}${q.slice(1)} → ${kf(t.javob)}.`;
+  }
+  if (tur === 'masofa') {
+    const [a, c] = [t.a, t.b], qator = a[1] === c[1], i = qator ? 0 : 1;
+    const katta = Math.max(a[i], c[i]), kichik = Math.min(a[i], c[i]);
+    return `Ikkalasi bir ${qator ? `qatorda (y = ${sn(a[1])})` : `ustunda (x = ${sn(a[0])})`}: ${sn(katta)} − ${sn(kichik)} = ${t.javob} birlik.`;
+  }
+  if (tur === 'nur') {
+    if (t.qadam === 1) return `${b != null ? `${b} emas. ` : ''}Har bo'lak — 1 birlik: qayiq ${t.javob} da.`;
+    return `${b === t.k ? `${b} emas — bu bo'laklar soni. ` : b != null ? `${b} emas. ` : ''}Bir bo'lak — ${t.qadam} birlik. Qayiq ${t.k}-bo'lakda: ${t.k} · ${t.qadam} = ${t.javob}.`;
+  }
+  if (tur === 'chorak') {
+    const [x, y] = t.nuqta, ish = (v) => (v > 0 ? 'musbat' : 'manfiy');
+    if (x === 0) return `x = 0 — nuqta Oy o'qida yotadi.`;
+    if (y === 0) return `y = 0 — nuqta Ox o'qida yotadi.`;
+    return `x = ${sn(x)} ${ish(x)}, y = ${sn(y)} ${ish(y)} → ${t.javob}.`;
+  }
+  return '';
+}
+
+// xarita (koordinata to'ri) — t.oraliq bo'yicha
+function xarita(t) {
+  const [lo, hi] = t.oraliq, n = hi - lo, C = 44, P = 38, W = P * 2 + n * C, H = W;
+  const X = (x) => P + (x - lo) * C, Y = (y) => P + (hi - y) * C;
+  const rnd = urug(t.id || 'orol');
+  const root = sv('svg', { viewBox: `0 0 ${W} ${H}`, class: 'orol-svg' + (n >= 10 ? ' orol-svg--katta' : ''), role: 'img', 'aria-label': 'Xazina xaritasi' });
+  // pergament: yirtiq chetlar
+  const chet = [];
+  const yon = (x1, y1, x2, y2, k) => { for (let i = 0; i < k; i++) { const u = i / k; chet.push([x1 + (x2 - x1) * u + (rnd() - 0.5) * 4, y1 + (y2 - y1) * u + (rnd() - 0.5) * 4]); } };
+  yon(3, 3, W - 3, 3, 22); yon(W - 3, 3, W - 3, H - 3, 22); yon(W - 3, H - 3, 3, H - 3, 22); yon(3, H - 3, 3, 3, 22);
+  root.append(sv('defs', {}, `<radialGradient id="orol-perg" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#fbf0d2"/><stop offset=".7" stop-color="#efd9a4"/><stop offset="1" stop-color="#c99f5c"/></radialGradient>
+    <radialGradient id="orol-qum" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#f6e2a8"/><stop offset="1" stop-color="#e8c983"/></radialGradient>
+    <marker id="orol-strelka" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#5a3a17"/></marker>`));
+  const chetP = chet.map(p => p.join(',')).join(' ');
+  root.append(sv('clipPath', { id: 'orol-kesim' }, `<polygon points="${chetP}"/>`));
+  root.append(sv('polygon', { points: chetP, fill: 'url(#orol-perg)', stroke: '#8a6326', 'stroke-width': 2 }));
+  // orol: to'r markazida notekis qirg'oq
+  const cx = (X(lo) + X(hi)) / 2, cy = (Y(lo) + Y(hi)) / 2, R = (n * C) / 2;
+  const f1 = rnd() * 6, f2 = rnd() * 6;
+  const blob = (k) => Array.from({ length: 36 }, (_, i) => {
+    const a = (i / 36) * Math.PI * 2, r = R * k * (1 + 0.07 * Math.sin(a * 3 + f1) + 0.05 * Math.sin(a * 5 + f2));
+    return `${(cx + Math.cos(a) * r * 1.08).toFixed(1)},${(cy + Math.sin(a) * r).toFixed(1)}`;
+  }).join(' ');
+  const orol = sv('g', { 'clip-path': 'url(#orol-kesim)' });
+  orol.append(sv('polygon', { points: blob(1.06), fill: 'none', stroke: '#8cc7d4', 'stroke-width': 12, opacity: 0.55, 'stroke-linejoin': 'round' }),
+    sv('polygon', { points: blob(1.06), fill: 'url(#orol-qum)', stroke: '#b98a3e', 'stroke-width': 2, 'stroke-linejoin': 'round' }),
+    sv('polygon', { points: blob(0.72), fill: '#a9c97a', opacity: 0.45, stroke: 'none' }));
+  root.append(orol);
+  // to'lqinlar (dengiz) — chetlarda
+  const tol = sv('g', { class: 'orol-tolqin' });
+  for (let i = 0; i < 14; i++) {
+    const a = rnd() * Math.PI * 2, r = R * (1.3 + rnd() * 0.25), x = cx + Math.cos(a) * r * 1.05, y = cy + Math.sin(a) * r;
+    if (x < 14 || x > W - 24 || y < 14 || y > H - 14) continue;
+    tol.append(sv('path', { d: `M${x} ${y} q4 -4 8 0 q4 4 8 0` }));
+  }
+  root.append(tol);
+  // to'r va o'qlar
+  const tor = sv('g', { class: 'orol-tor' });
+  for (let i = lo; i <= hi; i++) {
+    tor.append(sv('line', { x1: X(i), y1: Y(lo), x2: X(i), y2: Y(hi) }), sv('line', { x1: X(lo), y1: Y(i), x2: X(hi), y2: Y(i) }));
+  }
+  root.append(tor);
+  const oq = sv('g', { class: 'orol-oq' });
+  oq.append(sv('line', { x1: X(lo) - (lo < 0 ? 10 : 0), y1: Y(0), x2: X(hi) + 22, y2: Y(0), 'marker-end': 'url(#orol-strelka)' }),
+    sv('line', { x1: X(0), y1: Y(lo) + (lo < 0 ? 10 : 0), x2: X(0), y2: Y(hi) - 22, 'marker-end': 'url(#orol-strelka)' }));
+  const yoz = sv('g', { class: 'orol-son' });
+  for (let i = lo; i <= hi; i++) {
+    if (i === 0 && lo < 0) continue;
+    yoz.append(sv('text', { x: X(i), y: Y(0) + 16, 'text-anchor': 'middle' }, sn(i)));
+    if (i !== 0) yoz.append(sv('text', { x: X(0) - 8, y: Y(i) + 4, 'text-anchor': 'end' }, sn(i)));
+  }
+  if (lo < 0) yoz.append(sv('text', { x: X(0) - 7, y: Y(0) + 15, 'text-anchor': 'end' }, 'O'));
+  yoz.append(sv('text', { x: X(hi) + 20, y: Y(0) - 8, class: 'orol-harf', 'text-anchor': 'middle' }, 'x'),
+    sv('text', { x: X(0) + 11, y: Y(hi) - 14, class: 'orol-harf' }, 'y'));
+  root.append(oq, yoz);
+  // kompas
+  root.append(sv('g', { class: 'orol-kompas', transform: `translate(${W - 26} 24)` },
+    '<circle r="13" fill="none" stroke="#8a6326" stroke-width="1.2"/><path d="M0 -15 L3.5 0 L0 15 L-3.5 0Z" fill="#8a6326"/><path d="M-15 0 L0 3.5 L15 0 L0 -3.5Z" fill="#b08b4f"/><path d="M0 -15 L3.5 0 L-3.5 0Z" fill="#c0392b"/>'));
+  const qavat = {};
+  for (const k of ['chorak', 'yordam', 'yol', 'buyum', 'belgi', 'hit']) { qavat[k] = sv('g', { class: 'orol-q-' + k }); root.append(qavat[k]); }
+  return { root, X, Y, C, W, H, lo, hi, qavat };
+}
+const buyumQoy = (m, nom, p, kat = 1) => {
+  const g = sv('g', { class: 'orol-buyum orol-buyum--' + nom, transform: `translate(${m.X(p[0])} ${m.Y(p[1])}) scale(${(m.C / 44) * kat})` }, BUYUM_SVG[nom]);
+  m.qavat.buyum.append(g);
+  return g;
+};
+const nuqtaQoy = (m, p, cls = 'orol-nuqta') => m.qavat.belgi.append(sv('circle', { cx: m.X(p[0]), cy: m.Y(p[1]), r: 4.5, class: cls }));
+// 0 dan x bo'ylab, keyin y bo'ylab — yo'l-yo'riq strelkalari
+function yordamChiz(m, p, bosh = [0, 0]) {
+  const g = m.qavat.yordam;
+  g.replaceChildren();
+  const [x0, y0] = bosh, [x, y] = p;
+  if (x !== x0) g.append(sv('line', { x1: m.X(x0), y1: m.Y(y0), x2: m.X(x), y2: m.Y(y0), class: 'orol-yordam-x', 'marker-end': 'url(#orol-strelka)' }));
+  if (y !== y0) g.append(sv('line', { x1: m.X(x), y1: m.Y(y0), x2: m.X(x), y2: m.Y(y), class: 'orol-yordam-y', 'marker-end': 'url(#orol-strelka)' }));
+}
+function xatoQazish(m, b) {
+  const g = sv('g', { class: 'orol-chuqur', transform: `translate(${m.X(b[0])} ${m.Y(b[1])})` },
+    `<ellipse rx="10" ry="4.5" fill="#5e3f22" opacity=".85"/><circle cx="-12" cy="-3" r="1.6" fill="#7a5530"/><circle cx="12" cy="-2" r="1.4" fill="#7a5530"/>`);
+  g.append(sv('text', { y: -9, 'text-anchor': 'middle', class: 'orol-chuqur__y' }, kf(b)));
+  m.qavat.belgi.append(g);
+}
+// koordinata nuri (bir o'q) — qayiq k-belgida, bir bo'lak = qadam birlik
+function nurSVG(t) {
+  const W = 440, H = 170, P = 30, C = (W - 2 * P - 20) / t.belgi, Yo = 112;
+  const root = sv('svg', { viewBox: `0 0 ${W} ${H}`, class: 'orol-svg orol-svg--nur', role: 'img', 'aria-label': 'Koordinata nuri' });
+  root.append(sv('defs', {}, `<radialGradient id="orol-perg2" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#fbf0d2"/><stop offset=".75" stop-color="#efd9a4"/><stop offset="1" stop-color="#c99f5c"/></radialGradient>
+    <marker id="orol-strelka2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#5a3a17"/></marker>`));
+  root.append(sv('rect', { x: 3, y: 3, width: W - 6, height: H - 6, rx: 10, fill: 'url(#orol-perg2)', stroke: '#8a6326', 'stroke-width': 2 }));
+  root.append(sv('path', { d: `M14 ${Yo - 6} Q${W / 2} ${Yo - 20} ${W - 14} ${Yo - 6} L${W - 14} ${Yo + 22} Q${W / 2} ${Yo + 30} 14 ${Yo + 22}Z`, fill: '#bfe2ea', opacity: 0.55 }));
+  root.append(sv('line', { x1: P, y1: Yo, x2: W - P + 8, y2: Yo, class: 'orol-nur', 'marker-end': 'url(#orol-strelka2)' }));
+  const yozuvlar = sv('g', { class: 'orol-son' });
+  for (let i = 0; i <= t.belgi; i++) {
+    const x = P + i * C;
+    root.append(sv('line', { x1: x, y1: Yo - 7, x2: x, y2: Yo + 7, class: 'orol-nur-belgi' }));
+    yozuvlar.append(sv('text', { x, y: Yo + 24, 'text-anchor': 'middle', class: i <= 1 ? '' : 'orol-son--yashirin', 'data-i': i }, i * t.qadam));
+  }
+  root.append(sv('text', { x: P - 4, y: Yo - 12, class: 'orol-harf', 'text-anchor': 'middle' }, 'O'), yozuvlar);
+  const qavs = sv('g', { class: 'orol-qavs' });
+  root.append(qavs);
+  const kema = sv('g', { class: 'orol-buyum', transform: `translate(${P + t.k * C} ${Yo - 22}) scale(1.15)` }, BUYUM_SVG.kema);
+  root.append(kema, sv('circle', { cx: P + t.k * C, cy: Yo, r: 4.5, class: 'orol-nuqta' }));
+  return {
+    root,
+    ochish() {
+      yozuvlar.querySelectorAll('.orol-son--yashirin').forEach((n) => n.classList.remove('orol-son--yashirin'));
+      for (let i = 0; i < t.k; i++) qavs.append(sv('path', { d: `M${P + i * C + 3} ${Yo - 9} q${C / 2 - 3} -12 ${C - 6} 0`, class: 'orol-qavs-yoy' }));
+    },
+  };
+}
+
+function gameCoordinate(ctx) {
+  const all = [...ctx.bank].map((t) => (t.tur ? t : { ...t, tur: 'yol', oraliq: [0, t.gridSize], points: t.points.map((q) => [q.x, q.y]) }));
+  const s = shell(ctx, '', 'axes');
+  const H = hud(3);
+  const B = buddy();
+  const RAUND = 5;
+  const rounds = [];
+  for (let i = 0; i < all.length; i += RAUND) rounds.push(all.slice(i, i + RAUND));
+  let ri = 0, right = 0, total = 0, longest = 0, done = 0;
+  const times = [];
+  let onKey = null;
+  const timers = new Set();
+  const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); };
+  const keyH = (ev) => onKey && onKey(ev);
+  addEventListener('keydown', keyH);
+  addEventListener('hashchange', () => { removeEventListener('keydown', keyH); timers.forEach(clearTimeout); }, { once: true });
+
+  const savol = el('div', { class: 'orol-savol' });
+  const chiplar = el('div', { class: 'orol-chiplar' });
+  const taxta = el('div', { class: 'orol-taxta' }, savol, chiplar);
+  const xaritaJoy = el('div', { class: 'orol-xarita' });
+  const javoblar = el('div', { class: 'orol-javoblar' });
+  let t = null, m = null, busy = true, startedAt = 0, xatoBor = false, k = 0, yolSabab = '';
+
+  const chip = (matn, cls = '') => el('span', { class: 'orol-chip ' + cls }, matn);
+  function chiz(tt) {
+    t = tt; k = 0; xatoBor = false;
+    javoblar.replaceChildren(); javoblar.hidden = true; chiplar.replaceChildren();
+    if (t.tur === 'nur') { m = nurSVG(t); xaritaJoy.replaceChildren(m.root); }
+    else {
+      m = xarita(t); xaritaJoy.replaceChildren(m.root);
+      for (let x = m.lo; x <= m.hi; x++) for (let y = m.lo; y <= m.hi; y++) {
+        const h = sv('circle', { cx: m.X(x), cy: m.Y(y), r: m.C * 0.46, class: 'orol-hit' });
+        h.addEventListener('click', () => bos([x, y], h));
+        m.qavat.hit.append(h);
+      }
+    }
+    const tur = t.tur;
+    if (tur === 'qaz') { savol.textContent = 'Xazinani qazing:'; chiplar.append(chip(kf(t.nuqta), 'orol-chip--katta')); }
+    else if (tur === 'top') { savol.textContent = `${BUYUM_UZ[t.buyum]} qaysi nuqtada?`; buyumQoy(m, t.buyum, t.nuqta); nuqtaQoy(m, t.nuqta); }
+    else if (tur === 'yol') {
+      savol.textContent = "Kapitan yo'li — nuqtalarni ketma-ket bosing:";
+      chiplar.append(...t.points.map((p, i) => chip(kf(p), i === 0 ? 'now' : '')));
+    } else if (tur === 'yur') {
+      savol.textContent = `Robi ${kf(t.nuqta)} da. Qayerga boradi?`;
+      chiplar.append(...t.qadam.map(([d, n]) => chip(`${YON_UZ[d][3]} ${YON_UZ[d][0]} ${n}`)));
+      m.robi = buyumQoy(m, 'robi', t.nuqta, 0.95); nuqtaQoy(m, t.nuqta);
+    } else if (tur === 'masofa') {
+      savol.textContent = `${BUYUM_UZ[t.buyumlar[0]]} va ${BUYUM_UZ[t.buyumlar[1]].toLowerCase()} orasi necha birlik?`;
+      buyumQoy(m, t.buyumlar[0], t.a); buyumQoy(m, t.buyumlar[1], t.b); nuqtaQoy(m, t.a); nuqtaQoy(m, t.b);
+    } else if (tur === 'nur') savol.textContent = 'Qayiq qaysi songa to\'xtadi?';
+    else if (tur === 'chorak') { savol.textContent = 'Bayroq qayerda turibdi?'; buyumQoy(m, 'bayroq', t.nuqta); nuqtaQoy(m, t.nuqta); }
+    if (t.options) {
+      javoblar.hidden = false;
+      javoblar.replaceChildren(...t.options.map((o, i) => el('button', { type: 'button', class: 'orol-jt', onclick: (e) => tanla(o, e.currentTarget) }, String(o), el('small', { class: 'orol-jt__key' }, i + 1))));
+    }
+    xaritaJoy.classList.toggle('orol-xarita--bosiladi', !t.options);
+    taxta.classList.remove('yangi'); void taxta.offsetWidth; taxta.classList.add('yangi');
+  }
+  const manfiy = () => t.oraliq[0] < 0;
+  const maslahat = () => ({
+    qaz: manfiy() ? 'Birinchi son — x: manfiy bo\'lsa chapga. Ikkinchisi — y: manfiy bo\'lsa pastga.' : 'Birinchi son — o\'ngga (x), ikkinchisi — yuqoriga (y). 0 dan boshlang.',
+    top: 'Buyumdan pastga tushib x ni, chapga qarab y ni o\'qing.',
+    yol: 'Har nuqta: avval x bo\'ylab, keyin y bo\'ylab.',
+    yur: 'O\'ngga yursa x oshadi, chapga — kamayadi; yuqoriga yursa y oshadi, pastga — kamayadi.',
+    masofa: 'Bir qatorda turishibdi — kataklarni sanang yoki kattasidan kichigini ayiring.',
+    nur: 'Avval bitta bo\'lak necha birlik ekanini toping.',
+    chorak: 'x va y ning ishorasiga qarang: musbatmi, manfiymi, yoki 0 mi?',
+  })[t.tur];
+
+  function natija(ok, at, sabab, yurakOlingan) {
+    busy = true; onKey = null;
+    total++; done++;
+    times.push(performance.now() - startedAt);
+    if (ok) {
+      right++;
+      const mlt = H.hit(); longest = Math.max(longest, H.st.combo);
+      const fast = performance.now() - startedAt < 9000;
+      sfx.ok(); xaritaJoy.classList.add('yondi');
+      H.add(10 * mlt + (fast ? 5 : 0), at);
+      if (fast && mlt < 2) floatText('⚡ Tez!', at, 'hud-float--tez');
+      B.say([el('span', { class: 'rchip rchip--ha' }, 'To\'g\'ri ✓'), ' ', sabab], 'ok');
+      later(() => { xaritaJoy.classList.remove('yondi'); ii++; next(); }, 2600);
+    } else {
+      H.miss();
+      const left = yurakOlingan ? H.st.hearts : (sfx.bad(), H.loseHeart());
+      xaritaJoy.classList.remove('xato'); void xaritaJoy.offsetWidth; xaritaJoy.classList.add('xato');
+      B.say([el('span', { class: 'rchip rchip--yoq' }, 'Xato'), ' ', sabab], 'bad');
+      const davom = () => { onKey = null; s.foot.replaceChildren(); ii++; left === 0 ? autoRest() : next(); };
+      later(() => {
+        s.foot.replaceChildren(el('button', { class: 'btn btn--accent', type: 'button', onclick: davom }, 'Davom etish ➜'));
+        onKey = (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); davom(); } };
+      }, 900);
+    }
+  }
+  // to'g'ri javobni xaritada ko'rsatish (javobdan keyin va yuraklar tugaganda)
+  function yechimKo() {
+    const tur = t.tur;
+    if (tur === 'qaz') { yordamChiz(m, t.nuqta); m.qavat.belgi.append(sv('path', { d: `M${m.X(t.nuqta[0]) - 7} ${m.Y(t.nuqta[1]) - 7} l14 14 m0 -14 l-14 14`, class: 'orol-x' })); later(() => buyumQoy(m, 'ochiq', t.nuqta).classList.add('chiqdi'), 350); }
+    else if (tur === 'top' || tur === 'chorak') yordamChiz(m, t.nuqta);
+    else if (tur === 'yur') {
+      const yol = [t.nuqta]; let [x, y] = t.nuqta;
+      for (const [d, n] of t.qadam) { x += YON_UZ[d][1] * n; y += YON_UZ[d][2] * n; yol.push([x, y]); }
+      m.qavat.yol.append(sv('polyline', { points: yol.map((p) => `${m.X(p[0])},${m.Y(p[1])}`).join(' '), class: 'orol-yol' }));
+      nuqtaQoy(m, t.javob);
+      if (m.robi) {
+        const sc = m.C / 44 * 0.95;
+        m.robi.style.transform = `translate(${m.X(t.nuqta[0])}px, ${m.Y(t.nuqta[1])}px) scale(${sc})`;
+        m.robi.style.transition = 'transform .5s ease-in-out';
+        yol.slice(1).forEach((p, i) => later(() => { m.robi.style.transform = `translate(${m.X(p[0])}px, ${m.Y(p[1])}px) scale(${sc})`; }, 150 + i * 550));
+      }
+    } else if (tur === 'masofa') {
+      const [a, b] = [t.a, t.b], qator = a[1] === b[1];
+      const [i0, i1] = qator ? [Math.min(a[0], b[0]), Math.max(a[0], b[0])] : [Math.min(a[1], b[1]), Math.max(a[1], b[1])];
+      for (let i = i0; i < i1; i++) {
+        const p1 = qator ? [i, a[1]] : [a[0], i], p2 = qator ? [i + 1, a[1]] : [a[0], i + 1];
+        const g = sv('g', { class: 'orol-olchov' });
+        g.append(sv('line', { x1: m.X(p1[0]), y1: m.Y(p1[1]), x2: m.X(p2[0]), y2: m.Y(p2[1]) }));
+        const mx = (m.X(p1[0]) + m.X(p2[0])) / 2 + (qator ? 0 : 12), my = (m.Y(p1[1]) + m.Y(p2[1])) / 2 + (qator ? 16 : 4);
+        g.append(sv('text', { x: mx, y: my, 'text-anchor': 'middle' }, i - i0 + 1));
+        later(() => m.qavat.yordam.append(g), (i - i0) * 160);
+      }
+    } else if (tur === 'nur') m.ochish();
+    if (tur === 'chorak') {
+      const [lo, hi] = t.oraliq, g = m.qavat.chorak;
+      [['I', 1, 1], ['II', -1, 1], ['III', -1, -1], ['IV', 1, -1]].forEach(([r, sx, sy]) => {
+        const x1 = m.X(0), x2 = m.X(sx > 0 ? hi : lo), y1 = m.Y(0), y2 = m.Y(sy > 0 ? hi : lo);
+        const on = t.javob === `${r} chorak`;
+        g.append(sv('rect', { x: Math.min(x1, x2), y: Math.min(y1, y2), width: Math.abs(x2 - x1), height: Math.abs(y2 - y1), class: 'orol-chorak' + (on ? ' on' : '') }),
+          sv('text', { x: (x1 + x2) / 2, y: (y1 + y2) / 2 + 8, 'text-anchor': 'middle', class: 'orol-chorak__y' + (on ? ' on' : '') }, r));
+      });
+    }
+  }
+  function yolChiz(n) {
+    const pts = t.points.slice(0, n);
+    m.qavat.yol.replaceChildren(sv('polyline', { points: pts.map((p) => `${m.X(p[0])},${m.Y(p[1])}`).join(' '), class: 'orol-yol' }));
+    m.qavat.belgi.replaceChildren(); pts.forEach((p) => nuqtaQoy(m, p));
+    [...chiplar.children].forEach((c, i) => { c.classList.toggle('done', i < n); c.classList.toggle('now', i === n); });
+  }
+  function yolTugadi(at) {
+    const end = t.points[t.points.length - 1];
+    if (t.shakl) m.qavat.yol.prepend(sv('polygon', { points: t.points.map((p) => `${m.X(p[0])},${m.Y(p[1])}`).join(' '), class: 'orol-shakl' }));
+    later(() => buyumQoy(m, 'ochiq', end, 0.85).classList.add('chiqdi'), 200);
+    const gap = xatoBor ? yolSabab : t.shakl ? `Yo'l tayyor — ${t.shakl} chiqdi!` : "Yo'l tayyor — xazinaga yetib keldingiz!";
+    natija(!xatoBor, at, gap, true);
+  }
+  function bos(p, h) {
+    if (busy || !t || t.options) return;
+    const tur = t.tur, teng = (a, b) => a[0] === b[0] && a[1] === b[1];
+    if (tur === 'yol') {
+      const want = t.points[k];
+      if (teng(p, want)) { sfx.tap(); k++; yolChiz(k); if (k === t.points.length) { busy = true; yolTugadi(h); } return; }
+      if (k > 0 && teng(p, t.points[k - 1])) return;
+      busy = true; sfx.bad(); H.miss();
+      if (!xatoBor) { xatoBor = true; if (H.loseHeart() === 0) { /* yurak tugadi — yo'l baribir oxirigacha ko'rsatiladi */ } }
+      xatoQazish(m, p);
+      yolSabab = koordSabab({ tur: 'qaz', nuqta: want, oraliq: t.oraliq }, p);
+      B.say([el('span', { class: 'rchip rchip--yoq' }, 'Xato'), ' ', yolSabab], 'bad');
+      later(() => { m.qavat.belgi.querySelectorAll('.orol-chuqur').forEach((n) => n.remove()); k++; yolChiz(k); if (k === t.points.length) yolTugadi(h); else busy = false; }, 1600);
+      return;
+    }
+    const javob = tur === 'yur' ? t.javob : t.nuqta, ok = teng(p, javob);
+    busy = true;
+    if (!ok) xatoQazish(m, p);
+    yechimKo();
+    natija(ok, h, koordSabab(t, ok ? null : p));
+  }
+  function tanla(o, btn) {
+    if (busy) return;
+    busy = true;
+    const ok = o === t.javob;
+    [...javoblar.children].forEach((b, i) => { b.disabled = true; if (t.options[i] === t.javob) b.classList.add('is-ok'); });
+    btn.classList.add(ok ? 'is-ok' : 'is-bad');
+    yechimKo();
+    const bo = t.tur === 'top' && !ok ? o.replace(/−/g, '-').slice(1, -1).split('; ').map(Number) : t.tur === 'nur' && !ok ? o : null;
+    natija(ok, btn, ok ? koordSabab(t) : t.tur === 'top' ? koordSabab(t, bo) : t.tur === 'nur' ? koordSabab(t, bo) : `${o} emas. ${koordSabab(t)}`);
+  }
+
+  let ii = 0, items = [];
+  function next() {
+    if (ii >= items.length) return endRound();
+    busy = false;
+    s.setProg(done, all.length);
+    chiz(items[ii]);
+    B.say([maslahat()], 'idle');
+    startedAt = performance.now();
+    onKey = (ev) => {
+      const n = +ev.key; if (!javoblar.hidden && n >= 1 && n <= javoblar.children.length) { ev.preventDefault(); javoblar.children[n - 1].click(); }
+    };
+  }
+  function autoRest() {
+    onKey = null;
+    B.say(['Yuraklar tugadi. Qolganlarini qanday yechilishini kuzating.'], 'think');
+    const go = () => {
+      if (ii >= items.length) return endRound();
+      chiz(items[ii]); busy = true; total++; done++; s.setProg(done, all.length);
+      later(() => {
+        if (t.tur === 'yol') { yolChiz(t.points.length); if (t.shakl) m.qavat.yol.prepend(sv('polygon', { points: t.points.map((p) => `${m.X(p[0])},${m.Y(p[1])}`).join(' '), class: 'orol-shakl' })); B.say([t.shakl ? `Bu yo'ldan ${t.shakl} chiqadi.` : 'Nuqtalar shu tartibda ulanadi.'], 'think'); }
+        else {
+          yechimKo();
+          [...javoblar.children].forEach((b, i) => { b.disabled = true; if (t.options[i] === t.javob) b.classList.add('is-ok'); });
+          B.say([koordSabab(t)], 'think');
+        }
+      }, 800);
+      later(() => { ii++; go(); }, 3600);
+    };
+    later(go, 1000);
+  }
+  function endRound() {
+    onKey = null; busy = true;
+    const clean = rounds[ri].mistakes === 0;
+    if (clean) { H.add(30, xaritaJoy); sfx.win(); }
+    s.setProg(done, all.length);
+    const lastR = ri + 1 >= rounds.length;
+    s.foot.replaceChildren(
+      el('div', { class: 'rend ' + (clean ? 'rend--ok' : '') },
+        el('b', {}, clean ? 'Xatosiz! +30 bonus' : rounds[ri].mistakes === 1 ? 'Bitta xato bilan — yaxshi!' : `${rounds[ri].mistakes} ta xato — keyingisida diqqat bilan!`),
+        el('button', { class: 'btn btn--accent', type: 'button', onclick: () => {
+          ri++;
+          if (ri >= rounds.length) {
+            const avgMs = times.length ? times.reduce((a, b) => a + b, 0) / times.length : 0;
+            ctx.finish(right, total, { longestStreak: longest, avgMs, score: H.st.score });
+          } else { s.foot.replaceChildren(); round(); }
+        } }, lastR ? 'Natijani ko\'rish' : 'Keyingi partiya ➜')));
+  }
+  function round() {
+    items = rounds[ri]; ii = 0;
+    const oldRight = right, oldTotal = total;
+    Object.defineProperty(rounds[ri], 'mistakes', { get: () => (total - oldTotal) - (right - oldRight), configurable: true });
+    H.resetHearts();
+    next();
+  }
+
+  const bar = ctx.root.querySelector('.prompt'); if (bar) bar.hidden = true;
+  const sahna = el('div', { class: 'sahna sahna--orol' },
+    el('i', { class: 'orol__chayka orol__chayka--1' }), el('i', { class: 'orol__chayka orol__chayka--2' }),
+    H.node, B.node, taxta, xaritaJoy, javoblar);
+  s.area.replaceChildren(sahna);
+  s.foot.replaceChildren();
+  if (innerWidth < 700) requestAnimationFrame(() => {
+    const head = document.querySelector('.site-header')?.offsetHeight || 0;
+    scrollTo({ top: sahna.getBoundingClientRect().top + scrollY - head - 6, behavior: 'auto' });
+  });
+  round();
+}
+
 export const GAMES = {
   set: gameSet,
   numberOrder: gameNumberOrder,
@@ -1371,4 +1810,5 @@ export const GAMES = {
   algorithmConveyor: gameConveyor,
   ...MORE,
   fractionStrip: gameFractionStrip,
+  coordinatePath: gameCoordinate,
 };

@@ -1,414 +1,427 @@
 [
-  {
-    "id": "sinf4_chorak1_blok16_level1_koord_01",
-    "prompt": "Nuqtalarni bosib tik kesma torting",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 2,
-        "y": 1
-      },
-      {
-        "x": 2,
-        "y": 5
-      }
-    ]
-  },
-  {
-    "id": "sinf4_chorak1_blok16_level1_koord_02",
-    "prompt": "Nuqtalarni bosib yotiq kesma torting",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 1,
-        "y": 3
-      },
-      {
-        "x": 5,
-        "y": 3
-      }
-    ]
-  },
-  {
-    "id": "sinf4_chorak1_blok16_level1_koord_03",
-    "prompt": "Nuqtalarni ketma-ket bosing — qiya chiziq hosil bo'ladi",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 0,
-        "y": 0
-      },
-      {
-        "x": 2,
-        "y": 2
-      },
-      {
-        "x": 4,
-        "y": 4
-      }
-    ]
-  },
-  {
-    "id": "sinf4_chorak1_blok16_level1_koord_04",
-    "prompt": "Koordinatalarni bosib uchburchak yasang",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 1,
-        "y": 1
-      },
-      {
-        "x": 4,
-        "y": 1
-      },
-      {
-        "x": 4,
-        "y": 4
-      },
-      {
-        "x": 1,
-        "y": 1
-      }
-    ]
-  },
-  {
-    "id": "sinf4_chorak1_blok16_level1_koord_05",
-    "prompt": "Koordinatalarni ketma-ket bosing",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 2,
-        "y": 0
-      },
-      {
-        "x": 2,
-        "y": 3
-      },
-      {
-        "x": 5,
-        "y": 3
-      }
-    ]
-  },
-  {
-    "id": "sinf4_chorak1_blok16_level1_koord_06",
-    "prompt": "Koordinatalarni bosib uchburchak yasang",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 0,
-        "y": 2
-      },
-      {
-        "x": 3,
-        "y": 5
-      },
-      {
-        "x": 6,
-        "y": 2
-      },
-      {
-        "x": 0,
-        "y": 2
-      }
-    ]
-  },
-  {
-    "id": "sinf4_chorak1_blok16_level1_koord_07",
-    "prompt": "Koordinatalarni ketma-ket bosing — kvadrat hosil bo'ladi",
-    "gridSize": 5,
-    "points": [
-      {
-        "x": 1,
-        "y": 1
-      },
-      {
-        "x": 1,
-        "y": 4
-      },
-      {
-        "x": 4,
-        "y": 4
-      },
-      {
-        "x": 4,
-        "y": 1
-      },
-      {
-        "x": 1,
-        "y": 1
-      }
-    ]
-  },
-  {
-    "id": "sinf4_chorak1_blok16_level1_koord_08",
-    "prompt": "Koordinatalarni bosib katta kvadrat yasang",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 0,
-        "y": 0
-      },
-      {
-        "x": 6,
-        "y": 0
-      },
-      {
-        "x": 6,
-        "y": 6
-      },
-      {
-        "x": 0,
-        "y": 6
-      },
-      {
-        "x": 0,
-        "y": 0
-      }
-    ]
-  },
-  {
-    "prompt": "Nuqtalarni bosib tik kesma torting",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 3,
-        "y": 0
-      },
-      {
-        "x": 3,
-        "y": 3
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x01"
-  },
-  {
-    "prompt": "Nuqtalarni bosib yotiq kesma torting",
-    "gridSize": 5,
-    "points": [
-      {
-        "x": 4,
-        "y": 0
-      },
-      {
-        "x": 5,
-        "y": 0
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x02"
-  },
-  {
-    "prompt": "Nuqtalarni ketma-ket bosing — qiya chiziq hosil bo'ladi",
-    "gridSize": 5,
-    "points": [
-      {
-        "x": 2,
-        "y": 2
-      },
-      {
-        "x": 3,
-        "y": 3
-      },
-      {
-        "x": 4,
-        "y": 4
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x03"
-  },
-  {
-    "prompt": "Koordinatalarni bosib uchburchak yasang",
-    "gridSize": 5,
-    "points": [
-      {
-        "x": 1,
-        "y": 5
-      },
-      {
-        "x": 0,
-        "y": 2
-      },
-      {
-        "x": 2,
-        "y": 5
-      },
-      {
-        "x": 1,
-        "y": 5
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x04"
-  },
-  {
-    "prompt": "Koordinatalarni ketma-ket bosing — kvadrat hosil bo'ladi",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 1,
-        "y": 1
-      },
-      {
-        "x": 5,
-        "y": 1
-      },
-      {
-        "x": 5,
-        "y": 5
-      },
-      {
-        "x": 1,
-        "y": 5
-      },
-      {
-        "x": 1,
-        "y": 1
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x05"
-  },
-  {
-    "prompt": "Koordinatalarni bosib to'g'ri to'rtburchak yasang",
-    "gridSize": 5,
-    "points": [
-      {
-        "x": 1,
-        "y": 0
-      },
-      {
-        "x": 5,
-        "y": 0
-      },
-      {
-        "x": 5,
-        "y": 5
-      },
-      {
-        "x": 1,
-        "y": 5
-      },
-      {
-        "x": 1,
-        "y": 0
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x06"
-  },
-  {
-    "prompt": "Koordinatalarni ketma-ket bosing",
-    "gridSize": 5,
-    "points": [
-      {
-        "x": 3,
-        "y": 0
-      },
-      {
-        "x": 3,
-        "y": 1
-      },
-      {
-        "x": 1,
-        "y": 1
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x07"
-  },
-  {
-    "prompt": "Nuqtalarni bosib tik kesma torting",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 1,
-        "y": 0
-      },
-      {
-        "x": 1,
-        "y": 4
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x08"
-  },
-  {
-    "prompt": "Nuqtalarni bosib yotiq kesma torting",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 4,
-        "y": 3
-      },
-      {
-        "x": 6,
-        "y": 3
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x09"
-  },
-  {
-    "prompt": "Nuqtalarni ketma-ket bosing — qiya chiziq hosil bo'ladi",
-    "gridSize": 5,
-    "points": [
-      {
-        "x": 1,
-        "y": 0
-      },
-      {
-        "x": 3,
-        "y": 2
-      },
-      {
-        "x": 5,
-        "y": 4
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x10"
-  },
-  {
-    "prompt": "Koordinatalarni bosib uchburchak yasang",
-    "gridSize": 5,
-    "points": [
-      {
-        "x": 2,
-        "y": 3
-      },
-      {
-        "x": 0,
-        "y": 1
-      },
-      {
-        "x": 4,
-        "y": 0
-      },
-      {
-        "x": 2,
-        "y": 3
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x11"
-  },
-  {
-    "prompt": "Koordinatalarni ketma-ket bosing — kvadrat hosil bo'ladi",
-    "gridSize": 6,
-    "points": [
-      {
-        "x": 0,
-        "y": 0
-      },
-      {
-        "x": 5,
-        "y": 0
-      },
-      {
-        "x": 5,
-        "y": 5
-      },
-      {
-        "x": 0,
-        "y": 5
-      },
-      {
-        "x": 0,
-        "y": 0
-      }
-    ],
-    "id": "sinf4_chorak1_blok16_level1_koord_x12"
-  }
+ {
+  "tur": "top",
+  "nuqta": [
+   4,
+   5
+  ],
+  "buyum": "palma",
+  "options": [
+   "(4; 6)",
+   "(5; 4)",
+   "(4; 5)",
+   "(5; 5)"
+  ],
+  "javob": "(4; 5)",
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_01"
+ },
+ {
+  "tur": "nur",
+  "qadam": 5,
+  "k": 6,
+  "belgi": 10,
+  "options": [
+   30,
+   25,
+   35,
+   6
+  ],
+  "javob": 30,
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_02"
+ },
+ {
+  "tur": "qaz",
+  "nuqta": [
+   7,
+   5
+  ],
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_03"
+ },
+ {
+  "tur": "yol",
+  "points": [
+   [
+    0,
+    0
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    4,
+    4
+   ]
+  ],
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_04"
+ },
+ {
+  "tur": "top",
+  "nuqta": [
+   6,
+   3
+  ],
+  "buyum": "bayroq",
+  "options": [
+   "(7; 3)",
+   "(3; 6)",
+   "(6; 4)",
+   "(6; 3)"
+  ],
+  "javob": "(6; 3)",
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_05"
+ },
+ {
+  "tur": "nur",
+  "qadam": 2,
+  "k": 6,
+  "belgi": 10,
+  "options": [
+   12,
+   6,
+   10,
+   14
+  ],
+  "javob": 12,
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_06"
+ },
+ {
+  "tur": "qaz",
+  "nuqta": [
+   3,
+   5
+  ],
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_07"
+ },
+ {
+  "tur": "top",
+  "nuqta": [
+   7,
+   3
+  ],
+  "buyum": "palma",
+  "options": [
+   "(7; 4)",
+   "(8; 3)",
+   "(7; 3)",
+   "(3; 7)"
+  ],
+  "javob": "(7; 3)",
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_08"
+ },
+ {
+  "tur": "yol",
+  "points": [
+   [
+    1,
+    1
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    1,
+    1
+   ]
+  ],
+  "shakl": "uchburchak",
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_09"
+ },
+ {
+  "tur": "nur",
+  "qadam": 10,
+  "k": 4,
+  "belgi": 10,
+  "options": [
+   50,
+   40,
+   4,
+   30
+  ],
+  "javob": 40,
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_10"
+ },
+ {
+  "tur": "masofa",
+  "a": [
+   2,
+   7
+  ],
+  "b": [
+   6,
+   7
+  ],
+  "buyumlar": [
+   "sandiq",
+   "mayoq"
+  ],
+  "options": [
+   6,
+   8,
+   5,
+   4
+  ],
+  "javob": 4,
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_11"
+ },
+ {
+  "tur": "yur",
+  "nuqta": [
+   1,
+   2
+  ],
+  "qadam": [
+   [
+    "o",
+    3
+   ],
+   [
+    "yu",
+    1
+   ]
+  ],
+  "javob": [
+   4,
+   3
+  ],
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_12"
+ },
+ {
+  "tur": "yol",
+  "points": [
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    3
+   ]
+  ],
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_13"
+ },
+ {
+  "tur": "masofa",
+  "a": [
+   5,
+   5
+  ],
+  "b": [
+   8,
+   5
+  ],
+  "buyumlar": [
+   "toshbaqa",
+   "sandiq"
+  ],
+  "options": [
+   13,
+   4,
+   8,
+   3
+  ],
+  "javob": 3,
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_14"
+ },
+ {
+  "tur": "yur",
+  "nuqta": [
+   3,
+   1
+  ],
+  "qadam": [
+   [
+    "o",
+    3
+   ],
+   [
+    "yu",
+    1
+   ]
+  ],
+  "javob": [
+   6,
+   2
+  ],
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_15"
+ },
+ {
+  "tur": "nur",
+  "qadam": 10,
+  "k": 8,
+  "belgi": 10,
+  "options": [
+   8,
+   70,
+   80,
+   90
+  ],
+  "javob": 80,
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_16"
+ },
+ {
+  "tur": "yol",
+  "points": [
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    6,
+    2
+   ],
+   [
+    0,
+    2
+   ]
+  ],
+  "shakl": "uchburchak",
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_17"
+ },
+ {
+  "tur": "masofa",
+  "a": [
+   1,
+   8
+  ],
+  "b": [
+   5,
+   8
+  ],
+  "buyumlar": [
+   "toshbaqa",
+   "langar"
+  ],
+  "options": [
+   4,
+   5,
+   3,
+   6
+  ],
+  "javob": 4,
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_18"
+ },
+ {
+  "tur": "yur",
+  "nuqta": [
+   4,
+   4
+  ],
+  "qadam": [
+   [
+    "ch",
+    4
+   ],
+   [
+    "yu",
+    4
+   ]
+  ],
+  "javob": [
+   0,
+   8
+  ],
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_19"
+ },
+ {
+  "tur": "qaz",
+  "nuqta": [
+   4,
+   3
+  ],
+  "oraliq": [
+   0,
+   8
+  ],
+  "id": "g4c1b16l1_orol_20"
+ }
 ]

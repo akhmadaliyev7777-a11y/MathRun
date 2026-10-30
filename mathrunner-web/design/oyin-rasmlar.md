@@ -145,6 +145,11 @@ Fayllar: `robi-oddiy.png`, `robi-xursand.png`, `robi-tushuntiradi.png`, `robi-oy
 **9.2 Bo'yoq chelagi** (`chelak.png`): a metal paint bucket with a handle and a blue paint drip, with an empty white label
 on the front (no text). Soft 3D cartoon style, transparent background. 512×512.
 
+## 10. Koordinata — xazina oroli xaritasi
+Xarita (pergament, orol, to'r) kodda chiziladi — rasm shart emas. Kerak bo'lsa:
+**10.1 Fon** (`orol-dengiz.png`): a calm tropical sea seen from above, turquoise water with soft light ripples, a few seagulls,
+no land in the middle (an old paper map will be placed there). Soft 3D cartoon style, no text. Portrait 1080×1600.
+**10.2 Sandiq** (`sandiq.png`): an open wooden pirate treasure chest with gold coins, soft 3D cartoon style, transparent background. 512×512.
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
-- Koordinata — xazina oroli xaritasi
 Har birining promptlari o'sha o'yinga o'tganda yoziladi. **Musiqa** ham keyinroq qo'shiladi.
