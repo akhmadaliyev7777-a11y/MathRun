@@ -1,5 +1,6 @@
 // O'yin paneli (hamma o'yinlar uchun umumiy): yuraklar, ochko, kombo, ovoz, uchuvchi «+10», personaj pufagi.
 import { el } from '../util.js';
+import { RASM, robiSVG } from './rasmlar.js?v=2';
 
 // ---- ovoz: fayl kerak emas, brauzerning o'zi qisqa ohang chaladi; tanlov eslab qolinadi ----
 const OVOZ_KEY = 'mw-ovoz';
@@ -65,17 +66,22 @@ export function floatText(text, at, cls = '') {
   setTimeout(() => f.remove(), 900);
 }
 
-// ---- personaj (Madina) va gap pufagi ----
-const PERS = '../maruza/personaj/';
-const MOOD = { idle: 'madina.webp', ok: 'madina.webp', bad: 'madina-tushuntiradi.webp', think: 'madina-oylaydi.webp' };
+// ---- o'yin personaji (Robi) va gap pufagi; GPT rasmi bo'lsa — rasm, bo'lmasa — kodda chizilgan SVG ----
 export function buddy() {
-  const img = el('img', { class: 'buddy__img', src: PERS + MOOD.idle, alt: 'Madina', width: 64, height: 64 });
+  const face = el('div', { class: 'buddy__img', role: 'img', 'aria-label': 'Robi' });
+  const draw = (mood) => {
+    const src = RASM.personaj[mood] || RASM.personaj.idle;
+    if (src) face.replaceChildren(el('img', { src, alt: '', width: 64, height: 64 }));
+    else face.innerHTML = robiSVG(mood);
+  };
+  draw('idle');
   const bubble = el('div', { class: 'buddy__bubble' });
-  const node = el('div', { class: 'buddy' }, img, bubble);
+  const node = el('div', { class: 'buddy' }, face, bubble);
   return {
     node,
     say(content, mood = 'idle') {
-      img.src = PERS + (MOOD[mood] || MOOD.idle);
+      draw(mood);
+      face.classList.remove('hop'); void face.offsetWidth; if (mood === 'ok') face.classList.add('hop');
       bubble.className = 'buddy__bubble' + (mood === 'ok' ? ' is-ok' : mood === 'bad' ? ' is-bad' : '');
       bubble.replaceChildren(...[].concat(content));
       bubble.classList.remove('pop'); void bubble.offsetWidth; bubble.classList.add('pop');

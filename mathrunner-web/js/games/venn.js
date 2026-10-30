@@ -1,12 +1,13 @@
-// «To'plamlar (Venn)» — o'yin ko'rinishida.
-// Sonlar navbat bilan bittadan keladi; o'quvchi zonani bosadi, son uchib boradi va darhol tekshiriladi.
-// To'g'ri — ochko va kombo; xato — yurak kamayadi, son to'g'ri joyiga ko'chadi, Madina sababini bir qatorda aytadi
-// (har bir to'plamga alohida: ✓ yoki ✗). Raundda 3 ta yurak; tugasa — qolgan sonlar o'zi joyiga tushadi.
+// «To'plamlar (Venn)» — koinot o'yini.
+// Ikki to'plam — ikki sayyoraning tortishish maydoni, sonlar — meteoritlar. Meteorit navbat bilan bittadan keladi;
+// o'quvchi maydonni bosadi, meteorit uchib boradi va darhol tekshiriladi. To'g'ri — ochko va kombo, meteorit
+// orbitada aylanib qoladi; xato — yurak kamayadi, meteorit to'g'ri maydonga ko'chadi, Robi sababini bir qatorda
+// aytadi (har to'plamga alohida ✓ / ✗). Raundda 3 ta yurak; tugasa — qolgan meteoritlar o'zi joyiga tushadi.
 import { el, shuffle } from '../util.js';
 import { shell } from './shell.js';
-import { hud, buddy, sfx, floatText } from './hud.js';
+import { hud, buddy, sfx, floatText } from './hud.js?v=3';
+import { RASM } from './rasmlar.js?v=2';
 
-const ZONE_SOZ = { both: "o'rtaga — ikkalasiga ham", onlyA: 'faqat chap doiraga', onlyB: "faqat o'ng doiraga", neither: 'tashqariga — hech qaysisiga' };
 const inA = (z) => z === 'onlyA' || z === 'both';
 const inB = (z) => z === 'onlyB' || z === 'both';
 
@@ -24,14 +25,23 @@ export function gameSet(ctx) {
     H.resetHearts();
     const queue = shuffle(t.elements);
     const sonli = t.elements.every(e => /^\d+$/.test(String(e.value)));   // ismlar bo'lsa — «son» demaymiz
+    const ZONE_SOZ = {
+      both: "ikkala sayyoraga — o'rtadagi maydonga", onlyA: `faqat «${t.setAName}» sayyorasiga`,
+      onlyB: `faqat «${t.setBName}» sayyorasiga`, neither: 'ochiq koinotga — hech qaysisiga',
+    };
     let busy = false, mistakes = 0, shownAt = 0;
 
-    // ---- taxta: ikki doira, yorliqlar, bosiladigan zonalar ----
-    const board = el('div', { class: 'venn venn--game' });
-    const cA = el('div', { class: 'venn__circle', style: 'border-color:var(--k-accent);background:color-mix(in srgb,var(--k-accent) 8%,transparent)' });
-    const cB = el('div', { class: 'venn__circle', style: 'border-color:var(--orange);background:color-mix(in srgb,var(--orange) 8%,transparent)' });
-    const lA = el('div', { class: 'venn__label', style: 'color:var(--k-accent-dark)' }, t.setAName);
-    const lB = el('div', { class: 'venn__label venn__label--b', style: 'text-align:right' }, t.setBName);
+    // ---- taxta: ikki sayyora maydoni, yorliqlar, bosiladigan zonalar ----
+    const board = el('div', { class: 'venn venn--kosmos' });
+    const planet = (k) => {
+      const src = k === 'a' ? RASM.sayyoraA : RASM.sayyoraB;
+      return src ? el('img', { class: 'sayyora sayyora--' + k, src, alt: '' }) : el('span', { class: 'sayyora sayyora--' + k });
+    };
+    const field = (k) => el('div', { class: 'maydon maydon--' + k }, el('i', { class: 'maydon__orbit' }), el('i', { class: 'maydon__orbit maydon__orbit--2' }));
+    const fA = field('a'), fB = field('b');
+    const pA = planet('a'), pB = planet('b');
+    const lA = el('div', { class: 'venn__label vlabel vlabel--a' }, t.setAName);
+    const lB = el('div', { class: 'venn__label vlabel vlabel--b' }, t.setBName);
     const zones = {};
     const region = (z) => {
       const tiles = el('div', { class: 'venn__tiles' });
@@ -39,38 +49,44 @@ export function gameSet(ctx) {
       zones[z] = { btn: r, tiles };
       return r;
     };
-    const nLabel = el('div', { class: 'venn__none' }, 'Hech qaysisiga');
-    board.append(cA, cB, lA, lB, region('onlyA'), region('both'), region('onlyB'), region('neither'), nLabel);
+    const nLabel = el('div', { class: 'venn__none' }, 'Ochiq koinot · hech qaysisiga');
+    board.append(fA, fB, pA, pB, lA, lB, region('onlyA'), region('both'), region('onlyB'), region('neither'), nLabel);
 
     const box = (e, l, t2, w, h) => Object.assign(e.style, { left: l + 'px', top: t2 + 'px', width: w + 'px', height: h + 'px' });
     function layout() {
       const W = board.clientWidth || 700;
-      const D = Math.min(300, Math.round(W * 0.6));
-      const top = 56, Hh = top + D + 12 + 56;
+      const D = Math.min(310, Math.round(W * 0.62));
+      const top = 58, Hh = top + D + 14 + 58;
       const c1 = W / 2 - D * 0.25, c2 = W / 2 + D * 0.25;
       board.style.height = Hh + 'px';
-      box(cA, c1 - D / 2, top, D, D); box(cB, c2 - D / 2, top, D, D);
+      box(fA, c1 - D / 2, top, D, D); box(fB, c2 - D / 2, top, D, D);
+      const ps = Math.round(D * 0.2);                                   // sayyora — maydonning tashqi chetida, tepada
+      box(pA, c1 - D / 2 - ps * 0.15, top - ps * 0.1, ps, ps); box(pB, c2 + D / 2 - ps * 0.85, top - ps * 0.1, ps, ps);
       const lw = Math.max(110, Math.round(W * 0.42));
       box(lA, 10, 8, lw, 44); box(lB, W - lw - 10, 8, lw, 44);
-      const zt = top + D * 0.14, zh = D * 0.72, half = D * 0.5;
+      const zt = top + D * 0.16, zh = D * 0.7, half = D * 0.5;
       box(zones.onlyA.btn, c1 - D / 2 + 6, zt, half - 8, zh); box(zones.both.btn, c2 - D / 2 + 4, zt, half - 8, zh); box(zones.onlyB.btn, c1 + D / 2 + 2, zt, half - 8, zh);
-      box(zones.neither.btn, 8, top + D + 8, W - 16, 52);
+      box(zones.neither.btn, 8, top + D + 8, W - 16, 54);
       nLabel.style.top = (top + D + 12) + 'px';
       board.classList.toggle('venn--small', W < 520);
     }
     const ro = new ResizeObserver(layout); ro.observe(board);
     addEventListener('hashchange', () => ro.disconnect(), { once: true });
 
-    // ---- pastda: navbatdagi son (katta) va undan keyingilari (xira) ----
+    // ---- navbatdagi meteorit (katta) va undan keyingilari (xira) ----
+    const wide = (v) => String(v).length > 3 || !sonli;
+    const meteor = (v, cls = '') => {
+      const m = el('span', { class: 'meteor' + (wide(v) ? ' meteor--keng' : '') + cls }, el('b', {}, v));
+      if (RASM.meteorit) m.style.backgroundImage = `url(${RASM.meteorit})`;
+      return m;
+    };
     const launch = el('div', { class: 'launch' });
     function drawLaunch() {
       if (!queue.length) { launch.replaceChildren(); return; }
       const [cur, ...rest] = queue;
       launch.replaceChildren(
-        el('span', { class: 'launch__lab' }, sonli ? 'Navbatdagi son' : 'Navbatdagi'),
-        el('div', { class: 'launch__row' },
-          el('div', { class: 'tile launch__cur' + (String(cur.value).length > 3 ? ' tile--wide' : '') }, cur.value),
-          ...rest.slice(0, 3).map(e => el('div', { class: 'tile tile--sm launch__next' + (String(e.value).length > 3 || !sonli ? ' tile--wide' : '') }, e.value))));
+        el('span', { class: 'launch__lab' }, sonli ? 'Navbatdagi meteorit' : 'Navbatdagi'),
+        el('div', { class: 'launch__row' }, meteor(cur.value, ' meteor--katta launch__cur'), ...rest.slice(0, 3).map(e => meteor(e.value, ' launch__next'))));
       shownAt = performance.now();
     }
 
@@ -80,21 +96,21 @@ export function gameSet(ctx) {
       chip(t.setAName, inA(e.zone)), chip(t.setBName, inB(e.zone)),
       el('span', { class: 'rto' }, '→ ' + ZONE_SOZ[e.zone])];
 
-    // son ko'rinadigan tile — zonaga qo'yiladi
-    const tileFor = (e, cls = '') => el('span', { class: 'tile tile--sm' + (String(e.value).length > 3 ? ' tile--wide' : '') + cls }, e.value);
-
-    // navbatdagi son uchib, berilgan zonaga boradi
+    // meteorit uchib, berilgan maydonga boradi (orqasida olovli iz)
     function fly(e, z, cls, done) {
       const from = launch.querySelector('.launch__cur') || launch;
       const a = from.getBoundingClientRect(), b = zones[z].tiles.getBoundingClientRect();
-      const f = el('div', { class: 'tile fly' + cls, style: `left:${a.left}px;top:${a.top}px;width:${a.width}px;height:${a.height}px` }, e.value);
+      const f = meteor(e.value, ' meteor--katta fly' + cls);
+      Object.assign(f.style, { left: a.left + 'px', top: a.top + 'px', width: a.width + 'px', height: a.height + 'px' });
       document.body.append(f);
       requestAnimationFrame(() => {
-        f.style.transform = `translate(${b.left + b.width / 2 - a.left - a.width / 2}px, ${b.top + b.height / 2 - a.top - a.height / 2}px) scale(.75)`;
+        f.style.transform = `translate(${b.left + b.width / 2 - a.left - a.width / 2}px, ${b.top + b.height / 2 - a.top - a.height / 2}px) scale(.62) rotate(200deg)`;
       });
-      setTimeout(() => { f.remove(); done(); }, 380);
+      setTimeout(() => { f.remove(); done(); }, 420);
     }
     const flash = (z, ok) => { const b = zones[z].btn; b.classList.remove('ok', 'bad'); void b.offsetWidth; b.classList.add(ok ? 'ok' : 'bad'); };
+    // orbitadagi meteoritlar har xil tezlikda chayqalib turadi
+    const landed = (e, cls) => { const m = meteor(e.value, ' meteor--kichik' + cls); m.style.animationDelay = `${-Math.random() * 3}s`; return m; };
 
     function place(z) {
       if (busy || !queue.length) return;
@@ -108,46 +124,46 @@ export function gameSet(ctx) {
           right++;
           const k = H.hit(); longest = Math.max(longest, H.st.combo);
           const fast = performance.now() - shownAt < 3500;
-          const tile = tileFor(e, ' is-in'); zones[z].tiles.append(tile);
+          const m = landed(e, ' is-in'); zones[z].tiles.append(m);
           flash(z, true); sfx.ok();
-          H.add(10 * k + (fast ? 5 : 0), tile);
-          if (fast && k < 2) setTimeout(() => floatText('⚡ Tez!', tile, 'hud-float--tez'), 150);
+          H.add(10 * k + (fast ? 5 : 0), m);
+          if (fast && k < 2) setTimeout(() => floatText('⚡ Tez!', m, 'hud-float--tez'), 150);
           B.say(reason(e), 'ok');
           queue.shift(); next();
         } else {
           mistakes++; H.miss(); sfx.bad();
-          const wrongTile = tileFor(e, ' is-wrong'); zones[z].tiles.append(wrongTile);
+          const wrong = landed(e, ' is-wrong'); zones[z].tiles.append(wrong);
           flash(z, false);
           const left = H.loseHeart();
           B.say(reason(e), 'bad');
-          // bir lahza xato joyda turadi, so'ng to'g'ri zonaga ko'chadi
+          // bir lahza noto'g'ri maydonda turadi, so'ng tortishish kuchi uni to'g'ri maydonga olib ketadi
           setTimeout(() => {
-            wrongTile.remove();
-            zones[e.zone].tiles.append(tileFor(e, ' is-fixed'));
+            wrong.remove();
+            zones[e.zone].tiles.append(landed(e, ' is-fixed'));
             flash(e.zone, true);
             queue.shift();
             if (left === 0) autoRest(); else next();
-          }, 900);
+          }, 950);
         }
       });
     }
     function next() { busy = false; drawLaunch(); if (!queue.length) endRound(); }
 
-    // yuraklar tugadi — qolgan sonlar o'zi joyiga tushadi (to'g'ri javob sifatida hisoblanmaydi)
+    // yuraklar tugadi — qolgan meteoritlar o'zi joyiga tushadi (to'g'ri javob sifatida hisoblanmaydi)
     function autoRest() {
-      B.say(['Yuraklar tugadi. Qolgan sonlar qayerga tushishini kuzating.'], 'think');
+      B.say([`Yuraklar tugadi. Qolgan ${sonli ? 'meteoritlar' : 'javoblar'} qayerga tushishini kuzating.`], 'think');
       const step = () => {
         if (!queue.length) { busy = false; drawLaunch(); return endRound(); }
         const e = queue[0]; placedAll++;
         drawLaunch();
-        fly(e, e.zone, ' is-auto', () => { zones[e.zone].tiles.append(tileFor(e, ' is-fixed')); queue.shift(); setTimeout(step, 250); });
+        fly(e, e.zone, ' is-auto', () => { zones[e.zone].tiles.append(landed(e, ' is-fixed')); queue.shift(); setTimeout(step, 250); });
       };
       setTimeout(step, 600);
     }
 
     function endRound() {
       const clean = mistakes === 0;
-      if (clean) { const bonus = 30; H.add(bonus, board); sfx.win(); }
+      if (clean) { H.add(30, board); sfx.win(); }
       const last = idx + 1 >= tasks.length;
       s.foot.replaceChildren(
         el('div', { class: 'rend ' + (clean ? 'rend--ok' : '') },
@@ -162,20 +178,22 @@ export function gameSet(ctx) {
     }
 
     drawLaunch();
-    // umumiy ko'rsatmani Madina aytadi — ko'k panel faqat topshiriqning o'z ma'lumoti bo'lsa (masalan bolalar ro'yxati) qoladi
+    // umumiy ko'rsatmani Robi aytadi — ko'k panel faqat topshiriqning o'z ma'lumoti bo'lsa (masalan bolalar ro'yxati) qoladi
     const bar = ctx.root.querySelector('.prompt');
     if (bar) bar.hidden = /^Har bir sonni/.test(t.prompt || '');
-    s.area.replaceChildren(H.node, B.node, launch, board);
+    const sahna = el('div', { class: 'sahna sahna--kosmos' }, H.node, B.node, launch, board);
+    if (RASM.vennFon) Object.assign(sahna.style, { backgroundImage: `url(${RASM.vennFon})`, backgroundSize: 'cover', backgroundPosition: 'center' });
+    s.area.replaceChildren(sahna);
     s.foot.replaceChildren();
     layout();
-    // telefonda o'yin maydoni (panel, son, doiralar) bitta ekranga sig'sin — sahifa o'zi pastga suriladi
+    // telefonda o'yin maydoni bitta ekranga sig'sin — sahifa o'zi pastga suriladi
     if (innerWidth < 700) requestAnimationFrame(() => {
       const head = document.querySelector('.site-header')?.offsetHeight || 0;
-      scrollTo({ top: H.node.getBoundingClientRect().top + scrollY - head - 8, behavior: idx ? 'smooth' : 'auto' });
+      scrollTo({ top: sahna.getBoundingClientRect().top + scrollY - head - 6, behavior: idx ? 'smooth' : 'auto' });
     });
     B.say(idx === 0
-      ? [`Har ${sonli ? 'bir sonni' : 'birini'} ikki savol bilan tekshiring: «${t.setAName}»mi? «${t.setBName}»mi? Keyin kerakli joyni bosing.`]
-      : [`Yangi raund: «${t.setAName}» va «${t.setBName}».`], 'idle');
+      ? [`Har ${sonli ? 'bir meteoritni' : 'birini'} ikki savol bilan tekshiring: «${t.setAName}»mi? «${t.setBName}»mi? Keyin kerakli maydonni bosing.`]
+      : [`Yangi raund: «${t.setAName}» va «${t.setBName}» sayyoralari.`], 'idle');
   }
   round();
 }
