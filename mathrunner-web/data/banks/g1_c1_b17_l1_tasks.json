@@ -155,12 +155,12 @@
   {
     "id": "g1c1b17l1_bal_10",
     "prompt": "Bitta oltiburchak necha kg?",
-    "hint": "Tarozida 1 ta bir xil oltiburchak turibdi",
+    "hint": "Tarozida 1 ta bir xil oltiburchak va 2 kg li tosh turibdi",
     "shape": "hexagon",
     "shapeColor": "violet",
     "shapeCount": 1,
-    "knownWeight": 0,
-    "total": 4,
+    "knownWeight": 2,
+    "total": 6,
     "options": [
       2,
       3,

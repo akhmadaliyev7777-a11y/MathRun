@@ -107,8 +107,19 @@ Fayllar: `robi-oddiy.png`, `robi-xursand.png`, `robi-tushuntiradi.png`, `robi-oy
 
 ---
 
+## 6. Tarozi — sehrli bozor
+**6.1 Fon** (`tarozi-bozor.png`):
+> A magical oriental bazaar at dusk, seen from behind a wooden market counter: blue tiled domes and a slim minaret
+> in the distance, a purple-orange evening sky with a crescent moon and a few stars, a red-and-cream striped awning
+> at the top edge, a string of glowing colorful lanterns. The center must stay calm and simple (a brass balance scale
+> will be placed there). Soft 3D cartoon style, no text, no people. Portrait 1080×1600.
+
+**6.2 Kristallar** (`kristall-<shakl>.png` — uchburchak, doira, kvadrat, yulduz, oltiburchak):
+> A single shiny magical gem crystal in the shape of a [triangle / round orb / square / five-point star / hexagon],
+> [yellow / green / blue / orange / violet], faceted, softly glowing, front view. Soft 3D cartoon style,
+> transparent background, no text. 512×512.
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
-- Tarozi — sehrli bozor / qal'a
 - Yoyilma — origami ustaxonasi
 - Koordinata — xazina oroli xaritasi
 Har birining promptlari o'sha o'yinga o'tganda yoziladi. **Musiqa** ham keyinroq qo'shiladi.
