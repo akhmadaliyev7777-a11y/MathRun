@@ -1,225 +1,514 @@
 [
-  {
-    "id": "sinf4_chorak3_blok43_level2_tart_01",
-    "prompt": "Bir xil maxrajli kasrlar: surati qancha katta bo'lsa, kasr shuncha katta. Suratlarni o'sish tartibida joylashtiring",
-    "numbers": [
-      3,
-      1,
-      5,
-      2
-    ],
-    "ascending": true
-  },
-  {
-    "id": "sinf4_chorak3_blok43_level2_tart_02",
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini o'sish tartibida joylashtiring",
-    "numbers": [
-      7,
-      4,
-      9,
-      2,
-      6
-    ],
-    "ascending": true
-  },
-  {
-    "id": "sinf4_chorak3_blok43_level2_tart_03",
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini kamayish tartibida joylashtiring",
-    "numbers": [
-      5,
-      8,
-      2,
-      6
-    ],
-    "ascending": false
-  },
-  {
-    "id": "sinf4_chorak3_blok43_level2_tart_04",
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini o'sish tartibida joylashtiring",
-    "numbers": [
-      1,
-      4,
-      7,
-      3,
-      6
-    ],
-    "ascending": true
-  },
-  {
-    "id": "sinf4_chorak3_blok43_level2_tart_05",
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini kamayish tartibida joylashtiring",
-    "numbers": [
-      9,
-      3,
-      11,
-      6
-    ],
-    "ascending": false
-  },
-  {
-    "id": "sinf4_chorak3_blok43_level2_tart_06",
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini o'sish tartibida joylashtiring",
-    "numbers": [
-      2,
-      5,
-      8,
-      1,
-      4
-    ],
-    "ascending": true
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini o'sish tartibida joylashtiring",
-    "numbers": [
-      9,
-      7,
-      4,
-      3
-    ],
-    "ascending": true,
-    "id": "sinf4_chorak3_blok43_level2_tart_x01"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini kamayish tartibida joylashtiring",
-    "numbers": [
-      8,
-      10,
-      3,
-      4
-    ],
-    "ascending": false,
-    "id": "sinf4_chorak3_blok43_level2_tart_x02"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini o'sish tartibida joylashtiring",
-    "numbers": [
-      8,
-      4,
-      2,
-      9
-    ],
-    "ascending": true,
-    "id": "sinf4_chorak3_blok43_level2_tart_x03"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini kamayish tartibida joylashtiring",
-    "numbers": [
-      1,
-      7,
-      8,
-      11
-    ],
-    "ascending": false,
-    "id": "sinf4_chorak3_blok43_level2_tart_x04"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini o'sish tartibida joylashtiring",
-    "numbers": [
-      8,
-      4,
-      6,
-      2
-    ],
-    "ascending": true,
-    "id": "sinf4_chorak3_blok43_level2_tart_x05"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini kamayish tartibida joylashtiring",
-    "numbers": [
-      2,
-      6,
-      9,
-      10
-    ],
-    "ascending": false,
-    "id": "sinf4_chorak3_blok43_level2_tart_x06"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini o'sish tartibida joylashtiring",
-    "numbers": [
-      4,
-      1,
-      5,
-      3
-    ],
-    "ascending": true,
-    "id": "sinf4_chorak3_blok43_level2_tart_x07"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini kamayish tartibida joylashtiring",
-    "numbers": [
-      2,
-      9,
-      7,
-      6
-    ],
-    "ascending": false,
-    "id": "sinf4_chorak3_blok43_level2_tart_x08"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlar: surati qancha katta bo'lsa, kasr shuncha katta. Suratlarni o'sish tartibida joylashtiring",
-    "numbers": [
-      10,
-      9,
-      3,
-      5
-    ],
-    "ascending": true,
-    "id": "sinf4_chorak3_blok43_level2_tart_x09"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini kamayish tartibida joylashtiring",
-    "numbers": [
-      4,
-      7,
-      11,
-      2
-    ],
-    "ascending": false,
-    "id": "sinf4_chorak3_blok43_level2_tart_x10"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlar: surati qancha katta bo'lsa, kasr shuncha katta. Suratlarni o'sish tartibida joylashtiring",
-    "numbers": [
-      4,
-      1,
-      7,
-      11
-    ],
-    "ascending": true,
-    "id": "sinf4_chorak3_blok43_level2_tart_x11"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini kamayish tartibida joylashtiring",
-    "numbers": [
-      11,
-      10,
-      3,
-      5
-    ],
-    "ascending": false,
-    "id": "sinf4_chorak3_blok43_level2_tart_x12"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlar: surati qancha katta bo'lsa, kasr shuncha katta. Suratlarni o'sish tartibida joylashtiring",
-    "numbers": [
-      10,
-      5,
-      2,
-      8
-    ],
-    "ascending": true,
-    "id": "sinf4_chorak3_blok43_level2_tart_x13"
-  },
-  {
-    "prompt": "Bir xil maxrajli kasrlarning suratlarini kamayish tartibida joylashtiring",
-    "numbers": [
-      7,
-      10,
-      1,
-      3
-    ],
-    "ascending": false,
-    "id": "sinf4_chorak3_blok43_level2_tart_x14"
-  }
+ {
+  "id": "g4c3b43l2_kasr_01",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    1,
+    10
+   ],
+   [
+    5,
+    10
+   ],
+   [
+    6,
+    10
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    9,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_02",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    11,
+    11
+   ],
+   [
+    3,
+    11
+   ],
+   [
+    14,
+    11
+   ],
+   [
+    2,
+    11
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_03",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    8,
+    7
+   ],
+   [
+    9,
+    7
+   ],
+   [
+    7,
+    7
+   ],
+   [
+    6,
+    7
+   ],
+   [
+    1,
+    7
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_04",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    7,
+    12
+   ],
+   [
+    8,
+    12
+   ],
+   [
+    3,
+    12
+   ],
+   [
+    4,
+    12
+   ],
+   [
+    9,
+    12
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_05",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    3,
+    11
+   ],
+   [
+    1,
+    11
+   ],
+   [
+    8,
+    11
+   ],
+   [
+    9,
+    11
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_06",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    10,
+    9
+   ],
+   [
+    4,
+    9
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    13,
+    9
+   ],
+   [
+    2,
+    9
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_07",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    3,
+    12
+   ],
+   [
+    13,
+    12
+   ],
+   [
+    8,
+    12
+   ],
+   [
+    7,
+    12
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_08",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    2,
+    5
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    4,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_09",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    2,
+    10
+   ],
+   [
+    4,
+    10
+   ],
+   [
+    8,
+    10
+   ],
+   [
+    5,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_10",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    2,
+    8
+   ],
+   [
+    5,
+    8
+   ],
+   [
+    10,
+    8
+   ],
+   [
+    11,
+    8
+   ],
+   [
+    9,
+    8
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_11",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    5,
+    5
+   ],
+   [
+    6,
+    5
+   ],
+   [
+    8,
+    5
+   ],
+   [
+    2,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_12",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    1,
+    6
+   ],
+   [
+    3,
+    6
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    4,
+    6
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_13",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    1,
+    5
+   ],
+   [
+    7,
+    5
+   ],
+   [
+    8,
+    5
+   ],
+   [
+    3,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_14",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    2,
+    10
+   ],
+   [
+    6,
+    10
+   ],
+   [
+    7,
+    10
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    9,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_15",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    2,
+    11
+   ],
+   [
+    4,
+    11
+   ],
+   [
+    10,
+    11
+   ],
+   [
+    3,
+    11
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_16",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    5,
+    11
+   ],
+   [
+    6,
+    11
+   ],
+   [
+    4,
+    11
+   ],
+   [
+    8,
+    11
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_17",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    5,
+    9
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    2,
+    9
+   ],
+   [
+    6,
+    9
+   ],
+   [
+    3,
+    9
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_18",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    3,
+    10
+   ],
+   [
+    8,
+    10
+   ],
+   [
+    2,
+    10
+   ],
+   [
+    9,
+    10
+   ],
+   [
+    7,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_19",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    1,
+    6
+   ],
+   [
+    7,
+    6
+   ],
+   [
+    10,
+    6
+   ],
+   [
+    8,
+    6
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b43l2_kasr_20",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    2,
+    9
+   ],
+   [
+    8,
+    9
+   ],
+   [
+    7,
+    9
+   ],
+   [
+    1,
+    9
+   ]
+  ]
+ }
 ]

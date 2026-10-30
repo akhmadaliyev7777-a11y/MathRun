@@ -1174,3 +1174,12 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 @media (prefers-reduced-motion: reduce) {
   .orman__bulut, .tutun circle { animation: none; }
 }
+/* kasrli qutilar: ustma-ust kasr va kichik doira-bo'lak */
+.kasr { display: inline-flex; flex-direction: column; align-items: center; line-height: 1; font-style: normal; }
+.kasr i { font-style: normal; display: block; padding: 0 3px; }
+.kasr i:first-child { border-bottom: 2.5px solid currentColor; padding-bottom: 2px; }
+.kasr i:last-child { padding-top: 2px; }
+.quti--kasr { height: 66px; min-width: 58px; gap: 6px; font-size: 20px; background: repeating-linear-gradient(0deg, #e6b06a 0 12px, #cf9450 12px 13px); }   /* qiyshiq tirgaksiz — kasr aniq o'qilsin */
+.pirog { flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%; border: 2px solid #6e4423;
+  background: conic-gradient(#e8590c 0 var(--p), #fff5e6 var(--p) 360deg); }
+@media (max-width: 520px) { .quti--kasr { height: 60px; min-width: 52px; font-size: 18px; } .pirog { width: 15px; height: 15px; } }

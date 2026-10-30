@@ -2,11 +2,11 @@
  "generatedAt": "2026-09-06",
  "source": "castles_data.dart",
  "totals": {
-  "levels": 574,
+  "levels": 575,
   "testLevels": 501,
-  "gameLevels": 73,
+  "gameLevels": 74,
   "questions": 5020,
-  "gameTasks": 647
+  "gameTasks": 667
  },
  "gameKindsSupported": [
   "test",
@@ -6387,6 +6387,18 @@
          "count": 10,
          "bank": "banks/g4_c3_b46_l2_questions.json",
          "webSupported": true
+        },
+        {
+         "id": "g4_c3_b46_l3",
+         "level": 3,
+         "gameKind": "numberOrder",
+         "count": 20,
+         "bank": "banks/g4_c3_b46_l3_tasks.json",
+         "webSupported": true,
+         "mashqNomlari": [
+          "Maxrajlari bir xil",
+          "Suratlari bir xil"
+         ]
         }
        ]
       },

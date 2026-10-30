@@ -7,7 +7,7 @@ import { shell, checkBtn, flash } from './shell.js';
 import { MORE } from './more.js';
 import { netSVG } from './nets.js';
 import { gameSet } from './venn.js?v=6';
-import { gameNumberOrder } from './tartib.js?v=3';
+import { gameNumberOrder } from './tartib.js?v=5';
 
 // ================= placeValue =================
 function gamePlaceValue(ctx) {

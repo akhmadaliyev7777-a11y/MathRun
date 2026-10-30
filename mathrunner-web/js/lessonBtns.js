@@ -26,7 +26,7 @@ export function lessonButtons(b, best) {
     } else {
       const n = Math.max(1, Math.ceil(lv.count / MASHQ_SIZE));
       for (let m = 1; m <= n; m++)
-        out.push(starBtn(best, `${lv.id}:m${m}`, `${m}-mashq`, `#/play/${lv.id}/${m}`, GAME_LABEL[lv.gameKind] || "O'yin", first));
+        out.push(starBtn(best, `${lv.id}:m${m}`, (lv.mashqNomlari && n > 1 && lv.mashqNomlari[0] !== lv.mashqNomlari[1] ? lv.mashqNomlari[m - 1] : `${m}-mashq`), `#/play/${lv.id}/${m}`, GAME_LABEL[lv.gameKind] || "O'yin", first));   // mashqlar har xil bo'lsa — nomi bilan
     }
     first = false;
   }

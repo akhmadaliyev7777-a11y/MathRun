@@ -1,0 +1,498 @@
+[
+ {
+  "id": "g4c3b46l3_maxraj_01",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    4,
+    7
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    2,
+    7
+   ],
+   [
+    6,
+    7
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_maxraj_02",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    4,
+    9
+   ],
+   [
+    6,
+    9
+   ],
+   [
+    5,
+    9
+   ],
+   [
+    3,
+    9
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_maxraj_03",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    1,
+    5
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    2,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_maxraj_04",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    3,
+    6
+   ],
+   [
+    5,
+    6
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    1,
+    6
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_maxraj_05",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    3,
+    10
+   ],
+   [
+    7,
+    10
+   ],
+   [
+    6,
+    10
+   ],
+   [
+    5,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_maxraj_06",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    6,
+    7
+   ],
+   [
+    4,
+    7
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    5,
+    7
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_maxraj_07",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    7,
+    12
+   ],
+   [
+    8,
+    12
+   ],
+   [
+    5,
+    12
+   ],
+   [
+    2,
+    12
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_maxraj_08",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    2,
+    6
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    3,
+    6
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_maxraj_09",
+  "tur": "maxraj",
+  "ascending": true,
+  "prompt": "Maxrajlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    5,
+    7
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    6,
+    7
+   ],
+   [
+    2,
+    7
+   ],
+   [
+    4,
+    7
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_maxraj_10",
+  "tur": "maxraj",
+  "ascending": false,
+  "prompt": "Maxrajlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    6,
+    11
+   ],
+   [
+    2,
+    11
+   ],
+   [
+    9,
+    11
+   ],
+   [
+    5,
+    11
+   ],
+   [
+    4,
+    11
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_surat_01",
+  "tur": "surat",
+  "ascending": true,
+  "prompt": "Suratlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    7
+   ],
+   [
+    2,
+    8
+   ],
+   [
+    2,
+    9
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_surat_02",
+  "tur": "surat",
+  "ascending": false,
+  "prompt": "Suratlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    4,
+    5
+   ],
+   [
+    4,
+    12
+   ],
+   [
+    4,
+    8
+   ],
+   [
+    4,
+    11
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_surat_03",
+  "tur": "surat",
+  "ascending": true,
+  "prompt": "Suratlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    4,
+    9
+   ],
+   [
+    4,
+    10
+   ],
+   [
+    4,
+    8
+   ],
+   [
+    4,
+    6
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_surat_04",
+  "tur": "surat",
+  "ascending": false,
+  "prompt": "Suratlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    12
+   ],
+   [
+    1,
+    10
+   ],
+   [
+    1,
+    7
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_surat_05",
+  "tur": "surat",
+  "ascending": true,
+  "prompt": "Suratlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    3,
+    6
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    8
+   ],
+   [
+    3,
+    11
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_surat_06",
+  "tur": "surat",
+  "ascending": false,
+  "prompt": "Suratlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    4,
+    10
+   ],
+   [
+    4,
+    11
+   ],
+   [
+    4,
+    8
+   ],
+   [
+    4,
+    12
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_surat_07",
+  "tur": "surat",
+  "ascending": true,
+  "prompt": "Suratlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    4,
+    7
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    4,
+    11
+   ],
+   [
+    4,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_surat_08",
+  "tur": "surat",
+  "ascending": false,
+  "prompt": "Suratlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    4,
+    7
+   ],
+   [
+    4,
+    11
+   ],
+   [
+    4,
+    12
+   ],
+   [
+    4,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_surat_09",
+  "tur": "surat",
+  "ascending": true,
+  "prompt": "Suratlari bir xil kasrlarni o'sish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    1,
+    7
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "g4c3b46l3_surat_10",
+  "tur": "surat",
+  "ascending": false,
+  "prompt": "Suratlari bir xil kasrlarni kamayish tartibida joylashtiring",
+  "kasrlar": [
+   [
+    1,
+    8
+   ],
+   [
+    1,
+    11
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    5
+   ]
+  ]
+ }
+]

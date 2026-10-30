@@ -4,7 +4,7 @@
 // son avval kelishini va nega ekanini (katta sonlarda — qaysi xonasi kichik) bir qatorda aytadi.
 // Hamma vagon to'lsa — poyezd hushtak chalib jo'nab ketadi. Raundda 3 ta yurak; tugasa — qolgan qutilar o'zi ortiladi.
 import { el, shuffle } from '../util.js';
-import { shell } from './shell.js';
+import { shell } from './shell.js?v=2';
 import { hud, buddy, sfx, floatText } from './hud.js?v=3';
 
 const XONA = ['birlik', "o'nlik", 'yuzlik', 'minglik', "o'n minglik", "yuz minglik", 'million', "o'n million"];
@@ -24,6 +24,14 @@ function sabab(first, other, asc) {
     return `${fmt(first)} ${zn} ${fmt(other)}: ${XONA[a.length - 1 - i]}lari ${a[i]} ${zn} ${b[i]}`;
   }
   return `${fmt(first)} = ${fmt(other)}`;
+}
+
+// kasrlar: maxrajlari bir xil — suratini, suratlari bir xil — maxrajini solishtiramiz
+function kasrSabab(first, other, asc) {
+  const zn = asc ? '<' : '>';
+  if (first.d === other.d) return `Maxrajlar bir xil (${first.d}) → suratlarni solishtiramiz: ${first.n} ${zn} ${other.n}, demak ${first.key} ${zn} ${other.key}`;
+  if (first.n === other.n) return `Suratlar bir xil (${first.n}) → maxraji katta kasrning bo'laklari mayda: ${first.key} ${zn} ${other.key}`;
+  return `${first.key} ${zn} ${other.key}`;
 }
 
 // bug' lokomotivi (chapga qaragan): qozon, mo'ri, gumbaz, kabina, oldidagi to'siq; mo'ridan tutun chiqadi
@@ -88,12 +96,22 @@ export function gameNumberOrder(ctx) {
     s.setProg(idx, tasks.length);
     H.resetHearts();
     const asc = t.ascending;
-    const target = [...t.numbers].sort((a, b) => (asc ? a - b : b - a));
+    // topshiriq sonlar yoki kasrlardan iborat; har biri {key, val} — solishtirish val bo'yicha
+    const kasr = !!t.kasrlar;
+    const items = kasr ? t.kasrlar.map(([a, b]) => ({ key: `${a}/${b}`, n: a, d: b, val: a / b }))
+      : t.numbers.map(v => ({ key: String(v), v, val: v }));
+    const target = [...items].sort((a, b) => (asc ? a.val - b.val : b.val - a.val));
     const n = target.length;
-    let pool = shuffle(t.numbers);
+    let pool = shuffle(items);
     const loaded = [];
     let busy = false, mistakes = 0, shownAt = performance.now();
-    const maxLen = Math.max(...t.numbers.map(v => fmt(v).length));
+    const maxLen = kasr ? Math.max(...items.map(it => String(Math.max(it.n, it.d)).length)) : Math.max(...items.map(it => fmt(it.v).length));
+    const txt = (it) => (kasr ? it.key : fmt(it.v));
+    // quti ustidagi yozuv: son yoki ustma-ust kasr (to'g'ri kasrda yonida kichik doira-bo'lak)
+    const lbl = (it) => kasr
+      ? [el('span', { class: 'kasr' }, el('i', {}, it.n), el('i', {}, it.d)),
+        it.n <= it.d ? el('i', { class: 'pirog', style: `--p:${(it.n / it.d) * 360}deg` }) : null]
+      : [fmt(it.v)];
 
     // ---- poyezd: lokomotiv + n ta vagon ----
     const wagons = target.map((_, i) => el('div', { class: 'vagon' }, el('span', { class: 'vagon__yuk' }), el('div', { class: 'vagon__rasm', html: VAGON(VRANG[i % 3]) })));
@@ -111,39 +129,39 @@ export function gameNumberOrder(ctx) {
       bekat.style.setProperty('--qfs', Math.max(12, Math.min(22, 120 / maxLen + 6)) + 'px');
     };
     function drawBekat() {
-      bekat.replaceChildren(...pool.map(v => el('button', { class: 'quti' + (maxLen > 3 ? ' quti--keng' : ''), type: 'button', onclick: (ev) => pick(v, ev.currentTarget) }, fmt(v))));
+      bekat.replaceChildren(...pool.map(it => el('button', { class: 'quti' + (maxLen > 3 ? ' quti--keng' : '') + (kasr ? ' quti--kasr' : ''), type: 'button', dataset: { key: it.key }, 'aria-label': txt(it), onclick: (ev) => pick(it, ev.currentTarget) }, ...lbl(it))));
       shownAt = performance.now();
     }
 
     // quti uchib vagonga tushadi
-    function fly(from, to, v, done) {
+    function fly(from, to, it, done) {
       const a = from.getBoundingClientRect(), b = to.getBoundingClientRect();
-      const f = el('div', { class: 'quti fly' + (maxLen > 3 ? ' quti--keng' : ''), style: `left:${a.left}px;top:${a.top}px;width:${a.width}px;height:${a.height}px;font-size:${getComputedStyle(from).fontSize}` }, fmt(v));
+      const f = el('div', { class: 'quti fly' + (maxLen > 3 ? ' quti--keng' : '') + (kasr ? ' quti--kasr' : ''), style: `left:${a.left}px;top:${a.top}px;width:${a.width}px;height:${a.height}px;font-size:${getComputedStyle(from).fontSize}` }, ...lbl(it));
       document.body.append(f);
       requestAnimationFrame(() => {
         f.style.transform = `translate(${b.left + b.width / 2 - a.left - a.width / 2}px, ${b.top + b.height / 2 - a.top - a.height / 2}px) scale(.8)`;
       });
       setTimeout(() => { f.remove(); done(); }, 380);
     }
-    const setWagon = (k, v, cls) => {
+    const setWagon = (k, it, cls) => {
       const w = wagons[k];
       w.className = 'vagon is-full' + (cls || '');
-      w.querySelector('.vagon__yuk').textContent = fmt(v);
+      w.querySelector('.vagon__yuk').replaceChildren(kasr ? `${it.n}/${it.d}` : fmt(it.v));   // vagondagi kichik qutida kasr bir qatorda
       navbat();
     };
     const qoida = asc ? 'eng kichigini' : 'eng kattasini';
 
-    function pick(v, btn) {
+    function pick(v, btn) {   // v — topshiriq elementi {key, val}
       if (busy || loaded.length >= n) return;
       busy = true;
       const k = loaded.length, want = target[k];
       times.push(performance.now() - shownAt);
       placedAll++;
-      const ok = v === want;
+      const ok = v.key === want.key;
       fly(btn, wagons[k], v, () => {
         if (ok) {
           right++;
-          loaded.push(v); pool = pool.filter(x => x !== v);
+          loaded.push(v); pool = pool.filter(x => x.key !== v.key);
           setWagon(k, v, ' is-in');
           const m = H.hit(); longest = Math.max(longest, H.st.combo);
           const fast = performance.now() - shownAt < 4000;
@@ -151,21 +169,21 @@ export function gameNumberOrder(ctx) {
           if (fast && m < 2) setTimeout(() => floatText('⚡ Tez!', wagons[k], 'hud-float--tez'), 150);
           sfx.ok();
           B.say(k === 0
-            ? [el('b', { class: 'rnum' }, fmt(v)), ` — ${asc ? 'eng kichigi' : 'eng kattasi'}, birinchi vagonga!`]
-            : [el('b', { class: 'rnum' }, fmt(v)), ` — qolganlarning ${asc ? 'eng kichigi' : 'eng kattasi'}.`], 'ok');
+            ? [el('b', { class: 'rnum' }, txt(v)), ` — ${asc ? 'eng kichigi' : 'eng kattasi'}, birinchi vagonga!`]
+            : [el('b', { class: 'rnum' }, txt(v)), ` — qolganlarning ${asc ? 'eng kichigi' : 'eng kattasi'}.`], 'ok');
           busy = false; drawBekat();
           if (loaded.length === n) depart();
         } else {
           mistakes++; H.miss(); sfx.bad();
           setWagon(k, v, ' is-wrong');
           const left = H.loseHeart();
-          B.say([el('span', { class: 'rchip rchip--yoq' }, `${fmt(v)} emas`), ' ',
-            el('span', { class: 'rchip rchip--ha' }, `avval ${fmt(want)}`), el('br'),
-            sabab(want, v, asc), '. ', `Har safar qolganlar ichidan ${qoida} oling.`], 'bad');
+          B.say([el('span', { class: 'rchip rchip--yoq' }, `${txt(v)} emas`), ' ',
+            el('span', { class: 'rchip rchip--ha' }, `avval ${txt(want)}`), el('br'),
+            kasr ? kasrSabab(want, v, asc) : sabab(want.v, v.v, asc), '. ', `Har safar qolganlar ichidan ${qoida} oling.`], 'bad');
           setTimeout(() => {
             wagons[k].className = 'vagon'; wagons[k].querySelector('.vagon__yuk').textContent = ''; navbat();
             drawBekat();
-            const b = [...bekat.children].find(x => x.textContent === fmt(want));
+            const b = [...bekat.children].find(x => x.dataset.key === want.key);
             if (b) b.classList.add('is-hint');           // to'g'ri qutini bir lahza ko'rsatadi
             busy = false;
             if (left === 0) autoRest();
@@ -181,10 +199,10 @@ export function gameNumberOrder(ctx) {
       const step = () => {
         if (loaded.length >= n) { busy = false; return depart(); }
         const k = loaded.length, v = target[k];
-        const btn = [...bekat.children].find(x => x.textContent === fmt(v));
+        const btn = [...bekat.children].find(x => x.dataset.key === v.key);
         placedAll++;
         fly(btn || bekat, wagons[k], v, () => {
-          loaded.push(v); pool = pool.filter(x => x !== v);
+          loaded.push(v); pool = pool.filter(x => x.key !== v.key);
           setWagon(k, v, ' is-auto'); drawBekat(); setTimeout(step, 280);
         });
       };
@@ -213,7 +231,7 @@ export function gameNumberOrder(ctx) {
 
     drawBekat();
     const bar = ctx.root.querySelector('.prompt');
-    const umumiy = /^Sonlarni (o'sish|kamayish) tartibida/.test(t.prompt || '');
+    const umumiy = /^(Sonlarni|Maxrajlari bir xil kasrlarni|Suratlari bir xil kasrlarni) (o'sish|kamayish) tartibida/.test(t.prompt || '');
     if (bar) bar.hidden = umumiy;
     // bekat binosi: cherepitsali tom, ustunlar, osilgan taxtacha va fonarlar, taxtali supa, tosh poydevor
     const bino = el('div', { class: 'bino' },
@@ -236,9 +254,12 @@ export function gameNumberOrder(ctx) {
       const head = document.querySelector('.site-header')?.offsetHeight || 0;
       scrollTo({ top: sahna.getBoundingClientRect().top + scrollY - head - 6, behavior: idx ? 'smooth' : 'auto' });
     });
+    const kasrQoida = !kasr ? '' : t.kasrlar.every(([, d]) => d === t.kasrlar[0][1])
+      ? 'Maxrajlari bir xil: surati katta kasr — katta. '
+      : "Suratlari bir xil: maxraji kichik kasr — katta (bo'laklari yirik). ";
     B.say(idx === 0
-      ? [`Qutilarni vagonlarga ${asc ? "o'sish" : 'kamayish'} tartibida ortamiz: har safar qolganlar ichidan ${qoida} toping.`]
-      : [`Yangi poyezd: ${asc ? "o'sish" : 'kamayish'} tartibida.`], 'idle');
+      ? [kasrQoida + `Qutilarni vagonlarga ${asc ? "o'sish" : 'kamayish'} tartibida ortamiz: har safar qolganlar ichidan ${qoida} toping.`]
+      : [kasrQoida + `Yangi poyezd: ${asc ? "o'sish" : 'kamayish'} tartibida.`], 'idle');
   }
   round();
 }

@@ -20,7 +20,7 @@ export function shell(ctx, promptText, iconKey, autoPrompt = false) {
     el('main', { class: 'gwrap' },
       // qaysi mashq, nechanchi topshiriq va jami nechta ekani doim ko'rinib turadi
       el('div', { class: 'gtop' },
-        el('span', { class: 'gtop__mashq' }, `${ctx.mashq}-mashq`, el('small', {}, ` · jami ${ctx.totalTasks} ta topshiriq, ${ctx.mashqCount} ta mashq`)),
+        el('span', { class: 'gtop__mashq' }, `${ctx.mashq}-mashq` + (ctx.level.mashqNomlari?.[ctx.mashq - 1] ? ` · ${ctx.level.mashqNomlari[ctx.mashq - 1]}` : ''), el('small', {}, ` · jami ${ctx.totalTasks} ta topshiriq, ${ctx.mashqCount} ta mashq`)),
         el('b', { class: 'gtop__prog', id: 'gprog' }, '')),
       el('div', { class: 'prompt' },
         el('span', { style: 'width:22px;height:22px;flex-shrink:0', html: ICON[iconKey] || ICON.spark }),
