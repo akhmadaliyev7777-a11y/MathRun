@@ -93,8 +93,21 @@ Fayllar: `robi-oddiy.png`, `robi-xursand.png`, `robi-tushuntiradi.png`, `robi-oy
 
 ---
 
+## 5. «Saralash» o'yini — robot zavodi
+
+**5.1 Orqa fon** (`zavod-fon.png`):
+> A friendly cartoon robot factory interior for a children's game: blue-grey metal wall panels with rivets, a few pipes
+> and big slowly turning gears near the top corners, soft cool lighting, a bit of warm light from lamps. The center must
+> stay calm and simple (a conveyor belt will be placed there). Soft 3D cartoon style, no text. Portrait 1080×1600.
+
+**5.2 Bunkerlar** (`bunker-ha.png`, `bunker-yoq.png`):
+> A cartoon factory sorting bin / hopper with an open top, front view: one GREEN with a big white check mark sign
+> (no letters), and the same bin RED with a big white X sign (no letters). Soft 3D cartoon style, transparent background,
+> no text. 768×512 each.
+
+---
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
-- Saralash — kosmik zavod konveyeri
 - Tarozi — sehrli bozor / qal'a
 - Yoyilma — origami ustaxonasi
 - Koordinata — xazina oroli xaritasi

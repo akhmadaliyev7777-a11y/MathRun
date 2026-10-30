@@ -1261,3 +1261,52 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .vagon__yuk .kasr i:first-child { border-bottom-width: 1.5px; padding-bottom: 1px; }
 .vagon__yuk .kasr i:last-child { padding-top: 1px; }
 .vagon__yuk:has(.kasr) { top: -22%; }
+
+/* ===== O'yin sahnasi — robot zavodi (Saralash) ===== */
+.sahna--zavod { color: #fff;
+  background:
+    radial-gradient(circle, rgba(255,255,255,.18) 1.5px, transparent 2px) 0 0 / 46px 46px,
+    repeating-linear-gradient(90deg, transparent 0 92px, rgba(0,0,0,.25) 92px 94px),
+    repeating-linear-gradient(0deg, transparent 0 92px, rgba(0,0,0,.2) 92px 94px),
+    linear-gradient(180deg, #3b5568 0%, #2b4152 60%, #1f303d 100%); }
+.zavod__tishli { position: absolute; z-index: 0; color: rgba(150,180,200,.35); pointer-events: none; animation: g-spin 14s linear infinite; }
+.zavod__tishli svg { width: 100%; height: 100%; display: block; }
+.zavod__tishli--1 { width: 130px; height: 130px; right: -40px; top: -44px; }
+.zavod__tishli--2 { width: 86px; height: 86px; right: 70px; top: 18px; animation-direction: reverse; animation-duration: 9s; }
+.zavod__quvur { position: absolute; z-index: 0; left: 0; right: 0; bottom: 4px; height: 12px; background: linear-gradient(180deg, #8fa3b3, #5b7083 60%, #44576a); box-shadow: 0 2px 0 rgba(0,0,0,.25); }
+.zavod__quvur::before, .zavod__quvur::after { content: ""; position: absolute; top: -4px; width: 12px; height: 22px; border-radius: 3px; background: #6f8496; }
+.zavod__quvur::before { left: 30%; } .zavod__quvur::after { left: 70%; }
+.sahna--zavod .hud { background: rgba(0,0,0,.25); }
+.konveyer { position: relative; z-index: 1; margin: 14px 0 10px; padding: 14px 16px 18px; border-radius: 16px; background: linear-gradient(180deg, #5d6b78, #44505c); box-shadow: 0 6px 0 #2b343d, inset 0 2px 0 rgba(255,255,255,.2); }
+.lenta { position: relative; height: 92px; overflow: hidden; border-radius: 10px; background: repeating-linear-gradient(90deg, #262b31 0 18px, #31373e 18px 36px); box-shadow: inset 0 3px 6px rgba(0,0,0,.55), inset 0 -3px 6px rgba(0,0,0,.45);
+  animation: g-lenta .9s linear infinite; }
+@keyframes g-lenta { from { background-position: 0 0; } to { background-position: 36px 0; } }
+.konveyer__rolik { position: absolute; z-index: 2; top: 50%; width: 22px; height: 22px; margin-top: -2px; border-radius: 50%; background: radial-gradient(circle, #c9d2da 0 25%, #7f8c98 26% 60%, #4b5661 61%); box-shadow: 0 2px 0 rgba(0,0,0,.35); animation: g-spin 1.2s linear infinite; }
+.konveyer__rolik--l { left: 3px; } .konveyer__rolik--r { right: 3px; }
+.karta { position: absolute; left: 0; top: 50%; margin-top: -32px; max-width: 72%; min-height: 64px; padding: 10px 14px; display: flex; align-items: center; justify-content: center; text-align: center;
+  border-radius: 10px; background: linear-gradient(180deg, #fffdf6, #f1e8cf); color: #2a2f38; border: 2px solid #c9b98f; box-shadow: 0 5px 0 #9c8a5c, 0 8px 12px rgba(0,0,0,.35);
+  font-family: var(--f-head); font-weight: 800; font-size: 18px; line-height: 1.25; white-space: nowrap; will-change: transform; }
+.karta.is-wrong { border-color: #e04848; background: #ffe4e4; animation: g-shake .45s; }
+.karta--uch { position: fixed; z-index: 55; margin: 0; top: auto; transition: transform .42s cubic-bezier(.4,.1,.6,1), opacity .42s; pointer-events: none; }
+.karta--uch.is-fixed { border-color: #22a35a; background: #e6fbee; }
+.bunkerlar { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.bunker { position: relative; height: 108px; padding-top: 20px; border-radius: 10px 10px 22px 22px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  font-family: var(--f-head); color: #fff; border: 3px solid rgba(0,0,0,.3); box-shadow: inset 0 10px 0 rgba(0,0,0,.25), 0 6px 0 rgba(0,0,0,.35); transition: transform .08s; }
+.bunker b { font-size: 24px; font-weight: 900; text-shadow: 0 2px 0 rgba(0,0,0,.35); }
+.bunker small { font-size: 12px; opacity: .75; font-weight: 800; }
+.bunker--ha { background: repeating-linear-gradient(135deg, rgba(0,0,0,.08) 0 10px, transparent 10px 20px), linear-gradient(180deg, #4ad07a, #239c52); }
+.bunker--yoq { background: repeating-linear-gradient(135deg, rgba(0,0,0,.08) 0 10px, transparent 10px 20px), linear-gradient(180deg, #ff6b6b, #d64545); }
+.bunker:active { transform: translateY(3px); }
+.bunker__chiroq { position: absolute; top: 7px; left: 50%; width: 30px; height: 9px; margin-left: -15px; border-radius: 6px; background: rgba(255,255,255,.35); }
+.bunker.ok .bunker__chiroq { animation: g-chiroq-ok .7s; }
+.bunker.bad .bunker__chiroq { animation: g-chiroq-bad .7s; }
+.bunker.ok { animation: g-pop .3s; } .bunker.bad { animation: g-shake .4s; }
+@keyframes g-chiroq-ok { 0%,60% { background: #b6ffcf; box-shadow: 0 0 14px 4px #5dff9a; } 100% { background: rgba(255,255,255,.35); } }
+@keyframes g-chiroq-bad { 0%,60% { background: #ffd0d0; box-shadow: 0 0 14px 4px #ff6b6b; } 100% { background: rgba(255,255,255,.35); } }
+@media (max-width: 520px) {
+  .konveyer { padding: 12px 12px 16px; }
+  .lenta { height: 84px; }
+  .karta { font-size: 16px; min-height: 58px; margin-top: -29px; padding: 8px 10px; white-space: normal; max-width: 78%; }
+  .bunker { height: 96px; }
+}
+@media (prefers-reduced-motion: reduce) { .lenta, .konveyer__rolik, .zavod__tishli { animation: none; } }

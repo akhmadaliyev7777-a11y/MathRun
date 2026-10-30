@@ -9,6 +9,7 @@ import { netSVG } from './nets.js';
 import { gameSet } from './venn.js?v=6';
 import { gameNumberOrder } from './tartib.js?v=8';
 import { gameEquationGrid } from './jadval.js?v=1';
+import { gameConveyor } from './saralash.js?v=4';
 
 // ================= placeValue =================
 function gamePlaceValue(ctx) {
@@ -221,32 +222,6 @@ function gameNetFold(ctx) {
     s.foot.replaceChildren();
   }
   render();
-}
-
-// ================= algorithmConveyor =================
-function gameConveyor(ctx) {
-  const items = ctx.bank; // [{text, isTrue}]
-  const s = shell(ctx, 'Har bir mulohaza uchun "Ha" yoki "Yo\'q" ni tanlang', 'spark');
-  s.setDone(0, items.length);
-  const picks = new Array(items.length).fill(null);
-
-  const list = el('div', { class: 'conv' });
-  function draw() {
-    s.setDone(picks.filter(p => p !== null).length, items.length);
-    list.replaceChildren(...items.map((it, i) => el('div', { class: 'conv__item' },
-      el('span', {}, it.text),
-      el('div', { class: 'conv__btns' },
-        el('button', { class: 'pick-yes' + (picks[i] === true ? ' on' : ''), onclick: () => { picks[i] = true; draw(); } }, 'Ha'),
-        el('button', { class: 'pick-no' + (picks[i] === false ? ' on' : ''), onclick: () => { picks[i] = false; draw(); } }, "Yo'q")))));
-  }
-  draw();
-  s.area.replaceChildren(list);
-  s.foot.replaceChildren(checkBtn('Tekshirish', () => {
-    if (picks.includes(null)) return;
-    let correct = 0;
-    picks.forEach((p, i) => { if (p === items[i].isTrue) correct++; });
-    ctx.finish(correct, items.length, { longestStreak: 0 });
-  }));
 }
 
 export const GAMES = {
