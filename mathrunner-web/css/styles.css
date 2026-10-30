@@ -1924,17 +1924,17 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .dasht-karta b { display: block; font-family: var(--f-head); font-size: 14px; }
 .dasht-karta small { font-weight: 800; color: #4a5568; }
 .dasht-karta--a { border-color: #2f6fe0; } .dasht-karta--b { border-color: #e0453a; }
-.dasht-karta__rasm svg { display: block; width: 46px; height: 32px; }
+.dasht-karta__rasm svg { display: block; width: 52px; height: auto; }
 .dasht-soat { position: relative; z-index: 2; width: fit-content; margin: 0 auto 6px; padding: 4px 14px; border-radius: 999px; background: #1f2430; color: #fff; font-family: var(--f-head); font-weight: 800; font-size: 15px; }
 .dasht-soat b { color: #ffd23f; font-size: 18px; }
 .dasht-soat__ikon { margin-right: 6px; }
 .dasht-oraliq { color: #c9f2d6; font-size: 14px; }
 /* yo'l */
-.dasht-yol { position: relative; z-index: 1; height: 196px; margin: 0 -4px; }
+.dasht-yol { position: relative; z-index: 1; height: 214px; margin: 0 -4px; }
 .dasht-asfalt { position: absolute; left: 0; right: 0; top: 64px; height: 92px; background: linear-gradient(180deg, #8a8f99 0 4px, #4a4f5a 4px calc(100% - 4px), #8a8f99 calc(100% - 4px)); box-shadow: 0 6px 0 #9db86a; }
 .dasht-chiziq { position: absolute; left: 0; right: 0; top: calc(50% - 2px); height: 4px; background: repeating-linear-gradient(90deg, #fff 0 22px, transparent 22px 40px); }
 .dasht-yol--bitta .dasht-chiziq { opacity: .4; }
-.dasht-km { position: absolute; top: 160px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
+.dasht-km { position: absolute; top: 178px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; }
 .dasht-km i { width: 8px; height: 16px; border-radius: 3px 3px 0 0; background: linear-gradient(180deg, #fff 0 55%, #e0453a 55%); border: 1px solid #6b7280; }
 .dasht-km small { font: 800 11px var(--f-head); color: #3b4a2a; }
 .dasht-qishloq { position: absolute; top: 0; width: 13%; max-width: 74px; text-align: center; }
@@ -1945,24 +1945,34 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .dasht-bekat { position: absolute; top: 22px; transform: translateX(-50%); display: flex; flex-direction: column-reverse; align-items: center; }
 .dasht-bekat i { display: block; width: 3px; height: 26px; margin: 0 auto; background: #6b7280; border-radius: 2px; }
 .dasht-bekat small { font: 800 11px var(--f-head); color: #fff; background: #1f8a4c; border-radius: 5px; padding: 0 4px; }
-.dasht-yurgan { position: absolute; z-index: 3; width: 74px; transform: translateX(-50%); transition: left .7s linear; }
+.dasht-yurgan { position: absolute; z-index: 3; width: 84px; transform: translateX(-50%); transition: left .7s linear; }
 .dasht-yurgan svg { display: block; width: 100%; height: auto; overflow: visible; }
-.dasht-yurgan--a { top: 59px; } .dasht-yurgan--b { top: 105px; }
-.dasht-yol--bitta .dasht-yurgan--a { top: 82px; }
+.dasht-yurgan--a { top: 49px; } .dasht-yurgan--b { top: 97px; }
+.dasht-yol--bitta .dasht-yurgan--a { top: 76px; }
+@media (min-width: 700px) {
+  .dasht-yurgan { width: 112px; }
+  .dasht-yurgan--a { top: 30px; } .dasht-yurgan--b { top: 79px; }
+  .dasht-yol--bitta .dasht-yurgan--a { top: 56px; }
+}
 .dasht-yurgan.chapga svg { transform: scaleX(-1); }
 .dasht-yurgan .gildirak { transform-box: fill-box; transform-origin: center; }
 .dasht-yurgan.yur .gildirak { animation: dasht-aylan .5s linear infinite; }
-.dasht-yurgan.yur .oyoq { transform-box: fill-box; transform-origin: top; animation: dasht-qadam .35s ease-in-out infinite alternate; }
+.dasht-yurgan .oyoq, .dasht-yurgan .qol { transform-origin: 60px 40px; }
+.dasht-yurgan .qol { transform-origin: 60px 20px; }
+.dasht-yurgan.yur .oyoq { animation: dasht-qadam .4s ease-in-out infinite alternate; }
+.dasht-yurgan.yur .oyoq--2 { animation-direction: alternate-reverse; }
+.dasht-yurgan.yur .qol { animation: dasht-qadam .4s ease-in-out infinite alternate-reverse; }
+.dasht-yurgan.yur .pedal { animation: dasht-aylan .6s linear infinite; }
 .dasht-yurgan.kutyapti { opacity: .75; }
-.dasht-yurgan.kutyapti .gildirak { animation: none; }
+.dasht-yurgan.kutyapti .gildirak, .dasht-yurgan.kutyapti .pedal { animation: none; }
 @keyframes dasht-aylan { to { transform: rotate(360deg); } }
-@keyframes dasht-qadam { from { transform: scaleX(.6); } to { transform: scaleX(1.2); } }
+@keyframes dasht-qadam { from { transform: rotate(-18deg); } to { transform: rotate(18deg); } }
 .dasht-izlar { position: absolute; inset: 0; pointer-events: none; }
 .dasht-iz { position: absolute; transform: translateX(-50%); font: 900 10px var(--f-head); color: #fff; padding: 0 4px; border-radius: 5px; animation: g-pop .3s; }
 .dasht-iz::before { content: ""; position: absolute; left: 50%; width: 2px; background: inherit; }
 .dasht-iz--a { top: 44px; background: #2f6fe0; } .dasht-iz--a::before { top: 100%; height: 6px; }
-.dasht-iz--b { top: 138px; background: #e0453a; } .dasht-iz--b::before { bottom: 100%; height: 8px; }
-.dasht-yol--bitta .dasht-iz--a { top: 140px; } .dasht-yol--bitta .dasht-iz--a::before { top: auto; bottom: 100%; height: 8px; }
+.dasht-iz--b { top: 160px; background: #e0453a; } .dasht-iz--b::before { bottom: 100%; height: 4px; }
+.dasht-yol--bitta .dasht-iz--a { top: 160px; } .dasht-yol--bitta .dasht-iz--a::before { top: auto; bottom: 100%; height: 4px; }
 .dasht-qavs { position: absolute; top: 106px; height: 0; border-top: 2px dashed #ffd23f; transition: left .6s linear, width .6s linear; pointer-events: none; }
 .dasht-qavs[hidden] { display: none; }
 .dasht-qavs small { position: absolute; left: 50%; top: -9px; transform: translateX(-50%); font: 900 12px var(--f-head); color: #1f2430; background: #ffd23f; border-radius: 6px; padding: 0 5px; white-space: nowrap; }
@@ -1980,9 +1990,9 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .dasht-jt.is-bad { border-color: #ef4444; background: #fff0f0; box-shadow: 0 4px 0 #b91c1c; animation: g-shake .45s; }
 @media (max-width: 520px) {
   .dasht-savol { font-size: 14px; }
-  .dasht-yurgan { width: 54px; }
-  .dasht-yurgan--a { top: 70px; } .dasht-yurgan--b { top: 116px; }
-  .dasht-yol--bitta .dasht-yurgan--a { top: 93px; }
+  .dasht-yurgan { width: 70px; }
+  .dasht-yurgan--a { top: 58px; } .dasht-yurgan--b { top: 106px; }
+  .dasht-yol--bitta .dasht-yurgan--a { top: 85px; }
   .dasht-javoblar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; } .dasht-jt { min-width: 0; }
   .dasht-karta { font-size: 12px; } .dasht-karta b { font-size: 13px; }
   .dasht-qishloq { width: 15%; }

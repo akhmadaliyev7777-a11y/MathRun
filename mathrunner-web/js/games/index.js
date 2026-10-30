@@ -1803,33 +1803,103 @@ function gameCoordinate(ctx) {
 // Tog'lar ostidagi dasht yo'li: chetlarida qishloqlar, km ustunlari, ikki qator — ikki yurgan (mashina, avtobus, velosipedchi…).
 // O'quvchi javobni tanlaydi, keyin soat-soat yurish ko'rsatiladi: har soat belgisi, oradagi masofa, uchrashish/quvib yetish.
 // Bank — tools/gen_harakat.py: tur (bitta, uchrash, ketish, quv, kech), sor (t, S, v, qoldi, joy, oldin).
-const MASHINA_RANG = [[/ko'k/i, '#2f6fe0'], [/qizil/i, '#e0453a'], [/oq/i, '#f4f6fa'], [/sariq|taksi/i, '#ffc928']];
-const gildirakSVG = (cls) => `<g class="${cls}"><circle r="7" fill="#22252e"/><circle r="3.4" fill="#c9ced8"/><path d="M0 -6.5V6.5M-6.5 0H6.5" stroke="#8b919e" stroke-width="1.2"/></g>`;
+const MASHINA_RANG = [[/ko'k/i, ['#2f6fe0', '#1d4aa8']], [/qizil/i, ['#e5483d', '#a82a22']], [/oq/i, ['#f4f6fa', '#aab2bf']], [/sariq|taksi/i, ['#ffcb2e', '#c99400']]];
+// g'ildirak: shina, disk, kegaylar (aylanadi); r — radius
+const gildirakSVG = (x, y, r = 9) => `<g transform="translate(${x} ${y})"><g class="gildirak">
+  <circle r="${r}" fill="#1b1d22"/><circle r="${r * 0.74}" fill="#3a3e47"/><circle r="${r * 0.6}" fill="#d9dee6" stroke="#8a919c" stroke-width=".8"/>
+  ${[0, 72, 144, 216, 288].map(a => `<path d="M0 0 L0 ${-r * 0.56}" stroke="#9aa1ad" stroke-width="${r * 0.16}" stroke-linecap="round" transform="rotate(${a})"/>`).join('')}
+  <circle r="${r * 0.18}" fill="#5b616c"/></g></g>`;
+// velosiped g'ildiragi: ingichka shina, ko'p simli
+const velGildirak = (x, y, r = 13) => `<g transform="translate(${x} ${y})"><g class="gildirak">
+  <circle r="${r}" fill="none" stroke="#1b1d22" stroke-width="2.6"/><circle r="${r - 2}" fill="none" stroke="#b9c0ca" stroke-width=".9"/>
+  ${Array.from({ length: 8 }, (_, i) => `<path d="M0 0 L0 ${-(r - 2)}" stroke="#aeb5bf" stroke-width=".6" transform="rotate(${i * 45})"/>`).join('')}
+  <circle r="1.6" fill="#5b616c"/></g></g>`;
+const soya = (x1, x2) => `<ellipse cx="${(x1 + x2) / 2}" cy="67" rx="${(x2 - x1) / 2}" ry="3" fill="#000" opacity=".22"/>`;
+const OYNA = '#a9d8f5';
+// odam (velosiped/mototsikl/piyoda uchun): kiyim rangi, ayolmi
+const kiyim = (nom) => (/Nilufar|Malika/.test(nom) ? ['#e2508a', true] : /Jasur|Bobur/.test(nom) ? ['#2f7be0', false] : /Sayyoh/.test(nom) ? ['#e8912c', false] : ['#2fae6a', false]);
+
 function transportSVG(y) {
-  const rang = (MASHINA_RANG.find(([re]) => re.test(y.nom)) || [0, '#2fae6a'])[1];
+  const [rang, qora] = (MASHINA_RANG.find(([re]) => re.test(y.nom)) || [0, ['#2fae6a', '#1d7a47']])[1];
+  const [ust, ayol] = kiyim(y.nom);
   const k = {
-    mashina: `<path d="M4 26 L6 17 Q8 14 14 13 L22 6 Q25 4 30 4 L44 4 Q49 4 52 8 L57 13 Q63 14 64 19 L64 26Z" fill="${rang}" stroke="#1f2430" stroke-width="1.6"/>
-      <path d="M24 8 L30 7 L36 7 L36 13 L19 13Z M39 7 L45 7 Q48 7 50 10 L52 13 L39 13Z" fill="#bfe3ff" stroke="#1f2430" stroke-width="1.2"/>
-      ${/taksi/i.test(y.nom) ? '<rect x="30" y="0" width="10" height="4" rx="1" fill="#1f2430"/><path d="M10 19h48" stroke="#1f2430" stroke-width="2" stroke-dasharray="3 3"/>' : ''}
-      <rect x="58" y="16" width="5" height="3" rx="1" fill="#ffe680"/><g transform="translate(16 26)">${gildirakSVG('gildirak')}</g><g transform="translate(52 26)">${gildirakSVG('gildirak')}</g>`,
-    avtobus: `<rect x="2" y="2" width="70" height="24" rx="5" fill="#ff9f1c" stroke="#1f2430" stroke-width="1.6"/><rect x="2" y="17" width="70" height="3" fill="#fff3d6"/>
-      ${[8, 20, 32, 44].map(x => `<rect x="${x}" y="6" width="9" height="8" rx="1.5" fill="#bfe3ff" stroke="#1f2430" stroke-width="1"/>`).join('')}<rect x="57" y="6" width="12" height="15" rx="2" fill="#bfe3ff" stroke="#1f2430" stroke-width="1"/>
-      <g transform="translate(16 27)">${gildirakSVG('gildirak')}</g><g transform="translate(58 27)">${gildirakSVG('gildirak')}</g>`,
-    yuk: `<rect x="2" y="2" width="44" height="22" rx="2" fill="#7c8a9c" stroke="#1f2430" stroke-width="1.6"/><path d="M8 7h32M8 12h32M8 17h32" stroke="#5e6b7c" stroke-width="1.4"/>
-      <path d="M48 24 V9 Q48 6 52 6 L60 6 Q63 6 65 10 L68 16 L68 24Z" fill="#e0453a" stroke="#1f2430" stroke-width="1.6"/><path d="M52 9h7l3 6h-10Z" fill="#bfe3ff" stroke="#1f2430" stroke-width="1"/>
-      <g transform="translate(14 26)">${gildirakSVG('gildirak')}</g><g transform="translate(32 26)">${gildirakSVG('gildirak')}</g><g transform="translate(58 26)">${gildirakSVG('gildirak')}</g>`,
-    velosiped: `<g transform="translate(12 26)">${gildirakSVG('gildirak')}</g><g transform="translate(46 26)">${gildirakSVG('gildirak')}</g>
-      <path d="M12 26 L24 14 L40 14 L46 26 M24 14 L30 26 L40 14 M22 11 h6 M40 14 L38 8 h5" fill="none" stroke="#2f6fe0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M26 11 L33 -2 L39 9" fill="none" stroke="#e0453a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="-7" r="5" fill="#f2c9a0" stroke="#7a4b22" stroke-width="1"/>
-      <path d="M30 -10 q5 -5 10 0" fill="#3b2a1a"/><path d="M30 6 L28 18 M33 4 L32 18" stroke="#2c3e66" stroke-width="3" stroke-linecap="round"/>`,
-    moto: `<g transform="translate(12 26)">${gildirakSVG('gildirak')}</g><g transform="translate(52 26)">${gildirakSVG('gildirak')}</g>
-      <path d="M12 26 L24 16 L44 16 L52 26" fill="none" stroke="#2c2f38" stroke-width="3" stroke-linecap="round"/><path d="M22 14 Q30 8 42 12 L48 16 L24 18Z" fill="#7b4dd6" stroke="#1f2430" stroke-width="1.4"/>
-      <path d="M30 12 L34 0 L42 8" fill="none" stroke="#2c3e66" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="37" cy="-5" r="5.5" fill="#e0453a" stroke="#1f2430" stroke-width="1.2"/><path d="M38 -6 h5" stroke="#bfe3ff" stroke-width="2.5"/>`,
-    piyoda: `<circle cx="32" cy="0" r="5" fill="#f2c9a0" stroke="#7a4b22" stroke-width="1"/><path d="M27 -3 q5 -6 10 0" fill="#3b2a1a"/>
-      <path d="M32 5 L32 17" stroke="${/Malika|Nilufar/.test(y.nom) ? '#d6457a' : '#2fae6a'}" stroke-width="6" stroke-linecap="round"/><rect x="24" y="6" width="6" height="9" rx="2" fill="#a8703a"/>
-      <g class="oyoq"><path d="M32 17 L27 31 M32 17 L37 31" stroke="#2c3e66" stroke-width="3" stroke-linecap="round"/></g><path d="M32 8 L38 14 M32 8 L27 14" stroke="#f2c9a0" stroke-width="2.4" stroke-linecap="round"/>`,
+    mashina: `${soya(6, 116)}
+      <path d="M8 57 L6 47 Q6 41 12 39 L31 35.5 L45 23 Q49 20 57 20 L80 20 Q88 20 93 25 L104 35.5 L112 37.5 Q118 39 118 45 L118 53 Q118 57 114 57 Z" fill="${rang}" stroke="${qora}" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M12 40 L31 37 L104 37 L113 39" fill="none" stroke="#fff" stroke-width="1.6" opacity=".35"/>
+      <path d="M48 25 Q51 22.5 57 22.5 L66 22.5 L66 35 L36 35 Z" fill="${OYNA}" stroke="${qora}" stroke-width="1.1"/>
+      <path d="M70 22.5 L80 22.5 Q86 22.5 90 26.5 L99 35 L70 35 Z" fill="${OYNA}" stroke="${qora}" stroke-width="1.1"/>
+      <path d="M52 34 L60 24 M74 34 L82 24" stroke="#fff" stroke-width="2.4" opacity=".55"/>
+      <circle cx="80" cy="28.5" r="3.6" fill="#3b2a1a"/><path d="M75 35 Q80 30 85 35" fill="#3b4a66"/>
+      <path d="M68 37 V54 M38 38 V54" stroke="${qora}" stroke-width="1" opacity=".7"/><rect x="58" y="41" width="6" height="1.8" rx=".9" fill="${qora}"/><rect x="88" y="41" width="6" height="1.8" rx=".9" fill="${qora}"/>
+      <path d="M110 40 Q116 40 117 44 L111 44 Z" fill="#fff6c0" stroke="${qora}" stroke-width=".8"/><rect x="6.5" y="42" width="4" height="5" rx="1" fill="#e0453a"/>
+      <rect x="4" y="51" width="12" height="4" rx="2" fill="#2b2f37"/><rect x="106" y="51" width="13" height="4" rx="2" fill="#2b2f37"/>
+      ${/taksi/i.test(y.nom) ? `<rect x="54" y="13" width="20" height="7" rx="2" fill="#2b2f37"/><text x="64" y="18.6" text-anchor="middle" font-size="5.5" font-weight="900" fill="#ffcb2e" font-family="sans-serif">TAXI</text>
+        <path d="M20 47 H108" stroke="#2b2f37" stroke-width="3" stroke-dasharray="4 4"/>` : ''}
+      <path d="M17 57 A12 12 0 0 1 41 57 Z M84 57 A12 12 0 0 1 108 57 Z" fill="#1e2026"/>
+      ${gildirakSVG(29, 57, 9.5)}${gildirakSVG(96, 57, 9.5)}`,
+    avtobus: `${soya(4, 118)}
+      <rect x="4" y="9" width="112" height="49" rx="7" fill="#f4f1e8" stroke="#6b5a3a" stroke-width="1.4"/>
+      <path d="M4 40 H116 V51 Q116 58 109 58 H11 Q4 58 4 51 Z" fill="#ff8a1c" stroke="#6b5a3a" stroke-width="1.4"/>
+      <rect x="4" y="38" width="112" height="3" fill="#2f6fe0"/>
+      <rect x="20" y="5" width="34" height="5" rx="2" fill="#d6d1c2" stroke="#6b5a3a" stroke-width="1"/>
+      ${[10, 26, 42, 58, 74].map(x => `<rect x="${x}" y="15" width="13" height="18" rx="2" fill="${OYNA}" stroke="#3d4656" stroke-width="1.1"/><path d="M${x + 3} 31 L${x + 9} 17" stroke="#fff" stroke-width="1.8" opacity=".5"/>`).join('')}
+      <circle cx="31" cy="25" r="3" fill="#3b2a1a"/><circle cx="64" cy="25" r="3" fill="#8a5a2b"/><circle cx="48" cy="25.5" r="3" fill="#3b2a1a"/>
+      <path d="M90 15 H108 Q114 15 115 21 L116 36 H90 Z" fill="${OYNA}" stroke="#3d4656" stroke-width="1.1"/><path d="M96 34 L104 16" stroke="#fff" stroke-width="2.4" opacity=".5"/>
+      <circle cx="104" cy="25" r="3.4" fill="#3b2a1a"/><rect x="99" y="28" width="10" height="8" rx="2" fill="#3b4a66"/>
+      <rect x="91" y="10" width="22" height="4" rx="1" fill="#1f2430"/><text x="102" y="13.3" text-anchor="middle" font-size="3.6" font-weight="900" fill="#ffd23f" font-family="sans-serif">12</text>
+      <rect x="77" y="38" width="11" height="19" fill="#3d4656"/><path d="M78 39 h4 v17 h-4z M83 39 h4 v17 h-4z" fill="${OYNA}" opacity=".85"/>
+      <path d="M116 18 L120 18 L120 26" fill="none" stroke="#2b2f37" stroke-width="1.6"/><rect x="113" y="44" width="4" height="4" rx="1" fill="#fff6c0"/><rect x="3.5" y="44" width="3" height="5" rx="1" fill="#e0453a"/>
+      <path d="M15 58 A12 12 0 0 1 39 58 Z M86 58 A12 12 0 0 1 110 58 Z" fill="#1e2026"/>
+      ${gildirakSVG(27, 57.5, 9.5)}${gildirakSVG(98, 57.5, 9.5)}`,
+    yuk: `${soya(4, 118)}
+      <rect x="4" y="12" width="72" height="38" rx="2" fill="#e9edf2" stroke="#5b6472" stroke-width="1.4"/>
+      ${[16, 28, 40, 52, 64].map(x => `<path d="M${x} 13 V49" stroke="#c3cad4" stroke-width="1.4"/>`).join('')}
+      <rect x="10" y="22" width="40" height="12" rx="2" fill="#2fae6a" opacity=".85"/><text x="30" y="30.6" text-anchor="middle" font-size="7" font-weight="900" fill="#fff" font-family="sans-serif">MEVA</text>
+      <rect x="4" y="50" width="104" height="4" fill="#2b2f37"/>
+      <path d="M80 54 V24 Q80 18 86 18 L100 18 Q105 18 108 23 L115 35 Q118 37 118 42 L118 54 Z" fill="#e5483d" stroke="#a82a22" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M86 22 H99 Q102 22 104 25 L109 34 H86 Z" fill="${OYNA}" stroke="#7a1f19" stroke-width="1.1"/><path d="M90 33 L96 23" stroke="#fff" stroke-width="2" opacity=".55"/>
+      <circle cx="96" cy="28" r="3.4" fill="#3b2a1a"/><path d="M91 34 Q96 29 101 34" fill="#3b4a66"/>
+      <rect x="112" y="38" width="5" height="4" rx="1" fill="#fff6c0"/><path d="M86 38 H104" stroke="#a82a22" stroke-width="1"/>
+      <path d="M6 54 A11 11 0 0 1 52 54 Z M88 54 A11 11 0 0 1 110 54 Z" fill="#1e2026"/>
+      ${gildirakSVG(17, 57, 9)}${gildirakSVG(41, 57, 9)}${gildirakSVG(99, 57, 9)}`,
+    velosiped: `${soya(14, 100)}
+      ${velGildirak(30, 53)}${velGildirak(86, 53)}
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 53 L56 55 L49 31 Z" stroke="${rang === '#2fae6a' ? '#2f6fe0' : '#2f6fe0'}" stroke-width="3"/>
+        <path d="M49 31 L80 30 L56 55" stroke="#2f6fe0" stroke-width="3.2"/>
+        <path d="M80 30 L86 53" stroke="#2b2f37" stroke-width="2.6"/><path d="M80 30 L78 23 Q82 21 86 23" stroke="#2b2f37" stroke-width="2.2"/>
+        <path d="M44 29 H53" stroke="#2b2f37" stroke-width="3.4"/>
+      </g>
+      <circle cx="56" cy="55" r="4.5" fill="none" stroke="#5b616c" stroke-width="1.6"/>
+      <g class="pedal" style="transform-origin:56px 55px"><path d="M56 55 L61 62 M56 55 L51 48" stroke="#2b2f37" stroke-width="2" stroke-linecap="round"/></g>
+      <path d="M49 28 Q55 40 59 41 L57 60" fill="none" stroke="#2c3e66" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M49 28 Q60 34 63 38 L60 52" fill="none" stroke="#384f80" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M48 29 Q55 14 66 9" fill="none" stroke="${ust}" stroke-width="9" stroke-linecap="round"/>
+      <path d="M63 12 Q72 17 80 23" fill="none" stroke="#f2c9a0" stroke-width="3.4" stroke-linecap="round"/><path d="M63 11 Q68 14 71 16" fill="none" stroke="${ust}" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="71" cy="2" r="6" fill="#f2c9a0"/>${ayol ? '<path d="M64 1 Q63 10 58 12 L62 4 Z" fill="#3b2a1a"/>' : ''}
+      <path d="M64 1 Q66 -7 74 -6 Q79 -5 79 1 Z" fill="${ayol ? '#e2508a' : '#ffcb2e'}" stroke="#2b2f37" stroke-width=".8"/><circle cx="74.5" cy="2.5" r=".9" fill="#2b2f37"/>`,
+    moto: `${soya(10, 108)}
+      ${gildirakSVG(26, 56, 10.5)}${gildirakSVG(92, 56, 10.5)}
+      <path d="M26 56 L46 46 M92 56 L82 30" stroke="#2b2f37" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M40 46 Q42 38 54 37 L76 36 Q84 36 86 42 L84 48 L46 50 Z" fill="#7b4dd6" stroke="#4b2a96" stroke-width="1.3"/>
+      <path d="M48 45 Q55 40 70 40" stroke="#fff" stroke-width="1.8" opacity=".4" fill="none"/>
+      <rect x="54" y="47" width="22" height="8" rx="3" fill="#5b616c"/><path d="M30 50 L52 52" stroke="#9aa1ad" stroke-width="3" stroke-linecap="round"/>
+      <path d="M38 36 Q44 33 56 34" stroke="#2b2f37" stroke-width="4" stroke-linecap="round"/>
+      <path d="M50 34 Q58 40 66 42 L66 54" fill="none" stroke="#2c3e66" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M50 33 Q56 18 66 13" fill="none" stroke="#3b4a66" stroke-width="10" stroke-linecap="round"/><path d="M52 28 Q57 19 64 15" fill="none" stroke="#ffcb2e" stroke-width="1.6"/>
+      <path d="M64 16 Q74 22 80 29" fill="none" stroke="#3b4a66" stroke-width="4" stroke-linecap="round"/><circle cx="80.5" cy="29.5" r="2.2" fill="#2b2f37"/>
+      <circle cx="70" cy="6" r="7.5" fill="#e5483d" stroke="#a82a22" stroke-width="1"/><path d="M71 3 H78 Q78 9 72 9 Z" fill="#2b3a55"/><path d="M64 4 Q68 -1 74 0" stroke="#fff" stroke-width="1.4" opacity=".6" fill="none"/>
+      <path d="M84 33 L90 30" stroke="#2b2f37" stroke-width="2.4" stroke-linecap="round"/><circle cx="88" cy="38" r="2.4" fill="#fff6c0" stroke="#2b2f37" stroke-width=".8"/>`,
+    piyoda: `${soya(40, 80)}
+      <g class="oyoq"><path d="M60 40 L56 52 L52 64" fill="none" stroke="#2c3e66" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M49 64 h6" stroke="#2b2f37" stroke-width="4" stroke-linecap="round"/></g>
+      <g class="oyoq oyoq--2"><path d="M60 40 L64 52 L68 64" fill="none" stroke="#384f80" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 64 h6" stroke="#2b2f37" stroke-width="4" stroke-linecap="round"/></g>
+      <rect x="48" y="16" width="9" height="16" rx="3" fill="#a8703a" stroke="#6b4220" stroke-width="1"/>
+      <path d="M60 18 L60 40" stroke="${ust}" stroke-width="12" stroke-linecap="round"/>${ayol ? `<path d="M53 34 L67 34 L69 44 L51 44 Z" fill="${ust}"/>` : ''}
+      <g class="qol"><path d="M60 20 L66 30 L68 37" fill="none" stroke="#f2c9a0" stroke-width="3.4" stroke-linecap="round"/></g>
+      <circle cx="61" cy="8" r="6.5" fill="#f2c9a0"/><path d="M54 7 Q55 0 62 0 Q68 1 68 6 Q63 3 56 8 Z" fill="#3b2a1a"/>${ayol ? '<path d="M55 6 Q52 14 55 19 L58 9Z" fill="#3b2a1a"/>' : ''}
+      <circle cx="64.5" cy="8.5" r=".9" fill="#2b2f37"/>`,
   }[y.rasm] || '';
-  return `<svg viewBox="0 -14 74 50" aria-hidden="true">${k}</svg>`;
+  return `<svg viewBox="0 -10 122 80" aria-hidden="true">${k}</svg>`;
 }
 const UY = (rang) => `<svg viewBox="0 0 60 44" aria-hidden="true"><rect x="6" y="18" width="22" height="20" fill="#f6e7c8" stroke="#7a4b22" stroke-width="1.4"/><path d="M3 19 L17 6 L31 19Z" fill="${rang}" stroke="#7a4b22" stroke-width="1.4"/><rect x="13" y="26" width="7" height="12" fill="#8b5a2b"/>
   <rect x="32" y="22" width="20" height="16" fill="#fff3d6" stroke="#7a4b22" stroke-width="1.4"/><path d="M30 23 L42 12 L54 23Z" fill="#c0392b" stroke="#7a4b22" stroke-width="1.4"/><rect x="38" y="27" width="7" height="6" fill="#bfe3ff" stroke="#7a4b22"/>
