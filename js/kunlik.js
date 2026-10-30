@@ -4,7 +4,7 @@
 window.KUNLIK = [
   {
     sana: "2026-10-30",
-    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi; o'yinga kirishdan oldin mavzu tanlanadi.",
+    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan); o'yinga kirishdan oldin mavzu tanlanadi.",
     ishlar: [
       ["1–4-sinf", "O'yinlar tahlil qilindi: 12 ta o'yindan 7 tasida javob to'g'ri-xatoligi aytilmasdi, sababi ko'rsatilmasdi, ish varag'iga o'xshardi. Har o'yin alohida, o'z «dunyosi»da qayta quriladi."],
       ["1–4-sinf", "Hamma o'yinlar uchun umumiy panel: yuraklar, ochko, kombo, «Tez!» bonusi, ovoz (o'chirish tugmasi), yangi o'yin personaji — kosmik robot Robi: har javobdan keyin sababini bir qatorda aytadi."],
@@ -16,6 +16,8 @@ window.KUNLIK = [
       ["1–4-sinf", "O'yinga kirishdan oldin sinf va mavzu tanlanadi (tasodifiy bosqich emas); o'yindan qaytganda o'sha ro'yxatga qaytadi."],
       ["1–4-sinf", "«Saralash» — robot zavodi: konveyer lentasida ustiga mulohaza yozilgan karton quti (haqiqiy parallelepiped) chap quvur-eshikdan chiqib, o'ng eshikka kirib ketguncha «Ha» yoki «Yo'q» bunkeri tanlanadi; konveyer tezlashadi; xatoda sabab (juft-toq, bo'luvchi, bo'linish alomati, chamalash). 140 mulohaza tekshirildi."],
       ["1–4-sinf", "O'yinlardagi ovoz tugmasi zamonaviy ikonka bilan almashtirildi."],
+      ["1–4-sinf", "«Tarozi» — sehrli bozor: mis tarozi haqiqiy tarozidek tebranib to'xtaydi (shkala, strelka, zanjirli kosalar); pallalarda sehrli kristall-figuralar; sinov toshi tanlanadi — to'g'ri bo'lsa muvozanat, xato bo'lsa og'ir tomonga og'adi, Robi sababini aytadi. 1-sinfdagi bitta juda oson misol almashtirildi."],
+      ["Interaktiv", "«Tarozi» o'yiniga yuqori sinflar qo'shildi: 6-sinf «4. Tenglamalarni yechish», 7-sinf «5.1 Sodda chiziqli tenglamalar» va «25. Al-Xorazmiy usuli» — ikkala pallada figuralar, bir xil yuklar ikkala palladan olinadi. 180 misol va 720 sabab tekshirildi."],
       ["Ish tartibi", "O'yin rasmlari (Robi, fonlar, sayyoralar, meteorit, poyezd) GPT'da yasaladi — promptlar tayyor; keyinroq musiqa qo'shiladi."]
     ]
   },
