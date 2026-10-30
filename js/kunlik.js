@@ -4,7 +4,7 @@
 window.KUNLIK = [
   {
     sana: "2026-10-30",
-    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori; o'yinga kirishdan oldin mavzu tanlanadi.",
+    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi; o'yinga kirishdan oldin mavzu tanlanadi.",
     ishlar: [
       ["1–4-sinf", "O'yinlar tahlil qilindi: 12 ta o'yindan 7 tasida javob to'g'ri-xatoligi aytilmasdi, sababi ko'rsatilmasdi, ish varag'iga o'xshardi. Har o'yin alohida, o'z «dunyosi»da qayta quriladi."],
       ["1–4-sinf", "Hamma o'yinlar uchun umumiy panel: yuraklar, ochko, kombo, «Tez!» bonusi, ovoz (o'chirish tugmasi), yangi o'yin personaji — kosmik robot Robi: har javobdan keyin sababini bir qatorda aytadi."],
@@ -14,6 +14,8 @@ window.KUNLIK = [
       ["1–4-sinf", "Poyezd vagonlari biz tomondan ochiq — quti va undagi son/kasr to'liq ko'rinadi; kasrlar vagonda ham ustunli; bekat bilan poyezd orasi ochildi."],
       ["1–4-sinf", "«Jadval» — xazina g'ori: qulflangan sandiq, har tenglama — qulf, raqamli tugmalar; xatoda javob emas, amal hadlari qoidasi shu sonlar bilan aytiladi; hammasi ochilsa sandiq ochiladi. 196 tenglama tekshirildi."],
       ["1–4-sinf", "O'yinga kirishdan oldin sinf va mavzu tanlanadi (tasodifiy bosqich emas); o'yindan qaytganda o'sha ro'yxatga qaytadi."],
+      ["1–4-sinf", "«Saralash» — robot zavodi: konveyer lentasida ustiga mulohaza yozilgan karton quti (haqiqiy parallelepiped) chap quvur-eshikdan chiqib, o'ng eshikka kirib ketguncha «Ha» yoki «Yo'q» bunkeri tanlanadi; konveyer tezlashadi; xatoda sabab (juft-toq, bo'luvchi, bo'linish alomati, chamalash). 140 mulohaza tekshirildi."],
+      ["1–4-sinf", "O'yinlardagi ovoz tugmasi zamonaviy ikonka bilan almashtirildi."],
       ["Ish tartibi", "O'yin rasmlari (Robi, fonlar, sayyoralar, meteorit, poyezd) GPT'da yasaladi — promptlar tayyor; keyinroq musiqa qo'shiladi."]
     ]
   },
