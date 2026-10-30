@@ -1153,9 +1153,11 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .poyezd.ketdi .shatun { animation: g-shatun .3s linear infinite; }
 @keyframes g-shatun { 0%,100% { transform: translate(0, 0); } 25% { transform: translate(-3px, -3px); } 50% { transform: translate(0, -6px); } 75% { transform: translate(3px, -3px); } }
 .vagon { position: relative; flex: 0 0 var(--vw, 60px); width: var(--vw, 60px); aspect-ratio: 100 / 64; }
-.vagon__rasm { position: absolute; inset: 0; z-index: 1; }
-.vagon__rasm svg { width: 100%; height: 100%; overflow: visible; display: block; }
-.vagon__yuk { position: absolute; z-index: 0; left: 12%; right: 12%; top: -24%; height: 62%; display: none; align-items: flex-start; justify-content: center; padding-top: 3%;
+.vagon__orqa, .vagon__old { position: absolute; inset: 0; }
+.vagon__orqa { z-index: 0; } .vagon__old { z-index: 2; }
+.vagon__orqa svg, .vagon__old svg { width: 100%; height: 100%; overflow: visible; display: block; }
+/* quti vagon polida turadi, biz tomondan to'liq ko'rinadi */
+.vagon__yuk { position: absolute; z-index: 1; left: 13%; right: 13%; top: -6%; bottom: 31%; display: none; align-items: center; justify-content: center;
   border-radius: 3px; border: 2px solid #8f5a2c; background: repeating-linear-gradient(0deg, #e6b06a 0 7px, #cf9450 7px 8px);
   font-family: var(--f-head); font-weight: 900; font-size: var(--vfs, 18px); line-height: 1; color: #4a2a10; white-space: nowrap; }
 .vagon.is-full .vagon__yuk { display: flex; }
@@ -1165,7 +1167,7 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .vagon.is-wrong { animation: g-shake .45s; }
 .vagon.is-auto .vagon__yuk { opacity: .85; }
 .vagon.navbat::after { content: "▼"; position: absolute; left: 50%; top: -26px; transform: translateX(-50%); z-index: 2; color: #ffd84a; font-size: 15px; text-shadow: 0 0 6px rgba(255,200,40,.9), 0 1px 0 #7a4b2a; animation: g-hint 1s ease-in-out infinite; }
-.vagon.navbat .vagon__rasm { filter: drop-shadow(0 0 5px rgba(255,216,74,.9)); }
+.vagon.navbat .vagon__orqa, .vagon.navbat .vagon__old { filter: drop-shadow(0 0 5px rgba(255,216,74,.9)); }
 @media (max-width: 520px) {
   .quti { min-width: 48px; height: 48px; padding: 0 8px; }
   .bino { padding: 24px 14px 0; }
@@ -1180,6 +1182,4 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .kasr i:first-child { border-bottom: 2.5px solid currentColor; padding-bottom: 2px; }
 .kasr i:last-child { padding-top: 2px; }
 .quti--kasr { height: 66px; min-width: 58px; gap: 6px; font-size: 20px; background: repeating-linear-gradient(0deg, #e6b06a 0 12px, #cf9450 12px 13px); }   /* qiyshiq tirgaksiz — kasr aniq o'qilsin */
-.pirog { flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%; border: 2px solid #6e4423;
-  background: conic-gradient(#e8590c 0 var(--p), #fff5e6 var(--p) 360deg); }
-@media (max-width: 520px) { .quti--kasr { height: 60px; min-width: 52px; font-size: 18px; } .pirog { width: 15px; height: 15px; } }
+@media (max-width: 520px) { .quti--kasr { height: 60px; min-width: 52px; font-size: 18px; } }

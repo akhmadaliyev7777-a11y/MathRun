@@ -57,14 +57,17 @@ const LOKO = `<svg viewBox="0 0 170 100" xmlns="http://www.w3.org/2000/svg" aria
   <rect class="shatun" x="62" y="83" width="35" height="4" rx="2" fill="#c9cdd8" stroke="#6b6f80" stroke-width=".8"/>
 </svg>`;
 
-// ochiq yuk vagoni: taxta devorlar, temir burchaklar, bufer va g'ildiraklar (quti ichiga tushadi)
+// ochiq yuk vagoni: biz tomondagi devori yo'q — ichidagi quti to'liq ko'rinadi; orqa devor, yon ustunlar,
+// pol, rama, bufer va g'ildiraklar bor. Ikki qatlam: orqa (qutidan orqada) va old (pol, g'ildiraklar — qutidan oldinda)
 const VRANG = ['#8b5a2b', '#9c3b2e', '#3d6b4a'];
-const VAGON = (c) => `<svg viewBox="0 0 100 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <rect x="4" y="18" width="92" height="30" rx="2" fill="${c}"/>
-  <path d="M4 28 H96 M4 38 H96" stroke="rgba(0,0,0,.22)" stroke-width="1.6"/><path d="M4 21 H96" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
-  <rect x="4" y="18" width="5" height="30" fill="#3a3a44"/><rect x="91" y="18" width="5" height="30" fill="#3a3a44"/><rect x="47.5" y="18" width="5" height="30" fill="#3a3a44"/>
-  <circle cx="6.5" cy="24" r="1" fill="#9aa"/><circle cx="6.5" cy="42" r="1" fill="#9aa"/><circle cx="93.5" cy="24" r="1" fill="#9aa"/><circle cx="93.5" cy="42" r="1" fill="#9aa"/>
-  <rect x="2" y="15" width="96" height="4" rx="1" fill="#3a3a44"/>
+const VAGON_ORQA = (c) => `<svg viewBox="0 0 100 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="4" y="14" width="92" height="32" rx="2" fill="${c}"/><rect x="4" y="14" width="92" height="32" rx="2" fill="rgba(0,0,0,.22)"/>
+  <path d="M4 24 H96 M4 34 H96" stroke="rgba(0,0,0,.25)" stroke-width="1.4"/>
+  <rect x="2" y="11" width="96" height="4" rx="1" fill="#3a3a44"/>
+  <rect x="3" y="11" width="6" height="35" fill="#3a3a44"/><rect x="91" y="11" width="6" height="35" fill="#3a3a44"/>
+</svg>`;
+const VAGON_OLD = `<svg viewBox="0 0 100 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="2" y="43" width="96" height="5" rx="1" fill="#a8743f"/><path d="M14 43 V48 M30 43 V48 M46 43 V48 M62 43 V48 M78 43 V48" stroke="rgba(0,0,0,.25)" stroke-width="1"/>
   <rect x="2" y="48" width="96" height="5" fill="#1d1f29"/>
   <rect x="-4" y="48" width="7" height="4" rx="1" fill="#6b6f80"/><rect x="97" y="48" width="7" height="4" rx="1" fill="#6b6f80"/>
   ${G(24, 56, 7.5)}${G(76, 56, 7.5)}
@@ -107,14 +110,12 @@ export function gameNumberOrder(ctx) {
     let busy = false, mistakes = 0, shownAt = performance.now();
     const maxLen = kasr ? Math.max(...items.map(it => String(Math.max(it.n, it.d)).length)) : Math.max(...items.map(it => fmt(it.v).length));
     const txt = (it) => (kasr ? it.key : fmt(it.v));
-    // quti ustidagi yozuv: son yoki ustma-ust kasr (to'g'ri kasrda yonida kichik doira-bo'lak)
-    const lbl = (it) => kasr
-      ? [el('span', { class: 'kasr' }, el('i', {}, it.n), el('i', {}, it.d)),
-        it.n <= it.d ? el('i', { class: 'pirog', style: `--p:${(it.n / it.d) * 360}deg` }) : null]
-      : [fmt(it.v)];
+    // quti ustidagi yozuv: son yoki ustma-ust kasr (doira-bo'lak yo'q — foydalanuvchi qarori)
+    const lbl = (it) => kasr ? [el('span', { class: 'kasr' }, el('i', {}, it.n), el('i', {}, it.d))] : [fmt(it.v)];
 
     // ---- poyezd: lokomotiv + n ta vagon ----
-    const wagons = target.map((_, i) => el('div', { class: 'vagon' }, el('span', { class: 'vagon__yuk' }), el('div', { class: 'vagon__rasm', html: VAGON(VRANG[i % 3]) })));
+    const wagons = target.map((_, i) => el('div', { class: 'vagon' },
+      el('div', { class: 'vagon__orqa', html: VAGON_ORQA(VRANG[i % 3]) }), el('span', { class: 'vagon__yuk' }), el('div', { class: 'vagon__old', html: VAGON_OLD })));
     const navbat = () => wagons.forEach((w, i) => w.classList.toggle('navbat', i === loaded.length));
     const poyezd = el('div', { class: 'poyezd' }, el('div', { class: 'loko', html: LOKO }), ...wagons);
     const yol = el('div', { class: 'temiryol' }, poyezd);
@@ -125,7 +126,7 @@ export function gameNumberOrder(ctx) {
       const w = poyezd.clientWidth || 340;
       const vw = Math.max(46, Math.min(92, (w - 92) / n - 4));
       poyezd.style.setProperty('--vw', vw + 'px');
-      poyezd.style.setProperty('--vfs', Math.max(9, Math.min(vw * 0.34, (vw * 1.3) / maxLen)) + 'px');   // vagondagi quti kichik — son unga sig'sin
+      poyezd.style.setProperty('--vfs', Math.max(10, Math.min(vw * 0.3, (vw * 1.25) / (kasr ? maxLen * 2 + 1 : maxLen))) + 'px');   // son vagondagi qutiga sig'sin
       bekat.style.setProperty('--qfs', Math.max(12, Math.min(22, 120 / maxLen + 6)) + 'px');
     };
     function drawBekat() {

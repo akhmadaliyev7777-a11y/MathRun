@@ -3,6 +3,18 @@
    bolim: "5-sinf", "6-sinf", "7-sinf", "8-sinf", "1–4-sinf", "Interaktiv", "Sayt", "Admin", "Ish tartibi" */
 window.KUNLIK = [
   {
+    sana: "2026-10-30",
+    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan).",
+    ishlar: [
+      ["1–4-sinf", "O'yinlar tahlil qilindi: 12 ta o'yindan 7 tasida javob to'g'ri-xatoligi aytilmasdi, sababi ko'rsatilmasdi, ish varag'iga o'xshardi. Har o'yin alohida, o'z «dunyosi»da qayta quriladi."],
+      ["1–4-sinf", "Hamma o'yinlar uchun umumiy panel: yuraklar, ochko, kombo, «Tez!» bonusi, ovoz (o'chirish tugmasi), yangi o'yin personaji — kosmik robot Robi: har javobdan keyin sababini bir qatorda aytadi."],
+      ["1–4-sinf", "«To'plamlar (Venn)» — koinot: doiralar sayyoralarning tortishish maydoni (sayyora markazda, to'lqinlar tarqaladi), sonlar — meteoritlar; xato bo'lsa har to'plam bo'yicha ✓/✗. 1 625 ta javob dastur bilan tekshirildi."],
+      ["1–4-sinf", "«Tartiblash» — o'rmondagi bekat va bug' poyezdi: qutilar vagonlarga tartib bilan ortiladi, hammasi to'g'ri bo'lsa poyezd jo'naydi; xatoda sabab (katta sonlarda — qaysi xonasi kichik)."],
+      ["1–4-sinf", "Kasrlar poyezdi: 43-mavzuda haqiqiy kasrlar (maxrajlari bir xil), 46-mavzu «Kasrlarni taqqoslash»ga yangi o'yin — «Maxrajlari bir xil» va «Suratlari bir xil» mashqlari."],
+      ["Ish tartibi", "O'yin rasmlari (Robi, fonlar, sayyoralar, meteorit, poyezd) GPT'da yasaladi — promptlar tayyor; keyinroq musiqa qo'shiladi."]
+    ]
+  },
+  {
     sana: "2026-10-29",
     qisqa: "7-sinf 2-bob «Haqiqiy sonlar» 3-bob «Yaxlitlash va chamalash» va 4-bob «Algebraik ifodalar» tugadi: 2.1–4.4 (12 ta mavzu) — 5E uslubida ma'ruza, 20+20 test, PDF. 8-sinf algebra (31 ta) va geometriya (37 ta), 9-sinf algebra (38 ta) va geometriya (35 ta), 10-sinf algebra (29 ta) va geometriya (17 ta), 11-sinf algebra (24 ta) va geometriya (12 ta) mavzulari saytga qo'yildi — 8–11-sinflarning hamma ro'yxati kitob bo'yicha.",
     ishlar: [
