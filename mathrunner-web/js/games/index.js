@@ -1824,19 +1824,19 @@ function transportSVG(y) {
   const [ust, ayol] = kiyim(y.nom);
   const k = {
     mashina: `${soya(6, 116)}
-      <path d="M8 57 L6 47 Q6 41 12 39 L31 35.5 L45 23 Q49 20 57 20 L80 20 Q88 20 93 25 L104 35.5 L112 37.5 Q118 39 118 45 L118 53 Q118 57 114 57 Z" fill="${rang}" stroke="${qora}" stroke-width="1.4" stroke-linejoin="round"/>
-      <path d="M12 40 L31 37 L104 37 L113 39" fill="none" stroke="#fff" stroke-width="1.6" opacity=".35"/>
-      <path d="M48 25 Q51 22.5 57 22.5 L66 22.5 L66 35 L36 35 Z" fill="${OYNA}" stroke="${qora}" stroke-width="1.1"/>
-      <path d="M70 22.5 L80 22.5 Q86 22.5 90 26.5 L99 35 L70 35 Z" fill="${OYNA}" stroke="${qora}" stroke-width="1.1"/>
-      <path d="M52 34 L60 24 M74 34 L82 24" stroke="#fff" stroke-width="2.4" opacity=".55"/>
-      <circle cx="80" cy="28.5" r="3.6" fill="#3b2a1a"/><path d="M75 35 Q80 30 85 35" fill="#3b4a66"/>
-      <path d="M68 37 V54 M38 38 V54" stroke="${qora}" stroke-width="1" opacity=".7"/><rect x="58" y="41" width="6" height="1.8" rx=".9" fill="${qora}"/><rect x="88" y="41" width="6" height="1.8" rx=".9" fill="${qora}"/>
-      <path d="M110 40 Q116 40 117 44 L111 44 Z" fill="#fff6c0" stroke="${qora}" stroke-width=".8"/><rect x="6.5" y="42" width="4" height="5" rx="1" fill="#e0453a"/>
+      <path d="M8 57 L7 47 Q7 41 13 40 L22 37 L36 23 Q40 20 48 20 L70 20 Q78 20 83 25 L93 36 L112 38.5 Q118 40 118 46 L118 53 Q118 57 114 57 Z" fill="${rang}" stroke="${qora}" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M13 41 L22 38.5 L93 38.5 L113 40.5" fill="none" stroke="#fff" stroke-width="1.6" opacity=".35"/>
+      <path d="M39 25 Q42 22.5 48 22.5 L57 22.5 L57 35 L27 35 Z" fill="${OYNA}" stroke="${qora}" stroke-width="1.1"/>
+      <path d="M61 22.5 L71 22.5 Q77 22.5 81 26.5 L90 35 L61 35 Z" fill="${OYNA}" stroke="${qora}" stroke-width="1.1"/>
+      <path d="M43 34 L51 24 M65 34 L73 24" stroke="#fff" stroke-width="2.4" opacity=".55"/>
+      <circle cx="71" cy="28.5" r="3.6" fill="#3b2a1a"/><path d="M66 35 Q71 30 76 35" fill="#3b4a66"/>
+      <path d="M59 37 V54 M29 38 V54" stroke="${qora}" stroke-width="1" opacity=".7"/><rect x="47" y="41" width="6" height="1.8" rx=".9" fill="${qora}"/><rect x="77" y="41" width="6" height="1.8" rx=".9" fill="${qora}"/>
+      <path d="M110 41.5 Q116 41.5 117 45.5 L111 45.5 Z" fill="#fff6c0" stroke="${qora}" stroke-width=".8"/><rect x="7.5" y="43" width="4" height="5" rx="1" fill="#e0453a"/>
       <rect x="4" y="51" width="12" height="4" rx="2" fill="#2b2f37"/><rect x="106" y="51" width="13" height="4" rx="2" fill="#2b2f37"/>
-      ${/taksi/i.test(y.nom) ? `<rect x="54" y="13" width="20" height="7" rx="2" fill="#2b2f37"/><text x="64" y="18.6" text-anchor="middle" font-size="5.5" font-weight="900" fill="#ffcb2e" font-family="sans-serif">TAXI</text>
-        <path d="M20 47 H108" stroke="#2b2f37" stroke-width="3" stroke-dasharray="4 4"/>` : ''}
-      <path d="M17 57 A12 12 0 0 1 41 57 Z M84 57 A12 12 0 0 1 108 57 Z" fill="#1e2026"/>
-      ${gildirakSVG(29, 57, 9.5)}${gildirakSVG(96, 57, 9.5)}`,
+      ${/taksi/i.test(y.nom) ? `<rect x="45" y="13" width="20" height="7" rx="2" fill="#2b2f37"/><text x="55" y="18.6" text-anchor="middle" font-size="5.5" font-weight="900" fill="#ffcb2e" font-family="sans-serif">TAXI</text>
+        <path d="M16 48 H110" stroke="#2b2f37" stroke-width="3" stroke-dasharray="4 4"/>` : ''}
+      <path d="M14 57 A12 12 0 0 1 38 57 Z M86 57 A12 12 0 0 1 110 57 Z" fill="#1e2026"/>
+      ${gildirakSVG(26, 57, 9.5)}${gildirakSVG(98, 57, 9.5)}`,
     avtobus: `${soya(4, 118)}
       <rect x="4" y="9" width="112" height="49" rx="7" fill="#f4f1e8" stroke="#6b5a3a" stroke-width="1.4"/>
       <path d="M4 40 H116 V51 Q116 58 109 58 H11 Q4 58 4 51 Z" fill="#ff8a1c" stroke="#6b5a3a" stroke-width="1.4"/>
@@ -1860,7 +1860,7 @@ function transportSVG(y) {
       <path d="M86 22 H99 Q102 22 104 25 L109 34 H86 Z" fill="${OYNA}" stroke="#7a1f19" stroke-width="1.1"/><path d="M90 33 L96 23" stroke="#fff" stroke-width="2" opacity=".55"/>
       <circle cx="96" cy="28" r="3.4" fill="#3b2a1a"/><path d="M91 34 Q96 29 101 34" fill="#3b4a66"/>
       <rect x="112" y="38" width="5" height="4" rx="1" fill="#fff6c0"/><path d="M86 38 H104" stroke="#a82a22" stroke-width="1"/>
-      <path d="M6 54 A11 11 0 0 1 52 54 Z M88 54 A11 11 0 0 1 110 54 Z" fill="#1e2026"/>
+      <path d="M6 54 A11 11 0 0 1 28 54 Z M30 54 A11 11 0 0 1 52 54 Z M88 54 A11 11 0 0 1 110 54 Z" fill="#1e2026"/>
       ${gildirakSVG(17, 57, 9)}${gildirakSVG(41, 57, 9)}${gildirakSVG(99, 57, 9)}`,
     velosiped: `${soya(14, 100)}
       ${velGildirak(30, 53)}${velGildirak(86, 53)}
