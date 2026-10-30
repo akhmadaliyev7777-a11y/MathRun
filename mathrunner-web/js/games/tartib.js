@@ -4,7 +4,7 @@
 // son avval kelishini va nega ekanini (katta sonlarda — qaysi xonasi kichik) bir qatorda aytadi.
 // Hamma vagon to'lsa — poyezd hushtak chalib jo'nab ketadi. Raundda 3 ta yurak; tugasa — qolgan qutilar o'zi ortiladi.
 import { el, shuffle } from '../util.js';
-import { shell } from './shell.js?v=2';
+import { shell } from './shell.js?v=4';
 import { hud, buddy, sfx, floatText } from './hud.js?v=4';
 
 const XONA = ['birlik', "o'nlik", 'yuzlik', 'minglik', "o'n minglik", "yuz minglik", 'million', "o'n million"];

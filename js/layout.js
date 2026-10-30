@@ -21,7 +21,7 @@ const NAV_ICONS = {
 // sahifaga qarab menyuda qaysi band ajratiladi: home | grades | lessons | games | results | about
 function siteActiveKey(active) {
   const path = location.pathname;
-  if (/\/mathrunner-web\//.test(path)) return /^#\/(games|tug)/.test(location.hash) ? "games" : "grades";
+  if (/\/mathrunner-web\//.test(path)) return /^#\/(games|tug|play\/y\d)/.test(location.hash) ? "games" : "grades";
   const page = path.split("/").pop() || "index.html";
   if (page === "index.html") return location.hash === "#grades-section" ? "grades" : "home";
   const byPage = { "korgazmalar.html": "lessons", "sinf.html": "grades", "mavzu.html": "grades", "test.html": "grades", "mening.html": "results", "info.html": "about" };

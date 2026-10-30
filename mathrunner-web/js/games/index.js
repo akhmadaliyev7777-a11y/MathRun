@@ -3,12 +3,12 @@
 import { el, shuffle } from '../util.js';
 import { ICON } from '../icons.js';
 
-import { shell, checkBtn, flash } from './shell.js?v=3';
+import { shell, checkBtn, flash } from './shell.js?v=4';
 import { hud, buddy, sfx, floatText } from './hud.js?v=4';
 import { gameSet } from './venn.js?v=7';
-import { gameNumberOrder } from './tartib.js?v=11';
-import { gameEquationGrid } from './jadval.js?v=2';
-import { gameConveyor } from './saralash.js?v=7';
+import { gameNumberOrder } from './tartib.js?v=12';
+import { gameEquationGrid } from './jadval.js?v=3';
+import { gameConveyor } from './saralash.js?v=8';
 
 // ================= placeValue (Xona tarkibi — shirinliklar fabrikasi) =================
 // Buyurtmaga ko'ra qutiga konfet yig'iladi: birlik — bitta konfet, o'nlik — 10 konfetli rulon, yuzlik — 100 konfetli

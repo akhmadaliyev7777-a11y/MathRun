@@ -10,7 +10,7 @@ export function shell(ctx, promptText, iconKey, autoPrompt = false) {
   const root = ctx.root;
   const promptEl = el('span', {}, promptText);
   root.replaceChildren(
-    nav(null),
+    nav(null, ctx.grade.yuqori ? ctx.grade.grade : null),
     el('div', { class: 'runbar' },
       el('button', { class: 'linkback', onclick: () => location.hash = ctx.backHash },
         el('span', { style: 'width:18px;height:18px', html: ICON.arrowLeft }), 'Mavzularga qaytish'),

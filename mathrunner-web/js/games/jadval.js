@@ -4,7 +4,7 @@
 // sonlar bilan aytadi («Noma'lum qo'shiluvchi = yig'indi − ma'lum qo'shiluvchi: 900 − 340 = ?»), o'quvchi qayta uriniadi.
 // Raundda 3 ta yurak; tugasa — javob ko'rsatiladi. Hamma qulf ochilsa — sandiq ochiladi.
 import { el } from '../util.js';
-import { shell } from './shell.js?v=2';
+import { shell } from './shell.js?v=4';
 import { hud, buddy, sfx, floatText } from './hud.js?v=4';
 
 const BELGI = { '+': '+', '-': '−', '*': '×', '×': '×', '÷': ':', '/': ':' };
