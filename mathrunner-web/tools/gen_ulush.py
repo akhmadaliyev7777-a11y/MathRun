@@ -82,54 +82,125 @@ def tort_bol(rng, P):
     return [P]
 
 
-def shakl_bolaklar(rng, tur):
+TEKIS = ('kv', 'tort')   # oddiy koordinatalar; qolganlari (olti, uch, romb, trap) — 60° li panjara
+
+
+def boshlang(rng, tur):
     if tur == 'kv':
-        S = 12
-        if rng.random() < .5: q = [[(0, 0), (6, 0), (6, 12), (0, 12)], [(6, 0), (12, 0), (12, 12), (6, 12)]]
-        else: q = [[(x, 0), (x + 4, 0), (x + 4, 12), (x, 12)] for x in (0, 4, 8)]
-        for _ in range(rng.randint(2, 3)):
-            tortlar = [k for k, P in enumerate(q) if len(P) == 4]
-            if not tortlar: break
-            i = rng.choice(tortlar); P = q[i]
-            yangi = tort_bol(rng, P)
-            q = q[:i] + yangi + q[i + 1:]
-        return q
+        if rng.random() < .5: return [[(0, 0), (6, 0), (6, 12), (0, 12)], [(6, 0), (12, 0), (12, 12), (6, 12)]]
+        return [[(x, 0), (x + 4, 0), (x + 4, 12), (x, 12)] for x in (0, 4, 8)]
+    if tur == 'tort':
+        r = rng.random()
+        if r < .4: return [[(0, 0), (6, 0), (6, 8), (0, 8)], [(6, 0), (12, 0), (12, 8), (6, 8)]]
+        if r < .7: return [[(x, 0), (x + 4, 0), (x + 4, 8), (x, 8)] for x in (0, 4, 8)]
+        return [[(x, y), (x + 6, y), (x + 6, y + 4), (x, y + 4)] for x in (0, 6) for y in (0, 4)]
     if tur == 'olti':
         V = [(2, 0), (0, 2), (-2, 2), (-2, 0), (0, -2), (2, -2)]
         q = [[(0, 0), V[i], V[(i + 1) % 6]] for i in range(6)]
         if rng.random() < .5:   # ikki qo'shni uchburchak — romb
             i = rng.randrange(6); q = [x for k, x in enumerate(q) if k not in (i, (i + 1) % 6)] + [[(0, 0), V[i], V[(i + 1) % 6], V[(i + 2) % 6]]]
-        for _ in range(rng.randint(1, 3)):
-            uchlar = [k for k, P in enumerate(q) if len(P) == 3 and yuz(P) >= 1]
-            i = rng.choice(uchlar); q = q[:i] + uch_bol(rng, q[i], rng.choice(['yarim', 'yarim', 'tort'])) + q[i + 1:]
         return q
-    q = uch_bol(rng, [(0, 0), (4, 0), (0, 4)], 'tort')
-    for _ in range(rng.randint(1, 3)):
-        uchlar = [k for k, P in enumerate(q) if yuz(P) >= 1]
-        i = rng.choice(uchlar); q = q[:i] + uch_bol(rng, q[i], rng.choice(['yarim', 'yarim', 'tort'])) + q[i + 1:]
+    if tur == 'uch': return uch_bol(rng, [(0, 0), (4, 0), (0, 4)], 'tort')
+    if tur == 'romb': return [[(0, 0), (4, 0), (0, 4)], [(4, 0), (4, 4), (0, 4)]]
+    if tur == 'trap': return [[(0, 0), (4, 0), (0, 4)], [(4, 0), (4, 4), (0, 4)], [(4, 0), (8, 0), (4, 4)]]
+    raise ValueError(tur)
+
+
+def shakl_bolaklar(rng, tur, bol=(1, 3)):
+    q = boshlang(rng, tur)
+    for _ in range(rng.randint(*bol)):
+        if tur in TEKIS:
+            tortlar = [k for k, P in enumerate(q) if len(P) == 4]
+            if not tortlar: break
+            i = rng.choice(tortlar); q = q[:i] + tort_bol(rng, q[i]) + q[i + 1:]
+        else:
+            uchlar = [k for k, P in enumerate(q) if len(P) == 3 and yuz(P) >= 1]
+            if not uchlar: break
+            i = rng.choice(uchlar); q = q[:i] + uch_bol(rng, q[i], rng.choice(['yarim', 'yarim', 'tort'])) + q[i + 1:]
     return q
 
 
-def shakl(rng, tur, maqsadlar):
-    for _ in range(400):
+def ulushlar(q):
+    Y = [yuz(P) for P in q]; J = sum(Y); return [y / J for y in Y]
+
+
+def chiq(q): return [[[float(x), float(y)] for x, y in P] for P in q]
+
+
+def yig(fr, s): return sum(fr[i] for i in range(len(fr)) if s >> i & 1)
+
+
+def shakl(rng, tur, maqsadlar, kasrlar=None):
+    for _ in range(600):
         q = shakl_bolaklar(rng, tur)
         if not 5 <= len(q) <= 9: continue
-        Y = [yuz(P) for P in q]; J = sum(Y); fr = [y / J for y in Y]
+        fr = ulushlar(q)
         if len(set(fr)) < 2: continue
         rng.shuffle(maqsadlar)
         for m in maqsadlar:
             m = F(m)
-            yech = [s for s in range(1, 1 << len(q)) if sum(fr[i] for i in range(len(q)) if s >> i & 1) == m]
+            yech = [s for s in range(1, 1 << len(q)) if yig(fr, s) == m]
             if not yech: continue
             # faqat sanab topib bo'lmasin: shuncha sonli boshqa to'plam ham bor, lekin yig'indisi boshqa
             k = bin(yech[0]).count('1')
-            if all(sum(fr[i] for i in range(len(q)) if s >> i & 1) == m for s in range(1, 1 << len(q)) if bin(s).count('1') == k): continue
+            if all(yig(fr, s) == m for s in range(1, 1 << len(q)) if bin(s).count('1') == k): continue
             s0 = rng.choice(yech)
-            return {'tur': 'shakl', 'shakl': tur, 'kasr': [m.numerator, m.denominator],
-                    'bolaklar': [[[float(x), float(y)] for x, y in P] for P in q],
-                    'ulush': [[f.numerator, f.denominator] for f in fr],
-                    'yechim': [i for i in range(len(q)) if s0 >> i & 1], 'd': len(q), 'n': len([i for i in range(len(q)) if s0 >> i & 1])}
+            t = {'tur': 'shakl', 'shakl': tur, 'kasr': [m.numerator, m.denominator], 'bolaklar': chiq(q),
+                 'ulush': [[f.numerator, f.denominator] for f in fr],
+                 'yechim': [i for i in range(len(q)) if s0 >> i & 1], 'd': len(q), 'n': bin(s0).count('1')}
+            if kasrlar: t['kasrlar'] = kasrlar
+            return t
     raise RuntimeError('shakl topilmadi')
+
+
+def shaklqaysi(rng, tur):
+    """bo'yalgan qism — qancha? (bo'laklar teng emas — sanab topilsa xato chiqadi)"""
+    for _ in range(600):
+        q = shakl_bolaklar(rng, tur)
+        if not 4 <= len(q) <= 8: continue
+        fr = ulushlar(q)
+        if len(set(fr)) < 2: continue
+        n = len(q)
+        s = rng.randrange(1, (1 << n) - 1); f = yig(fr, s); k = bin(s).count('1')
+        if f.denominator > 12 or F(k, n) == f: continue
+        tog = f'{f.numerator}/{f.denominator}'
+        xato = [f'{k}/{n}']
+        for g in (1 - f, f + F(1, f.denominator), f - F(1, f.denominator), F(1, 2), F(1, 4), F(1, 3)):
+            if 0 < g < 1 and g != f and g != F(k, n): xato.append(f'{g.numerator}/{g.denominator}')
+        xato = list(dict.fromkeys(xato))
+        o = [tog] + [xato[0]] + rng.sample(xato[1:], 2); rng.shuffle(o)
+        return {'tur': 'shaklqaysi', 'shakl': tur, 'bolaklar': chiq(q), 'ulush': [[x.numerator, x.denominator] for x in fr],
+                'boyalgan': [i for i in range(n) if s >> i & 1], 'options': o, 'javob': tog, 'd': n, 'n': k}
+    raise RuntimeError('shaklqaysi')
+
+
+def tengmi(rng, tur, ha):
+    """bo'yalgan bo'lak 1/n mi? (n — bo'laklar soni). Ha bo'lsa — bo'laklar shakli har xil bo'lishi mumkin, yuzi teng"""
+    for _ in range(800):
+        if ha:
+            if tur == 'kv':
+                q = [[(0, 0), (6, 0), (6, 6), (0, 6)], [(0, 6), (6, 6), (6, 12), (0, 12)], [(6, 0), (12, 0), (12, 12)], [(6, 0), (12, 12), (6, 12)]] if rng.random() < .5 \
+                    else [[(0, 0), (3, 0), (3, 12), (0, 12)], [(3, 0), (6, 0), (6, 12), (3, 12)], [(6, 0), (12, 0), (6, 12)], [(12, 0), (12, 12), (6, 12)]]
+            elif tur == 'tort':
+                q = [[(0, 0), (3, 0), (3, 8), (0, 8)], [(3, 0), (6, 0), (6, 8), (3, 8)], [(6, 0), (12, 0), (12, 8)], [(6, 0), (12, 8), (6, 8)]]
+            elif tur == 'olti':
+                V = [(2, 0), (0, 2), (-2, 2), (-2, 0), (0, -2), (2, -2)]
+                q = [[(0, 0), V[i], V[(i + 1) % 6], V[(i + 2) % 6]] for i in (0, 2, 4)] if rng.random() < .5 else [[(0, 0), V[i], V[(i + 1) % 6]] for i in range(6)]
+            else:
+                q = uch_bol(rng, [(0, 0), (4, 0), (0, 4)], 'tort')
+        else:
+            q = shakl_bolaklar(rng, tur, (0, 2))
+        n = len(q)
+        if not 3 <= n <= 7: continue
+        fr = ulushlar(q)
+        if ha and len(set(fr)) != 1: continue
+        if not ha and len(set(fr)) < 2: continue
+        cand = [i for i in range(n) if (fr[i] == F(1, n)) == ha]
+        if not cand: continue
+        i = rng.choice(cand)
+        return {'tur': 'tengmi', 'shakl': tur, 'bolaklar': chiq(q), 'ulush': [[x.numerator, x.denominator] for x in fr],
+                'boyalgan': [i], 'kasr': [1, n], 'javob': ha, 'd': n, 'n': 1}
+    raise RuntimeError('tengmi')
 
 
 def kasr_matn(a, b): return f'{a}/{b}'
@@ -164,10 +235,18 @@ def tekshir(t):
         (a, b), (c, b2) = t['kasrlar']; assert b == b2 == d and t['bosh'] == a
         assert n == (a + c if t['tur'] == 'qosh' else a - c) and 0 < n <= d
     if t['tur'] == 'foiz': assert F(t['foiz'], 100) * d == n
+    if t['tur'] in ('shaklqaysi', 'tengmi'):
+        Y = [yuz([(F(x), F(y)) for x, y in P]) for P in t['bolaklar']]; J = sum(Y)
+        assert [[(y / J).numerator, (y / J).denominator] for y in Y] == t['ulush']
+        f = sum(Y[i] / J for i in t['boyalgan'])
+        if t['tur'] == 'tengmi': assert (f == F(*t['kasr'])) == t['javob'], t
+        else:
+            assert f == F(t['javob']) and sum(F(o) == f for o in t['options']) == 1 and len(set(t['options'])) == 4, t['options']
     if t['tur'] == 'shakl':
         Y = [yuz([(F(x), F(y)) for x, y in P]) for P in t['bolaklar']]; J = sum(Y)
         assert [[(y / J).numerator, (y / J).denominator] for y in Y] == t['ulush'] and sum(Y) > 0
         assert sum(Y[i] / J for i in t['yechim']) == F(*t['kasr'])
+        if 'kasrlar' in t: assert sum(F(*k) for k in t['kasrlar']) == F(*t['kasr'])
     if t['tur'] == 'qaysi':
         assert t['javob'] in t['options'] and len(set(t['options'])) == 4
         # faqat bittasi bo'yalgan qismga teng
@@ -199,15 +278,26 @@ if __name__ == '__main__':
     r = random.Random(41)
     L = {}
     # 3-sinf 33: ulushlar — birlik kasrlar, keyin bo'yalganini o'qish
-    L['g3_c2_b33_l1'] = mix(r, [boya(r, b) for b in [2, 3, 4, 5, 6, 7, 8, 9, 10, 12]]) + mix(r, [qaysi(r, d, 1) for d in [3, 4, 5, 6]] + [boya(r, b, a) for b, a in [(4, 3), (5, 2), (8, 3)]] + [shakl(r, 'kv', ['1/2', '1/4', '1/3']), shakl(r, 'olti', ['1/2', '1/3']), shakl(r, 'uch', ['1/2', '1/4'])])
-    # 3-sinf 45: butunning ulushlari, teng kasrlar (yarmi = 4/8)
-    L['g3_c3_b45_l1'] = mix(r, [boya(r, b, a) for b, a in [(2, 1), (4, 3), (3, 2), (5, 4), (6, 1), (8, 5), (10, 7), (7, 3), (9, 4), (12, 5)]]) + mix(r, [boya(r, b, a, k) for b, a, k in [(2, 1, 4), (3, 1, 2), (4, 1, 2), (3, 2, 3), (4, 3, 2)]] + [qaysi(r, 8, 6)] + [shakl(r, t, m) for t, m in [('olti', ['1/2', '2/3', '1/3']), ('kv', ['1/2', '3/4', '1/3']), ('uch', ['1/4', '1/2', '3/4']), ('olti', ['1/2', '5/6', '1/3'])]])
+    S = lambda tur, m, k=None: shakl(r, tur, list(m), k)
+    # 3-sinf 33: ulushlar — birlik kasrlar; «teng bo'laklarmi?»; har xil shakllar
+    L['g3_c2_b33_l1'] = mix(r, [boya(r, b) for b in [2, 3, 4, 6, 8, 10]] + [tengmi(r, t, h) for t, h in [('kv', True), ('olti', False), ('tort', False), ('uch', True)]]) \
+        + mix(r, [qaysi(r, d, 1) for d in [4, 6]] + [S('kv', ['1/2', '1/4', '1/3']), S('olti', ['1/2', '1/3']), S('uch', ['1/2', '1/4']), S('trap', ['1/3', '2/3'])]
+              + [shaklqaysi(r, 'kv'), shaklqaysi(r, 'romb')] + [boya(r, b, a) for b, a in [(4, 3), (5, 2)]])
+    # 3-sinf 45: butunning ulushlari, teng kasrlar; shakllar
+    L['g3_c3_b45_l1'] = mix(r, [boya(r, b, a) for b, a in [(2, 1), (4, 3), (3, 2), (6, 1), (8, 5), (10, 7)]] + [tengmi(r, t, h) for t, h in [('tort', True), ('kv', False)]] + [S('romb', ['1/2', '1/4', '3/4']), S('tort', ['1/2', '1/3', '3/4'])]) \
+        + mix(r, [boya(r, b, a, k) for b, a, k in [(2, 1, 4), (3, 1, 2), (4, 3, 2)]] + [S(t, m) for t, m in [('olti', ['2/3', '1/3']), ('kv', ['3/4', '1/3']), ('uch', ['1/4', '3/4']), ('trap', ['1/3', '2/3'])]]
+              + [shaklqaysi(r, t) for t in ['olti', 'tort', 'uch']])
     # 3-sinf 46: sonning ulushini topish (1/n)
     L['g3_c3_b46_l1'] = mix(r, [son(r, N, 1, b) for N, b in [(6, 2), (8, 4), (9, 3), (10, 5), (12, 3), (12, 4), (15, 5), (16, 8), (18, 6), (20, 4)]]) + mix(r, [son(r, N, 1, b) for N, b in [(12, 2), (14, 7), (16, 4), (18, 3), (20, 5), (15, 3)]] + [son(r, N, a, b) for N, a, b in [(12, 2, 3), (10, 3, 5), (16, 3, 4), (20, 3, 10)]])
-    # 4-sinf 41: ulush va qismlar, sonning qismini topish
-    L['g4_c3_b41_l1'] = mix(r, [boya(r, b, a) for b, a in [(4, 3), (5, 3), (8, 7), (9, 5)]] + [qaysi(r, d, n) for d, n in [(7, 5), (9, 4), (12, 7)]] + [shakl(r, t, m) for t, m in [('kv', ['3/4', '2/3', '5/6']), ('olti', ['2/3', '5/6', '1/2']), ('uch', ['3/4', '1/2'])]]) + mix(r, [son(r, N, a, b) for N, a, b in [(12, 3, 4), (15, 2, 3), (18, 5, 6), (20, 3, 4), (16, 5, 8), (14, 3, 7), (10, 4, 5), (20, 7, 10), (18, 4, 9), (12, 5, 6)]])
-    # 4-sinf 48: maxrajlari bir xil kasrlarni qo'shish va ayirish
-    L['g4_c3_b48_l1'] = mix(r, [qosh(r, a, c, b) for a, c, b in [(1, 2, 4), (2, 2, 5), (3, 4, 9), (1, 4, 6), (2, 3, 8), (5, 3, 10), (1, 1, 3), (4, 2, 7), (2, 5, 12), (3, 3, 8)]]) + mix(r, [qosh(r, a, c, b, True) for a, c, b in [(3, 1, 4), (4, 2, 5), (7, 3, 9), (5, 4, 6), (6, 1, 8), (9, 5, 10), (2, 1, 3), (6, 4, 7), (11, 6, 12)]] + [qosh(r, 3, 4, 10)])
+    # 4-sinf 41: ulush va qismlar, sonning qismini topish; shakllar
+    L['g4_c3_b41_l1'] = mix(r, [boya(r, b, a) for b, a in [(5, 3), (8, 7), (9, 5)]] + [qaysi(r, 7, 5)] + [S(t, m) for t, m in [('kv', ['3/4', '2/3', '5/6']), ('olti', ['2/3', '5/6']), ('trap', ['2/3', '1/3'])]]
+                        + [shaklqaysi(r, t) for t in ['kv', 'olti']] + [tengmi(r, 'olti', True)]) \
+        + mix(r, [son(r, N, a, b) for N, a, b in [(12, 3, 4), (15, 2, 3), (18, 5, 6), (20, 3, 4), (16, 5, 8), (14, 3, 7), (20, 7, 10)]] + [shaklqaysi(r, t) for t in ['romb', 'tort', 'uch']])
+    # 4-sinf 48: maxrajlari bir xil kasrlarni qo'shish va ayirish (tasmada va shakllarda)
+    L['g4_c3_b48_l1'] = mix(r, [qosh(r, a, c, b) for a, c, b in [(1, 2, 4), (2, 2, 5), (3, 4, 9), (2, 3, 8), (5, 3, 10), (4, 2, 7), (2, 5, 12)]]
+                            + [S('olti', ['1/2'], [[1, 6], [2, 6]]), S('kv', ['3/4'], [[1, 4], [2, 4]]), S('uch', ['3/4'], [[2, 4], [1, 4]])]) \
+        + mix(r, [qosh(r, a, c, b, True) for a, c, b in [(3, 1, 4), (4, 2, 5), (7, 3, 9), (5, 4, 6), (6, 1, 8), (9, 5, 10), (11, 6, 12)]]
+              + [S('olti', ['2/3'], [[3, 6], [1, 6]]), S('tort', ['2/3'], [[1, 3], [1, 3]]), S('trap', ['2/3'], [[1, 3], [1, 3]])])
     # 4-sinf 57: foizlar
     L['g4_c3_b57_l1'] = mix(r, [foiz(r, 10, p) for p in [50, 30, 70, 10, 90, 20, 60, 100]] + [foiz(r, 4, 25), foiz(r, 4, 75)]) + mix(r, [foiz(r, 20, p) for p in [5, 15, 35, 45, 65]] + [foiz(r, 5, 40), foiz(r, 5, 80)] + [qaysi(r, 10, 3, 'foiz'), qaysi(r, 4, 1, 'foiz'), qaysi(r, 20, 9, 'foiz')])
     # 5-sinf 32: foiz tushunchasi

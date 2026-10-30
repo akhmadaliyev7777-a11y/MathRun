@@ -1705,3 +1705,7 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .bk-yozuv text { font-family: var(--f-head); font-weight: 900; fill: #1f2a44; paint-order: stroke; stroke: rgba(255,255,255,.85); stroke-width: 3px; }
 .bk-yozuv line { stroke: #1f2a44; }
 .shakl-joy.yozuvli .bk-yozuv { opacity: 1; }
+.chelak { width: auto; min-width: 104px; }
+.chelak__yorliq { flex-wrap: nowrap; }
+.chelak__yorliq:has(small) { flex-wrap: wrap; max-width: 110px; }
+@media (max-width: 520px) { .chelak { min-width: 92px; } .chelak__yorliq .kasr { font-size: 17px; } }

@@ -1015,7 +1015,9 @@ function gameNetFold(ctx) {
 // Taxtalarni bosib yoki barmoqni surib bo'yash. Turlari: boya (a/b ni bo'yash; taxtalar b·k ta bo'lsa — teng kasr),
 // son (N ta taxtaning a/b qismi), qosh (a/b ko'k bo'yalgan + c/b sariq), ayir (a/b dan c/b ni yuvish),
 // foiz (p% yoki o'nli kasr), qaysi (bo'yalgan qism — kasr/foiz/o'nli kasr variantlaridan), shakl (kvadrat/oltiburchak/
-// uchburchak har xil kattalikdagi bo'laklarga bo'lingan — sanab emas, kattaligiga qarab bo'yash). Doira-bo'lak yo'q.
+// uchburchak/romb/trapetsiya/to'g'ri to'rtburchak har xil kattalikdagi bo'laklarga bo'lingan — sanab emas, kattaligiga
+// qarab bo'yash), shaklqaysi (bo'yalgan qism qancha — bo'laklar teng emas), tengmi («bo'yalgan qism 1/n mi?» — shakli
+// har xil, yuzi teng bo'laklar ham bor). Brilliant «Combining Parts» g'oyasi. Doira-bo'lak yo'q.
 const kasrEl = (a, b) => el('span', { class: 'kasr' }, el('b', {}, a), el('i'), el('b', {}, b));
 // matndagi «a/b» — ustunli kasr
 const matnK = (str) => str.split(/(\d+\/\d+)/).map(q => (/^\d+\/\d+$/.test(q) ? kasrEl(...q.split('/')) : q)).filter(q => q !== '');
@@ -1026,7 +1028,7 @@ const kYigindi = (ks) => ks.reduce((s, k) => kQosh(s, k), [0, 1]);
 const kMatn = (k) => (k[1] === 1 ? `${k[0]}` : `${k[0]}/${k[1]}`);
 // shakl (kvadrat, oltiburchak, uchburchak) — har xil kattalikdagi bo'laklar; panjara koordinatalaridan ekranga
 function shaklSVG(t, kenglik) {
-  const map = t.shakl === 'kv' ? ([x, y]) => [x, y] : ([x, y]) => [x + y / 2, -y * Math.sqrt(3) / 2];
+  const map = t.shakl === 'kv' || t.shakl === 'tort' ? ([x, y]) => [x, y] : ([x, y]) => [x + y / 2, -y * Math.sqrt(3) / 2];
   const P = t.bolaklar.map(b => b.map(map)), all = P.flat();
   const minx = Math.min(...all.map(p => p[0])), maxx = Math.max(...all.map(p => p[0])), miny = Math.min(...all.map(p => p[1])), maxy = Math.max(...all.map(p => p[1]));
   const k = Math.min((kenglik - 20) / (maxx - minx), 210 / (maxy - miny)), W = (maxx - minx) * k + 12, H = (maxy - miny) * k + 12;
@@ -1053,10 +1055,18 @@ const svgEl = (tag, attrs = {}, ...kids) => {
 };
 
 function ulushSabab(t, tanlov) {
-  if (t.tur === 'shakl') {
+  if (t.tur === 'tengmi') {
+    const [u, m] = t.ulush[t.boyalgan[0]], n = t.d;
+    return t.javob ? `Bo'laklar shakli har xil bo'lsa ham, yuzlari teng — har biri 1/${n}. Ha, bu 1/${n}.`
+      : `Bo'laklar teng emas: bo'yalgan bo'lak ${u}/${m}, 1/${n} emas. Kasr — teng bo'laklar.`;
+  }
+  if (t.tur === 'shaklqaysi') tanlov = t.boyalgan;
+  if (t.tur === 'shakl' || t.tur === 'shaklqaysi') {
     const ks = (tanlov || t.yechim).map(i => t.ulush[i]).sort((a, b) => b[0] / b[1] - a[0] / a[1]);
-    if (ks.length === 1) return `Bu bo'lak butunning ${kMatn(ks[0])} qismi — bo'laklar teng emas, kattaligiga qarab tanlaymiz.`;
-    return `${ks.map(kMatn).join(' + ')} = ${kMatn(kYigindi(ks))} — bo'laklar teng emas, kattaligiga qarab qo'shamiz.`;
+    const qs = t.kasrlar && t.kasrlar.every(k => k[1] === t.kasrlar[0][1]) ? [t.kasrlar.reduce((a, k) => a + k[0], 0), t.kasrlar[0][1]] : null;
+    const old = t.kasrlar ? `${t.kasrlar.map(kMatn).join(' + ')} = ${qs && kMatn(qs) !== kMatn(kYigindi(t.kasrlar)) ? `${kMatn(qs)} = ` : ''}${kMatn(kYigindi(t.kasrlar))}. ` : '';
+    if (ks.length === 1) return `${old}Bo'yalgan bo'lak butunning ${kMatn(ks[0])} qismi — bo'laklar teng emas, kattaligiga qarab o'lchaymiz.`;
+    return `${old}${ks.map(kMatn).join(' + ')} = ${kMatn(kYigindi(ks))} — bo'laklar teng emas, sanab emas, kattaligiga qarab qo'shamiz.`;
   }
   const d = t.d, n = t.n;
   if (t.tur === 'boya') {
@@ -1113,14 +1123,14 @@ function gameFractionStrip(ctx) {
   let t = null, holat = [], busy = true, startedAt = 0, tekshir = () => {};
   const taxtalar = () => [...devor.children];
   function chiz() {
-    if (t && t.tur === 'shakl') { shk.bolak.forEach((pg, i) => pg.classList.toggle('bk--kok', tanlov.has(i))); hisob.replaceChildren('Bo\'yalgan: ', el('b', {}, `${tanlov.size} ta`), ` bo'lak · jami ${t.d} ta`); return; }
+    if (t && shk && shaklJoy.contains(shk.node) && !shaklJoy.hidden) { shk.bolak.forEach((pg, i) => pg.classList.toggle('bk--kok', tanlov.has(i))); hisob.replaceChildren(); return; }   // shaklda bo'laklar sonini ko'rsatmaymiz — sanash emas, kattalik muhim
     taxtalar().forEach((d, i) => { d.className = 'taxta' + (holat[i] === 1 ? ' taxta--kok' : holat[i] === 2 ? ' taxta--sariq' : holat[i] === 3 ? ' taxta--yuvildi' : ''); });
     const k = holat.filter(h => h === 1 || h === 2).length;
     hisob.replaceChildren('Bo\'yalgan: ', el('b', {}, `${k} ta`), ` · jami ${t.d} ta taxta`);
   }
   // bitta taxtaga bo'yoq: tur bo'yicha nima bo'lishi
   function surt(i, rejim) {
-    if (busy || !t || t.tur === 'qaysi') return;
+    if (busy || !t || t.tur === 'qaysi' || t.tur === 'shaklqaysi' || t.tur === 'tengmi') return;
     if (t.tur === 'shakl') {
       const bor = tanlov.has(i);
       if (bor && rejim !== 'boya') tanlov.delete(i); else if (!bor && rejim !== 'qayt') tanlov.add(i); else return null;
@@ -1168,7 +1178,8 @@ function gameFractionStrip(ctx) {
   function yorliqYoz() {
     const K = (a, b) => kasrEl(a, b);
     let ich;
-    if (t.tur === 'boya' || t.tur === 'shakl') ich = [K(...t.kasr)];
+    if (t.tur === 'shakl' && t.kasrlar) ich = [K(...t.kasrlar[0]), el('span', { class: 'chelak__amal' }, '+'), K(...t.kasrlar[1])];
+    else if (t.tur === 'boya' || t.tur === 'shakl' || t.tur === 'tengmi') ich = [K(...t.kasr), ...(t.tur === 'tengmi' ? [el('b', { class: 'chelak__foiz' }, '?')] : [])];
     else if (t.tur === 'son') ich = [el('small', {}, `${t.d} ning`), K(...t.kasr)];
     else if (t.tur === 'qosh' || t.tur === 'ayir') ich = [K(...t.kasrlar[0]), el('span', { class: 'chelak__amal' }, t.tur === 'qosh' ? '+' : '−'), K(...t.kasrlar[1])];
     else if (t.tur === 'foiz') ich = [el('b', { class: 'chelak__foiz' }, t.onli || `${t.foiz}%`)];
@@ -1177,7 +1188,7 @@ function gameFractionStrip(ctx) {
   }
   // to'g'ri javobdan keyin — bo'laklar qavslari (har 1/b qism) yoki foiz belgilari
   function guruhChiz() {
-    if (t.tur === 'shakl') { shaklJoy.classList.add('yozuvli'); return; }
+    if (t.tur === 'shakl' || t.tur === 'shaklqaysi' || t.tur === 'tengmi') { shaklJoy.classList.add('yozuvli'); return; }
     const b = t.tur === 'boya' || t.tur === 'son' ? t.kasr[1] : t.tur === 'foiz' ? 0 : t.d;
     if (t.tur === 'foiz') { guruhlar.replaceChildren(...Array.from({ length: t.d }, () => el('span', { class: 'gq gq--foiz' }, `${100 / t.d}%`))); guruhlar.style.setProperty('--n', t.d); return; }
     const k = t.d / b;
@@ -1187,11 +1198,11 @@ function gameFractionStrip(ctx) {
 
   // shakl topshirig'ida devor o'rniga shakl chiqadi
   function shaklKo(tt) {
-    const bor = tt.tur === 'shakl';
+    const bor = tt.tur === 'shakl' || tt.tur === 'shaklqaysi' || tt.tur === 'tengmi';
     devorJoy.hidden = bor; guruhlar.hidden = bor; shaklJoy.hidden = !bor;
     shaklJoy.classList.remove('yozuvli');
     tanlov = new Set();
-    if (bor) { shk = shaklSVG(tt, Math.min(360, (bog.clientWidth || 340) - 30)); shaklJoy.replaceChildren(shk.node); }
+    if (bor) { shk = shaklSVG(tt, Math.min(360, (bog.clientWidth || 340) - 30)); shaklJoy.replaceChildren(shk.node); if (tt.boyalgan) tanlov = new Set(tt.boyalgan); }
   }
   function round() {
     const items = rounds[ri];
@@ -1215,12 +1226,13 @@ function gameFractionStrip(ctx) {
       const savolMatn = {
         boya: 'Devorning shuncha qismini bo\'yang', son: 'Shuncha taxtani bo\'yang',
         qosh: 'Ko\'k qism bor — sariq bilan qo\'shing', ayir: 'Bo\'yalgan qismdan ayiring — taxtalarni yuving',
-        foiz: 'Devorning shuncha qismini bo\'yang', shakl: 'Shaklning shuncha qismini bo\'yang', qaysi: t.shakl === 'foiz' ? 'Devorning necha foizi bo\'yalgan?' : t.shakl === 'onli' ? 'Bo\'yalgan qism o\'nli kasrda qancha?' : 'Devorning qancha qismi bo\'yalgan?',
+        foiz: 'Devorning shuncha qismini bo\'yang', shakl: t.kasrlar ? 'Ikkala kasrni birga bo\'yang' : 'Shaklning shuncha qismini bo\'yang', shaklqaysi: 'Shaklning qancha qismi bo\'yalgan?', tengmi: `Bo'yalgan qism 1/${t.d} mi?`, qaysi: t.shakl === 'foiz' ? 'Devorning necha foizi bo\'yalgan?' : t.shakl === 'onli' ? 'Bo\'yalgan qism o\'nli kasrda qancha?' : 'Devorning qancha qismi bo\'yalgan?',
       }[t.tur];
       savol.textContent = savolMatn;
-      if (t.tur === 'qaysi') {
+      if (t.tur === 'tengmi') t.options = [true, false];
+      if (t.tur === 'qaysi' || t.tur === 'shaklqaysi' || t.tur === 'tengmi') {
         amallar.hidden = true; javoblar.hidden = false;
-        javoblar.replaceChildren(...t.options.map((o, i) => el('button', { type: 'button', class: 'bog-jt', onclick: (e) => tanla(o, e.currentTarget) }, ...matnK(o), el('small', { class: 'bog-jt__key' }, i + 1))));
+        javoblar.replaceChildren(...t.options.map((o, i) => el('button', { type: 'button', class: 'bog-jt', onclick: (e) => tanla(o, e.currentTarget) }, ...(o === true ? ['✓ Ha'] : o === false ? ["✗ Yo'q"] : matnK(o)), el('small', { class: 'bog-jt__key' }, i + 1))));
       } else { amallar.hidden = false; javoblar.hidden = true; }
       B.say(t.tur === 'son' ? ['Taxtalarni teng guruhlarga ajrating: maxraj — nechta guruh, surat — nechta guruh bo\'yaladi.']
         : t.tur === 'qosh' ? ['Ko\'k qism oldindan bor. Ikkinchi kasrni sariq bilan qo\'shing — taxtani bosing yoki barmoqni suring.']
@@ -1228,11 +1240,13 @@ function gameFractionStrip(ctx) {
         : t.tur === 'foiz' ? [`Butun devor — 100%. Bitta taxta necha foiz?`]
         : t.tur === 'qaysi' ? ['Taxtalarni sanang: jami nechta, nechtasi bo\'yalgan?']
         : t.tur === 'shakl' ? ['Diqqat: bo\'laklar teng emas! Sanab emas, kattaligiga qarab bo\'yang.']
+        : t.tur === 'shaklqaysi' ? ['Bo\'laklar teng emasligiga e\'tibor bering — har bo\'lak butunning qanchasi?']
+        : t.tur === 'tengmi' ? ['Kasr — teng bo\'laklar. Bo\'laklar haqiqatan tengmi? Shakli emas, kattaligi muhim.']
         : ['Taxtani bosing yoki barmoqni surib bo\'yang. Keyin «Tayyor».'], 'idle');
       startedAt = performance.now();
       onKey = (ev) => {
-        if (ev.key === 'Enter' && t.tur !== 'qaysi') { ev.preventDefault(); tekshir(); }
-        const n = +ev.key; if (t.tur === 'qaysi' && n >= 1 && n <= javoblar.children.length) { ev.preventDefault(); javoblar.children[n - 1].click(); }
+        if (ev.key === 'Enter' && javoblar.hidden) { ev.preventDefault(); tekshir(); }
+        const n = +ev.key; if (!javoblar.hidden && n >= 1 && n <= javoblar.children.length) { ev.preventDefault(); javoblar.children[n - 1].click(); }
       };
     }
 
@@ -1256,7 +1270,7 @@ function gameFractionStrip(ctx) {
         sfx.ok(); devor.classList.add('yondi');
         H.add(10 * m + (fast ? 5 : 0), btn);
         if (fast && m < 2) floatText('⚡ Tez!', btn, 'hud-float--tez');
-        if (t.tur !== 'qaysi' && t.tur !== 'shakl') togriQil();
+        if (t.tur === 'boya' || t.tur === 'son' || t.tur === 'qosh' || t.tur === 'ayir' || t.tur === 'foiz') togriQil();
         guruhChiz();
         B.say([el('span', { class: 'rchip rchip--ha' }, 'To\'g\'ri ✓'), ' ', ...matnK(ulushSabab(t, t.tur === 'shakl' ? [...tanlov] : null))], 'ok');
         later(() => { devor.classList.remove('yondi'); ii++; next(); }, 2800);
@@ -1265,7 +1279,7 @@ function gameFractionStrip(ctx) {
         const left = H.loseHeart();
         devor.classList.remove('xato'); void devor.offsetWidth; devor.classList.add('xato');
         B.say([el('span', { class: 'rchip rchip--yoq' }, 'Xato'), ' ', ...matnK(xatoMatn), el('br'), ...matnK(ulushSabab(t))], 'bad');
-        later(() => { if (t.tur !== 'qaysi') togriQil(); guruhChiz(); }, 900);
+        later(() => { if (t.tur !== 'qaysi' && t.tur !== 'shaklqaysi' && t.tur !== 'tengmi') togriQil(); guruhChiz(); }, 900);
         const davom = () => { onKey = null; s.foot.replaceChildren(); ii++; left === 0 ? autoRest() : next(); };
         later(() => {
           s.foot.replaceChildren(el('button', { class: 'btn btn--accent', type: 'button', onclick: davom }, 'Davom etish ➜'));
@@ -1274,7 +1288,7 @@ function gameFractionStrip(ctx) {
       }
     }
     tekshir = function () {
-      if (busy || !t || t.tur === 'qaysi') return;
+      if (busy || !t || !javoblar.hidden) return;
       if (t.tur === 'shakl') {
         if (!tanlov.size) return;
         const ks = [...tanlov].map(i => t.ulush[i]), sum = kYigindi(ks), ok = sum[0] * t.kasr[1] === sum[1] * t.kasr[0];
@@ -1292,7 +1306,7 @@ function gameFractionStrip(ctx) {
       const ok = o === t.javob;
       [...javoblar.children].forEach((b, i) => { b.disabled = true; if (t.options[i] === t.javob) b.classList.add('is-ok'); });
       btn.classList.add(ok ? 'is-ok' : 'is-bad');
-      natija(ok, btn, ok ? '' : `${o} emas.`);
+      natija(ok, btn, ok ? '' : typeof o === 'boolean' ? '' : t.tur === 'shaklqaysi' && o === `${t.n}/${t.d}` ? `${o} emas — bo'laklarni sanash yetmaydi.` : `${o} emas.`);
     }
 
     function autoRest() {
@@ -1304,7 +1318,7 @@ function gameFractionStrip(ctx) {
         holat = Array(t.d).fill(0); devor.style.setProperty('--n', t.d);
         devor.replaceChildren(...Array.from({ length: t.d }, () => el('i', { class: 'taxta' })));
         guruhlar.replaceChildren(); shaklKo(t); yorliqYoz(); chiz();
-        later(() => { togriQil(); guruhChiz(); B.say([...matnK(ulushSabab(t))], 'think'); }, 800);
+        later(() => { if (t.tur !== 'qaysi' && t.tur !== 'shaklqaysi' && t.tur !== 'tengmi') togriQil(); guruhChiz(); B.say([...matnK(ulushSabab(t))], 'think'); }, 800);
         later(() => { ii++; go(); }, 3400);
       };
       later(go, 1000);
