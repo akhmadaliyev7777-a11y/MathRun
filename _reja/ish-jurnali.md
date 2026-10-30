@@ -15,7 +15,15 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 - **Ikonkalar:** 6-sinf 31/31; 7-sinf 79/79 (2026-10-25, tugadi).
 - **7-sinf (Matematika 2026):** 1.1–4.4 tayyor (16/27; 1.2 dan boshlab 5E uslubida). Kitob: 1–4-boblar bor, 5–7-boblar yo'q. Navbat: 5-bob (kitob kutilmoqda; foydalanuvchi «5–7-boblarga o'tmay tur» dedi).
 - **8–11-sinf mavzu ro'yxatlari:** kitob mundarijasi bo'yicha saytga qo'yildi (2026-10-29): 8 — algebra 31, geometriya 37; 9 — 38, 35; 10 — 29, 17; 11 — 24, 12. Rejalar `_reja/8…11-sinf-*-reja.md`, `mavzular8/8g/9/9g/10/10g/11/11g.json`. Kitob PDF'lari hali yo'q (faqat mundarija rasmlari).
+- **1–4-sinf o'yinlari (2026-10-30 dan):** har o'yin o'z «dunyosi»da qayta qurilmoqda (qoidalar — `mathrunner-web/CLAUDE.md` oxiri). Tayyor: 1 To'plamlar (koinot), 2 Tartiblash (o'rmon-poyezd, kasrlar bilan), 3 Jadval (xazina g'ori). Navbatda: 4 Saralash, keyin Tarozi, Xona tarkibi, Yoyilma, Ulush, Koordinata, Harakat, Transportir, Simmetriya. GPT rasm promptlari — `mathrunner-web/design/oyin-rasmlar.md` (rasmlar hali kelmagan).
 - **Oxirgi yozuvdan beri tugagan mavzular:** 4 / 6 (4.1–4.4).
+
+---
+
+## 2026-10-30 — m.shukurillo hisobi (bulut sessiyasi)
+**Qilindi:** 1–4-sinf «Fikrlash o'yinlari» tahlil qilindi va o'yin ko'rinishiga keltirila boshlandi: umumiy panel (yuraklar, ochko, kombo, ovoz), yangi o'yin personaji Robi (kodda chizilgan, GPT rasmi kutilmoqda). To'plamlar — koinot (sayyora maydonlari, meteoritlar); Tartiblash — o'rmondagi bekat va poyezd, 43-mavzuda haqiqiy kasrlar, 46-mavzuga yangi kasrlar o'yini (maxrajlari / suratlari bir xil); Jadval — xazina g'ori (qulf-tenglamalar, amal hadlari qoidasi). O'yinga kirishdan oldin mavzu tanlash. Hammasi saytga yuklandi.
+**Chala:** 7-sinf 1.1–1.4 dagi 6 ta kichik matn kamchiligi (2026-10-29 yozuvida); qolgan 9 ta o'yin; GPT rasmlari.
+**Navbatda:** «Saralash» o'yini (kosmik zavod konveyeri g'oyasi) — foydalanuvchi «to'xtab tur» dedi, buyrug'ini kuting.
 
 ---
 

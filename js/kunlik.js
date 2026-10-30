@@ -4,13 +4,16 @@
 window.KUNLIK = [
   {
     sana: "2026-10-30",
-    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan).",
+    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori; o'yinga kirishdan oldin mavzu tanlanadi.",
     ishlar: [
       ["1–4-sinf", "O'yinlar tahlil qilindi: 12 ta o'yindan 7 tasida javob to'g'ri-xatoligi aytilmasdi, sababi ko'rsatilmasdi, ish varag'iga o'xshardi. Har o'yin alohida, o'z «dunyosi»da qayta quriladi."],
       ["1–4-sinf", "Hamma o'yinlar uchun umumiy panel: yuraklar, ochko, kombo, «Tez!» bonusi, ovoz (o'chirish tugmasi), yangi o'yin personaji — kosmik robot Robi: har javobdan keyin sababini bir qatorda aytadi."],
       ["1–4-sinf", "«To'plamlar (Venn)» — koinot: doiralar sayyoralarning tortishish maydoni (sayyora markazda, to'lqinlar tarqaladi), sonlar — meteoritlar; xato bo'lsa har to'plam bo'yicha ✓/✗. 1 625 ta javob dastur bilan tekshirildi."],
       ["1–4-sinf", "«Tartiblash» — o'rmondagi bekat va bug' poyezdi: qutilar vagonlarga tartib bilan ortiladi, hammasi to'g'ri bo'lsa poyezd jo'naydi; xatoda sabab (katta sonlarda — qaysi xonasi kichik)."],
       ["1–4-sinf", "Kasrlar poyezdi: 43-mavzuda haqiqiy kasrlar (maxrajlari bir xil), 46-mavzu «Kasrlarni taqqoslash»ga yangi o'yin — «Maxrajlari bir xil» va «Suratlari bir xil» mashqlari."],
+      ["1–4-sinf", "Poyezd vagonlari biz tomondan ochiq — quti va undagi son/kasr to'liq ko'rinadi; kasrlar vagonda ham ustunli; bekat bilan poyezd orasi ochildi."],
+      ["1–4-sinf", "«Jadval» — xazina g'ori: qulflangan sandiq, har tenglama — qulf, raqamli tugmalar; xatoda javob emas, amal hadlari qoidasi shu sonlar bilan aytiladi; hammasi ochilsa sandiq ochiladi. 196 tenglama tekshirildi."],
+      ["1–4-sinf", "O'yinga kirishdan oldin sinf va mavzu tanlanadi (tasodifiy bosqich emas); o'yindan qaytganda o'sha ro'yxatga qaytadi."],
       ["Ish tartibi", "O'yin rasmlari (Robi, fonlar, sayyoralar, meteorit, poyezd) GPT'da yasaladi — promptlar tayyor; keyinroq musiqa qo'shiladi."]
     ]
   },
