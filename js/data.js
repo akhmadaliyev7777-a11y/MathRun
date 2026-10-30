@@ -1547,9 +1547,9 @@ const SITE_DATA = {
             { id: "bikvadrat-tenglama", title: "26. Bikvadrat tenglama. Kvadrat tenglamaga keltiriladigan tenglamalar", page: "156-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "kvadrat-tenglama-masalalar", title: "27. Kvadrat tenglamalar yordamida masalalar yechish", page: "163-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
             { id: "malumotlarni-tasvirlash", title: "28. Ma'lumotlar tahlili. Ma'lumotlarni tasvirlash", page: "188-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
-            { id: "orta-qiymat-moda-mediana", title: "29. O'rta qiymat. Moda. Mediana", page: "194-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
-            { id: "tanlash-usuli-kombinatorika", title: "30. Tanlash usuli bilan kombinatorik masalalarni yechish", page: "200-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
-            { id: "kombinatorika-asosiy-qoidasi", title: "31. Kombinatorikaning asosiy qoidasi va uni masalalar yechishda qo'llash", page: "203-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null }
+            { id: "orta-qiymat-moda-mediana", icon: "img/mavzu/8-orta-qiymat-moda-mediana.webp", title: "29. O'rta qiymat. Moda. Mediana", page: "194-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "tanlash-usuli-kombinatorika", icon: "img/mavzu/8-tanlash-usuli-kombinatorika.webp", title: "30. Tanlash usuli bilan kombinatorik masalalarni yechish", page: "200-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null },
+            { id: "kombinatorika-asosiy-qoidasi", icon: "img/mavzu/8-kombinatorika-asosiy-qoidasi.webp", title: "31. Kombinatorikaning asosiy qoidasi va uni masalalar yechishda qo'llash", page: "203-bet", lecture: { text: null, embedUrl: null }, interactive: null, test: null }
           ]
         },
         {
