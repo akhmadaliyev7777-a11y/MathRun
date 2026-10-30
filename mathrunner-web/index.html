@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/style.css?v=101">
   <link rel="stylesheet" href="../css/test.css?v=5">
   <link rel="stylesheet" href="css/styles.css?v=60">
+  <link rel="stylesheet" href="../css/xabar.css?v=7">
   <!-- tez ochilishi uchun: bo'lim kodi va mavzular ma'lumoti bir vaqtda (parallel) yuklanadi -->
   <link rel="modulepreload" href="js/app.js">
   <link rel="modulepreload" href="js/util.js">
@@ -43,6 +44,17 @@
   <!-- test natijalari umumiy tizimga (Mening natijalarim, admin, statistika) shu orqali yoziladi -->
   <script defer src="../js/natija.js?v=4"></script>
   <script defer src="../js/layout.js?v=27"></script>
+  <!-- «Izoh yoki kamchilik» tugmasi (2026-10-30): xabar kaliti — boshlangich|<sahifa sarlavhasi> (<manzil>) -->
+  <script defer src="../js/xabar.js?v=5"></script>
   <script>document.addEventListener("DOMContentLoaded", function () { renderSiteHeader("../", /^#\/(games|tug)/.test(location.hash) ? "games" : "primary"); });</script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+    function sarlavha() { var h = document.querySelector("#app h1, #app h2"); return h ? h.textContent.replace(/\s+/g, " ").trim() : "Boshlang'ich sinflar"; }
+    initXabar(function () { return ("boshlangich|" + sarlavha() + " (" + (location.hash || "#/") + ")").slice(0, 119); }, {
+      joy: document.getElementById("app"),
+      bolimlar: { maruza: "Mavzu", interaktiv: "O'yin / interaktiv", test: "Test" },
+      bolim: function () { var h = location.hash; return /^#\/test/.test(h) ? "test" : /^#\/(sim|play|games|tug)/.test(h) ? "interaktiv" : "maruza"; },
+      sarlavha: sarlavha
+    });
+  });</script>
 </body>
 </html>

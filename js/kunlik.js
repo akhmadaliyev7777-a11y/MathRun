@@ -25,7 +25,8 @@ window.KUNLIK = [
       ["1–4-sinf", "«Ulush tasmasi» — bog'dagi devorni bo'yash: taxtalar teng bo'laklar, chelak yorlig'ida kasr (ustunli); kasrni bo'yash, sonning ulushi (12 ning 1/4 qismi), qo'shish (ko'k + sariq), ayirish (yuvish), foiz va o'nli kasr, bo'yalgan qismni o'qish."],
       ["1–4-sinf", "«Ulush tasmasi»ga Brilliant g'oyasidagi shakllar: kvadrat, to'g'ri to'rtburchak, oltiburchak, uchburchak, romb, trapetsiya har xil kattalikdagi bo'laklarga bo'lingan — sanab emas, kattaligiga qarab bo'yash; «Bo'yalgan qism 1/4 mi?», «Qancha qismi bo'yalgan?», shaklda qo'shish. 3-sinf 33, 45, 4-sinf 41, 48 da 36 ta."],
       ["5-sinf", "«Ulush tasmasi» o'yiniga 5-sinf «32. Foiz tushunchasi» va «33. Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish» qo'shildi."],
-      ["Ish tartibi", "O'yin rasmlari (Robi, fonlar, sayyoralar, meteorit, poyezd) GPT'da yasaladi — promptlar tayyor; keyinroq musiqa qo'shiladi."]
+      ["Ish tartibi", "O'yin rasmlari (Robi, fonlar, sayyoralar, meteorit, poyezd) GPT'da yasaladi — promptlar tayyor; keyinroq musiqa qo'shiladi."],
+      ["Sayt", "«Izoh yoki kamchilik» tugmasi boshlang'ich sinflar bo'limiga (mavzular, o'yinlar, testlar — tepada) va «Interaktiv darslar» sahifasi tepasiga qo'shildi; xabarlar admin panelda joyi bilan (masalan «1–4-sinf · 2-sinf · Mavzular») chiqadi."],
     ]
   },
   {

@@ -60,7 +60,20 @@ let NOTES = [];                // { id, src: "izoh" | "xabar", k, title, text, b
 let xabarOff = false;          // "xabarlar" to'plamiga ruxsat yo'q (qoidalar yangilanmagan)
 const BOLIM_NAMES = { maruza: "Ma'ruza (Nazariya)", interaktiv: "Interaktiv panel", test: "Test" };
 /* xabar qaysi bo'limdan yozilgani — rangli belgi */
-function bolimChip(n) { return n.src === "xabar" && BOLIM_NAMES[n.bolim] ? '<span class="adm-bolim" data-b="' + n.bolim + '">' + BOLIM_NAMES[n.bolim] + "</span>" : ""; }
+function bolimChip(n) { return n.src === "xabar" && bolimNomi(n) ? '<span class="adm-bolim" data-b="' + n.bolim + '">' + bolimNomi(n) + "</span>" : ""; }
+/* mavzu sahifasidan tashqari xabarlar (2026-10-30): 1–4-sinf bo'limi va «Interaktiv darslar» sahifasi — kalitidan joy nomi */
+function xabarJoy(k) {
+  const p = String(k || "").split("|");
+  if (p[0] === "boshlangich") return "1–4-sinf · " + p.slice(1).join("|");
+  if (p[0] === "interaktiv-darslar") return "Interaktiv darslar sahifasi";
+  return "";
+}
+function bolimNomi(n) {
+  const p = String(n.k || "").split("|")[0];
+  if (p === "boshlangich") return { maruza: "Mavzu", interaktiv: "O'yin / interaktiv", test: "Test" }[n.bolim] || "";
+  if (p === "interaktiv-darslar") return "Interaktiv darslar";
+  return BOLIM_NAMES[n.bolim] || "";
+}
 let RESULTS = [];              // { k, h, s, n, t }
 
 // 1–4 sinflar ma'lumoti (mathrunner-web bo'limidan yuklanadi)
@@ -445,7 +458,7 @@ function todayArrivals() {
   let rows = "";
   notes.forEach(function (n) {
     const t = topicByKey(n.k);
-    const where = t ? t.grade.id + "-sinf · " + escapeHtml(t.topic.title) : escapeHtml(n.title || "");
+    const where = t ? t.grade.id + "-sinf · " + escapeHtml(t.topic.title) : escapeHtml(n.title || xabarJoy(n.k));
     const kicker = (n.src === "xabar" ? noteSource(n) : '<span class="adm-src adm-src--izoh">Izoh</span> ') + '<span class="adm-ev-where">' + where + (n.done ? " · bajarilgan" : "") + '</span>';
     rows += evRow(n.src === "xabar" ? "green" : "yellow", z2(n.t.getHours()) + ":" + z2(n.t.getMinutes()), "bugun", kicker, escapeHtml(n.text), t, "adm-ev--note");
   });
@@ -1334,7 +1347,7 @@ function renderNotesCard() {
     const limit = showAllNotes.on || full ? open.length : 5;
     body = '<div class="adm-evs">' + open.slice(0, limit).map(function (n) {
       const t = topicByKey(n.k);
-      const where = t ? t.grade.id + "-sinf · " + splitTopicTitle(t.topic.title, t.index).num + " " + escapeHtml(splitTopicTitle(t.topic.title, t.index).title) : escapeHtml(n.title || "Mavzu topilmadi");
+      const where = t ? t.grade.id + "-sinf · " + splitTopicTitle(t.topic.title, t.index).num + " " + escapeHtml(splitTopicTitle(t.topic.title, t.index).title) : escapeHtml(n.title || xabarJoy(n.k) || "Mavzu topilmadi");
       const kicker = (n.src === "xabar" ? noteSource(n) : '<span class="adm-src adm-src--izoh">Izoh</span> ') + '<span class="adm-ev-where">' + where + '</span>';
       const left = n.t ? z2(n.t.getDate()) + "." + z2(n.t.getMonth() + 1) : "—";
       const small = n.t ? z2(n.t.getHours()) + ":" + z2(n.t.getMinutes()) : "";
@@ -1364,7 +1377,7 @@ function noteSource(n) {
 function copyNotesForClaude(btn) {
   const lines = openNotes().map(function (n) {
     const t = topicByKey(n.k);
-    const where = (t ? t.grade.id + "-sinf, " + t.topic.title : n.title) + (n.src === "xabar" && BOLIM_NAMES[n.bolim] ? " (" + BOLIM_NAMES[n.bolim] + ")" : "");
+    const where = (t ? t.grade.id + "-sinf, " + t.topic.title : (n.title || xabarJoy(n.k))) + (n.src === "xabar" && bolimNomi(n) ? " (" + bolimNomi(n) + ")" : "");
     return "- " + where + ": " + n.text + (n.src === "xabar" ? " [saytdan" + (n.ism ? ", " + n.ism : "") + "]" : "");
   });
   const text = "Admin paneldagi izohlar va saytdan kelgan xabarlar (tekshirib, tuzatib bering):\n" + lines.join("\n");

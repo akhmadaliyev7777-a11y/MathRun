@@ -1,5 +1,8 @@
 /* «Izoh yoki kamchilik» — mavzu sahifasi tepasida, sarlavha ostida */
 .xabar-bar { display: flex; justify-content: flex-end; margin: -6px 0 10px; }
+/* mavzu sahifasidan tashqari (1–4-sinf bo'limi): sarlavha ostida, kontent kengligida */
+.xabar-bar--alohida { max-width: 1180px; margin: 12px auto 0; padding: 0 32px; }
+@media (max-width: 560px) { .xabar-bar--alohida { padding: 0 16px; margin-top: 10px; } }
 .xabar-open { display: inline-flex; align-items: center; gap: 7px; font: inherit; font-size: 0.86rem; font-weight: 800; color: #b45309; background: linear-gradient(180deg, #fff8eb, #ffefd2); border: 1.5px solid #f3c98b; border-radius: 999px; padding: 7px 14px 7px 11px; cursor: pointer; box-shadow: 0 2px 6px rgba(180, 83, 9, .12); transition: transform .12s ease, box-shadow .12s ease; }
 .xabar-open svg { flex: none; }
 .xabar-open:hover { transform: translateY(-1px); box-shadow: 0 5px 14px rgba(180, 83, 9, .2); border-color: #e9a64a; }

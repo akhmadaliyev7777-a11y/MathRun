@@ -4,12 +4,10 @@
   Kutubxona yuklanmaydi: bitta oddiy so'rov yuboriladi.
 */
 
-const XABAR_BOLIM = { maruza: "Nazariya", interaktiv: "Interaktiv panel", test: "Test" };
+let XABAR_BOLIM = { maruza: "Nazariya", interaktiv: "Interaktiv panel", test: "Test" };
+let xabarBolimTop = function () { const h = location.hash.slice(1); return XABAR_BOLIM[h] ? h : "maruza"; };
 
-function xabarCurrentSection() {
-  const h = location.hash.slice(1);
-  return XABAR_BOLIM[h] ? h : "maruza";
-}
+function xabarCurrentSection() { return xabarBolimTop(); }
 
 function sendXabar(key, bolim, matn, ism) {
   const url = "https://firestore.googleapis.com/v1/projects/" + FIREBASE_CONFIG.projectId +
@@ -28,9 +26,15 @@ function sendXabar(key, bolim, matn, ism) {
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); });
 }
 
-function initXabar(key) {
+/* opts (boshqa sahifalar uchun, 2026-10-30): bolimlar — tanlov nomlari (kalitlari maruza/interaktiv/test — baza qoidasi shuni qabul qiladi),
+   bolim() — ochilganda qaysi biri belgilanadi, joy — tugma qo'yiladigan element oldi, sarlavha() — oynadagi «Mavzu: …» matni;
+   key funksiya bo'lishi mumkin (bitta sahifali ilovada yuborish paytida hisoblanadi) */
+function initXabar(key, opts) {
+  opts = opts || {};
+  if (opts.bolimlar) XABAR_BOLIM = opts.bolimlar;
+  if (opts.bolim) xabarBolimTop = opts.bolim;
   if (typeof FIREBASE_CONFIG === "undefined" || !FIREBASE_CONFIG.apiKey || FIREBASE_CONFIG.apiKey === "YOUR_API_KEY" || !window.fetch) return;
-  const container = document.querySelector(".page-container");
+  const container = opts.joy || document.querySelector(".page-container");
   if (!container) return;
 
   /* tugma sahifa tepasida (2026-10-28) */
@@ -40,6 +44,7 @@ function initXabar(key) {
   /* yopishgan bosqichlar qatorida (Nazariya · Interaktiv · Test · PDF) — doim ko'rinib turadi */
   const nav = document.getElementById("topic-steps");
   if (nav) nav.insertAdjacentHTML("beforeend", tugma);
+  else if (opts.joy) container.insertAdjacentHTML("beforebegin", '<div class="xabar-bar xabar-bar--alohida">' + tugma + '</div>');
   else container.insertAdjacentHTML("afterbegin", '<div class="xabar-bar">' + tugma + '</div>');
   document.body.insertAdjacentHTML("beforeend",
     '<div class="xabar-modal" id="xabar-modal" hidden>' +
@@ -77,7 +82,8 @@ function initXabar(key) {
     form.hidden = false; done.hidden = true; err.hidden = true;
     const cur = xabarCurrentSection();
     const tt = document.getElementById("topic-title");
-    document.getElementById("xabar-mavzu").textContent = tt ? "Mavzu: " + tt.textContent.trim() : "";
+    const sar = opts.sarlavha ? opts.sarlavha() : (tt ? tt.textContent.trim() : "");
+    document.getElementById("xabar-mavzu").textContent = sar ? "Mavzu: " + sar : "";
     form.querySelectorAll('input[name="xabar-bolim"]').forEach(function (r) { r.checked = r.value === cur; });
     modal.hidden = false;
     setTimeout(function () { document.getElementById("xabar-matn").focus(); }, 50);
@@ -97,7 +103,7 @@ function initXabar(key) {
     const checked = form.querySelector('input[name="xabar-bolim"]:checked');
     const ism = document.getElementById("xabar-ism").value.trim();
     send.disabled = true; send.textContent = "Yuborilmoqda…"; err.hidden = true;
-    sendXabar(key, checked ? checked.value : xabarCurrentSection(), matn.slice(0, 1000), ism.slice(0, 60))
+    sendXabar(typeof key === "function" ? key() : key, checked ? checked.value : xabarCurrentSection(), matn.slice(0, 1000), ism.slice(0, 60))
       .then(function () {
         document.getElementById("xabar-matn").value = "";
         form.hidden = true; done.hidden = false;
