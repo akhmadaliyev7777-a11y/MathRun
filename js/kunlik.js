@@ -4,8 +4,10 @@
 window.KUNLIK = [
   {
     sana: "2026-10-30",
-    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan), «Xona tarkibi» — shirinliklar fabrikasi, «Yoyilma» — origami ustaxonasi (3D buklanish), «Ulush tasmasi» — bog'dagi devor va har xil bo'lakli shakllar; o'yinga kirishdan oldin mavzu tanlanadi.",
+    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan), «Xona tarkibi» — shirinliklar fabrikasi, «Yoyilma» — origami ustaxonasi (3D buklanish), «Ulush tasmasi» — bog'dagi devor va har xil bo'lakli shakllar; «Koordinata» — xazina oroli xaritasi (7-sinf Dekart koordinatalari bilan); o'yinga kirishdan oldin mavzu tanlanadi.",
     ishlar: [
+      ["1–4-sinf", "«Koordinata» — xazina oroli xaritasi: dengiz, eski qog'oz xarita, orol, sandiq va palmalar. Xazinani qazish (nuqtani bosish), buyum koordinatasini tanlash (sonlari almashgan tuzoq bilan), kapitan yo'li (nuqtalarni ketma-ket ulash, shakl chiqadi), Robi qadamlari (o'ngga/chapga/yuqoriga/pastga), masofa, koordinata nuri; javobdan keyin xaritada yo'l ko'rsatiladi. 3-sinf 52, 4-sinf 5 va 16-mavzular."],
+      ["7-sinf", "«Koordinata» o'yiniga 7-sinf Algebra «26. Dekart koordinatalar sistemasi» qo'shildi: manfiy koordinatalar, to'rt chorak, nuqta qaysi chorakda yoki o'qda. 80 topshiriq dastur bilan tekshirildi."],
       ["1–4-sinf", "O'yinlar tahlil qilindi: 12 ta o'yindan 7 tasida javob to'g'ri-xatoligi aytilmasdi, sababi ko'rsatilmasdi, ish varag'iga o'xshardi. Har o'yin alohida, o'z «dunyosi»da qayta quriladi."],
       ["1–4-sinf", "Hamma o'yinlar uchun umumiy panel: yuraklar, ochko, kombo, «Tez!» bonusi, ovoz (o'chirish tugmasi), yangi o'yin personaji — kosmik robot Robi: har javobdan keyin sababini bir qatorda aytadi."],
       ["1–4-sinf", "«To'plamlar (Venn)» — koinot: doiralar sayyoralarning tortishish maydoni (sayyora markazda, to'lqinlar tarqaladi), sonlar — meteoritlar; xato bo'lsa har to'plam bo'yicha ✓/✗. 1 625 ta javob dastur bilan tekshirildi."],
