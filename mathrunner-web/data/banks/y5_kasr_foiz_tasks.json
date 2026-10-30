@@ -1,0 +1,222 @@
+[
+ {
+  "tur": "qaysi",
+  "shakl": "foiz",
+  "d": 20,
+  "n": 11,
+  "options": [
+   "20%",
+   "11%",
+   "55%",
+   "110%"
+  ],
+  "javob": "55%",
+  "id": "y5kasrfoiz_01"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "onli",
+  "d": 4,
+  "n": 1,
+  "options": [
+   "0,1",
+   "1,4",
+   "0,25",
+   "0,01"
+  ],
+  "javob": "0,25",
+  "id": "y5kasrfoiz_02"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "onli",
+  "d": 5,
+  "n": 2,
+  "options": [
+   "0,6",
+   "0,4",
+   "2,5",
+   "0,02"
+  ],
+  "javob": "0,4",
+  "id": "y5kasrfoiz_03"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "onli",
+  "d": 10,
+  "n": 9,
+  "options": [
+   "0,9",
+   "0,09",
+   "0,1",
+   "9,10"
+  ],
+  "javob": "0,9",
+  "id": "y5kasrfoiz_04"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "foiz",
+  "d": 2,
+  "n": 1,
+  "options": [
+   "2%",
+   "60%",
+   "50%",
+   "10%"
+  ],
+  "javob": "50%",
+  "id": "y5kasrfoiz_05"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "foiz",
+  "d": 4,
+  "n": 3,
+  "options": [
+   "25%",
+   "30%",
+   "75%",
+   "4%"
+  ],
+  "javob": "75%",
+  "id": "y5kasrfoiz_06"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "onli",
+  "d": 10,
+  "n": 3,
+  "options": [
+   "3,10",
+   "0,3",
+   "0,03",
+   "0,7"
+  ],
+  "javob": "0,3",
+  "id": "y5kasrfoiz_07"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "onli",
+  "d": 20,
+  "n": 3,
+  "options": [
+   "0,15",
+   "3,20",
+   "0,3",
+   "0,85"
+  ],
+  "javob": "0,15",
+  "id": "y5kasrfoiz_08"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "foiz",
+  "d": 5,
+  "n": 4,
+  "options": [
+   "80%",
+   "4%",
+   "20%",
+   "5%"
+  ],
+  "javob": "80%",
+  "id": "y5kasrfoiz_09"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "onli",
+  "d": 20,
+  "n": 7,
+  "options": [
+   "0,7",
+   "0,35",
+   "7,20",
+   "0,65"
+  ],
+  "javob": "0,35",
+  "id": "y5kasrfoiz_10"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 60,
+  "d": 20,
+  "n": 12,
+  "onli": "0,6",
+  "id": "y5kasrfoiz_11"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 20,
+  "d": 10,
+  "n": 2,
+  "onli": "0,2",
+  "id": "y5kasrfoiz_12"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 95,
+  "d": 20,
+  "n": 19,
+  "onli": "0,95",
+  "id": "y5kasrfoiz_13"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 15,
+  "d": 20,
+  "n": 3,
+  "onli": "0,15",
+  "id": "y5kasrfoiz_14"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 25,
+  "d": 20,
+  "n": 5,
+  "onli": "0,25",
+  "id": "y5kasrfoiz_15"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 70,
+  "d": 10,
+  "n": 7,
+  "onli": "0,7",
+  "id": "y5kasrfoiz_16"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 50,
+  "d": 20,
+  "n": 10,
+  "onli": "0,5",
+  "id": "y5kasrfoiz_17"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 75,
+  "d": 4,
+  "n": 3,
+  "onli": "0,75",
+  "id": "y5kasrfoiz_18"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 40,
+  "d": 5,
+  "n": 2,
+  "onli": "0,4",
+  "id": "y5kasrfoiz_19"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 35,
+  "d": 20,
+  "n": 7,
+  "onli": "0,35",
+  "id": "y5kasrfoiz_20"
+ }
+]

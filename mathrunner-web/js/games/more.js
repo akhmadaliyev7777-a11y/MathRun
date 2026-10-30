@@ -1,4 +1,4 @@
-// Qo'shimcha o'yinlar: kasr tasmasi, koordinata yo'li, harakat chizig'i, transportir.
+// Qo'shimcha o'yinlar: koordinata yo'li, harakat chizig'i, transportir.
 // Har biri (ctx) -> render -> tugagach ctx.finish(correct, total, extra). Qobiq — shell.js.
 import { el, shuffle } from '../util.js';
 import { shell, checkBtn } from './shell.js';
@@ -32,37 +32,6 @@ function runner(ctx, s, tasks, renderTask) {
     renderTask(tasks[idx], done, () => locked);
   }
   show();
-}
-
-// ================= fractionStrip: tasmaning kerakli qismini bo'yash =================
-function gameFractionStrip(ctx) {
-  const tasks = ctx.bank;
-  const s = shell(ctx, tasks[0].prompt, 'columns', true);
-  runner(ctx, s, tasks, (t, done, isLocked) => {
-    const on = new Set();
-    const info = el('div', { class: 'fs-info' });
-    const cells = Array.from({ length: t.denominator }, (_, i) => el('button', {
-      class: 'fs-cell',
-      'aria-label': `${i + 1}-bo'lak`,
-      onclick: () => {
-        if (isLocked()) return;
-        on.has(i) ? on.delete(i) : on.add(i);
-        paint();
-      },
-    }));
-    function paint() {
-      cells.forEach((c, i) => c.classList.toggle('on', on.has(i)));
-      info.textContent = `Bo'yalgan: ${on.size} ta · jami ${t.denominator} ta teng bo'lak`;
-    }
-    paint();
-    s.area.replaceChildren(
-      el('div', { class: 'fs-wrap' }, el('div', { class: 'fs-strip' }, ...cells), info));
-    s.foot.replaceChildren(checkBtn('Tekshirish', () => {
-      const ok = on.size === t.numerator;
-      cells.forEach(c => c.classList.add(ok ? 'ok' : 'bad'));
-      done(ok, ok ? '' : `Kerakli qism: ${t.numerator} ta bo'lak (${t.numerator}/${t.denominator}).`);
-    }));
-  });
 }
 
 // ================= coordinatePath: nuqtalarni tartib bilan bosish =================
@@ -235,7 +204,6 @@ function gameProtractor(ctx) {
 }
 
 export const MORE = {
-  fractionStrip: gameFractionStrip,
   coordinatePath: gameCoordinatePath,
   motionLine: gameMotionLine,
   protractor: gameProtractor,

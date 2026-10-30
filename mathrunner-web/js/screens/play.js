@@ -1,7 +1,7 @@
 import { el, loadJSON, saveBest, starsFor } from '../util.js';
 import { levelById, applyKingdom, nav, footer } from '../app.js';
 import { renderResult } from './result.js';
-import { GAMES } from '../games/index.js?v=30';
+import { GAMES } from '../games/index.js?v=34';
 import { MASHQ_SIZE } from '../topicTitles.js';
 
 export async function render(root, [levelId, mashqStr]) {

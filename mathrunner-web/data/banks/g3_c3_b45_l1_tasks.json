@@ -1,122 +1,809 @@
 [
-  {
-    "id": "g3c3b45l1_frac_01",
-    "prompt": "Tasmaning 1/2 qismini bo'yang",
-    "denominator": 2,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b45l1_frac_02",
-    "prompt": "Tasmaning 1/3 qismini bo'yang",
-    "denominator": 3,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b45l1_frac_03",
-    "prompt": "Tasmaning 1/4 qismini bo'yang",
-    "denominator": 4,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b45l1_frac_04",
-    "prompt": "Tasmaning 1/6 qismini bo'yang",
-    "denominator": 6,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b45l1_frac_05",
-    "prompt": "Tasmaning 1/3 qismini bo'yang",
-    "denominator": 3,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b45l1_frac_06",
-    "prompt": "Tasmaning 1/4 qismini bo'yang",
-    "denominator": 4,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b45l1_frac_07",
-    "prompt": "Tasmaning 1/2 qismini bo'yang",
-    "denominator": 2,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b45l1_frac_08",
-    "prompt": "Tasmaning 1/5 qismini bo'yang",
-    "denominator": 5,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b45l1_frac_09",
-    "prompt": "Tasmaning 1/8 qismini bo'yang",
-    "denominator": 8,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b45l1_frac_10",
-    "prompt": "Tasmaning 1/6 qismini bo'yang",
-    "denominator": 6,
-    "numerator": 1
-  },
-  {
-    "prompt": "Tasmaning 2/8 qismini bo'yang",
-    "denominator": 8,
-    "numerator": 2,
-    "id": "g3c3b45l1_frac_x01"
-  },
-  {
-    "prompt": "Tasmaning 2/4 qismini bo'yang",
-    "denominator": 4,
-    "numerator": 2,
-    "id": "g3c3b45l1_frac_x02"
-  },
-  {
-    "prompt": "Tasmaning 1/7 qismini bo'yang",
-    "denominator": 7,
-    "numerator": 1,
-    "id": "g3c3b45l1_frac_x03"
-  },
-  {
-    "prompt": "Tasmaning 2/10 qismini bo'yang",
-    "denominator": 10,
-    "numerator": 2,
-    "id": "g3c3b45l1_frac_x04"
-  },
-  {
-    "prompt": "Tasmaning 2/3 qismini bo'yang",
-    "denominator": 3,
-    "numerator": 2,
-    "id": "g3c3b45l1_frac_x05"
-  },
-  {
-    "prompt": "Tasmaning 2/6 qismini bo'yang",
-    "denominator": 6,
-    "numerator": 2,
-    "id": "g3c3b45l1_frac_x06"
-  },
-  {
-    "prompt": "Tasmaning 1/10 qismini bo'yang",
-    "denominator": 10,
-    "numerator": 1,
-    "id": "g3c3b45l1_frac_x07"
-  },
-  {
-    "prompt": "Tasmaning 1/9 qismini bo'yang",
-    "denominator": 9,
-    "numerator": 1,
-    "id": "g3c3b45l1_frac_x08"
-  },
-  {
-    "prompt": "Tasmaning 2/7 qismini bo'yang",
-    "denominator": 7,
-    "numerator": 2,
-    "id": "g3c3b45l1_frac_x09"
-  },
-  {
-    "prompt": "Tasmaning 2/5 qismini bo'yang",
-    "denominator": 5,
-    "numerator": 2,
-    "id": "g3c3b45l1_frac_x10"
-  }
+ {
+  "tur": "boya",
+  "kasr": [
+   3,
+   7
+  ],
+  "d": 7,
+  "n": 3,
+  "id": "g3c3b45l1_01"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   1,
+   2
+  ],
+  "d": 2,
+  "n": 1,
+  "id": "g3c3b45l1_02"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   3,
+   4
+  ],
+  "d": 4,
+  "n": 3,
+  "id": "g3c3b45l1_03"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   1,
+   6
+  ],
+  "d": 6,
+  "n": 1,
+  "id": "g3c3b45l1_04"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   4,
+   9
+  ],
+  "d": 9,
+  "n": 4,
+  "id": "g3c3b45l1_05"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   5,
+   8
+  ],
+  "d": 8,
+  "n": 5,
+  "id": "g3c3b45l1_06"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   2,
+   3
+  ],
+  "d": 3,
+  "n": 2,
+  "id": "g3c3b45l1_07"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   7,
+   10
+  ],
+  "d": 10,
+  "n": 7,
+  "id": "g3c3b45l1_08"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   5,
+   12
+  ],
+  "d": 12,
+  "n": 5,
+  "id": "g3c3b45l1_09"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   4,
+   5
+  ],
+  "d": 5,
+  "n": 4,
+  "id": "g3c3b45l1_10"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   1,
+   2
+  ],
+  "d": 8,
+  "n": 4,
+  "id": "g3c3b45l1_11"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   3,
+   4
+  ],
+  "d": 8,
+  "n": 6,
+  "id": "g3c3b45l1_12"
+ },
+ {
+  "tur": "shakl",
+  "shakl": "kv",
+  "kasr": [
+   1,
+   2
+  ],
+  "bolaklar": [
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     4.0,
+     0.0
+    ],
+    [
+     4.0,
+     6.0
+    ],
+    [
+     0.0,
+     6.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     6.0
+    ],
+    [
+     4.0,
+     6.0
+    ],
+    [
+     4.0,
+     12.0
+    ],
+    [
+     0.0,
+     12.0
+    ]
+   ],
+   [
+    [
+     4.0,
+     0.0
+    ],
+    [
+     8.0,
+     0.0
+    ],
+    [
+     8.0,
+     12.0
+    ],
+    [
+     4.0,
+     12.0
+    ]
+   ],
+   [
+    [
+     8.0,
+     0.0
+    ],
+    [
+     12.0,
+     0.0
+    ],
+    [
+     12.0,
+     6.0
+    ],
+    [
+     8.0,
+     6.0
+    ]
+   ],
+   [
+    [
+     8.0,
+     6.0
+    ],
+    [
+     12.0,
+     6.0
+    ],
+    [
+     12.0,
+     12.0
+    ],
+    [
+     8.0,
+     12.0
+    ]
+   ]
+  ],
+  "ulush": [
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    6
+   ]
+  ],
+  "yechim": [
+   1,
+   3,
+   4
+  ],
+  "d": 5,
+  "n": 3,
+  "id": "g3c3b45l1_13"
+ },
+ {
+  "tur": "shakl",
+  "shakl": "uch",
+  "kasr": [
+   1,
+   2
+  ],
+  "bolaklar": [
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     2.0,
+     0.0
+    ],
+    [
+     0.0,
+     2.0
+    ]
+   ],
+   [
+    [
+     2.0,
+     0.0
+    ],
+    [
+     3.0,
+     0.0
+    ],
+    [
+     2.0,
+     1.0
+    ]
+   ],
+   [
+    [
+     3.0,
+     0.0
+    ],
+    [
+     4.0,
+     0.0
+    ],
+    [
+     3.0,
+     1.0
+    ]
+   ],
+   [
+    [
+     2.0,
+     1.0
+    ],
+    [
+     3.0,
+     1.0
+    ],
+    [
+     2.0,
+     2.0
+    ]
+   ],
+   [
+    [
+     3.0,
+     0.0
+    ],
+    [
+     3.0,
+     1.0
+    ],
+    [
+     2.0,
+     1.0
+    ]
+   ],
+   [
+    [
+     2.0,
+     2.0
+    ],
+    [
+     0.0,
+     4.0
+    ],
+    [
+     0.0,
+     3.0
+    ]
+   ],
+   [
+    [
+     2.0,
+     2.0
+    ],
+    [
+     0.0,
+     3.0
+    ],
+    [
+     0.0,
+     2.5
+    ]
+   ],
+   [
+    [
+     2.0,
+     2.0
+    ],
+    [
+     0.0,
+     2.5
+    ],
+    [
+     0.0,
+     2.0
+    ]
+   ],
+   [
+    [
+     2.0,
+     0.0
+    ],
+    [
+     2.0,
+     2.0
+    ],
+    [
+     0.0,
+     2.0
+    ]
+   ]
+  ],
+  "ulush": [
+   [
+    1,
+    4
+   ],
+   [
+    1,
+    16
+   ],
+   [
+    1,
+    16
+   ],
+   [
+    1,
+    16
+   ],
+   [
+    1,
+    16
+   ],
+   [
+    1,
+    8
+   ],
+   [
+    1,
+    16
+   ],
+   [
+    1,
+    16
+   ],
+   [
+    1,
+    4
+   ]
+  ],
+  "yechim": [
+   1,
+   2,
+   4,
+   6,
+   8
+  ],
+  "d": 9,
+  "n": 5,
+  "id": "g3c3b45l1_14"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   1,
+   4
+  ],
+  "d": 8,
+  "n": 2,
+  "id": "g3c3b45l1_15"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "kasr",
+  "d": 8,
+  "n": 6,
+  "options": [
+   "6/8",
+   "6/14",
+   "7/8",
+   "2/8"
+  ],
+  "javob": "6/8",
+  "id": "g3c3b45l1_16"
+ },
+ {
+  "tur": "shakl",
+  "shakl": "olti",
+  "kasr": [
+   1,
+   3
+  ],
+  "bolaklar": [
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     2.0,
+     0.0
+    ],
+    [
+     0.0,
+     2.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     2.0
+    ],
+    [
+     -2.0,
+     2.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     -2.0,
+     2.0
+    ],
+    [
+     -2.0,
+     0.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     -2.0,
+     0.0
+    ],
+    [
+     0.0,
+     -2.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     -2.0
+    ],
+    [
+     2.0,
+     -2.0
+    ]
+   ],
+   [
+    [
+     2.0,
+     -2.0
+    ],
+    [
+     2.0,
+     0.0
+    ],
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   [
+    [
+     2.0,
+     -2.0
+    ],
+    [
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0
+    ]
+   ]
+  ],
+  "ulush": [
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    12
+   ],
+   [
+    1,
+    12
+   ]
+  ],
+  "yechim": [
+   1,
+   3
+  ],
+  "d": 7,
+  "n": 2,
+  "id": "g3c3b45l1_17"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   1,
+   3
+  ],
+  "d": 6,
+  "n": 2,
+  "id": "g3c3b45l1_18"
+ },
+ {
+  "tur": "boya",
+  "kasr": [
+   2,
+   3
+  ],
+  "d": 9,
+  "n": 6,
+  "id": "g3c3b45l1_19"
+ },
+ {
+  "tur": "shakl",
+  "shakl": "olti",
+  "kasr": [
+   2,
+   3
+  ],
+  "bolaklar": [
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     2.0,
+     0.0
+    ],
+    [
+     0.0,
+     2.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     2.0
+    ],
+    [
+     -2.0,
+     2.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     -2.0,
+     2.0
+    ],
+    [
+     -2.0,
+     1.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     -2.0,
+     1.0
+    ],
+    [
+     -2.0,
+     0.0
+    ]
+   ],
+   [
+    [
+     -2.0,
+     0.0
+    ],
+    [
+     0.0,
+     -2.0
+    ],
+    [
+     0.0,
+     -1.0
+    ]
+   ],
+   [
+    [
+     -2.0,
+     0.0
+    ],
+    [
+     0.0,
+     -1.0
+    ],
+    [
+     0.0,
+     0.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     -2.0
+    ],
+    [
+     1.0,
+     -2.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     1.0,
+     -2.0
+    ],
+    [
+     2.0,
+     -2.0
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     2.0,
+     -2.0
+    ],
+    [
+     2.0,
+     0.0
+    ]
+   ]
+  ],
+  "ulush": [
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    12
+   ],
+   [
+    1,
+    12
+   ],
+   [
+    1,
+    12
+   ],
+   [
+    1,
+    12
+   ],
+   [
+    1,
+    12
+   ],
+   [
+    1,
+    12
+   ],
+   [
+    1,
+    6
+   ]
+  ],
+  "yechim": [
+   0,
+   1,
+   5,
+   6,
+   8
+  ],
+  "d": 9,
+  "n": 5,
+  "id": "g3c3b45l1_20"
+ }
 ]

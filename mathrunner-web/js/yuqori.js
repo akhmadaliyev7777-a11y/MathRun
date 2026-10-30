@@ -1,10 +1,12 @@
 // Yuqori sinflar (5–11) mavzulari uchun o'yin bosqichlari — «Fikrlash o'yinlari»da sinf bo'yicha chiqadi.
 // curriculum.json faqat 1–4-sinf; bu yerdagilar unga qo'shilmaydi (boshlang'ich sinflar ro'yxati o'zgarmaydi).
-const RANG = { 6: 'linear-gradient(160deg,#1f5f8b,#123a57 55%,#0a2236)', 7: 'linear-gradient(160deg,#5b2a86,#341552 55%,#1d0b30)' };
+const RANG = { 5: 'linear-gradient(160deg,#2f7d4f,#1c5233 55%,#0f3320)', 6: 'linear-gradient(160deg,#1f5f8b,#123a57 55%,#0a2236)', 7: 'linear-gradient(160deg,#5b2a86,#341552 55%,#1d0b30)' };
 const L = (grade, fan, name, id, gameKind, mashqNomlari) => ({ grade, fan, name,
   level: { id, gameKind, count: 20, bank: `banks/${id}_tasks.json`, webSupported: true, ...(mashqNomlari ? { mashqNomlari } : {}) } });
 
 export const YUQORI = [
+  L(5, 'Matematika', '32. Foiz tushunchasi', 'y5_foiz', 'fractionStrip'),
+  L(5, 'Matematika', "33. Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish", 'y5_kasr_foiz', 'fractionStrip'),
   L(6, 'Matematika', '4. Tenglamalarni yechish', 'y6_tenglama', 'balanceScale'),
   L(6, 'Matematika', '29. Konus, silindr, prizma va piramida', 'y6_jismlar', 'netFold'),
   L(6, 'Matematika', '31. Fazoviy jismlarning yoyilmasi', 'y6_yoyilma', 'netFold'),

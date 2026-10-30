@@ -1,0 +1,184 @@
+[
+ {
+  "tur": "foiz",
+  "foiz": 60,
+  "d": 10,
+  "n": 6,
+  "id": "y5foiz_01"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 60,
+  "d": 5,
+  "n": 3,
+  "id": "y5foiz_02"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 10,
+  "d": 10,
+  "n": 1,
+  "id": "y5foiz_03"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 25,
+  "d": 20,
+  "n": 5,
+  "id": "y5foiz_04"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 40,
+  "d": 10,
+  "n": 4,
+  "id": "y5foiz_05"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 55,
+  "d": 20,
+  "n": 11,
+  "id": "y5foiz_06"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 85,
+  "d": 20,
+  "n": 17,
+  "id": "y5foiz_07"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 50,
+  "d": 4,
+  "n": 2,
+  "id": "y5foiz_08"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 80,
+  "d": 10,
+  "n": 8,
+  "id": "y5foiz_09"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 5,
+  "d": 20,
+  "n": 1,
+  "id": "y5foiz_10"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "foiz",
+  "d": 20,
+  "n": 13,
+  "options": [
+   "65%",
+   "20%",
+   "35%",
+   "130%"
+  ],
+  "javob": "65%",
+  "id": "y5foiz_11"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 75,
+  "d": 20,
+  "n": 15,
+  "id": "y5foiz_12"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "foiz",
+  "d": 10,
+  "n": 2,
+  "options": [
+   "2%",
+   "80%",
+   "20%",
+   "10%"
+  ],
+  "javob": "20%",
+  "id": "y5foiz_13"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "foiz",
+  "d": 5,
+  "n": 2,
+  "options": [
+   "40%",
+   "60%",
+   "2%",
+   "5%"
+  ],
+  "javob": "40%",
+  "id": "y5foiz_14"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "foiz",
+  "d": 10,
+  "n": 7,
+  "options": [
+   "10%",
+   "7%",
+   "70%",
+   "75%"
+  ],
+  "javob": "70%",
+  "id": "y5foiz_15"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 90,
+  "d": 10,
+  "n": 9,
+  "id": "y5foiz_16"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 35,
+  "d": 20,
+  "n": 7,
+  "id": "y5foiz_17"
+ },
+ {
+  "tur": "foiz",
+  "foiz": 20,
+  "d": 5,
+  "n": 1,
+  "id": "y5foiz_18"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "foiz",
+  "d": 4,
+  "n": 3,
+  "options": [
+   "75%",
+   "30%",
+   "4%",
+   "3%"
+  ],
+  "javob": "75%",
+  "id": "y5foiz_19"
+ },
+ {
+  "tur": "qaysi",
+  "shakl": "foiz",
+  "d": 20,
+  "n": 1,
+  "options": [
+   "95%",
+   "1%",
+   "5%",
+   "10%"
+  ],
+  "javob": "5%",
+  "id": "y5foiz_20"
+ }
+]

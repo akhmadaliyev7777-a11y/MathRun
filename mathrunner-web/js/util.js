@@ -29,7 +29,7 @@ export function shuffle(arr) {
 }
 
 // ma'lumot fayllari (curriculum, banklar) o'zgarganda DATA_VER oshiriladi — brauzer eskisini ushlab qolmasin
-export const DATA_VER = 9;
+export const DATA_VER = 11;
 export async function loadJSON(path) {
   const res = await fetch(`${path}?v=${DATA_VER}`);
   if (!res.ok) throw new Error(`${path}: ${res.status}`);

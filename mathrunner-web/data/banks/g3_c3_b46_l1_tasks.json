@@ -1,122 +1,202 @@
 [
-  {
-    "id": "g3c3b46l1_frac_01",
-    "prompt": "Tasmaning 1/4 qismini bo'yang",
-    "denominator": 4,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b46l1_frac_02",
-    "prompt": "Tasmaning 1/2 qismini bo'yang",
-    "denominator": 2,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b46l1_frac_03",
-    "prompt": "Tasmaning 1/3 qismini bo'yang",
-    "denominator": 3,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b46l1_frac_04",
-    "prompt": "Tasmaning 1/5 qismini bo'yang",
-    "denominator": 5,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b46l1_frac_05",
-    "prompt": "Tasmaning 1/6 qismini bo'yang",
-    "denominator": 6,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b46l1_frac_06",
-    "prompt": "Tasmaning 1/4 qismini bo'yang",
-    "denominator": 4,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b46l1_frac_07",
-    "prompt": "Tasmaning 1/8 qismini bo'yang",
-    "denominator": 8,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b46l1_frac_08",
-    "prompt": "Tasmaning 1/3 qismini bo'yang",
-    "denominator": 3,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b46l1_frac_09",
-    "prompt": "Tasmaning 1/2 qismini bo'yang",
-    "denominator": 2,
-    "numerator": 1
-  },
-  {
-    "id": "g3c3b46l1_frac_10",
-    "prompt": "Tasmaning 1/4 qismini bo'yang",
-    "denominator": 4,
-    "numerator": 1
-  },
-  {
-    "prompt": "Tasmaning 2/9 qismini bo'yang",
-    "denominator": 9,
-    "numerator": 2,
-    "id": "g3c3b46l1_frac_x01"
-  },
-  {
-    "prompt": "Tasmaning 1/9 qismini bo'yang",
-    "denominator": 9,
-    "numerator": 1,
-    "id": "g3c3b46l1_frac_x02"
-  },
-  {
-    "prompt": "Tasmaning 2/10 qismini bo'yang",
-    "denominator": 10,
-    "numerator": 2,
-    "id": "g3c3b46l1_frac_x03"
-  },
-  {
-    "prompt": "Tasmaning 1/7 qismini bo'yang",
-    "denominator": 7,
-    "numerator": 1,
-    "id": "g3c3b46l1_frac_x04"
-  },
-  {
-    "prompt": "Tasmaning 2/5 qismini bo'yang",
-    "denominator": 5,
-    "numerator": 2,
-    "id": "g3c3b46l1_frac_x05"
-  },
-  {
-    "prompt": "Tasmaning 2/6 qismini bo'yang",
-    "denominator": 6,
-    "numerator": 2,
-    "id": "g3c3b46l1_frac_x06"
-  },
-  {
-    "prompt": "Tasmaning 2/7 qismini bo'yang",
-    "denominator": 7,
-    "numerator": 2,
-    "id": "g3c3b46l1_frac_x07"
-  },
-  {
-    "prompt": "Tasmaning 1/10 qismini bo'yang",
-    "denominator": 10,
-    "numerator": 1,
-    "id": "g3c3b46l1_frac_x08"
-  },
-  {
-    "prompt": "Tasmaning 2/8 qismini bo'yang",
-    "denominator": 8,
-    "numerator": 2,
-    "id": "g3c3b46l1_frac_x09"
-  },
-  {
-    "prompt": "Tasmaning 2/3 qismini bo'yang",
-    "denominator": 3,
-    "numerator": 2,
-    "id": "g3c3b46l1_frac_x10"
-  }
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   3
+  ],
+  "d": 9,
+  "n": 3,
+  "id": "g3c3b46l1_01"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   4
+  ],
+  "d": 20,
+  "n": 5,
+  "id": "g3c3b46l1_02"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   2
+  ],
+  "d": 6,
+  "n": 3,
+  "id": "g3c3b46l1_03"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   4
+  ],
+  "d": 12,
+  "n": 3,
+  "id": "g3c3b46l1_04"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   5
+  ],
+  "d": 15,
+  "n": 3,
+  "id": "g3c3b46l1_05"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   6
+  ],
+  "d": 18,
+  "n": 3,
+  "id": "g3c3b46l1_06"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   3
+  ],
+  "d": 12,
+  "n": 4,
+  "id": "g3c3b46l1_07"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   4
+  ],
+  "d": 8,
+  "n": 2,
+  "id": "g3c3b46l1_08"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   5
+  ],
+  "d": 10,
+  "n": 2,
+  "id": "g3c3b46l1_09"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   8
+  ],
+  "d": 16,
+  "n": 2,
+  "id": "g3c3b46l1_10"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   2,
+   3
+  ],
+  "d": 12,
+  "n": 8,
+  "id": "g3c3b46l1_11"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   3
+  ],
+  "d": 15,
+  "n": 5,
+  "id": "g3c3b46l1_12"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   3,
+   10
+  ],
+  "d": 20,
+  "n": 6,
+  "id": "g3c3b46l1_13"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   3,
+   4
+  ],
+  "d": 16,
+  "n": 12,
+  "id": "g3c3b46l1_14"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   3
+  ],
+  "d": 18,
+  "n": 6,
+  "id": "g3c3b46l1_15"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   7
+  ],
+  "d": 14,
+  "n": 2,
+  "id": "g3c3b46l1_16"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   2
+  ],
+  "d": 12,
+  "n": 6,
+  "id": "g3c3b46l1_17"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   5
+  ],
+  "d": 20,
+  "n": 4,
+  "id": "g3c3b46l1_18"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   3,
+   5
+  ],
+  "d": 10,
+  "n": 6,
+  "id": "g3c3b46l1_19"
+ },
+ {
+  "tur": "son",
+  "kasr": [
+   1,
+   4
+  ],
+  "d": 16,
+  "n": 4,
+  "id": "g3c3b46l1_20"
+ }
 ]

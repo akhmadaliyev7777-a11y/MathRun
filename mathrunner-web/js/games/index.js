@@ -1010,6 +1010,342 @@ function gameNetFold(ctx) {
   round();
 }
 
+// ================= fractionStrip (Ulush tasmasi — bog'dagi devor) =================
+// Quyoshli hovlida yog'och devor: taxtalar — teng bo'laklar. Bo'yoq chelagi yorlig'ida topshiriq (kasr ustunli).
+// Taxtalarni bosib yoki barmoqni surib bo'yash. Turlari: boya (a/b ni bo'yash; taxtalar b·k ta bo'lsa — teng kasr),
+// son (N ta taxtaning a/b qismi), qosh (a/b ko'k bo'yalgan + c/b sariq), ayir (a/b dan c/b ni yuvish),
+// foiz (p% yoki o'nli kasr), qaysi (bo'yalgan qism — kasr/foiz/o'nli kasr variantlaridan), shakl (kvadrat/oltiburchak/
+// uchburchak har xil kattalikdagi bo'laklarga bo'lingan — sanab emas, kattaligiga qarab bo'yash). Doira-bo'lak yo'q.
+const kasrEl = (a, b) => el('span', { class: 'kasr' }, el('b', {}, a), el('i'), el('b', {}, b));
+// matndagi «a/b» — ustunli kasr
+const matnK = (str) => str.split(/(\d+\/\d+)/).map(q => (/^\d+\/\d+$/.test(q) ? kasrEl(...q.split('/')) : q)).filter(q => q !== '');
+
+const ekub = (a, b) => (b ? ekub(b, a % b) : a);
+const kQosh = (p, q) => { const a = p[0] * q[1] + q[0] * p[1], b = p[1] * q[1], g = ekub(a, b) || 1; return [a / g, b / g]; };
+const kYigindi = (ks) => ks.reduce((s, k) => kQosh(s, k), [0, 1]);
+const kMatn = (k) => (k[1] === 1 ? `${k[0]}` : `${k[0]}/${k[1]}`);
+// shakl (kvadrat, oltiburchak, uchburchak) — har xil kattalikdagi bo'laklar; panjara koordinatalaridan ekranga
+function shaklSVG(t, kenglik) {
+  const map = t.shakl === 'kv' ? ([x, y]) => [x, y] : ([x, y]) => [x + y / 2, -y * Math.sqrt(3) / 2];
+  const P = t.bolaklar.map(b => b.map(map)), all = P.flat();
+  const minx = Math.min(...all.map(p => p[0])), maxx = Math.max(...all.map(p => p[0])), miny = Math.min(...all.map(p => p[1])), maxy = Math.max(...all.map(p => p[1]));
+  const k = Math.min((kenglik - 20) / (maxx - minx), 210 / (maxy - miny)), W = (maxx - minx) * k + 12, H = (maxy - miny) * k + 12;
+  const pts = P.map(b => b.map(([x, y]) => [(x - minx) * k + 6, (y - miny) * k + 6]));
+  const node = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, class: 'shakl-svg' });
+  const bolak = pts.map((b, i) => { const pg = svgEl('polygon', { points: b.map(p => p.map(v => v.toFixed(1)).join(',')).join(' '), class: 'bk' }); pg.dataset.i = i; node.append(pg); return pg; });
+  // har bo'lak markazida uning kasri (ustunli) — javobdan keyin ko'rinadi
+  const yozuv = svgEl('g', { class: 'bk-yozuv' });
+  pts.forEach((b, i) => {
+    const cx = b.reduce((a, p) => a + p[0], 0) / b.length, cy = b.reduce((a, p) => a + p[1], 0) / b.length, [u, m] = t.ulush[i];
+    const fs = Math.max(8, Math.min(15, Math.sqrt(u / m) * 46));
+    yozuv.append(svgEl('text', { x: cx, y: cy - fs * 0.2, 'font-size': fs, 'text-anchor': 'middle' }, u),
+      svgEl('line', { x1: cx - fs * 0.45, x2: cx + fs * 0.45, y1: cy + fs * 0.05, y2: cy + fs * 0.05, 'stroke-width': Math.max(1, fs / 10) }),
+      svgEl('text', { x: cx, y: cy + fs * 0.95, 'font-size': fs, 'text-anchor': 'middle' }, m));
+  });
+  node.append(yozuv);
+  return { node, bolak };
+}
+const svgEl = (tag, attrs = {}, ...kids) => {
+  const n = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  for (const c of kids) n.append(String(c));
+  return n;
+};
+
+function ulushSabab(t, tanlov) {
+  if (t.tur === 'shakl') {
+    const ks = (tanlov || t.yechim).map(i => t.ulush[i]).sort((a, b) => b[0] / b[1] - a[0] / a[1]);
+    if (ks.length === 1) return `Bu bo'lak butunning ${kMatn(ks[0])} qismi — bo'laklar teng emas, kattaligiga qarab tanlaymiz.`;
+    return `${ks.map(kMatn).join(' + ')} = ${kMatn(kYigindi(ks))} — bo'laklar teng emas, kattaligiga qarab qo'shamiz.`;
+  }
+  const d = t.d, n = t.n;
+  if (t.tur === 'boya') {
+    const [a, b] = t.kasr, k = d / b;
+    return k === 1 ? `${a}/${b} — devor ${b} ta teng bo'lakka bo'lingan, ${a} tasi bo'yaladi.`
+      : `${d} : ${b} = ${k} — har bo'lakda ${k} ta taxta, ${a} bo'lak = ${n} ta. Demak ${a}/${b} = ${n}/${d}.`;
+  }
+  if (t.tur === 'son') {
+    const [a, b] = t.kasr, q = d / b;
+    return a === 1 ? `${d} : ${b} = ${q} — ${d} ning 1/${b} qismi ${q} ta.` : `${d} : ${b} = ${q}, ${q} · ${a} = ${n} — ${d} ning ${a}/${b} qismi ${n} ta.`;
+  }
+  if (t.tur === 'qosh' || t.tur === 'ayir') {
+    const [[a, b], [c]] = t.kasrlar, z = t.tur === 'qosh' ? '+' : '−';
+    return `${a}/${b} ${z} ${c}/${b} = ${n}/${b} — maxraj o'zgarmaydi, suratlar ${t.tur === 'qosh' ? 'qo\'shiladi' : 'ayiriladi'}.`;
+  }
+  if (t.tur === 'foiz') {
+    const s = 100 / d;
+    return `${t.onli ? `${t.onli} = ${t.foiz}%. ` : ''}Butun devor — 100%, bitta taxta ${s}%; ${t.foiz} : ${s} = ${n} ta taxta.`;
+  }
+  return `${d} ta teng taxtadan ${n} tasi bo'yalgan — ${n}/${d}${t.shakl === 'kasr' ? '' : ` = ${t.javob}`}.`;
+}
+
+function gameFractionStrip(ctx) {
+  const all = [...ctx.bank];
+  const s = shell(ctx, all[0].prompt || '', 'columns');
+  const H = hud(3);
+  const B = buddy();
+  const RAUND = 5;
+  const rounds = [];
+  for (let i = 0; i < all.length; i += RAUND) rounds.push(all.slice(i, i + RAUND));
+  let ri = 0, right = 0, total = 0, longest = 0, done = 0;
+  const times = [];
+  let onKey = null;
+  const timers = new Set();
+  const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); };
+  const keyH = (ev) => onKey && onKey(ev);
+  addEventListener('keydown', keyH);
+  addEventListener('hashchange', () => { removeEventListener('keydown', keyH); timers.forEach(clearTimeout); }, { once: true });
+
+  const yorliq = el('div', { class: 'chelak__yorliq' });
+  const chelak = el('div', { class: 'chelak' }, el('i', { class: 'chelak__dasta' }), el('div', { class: 'chelak__tana' }, yorliq), el('i', { class: 'chelak__tomchi' }));
+  const savol = el('div', { class: 'bog-savol' });
+  const devor = el('div', { class: 'devor' });
+  const shaklJoy = el('div', { class: 'shakl-joy', hidden: true });
+  let shk = null, tanlov = new Set();
+  const guruhlar = el('div', { class: 'devor-guruh' });
+  const hisob = el('div', { class: 'bog-hisob' });
+  const javoblar = el('div', { class: 'bog-javoblar' });
+  const tayyor = el('button', { type: 'button', class: 'btn btn--accent bog-tayyor', onclick: () => tekshir() }, 'Tayyor ✓');
+  const tozala = el('button', { type: 'button', class: 'btn bog-tozala', onclick: () => { if (!busy) { tanlov = new Set(); holat.fill(0); if (t.bosh) for (let i = 0; i < t.bosh; i++) holat[i] = 1; chiz(); sfx.tap(); } } }, 'Qayta');
+  const amallar = el('div', { class: 'bog-amallar' }, tozala, tayyor);
+
+  // holat: 0 — bo'yalmagan, 1 — ko'k (oldindan), 2 — sariq (qo'shilgan), 3 — yuvilgan
+  let t = null, holat = [], busy = true, startedAt = 0, tekshir = () => {};
+  const taxtalar = () => [...devor.children];
+  function chiz() {
+    if (t && t.tur === 'shakl') { shk.bolak.forEach((pg, i) => pg.classList.toggle('bk--kok', tanlov.has(i))); hisob.replaceChildren('Bo\'yalgan: ', el('b', {}, `${tanlov.size} ta`), ` bo'lak · jami ${t.d} ta`); return; }
+    taxtalar().forEach((d, i) => { d.className = 'taxta' + (holat[i] === 1 ? ' taxta--kok' : holat[i] === 2 ? ' taxta--sariq' : holat[i] === 3 ? ' taxta--yuvildi' : ''); });
+    const k = holat.filter(h => h === 1 || h === 2).length;
+    hisob.replaceChildren('Bo\'yalgan: ', el('b', {}, `${k} ta`), ` · jami ${t.d} ta taxta`);
+  }
+  // bitta taxtaga bo'yoq: tur bo'yicha nima bo'lishi
+  function surt(i, rejim) {
+    if (busy || !t || t.tur === 'qaysi') return;
+    if (t.tur === 'shakl') {
+      const bor = tanlov.has(i);
+      if (bor && rejim !== 'boya') tanlov.delete(i); else if (!bor && rejim !== 'qayt') tanlov.add(i); else return null;
+      chiz(); sfx.tap(); return bor ? 0 : 1;
+    }
+    const h = holat[i];
+    let yangi = h;
+    if (t.tur === 'ayir') { if (h === 1 && rejim !== 'qayt') yangi = 3; else if (h === 3 && rejim !== 'boya') yangi = 1; }
+    else if (t.tur === 'qosh') { if (h === 0 && rejim !== 'qayt') yangi = 2; else if (h === 2 && rejim !== 'boya') yangi = 0; }
+    else { if (h === 0 && rejim !== 'qayt') yangi = 1; else if (h === 1 && rejim !== 'boya') yangi = 0; }
+    if (yangi !== h) { holat[i] = yangi; chiz(); sfx.tap(); }
+    return yangi !== h ? yangi : null;
+  }
+  // barmoq bilan surish: birinchi taxtadagi o'zgarish yo'nalishi (bo'yash/qaytarish) davom etadi
+  let rejim = null;
+  devor.addEventListener('pointerdown', (e) => {
+    const d = e.target.closest('.taxta'); if (!d) return;
+    e.preventDefault();
+    const i = taxtalar().indexOf(d), h = holat[i];
+    const r = surt(i, null);
+    rejim = r === null ? null : (r === 3 || (r === 1 && h === 0) || r === 2) ? 'boya' : 'qayt';
+    try { devor.setPointerCapture(e.pointerId); } catch { /* */ }
+  });
+  devor.addEventListener('pointermove', (e) => {
+    if (!rejim) return;
+    const d = document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.taxta');
+    if (d && d.parentNode === devor) surt(taxtalar().indexOf(d), rejim);
+  });
+  shaklJoy.addEventListener('pointerdown', (e) => {
+    const pg = e.target.closest('.bk'); if (!pg) return;
+    e.preventDefault();
+    const r = surt(+pg.dataset.i, null);
+    rejim = r === null ? null : r === 1 ? 'boya' : 'qayt';
+    try { shaklJoy.setPointerCapture(e.pointerId); } catch { /* */ }
+  });
+  shaklJoy.addEventListener('pointermove', (e) => {
+    if (!rejim) return;
+    const pg = document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.bk');
+    if (pg && shaklJoy.contains(pg)) surt(+pg.dataset.i, rejim);
+  });
+  const tugat = () => { rejim = null; };
+  shaklJoy.addEventListener('pointerup', tugat); shaklJoy.addEventListener('pointercancel', tugat);
+  devor.addEventListener('pointerup', tugat); devor.addEventListener('pointercancel', tugat);
+
+  function yorliqYoz() {
+    const K = (a, b) => kasrEl(a, b);
+    let ich;
+    if (t.tur === 'boya' || t.tur === 'shakl') ich = [K(...t.kasr)];
+    else if (t.tur === 'son') ich = [el('small', {}, `${t.d} ning`), K(...t.kasr)];
+    else if (t.tur === 'qosh' || t.tur === 'ayir') ich = [K(...t.kasrlar[0]), el('span', { class: 'chelak__amal' }, t.tur === 'qosh' ? '+' : '−'), K(...t.kasrlar[1])];
+    else if (t.tur === 'foiz') ich = [el('b', { class: 'chelak__foiz' }, t.onli || `${t.foiz}%`)];
+    else ich = [el('b', { class: 'chelak__foiz' }, '?')];
+    yorliq.replaceChildren(...ich);
+  }
+  // to'g'ri javobdan keyin — bo'laklar qavslari (har 1/b qism) yoki foiz belgilari
+  function guruhChiz() {
+    if (t.tur === 'shakl') { shaklJoy.classList.add('yozuvli'); return; }
+    const b = t.tur === 'boya' || t.tur === 'son' ? t.kasr[1] : t.tur === 'foiz' ? 0 : t.d;
+    if (t.tur === 'foiz') { guruhlar.replaceChildren(...Array.from({ length: t.d }, () => el('span', { class: 'gq gq--foiz' }, `${100 / t.d}%`))); guruhlar.style.setProperty('--n', t.d); return; }
+    const k = t.d / b;
+    guruhlar.style.setProperty('--n', b);
+    guruhlar.replaceChildren(...Array.from({ length: b }, (_, i) => el('span', { class: 'gq' + (i % 2 ? ' gq--2' : '') }, k > 1 || t.tur === 'son' ? kasrEl(1, b) : '')));
+  }
+
+  // shakl topshirig'ida devor o'rniga shakl chiqadi
+  function shaklKo(tt) {
+    const bor = tt.tur === 'shakl';
+    devorJoy.hidden = bor; guruhlar.hidden = bor; shaklJoy.hidden = !bor;
+    shaklJoy.classList.remove('yozuvli');
+    tanlov = new Set();
+    if (bor) { shk = shaklSVG(tt, Math.min(360, (bog.clientWidth || 340) - 30)); shaklJoy.replaceChildren(shk.node); }
+  }
+  function round() {
+    const items = rounds[ri];
+    H.resetHearts();
+    let ii = 0, mistakes = 0;
+
+    function next() {
+      if (ii >= items.length) return endRound();
+      t = items[ii];
+      busy = false;
+      s.setProg(done, all.length);
+      holat = Array(t.d).fill(0);
+      if (t.bosh) for (let i = 0; i < t.bosh; i++) holat[i] = 1;
+      if (t.tur === 'qaysi') { const tartib = shuffle([...Array(t.d).keys()]).slice(0, t.n); tartib.forEach(i => { holat[i] = 1; }); }
+      devor.style.setProperty('--n', t.d);
+      devor.replaceChildren(...Array.from({ length: t.d }, () => el('i', { class: 'taxta' })));
+      guruhlar.replaceChildren();
+      shaklKo(t);
+      chiz(); yorliqYoz();
+      chelak.classList.remove('yangi'); void chelak.offsetWidth; chelak.classList.add('yangi');
+      const savolMatn = {
+        boya: 'Devorning shuncha qismini bo\'yang', son: 'Shuncha taxtani bo\'yang',
+        qosh: 'Ko\'k qism bor — sariq bilan qo\'shing', ayir: 'Bo\'yalgan qismdan ayiring — taxtalarni yuving',
+        foiz: 'Devorning shuncha qismini bo\'yang', shakl: 'Shaklning shuncha qismini bo\'yang', qaysi: t.shakl === 'foiz' ? 'Devorning necha foizi bo\'yalgan?' : t.shakl === 'onli' ? 'Bo\'yalgan qism o\'nli kasrda qancha?' : 'Devorning qancha qismi bo\'yalgan?',
+      }[t.tur];
+      savol.textContent = savolMatn;
+      if (t.tur === 'qaysi') {
+        amallar.hidden = true; javoblar.hidden = false;
+        javoblar.replaceChildren(...t.options.map((o, i) => el('button', { type: 'button', class: 'bog-jt', onclick: (e) => tanla(o, e.currentTarget) }, ...matnK(o), el('small', { class: 'bog-jt__key' }, i + 1))));
+      } else { amallar.hidden = false; javoblar.hidden = true; }
+      B.say(t.tur === 'son' ? ['Taxtalarni teng guruhlarga ajrating: maxraj — nechta guruh, surat — nechta guruh bo\'yaladi.']
+        : t.tur === 'qosh' ? ['Ko\'k qism oldindan bor. Ikkinchi kasrni sariq bilan qo\'shing — taxtani bosing yoki barmoqni suring.']
+        : t.tur === 'ayir' ? ['Ayiriladigan qismni yuving — bo\'yalgan taxtani bosing.']
+        : t.tur === 'foiz' ? [`Butun devor — 100%. Bitta taxta necha foiz?`]
+        : t.tur === 'qaysi' ? ['Taxtalarni sanang: jami nechta, nechtasi bo\'yalgan?']
+        : t.tur === 'shakl' ? ['Diqqat: bo\'laklar teng emas! Sanab emas, kattaligiga qarab bo\'yang.']
+        : ['Taxtani bosing yoki barmoqni surib bo\'yang. Keyin «Tayyor».'], 'idle');
+      startedAt = performance.now();
+      onKey = (ev) => {
+        if (ev.key === 'Enter' && t.tur !== 'qaysi') { ev.preventDefault(); tekshir(); }
+        const n = +ev.key; if (t.tur === 'qaysi' && n >= 1 && n <= javoblar.children.length) { ev.preventDefault(); javoblar.children[n - 1].click(); }
+      };
+    }
+
+    // to'g'ri holatni ko'rsatish
+    function togriQil() {
+      if (t.tur === 'shakl') { tanlov = new Set(t.yechim); chiz(); return; }
+      holat = Array(t.d).fill(0);
+      if (t.tur === 'qosh') { for (let i = 0; i < t.bosh; i++) holat[i] = 1; for (let i = t.bosh; i < t.n; i++) holat[i] = 2; }
+      else if (t.tur === 'ayir') { for (let i = 0; i < t.bosh; i++) holat[i] = i < t.n ? 1 : 3; }
+      else for (let i = 0; i < t.n; i++) holat[i] = 1;
+      chiz();
+    }
+    function natija(ok, btn, xatoMatn) {
+      busy = true; onKey = null;
+      total++; done++;
+      times.push(performance.now() - startedAt);
+      if (ok) {
+        right++;
+        const m = H.hit(); longest = Math.max(longest, H.st.combo);
+        const fast = performance.now() - startedAt < 9000;
+        sfx.ok(); devor.classList.add('yondi');
+        H.add(10 * m + (fast ? 5 : 0), btn);
+        if (fast && m < 2) floatText('⚡ Tez!', btn, 'hud-float--tez');
+        if (t.tur !== 'qaysi' && t.tur !== 'shakl') togriQil();
+        guruhChiz();
+        B.say([el('span', { class: 'rchip rchip--ha' }, 'To\'g\'ri ✓'), ' ', ...matnK(ulushSabab(t, t.tur === 'shakl' ? [...tanlov] : null))], 'ok');
+        later(() => { devor.classList.remove('yondi'); ii++; next(); }, 2800);
+      } else {
+        mistakes++; H.miss(); sfx.bad();
+        const left = H.loseHeart();
+        devor.classList.remove('xato'); void devor.offsetWidth; devor.classList.add('xato');
+        B.say([el('span', { class: 'rchip rchip--yoq' }, 'Xato'), ' ', ...matnK(xatoMatn), el('br'), ...matnK(ulushSabab(t))], 'bad');
+        later(() => { if (t.tur !== 'qaysi') togriQil(); guruhChiz(); }, 900);
+        const davom = () => { onKey = null; s.foot.replaceChildren(); ii++; left === 0 ? autoRest() : next(); };
+        later(() => {
+          s.foot.replaceChildren(el('button', { class: 'btn btn--accent', type: 'button', onclick: davom }, 'Davom etish ➜'));
+          onKey = (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); davom(); } };
+        }, 1000);
+      }
+    }
+    tekshir = function () {
+      if (busy || !t || t.tur === 'qaysi') return;
+      if (t.tur === 'shakl') {
+        if (!tanlov.size) return;
+        const ks = [...tanlov].map(i => t.ulush[i]), sum = kYigindi(ks), ok = sum[0] * t.kasr[1] === sum[1] * t.kasr[0];
+        return natija(ok, tayyor, ok ? '' : `Siz bo'yagan: ${ks.length > 1 ? `${ks.map(kMatn).join(' + ')} = ` : ''}${kMatn(sum)}, kerak ${kMatn(t.kasr)}.`);
+      }
+      const k = holat.filter(h => h === 1 || h === 2).length;
+      if (t.tur !== 'ayir' && t.tur !== 'qosh' && k === 0) return;
+      if (t.tur === 'qosh' && k === t.bosh) return;
+      if (t.tur === 'ayir' && k === t.bosh) return;
+      const ok = k === t.n;
+      natija(ok, tayyor, ok ? '' : `Siz ${k} ta bo'yadingiz — ${k}/${t.d}, kerak ${t.n} ta.`);
+    };
+    function tanla(o, btn) {
+      if (busy) return;
+      const ok = o === t.javob;
+      [...javoblar.children].forEach((b, i) => { b.disabled = true; if (t.options[i] === t.javob) b.classList.add('is-ok'); });
+      btn.classList.add(ok ? 'is-ok' : 'is-bad');
+      natija(ok, btn, ok ? '' : `${o} emas.`);
+    }
+
+    function autoRest() {
+      onKey = null; amallar.hidden = true; javoblar.hidden = true;
+      B.say(['Yuraklar tugadi. Qolganlarini qanday bo\'yalishini kuzating.'], 'think');
+      const go = () => {
+        if (ii >= items.length) { amallar.hidden = false; return endRound(); }
+        t = items[ii]; total++; done++; s.setProg(done, all.length);
+        holat = Array(t.d).fill(0); devor.style.setProperty('--n', t.d);
+        devor.replaceChildren(...Array.from({ length: t.d }, () => el('i', { class: 'taxta' })));
+        guruhlar.replaceChildren(); shaklKo(t); yorliqYoz(); chiz();
+        later(() => { togriQil(); guruhChiz(); B.say([...matnK(ulushSabab(t))], 'think'); }, 800);
+        later(() => { ii++; go(); }, 3400);
+      };
+      later(go, 1000);
+    }
+    function endRound() {
+      onKey = null; busy = true; amallar.hidden = true; javoblar.hidden = true;
+      const clean = mistakes === 0;
+      if (clean) { H.add(30, devor); sfx.win(); }
+      s.setProg(done, all.length);
+      const lastR = ri + 1 >= rounds.length;
+      s.foot.replaceChildren(
+        el('div', { class: 'rend ' + (clean ? 'rend--ok' : '') },
+          el('b', {}, clean ? 'Xatosiz! +30 bonus' : mistakes === 1 ? 'Bitta xato bilan — yaxshi!' : `${mistakes} ta xato — keyingisida diqqat bilan!`),
+          el('button', { class: 'btn btn--accent', type: 'button', onclick: () => {
+            ri++;
+            if (ri >= rounds.length) {
+              const avgMs = times.length ? times.reduce((a, b) => a + b, 0) / times.length : 0;
+              ctx.finish(right, total, { longestStreak: longest, avgMs, score: H.st.score });
+            } else { s.foot.replaceChildren(); round(); }
+          } }, lastR ? 'Natijani ko\'rish' : 'Keyingi partiya ➜')));
+    }
+    next();
+  }
+
+  const bar = ctx.root.querySelector('.prompt'); if (bar) bar.hidden = true;
+  const devorJoy = el('div', { class: 'devor-joy' }, el('i', { class: 'devor__reyka devor__reyka--1' }), el('i', { class: 'devor__reyka devor__reyka--2' }), devor);
+  const bog = el('div', { class: 'sahna sahna--bog' },
+    el('i', { class: 'bog__quyosh' }), el('i', { class: 'bog__bulut bog__bulut--1' }), el('i', { class: 'bog__bulut bog__bulut--2' }), el('i', { class: 'bog__maysa' }),
+    H.node, B.node,
+    el('div', { class: 'bog-tepa' }, chelak, savol),
+    devorJoy, shaklJoy,
+    guruhlar, hisob, amallar, javoblar);
+  s.area.replaceChildren(bog);
+  s.foot.replaceChildren();
+  if (innerWidth < 700) requestAnimationFrame(() => {
+    const head = document.querySelector('.site-header')?.offsetHeight || 0;
+    scrollTo({ top: bog.getBoundingClientRect().top + scrollY - head - 6, behavior: 'auto' });
+  });
+  round();
+}
+
 export const GAMES = {
   set: gameSet,
   numberOrder: gameNumberOrder,
@@ -1020,4 +1356,5 @@ export const GAMES = {
   equationGrid: gameEquationGrid,
   algorithmConveyor: gameConveyor,
   ...MORE,
+  fractionStrip: gameFractionStrip,
 };

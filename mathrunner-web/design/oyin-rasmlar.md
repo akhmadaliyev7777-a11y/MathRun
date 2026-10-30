@@ -136,6 +136,15 @@ Fayllar: `robi-oddiy.png`, `robi-xursand.png`, `robi-tushuntiradi.png`, `robi-oy
 > center, colorful paper sheets, a few paper cranes, pencils, scissors and a ruler around the edges, warm daylight.
 > The cutting mat area must stay empty and calm. Soft 3D cartoon style, no text. Portrait 1080×1600.
 
+## 9. Ulush tasmasi — bog'dagi devor
+**9.1 Fon** (`ulush-bog.png`):
+> A sunny backyard garden: blue sky with soft clouds and a warm sun, green lawn with small flowers, a few trees and
+> bushes at the edges. The middle area must stay empty (a wooden fence will be placed there). Soft 3D cartoon style,
+> no text. Portrait 1080×1600.
+
+**9.2 Bo'yoq chelagi** (`chelak.png`): a metal paint bucket with a handle and a blue paint drip, with an empty white label
+on the front (no text). Soft 3D cartoon style, transparent background. 512×512.
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
 - Koordinata — xazina oroli xaritasi
 Har birining promptlari o'sha o'yinga o'tganda yoziladi. **Musiqa** ham keyinroq qo'shiladi.
