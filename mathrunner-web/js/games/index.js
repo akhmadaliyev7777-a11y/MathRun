@@ -6,7 +6,7 @@ import { ICON } from '../icons.js';
 import { shell, checkBtn, flash } from './shell.js';
 import { MORE } from './more.js';
 import { netSVG } from './nets.js';
-import { gameSet } from './venn.js?v=5';
+import { gameSet } from './venn.js?v=6';
 
 // ================= numberOrder =================
 function gameNumberOrder(ctx) {

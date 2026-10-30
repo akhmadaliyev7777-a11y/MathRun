@@ -1003,10 +1003,24 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .maydon { position: absolute; border-radius: 50%; mix-blend-mode: screen; pointer-events: none; }
 .maydon--a { background: radial-gradient(circle at 50% 50%, rgba(124,108,255,.42), rgba(96,80,240,.22) 55%, rgba(80,60,220,.06) 72%, transparent 73%); box-shadow: 0 0 34px 4px rgba(124,108,255,.45), inset 0 0 40px rgba(170,160,255,.35); border: 2px solid rgba(170,160,255,.85); }
 .maydon--b { background: radial-gradient(circle at 50% 50%, rgba(255,150,60,.40), rgba(255,120,40,.2) 55%, rgba(255,100,30,.06) 72%, transparent 73%); box-shadow: 0 0 34px 4px rgba(255,140,50,.42), inset 0 0 40px rgba(255,190,120,.3); border: 2px solid rgba(255,190,120,.85); }
+.maydon--a { --mc: 186,176,255; animation: g-nafas 4.5s ease-in-out infinite; }
+.maydon--b { --mc: 255,196,130; animation: g-nafas 4.5s ease-in-out -2.2s infinite; }
+@keyframes g-nafas { 0%,100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.025); filter: brightness(1.18); } }
+.maydon.tort { animation: g-tort .55s ease-out; }
+@keyframes g-tort { 0% { transform: scale(1); } 35% { transform: scale(1.06); filter: brightness(1.5); } 100% { transform: scale(1); } }
+/* tortishish to'lqinlari — markazdagi sayyoradan halqa bo'lib tarqaladi va so'nadi */
+.maydon__tolqin { position: absolute; left: 40%; top: 40%; width: 20%; height: 20%; border-radius: 50%;
+  border: 2px solid rgba(var(--mc), .75); box-shadow: 0 0 10px rgba(var(--mc), .5), inset 0 0 8px rgba(var(--mc), .35);
+  opacity: 0; animation: g-tolqin 4.2s ease-out infinite; }
+.maydon__tolqin:nth-of-type(4) { animation-delay: 1.4s; }
+.maydon__tolqin:nth-of-type(5) { animation-delay: 2.8s; }
+@keyframes g-tolqin { 0% { transform: scale(1); opacity: .85; } 70% { opacity: .25; } 100% { transform: scale(4.8); opacity: 0; } }
 .maydon__orbit { position: absolute; inset: 9%; border-radius: 50%; border: 1px dashed rgba(255,255,255,.28); animation: g-spin 40s linear infinite; }
 .maydon__orbit--2 { inset: 22%; border-style: dotted; animation-duration: 26s; animation-direction: reverse; }
 @keyframes g-spin { to { transform: rotate(360deg); } }
 .sayyora { position: absolute; border-radius: 50%; pointer-events: none; z-index: 1; object-fit: contain; }
+span.sayyora--a, span.sayyora--b { animation: g-sayyora 12s linear infinite; }
+@keyframes g-sayyora { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.25); } }
 span.sayyora--a { background: radial-gradient(circle at 32% 30%, #d9d2ff 0, #8f7bff 30%, #5b3fd6 62%, #2b1a7a 100%); box-shadow: 0 0 22px rgba(143,123,255,.75); }
 span.sayyora--b { background: radial-gradient(circle at 32% 30%, #ffe2b8 0, #ffa24d 32%, #e0601e 64%, #7a2a0a 100%); box-shadow: 0 0 22px rgba(255,150,60,.75); }
 span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28%; top: 42%; height: 16%; border-radius: 50%; border: 2px solid rgba(255,220,170,.8); transform: rotate(-18deg); }
@@ -1070,5 +1084,5 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
   .meteor--katta b { font-size: 23px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .maydon__orbit, .meteor--kichik, .launch__cur, .buddy__img, .sahna--kosmos::before { animation: none; }
+  .maydon, .maydon__orbit, .maydon__tolqin, .meteor--kichik, .launch__cur, .buddy__img, .sahna--kosmos::before { animation: none; }
 }

@@ -37,7 +37,10 @@ export function gameSet(ctx) {
       const src = k === 'a' ? RASM.sayyoraA : RASM.sayyoraB;
       return src ? el('img', { class: 'sayyora sayyora--' + k, src, alt: '' }) : el('span', { class: 'sayyora sayyora--' + k });
     };
-    const field = (k) => el('div', { class: 'maydon maydon--' + k }, el('i', { class: 'maydon__orbit' }), el('i', { class: 'maydon__orbit maydon__orbit--2' }));
+    // tortishish maydoni: markazdagi sayyoradan to'lqinlar tarqalib turadi, orbitalar sekin aylanadi
+    const field = (k) => el('div', { class: 'maydon maydon--' + k },
+      el('i', { class: 'maydon__orbit' }), el('i', { class: 'maydon__orbit maydon__orbit--2' }),
+      el('i', { class: 'maydon__tolqin' }), el('i', { class: 'maydon__tolqin' }), el('i', { class: 'maydon__tolqin' }));
     const fA = field('a'), fB = field('b');
     const pA = planet('a'), pB = planet('b');
     const lA = el('div', { class: 'venn__label vlabel vlabel--a' }, t.setAName);
@@ -55,17 +58,22 @@ export function gameSet(ctx) {
     const box = (e, l, t2, w, h) => Object.assign(e.style, { left: l + 'px', top: t2 + 'px', width: w + 'px', height: h + 'px' });
     function layout() {
       const W = board.clientWidth || 700;
-      const D = Math.min(310, Math.round(W * 0.62));
-      const top = 58, Hh = top + D + 14 + 58;
-      const c1 = W / 2 - D * 0.25, c2 = W / 2 + D * 0.25;
+      // markazlar orasi 0,64·D — har sayyora o'z maydoni ichida, o'rtadagi umumiy qism aniq ko'rinadi
+      const D = Math.min(320, Math.round((W - 16) / 1.64));
+      const top = 58, Hh = top + D + 14 + 58, mid = W / 2;
+      const c1 = mid - D * 0.32, c2 = mid + D * 0.32, cy = top + D / 2;
       board.style.height = Hh + 'px';
       box(fA, c1 - D / 2, top, D, D); box(fB, c2 - D / 2, top, D, D);
-      const ps = Math.round(D * 0.2);                                   // sayyora — maydonning tashqi chetida, tepada
-      box(pA, c1 - D / 2 - ps * 0.15, top - ps * 0.1, ps, ps); box(pB, c2 + D / 2 - ps * 0.85, top - ps * 0.1, ps, ps);
+      const ps = Math.round(D * 0.2);                                   // sayyora — doira markazida
+      box(pA, c1 - ps / 2, cy - ps / 2, ps, ps); box(pB, c2 - ps / 2, cy - ps / 2, ps, ps);
       const lw = Math.max(110, Math.round(W * 0.42));
       box(lA, 10, 8, lw, 44); box(lB, W - lw - 10, 8, lw, 44);
-      const zt = top + D * 0.16, zh = D * 0.7, half = D * 0.5;
-      box(zones.onlyA.btn, c1 - D / 2 + 6, zt, half - 8, zh); box(zones.both.btn, c2 - D / 2 + 4, zt, half - 8, zh); box(zones.onlyB.btn, c1 + D / 2 + 2, zt, half - 8, zh);
+      const zt = top + D * 0.14, zh = D * 0.72;
+      const aL = c1 - D / 2 + 4, bothL = mid - D * 0.18 + 2, bothR = mid + D * 0.18 - 2, bR = c2 + D / 2 - 4;
+      box(zones.onlyA.btn, aL, zt, bothL - 4 - aL, zh); box(zones.both.btn, bothL, zt, bothR - bothL, zh); box(zones.onlyB.btn, bothR + 4, zt, bR - bothR - 4, zh);
+      // meteoritlar sayyora ustiga tushmasin — chap maydonda sayyoradan chaproqda, o'ngda o'ngroqda turadi
+      zones.onlyA.tiles.style.paddingRight = Math.max(4, bothL - 4 - (c1 - ps / 2 - 2)) + 'px';
+      zones.onlyB.tiles.style.paddingLeft = Math.max(4, (c2 + ps / 2 + 2) - (bothR + 4)) + 'px';
       box(zones.neither.btn, 8, top + D + 8, W - 16, 54);
       nLabel.style.top = (top + D + 12) + 'px';
       board.classList.toggle('venn--small', W < 520);
@@ -108,7 +116,10 @@ export function gameSet(ctx) {
       });
       setTimeout(() => { f.remove(); done(); }, 420);
     }
-    const flash = (z, ok) => { const b = zones[z].btn; b.classList.remove('ok', 'bad'); void b.offsetWidth; b.classList.add(ok ? 'ok' : 'bad'); };
+    const flash = (z, ok) => {
+      const b = zones[z].btn; b.classList.remove('ok', 'bad'); void b.offsetWidth; b.classList.add(ok ? 'ok' : 'bad');
+      if (ok) for (const f of [inA(z) && fA, inB(z) && fB]) if (f) { f.classList.remove('tort'); void f.offsetWidth; f.classList.add('tort'); }
+    };
     // orbitadagi meteoritlar har xil tezlikda chayqalib turadi
     const landed = (e, cls) => { const m = meteor(e.value, ' meteor--kichik' + cls); m.style.animationDelay = `${-Math.random() * 3}s`; return m; };
 
