@@ -1,12 +1,12 @@
 // «Saralash» — robot zavodi o'yini.
-// Konveyer lentasida mulohaza yozilgan kartochka keladi va suzib boradi; o'quvchi u lenta oxiriga yetguncha
+// Konveyer lentasida ustiga mulohaza yozilgan karton quti keladi va suzib boradi; o'quvchi u lenta oxiriga yetguncha
 // «✓ Ha» yoki «✗ Yo'q» bunkerini bosadi (klaviaturada ← / →). To'g'ri — ochko, kombo, konveyer tezlashadi;
 // xato yoki ulgurmasa — yurak kamayadi, kartochka to'g'ri bunkerga tushadi, Robi sababini bir qatorda aytadi
 // (juft/toq — teng ikkiga bo'lish, bo'luvchi/karrali — bo'lish va qoldiq, bo'linish alomati, chamalash).
 // Mashq 2 raund × 5 kartochka; raundda 3 ta yurak; tugasa — qolganlari o'zi saralanadi.
 import { el, shuffle } from '../util.js';
 import { shell } from './shell.js?v=2';
-import { hud, buddy, sfx, floatText } from './hud.js?v=3';
+import { hud, buddy, sfx, floatText } from './hud.js?v=4';
 
 const fmt = (n) => (n >= 1000 ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : String(n));
 const yaxlit = (n) => Math.round(n / 10) * 10;
@@ -76,8 +76,17 @@ export function gameConveyor(ctx) {
     let ci = 0, mistakes = 0, busy = false, x = 0, last = 0, startedAt = 0;
 
     // ---- konveyer va bunkerlar ----
+    // konveyer biroz yuqoridan ko'rinadi: lenta yuzasi (qiyshiq to'rtburchak, yuradi), lenta qalinligi, temir rama
+    // roliklar bilan, oyoqlar; buyumlar alohida qatlamda (o'zi qiyshaymaydi — ustki yuzi qiyshiq, old yuzi to'g'ri)
     const lenta = el('div', { class: 'lenta' });
-    const belt = el('div', { class: 'konveyer' }, el('i', { class: 'konveyer__rolik konveyer__rolik--l' }), el('i', { class: 'konveyer__rolik konveyer__rolik--r' }), lenta);
+    const belt = el('div', { class: 'konveyer' },
+      el('i', { class: 'konveyer__oyoq konveyer__oyoq--l' }), el('i', { class: 'konveyer__oyoq konveyer__oyoq--r' }),
+      el('div', { class: 'konveyer__sirt' }), el('div', { class: 'konveyer__chet' }),
+      el('div', { class: 'konveyer__rama' }, ...Array.from({ length: 7 }, () => el('i', { class: 'konveyer__rolik' }))),
+      lenta);
+    // past bo'yli karton quti (kuboid): ustki yuzida yorliq — misol shu yerda, old yuzi ingichka
+    const kuti = (text) => el('div', { class: 'kuti' },
+      el('div', { class: 'kuti__ust' }, el('span', { class: 'kuti__yorliq' }, el('b', {}, text))), el('div', { class: 'kuti__old' }));
     const bunker = (ha) => el('button', { type: 'button', class: 'bunker bunker--' + (ha ? 'ha' : 'yoq'), 'aria-label': ha ? 'Ha' : "Yo'q", onclick: () => answer(ha) },
       el('i', { class: 'bunker__chiroq' }), el('b', {}, ha ? '✓ Ha' : "✗ Yo'q"), el('small', {}, ha ? '←' : '→'));
     const bHa = bunker(true), bYoq = bunker(false);
@@ -89,7 +98,7 @@ export function gameConveyor(ctx) {
     function nextCard() {
       if (ci >= cards.length) return endRound();
       const c = cards[ci];
-      card = el('div', { class: 'karta' }, c.text);
+      card = kuti(c.text);
       lenta.replaceChildren(card);
       x = 6; last = performance.now(); startedAt = last; busy = false;   // kartochka lenta boshida to'liq ko'rinib chiqadi
       card.style.transform = `translateX(${x}px)`;
@@ -107,7 +116,8 @@ export function gameConveyor(ctx) {
     // kartochka bunkerga tushadi
     function drop(toHa, cls, then) {
       const b = (toHa ? bHa : bYoq).getBoundingClientRect(), a = card.getBoundingClientRect();
-      const f = el('div', { class: 'karta karta--uch' + cls, style: `left:${a.left}px;top:${a.top}px;width:${a.width}px` }, card.textContent);
+      const f = card.cloneNode(true); f.classList.add('kuti--uch'); if (cls) f.classList.add(cls.trim());
+      Object.assign(f.style, { left: a.left + 'px', top: a.top + 'px', width: a.width + 'px', transform: '' });
       document.body.append(f); card.style.visibility = 'hidden';
       requestAnimationFrame(() => { f.style.transform = `translate(${b.left + b.width / 2 - a.left - a.width / 2}px, ${b.top + b.height * 0.35 - a.top - a.height / 2}px) scale(.35)`; f.style.opacity = '.2'; });
       setTimeout(() => { f.remove(); then && then(); }, 420);
@@ -145,11 +155,11 @@ export function gameConveyor(ctx) {
     // yuraklar tugadi — qolgan kartochkalar o'zi saralanadi
     function autoRest() {
       onKey = null;
-      B.say(['Yuraklar tugadi. Qolgan kartochkalar qayerga tushishini kuzating.'], 'think');
+      B.say(['Yuraklar tugadi. Qolgan qutilar qayerga tushishini kuzating.'], 'think');
       const go = () => {
         if (ci >= cards.length) return endRound();
         const c = cards[ci];
-        card = el('div', { class: 'karta' }, c.text); lenta.replaceChildren(card);
+        card = kuti(c.text); lenta.replaceChildren(card);
         card.style.transform = `translateX(${(lenta.clientWidth - card.offsetWidth) / 2}px)`;
         total++; done++;
         setTimeout(() => drop(c.isTrue, ' is-fixed', () => { yonsin(c.isTrue ? bHa : bYoq, true); ci++; setTimeout(go, 300); }), 500);
@@ -190,7 +200,7 @@ export function gameConveyor(ctx) {
       scrollTo({ top: sahna.getBoundingClientRect().top + scrollY - head - 6, behavior: ri ? 'smooth' : 'auto' });
     });
     B.say(ri === 0
-      ? ['Kartochka lenta oxiriga yetguncha bunkerni tanlang: rost bo\'lsa — «Ha», yolg\'on bo\'lsa — «Yo\'q».']
+      ? ['Quti lenta oxiriga yetguncha bunkerni tanlang: ustidagi gap rost bo\'lsa — «Ha», yolg\'on bo\'lsa — «Yo\'q».']
       : ['Yangi partiya! Konveyer ishga tushdi.'], 'idle');
     setTimeout(nextCard, 900);
   }

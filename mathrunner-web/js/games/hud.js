@@ -33,10 +33,16 @@ export function hud(maxHearts = 3) {
   const hearts = el('span', { class: 'hud__hearts', 'aria-label': 'Jonlar' });
   const score = el('b', {}, '0');
   const combo = el('span', { class: 'hud__combo' });
+  // zamonaviy chiziqli ikonka: dinamik + to'lqinlar (yoqiq) yoki dinamik + ✕ (o'chiq)
+  const ikon = () => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor" fill-opacity=".15"/>${muted
+      ? '<path d="m22 9-6 6M16 9l6 6"/>'
+      : '<path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>'}</svg>`;
   const mute = el('button', {
-    class: 'hud__mute', type: 'button', 'aria-label': 'Ovozni yoqish yoki o\'chirish',
-    onclick: () => { muted = !muted; try { localStorage.setItem(OVOZ_KEY, muted ? '0' : '1'); } catch { /* */ } mute.textContent = muted ? '🔇' : '🔊'; },
-  }, muted ? '🔇' : '🔊');
+    class: 'hud__mute', type: 'button', 'aria-label': 'Ovozni yoqish yoki o\'chirish', 'aria-pressed': String(!muted),
+    onclick: () => { muted = !muted; try { localStorage.setItem(OVOZ_KEY, muted ? '0' : '1'); } catch { /* */ } mute.innerHTML = ikon(); mute.setAttribute('aria-pressed', String(!muted)); mute.classList.toggle('is-off', muted); },
+  });
+  mute.innerHTML = ikon(); mute.classList.toggle('is-off', muted);
   const node = el('div', { class: 'hud' }, hearts, el('span', { class: 'hud__pts' }, '⭐ ', score), combo, mute);
   const drawHearts = () => hearts.replaceChildren(...Array.from({ length: st.max }, (_, i) =>
     el('i', { class: 'hud__heart' + (i < st.hearts ? '' : ' off') }, '❤')));

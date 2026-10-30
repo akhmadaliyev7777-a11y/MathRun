@@ -6,10 +6,10 @@ import { ICON } from '../icons.js';
 import { shell, checkBtn, flash } from './shell.js';
 import { MORE } from './more.js';
 import { netSVG } from './nets.js';
-import { gameSet } from './venn.js?v=6';
-import { gameNumberOrder } from './tartib.js?v=8';
-import { gameEquationGrid } from './jadval.js?v=1';
-import { gameConveyor } from './saralash.js?v=4';
+import { gameSet } from './venn.js?v=7';
+import { gameNumberOrder } from './tartib.js?v=9';
+import { gameEquationGrid } from './jadval.js?v=2';
+import { gameConveyor } from './saralash.js?v=5';
 
 // ================= placeValue =================
 function gamePlaceValue(ctx) {

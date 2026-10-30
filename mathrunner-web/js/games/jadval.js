@@ -5,7 +5,7 @@
 // Raundda 3 ta yurak; tugasa — javob ko'rsatiladi. Hamma qulf ochilsa — sandiq ochiladi.
 import { el } from '../util.js';
 import { shell } from './shell.js?v=2';
-import { hud, buddy, sfx, floatText } from './hud.js?v=3';
+import { hud, buddy, sfx, floatText } from './hud.js?v=4';
 
 const BELGI = { '+': '+', '-': '−', '*': '×', '×': '×', '÷': ':', '/': ':' };
 const fmt = (n) => (Math.abs(n) >= 10000 ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : String(n));
