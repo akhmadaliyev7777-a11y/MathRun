@@ -1,7 +1,7 @@
 import { el, readBest } from '../util.js';
 import { ICON } from '../icons.js';
 import { nav, footer, applyKingdom, curriculum } from '../app.js';
-import { GAME_META, levelsByKind } from '../gameMeta.js';
+import { GAME_META, levelsByKind } from '../gameMeta.js?v=4';
 import { yuqoriTopish } from '../yuqori.js';
 import { topicTitle, MASHQ_SIZE } from '../topicTitles.js';
 
@@ -17,23 +17,27 @@ function renderGames(root) {
   const byKind = levelsByKind();
   const gcard = (m) => {
     const pool = byKind[m.kind] || [];
+    // rasmli kartochka: butun yuza — o'yin dunyosi, nomi va tavsifi rasm ustida pastda
     return el('button', {
-      class: 'gcard', style: `--gc:${m.dark}`, disabled: pool.length === 0,
+      class: 'gcard' + (m.art ? ' gcard--art' : ''), style: `--gc:${m.dark}`, disabled: pool.length === 0,
       onclick: () => { if (pool.length) location.hash = `#/games/${m.kind}`; },
     },
-      el('span', { class: 'gcard__icon', html: ICON[m.icon] }),
+      m.art ? el('img', { class: 'gcard__art', src: m.art, alt: '', loading: 'lazy', decoding: 'async' }) : null,
+      m.art ? null : el('span', { class: 'gcard__icon', html: ICON[m.icon] }),
       el('span', { class: 'gcard__name' }, m.name),
       el('span', { class: 'gcard__desc' }, m.desc),
       el('span', { class: 'gcard__meta' }, `${pool.length} bosqich`,
         el('span', { class: 'gcard__go', html: ICON.arrowRight })));
   };
-  const tugCard = el('a', { class: 'gfeature', href: '#/tug' },
+  // Arqon tortish — butun kartochka rasm (maktab maydonida ikki jamoa), yozuv chap tepada
+  const tugCard = el('a', { class: 'gfeature gfeature--art', href: '#/tug' },
+    el('img', { class: 'gfeature__art', src: 'assets/kartochka/tug.webp', alt: '', decoding: 'async' }),
     el('div', { class: 'gfeature__text' },
       el('span', { class: 'gfeature__tag' }, 'Sinf uchun · 2 jamoa'),
       el('h3', {}, 'Arqon tortish'),
       el('p', {}, 'Sinf ikki jamoaga bo\'linadi. To\'g\'ri javob arqonni o\'z tomoningizga tortadi — vaqt tugaguncha kim kuchli?'),
       el('span', { class: 'gfeature__btn' }, 'O\'ynash', el('span', { class: 'gcard__go', html: ICON.arrowRight }))),
-    el('img', { class: 'gfeature__img', src: 'assets/tug-characters.png', alt: '', decoding: 'async' }));
+  );
 
   // o'yinlar — alohida bo'lim (yuqori menyudan), boshlang'ich sinflar ichki menyusisiz
   root.replaceChildren(

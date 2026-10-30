@@ -262,6 +262,16 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .gcard__go { display: inline-flex; width: 16px; height: 16px; transition: transform .15s ease; }
 .gcard__go svg { width: 100%; height: 100%; }
 .gcard:hover .gcard__go { transform: translateX(3px); }
+/* rasmli kartochka (o'yin dunyosi) — yozuv rasm ustida, pastda; pastdan qoramtir parda o'qilishi uchun */
+.gcard--art { position: relative; overflow: hidden; justify-content: flex-end; min-height: 240px; padding: 18px; border: 0; background: #1b1f33; color: #fff; }
+.gcard--art::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(12, 14, 30, .9) 0%, rgba(12, 14, 30, .62) 36%, rgba(12, 14, 30, 0) 66%); }
+.gcard--art > :not(.gcard__art) { position: relative; z-index: 2; }
+.gcard__art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.gcard--art:hover .gcard__art { transform: scale(1.05); }
+.gcard--art .gcard__name { margin-top: auto; font-size: 18px; text-shadow: 0 1px 6px rgba(0, 0, 0, .45); }
+.gcard--art .gcard__desc { color: rgba(255, 255, 255, .86); }
+.gcard--art .gcard__meta { margin-top: 4px; color: #fff; }
+.gcard--art:hover { border-color: transparent; box-shadow: 0 14px 30px rgba(31, 36, 51, .22); }
 
 .gfeature {
   grid-column: span 2; grid-row: span 2; position: relative; overflow: hidden;
@@ -276,6 +286,12 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .gfeature h3 { font-size: 30px; margin: 12px 0 8px; color: #fff; }
 .gfeature p { margin: 0 0 18px; color: rgba(255,255,255,.85); font-weight: 500; line-height: 1.5; }
 .gfeature__btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 12px; background: #fff; color: var(--peri); font-weight: 800; }
+.gfeature--art { background: #3a44b0; }
+.gfeature--art::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(24, 30, 90, .55) 0%, rgba(24, 30, 90, .28) 38%, rgba(24, 30, 90, 0) 56%); }
+.gfeature__art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; transition: transform .35s ease; }
+.gfeature--art:hover .gfeature__art { transform: scale(1.04); }
+.gfeature--art .gfeature__text { z-index: 2; }
+.gfeature--art h3, .gfeature--art p { text-shadow: 0 1px 8px rgba(10, 14, 50, .45); }
 .gfeature__img { position: absolute; right: -10px; bottom: -6px; width: 78%; max-width: 440px; pointer-events: none; filter: drop-shadow(0 10px 18px rgba(0,0,0,.25)); }
 
 @media (max-width: 1080px) {
@@ -288,6 +304,8 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
   .gfeature h3 { font-size: 24px; }
   .gfeature__img { width: 95%; opacity: .9; }
   .gfeature__text { max-width: none; padding-bottom: 120px; }
+  .gfeature--art { min-height: 400px; }
+  .gfeature--art .gfeature__text { padding-bottom: 170px; }
 }
 
 .how { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
@@ -629,6 +647,12 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .tug-arena { position: relative; width: 100%; height: clamp(230px,21vw,400px); overflow: hidden; border-radius: var(--r-xl); background: #fff; border: 2px solid var(--line); box-shadow: var(--shadow-soft); }
 .tug-centerline { position: absolute; left: 50%; top: 24px; bottom: 24px; border-left: 2px dashed var(--line-strong); }
 .tug-rig { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 0; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.tug-arena:has(.tug-side) { background: linear-gradient(180deg, #e7eeff 0, #f3f6ff var(--yer, 70%), #cfe8b6 var(--yer, 70%), #b9dc9c 100%); }
+.tug-side, .tug-flag { position: absolute; width: auto; max-width: none; user-select: none; -webkit-user-drag: none; pointer-events: none; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.tug-side { z-index: 2; }
+.tug-flag { left: 50%; z-index: 3; filter: drop-shadow(0 2px 3px rgba(0,0,0,.18)); }
+.tug-arqon { position: absolute; z-index: 1; transition: transform .45s cubic-bezier(.22,1,.36,1); background: url('../assets/tug/arqon.webp') repeat-x left center / auto 100%; }
+.tug-arena:has(.tug-side) .tug-centerline { z-index: 1; }
 .tug-scene { height: clamp(150px,15.5vw,290px); width: auto; max-width: none; display: block; user-select: none; -webkit-user-drag: none; pointer-events: none; }
 .tug-team { display: flex; align-items: flex-end; }
 .tug-team--blue span:last-child { margin-right: -8px; }
@@ -877,6 +901,9 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 :root[data-theme="dark"] .gcard:hover { box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4); border-color: color-mix(in srgb, var(--gc) 55%, var(--surface)); }
 :root[data-theme="dark"] .gcard__icon { background: color-mix(in srgb, var(--gc) 26%, var(--surface)); color: color-mix(in srgb, var(--gc) 50%, #fff); }
 :root[data-theme="dark"] .gcard__meta { color: color-mix(in srgb, var(--gc) 50%, #fff); }
+:root[data-theme="dark"] .gcard--art { background-color: #1b1f33; }
+:root[data-theme="dark"] .gcard--art .gcard__meta { color: #fff; }
+:root[data-theme="dark"] .gcard--art:hover { box-shadow: 0 14px 30px rgba(0, 0, 0, .5); }
 :root[data-theme="dark"] .gfeature__btn { color: #3a44b0; }
 :root[data-theme="dark"] .kcard:hover { box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45); }
 /* 3–4-sinf afishalarining pastki och chizig'i to'q kartada ko'rinmasin */
@@ -943,6 +970,7 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 :root[data-theme="dark"] .tug-opt i { background: rgba(255, 255, 255, 0.08); }
 /* sahna rasmi (shaffof PNG) — och maydonda yaxshi ko'rinadi */
 :root[data-theme="dark"] .tug-arena { background: #eef0f8; border-color: #3a4263; }
+:root[data-theme="dark"] .tug-arena:has(.tug-side) { background: linear-gradient(180deg, #e7eeff 0, #f3f6ff var(--yer, 70%), #cfe8b6 var(--yer, 70%), #b9dc9c 100%); }
 :root[data-theme="dark"] .tug-arena .tug-centerline { border-left-color: #b8bdd3; }
 :root[data-theme="dark"] .tug-end { background: rgba(0, 0, 0, 0.6); }
 :root[data-theme="dark"] .tug-end__card { background: var(--surface); border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); }

@@ -343,20 +343,29 @@ export async function render(root, _params) {
     };
 
     // ----- DOM -----
-    // Butun sahna bitta rasm (assets/tug-characters.png). Rasm topilmasa —
-    // SVG figuralarga qaytadi. Ballga qarab butun "rig" siljiydi, markazdagi
-    // qizil tugun semis chiziqqa nisbatan chapga/o'ngga o'tadi.
+    // Sahna ikki qism (2026-10-30, muqova uslubida): ko'k jamoa chap chetda, qizil jamoa o'ng chetda — ekrandan chiqmaydi;
+    // ochkolar farqiga qarab o'rtadagi bayroqcha arqon bo'ylab yutayotgan tomonga siljiydi, jamoalar biroz chayqaladi.
+    // Rasmlar: assets/tug/kok.webp, qizil.webp, bayroq.webp, arqon.webp (arqon — takrorlanuvchi bo'lak). Rasm topilmasa — SVG figuralar.
     const svgFallback = () => [
       el('div', { class: 'tug-team tug-team--blue' }, el('span', { html: puller('#5C7FF5', 1) }), el('span', { html: puller('#8055EE', 1) })),
       el('div', { class: 'tug-rope' }, el('div', { class: 'tug-knot' })),
       el('div', { class: 'tug-team tug-team--red' }, el('span', { html: puller('#FF5C5C', -1) }), el('span', { html: puller('#F8912F', -1) })),
     ];
-    const scene = el('img', {
-      class: 'tug-scene', src: 'assets/tug-characters.png', alt: 'Arqon tortayotgan jamoalar', draggable: 'false',
-      onerror: () => { scene.replaceWith(...svgFallback()); },
-    });
-    const rig = el('div', { class: 'tug-rig' }, scene);
-    const arena = el('div', { class: 'tug-arena' }, el('div', { class: 'tug-centerline' }), rig);
+    let rig = null;   // faqat zaxira (SVG) holatida
+    const useFallback = () => {
+      if (rig) return;
+      rig = el('div', { class: 'tug-rig' }, ...svgFallback());
+      arena.replaceChildren(el('div', { class: 'tug-centerline' }), rig);
+      paintRig();
+    };
+    const img = (cls, src) => el('img', { class: cls, src, alt: '', draggable: 'false', onerror: useFallback, onload: () => paintRig() });
+    const sideBlue = img('tug-side tug-side--blue', 'assets/tug/kok.webp');
+    const sideRed = img('tug-side tug-side--red', 'assets/tug/qizil.webp');
+    const flag = img('tug-flag', 'assets/tug/bayroq.webp');
+    const rope = el('div', { class: 'tug-arqon' });
+    const arena = el('div', { class: 'tug-arena' }, el('div', { class: 'tug-centerline' }), rope, sideBlue, sideRed, flag);
+    const onResize = () => { if (!arena.isConnected) window.removeEventListener('resize', onResize); else paintRig(); };
+    window.addEventListener('resize', onResize);
     const timerEl = el('div', { class: 'tug-timer' }, el('span', { style: 'width:20px;height:20px', html: ICON.clock }), el('b', {}, fmt(state.left)));
     const scoreBlue = el('b', { class: 'tug-score' }, '0');
     const scoreRed = el('b', { class: 'tug-score' }, '0');
@@ -390,8 +399,30 @@ export async function render(root, _params) {
     const bluePanel = panel('blue', 'blue');
     const redPanel = panel('red', 'red');
 
+    // jamoa rasmlari (3 tadan bola, asl kesim 475 px balandlikda): arqon markazi 240,5 px da, arqon bo'lagi 28 px; bayroqcha rasmida arqon 30,5/180
+    const ROPE_Y = 240.5 / 475, ROPE_H = 28 / 475, FLAG_ROPE = 30.5 / 180, TEAM_AR = 832 / 475;
     function paintRig() {
-      rig.style.transform = `translate(-50%, -50%) translateX(${pos() * STEP_PX}px)`;
+      if (rig) rig.style.transform = `translate(-50%, -50%) translateX(${pos() * STEP_PX}px)`;
+      else if (arena.isConnected) {
+        const W = arena.clientWidth, H = arena.clientHeight, pad = W * 0.02;
+        const th = Math.min(H * 0.6, W * 0.4 / TEAM_AR);          // jamoa balandligi: ikkalasi ham bir xil o'lchamda
+        const top = (H - th) / 2 + H * 0.02;
+        for (const s of [sideBlue, sideRed]) { s.style.height = th + 'px'; s.style.top = top + 'px'; }
+        sideBlue.style.left = pad + 'px'; sideRed.style.right = pad + 'px';
+        const bw = sideBlue.offsetWidth || th * TEAM_AR, rw = sideRed.offsetWidth || th * TEAM_AR;
+        // arqon faqat ikki jamoa orasida (rasmlardagi arqon oxirgi boladan keyin o'zi tugaydi)
+        const ropeY = top + th * ROPE_Y, rh = th * ROPE_H;
+        rope.style.top = (ropeY - rh / 2) + 'px'; rope.style.height = rh + 'px';
+        rope.style.left = (pad + bw - 6) + 'px'; rope.style.right = (pad + rw - 6) + 'px';
+        const fh = th * 180 / 475;
+        flag.style.height = fh + 'px'; flag.style.top = (ropeY - fh * FLAG_ROPE) + 'px';
+        arena.style.setProperty('--yer', (top + th * 0.96) + 'px');
+        // bayroqcha jamoalar orasidagi bo'shliqda yuradi; jamoalar va arqon ham shu tomonga biroz (pad gacha) siljiydi
+        const f = pos() / WIN;
+        const half = (W - 2 * pad - bw - rw) / 2 - fh * 0.3;
+        flag.style.transform = `translateX(-50%) translateX(${f * Math.max(0, half)}px)`;
+        sideBlue.style.transform = sideRed.style.transform = rope.style.transform = `translateX(${f * pad}px)`;
+      }
       scoreBlue.textContent = fmtScore(state.blue.score);
       scoreRed.textContent = fmtScore(state.red.score);
     }

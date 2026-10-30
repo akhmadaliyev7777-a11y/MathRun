@@ -14,7 +14,7 @@ export function render(root, _params) {
   const slides = [
     '<div class="hs-slide hs-rasm"><img class="gp-kun" src="../img/hero/boshlangich.webp?v=1" alt=""><img class="gp-tun" src="../img/hero/boshlangich-tun.webp?v=1" alt="" loading="lazy"></div>',
     '<div class="hs-slide hs-oyin">' +
-      '<img src="assets/tug-characters.png" alt="Arqon tortayotgan bolalar" loading="lazy">' +
+      '<img src="assets/tug/jamoa.webp" alt="Arqon tortayotgan bolalar" loading="lazy">' +
       '<span class="hs-label">Sinf bilan o\'yin</span>' +
       '<h3>Arqon tortish</h3>' +
       '<p>To\'g\'ri javob — arqon sizning tomonga! Sinf ikki jamoaga bo\'linib bellashadi.</p>' +

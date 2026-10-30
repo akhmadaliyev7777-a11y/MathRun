@@ -27,6 +27,8 @@ window.KUNLIK = [
       ["5-sinf", "«Ulush tasmasi» o'yiniga 5-sinf «32. Foiz tushunchasi» va «33. Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish» qo'shildi."],
       ["Ish tartibi", "O'yin rasmlari (Robi, fonlar, sayyoralar, meteorit, poyezd) GPT'da yasaladi — promptlar tayyor; keyinroq musiqa qo'shiladi."],
       ["Sayt", "«Izoh yoki kamchilik» tugmasi boshlang'ich sinflar bo'limiga (mavzular, o'yinlar, testlar — tepada) va «Interaktiv darslar» sahifasi tepasiga qo'shildi; xabarlar admin panelda joyi bilan (masalan «1–4-sinf · 2-sinf · Mavzular») chiqadi."],
+      ["1–4-sinf", "«Fikrlash o'yinlari»: 13 ta o'yin kartochkasi rasmli bo'ldi — har biri o'z o'yinining dunyosi (koinot, o'rmon bekati, konfet fabrikasi, sehrli bozor, ko'l, origami ustaxonasi, xazina g'ori, robot zavodi, bog' devori, xazina oroli, yo'l, transportir; Arqon tortish — maktab maydonida ikki jamoa)."],
+      ["1–4-sinf", "Arqon tortish o'yini: yangi bolalar (har jamoada 3 tadan, kartochkadagi uslubda); jamoalar chetlarda turadi va ekrandan chiqmaydi, ochkoga qarab o'rtadagi bayroqcha yutayotgan tomonga siljiydi; arqon oxirgi boladan keyin tugaydi; pastda maysa. Bosh sahifa slaydida ham yangi rasm."],
     ]
   },
   {
