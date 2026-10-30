@@ -1,22 +1,24 @@
-import { el, shuffle } from '../util.js';
+import { el, readBest } from '../util.js';
 import { ICON } from '../icons.js';
 import { nav, footer, applyKingdom, curriculum } from '../app.js';
 import { GAME_META, levelsByKind } from '../gameMeta.js';
+import { topicTitle, MASHQ_SIZE } from '../topicTitles.js';
 
-export function render(root, [which]) {
+export function render(root, [which, kind]) {
   applyKingdom(null);
+  if (which === 'games' && kind) return renderPick(root, kind);
   if (which === 'games') return renderGames(root);
   return renderAbout(root);
 }
 
 function renderGames(root) {
-  // katta "Arqon tortish" kartochkasi + har bir o'yin kartochkasi (bosilganda tasodifiy bosqich ochiladi)
+  // katta "Arqon tortish" kartochkasi + har bir o'yin kartochkasi (bosilganda — shu o'yinning mavzularini tanlash)
   const byKind = levelsByKind();
   const gcard = (m) => {
     const pool = byKind[m.kind] || [];
     return el('button', {
       class: 'gcard', style: `--gc:${m.dark}`, disabled: pool.length === 0,
-      onclick: () => { const lv = shuffle(pool)[0]; if (lv) location.hash = `#/play/${lv.id}`; },
+      onclick: () => { if (pool.length) location.hash = `#/games/${m.kind}`; },
     },
       el('span', { class: 'gcard__icon', html: ICON[m.icon] }),
       el('span', { class: 'gcard__name' }, m.name),
@@ -38,9 +40,44 @@ function renderGames(root) {
       el('section', { class: 'section' },
         el('h2', {}, 'Fikrlash o\'yinlari'),
         el('p', { class: 'section__lead' },
-          'Mavzuni o\'yin orqali mustahkamlang. Kartochkani bosing — o\'sha o\'yinning tasodifiy bosqichi ochiladi. ' +
-          'Aniq mavzu bo\'yicha o\'ynash uchun "Mavzular" bo\'limidan tanlang.'),
+          'Mavzuni o\'yin orqali mustahkamlang. O\'yinni tanlang, so\'ng sinf va mavzuni tanlang.'),
         el('div', { class: 'gbento' }, tugCard, ...GAME_META.map(gcard)))),
+    footer());
+}
+
+// o'yinga kirishdan oldin — mavzu tanlash: sinflar bo'yicha, har mavzuda mashq tugmalari (yulduzlar bilan)
+function renderPick(root, kind) {
+  const meta = GAME_META.find(m => m.kind === kind);
+  const pool = levelsByKind()[kind] || [];
+  if (!meta || !pool.length) { location.hash = '#/games'; return; }
+  const best = readBest();
+  const cur = curriculum();
+  const grades = [...new Set(pool.map(l => l.grade))].sort((a, b) => a - b);
+  const card = (lv) => {
+    const g = cur.grades.find(x => x.grade === lv.grade), c = g.choraks.find(x => x.chorak === lv.chorak), b = c.blocks.find(x => x.blok === lv.block);
+    const n = Math.max(1, Math.ceil(lv.count / MASHQ_SIZE));
+    const nomli = lv.mashqNomlari && n > 1 && lv.mashqNomlari[0] !== lv.mashqNomlari[1];
+    return el('div', { class: 'opick' },
+      el('div', { class: 'opick__top' },
+        el('span', { class: 'opick__num' }, String(lv.block)),
+        el('div', {}, el('b', { class: 'opick__nom' }, topicTitle(g, c, b)), el('small', {}, `${c.roman} chorak · ${lv.block}-mavzu`))),
+      el('div', { class: 'opick__btns' }, ...Array.from({ length: n }, (_, i) => {
+        const stars = best[`${lv.id}:m${i + 1}`]?.stars || 0;
+        return el('a', { class: 'tbtn' + (i === 0 ? ' tbtn--primary' : ''), href: `#/play/${lv.id}/${i + 1}`,
+          onclick: () => { try { sessionStorage.setItem('mw-oyin-qayt', JSON.stringify({ id: lv.id, hash: `#/games/${kind}` })); } catch { /* */ } } },
+          nomli ? lv.mashqNomlari[i] : `${i + 1}-mashq`, stars ? el('span', { class: 'tbtn__star' }, '★'.repeat(stars)) : null);
+      })));
+  };
+  root.replaceChildren(
+    el('main', { class: 'wrap' },
+      el('section', { class: 'section' },
+        el('a', { class: 'linkback', href: '#/games' }, '← Fikrlash o\'yinlari'),
+        el('div', { class: 'opick-head', style: `--gc:${meta.dark}` },
+          el('span', { class: 'gcard__icon', html: ICON[meta.icon] }),
+          el('div', {}, el('h2', {}, meta.name), el('p', { class: 'section__lead' }, meta.desc + '. Sinf va mavzuni tanlang.'))),
+        ...grades.map(gr => el('div', { class: 'opick-sinf' },
+          el('h3', {}, `${gr}-sinf`),
+          el('div', { class: 'opick-list' }, ...pool.filter(l => l.grade === gr).map(card)))))),
     footer());
 }
 

@@ -126,7 +126,7 @@ export function gameNumberOrder(ctx) {
       const w = poyezd.clientWidth || 340;
       const vw = Math.max(46, Math.min(92, (w - 92) / n - 4));
       poyezd.style.setProperty('--vw', vw + 'px');
-      poyezd.style.setProperty('--vfs', Math.max(10, Math.min(vw * 0.3, (vw * 1.25) / (kasr ? maxLen * 2 + 1 : maxLen))) + 'px');   // son vagondagi qutiga sig'sin
+      poyezd.style.setProperty('--vfs', Math.max(9, kasr ? Math.min(vw * 0.23, vw / maxLen) : Math.min(vw * 0.3, (vw * 1.25) / maxLen)) + 'px');   // son (ustunli kasr — ikki qator) vagondagi qutiga sig'sin
       bekat.style.setProperty('--qfs', Math.max(12, Math.min(22, 120 / maxLen + 6)) + 'px');
     };
     function drawBekat() {
@@ -147,7 +147,7 @@ export function gameNumberOrder(ctx) {
     const setWagon = (k, it, cls) => {
       const w = wagons[k];
       w.className = 'vagon is-full' + (cls || '');
-      w.querySelector('.vagon__yuk').replaceChildren(kasr ? `${it.n}/${it.d}` : fmt(it.v));   // vagondagi kichik qutida kasr bir qatorda
+      w.querySelector('.vagon__yuk').replaceChildren(kasr ? el('span', { class: 'kasr' }, el('i', {}, it.n), el('i', {}, it.d)) : fmt(it.v));   // vagonda ham kasr ustunli
       navbat();
     };
     const qoida = asc ? 'eng kichigini' : 'eng kattasini';

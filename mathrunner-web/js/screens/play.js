@@ -1,7 +1,7 @@
 import { el, loadJSON, saveBest, starsFor } from '../util.js';
 import { levelById, applyKingdom, nav, footer } from '../app.js';
 import { renderResult } from './result.js';
-import { GAMES } from '../games/index.js?v=15';
+import { GAMES } from '../games/index.js?v=16';
 import { MASHQ_SIZE } from '../topicTitles.js';
 
 export async function render(root, [levelId, mashqStr]) {
@@ -34,7 +34,8 @@ export async function render(root, [levelId, mashqStr]) {
   const ctx = {
     root, grade, chorak, block, level, bank: part, mashq, mashqCount, totalTasks: bank.length,
     bestKey: `${level.id}:m${mashq}`,
-    backHash: `#/g/${grade.grade}/c/${chorak.chorak}`,
+    // o'yinlar bo'limidan mavzu tanlab kirgan bo'lsa — qaytishda o'sha ro'yxatga
+    backHash: (() => { try { const q = JSON.parse(sessionStorage.getItem('mw-oyin-qayt') || 'null'); if (q && q.id === level.id) return q.hash; } catch { /* */ } return `#/g/${grade.grade}/c/${chorak.chorak}`; })(),
     finish: (correct, total, extra = {}) => {
       const stars = starsFor(correct, total);
       const score = extra.score ?? (correct * 10 + (extra.longestStreak || 0) * 5);   // o'yin o'z ochkosini hisoblasa — shu
