@@ -54,8 +54,29 @@ Fayllar: `robi-oddiy.png`, `robi-xursand.png`, `robi-tushuntiradi.png`, `robi-oy
 
 ---
 
+## 3. «Tartiblash» o'yini — o'rmon va poyezd
+
+**3.1 Orqa fon** (`orman-fon.png`):
+> A bright cheerful cartoon forest landscape for a children's game: light blue sky with a few fluffy clouds and a soft
+> sun in the top-right, rolling green hills, a row of rounded pine trees in the middle, green grass at the bottom with a
+> straight railway track running left-to-right along the very bottom. Upper half calm and simple (game panels go there).
+> Soft 3D cartoon style, no text. Portrait 1080×1600.
+
+**3.2 Lokomotiv** (`lokomotiv.png`):
+> A cute small red cartoon steam locomotive facing LEFT, side view, round chimney with a little white smoke puff,
+> yellow details, big friendly wheels. Soft 3D cartoon style, transparent background, no text. 1024×768.
+
+**3.3 Vagon** (`vagon.png`):
+> A simple open cartoon train wagon (flatcar with low sides), side view, blue, two yellow wheels, empty, front plate
+> area plain so a number can be written on it. Soft 3D cartoon style, transparent background, no text. 768×512.
+
+**3.4 Yuk qutisi** (`quti.png`):
+> A single wooden cargo crate, front view, light warm wood planks with darker frame, plain front face so a number can
+> be written on it. Soft 3D cartoon style, transparent background, no text. 512×512.
+
+---
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
-- Tartiblash — o'rmon (sonli vagonlar, poyezd)
 - Saralash — kosmik zavod konveyeri
 - Tarozi — sehrli bozor / qal'a
 - Yoyilma — origami ustaxonasi

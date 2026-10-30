@@ -1086,3 +1086,63 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 @media (prefers-reduced-motion: reduce) {
   .maydon, .maydon__orbit, .maydon__tolqin, .meteor--kichik, .launch__cur, .buddy__img, .sahna--kosmos::before { animation: none; }
 }
+
+/* ===== O'yin sahnasi — o'rmon va poyezd (Tartiblash) ===== */
+.sahna--orman { color: #1f2433; background: #8fd3ff; }
+.orman { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.orman__fon { position: absolute; inset: 0; width: 100%; height: 100%; }
+.orman__bulut { animation: g-bulut 28s linear infinite; }
+.orman__bulut--2 { animation-duration: 40s; animation-delay: -12s; }
+@keyframes g-bulut { from { transform: translateX(-120px); } to { transform: translateX(420px); } }
+.sahna--orman .hud { background: rgba(255,255,255,.72); color: #1f2433; border-color: rgba(255,255,255,.9); }
+.sahna--orman .hud__mute { background: #fff; border-color: #dfe3f0; }
+.sahna--orman .hud__combo { color: #e8590c; text-shadow: none; }
+.sahna--orman .hud__heart { text-shadow: none; }
+.sahna--orman .buddy__img { filter: drop-shadow(0 4px 8px rgba(0,0,0,.18)); }
+.bekat-sarlavha { display: inline-block; margin: 2px auto 6px; padding: 3px 12px; border-radius: 8px; background: #7a4b2a; color: #ffe9c7; font-family: var(--f-head); font-weight: 800; font-size: 12px; letter-spacing: .06em; box-shadow: 0 3px 0 #5b3519; }
+.sahna--orman > .bekat-sarlavha { display: table; }
+.bekat { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; min-height: 66px; padding: 10px 8px 14px; margin-bottom: 8px; border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,.15)); border-bottom: 8px solid #a0683c; box-shadow: 0 6px 0 #7a4b2a; }
+.quti { display: inline-flex; align-items: center; justify-content: center; min-width: 54px; height: 54px; padding: 0 10px; border-radius: 8px; cursor: pointer;
+  font-family: var(--f-head); font-weight: 900; font-size: var(--qfs, 22px); color: #4a2a10;
+  background: repeating-linear-gradient(90deg, rgba(0,0,0,0) 0 14px, rgba(90,50,20,.18) 14px 16px), linear-gradient(180deg, #f2c27b, #d99a4e);
+  border: 3px solid #9a5f2c; box-shadow: inset 0 0 0 3px rgba(255,235,200,.5), 0 5px 0 #7a4b2a; transition: transform .08s; }
+.quti--keng { padding: 0 12px; }
+.quti:hover { transform: translateY(-2px); }
+.quti:active { transform: translateY(3px); box-shadow: inset 0 0 0 3px rgba(255,235,200,.5), 0 2px 0 #7a4b2a; }
+.quti.is-hint { animation: g-hint 1s ease-in-out 2; box-shadow: inset 0 0 0 3px rgba(255,235,200,.5), 0 5px 0 #7a4b2a, 0 0 0 4px #5dff9a, 0 0 18px #5dff9a; }
+@keyframes g-hint { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.quti.fly { position: fixed; z-index: 55; margin: 0; pointer-events: none; transition: transform .38s cubic-bezier(.35,.65,.45,1); }
+.yonalish { text-align: center; font-family: var(--f-head); font-weight: 800; font-size: 13px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.45); margin-bottom: 2px; }
+.temiryol { position: relative; padding: 6px 0 16px; overflow: hidden;
+  background: linear-gradient(180deg, transparent calc(100% - 16px), #8a8f99 calc(100% - 16px), #8a8f99 calc(100% - 12px), transparent calc(100% - 12px)),
+              repeating-linear-gradient(90deg, #6b4423 0 8px, transparent 8px 22px) bottom / 100% 10px no-repeat; }
+.poyezd { display: flex; align-items: flex-end; gap: 4px; transition: transform 1.6s cubic-bezier(.5, 0, .9, .5); }
+.poyezd.ketdi { transform: translateX(-130%); }
+.loko { flex: 0 0 72px; width: 72px; height: 56px; }
+.loko svg { width: 100%; height: 100%; overflow: visible; }
+.tutun circle { fill: #fff; opacity: 0; animation: g-tutun 1.8s ease-out infinite; }
+.tutun circle:nth-child(2) { animation-delay: .6s; } .tutun circle:nth-child(3) { animation-delay: 1.2s; }
+@keyframes g-tutun { 0% { opacity: .9; transform: translate(0, 6px) scale(.6); } 100% { opacity: 0; transform: translate(14px, -18px) scale(1.6); } }
+.g-gildirak { transform-box: fill-box; transform-origin: center; }
+.poyezd.ketdi .g-gildirak, .poyezd.ketdi .vagon__g { animation: g-spin .35s linear infinite reverse; }
+.vagon { position: relative; flex: 0 0 var(--vw, 60px); width: var(--vw, 60px); height: 46px; margin-bottom: 8px; border-radius: 8px 8px 4px 4px;
+  border: 2px dashed rgba(255,255,255,.85); background: rgba(255,255,255,.22); display: flex; align-items: center; justify-content: center; }
+.vagon::before { content: ""; position: absolute; left: -6px; top: 60%; width: 6px; height: 3px; background: #2b2e42; }
+.vagon__yuk { font-family: var(--f-head); font-weight: 900; font-size: var(--vfs, 18px); color: #fff; white-space: nowrap; text-shadow: 0 1px 2px rgba(0,0,0,.35); }
+.vagon__g { position: absolute; bottom: -9px; left: 16%; width: 14px; height: 14px; border-radius: 50%; background: #3b3f58; border: 3px solid #ffcf4a; }
+.vagon__g--2 { left: auto; right: 16%; }
+.vagon.is-full { border: 2px solid #1d4ed8; background: linear-gradient(180deg, #4f8cff, #2f5fd6); box-shadow: inset 0 -6px 0 rgba(0,0,0,.15); }
+.vagon.is-full:nth-child(3n) { border-color: #15803d; background: linear-gradient(180deg, #4ad07a, #239c52); }
+.vagon.is-full:nth-child(3n+1) { border-color: #b45309; background: linear-gradient(180deg, #ffb347, #e8890c); }
+.vagon.is-in { animation: g-pop .3s; }
+.vagon.is-wrong { border: 2px solid #b91c1c; background: linear-gradient(180deg, #ff6b6b, #d64545); animation: g-shake .45s; }
+.vagon.is-auto { opacity: .85; }
+@media (max-width: 520px) {
+  .quti { min-width: 48px; height: 48px; padding: 0 8px; }
+  .loko { flex-basis: 62px; width: 62px; height: 48px; }
+  .vagon { height: 42px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orman__bulut, .tutun circle { animation: none; }
+}

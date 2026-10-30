@@ -7,44 +7,7 @@ import { shell, checkBtn, flash } from './shell.js';
 import { MORE } from './more.js';
 import { netSVG } from './nets.js';
 import { gameSet } from './venn.js?v=6';
-
-// ================= numberOrder =================
-function gameNumberOrder(ctx) {
-  const tasks = ctx.bank;
-  let idx = 0, correct = 0, streak = 0, longest = 0;
-  const s = shell(ctx, tasks[0].prompt, 'sort', true);
-
-  function render() {
-    const t = tasks[idx];
-    s.setProg(idx, tasks.length);
-    const target = [...t.numbers].sort((a, b) => t.ascending ? a - b : b - a);
-    const slots = new Array(t.numbers.length).fill(null);
-    const pool = shuffle(t.numbers);
-
-    const slotRow = el('div', { class: 'slots' });
-    const poolRow = el('div', { class: 'tray', style: 'justify-content:center' });
-
-    function draw() {
-      slotRow.replaceChildren(...slots.map((v, i) => el('button', {
-        class: 'slot', onclick: () => { if (v != null) { pool.push(v); slots[i] = null; draw(); } },
-      }, v ?? '')));
-      poolRow.replaceChildren(...pool.map((v, i) => el('button', {
-        class: 'tile', onclick: () => { const k = slots.indexOf(null); if (k < 0) return; slots[k] = v; pool.splice(i, 1); draw(); },
-      }, v)));
-    }
-    draw();
-    s.area.replaceChildren(slotRow, poolRow);
-    s.foot.replaceChildren(checkBtn('Tekshirish', () => {
-      if (slots.includes(null)) return;
-      const ok = slots.every((v, i) => v === target[i]);
-      if (ok) { correct++; streak++; longest = Math.max(longest, streak); } else streak = 0;
-      idx++;
-      if (idx >= tasks.length) ctx.finish(correct, tasks.length, { longestStreak: longest });
-      else render();
-    }));
-  }
-  render();
-}
+import { gameNumberOrder } from './tartib.js?v=2';
 
 // ================= placeValue =================
 function gamePlaceValue(ctx) {
