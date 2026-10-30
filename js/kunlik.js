@@ -46,7 +46,7 @@ window.KUNLIK = [
       ["11-sinf", "Geometriya: darslik mundarijasi bo'yicha 12 ta mavzu (4 bob — fazoda koordinatalar va vektorlar, prizma va silindr, piramida va konus, sfera va shar) betlari bilan saytga qo'yildi; eski 3 ta umumiy nom olib tashlandi. Reja tuzildi."],
       ["Sayt", "Mavzu kartochkalari: ma'ruza, interaktiv dars va test — hech biri hali yuklanmagan mavzular kartochkasi xira va rangsiz ko'rinadi (7-sinf 5–7-boblar, 8–11-sinflarning yangi mavzulari); tayyorlari o'z holicha."],
       ["8-sinf", "Algebra: 23 ta mavzuga ikonka qo'yildi (§5–24, §29–31 — algebraik kasrlar, y = k/x, ildiz va daraja, tengsizliklar, modul, taqribiy hisoblash, kvadrat tenglamalar); qolgan 8 tasi (§1–4, §25–28) navbatda."],
-      ["8-sinf", "Geometriya: 13 ta mavzuga ikonka qo'yildi (1–6, 8, 9, 11–14, 16 — ko'pburchak burchaklari, parallelogramm, to'g'ri to'rtburchak, romb, trapetsiya, o'rta chiziq, sinus, Pifagor teoremasi); Fales, Pifagor teoremasi va 30°/60° burchaklar ikonkalari xato chiqqani uchun qayta yasaladi."],
+      ["8-sinf", "Geometriya: 16 ta mavzuga ikonka qo'yildi (1–16 — ko'pburchak burchaklari, parallelogramm, to'g'ri to'rtburchak, romb, trapetsiya, o'rta chiziq, sinus, Pifagor teoremasi), xato chiqqan 3 tasi (Fales, Pifagor teoremasi, 30°/60° burchaklar) qayta yasaldi."],
     ]
   },
   {
