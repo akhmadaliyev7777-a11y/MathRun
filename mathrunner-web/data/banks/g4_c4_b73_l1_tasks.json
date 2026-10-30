@@ -1,142 +1,164 @@
 [
-  {
-    "id": "sinf4_chorak4_blok73_level1_yasa_01",
-    "mode": "construct",
-    "prompt": "Transportir yordamida 90° li to'g'ri burchak yasang.",
-    "hint": "Nurni 90° ga qo'ying",
-    "targetDegrees": 90
-  },
-  {
-    "id": "sinf4_chorak4_blok73_level1_yasa_02",
-    "mode": "construct",
-    "prompt": "Transportir yordamida 45° li o'tkir burchak yasang.",
-    "hint": "Nurni 45° ga qo'ying",
-    "targetDegrees": 45
-  },
-  {
-    "id": "sinf4_chorak4_blok73_level1_yasa_03",
-    "mode": "construct",
-    "prompt": "Transportir yordamida 60° li burchak yasang.",
-    "hint": "Nurni 60° ga qo'ying",
-    "targetDegrees": 60
-  },
-  {
-    "id": "sinf4_chorak4_blok73_level1_yasa_04",
-    "mode": "construct",
-    "prompt": "Transportir yordamida 120° li o'tmas burchak yasang.",
-    "hint": "Nurni 120° ga qo'ying",
-    "targetDegrees": 120
-  },
-  {
-    "id": "sinf4_chorak4_blok73_level1_yasa_05",
-    "mode": "construct",
-    "prompt": "Transportir yordamida 30° li burchak yasang.",
-    "hint": "Nurni 30° ga qo'ying",
-    "targetDegrees": 30
-  },
-  {
-    "id": "sinf4_chorak4_blok73_level1_yasa_06",
-    "mode": "construct",
-    "prompt": "Transportir yordamida 150° li o'tmas burchak yasang.",
-    "hint": "Nurni 150° ga qo'ying",
-    "targetDegrees": 150
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 70° li o'tkir burchak yasang.",
-    "hint": "Nurni 70° ga qo'ying",
-    "targetDegrees": 70,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x01"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 20° li o'tkir burchak yasang.",
-    "hint": "Nurni 20° ga qo'ying",
-    "targetDegrees": 20,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x02"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 155° li o'tmas burchak yasang.",
-    "hint": "Nurni 155° ga qo'ying",
-    "targetDegrees": 155,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x03"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 165° li o'tmas burchak yasang.",
-    "hint": "Nurni 165° ga qo'ying",
-    "targetDegrees": 165,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x04"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 35° li o'tkir burchak yasang.",
-    "hint": "Nurni 35° ga qo'ying",
-    "targetDegrees": 35,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x05"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 160° li o'tmas burchak yasang.",
-    "hint": "Nurni 160° ga qo'ying",
-    "targetDegrees": 160,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x06"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 100° li o'tmas burchak yasang.",
-    "hint": "Nurni 100° ga qo'ying",
-    "targetDegrees": 100,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x07"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 140° li o'tmas burchak yasang.",
-    "hint": "Nurni 140° ga qo'ying",
-    "targetDegrees": 140,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x08"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 15° li o'tkir burchak yasang.",
-    "hint": "Nurni 15° ga qo'ying",
-    "targetDegrees": 15,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x09"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 110° li o'tmas burchak yasang.",
-    "hint": "Nurni 110° ga qo'ying",
-    "targetDegrees": 110,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x10"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 40° li o'tkir burchak yasang.",
-    "hint": "Nurni 40° ga qo'ying",
-    "targetDegrees": 40,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x11"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 80° li o'tkir burchak yasang.",
-    "hint": "Nurni 80° ga qo'ying",
-    "targetDegrees": 80,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x12"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 105° li o'tmas burchak yasang.",
-    "hint": "Nurni 105° ga qo'ying",
-    "targetDegrees": 105,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x13"
-  },
-  {
-    "mode": "construct",
-    "prompt": "Transportir yordamida 170° li o'tmas burchak yasang.",
-    "hint": "Nurni 170° ga qo'ying",
-    "targetDegrees": 170,
-    "id": "sinf4_chorak4_blok73_level1_yasa_x14"
-  }
+ {
+  "tur": "yasa",
+  "a": 150,
+  "asos": "o",
+  "id": "g4c4b73l1_rasad_01"
+ },
+ {
+  "tur": "yasa",
+  "a": 140,
+  "asos": "o",
+  "id": "g4c4b73l1_rasad_02"
+ },
+ {
+  "tur": "olch",
+  "a": 145,
+  "asos": "o",
+  "options": [
+   135,
+   145,
+   35,
+   155
+  ],
+  "javob": 145,
+  "id": "g4c4b73l1_rasad_03"
+ },
+ {
+  "tur": "yasa",
+  "a": 140,
+  "asos": "ch",
+  "id": "g4c4b73l1_rasad_04"
+ },
+ {
+  "tur": "chama",
+  "a": 75,
+  "asos": "ch",
+  "options": [
+   10,
+   145,
+   75,
+   105
+  ],
+  "javob": 75,
+  "id": "g4c4b73l1_rasad_05"
+ },
+ {
+  "tur": "yasa",
+  "a": 55,
+  "asos": "o",
+  "id": "g4c4b73l1_rasad_06"
+ },
+ {
+  "tur": "yasa",
+  "a": 150,
+  "asos": "ch",
+  "id": "g4c4b73l1_rasad_07"
+ },
+ {
+  "tur": "olch",
+  "a": 40,
+  "asos": "ch",
+  "options": [
+   30,
+   40,
+   140,
+   50
+  ],
+  "javob": 40,
+  "id": "g4c4b73l1_rasad_08"
+ },
+ {
+  "tur": "yasa",
+  "a": 25,
+  "asos": "o",
+  "id": "g4c4b73l1_rasad_09"
+ },
+ {
+  "tur": "yasa",
+  "a": 100,
+  "asos": "o",
+  "id": "g4c4b73l1_rasad_10"
+ },
+ {
+  "tur": "yasa",
+  "a": 80,
+  "asos": "ch",
+  "id": "g4c4b73l1_rasad_11"
+ },
+ {
+  "tur": "yasa",
+  "a": 94,
+  "asos": "o",
+  "id": "g4c4b73l1_rasad_12"
+ },
+ {
+  "tur": "olch",
+  "a": 140,
+  "asos": "ch",
+  "options": [
+   40,
+   150,
+   140,
+   130
+  ],
+  "javob": 140,
+  "id": "g4c4b73l1_rasad_13"
+ },
+ {
+  "tur": "yasa",
+  "a": 163,
+  "asos": "ch",
+  "id": "g4c4b73l1_rasad_14"
+ },
+ {
+  "tur": "yasa",
+  "a": 60,
+  "asos": "o",
+  "id": "g4c4b73l1_rasad_15"
+ },
+ {
+  "tur": "turi",
+  "a": 165,
+  "asos": "ch",
+  "options": [
+   "O'tkir",
+   "To'g'ri",
+   "O'tmas",
+   "Yoyiq"
+  ],
+  "javob": "O'tmas",
+  "id": "g4c4b73l1_rasad_16"
+ },
+ {
+  "tur": "yasa",
+  "a": 169,
+  "asos": "o",
+  "id": "g4c4b73l1_rasad_17"
+ },
+ {
+  "tur": "yasa",
+  "a": 115,
+  "asos": "ch",
+  "id": "g4c4b73l1_rasad_18"
+ },
+ {
+  "tur": "olch",
+  "a": 105,
+  "asos": "o",
+  "options": [
+   115,
+   105,
+   95,
+   75
+  ],
+  "javob": 105,
+  "id": "g4c4b73l1_rasad_19"
+ },
+ {
+  "tur": "yasa",
+  "a": 46,
+  "asos": "ch",
+  "id": "g4c4b73l1_rasad_20"
+ }
 ]

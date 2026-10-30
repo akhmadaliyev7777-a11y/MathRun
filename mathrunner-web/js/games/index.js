@@ -5,7 +5,6 @@ import { ICON } from '../icons.js';
 
 import { shell, checkBtn, flash } from './shell.js?v=3';
 import { hud, buddy, sfx, floatText } from './hud.js?v=4';
-import { MORE } from './more.js?v=3';
 import { gameSet } from './venn.js?v=7';
 import { gameNumberOrder } from './tartib.js?v=11';
 import { gameEquationGrid } from './jadval.js?v=2';
@@ -2126,6 +2125,276 @@ function gameMotionLine(ctx) {
   round();
 }
 
+// ================= protractor (Transportir — Ulug'bek rasadxonasi) =================
+// Tungi osmon, yulduzlar, rasadxona; markazda mis transportir — ikki shkala: ichki (0° o'ngda) va tashqi (0° chapda).
+// Teleskop — burchakning ikkinchi nuri. Bank — tools/gen_transportir.py: olch, yasa, turi, chama, qoshni.
+const RV = { W: 420, H: 262, cx: 210, cy: 228, R: 182 };
+const rnuqta = (deg, r) => [RV.cx + r * Math.cos(deg * Math.PI / 180), RV.cy - r * Math.sin(deg * Math.PI / 180)];
+const yulduzYol = (x, y, r) => Array.from({ length: 10 }, (_, i) => { const a = -Math.PI / 2 + i * Math.PI / 5, q = i % 2 ? r * 0.45 : r; return `${(x + q * Math.cos(a)).toFixed(1)},${(y + q * Math.sin(a)).toFixed(1)}`; }).join(' ');
+const yonalish = (t, a = t.a) => (t.asos === 'ch' ? 180 - a : a);     // ikkinchi nurning ekrandagi yo'nalishi (o'ngdan, soat strelkasiga qarshi)
+
+function transportirSVG(t, korinsin = true) {
+  const { W, H, cx, cy, R } = RV;
+  const root = sv('svg', { viewBox: `0 0 ${W} ${H}`, class: 'rasad-svg', role: 'img', 'aria-label': 'Transportir' });
+  root.append(sv('defs', {}, `<linearGradient id="rasad-mis" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8dc8c"/><stop offset=".55" stop-color="#d9a441"/><stop offset="1" stop-color="#a8701e"/></linearGradient>
+    <radialGradient id="rasad-nur" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fffbe0"/><stop offset=".4" stop-color="#ffe680" stop-opacity=".8"/><stop offset="1" stop-color="#ffe680" stop-opacity="0"/></radialGradient>`));
+  const tr = sv('g', { class: 'rasad-tr' + (korinsin ? '' : ' yashirin') });
+  tr.append(sv('path', { d: `M${cx - R} ${cy} A${R} ${R} 0 0 1 ${cx + R} ${cy} Z`, fill: 'url(#rasad-mis)', stroke: '#7a4b12', 'stroke-width': 2.5, opacity: 0.93 }),
+    sv('path', { d: `M${cx - R + 58} ${cy} A${R - 58} ${R - 58} 0 0 1 ${cx + R - 58} ${cy}`, fill: 'none', stroke: '#8a5a14', 'stroke-width': 1.2, opacity: 0.7 }),
+    sv('path', { d: `M${cx - 34} ${cy} A34 34 0 0 1 ${cx + 34} ${cy} Z`, fill: '#f6e2a8', stroke: '#8a5a14', 'stroke-width': 1.2 }));
+  // naqsh — o'yma gul
+  for (let d = 15; d < 180; d += 30) { const [x, y] = rnuqta(d, R - 74); tr.append(sv('circle', { cx: x, cy: y, r: 3, fill: '#b9802a', opacity: 0.6 })); }
+  const chiziq = sv('g', { class: 'rasad-chiziq' });
+  for (let d = 0; d <= 180; d++) {
+    const L = d % 10 === 0 ? 15 : d % 5 === 0 ? 10 : 5;
+    const [x1, y1] = rnuqta(d, R - 1), [x2, y2] = rnuqta(d, R - 1 - L);
+    chiziq.append(sv('line', { x1, y1, x2, y2, 'stroke-width': d % 10 === 0 ? 1.4 : 0.8 }));
+    if (d % 10 === 0) { const [a1, b1] = rnuqta(d, R - 56), [a2, b2] = rnuqta(d, R - 62); chiziq.append(sv('line', { x1: a1, y1: b1, x2: a2, y2: b2, 'stroke-width': 1.2 })); }
+  }
+  tr.append(chiziq);
+  const tash = sv('g', { class: 'rasad-shkala rasad-shkala--tash' }), ich = sv('g', { class: 'rasad-shkala rasad-shkala--ich' });
+  for (let d = 0; d <= 180; d += 10) {
+    const [x, y] = rnuqta(d, R - 27), [x2, y2] = rnuqta(d, R - 46);
+    tash.append(sv('text', { x, y: y + 4, 'text-anchor': 'middle', transform: `rotate(${90 - d} ${x} ${y})` }, 180 - d));
+    ich.append(sv('text', { x: x2, y: y2 + 4, 'text-anchor': 'middle', transform: `rotate(${90 - d} ${x2} ${y2})` }, d));
+  }
+  tr.append(tash, ich, sv('line', { x1: cx - R, y1: cy, x2: cx + R, y2: cy, stroke: '#7a4b12', 'stroke-width': 2 }),
+    sv('line', { x1: cx, y1: cy, x2: cx, y2: cy - 12, stroke: '#7a4b12', 'stroke-width': 1.6 }));
+  root.append(tr);
+  const qavat = {};
+  for (const k of ['yoy', 'nur', 'belgi']) { qavat[k] = sv('g', { class: 'rasad-q-' + k }); root.append(qavat[k]); }
+  root.append(sv('circle', { cx, cy, r: 5, fill: '#fff6d0', stroke: '#7a4b12', 'stroke-width': 1.6 }));
+  return { root, tr, tash, ich, qavat };
+}
+function nurChiz(g, deg, cls = 'rasad-nur', yulduz = false) {
+  const [x, y] = rnuqta(deg, RV.R + 26);
+  g.append(sv('line', { x1: RV.cx, y1: RV.cy, x2: x, y2: y, class: cls }));
+  if (yulduz) g.append(sv('circle', { cx: x, cy: y, r: 16, fill: 'url(#rasad-nur)' }), sv('polygon', { points: yulduzYol(x, y, 8), class: 'rasad-yulduz' }));
+}
+function yoyChiz(g, d1, d2, yozuv, cls = 'rasad-yoy', r = 46) {
+  const [a, b] = d1 <= d2 ? [d1, d2] : [d2, d1];
+  const [x1, y1] = rnuqta(a, r), [x2, y2] = rnuqta(b, r);
+  g.append(sv('path', { d: `M${x1} ${y1} A${r} ${r} 0 0 0 ${x2} ${y2}`, class: cls }));
+  if (yozuv != null) { const [tx, ty] = rnuqta((a + b) / 2, r + 17); g.append(sv('text', { x: tx, y: ty + 5, 'text-anchor': 'middle', class: 'rasad-yoy__y ' + cls + '__y' }, yozuv)); }
+}
+// teleskop — burilib turadigan mis naycha
+function teleskop(g) {
+  const tel = sv('g', { class: 'rasad-tel' }, `<rect x="14" y="-5" width="${RV.R - 4}" height="10" rx="3" fill="#c98f2e" stroke="#6b420d" stroke-width="1.4"/>
+    <rect x="${RV.R - 40}" y="-8" width="40" height="16" rx="3" fill="#d9a441" stroke="#6b420d" stroke-width="1.4"/><rect x="${RV.R - 4}" y="-9" width="8" height="18" rx="2" fill="#7a4b12"/>
+    <rect x="70" y="-6.5" width="5" height="13" fill="#7a4b12"/><rect x="${RV.R - 70}" y="-6.5" width="5" height="13" fill="#7a4b12"/><path d="M18 -3 H${RV.R - 44}" stroke="#ffe9a8" stroke-width="2" opacity=".6"/>
+    <line x1="0" y1="0" x2="${RV.R + 26}" y2="0" class="rasad-nur rasad-nur--tel"/>`);
+  g.append(tel);
+  return (deg) => tel.setAttribute('transform', `translate(${RV.cx} ${RV.cy}) rotate(${-deg})`);
+}
+function rasadSabab(t, tanlov) {
+  const a = t.a, tomon = t.asos === 'ch' ? 'chap' : "o'ng";
+  if (t.tur === 'olch' || t.tur === 'yasa') {
+    const fe = t.tur === 'olch' ? `${tanlov}° emas` : `Siz ${tanlov}° yasadingiz`;
+    if (tanlov != null && Math.abs(tanlov - (180 - a)) <= 1 && Math.abs(180 - 2 * a) > 2) return `${fe} — bu ikkinchi shkala. Asos nur ${tomon}da, demak 0° ham ${tomon}da bo'lgan shkaladan o'qing: ${a}°.`;
+    if (tanlov != null) return `${fe}, kerak ${a}°. 0° ${tomon}da — shu shkaladan sanang.`;
+    return `Asos nur ${tomon}da — 0° ${tomon}dagi shkala: nur ${a}° ni ko'rsatyapti.`;
+  }
+  if (t.tur === 'turi') return a < 90 ? `${a}° < 90° — o'tkir burchak.` : a === 90 ? `90° — to'g'ri burchak.` : a < 180 ? `90° < ${a}° < 180° — o'tmas burchak.` : `180° — yoyiq burchak (to'g'ri chiziq).`;
+  if (t.tur === 'chama') return `Transportirda: ${a}°. ${a < 90 ? "To'g'ri burchakdan (90°) kichik" : a === 90 ? "To'g'ri burchak" : "To'g'ri burchakdan (90°) katta"}${tanlov != null ? `, ${tanlov}° esa ${Math.abs(tanlov - a)}° farq qiladi` : ''}.`;
+  if (t.tur === 'qoshni') return `${tanlov === a ? `${a}° emas — bu burchaklar teng emas. ` : tanlov != null ? `${tanlov}° emas. ` : ''}To'g'ri chiziqdagi burchaklar yig'indisi 180°: 180° − ${a}° = ${180 - a}°.`;
+  return '';
+}
+
+function gameProtractor(ctx) {
+  const all = ctx.bank.filter((t) => t.tur);
+  const s = shell(ctx, '', 'angle');
+  const H = hud(3);
+  const B = buddy();
+  const RAUND = 5;
+  const rounds = [];
+  for (let i = 0; i < all.length; i += RAUND) rounds.push(all.slice(i, i + RAUND));
+  let ri = 0, right = 0, total = 0, longest = 0, done = 0, ii = 0, items = [], xatolar = 0;
+  const times = [];
+  let onKey = null;
+  const timers = new Set();
+  const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); };
+  const keyH = (ev) => onKey && onKey(ev);
+  addEventListener('keydown', keyH);
+  addEventListener('hashchange', () => { removeEventListener('keydown', keyH); timers.forEach(clearTimeout); }, { once: true });
+
+  const savol = el('div', { class: 'rasad-savol' });
+  const lavha = el('div', { class: 'rasad-lavha' }, savol);
+  const joy = el('div', { class: 'rasad-joy' });
+  const javoblar = el('div', { class: 'rasad-javoblar' });
+  const tugma = (d) => el('button', { type: 'button', class: 'rasad-qadam', onclick: () => { if (!busy) burish(qiymat + d); } }, (d > 0 ? '+' : '−') + Math.abs(d) + '°');
+  const tayyor = el('button', { type: 'button', class: 'btn btn--accent rasad-tayyor', onclick: () => tekshir() }, 'Tekshirish ✓');
+  const boshqaruv = el('div', { class: 'rasad-boshqaruv' }, tugma(-10), tugma(-1), tugma(1), tugma(10), tayyor);
+  let t = null, m = null, busy = true, startedAt = 0, qiymat = 0, burT = null;
+
+  // teleskopni burish: qiymat — burchak (asos nurdan), ekranda yo'nalish
+  function burish(v) { qiymat = Math.max(0, Math.min(180, Math.round(v))); burT(yonalish(t, qiymat)); sfx.tap(); }
+  function chiz(tt) {
+    t = tt;
+    m = transportirSVG(t, t.tur !== 'chama');
+    joy.replaceChildren(m.root);
+    const asosDeg = t.asos === 'ch' ? 180 : 0;
+    javoblar.hidden = !t.options; boshqaruv.hidden = t.tur !== 'yasa';
+    if (t.tur === 'qoshni') {
+      nurChiz(m.qavat.nur, 0); nurChiz(m.qavat.nur, 180); nurChiz(m.qavat.nur, t.a, 'rasad-nur', true);
+      yoyChiz(m.qavat.yoy, 0, t.a, `${t.a}°`, 'rasad-yoy', 40); yoyChiz(m.qavat.yoy, t.a, 180, '?', 'rasad-yoy rasad-yoy--2', 54);
+      m.tr.classList.add('xira');
+      savol.textContent = "To'g'ri chiziqdagi ikkinchi burchak necha gradus?";
+    } else if (t.tur === 'yasa') {
+      nurChiz(m.qavat.nur, asosDeg);
+      burT = teleskop(m.qavat.nur);
+      qiymat = t.asos === 'ch' ? 0 : 0; burT(yonalish(t, 0));
+      savol.textContent = `Teleskopni burang: ${t.a}° li burchak yasang`;
+    } else {
+      nurChiz(m.qavat.nur, asosDeg); nurChiz(m.qavat.nur, yonalish(t), 'rasad-nur', true);
+      yoyChiz(m.qavat.yoy, asosDeg, yonalish(t), null);
+      savol.textContent = t.tur === 'olch' ? 'Burchak necha gradus?' : t.tur === 'turi' ? 'Bu qanday burchak?' : 'Transportirsiz chamalang: burchak taxminan necha gradus?';
+    }
+    if (t.options) javoblar.replaceChildren(...t.options.map((o, i) => el('button', { type: 'button', class: 'rasad-jt', onclick: (e) => tanla(o, e.currentTarget) },
+      typeof o === 'number' ? `${o}°` : o, el('small', { class: 'rasad-jt__key' }, i + 1))));
+    lavha.classList.remove('yangi'); void lavha.offsetWidth; lavha.classList.add('yangi');
+  }
+  // sichqoncha/barmoq bilan teleskopni burish
+  let surilmoqda = false;
+  const surish = (e) => {
+    const r = m.root.getBoundingClientRect();
+    const x = (e.clientX - r.left) * (RV.W / r.width) - RV.cx, y = RV.cy - (e.clientY - r.top) * (RV.H / r.height);
+    let d = Math.atan2(y, x) * 180 / Math.PI;
+    if (d < 0) d = x < 0 ? 180 : 0;
+    qiymat = Math.max(0, Math.min(180, Math.round(t.asos === 'ch' ? 180 - d : d)));
+    burT(yonalish(t, qiymat));
+  };
+  joy.addEventListener('pointerdown', (e) => { if (busy || t?.tur !== 'yasa') return; surilmoqda = true; try { joy.setPointerCapture(e.pointerId); } catch { /* */ } surish(e); e.preventDefault(); });
+  joy.addEventListener('pointermove', (e) => { if (surilmoqda && !busy) surish(e); });
+  const tugat = () => { surilmoqda = false; };
+  joy.addEventListener('pointerup', tugat); joy.addEventListener('pointercancel', tugat);
+
+  // javobdan keyin — to'g'ri shkala yonadi, yoy va gradus
+  function yechimKo() {
+    const asosDeg = t.asos === 'ch' ? 180 : 0;
+    if (t.tur === 'qoshni') { m.tr.classList.remove('xira'); m.qavat.yoy.replaceChildren(); yoyChiz(m.qavat.yoy, 0, t.a, `${t.a}°`, 'rasad-yoy', 40); yoyChiz(m.qavat.yoy, t.a, 180, `${180 - t.a}°`, 'rasad-yoy rasad-yoy--2', 54); m.ich.classList.add('yondi'); return; }
+    m.tr.classList.remove('yashirin');
+    (t.asos === 'ch' ? m.tash : m.ich).classList.add('yondi');
+    if (t.tur === 'yasa') nurChiz(m.qavat.belgi, yonalish(t), 'rasad-nur rasad-nur--kerak', true);
+    m.qavat.yoy.replaceChildren(); yoyChiz(m.qavat.yoy, asosDeg, yonalish(t), `${t.a}°`, 'rasad-yoy rasad-yoy--javob');
+  }
+  function natija(ok, at, sabab) {
+    busy = true; onKey = null;
+    total++; done++;
+    times.push(performance.now() - startedAt);
+    yechimKo();
+    if (ok) {
+      right++;
+      const mlt = H.hit(); longest = Math.max(longest, H.st.combo);
+      const fast = performance.now() - startedAt < 10000;
+      sfx.ok(); joy.classList.add('yondi');
+      H.add(10 * mlt + (fast ? 5 : 0), at);
+      if (fast && mlt < 2) floatText('⚡ Tez!', at, 'hud-float--tez');
+      B.say([el('span', { class: 'rchip rchip--ha' }, 'To\'g\'ri ✓'), ' ', sabab], 'ok');
+      later(() => { joy.classList.remove('yondi'); ii++; next(); }, 2600);
+    } else {
+      xatolar++; H.miss(); sfx.bad();
+      const left = H.loseHeart();
+      joy.classList.remove('xato'); void joy.offsetWidth; joy.classList.add('xato');
+      B.say([el('span', { class: 'rchip rchip--yoq' }, 'Xato'), ' ', sabab], 'bad');
+      const davom = () => { onKey = null; s.foot.replaceChildren(); ii++; left === 0 ? autoRest() : next(); };
+      later(() => {
+        s.foot.replaceChildren(el('button', { class: 'btn btn--accent', type: 'button', onclick: davom }, 'Davom etish ➜'));
+        onKey = (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); davom(); } };
+      }, 900);
+    }
+  }
+  function tekshir() {
+    if (busy || t.tur !== 'yasa') return;
+    const ok = Math.abs(qiymat - t.a) <= 1;
+    boshqaruv.hidden = true;
+    natija(ok, tayyor, ok ? rasadSabab(t) : rasadSabab(t, qiymat));
+  }
+  function tanla(o, btn) {
+    if (busy) return;
+    busy = true;
+    const ok = o === t.javob;
+    [...javoblar.children].forEach((b, i) => { b.disabled = true; if (t.options[i] === t.javob) b.classList.add('is-ok'); });
+    btn.classList.add(ok ? 'is-ok' : 'is-bad');
+    natija(ok, btn, ok ? rasadSabab(t) : rasadSabab(t, t.tur === 'turi' ? null : o));
+  }
+  const maslahat = () => ({
+    olch: `Asos nur ${t.asos === 'ch' ? 'chap' : "o'ng"}da. 0° qaysi shkalada ${t.asos === 'ch' ? 'chap' : "o'ng"}da?`,
+    yasa: 'Teleskopni barmoq bilan suring yoki tugmalarni bosing. Shkalani 0° dan o\'qing.',
+    turi: "To'g'ri burchak (90°) bilan solishtiring.",
+    chama: "To'g'ri burchakni (90°) ko'z oldingizga keltiring — undan kichikmi, kattami?",
+    qoshni: "To'g'ri chiziq — yoyiq burchak, 180°.",
+  })[t.tur];
+  function next() {
+    if (ii >= items.length) return endRound();
+    busy = false;
+    s.setProg(done, all.length);
+    chiz(items[ii]);
+    B.say([maslahat()], 'idle');
+    startedAt = performance.now();
+    onKey = (ev) => {
+      if (t.tur === 'yasa') {
+        if (ev.key === 'ArrowLeft' || ev.key === 'ArrowDown') { ev.preventDefault(); burish(qiymat - (ev.shiftKey ? 10 : 1)); }
+        if (ev.key === 'ArrowRight' || ev.key === 'ArrowUp') { ev.preventDefault(); burish(qiymat + (ev.shiftKey ? 10 : 1)); }
+        if (ev.key === 'Enter') { ev.preventDefault(); tekshir(); }
+        return;
+      }
+      const n = +ev.key; if (!javoblar.hidden && n >= 1 && n <= javoblar.children.length) { ev.preventDefault(); javoblar.children[n - 1].click(); }
+    };
+  }
+  function autoRest() {
+    onKey = null;
+    B.say(['Yuraklar tugadi. Qolganlarini kuzating.'], 'think');
+    const go = () => {
+      if (ii >= items.length) return endRound();
+      chiz(items[ii]); busy = true; boshqaruv.hidden = true; total++; done++; s.setProg(done, all.length);
+      later(() => {
+        if (t.tur === 'yasa') burT(yonalish(t));
+        yechimKo();
+        [...javoblar.children].forEach((b, i) => { b.disabled = true; if (t.options[i] === t.javob) b.classList.add('is-ok'); });
+        B.say([rasadSabab(t)], 'think');
+      }, 800);
+      later(() => { ii++; go(); }, 3600);
+    };
+    later(go, 1000);
+  }
+  function endRound() {
+    onKey = null; busy = true; boshqaruv.hidden = true;
+    const clean = xatolar === 0;
+    if (clean) { H.add(30, joy); sfx.win(); }
+    s.setProg(done, all.length);
+    const lastR = ri + 1 >= rounds.length;
+    s.foot.replaceChildren(
+      el('div', { class: 'rend ' + (clean ? 'rend--ok' : '') },
+        el('b', {}, clean ? 'Xatosiz! +30 bonus' : xatolar === 1 ? 'Bitta xato bilan — yaxshi!' : `${xatolar} ta xato — keyingisida diqqat bilan!`),
+        el('button', { class: 'btn btn--accent', type: 'button', onclick: () => {
+          ri++;
+          if (ri >= rounds.length) {
+            const avgMs = times.length ? times.reduce((a, b) => a + b, 0) / times.length : 0;
+            ctx.finish(right, total, { longestStreak: longest, avgMs, score: H.st.score });
+          } else { s.foot.replaceChildren(); round(); }
+        } }, lastR ? 'Natijani ko\'rish' : 'Keyingi partiya ➜')));
+  }
+  function round() { items = rounds[ri]; ii = 0; xatolar = 0; H.resetHearts(); next(); }
+
+  const bar = ctx.root.querySelector('.prompt'); if (bar) bar.hidden = true;
+  const rasadxona = `<svg class="rasad__bino" viewBox="0 0 400 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <path d="M0 120 V96 Q100 86 200 92 Q300 86 400 96 V120Z" fill="#1d2a4a"/>
+    <rect x="120" y="44" width="160" height="56" fill="#24365e"/><path d="M110 46 Q200 18 290 46Z" fill="#2c4a7c"/>
+    <g fill="#3b6fb0">${[134, 158, 182, 206, 230, 254].map(x => `<path d="M${x} 96 V64 Q${x + 7} 54 ${x + 14} 64 V96Z"/>`).join('')}</g>
+    <rect x="120" y="44" width="160" height="6" fill="#4f8fd6"/><rect x="120" y="94" width="160" height="6" fill="#4f8fd6"/>
+    <path d="M40 120 V100 Q60 92 80 100 V120Z M320 120 V100 Q340 92 360 100 V120Z" fill="#1a2440"/></svg>`;
+  const sahna = el('div', { class: 'sahna sahna--rasad' },
+    el('i', { class: 'rasad__oy' }), el('div', { class: 'rasad__bino-joy', html: rasadxona }),
+    H.node, B.node, lavha, joy, boshqaruv, javoblar);
+  s.area.replaceChildren(sahna);
+  s.foot.replaceChildren();
+  if (innerWidth < 700) requestAnimationFrame(() => {
+    const head = document.querySelector('.site-header')?.offsetHeight || 0;
+    scrollTo({ top: sahna.getBoundingClientRect().top + scrollY - head - 6, behavior: 'auto' });
+  });
+  round();
+}
+
 export const GAMES = {
   set: gameSet,
   numberOrder: gameNumberOrder,
@@ -2135,8 +2404,8 @@ export const GAMES = {
   netFold: gameNetFold,
   equationGrid: gameEquationGrid,
   algorithmConveyor: gameConveyor,
-  ...MORE,
   fractionStrip: gameFractionStrip,
   coordinatePath: gameCoordinate,
   motionLine: gameMotionLine,
+  protractor: gameProtractor,
 };

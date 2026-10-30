@@ -15,7 +15,7 @@ export const GAME_META = [
   { kind: 'fractionStrip', art: 'assets/kartochka/fractionStrip.webp', name: 'Ulush tasmasi', desc: "Devor va shakllarning kerakli qismini bo'yang: kasr, ulush, foiz", icon: 'frac', color: 'var(--pink)', dark: '#c43fa6' },
   { kind: 'coordinatePath', art: 'assets/kartochka/coordinatePath.webp', name: 'Koordinata', desc: 'Xazina oroli xaritasi: nuqtani toping, xazinani qazing, yo\'l chizing', icon: 'axes', color: 'var(--green)', dark: '#2f9d57' },
   { kind: 'motionLine', art: 'assets/kartochka/motionLine.webp', name: 'Harakat', desc: 'Dasht yo\'lida mashinalar, avtobus, velosipedchilar: qachon uchrashadi, qachon quvib yetadi?', icon: 'motion', color: 'var(--violet)', dark: '#5b3bbf' },
-  { kind: 'protractor', art: 'assets/kartochka/protractor.webp', name: 'Transportir', desc: "Burchakni o'lchang yoki yasang", icon: 'angle', color: 'var(--orange)', dark: '#c47a12' },
+  { kind: 'protractor', art: 'assets/kartochka/protractor.webp', name: 'Transportir', desc: "Ulug'bek rasadxonasi: mis transportir bilan burchakni o'lchang, teleskopni burab yasang", icon: 'angle', color: 'var(--orange)', dark: '#c47a12' },
 ];
 
 export function levelsByKind() {

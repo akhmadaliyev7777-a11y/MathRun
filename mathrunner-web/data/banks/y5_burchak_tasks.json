@@ -1,0 +1,234 @@
+[
+ {
+  "tur": "qoshni",
+  "a": 55,
+  "asos": "o",
+  "options": [
+   55,
+   145,
+   125,
+   35
+  ],
+  "javob": 125,
+  "id": "y5burchak_rasad_01"
+ },
+ {
+  "tur": "olch",
+  "a": 20,
+  "asos": "o",
+  "options": [
+   20,
+   10,
+   160,
+   30
+  ],
+  "javob": 20,
+  "id": "y5burchak_rasad_02"
+ },
+ {
+  "tur": "qoshni",
+  "a": 80,
+  "asos": "o",
+  "options": [
+   120,
+   80,
+   10,
+   100
+  ],
+  "javob": 100,
+  "id": "y5burchak_rasad_03"
+ },
+ {
+  "tur": "yasa",
+  "a": 105,
+  "asos": "ch",
+  "id": "y5burchak_rasad_04"
+ },
+ {
+  "tur": "qoshni",
+  "a": 25,
+  "asos": "o",
+  "options": [
+   155,
+   65,
+   25,
+   175
+  ],
+  "javob": 155,
+  "id": "y5burchak_rasad_05"
+ },
+ {
+  "tur": "olch",
+  "a": 170,
+  "asos": "ch",
+  "options": [
+   160,
+   10,
+   170,
+   175
+  ],
+  "javob": 170,
+  "id": "y5burchak_rasad_06"
+ },
+ {
+  "tur": "qoshni",
+  "a": 135,
+  "asos": "o",
+  "options": [
+   65,
+   45,
+   135,
+   55
+  ],
+  "javob": 45,
+  "id": "y5burchak_rasad_07"
+ },
+ {
+  "tur": "yasa",
+  "a": 70,
+  "asos": "o",
+  "id": "y5burchak_rasad_08"
+ },
+ {
+  "tur": "qoshni",
+  "a": 40,
+  "asos": "o",
+  "options": [
+   140,
+   40,
+   160,
+   50
+  ],
+  "javob": 140,
+  "id": "y5burchak_rasad_09"
+ },
+ {
+  "tur": "turi",
+  "a": 100,
+  "asos": "ch",
+  "options": [
+   "O'tkir",
+   "To'g'ri",
+   "O'tmas",
+   "Yoyiq"
+  ],
+  "javob": "O'tmas",
+  "id": "y5burchak_rasad_10"
+ },
+ {
+  "tur": "qoshni",
+  "a": 71,
+  "asos": "o",
+  "options": [
+   109,
+   19,
+   129,
+   71
+  ],
+  "javob": 109,
+  "id": "y5burchak_rasad_11"
+ },
+ {
+  "tur": "olch",
+  "a": 57,
+  "asos": "o",
+  "options": [
+   67,
+   47,
+   123,
+   57
+  ],
+  "javob": 57,
+  "id": "y5burchak_rasad_12"
+ },
+ {
+  "tur": "qoshni",
+  "a": 148,
+  "asos": "o",
+  "options": [
+   32,
+   52,
+   148,
+   58
+  ],
+  "javob": 32,
+  "id": "y5burchak_rasad_13"
+ },
+ {
+  "tur": "yasa",
+  "a": 142,
+  "asos": "ch",
+  "id": "y5burchak_rasad_14"
+ },
+ {
+  "tur": "qoshni",
+  "a": 50,
+  "asos": "o",
+  "options": [
+   50,
+   150,
+   40,
+   130
+  ],
+  "javob": 130,
+  "id": "y5burchak_rasad_15"
+ },
+ {
+  "tur": "qoshni",
+  "a": 95,
+  "asos": "o",
+  "options": [
+   85,
+   95,
+   5,
+   105
+  ],
+  "javob": 85,
+  "id": "y5burchak_rasad_16"
+ },
+ {
+  "tur": "olch",
+  "a": 138,
+  "asos": "ch",
+  "options": [
+   128,
+   42,
+   148,
+   138
+  ],
+  "javob": 138,
+  "id": "y5burchak_rasad_17"
+ },
+ {
+  "tur": "qoshni",
+  "a": 76,
+  "asos": "o",
+  "options": [
+   124,
+   14,
+   76,
+   104
+  ],
+  "javob": 104,
+  "id": "y5burchak_rasad_18"
+ },
+ {
+  "tur": "yasa",
+  "a": 128,
+  "asos": "o",
+  "id": "y5burchak_rasad_19"
+ },
+ {
+  "tur": "qoshni",
+  "a": 159,
+  "asos": "o",
+  "options": [
+   41,
+   69,
+   21,
+   159
+  ],
+  "javob": 21,
+  "id": "y5burchak_rasad_20"
+ }
+]

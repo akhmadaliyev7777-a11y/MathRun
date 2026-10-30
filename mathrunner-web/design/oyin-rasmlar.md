@@ -155,5 +155,9 @@ no land in the middle (an old paper map will be placed there). Soft 3D cartoon s
 Sahna kodda chiziladi. Kerak bo'lsa: **11.1 Fon** (`dasht-yol.png`): a wide sunny steppe landscape with soft mountains far away, blue sky,
 a straight empty asphalt road crossing the lower part from left to right, small village houses at both ends. Soft 3D cartoon style, no text, no cars. Landscape 1600×900.
 
+## 12. Transportir — Ulug'bek rasadxonasi
+Sahna kodda chiziladi. Kerak bo'lsa: **12.1 Fon** (`rasad-tun.png`): a starry night sky over the Ulugh Beg observatory in Samarkand (round building
+with blue tile arches), crescent moon, soft 3D cartoon style, no text; the middle of the image empty. Portrait 1080×1600.
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
 Har birining promptlari o'sha o'yinga o'tganda yoziladi. **Musiqa** ham keyinroq qo'shiladi.

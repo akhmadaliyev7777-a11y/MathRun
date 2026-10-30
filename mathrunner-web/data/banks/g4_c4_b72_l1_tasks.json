@@ -1,142 +1,262 @@
 [
-  {
-    "id": "sinf4_chorak4_blok72_level1_olch_01",
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 30
-  },
-  {
-    "id": "sinf4_chorak4_blok72_level1_olch_02",
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 60
-  },
-  {
-    "id": "sinf4_chorak4_blok72_level1_olch_03",
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 90
-  },
-  {
-    "id": "sinf4_chorak4_blok72_level1_olch_04",
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 120
-  },
-  {
-    "id": "sinf4_chorak4_blok72_level1_olch_05",
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 45
-  },
-  {
-    "id": "sinf4_chorak4_blok72_level1_olch_06",
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 150
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 145,
-    "id": "sinf4_chorak4_blok72_level1_olch_x01"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 50,
-    "id": "sinf4_chorak4_blok72_level1_olch_x02"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 20,
-    "id": "sinf4_chorak4_blok72_level1_olch_x03"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 130,
-    "id": "sinf4_chorak4_blok72_level1_olch_x04"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 160,
-    "id": "sinf4_chorak4_blok72_level1_olch_x05"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 40,
-    "id": "sinf4_chorak4_blok72_level1_olch_x06"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 80,
-    "id": "sinf4_chorak4_blok72_level1_olch_x07"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 140,
-    "id": "sinf4_chorak4_blok72_level1_olch_x08"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 75,
-    "id": "sinf4_chorak4_blok72_level1_olch_x09"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 170,
-    "id": "sinf4_chorak4_blok72_level1_olch_x10"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 70,
-    "id": "sinf4_chorak4_blok72_level1_olch_x11"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 10,
-    "id": "sinf4_chorak4_blok72_level1_olch_x12"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 110,
-    "id": "sinf4_chorak4_blok72_level1_olch_x13"
-  },
-  {
-    "mode": "measure",
-    "prompt": "Chizilgan burchakni transportir bilan o'lchang.",
-    "hint": "Harakatlanuvchi nurni sirli nur ustiga aniq keltiring",
-    "targetDegrees": 100,
-    "id": "sinf4_chorak4_blok72_level1_olch_x14"
-  }
+ {
+  "tur": "olch",
+  "a": 120,
+  "asos": "o",
+  "options": [
+   60,
+   110,
+   120,
+   130
+  ],
+  "javob": 120,
+  "id": "g4c4b72l1_rasad_01"
+ },
+ {
+  "tur": "chama",
+  "a": 25,
+  "asos": "ch",
+  "options": [
+   70,
+   25,
+   120,
+   160
+  ],
+  "javob": 25,
+  "id": "g4c4b72l1_rasad_02"
+ },
+ {
+  "tur": "olch",
+  "a": 145,
+  "asos": "o",
+  "options": [
+   155,
+   35,
+   145,
+   135
+  ],
+  "javob": 145,
+  "id": "g4c4b72l1_rasad_03"
+ },
+ {
+  "tur": "turi",
+  "a": 100,
+  "asos": "o",
+  "options": [
+   "O'tkir",
+   "To'g'ri",
+   "O'tmas",
+   "Yoyiq"
+  ],
+  "javob": "O'tmas",
+  "id": "g4c4b72l1_rasad_04"
+ },
+ {
+  "tur": "olch",
+  "a": 125,
+  "asos": "ch",
+  "options": [
+   55,
+   125,
+   115,
+   135
+  ],
+  "javob": 125,
+  "id": "g4c4b72l1_rasad_05"
+ },
+ {
+  "tur": "chama",
+  "a": 55,
+  "asos": "o",
+  "options": [
+   145,
+   115,
+   85,
+   55
+  ],
+  "javob": 55,
+  "id": "g4c4b72l1_rasad_06"
+ },
+ {
+  "tur": "olch",
+  "a": 170,
+  "asos": "o",
+  "options": [
+   160,
+   170,
+   175,
+   10
+  ],
+  "javob": 170,
+  "id": "g4c4b72l1_rasad_07"
+ },
+ {
+  "tur": "turi",
+  "a": 90,
+  "asos": "o",
+  "options": [
+   "O'tkir",
+   "To'g'ri",
+   "O'tmas",
+   "Yoyiq"
+  ],
+  "javob": "To'g'ri",
+  "id": "g4c4b72l1_rasad_08"
+ },
+ {
+  "tur": "olch",
+  "a": 110,
+  "asos": "ch",
+  "options": [
+   110,
+   70,
+   120,
+   100
+  ],
+  "javob": 110,
+  "id": "g4c4b72l1_rasad_09"
+ },
+ {
+  "tur": "turi",
+  "a": 110,
+  "asos": "ch",
+  "options": [
+   "O'tkir",
+   "To'g'ri",
+   "O'tmas",
+   "Yoyiq"
+  ],
+  "javob": "O'tmas",
+  "id": "g4c4b72l1_rasad_10"
+ },
+ {
+  "tur": "olch",
+  "a": 55,
+  "asos": "ch",
+  "options": [
+   65,
+   125,
+   45,
+   55
+  ],
+  "javob": 55,
+  "id": "g4c4b72l1_rasad_11"
+ },
+ {
+  "tur": "olch",
+  "a": 132,
+  "asos": "o",
+  "options": [
+   132,
+   122,
+   142,
+   48
+  ],
+  "javob": 132,
+  "id": "g4c4b72l1_rasad_12"
+ },
+ {
+  "tur": "chama",
+  "a": 115,
+  "asos": "o",
+  "options": [
+   115,
+   40,
+   165,
+   75
+  ],
+  "javob": 115,
+  "id": "g4c4b72l1_rasad_13"
+ },
+ {
+  "tur": "olch",
+  "a": 170,
+  "asos": "ch",
+  "options": [
+   10,
+   175,
+   160,
+   170
+  ],
+  "javob": 170,
+  "id": "g4c4b72l1_rasad_14"
+ },
+ {
+  "tur": "turi",
+  "a": 180,
+  "asos": "o",
+  "options": [
+   "O'tkir",
+   "To'g'ri",
+   "O'tmas",
+   "Yoyiq"
+  ],
+  "javob": "Yoyiq",
+  "id": "g4c4b72l1_rasad_15"
+ },
+ {
+  "tur": "olch",
+  "a": 103,
+  "asos": "o",
+  "options": [
+   93,
+   103,
+   77,
+   113
+  ],
+  "javob": 103,
+  "id": "g4c4b72l1_rasad_16"
+ },
+ {
+  "tur": "olch",
+  "a": 135,
+  "asos": "ch",
+  "options": [
+   125,
+   145,
+   45,
+   135
+  ],
+  "javob": 135,
+  "id": "g4c4b72l1_rasad_17"
+ },
+ {
+  "tur": "chama",
+  "a": 40,
+  "asos": "o",
+  "options": [
+   125,
+   155,
+   80,
+   40
+  ],
+  "javob": 40,
+  "id": "g4c4b72l1_rasad_18"
+ },
+ {
+  "tur": "olch",
+  "a": 75,
+  "asos": "ch",
+  "options": [
+   85,
+   75,
+   65,
+   105
+  ],
+  "javob": 75,
+  "id": "g4c4b72l1_rasad_19"
+ },
+ {
+  "tur": "turi",
+  "a": 45,
+  "asos": "ch",
+  "options": [
+   "O'tkir",
+   "To'g'ri",
+   "O'tmas",
+   "Yoyiq"
+  ],
+  "javob": "O'tkir",
+  "id": "g4c4b72l1_rasad_20"
+ }
 ]
