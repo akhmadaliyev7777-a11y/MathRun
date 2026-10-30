@@ -15,7 +15,7 @@ export function shell(ctx, promptText, iconKey, autoPrompt = false) {
       el('button', { class: 'linkback', onclick: () => location.hash = ctx.backHash },
         el('span', { style: 'width:18px;height:18px', html: ICON.arrowLeft }), 'Mavzularga qaytish'),
       el('div', { class: 'runbar__mid' },
-        `${ctx.grade.grade}-sinf · ${ctx.chorak.roman} chorak · ${ctx.block.blok}-mavzu`),
+        ctx.grade.yuqori ? `${ctx.grade.grade}-sinf · ${ctx.chorak.fan} · ${ctx.block.name}` : `${ctx.grade.grade}-sinf · ${ctx.chorak.roman} chorak · ${ctx.block.blok}-mavzu`),
       el('div', { class: 'runbar__mid' }, '')),
     el('main', { class: 'gwrap' },
       // qaysi mashq, nechanchi topshiriq va jami nechta ekani doim ko'rinib turadi

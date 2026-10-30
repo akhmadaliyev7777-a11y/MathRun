@@ -1364,34 +1364,39 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
   display: flex; align-items: center; gap: 6px; font-family: var(--f-head); font-weight: 900; font-size: 22px; color: #fff7e6; white-space: pre;
   background: repeating-linear-gradient(0deg, rgba(0,0,0,.08) 0 2px, transparent 2px 9px), linear-gradient(180deg, #a86a34, #7b4520);
   border: 2px solid #5a3214; box-shadow: inset 0 2px 0 rgba(255,255,255,.2), 0 4px 10px rgba(0,0,0,.35); text-shadow: 0 2px 0 rgba(0,0,0,.35); }
+.bozor__taxta.yangi { animation: g-pop .4s; box-shadow: inset 0 2px 0 rgba(255,255,255,.2), 0 0 18px rgba(255,215,90,.8); }
 .taxta__kr { display: inline-block; width: 26px; height: 26px; }
 .taxta__kr svg { width: 100%; height: 100%; display: block; }
 
-/* mis tarozi */
-.tarozi { --a: 0deg; --tz: 1.1s; position: relative; z-index: 2; height: 236px; max-width: 520px; margin: 0 auto; }
-.tarozi.tez { --tz: 0s; }
-.tarozi__ustun { position: absolute; left: 50%; top: 22px; bottom: 0; width: 70px; transform: translateX(-50%); }
-.tarozi__mil { position: absolute; left: 50%; top: 8px; bottom: 16px; width: 12px; transform: translateX(-50%); border-radius: 6px;
-  background: linear-gradient(90deg, #8a5a14, #f4cf6a 40%, #c8902a 70%, #7a4c10); }
-.tarozi__toj { position: absolute; z-index: 3; left: 50%; top: 0; width: 22px; height: 22px; transform: translateX(-50%); border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff2b8, #e3a83a 50%, #8a5a14); box-shadow: 0 2px 4px rgba(0,0,0,.4); }
-.tarozi__asos { position: absolute; left: 50%; bottom: 0; width: 70px; height: 20px; transform: translateX(-50%); border-radius: 40% 40% 8px 8px / 70% 70% 8px 8px;
-  background: linear-gradient(90deg, #7a4c10, #f0c860 40%, #c8902a 70%, #6e440e); box-shadow: 0 4px 6px rgba(0,0,0,.4); }
-.tarozi__strelka { position: absolute; z-index: 1; left: 50%; top: 30px; width: 4px; height: 34px; margin-left: -2px; border-radius: 2px; background: #3a2350;
-  transform-origin: 50% 0; transform: rotate(calc(-1 * var(--a))); transition: transform var(--tz) cubic-bezier(.3,1.6,.5,1); }
-.tarozi__shayin { position: absolute; z-index: 2; left: 21%; right: 21%; top: 26px; height: 10px; border-radius: 5px;
-  background: linear-gradient(180deg, #fff0b0, #e0a536 45%, #8a5a14); box-shadow: 0 3px 4px rgba(0,0,0,.35);
-  transform: rotate(var(--a)); transition: transform var(--tz) cubic-bezier(.3,1.6,.5,1); }
-.palla { position: absolute; top: 5px; width: 70.7%; height: 150px; transform-origin: 50% 0;
-  transform: rotate(calc(-1 * var(--a))); transition: transform var(--tz) cubic-bezier(.3,1.6,.5,1); }
+/* mis tarozi: ustun (SVG), shayin (aylanadi — --a), pallalar (doim tik, biroz chayqaladi — --s); burchaklarni JS fizikasi yozadi */
+.tarozi { --a: 0deg; --s: 0deg; --ph: 150px; position: relative; z-index: 2; height: 236px; max-width: 540px; margin: 0 auto; }
+.tarozi__ustun { position: absolute; left: 50%; top: 0; width: 96px; height: 236px; transform: translateX(-50%); overflow: visible; }
+.tarozi__shayin { position: absolute; z-index: 2; left: 21%; right: 21%; top: 26px; height: 14px; transform: rotate(var(--a)); }
+.shayin__tanasi { position: absolute; inset: 0; filter: drop-shadow(0 3px 2px rgba(0,0,0,.35)); }
+.shayin__tana { width: 100%; height: 100%; display: block; }
+.shayin__uch { position: absolute; top: 50%; width: 16px; height: 16px; margin-top: -8px; border-radius: 50%; z-index: 3;
+  background: radial-gradient(circle at 35% 30%, #fff6cf, #e0a536 45%, #6b420d); box-shadow: 0 2px 3px rgba(0,0,0,.4); }
+.shayin__uch--l { left: -8px; } .shayin__uch--r { right: -8px; }
+.shayin__gupchak { position: absolute; z-index: 3; left: 50%; top: 50%; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #3a2208 0 3px, transparent 3.5px), radial-gradient(circle at 35% 30%, #fff2b8, #e3a83a 50%, #7a4c10);
+  box-shadow: 0 0 0 2px #8a5a14, 0 3px 5px rgba(0,0,0,.45); transition: box-shadow .3s; }
+/* strelka shayinga mahkamlangan — u bilan birga buriladi, ustundagi shkala bo'ylab yuradi */
+.shayin__strelka { position: absolute; z-index: 1; left: 50%; top: 50%; width: 4px; height: 30px; margin-left: -2px; border-radius: 0 0 3px 3px;
+  background: linear-gradient(90deg, #5a3a10, #c8902a, #5a3a10); clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%); }
+.palla { position: absolute; top: 7px; width: 70.7%; height: var(--ph); transform-origin: 50% 0; transform: rotate(calc(var(--s) - var(--a))); }
 .palla--l { left: -35.35%; } .palla--r { left: 64.65%; }
-.palla__ilgak { position: absolute; left: 50%; top: -6px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; border: 3px solid #c8902a; background: transparent; }
-.palla__osma { position: absolute; left: 6%; right: 6%; top: 4px; height: 124px; }
+.palla__ilgak { position: absolute; z-index: 2; left: 50%; top: -7px; width: 13px; height: 13px; margin-left: -6.5px; border-radius: 50%; border: 3px solid #d9a33e; box-shadow: 0 1px 2px rgba(0,0,0,.4); }
+.palla__osma { position: absolute; left: 2%; right: 2%; top: 2px; height: calc(var(--ph) - 30px); }
 .palla__zanjir { width: 100%; height: 100%; display: block; overflow: visible; }
-.palla__zanjir path { stroke: #f2c35a; stroke-width: 2.5; stroke-dasharray: 5 2; fill: none; filter: drop-shadow(0 1px 0 rgba(0,0,0,.35)); }
-.palla__tovoq { position: absolute; left: 0; right: 0; top: 126px; height: 20px; border-radius: 4px 4px 50% 50% / 4px 4px 100% 100%;
-  background: linear-gradient(180deg, #fff0b0 0, #e3a83a 30%, #a06a18 80%); box-shadow: 0 6px 8px rgba(0,0,0,.35), inset 0 2px 0 rgba(255,255,255,.5); }
-.palla__yuk { position: absolute; z-index: 1; left: 8%; right: 8%; bottom: 23px; display: flex; flex-wrap: wrap-reverse; justify-content: center; align-items: flex-end; gap: 2px 3px; }
+.palla__zanjir path { stroke: #f2c35a; stroke-width: 3; stroke-dasharray: 0.1 4.5; stroke-linecap: round; fill: none; vector-effect: non-scaling-stroke; filter: drop-shadow(0 1px 0 rgba(0,0,0,.45)); }
+.palla__zanjir .z-orqa { stroke: #b07a20; opacity: .7; }
+.palla__kosa { position: absolute; left: 0; right: 0; top: calc(var(--ph) - 34px); height: 34px; }
+.palla__kosa svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.palla__kosa--old { z-index: 2; filter: drop-shadow(0 7px 6px rgba(0,0,0,.35)); }
+.palla__yuk { position: absolute; z-index: 1; left: 9%; right: 9%; bottom: 23px; display: flex; flex-wrap: wrap-reverse; justify-content: center; align-items: flex-end; gap: 1px 2px; }
+.palla__yuk > .tush { animation: g-ttush .38s cubic-bezier(.3,1.4,.6,1) both; }
+.palla__yuk > .olindi { animation: g-olindi .55s ease-in forwards; }
+@keyframes g-olindi { to { transform: translateY(-34px) scale(.7); opacity: 0; } }
 
 /* kristallar va toshlar */
 .kristall { display: block; width: 34px; height: 34px; filter: drop-shadow(0 0 6px rgba(255,255,255,.45)); animation: g-kristall 2.6s ease-in-out infinite; }
@@ -1409,11 +1414,12 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .tosh--katta { min-width: 62px; height: 46px; padding: 7px 10px 3px; }
 .tosh--katta b { font-size: 22px; }
 .tosh--katta small { font-size: 11px; }
-.tosh--tush { animation: g-tush .35s ease-out; }
-@keyframes g-tush { 0% { transform: translateY(-26px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes g-ttush { 0% { transform: translateY(-26px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
 .tosh--togri { background: linear-gradient(180deg, #d6ffe2, #49d17d 45%, #13803f); color: #06351a; animation: g-pop .35s; }
-.tarozi.yondi .palla__tovoq { box-shadow: 0 0 22px 6px rgba(255,215,90,.75), inset 0 2px 0 rgba(255,255,255,.5); }
-.tarozi.yondi .tarozi__toj { box-shadow: 0 0 16px 6px rgba(255,230,120,.9); }
+.tarozi.yondi .palla__kosa--old { filter: drop-shadow(0 0 14px rgba(255,215,90,.95)); }
+.tarozi.yondi .shayin__gupchak { box-shadow: 0 0 0 2px #8a5a14, 0 0 18px 7px rgba(255,230,120,.9); }
+.rkr { display: inline-block; width: 17px; height: 17px; vertical-align: -3px; margin: 0 1px; }
+.rkr svg { width: 100%; height: 100%; display: block; }
 
 /* peshtaxta va sinov toshlari (javob tugmalari) */
 .bozor__peshtaxta { position: relative; z-index: 2; margin: 0 -12px -12px; padding: 14px 12px 14px; border-top: 4px solid #5a3214;
@@ -1432,12 +1438,12 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 @media (max-width: 520px) {
   .sahna--bozor { padding-top: 28px; }
   .bozor__peshtaxta { margin: 0 -8px -10px; padding: 12px 8px; }
-  .tarozi { height: 216px; }
-  .palla { height: 136px; } .palla__osma { height: 112px; } .palla__tovoq { top: 112px; height: 18px; } .palla__yuk { bottom: 25px; left: 4%; right: 4%; }
+  .tarozi { --ph: 138px; }
+  .palla__yuk { left: 4%; right: 4%; bottom: 21px; }
   .kristall { width: 28px; height: 28px; }
   .tosh { min-width: 28px; height: 26px; } .tosh b { font-size: 13px; }
   .tosh--katta { min-width: 52px; height: 40px; } .tosh--katta b { font-size: 18px; }
   .toshlar { gap: 6px; } .tosh-btn { min-width: 0; flex: 1; max-width: 84px; }
   .bozor__taxta { font-size: 19px; padding: 5px 14px; }
 }
-@media (prefers-reduced-motion: reduce) { .kristall, .bozor__fonus .fonus { animation: none; } .tarozi { --tz: .01s; } }
+@media (prefers-reduced-motion: reduce) { .kristall, .bozor__fonus .fonus, .palla__yuk > .tush { animation: none; } }

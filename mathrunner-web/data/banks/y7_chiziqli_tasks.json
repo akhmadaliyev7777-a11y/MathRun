@@ -1,0 +1,342 @@
+[
+  {
+    "id": "y7_chiziqli_01",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 2,
+    "knownWeight": 7,
+    "total": 11,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      3,
+      4,
+      7,
+      18
+    ]
+  },
+  {
+    "id": "y7_chiziqli_02",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 3,
+    "knownWeight": 2,
+    "total": 18,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      6,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "y7_chiziqli_03",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 4,
+    "knownWeight": 9,
+    "total": 21,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      2,
+      3,
+      4,
+      6
+    ]
+  },
+  {
+    "id": "y7_chiziqli_04",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 4,
+    "knownWeight": 4,
+    "total": 31,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      7,
+      9,
+      10,
+      11
+    ]
+  },
+  {
+    "id": "y7_chiziqli_05",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 3,
+    "knownWeight": 3,
+    "total": 21,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      6,
+      8,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "y7_chiziqli_06",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 4,
+    "knownWeight": 12,
+    "total": 36,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      8,
+      9,
+      10,
+      16
+    ]
+  },
+  {
+    "id": "y7_chiziqli_07",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 3,
+    "knownWeight": 4,
+    "total": 26,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      10,
+      11,
+      14,
+      15
+    ]
+  },
+  {
+    "id": "y7_chiziqli_08",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 2,
+    "knownWeight": 4,
+    "total": 16,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      10,
+      12,
+      15,
+      20
+    ]
+  },
+  {
+    "id": "y7_chiziqli_09",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 2,
+    "knownWeight": 3,
+    "total": 6,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      2,
+      3,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "y7_chiziqli_10",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 4,
+    "knownWeight": 10,
+    "total": 22,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      2,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "y7_chiziqli_11",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 2,
+    "knownWeight": 2,
+    "total": 6,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      2,
+      3,
+      4,
+      6
+    ]
+  },
+  {
+    "id": "y7_chiziqli_12",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 5,
+    "knownWeight": 17,
+    "total": 39,
+    "unit": "kg",
+    "rightShapeCount": 3,
+    "options": [
+      9,
+      11,
+      12,
+      28
+    ]
+  },
+  {
+    "id": "y7_chiziqli_13",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 3,
+    "knownWeight": 2,
+    "total": 13,
+    "unit": "kg",
+    "rightShapeCount": 2,
+    "options": [
+      9,
+      11,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "y7_chiziqli_14",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 6,
+    "knownWeight": 9,
+    "total": 24,
+    "unit": "kg",
+    "rightShapeCount": 3,
+    "options": [
+      4,
+      5,
+      8,
+      11
+    ]
+  },
+  {
+    "id": "y7_chiziqli_15",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 5,
+    "knownWeight": 16,
+    "total": 46,
+    "unit": "kg",
+    "rightShapeCount": 3,
+    "options": [
+      6,
+      15,
+      18,
+      31
+    ]
+  },
+  {
+    "id": "y7_chiziqli_16",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 4,
+    "knownWeight": 18,
+    "total": 48,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "y7_chiziqli_17",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 3,
+    "knownWeight": 11,
+    "total": 17,
+    "unit": "kg",
+    "rightShapeCount": 2,
+    "options": [
+      2,
+      6,
+      9,
+      28
+    ]
+  },
+  {
+    "id": "y7_chiziqli_18",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 5,
+    "knownWeight": 8,
+    "total": 47,
+    "unit": "kg",
+    "rightShapeCount": 2,
+    "options": [
+      11,
+      12,
+      13,
+      16
+    ]
+  },
+  {
+    "id": "y7_chiziqli_19",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 3,
+    "knownWeight": 5,
+    "total": 10,
+    "unit": "kg",
+    "rightShapeCount": 2,
+    "options": [
+      3,
+      5,
+      8,
+      15
+    ]
+  },
+  {
+    "id": "y7_chiziqli_20",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 3,
+    "knownWeight": 6,
+    "total": 10,
+    "unit": "kg",
+    "rightShapeCount": 2,
+    "options": [
+      2,
+      4,
+      5,
+      16
+    ]
+  }
+]

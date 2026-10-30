@@ -1,0 +1,21 @@
+// Yuqori sinflar (5–11) mavzulari uchun o'yin bosqichlari — «Fikrlash o'yinlari»da sinf bo'yicha chiqadi.
+// curriculum.json faqat 1–4-sinf; bu yerdagilar unga qo'shilmaydi (boshlang'ich sinflar ro'yxati o'zgarmaydi).
+const RANG = { 6: 'linear-gradient(160deg,#1f5f8b,#123a57 55%,#0a2236)', 7: 'linear-gradient(160deg,#5b2a86,#341552 55%,#1d0b30)' };
+const L = (grade, fan, name, id, gameKind, mashqNomlari) => ({ grade, fan, name,
+  level: { id, gameKind, count: 20, bank: `banks/${id}_tasks.json`, webSupported: true, ...(mashqNomlari ? { mashqNomlari } : {}) } });
+
+export const YUQORI = [
+  L(6, 'Matematika', '4. Tenglamalarni yechish', 'y6_tenglama', 'balanceScale'),
+  L(7, 'Matematika', '5.1 Sodda chiziqli tenglamalar', 'y7_chiziqli', 'balanceScale'),
+  L(7, 'Algebra', '25. Tenglamalar yechishning al-Xorazmiy usuli', 'y7a_xorazmiy', 'balanceScale'),
+];
+
+// boshlang'ich sinflardagi {grade, chorak, block, level} ko'rinishida (o'yin, natija va qaytish sahifalari shuni kutadi)
+export function yuqoriTopish(id) {
+  const y = YUQORI.find(x => x.level.id === id);
+  if (!y) return null;
+  const block = { blok: 0, name: y.name, levels: [y.level] };
+  const chorak = { chorak: 'y', roman: '', fan: y.fan, blocks: [block] };
+  const grade = { grade: y.grade, yuqori: true, color: { head: RANG[y.grade] || RANG[7] }, choraks: [chorak] };
+  return { grade, chorak, block, level: y.level };
+}

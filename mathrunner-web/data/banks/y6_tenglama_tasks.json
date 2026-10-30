@@ -1,0 +1,322 @@
+[
+  {
+    "id": "y6_tenglama_01",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 2,
+    "knownWeight": 7,
+    "total": 29,
+    "unit": "kg",
+    "options": [
+      11,
+      12,
+      13,
+      18
+    ]
+  },
+  {
+    "id": "y6_tenglama_02",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 4,
+    "knownWeight": 10,
+    "total": 50,
+    "unit": "kg",
+    "options": [
+      8,
+      10,
+      11,
+      15
+    ]
+  },
+  {
+    "id": "y6_tenglama_03",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 2,
+    "knownWeight": 6,
+    "total": 14,
+    "unit": "kg",
+    "options": [
+      3,
+      4,
+      5,
+      7
+    ]
+  },
+  {
+    "id": "y6_tenglama_04",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 2,
+    "knownWeight": 8,
+    "total": 22,
+    "unit": "kg",
+    "options": [
+      5,
+      6,
+      7,
+      10
+    ]
+  },
+  {
+    "id": "y6_tenglama_05",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 4,
+    "knownWeight": 7,
+    "total": 23,
+    "unit": "kg",
+    "options": [
+      2,
+      3,
+      4,
+      6
+    ]
+  },
+  {
+    "id": "y6_tenglama_06",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 2,
+    "knownWeight": 12,
+    "total": 36,
+    "unit": "kg",
+    "options": [
+      11,
+      12,
+      14,
+      15
+    ]
+  },
+  {
+    "id": "y6_tenglama_07",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 3,
+    "knownWeight": 3,
+    "total": 30,
+    "unit": "kg",
+    "options": [
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "y6_tenglama_08",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 4,
+    "knownWeight": 14,
+    "total": 62,
+    "unit": "kg",
+    "options": [
+      10,
+      11,
+      12,
+      15
+    ]
+  },
+  {
+    "id": "y6_tenglama_09",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 4,
+    "knownWeight": 10,
+    "total": 22,
+    "unit": "kg",
+    "options": [
+      1,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": "y6_tenglama_10",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 4,
+    "knownWeight": 11,
+    "total": 47,
+    "unit": "kg",
+    "options": [
+      7,
+      9,
+      10,
+      12
+    ]
+  },
+  {
+    "id": "y6_tenglama_11",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 3,
+    "knownWeight": 25,
+    "total": 73,
+    "unit": "kg",
+    "options": [
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": "y6_tenglama_12",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 6,
+    "knownWeight": 26,
+    "total": 80,
+    "unit": "kg",
+    "options": [
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "y6_tenglama_13",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 4,
+    "knownWeight": 14,
+    "total": 86,
+    "unit": "kg",
+    "options": [
+      17,
+      18,
+      20,
+      25
+    ]
+  },
+  {
+    "id": "y6_tenglama_14",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 6,
+    "knownWeight": 16,
+    "total": 64,
+    "unit": "kg",
+    "options": [
+      6,
+      7,
+      8,
+      11
+    ]
+  },
+  {
+    "id": "y6_tenglama_15",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 6,
+    "knownWeight": 22,
+    "total": 112,
+    "unit": "kg",
+    "options": [
+      14,
+      15,
+      17,
+      18
+    ]
+  },
+  {
+    "id": "y6_tenglama_16",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 3,
+    "knownWeight": 19,
+    "total": 67,
+    "unit": "kg",
+    "options": [
+      14,
+      15,
+      16,
+      18
+    ]
+  },
+  {
+    "id": "y6_tenglama_17",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 6,
+    "knownWeight": 28,
+    "total": 100,
+    "unit": "kg",
+    "options": [
+      11,
+      12,
+      14,
+      15
+    ]
+  },
+  {
+    "id": "y6_tenglama_18",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 3,
+    "knownWeight": 11,
+    "total": 59,
+    "unit": "kg",
+    "options": [
+      14,
+      16,
+      17,
+      19
+    ]
+  },
+  {
+    "id": "y6_tenglama_19",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 3,
+    "knownWeight": 5,
+    "total": 41,
+    "unit": "kg",
+    "options": [
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": "y6_tenglama_20",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 4,
+    "knownWeight": 8,
+    "total": 64,
+    "unit": "kg",
+    "options": [
+      13,
+      14,
+      16,
+      18
+    ]
+  }
+]

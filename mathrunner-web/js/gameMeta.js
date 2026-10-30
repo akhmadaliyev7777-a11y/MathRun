@@ -1,5 +1,6 @@
 // Fikrlash o'yinlari ro'yxati — bosh sahifa va "Fikrlash o'yinlari" sahifasi uchun umumiy.
 import { curriculum } from './app.js';
+import { YUQORI } from './yuqori.js';
 
 export const GAME_META = [
   { kind: 'set', name: "To'plamlar (Venn)", desc: 'Har bir sonni to\'g\'ri to\'plamga (yoki hech qaysisiga) joylashtiring', icon: 'venn', color: 'var(--violet)', dark: '#5b3bbf' },
@@ -24,5 +25,6 @@ export function levelsByKind() {
         for (const lv of b.levels)
           if (lv.webSupported && lv.gameKind !== 'test')
             (map[lv.gameKind] ||= []).push({ ...lv, grade: g.grade, chorak: c.chorak, block: b.blok });
+  for (const y of YUQORI) (map[y.level.gameKind] ||= []).push({ ...y.level, grade: y.grade, yuqori: true });
   return map;
 }

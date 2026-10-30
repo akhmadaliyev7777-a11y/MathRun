@@ -2,6 +2,7 @@ import { el, readBest } from '../util.js';
 import { ICON } from '../icons.js';
 import { nav, footer, applyKingdom, curriculum } from '../app.js';
 import { GAME_META, levelsByKind } from '../gameMeta.js';
+import { yuqoriTopish } from '../yuqori.js';
 import { topicTitle, MASHQ_SIZE } from '../topicTitles.js';
 
 export function render(root, [which, kind]) {
@@ -54,13 +55,14 @@ function renderPick(root, kind) {
   const cur = curriculum();
   const grades = [...new Set(pool.map(l => l.grade))].sort((a, b) => a - b);
   const card = (lv) => {
-    const g = cur.grades.find(x => x.grade === lv.grade), c = g.choraks.find(x => x.chorak === lv.chorak), b = c.blocks.find(x => x.blok === lv.block);
+    const { grade: g, chorak: c, block: b } = lv.yuqori ? yuqoriTopish(lv.id)
+      : (() => { const g = cur.grades.find(x => x.grade === lv.grade), c = g.choraks.find(x => x.chorak === lv.chorak); return { grade: g, chorak: c, block: c.blocks.find(x => x.blok === lv.block) }; })();
     const n = Math.max(1, Math.ceil(lv.count / MASHQ_SIZE));
     const nomli = lv.mashqNomlari && n > 1 && lv.mashqNomlari[0] !== lv.mashqNomlari[1];
     return el('div', { class: 'opick' },
       el('div', { class: 'opick__top' },
-        el('span', { class: 'opick__num' }, String(lv.block)),
-        el('div', {}, el('b', { class: 'opick__nom' }, topicTitle(g, c, b)), el('small', {}, `${c.roman} chorak · ${lv.block}-mavzu`))),
+        el('span', { class: 'opick__num' }, lv.yuqori ? b.name.split(' ')[0].replace(/\.$/, '') : String(lv.block)),
+        el('div', {}, el('b', { class: 'opick__nom' }, lv.yuqori ? b.name.replace(/^[\d.]+\s/, '') : topicTitle(g, c, b)), el('small', {}, lv.yuqori ? c.fan : `${c.roman} chorak · ${lv.block}-mavzu`))),
       el('div', { class: 'opick__btns' }, ...Array.from({ length: n }, (_, i) => {
         const stars = best[`${lv.id}:m${i + 1}`]?.stars || 0;
         return el('a', { class: 'tbtn' + (i === 0 ? ' tbtn--primary' : ''), href: `#/play/${lv.id}/${i + 1}`,

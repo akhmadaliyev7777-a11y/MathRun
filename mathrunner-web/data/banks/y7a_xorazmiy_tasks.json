@@ -1,0 +1,342 @@
+[
+  {
+    "id": "y7a_xorazmiy_01",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 3,
+    "knownWeight": 12,
+    "total": 15,
+    "unit": "kg",
+    "rightShapeCount": 2,
+    "options": [
+      1,
+      2,
+      3,
+      5
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_02",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 3,
+    "knownWeight": 10,
+    "total": 34,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      10,
+      12,
+      13,
+      22
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_03",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 2,
+    "knownWeight": 5,
+    "total": 15,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      5,
+      10,
+      11,
+      20
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_04",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 3,
+    "knownWeight": 13,
+    "total": 23,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      3,
+      4,
+      5,
+      8
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_05",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 3,
+    "knownWeight": 9,
+    "total": 14,
+    "unit": "kg",
+    "rightShapeCount": 2,
+    "options": [
+      3,
+      5,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_06",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 4,
+    "knownWeight": 4,
+    "total": 20,
+    "unit": "kg",
+    "rightShapeCount": 2,
+    "options": [
+      4,
+      6,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_07",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 3,
+    "knownWeight": 11,
+    "total": 35,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      8,
+      12,
+      14,
+      23
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_08",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 3,
+    "knownWeight": 9,
+    "total": 21,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      5,
+      6,
+      7,
+      9
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_09",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 2,
+    "knownWeight": 10,
+    "total": 16,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      4,
+      6,
+      8,
+      26
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_10",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 2,
+    "knownWeight": 8,
+    "total": 18,
+    "unit": "kg",
+    "rightShapeCount": 1,
+    "options": [
+      8,
+      10,
+      12,
+      13
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_11",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 6,
+    "knownWeight": 13,
+    "total": 67,
+    "unit": "kg",
+    "rightShapeCount": 3,
+    "options": [
+      9,
+      17,
+      18,
+      19
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_12",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 3,
+    "knownWeight": 14,
+    "total": 24,
+    "unit": "kg",
+    "rightShapeCount": 2,
+    "options": [
+      9,
+      10,
+      11,
+      13
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_13",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 8,
+    "knownWeight": 22,
+    "total": 62,
+    "unit": "kg",
+    "rightShapeCount": 4,
+    "options": [
+      8,
+      9,
+      10,
+      13
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_14",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 4,
+    "knownWeight": 19,
+    "total": 33,
+    "unit": "kg",
+    "rightShapeCount": 3,
+    "options": [
+      12,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_15",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 5,
+    "knownWeight": 6,
+    "total": 16,
+    "unit": "kg",
+    "rightShapeCount": 3,
+    "options": [
+      2,
+      5,
+      6,
+      11
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_16",
+    "prompt": "Bitta uchburchak necha kg?",
+    "shape": "triangle",
+    "shapeColor": "yellow",
+    "shapeCount": 4,
+    "knownWeight": 14,
+    "total": 22,
+    "unit": "kg",
+    "rightShapeCount": 3,
+    "options": [
+      8,
+      9,
+      10,
+      36
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_17",
+    "prompt": "Bitta doira necha kg?",
+    "shape": "circle",
+    "shapeColor": "green",
+    "shapeCount": 8,
+    "knownWeight": 22,
+    "total": 86,
+    "unit": "kg",
+    "rightShapeCount": 4,
+    "options": [
+      15,
+      16,
+      19,
+      27
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_18",
+    "prompt": "Bitta kvadrat necha kg?",
+    "shape": "square",
+    "shapeColor": "blue",
+    "shapeCount": 7,
+    "knownWeight": 22,
+    "total": 43,
+    "unit": "kg",
+    "rightShapeCount": 4,
+    "options": [
+      3,
+      5,
+      7,
+      10
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_19",
+    "prompt": "Bitta yulduzcha necha kg?",
+    "shape": "star",
+    "shapeColor": "orange",
+    "shapeCount": 6,
+    "knownWeight": 10,
+    "total": 30,
+    "unit": "kg",
+    "rightShapeCount": 2,
+    "options": [
+      3,
+      5,
+      6,
+      8
+    ]
+  },
+  {
+    "id": "y7a_xorazmiy_20",
+    "prompt": "Bitta oltiburchak necha kg?",
+    "shape": "hexagon",
+    "shapeColor": "violet",
+    "shapeCount": 4,
+    "knownWeight": 13,
+    "total": 21,
+    "unit": "kg",
+    "rightShapeCount": 3,
+    "options": [
+      6,
+      7,
+      8,
+      10
+    ]
+  }
+]
