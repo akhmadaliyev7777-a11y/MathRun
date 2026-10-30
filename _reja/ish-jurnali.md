@@ -20,6 +20,13 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ---
 
+## 2026-10-31 — m.shukurillo hisobi (bulut sessiyasi)
+**Qilindi (saytda):** «Bellashuv» telefonga moslandi (telefonda doim yotiq, savollar ikki chetda; planshetda yuzma-yuz); yuqori sinf o'yinlarida tepadagi «Boshlang'ich sinflar 1–4 sinf» yozuvi «Fikrlash o'yinlari · N-sinf» ga almashtirildi; 12 o'yin va Bellashuvga mavzuga mos fon musiqasi (`mathrunner-web/js/games/musiqa.js`, nota tugmasi bilan o'chiriladi).
+**Chala:** GPT rasmlari — foydalanuvchi «keyinroq» dedi (promptlar `mathrunner-web/design/oyin-rasmlar.md`).
+**Navbatda:** foydalanuvchi aytadi.
+
+---
+
 ## 2026-10-30 (kech) — m.shukurillo hisobi (bulut sessiyasi, o'yinlar 9–12)
 **Qilindi (hammasi saytda):** «Fikrlash o'yinlari»ning qolgan 4 tasi yangi dunyoda — 9) Koordinata — xazina oroli xaritasi (qazish, koordinata, kapitan yo'li, Robi qadamlari, masofa, koordinata nuri; 7-sinf «26. Dekart koordinatalar sistemasi»); 10) Harakat — dasht yo'li (chiroyli transportlar soat-soat yuradi, oradagi masofa; 6-sinf «23. Ikki jism harakati»); 11) Transportir — Ulug'bek rasadxonasi (ikki shkalali mis transportir, teleskop bilan yasash; 5-sinf «38»); 12) Simmetriya — koshinpaz ustaxonasi (naqshni o'q/markazga nisbatan terish, 90° burish; 9-sinf geometriya 9, 10). `more.js` olib tashlandi. Banklar: `tools/gen_koord.py`, `gen_harakat.py`, `gen_transportir.py`, `gen_simmetriya.py` (tekshiruv ichida).
 **Chala:** GPT rasmlari (promptlar `mathrunner-web/design/oyin-rasmlar.md`, 10–13-bo'limlar); «Bellashuv» telefonda; musiqa; 6–7-sinf o'yinida tepada «Boshlang'ich sinflar 1–4 sinf» yozuvi.
