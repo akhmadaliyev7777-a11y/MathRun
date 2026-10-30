@@ -264,13 +264,16 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .gcard:hover .gcard__go { transform: translateX(3px); }
 /* rasmli kartochka (o'yin dunyosi) — yozuv rasm ustida, pastda; pastdan qoramtir parda o'qilishi uchun */
 .gcard--art { position: relative; overflow: hidden; justify-content: flex-end; min-height: 240px; padding: 18px; border: 0; background: #1b1f33; color: #fff; }
-.gcard--art::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(12, 14, 30, .9) 0%, rgba(12, 14, 30, .62) 36%, rgba(12, 14, 30, 0) 66%); }
+.gcard--art::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(12, 14, 30, .92) 0%, rgba(12, 14, 30, .72) 40%, rgba(12, 14, 30, 0) 72%); }
 .gcard--art > :not(.gcard__art) { position: relative; z-index: 2; }
 .gcard__art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
 .gcard--art:hover .gcard__art { transform: scale(1.05); }
-.gcard--art .gcard__name { margin-top: auto; font-size: 18px; text-shadow: 0 1px 6px rgba(0, 0, 0, .45); }
-.gcard--art .gcard__desc { color: rgba(255, 255, 255, .86); }
-.gcard--art .gcard__meta { margin-top: 4px; color: #fff; }
+.gcard--art { --kontur: 0 0 1px rgba(8, 10, 24, .95), 1px 1px 0 rgba(8, 10, 24, .9), -1px 1px 0 rgba(8, 10, 24, .9), 1px -1px 0 rgba(8, 10, 24, .9), -1px -1px 0 rgba(8, 10, 24, .9), 0 2px 8px rgba(0, 0, 0, .75); }
+/* yozuvlar rasmda yo'qolmasin — qoramtir kontur va soya (foydalanuvchi, 2026-10-30) */
+.gcard--art .gcard__name { margin-top: auto; font-size: 26px; line-height: 1.15; font-weight: 900; letter-spacing: .2px; -webkit-text-stroke: .6px rgba(8, 10, 24, .55); paint-order: stroke fill; text-shadow: var(--kontur); }
+.gcard--art .gcard__desc { color: #fff; font-weight: 600; text-shadow: var(--kontur); }
+.gcard--art .gcard__meta { margin-top: 4px; color: #fff; text-shadow: var(--kontur); }
+.gcard--art .gcard__go { filter: drop-shadow(0 0 2px rgba(8, 10, 24, .9)); }
 .gcard--art:hover { border-color: transparent; box-shadow: 0 14px 30px rgba(31, 36, 51, .22); }
 
 .gfeature {
@@ -291,7 +294,10 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .gfeature__art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; transition: transform .35s ease; }
 .gfeature--art:hover .gfeature__art { transform: scale(1.04); }
 .gfeature--art .gfeature__text { z-index: 2; }
-.gfeature--art h3, .gfeature--art p { text-shadow: 0 1px 8px rgba(10, 14, 50, .45); }
+.gfeature--art h3, .gfeature--art p { color: #fff; text-shadow: 0 0 1px rgba(12, 16, 60, .95), 1px 1px 0 rgba(12, 16, 60, .85), -1px 1px 0 rgba(12, 16, 60, .85), 1px -1px 0 rgba(12, 16, 60, .85), -1px -1px 0 rgba(12, 16, 60, .85), 0 2px 10px rgba(10, 14, 50, .7); }
+.gfeature--art p { font-weight: 600; }
+.gfeature--art h3 { font-weight: 900; }
+.gfeature--art .gfeature__tag { background: rgba(12, 16, 60, .45); }
 .gfeature__img { position: absolute; right: -10px; bottom: -6px; width: 78%; max-width: 440px; pointer-events: none; filter: drop-shadow(0 10px 18px rgba(0,0,0,.25)); }
 
 @media (max-width: 1080px) {
@@ -305,6 +311,7 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
   .gfeature__img { width: 95%; opacity: .9; }
   .gfeature__text { max-width: none; padding-bottom: 120px; }
   .gfeature--art { min-height: 400px; }
+  .gcard--art .gcard__name { font-size: 21px; }
   .gfeature--art .gfeature__text { padding-bottom: 170px; }
 }
 
