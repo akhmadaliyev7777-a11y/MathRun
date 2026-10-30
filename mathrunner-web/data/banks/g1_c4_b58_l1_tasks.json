@@ -1,222 +1,632 @@
 [
-  {
-    "id": "g1c4b58l1_nf_01",
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "cube",
-      "cuboid",
-      "cylinder"
-    ]
+ {
+  "id": "g1c4b58l1_01",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "konus",
+   "aylan": 3
   },
-  {
-    "id": "g1c4b58l1_nf_02",
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "cube",
-      "cone"
-    ]
-  },
-  {
-    "id": "g1c4b58l1_nf_03",
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "cylinder",
-      "cube",
-      "squarePyramid"
-    ]
-  },
-  {
-    "id": "g1c4b58l1_nf_04",
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cone",
-      "cuboid",
-      "cube"
-    ]
-  },
-  {
-    "id": "g1c4b58l1_nf_05",
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "cube",
-      "cuboid",
-      "triangularPrism"
-    ]
-  },
-  {
-    "id": "g1c4b58l1_nf_06",
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "cylinder",
-      "cube"
-    ]
-  },
-  {
-    "id": "g1c4b58l1_nf_07",
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "squarePyramid",
-      "cube",
-      "cuboid"
-    ]
-  },
-  {
-    "id": "g1c4b58l1_nf_08",
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cube",
-      "cuboid",
-      "cone"
-    ]
-  },
-  {
-    "id": "g1c4b58l1_nf_09",
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "cube",
-      "cylinder",
-      "cuboid"
-    ]
-  },
-  {
-    "id": "g1c4b58l1_nf_10",
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "cube",
-      "cylinder"
-    ]
-  },
-  {
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "cone",
-      "cube",
-      "squarePyramid"
+  "target": "cone",
+  "options": [
+   "cylinder",
+   "cone",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_02",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     0,
+     1
     ],
-    "id": "g1c4b58l1_nf_x01"
-  },
-  {
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cube",
-      "cuboid",
-      "squarePyramid"
+    [
+     1,
+     1
     ],
-    "id": "g1c4b58l1_nf_x02"
-  },
-  {
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
-    "target": "cube",
-    "options": [
-      "cylinder",
-      "cube",
-      "squarePyramid"
+    [
+     1,
+     2
     ],
-    "id": "g1c4b58l1_nf_x03"
-  },
-  {
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "squarePyramid",
-      "cuboid",
-      "triangularPrism"
+    [
+     1,
+     3
     ],
-    "id": "g1c4b58l1_nf_x04"
-  },
-  {
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "cone",
-      "cube",
-      "cuboid"
+    [
+     0,
+     0
     ],
-    "id": "g1c4b58l1_nf_x05"
+    [
+     2,
+     3
+    ]
+   ],
+   "dims": [
+    3,
+    2,
+    3
+   ]
   },
-  {
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Parallelepipedda 6 ta yoq bor, ular to'g'ri to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "squarePyramid",
-      "cuboid",
-      "cone"
+  "target": "cuboid",
+  "options": [
+   "cylinder",
+   "cuboid",
+   "cone"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_03",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "silindr",
+   "doiralar": [
+    [
+     3,
+     "t"
     ],
-    "id": "g1c4b58l1_nf_x06"
+    [
+     2,
+     "b"
+    ]
+   ],
+   "aylan": 0
   },
-  {
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "cone",
-      "cylinder",
-      "cube"
+  "target": "cylinder",
+  "options": [
+   "cone",
+   "cuboid",
+   "cylinder"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_04",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
     ],
-    "id": "g1c4b58l1_nf_x07"
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     0
+    ]
+   ]
   },
-  {
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Parallelepipedda 12 ta qirra va 8 ta uch bor",
-    "target": "cuboid",
-    "options": [
-      "squarePyramid",
-      "cuboid",
-      "triangularPrism"
+  "target": "cube",
+  "options": [
+   "cube",
+   "cylinder",
+   "squarePyramid"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_05",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "silindr",
+   "doiralar": [
+    [
+     2,
+     "t"
     ],
-    "id": "g1c4b58l1_nf_x08"
+    [
+     10,
+     "b"
+    ]
+   ],
+   "aylan": 0
   },
-  {
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "cone",
-      "triangularPrism",
-      "cube"
+  "target": "cylinder",
+  "options": [
+   "cylinder",
+   "squarePyramid",
+   "cone"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_06",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
     ],
-    "id": "g1c4b58l1_nf_x09"
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   "dims": [
+    4,
+    2,
+    3
+   ]
   },
-  {
-    "prompt": "Bu yoyilma qaysi hajmli shaklni hosil qiladi?",
-    "hint": "Kuboidning (parallelepiped) qarama-qarshi yoqlari teng to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "cylinder",
-      "triangularPrism"
+  "target": "cuboid",
+  "options": [
+   "cuboid",
+   "squarePyramid",
+   "cone"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_07",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
     ],
-    "id": "g1c4b58l1_nf_x10"
-  }
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     1
+    ]
+   ]
+  },
+  "target": "cube",
+  "options": [
+   "cube",
+   "squarePyramid",
+   "cone"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_08",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 2
+  },
+  "target": "squarePyramid",
+  "options": [
+   "squarePyramid",
+   "cuboid",
+   "cylinder"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_09",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "dims": [
+    4,
+    2,
+    2
+   ]
+  },
+  "target": "cuboid",
+  "options": [
+   "cuboid",
+   "cone",
+   "cylinder"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_10",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     0
+    ]
+   ]
+  },
+  "target": "cube",
+  "options": [
+   "cylinder",
+   "cube",
+   "cone"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_11",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
+    ]
+   ]
+  },
+  "target": "cube",
+  "options": [
+   "cone",
+   "cylinder",
+   "cube"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_12",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 0
+  },
+  "target": "squarePyramid",
+  "options": [
+   "cube",
+   "squarePyramid",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_13",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 2
+  },
+  "target": "squarePyramid",
+  "options": [
+   "cuboid",
+   "squarePyramid",
+   "cone"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_14",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "silindr",
+   "doiralar": [
+    [
+     7,
+     "t"
+    ],
+    [
+     3,
+     "b"
+    ]
+   ],
+   "aylan": 0
+  },
+  "target": "cylinder",
+  "options": [
+   "squarePyramid",
+   "cuboid",
+   "cylinder"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_15",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "dims": [
+    3,
+    2,
+    3
+   ]
+  },
+  "target": "cuboid",
+  "options": [
+   "squarePyramid",
+   "cone",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_16",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "konus",
+   "aylan": 1
+  },
+  "target": "cone",
+  "options": [
+   "squarePyramid",
+   "cylinder",
+   "cone"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_17",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "konus",
+   "aylan": 1
+  },
+  "target": "cone",
+  "options": [
+   "cube",
+   "cuboid",
+   "cone"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_18",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     2,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     1
+    ]
+   ]
+  },
+  "target": "cube",
+  "options": [
+   "squarePyramid",
+   "cone",
+   "cube"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_19",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     2
+    ]
+   ],
+   "dims": [
+    3,
+    4,
+    2
+   ]
+  },
+  "target": "cuboid",
+  "options": [
+   "cylinder",
+   "squarePyramid",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "g1c4b58l1_20",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ]
+  },
+  "target": "cube",
+  "options": [
+   "cube",
+   "cone",
+   "squarePyramid"
+  ]
+ }
 ]

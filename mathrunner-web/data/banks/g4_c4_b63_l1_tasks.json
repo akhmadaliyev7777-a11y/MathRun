@@ -1,222 +1,682 @@
 [
-  {
-    "id": "sinf4_chorak4_blok63_level1_yoy_01",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta bir xil kvadratdan iborat",
-    "target": "cube",
-    "options": [
-      "cube",
-      "squarePyramid",
-      "cylinder"
+ {
+  "id": "g4c4b63l1_01",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     2,
+     "t"
+    ],
+    [
+     2,
+     "b"
     ]
+   ],
+   "aylan": 0
   },
-  {
-    "id": "sinf4_chorak4_blok63_level1_yoy_02",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Parallelepiped yoqlari to'g'ri to'rtburchaklar",
-    "target": "cuboid",
-    "options": [
-      "cube",
-      "cuboid",
-      "cylinder"
+  "target": "triangularPrism",
+  "options": [
+   "cylinder",
+   "triangularPrism",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "g4c4b63l1_02",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     2
     ]
+   ]
   },
-  {
-    "id": "sinf4_chorak4_blok63_level1_yoy_03",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Uchburchakli prizmada 2 ta uchburchak va 3 ta to'rtburchak bor",
-    "target": "triangularPrism",
-    "options": [
-      "triangularPrism",
-      "cube",
-      "squarePyramid"
+  "target": "cube",
+  "options": [
+   "squarePyramid",
+   "cube",
+   "cone"
+  ]
+ },
+ {
+  "id": "g4c4b63l1_03",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     3,
+     1
     ]
+   ],
+   "dims": [
+    2,
+    4,
+    3
+   ]
   },
-  {
-    "id": "sinf4_chorak4_blok63_level1_yoy_04",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kub yoqlari kvadrat",
-    "target": "cube",
-    "options": [
-      "cube",
-      "cuboid",
-      "cone"
+  "target": "cuboid",
+  "options": [
+   "squarePyramid",
+   "cuboid",
+   "triangularPrism"
+  ]
+ },
+ {
+  "id": "g4c4b63l1_04",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     0,
+     "t"
+    ],
+    [
+     1,
+     "b"
     ]
+   ],
+   "aylan": 1
   },
-  {
-    "id": "sinf4_chorak4_blok63_level1_yoy_05",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Prizmada 2 ta teng uchburchak asos bor",
-    "target": "triangularPrism",
-    "options": [
-      "triangularPrism",
-      "cuboid",
-      "cylinder"
+  "target": "triangularPrism",
+  "options": [
+   "cone",
+   "cylinder",
+   "triangularPrism"
+  ]
+ },
+ {
+  "id": "g4c4b63l1_05",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     2,
+     0
     ]
+   ],
+   "dims": [
+    4,
+    2,
+    2
+   ]
   },
-  {
-    "id": "sinf4_chorak4_blok63_level1_yoy_06",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Parallelepiped — 6 ta to'g'ri to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "squarePyramid",
-      "triangularPrism"
+  "target": "cuboid",
+  "options": [
+   "cuboid",
+   "squarePyramid",
+   "cylinder"
+  ]
+ },
+ {
+  "id": "g4c4b63l1_06",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     0,
+     "t"
+    ],
+    [
+     1,
+     "b"
     ]
+   ],
+   "aylan": 1
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kub yoqlari kvadrat",
-    "target": "cube",
-    "options": [
-      "triangularPrism",
-      "cube",
-      "cuboid"
+  "target": "triangularPrism",
+  "options": [
+   "triangularPrism",
+   "cone",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "g4c4b63l1_07",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "silindr",
+   "doiralar": [
+    [
+     1,
+     "t"
     ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x01"
+    [
+     7,
+     "b"
+    ]
+   ],
+   "aylan": 2
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Parallelepipedda 12 ta qirra va 8 ta uch bor",
-    "target": "cuboid",
-    "options": [
-      "cylinder",
-      "cuboid",
-      "cube"
+  "target": "cylinder",
+  "options": [
+   "cylinder",
+   "cuboid",
+   "squarePyramid"
+  ]
+ },
+ {
+  "id": "g4c4b63l1_08",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     2,
+     "t"
     ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x02"
+    [
+     0,
+     "b"
+    ]
+   ],
+   "aylan": 0
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Prizmada 2 ta teng uchburchak asos bor",
-    "target": "triangularPrism",
-    "options": [
-      "cuboid",
-      "triangularPrism",
-      "cube"
+  "target": "triangularPrism",
+  "options": [
+   "triangularPrism",
+   "cone",
+   "cube"
+  ]
+ },
+ {
+  "id": "g4c4b63l1_09",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     2,
+     "t"
     ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x03"
+    [
+     2,
+     "b"
+    ]
+   ],
+   "aylan": 3
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
-    "target": "cube",
-    "options": [
-      "cone",
-      "cube",
-      "squarePyramid"
-    ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x04"
+  "target": "triangularPrism",
+  "options": [
+   "squarePyramid",
+   "cylinder",
+   "triangularPrism"
+  ]
+ },
+ {
+  "id": "g4c4b63l1_10",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 1
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Parallelepiped — 6 ta to'g'ri to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "cube",
-      "cone"
+  "target": "squarePyramid",
+  "options": [
+   "cone",
+   "squarePyramid",
+   "cylinder"
+  ]
+ },
+ {
+  "id": "g4c4b63l1_11",
+  "tur": "yoyilmasi",
+  "jism": "cuboid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      0
+     ]
     ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x05"
+    "dims": [
+     2,
+     3,
+     4
+    ]
+   },
+   {
+    "tur": "piramida",
+    "aylan": 1
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      6,
+      "t"
+     ],
+     [
+      2,
+      "b"
+     ]
+    ],
+    "aylan": 0
+   }
+  ],
+  "javob": 0
+ },
+ {
+  "id": "g4c4b63l1_12",
+  "tur": "kubmi",
+  "jism": "triangularPrism",
+  "prompt": "Bu yoyilmadan uchburchakli prizma yasab bo'ladimi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     0,
+     "t"
+    ],
+    [
+     1,
+     "b"
+    ]
+   ],
+   "aylan": 3
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Prizmada 2 ta teng uchburchak asos bor",
-    "target": "triangularPrism",
-    "options": [
-      "triangularPrism",
-      "cylinder",
-      "cone"
+  "javob": true
+ },
+ {
+  "id": "g4c4b63l1_13",
+  "tur": "yoyilmasi",
+  "jism": "cube",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      1
+     ]
+    ]
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      8,
+      "t"
+     ],
+     [
+      1,
+      "b"
+     ]
     ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x06"
+    "aylan": 2
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ]
+    ]
+   }
+  ],
+  "javob": 0
+ },
+ {
+  "id": "g4c4b63l1_14",
+  "tur": "kubmi",
+  "jism": "triangularPrism",
+  "prompt": "Bu yoyilmadan uchburchakli prizma yasab bo'ladimi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     0,
+     "t"
+    ],
+    [
+     0,
+     "b"
+    ]
+   ],
+   "aylan": 2
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta bir xil kvadratdan iborat",
-    "target": "cube",
-    "options": [
-      "cuboid",
-      "cone",
-      "cube"
+  "javob": true
+ },
+ {
+  "id": "g4c4b63l1_15",
+  "tur": "kubmi",
+  "jism": "triangularPrism",
+  "prompt": "Bu yoyilmadan uchburchakli prizma yasab bo'ladimi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     1,
+     "t"
     ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x07"
+    [
+     2,
+     "b"
+    ]
+   ],
+   "aylan": 0
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Parallelepipedda 6 ta yoq bor, ular to'g'ri to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "triangularPrism",
-      "squarePyramid"
+  "javob": true
+ },
+ {
+  "id": "g4c4b63l1_16",
+  "tur": "yoyilmasi",
+  "jism": "triangularPrism",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      2,
+      "t"
+     ],
+     [
+      2,
+      "b"
+     ]
     ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x08"
+    "aylan": 3
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      3,
+      1
+     ]
+    ]
+   },
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      0,
+      "b"
+     ],
+     [
+      1,
+      "b"
+     ]
+    ],
+    "aylan": 0
+   }
+  ],
+  "javob": 0
+ },
+ {
+  "id": "g4c4b63l1_17",
+  "tur": "kubmi",
+  "jism": "triangularPrism",
+  "prompt": "Bu yoyilmadan uchburchakli prizma yasab bo'ladimi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     2,
+     "b"
+    ],
+    [
+     1,
+     "b"
+    ]
+   ],
+   "aylan": 3
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Prizmada 2 ta teng uchburchak asos bor",
-    "target": "triangularPrism",
-    "options": [
-      "cone",
-      "triangularPrism",
-      "squarePyramid"
+  "javob": false
+ },
+ {
+  "id": "g4c4b63l1_18",
+  "tur": "yoyilmasi",
+  "jism": "triangularPrism",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      7,
+      "t"
+     ],
+     [
+      7,
+      "b"
+     ]
     ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x09"
+    "aylan": 0
+   },
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      2,
+      "b"
+     ],
+     [
+      1,
+      "b"
+     ]
+    ],
+    "aylan": 2
+   },
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      1,
+      "t"
+     ],
+     [
+      1,
+      "b"
+     ]
+    ],
+    "aylan": 0
+   }
+  ],
+  "javob": 2
+ },
+ {
+  "id": "g4c4b63l1_19",
+  "tur": "kubmi",
+  "jism": "triangularPrism",
+  "prompt": "Bu yoyilmadan uchburchakli prizma yasab bo'ladimi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     1,
+     "t"
+    ],
+    [
+     0,
+     "t"
+    ]
+   ],
+   "aylan": 1
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kubning barcha yoqlari bir xil kvadrat",
-    "target": "cube",
-    "options": [
-      "triangularPrism",
-      "squarePyramid",
-      "cube"
+  "javob": false
+ },
+ {
+  "id": "g4c4b63l1_20",
+  "tur": "kubmi",
+  "jism": "triangularPrism",
+  "prompt": "Bu yoyilmadan uchburchakli prizma yasab bo'ladimi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     2,
+     "b"
     ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x10"
+    [
+     1,
+     "b"
+    ]
+   ],
+   "aylan": 0
   },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Parallelepiped yoqlari to'g'ri to'rtburchaklar",
-    "target": "cuboid",
-    "options": [
-      "cone",
-      "cuboid",
-      "cube"
-    ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x11"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Prizmada 2 ta teng uchburchak asos bor",
-    "target": "triangularPrism",
-    "options": [
-      "cylinder",
-      "triangularPrism",
-      "cube"
-    ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x12"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "cuboid",
-      "cylinder",
-      "cube"
-    ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x13"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Parallelepiped — 6 ta to'g'ri to'rtburchak",
-    "target": "cuboid",
-    "options": [
-      "cube",
-      "triangularPrism",
-      "cuboid"
-    ],
-    "id": "sinf4_chorak4_blok63_level1_yoy_x14"
-  }
+  "javob": false
+ }
 ]

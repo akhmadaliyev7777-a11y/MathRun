@@ -1,0 +1,852 @@
+[
+ {
+  "id": "y6jismlar_01",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "silindr",
+   "doiralar": [
+    [
+     11,
+     "t"
+    ],
+    [
+     4,
+     "b"
+    ]
+   ],
+   "aylan": 2
+  },
+  "target": "cylinder",
+  "options": [
+   "cylinder",
+   "cuboid",
+   "cube"
+  ]
+ },
+ {
+  "id": "y6jismlar_02",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "konus",
+   "aylan": 1
+  },
+  "target": "cone",
+  "options": [
+   "cube",
+   "cone",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "y6jismlar_03",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     0,
+     "t"
+    ],
+    [
+     0,
+     "b"
+    ]
+   ],
+   "aylan": 3
+  },
+  "target": "triangularPrism",
+  "options": [
+   "cuboid",
+   "squarePyramid",
+   "triangularPrism"
+  ]
+ },
+ {
+  "id": "y6jismlar_04",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     0,
+     "t"
+    ],
+    [
+     2,
+     "b"
+    ]
+   ],
+   "aylan": 0
+  },
+  "target": "triangularPrism",
+  "options": [
+   "triangularPrism",
+   "cube",
+   "squarePyramid"
+  ]
+ },
+ {
+  "id": "y6jismlar_05",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 2
+  },
+  "target": "squarePyramid",
+  "options": [
+   "cylinder",
+   "cone",
+   "squarePyramid"
+  ]
+ },
+ {
+  "id": "y6jismlar_06",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     2
+    ]
+   ]
+  },
+  "target": "cube",
+  "options": [
+   "cube",
+   "squarePyramid",
+   "triangularPrism"
+  ]
+ },
+ {
+  "id": "y6jismlar_07",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "silindr",
+   "doiralar": [
+    [
+     6,
+     "t"
+    ],
+    [
+     2,
+     "b"
+    ]
+   ],
+   "aylan": 2
+  },
+  "target": "cylinder",
+  "options": [
+   "cube",
+   "cylinder",
+   "squarePyramid"
+  ]
+ },
+ {
+  "id": "y6jismlar_08",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "dims": [
+    2,
+    4,
+    3
+   ]
+  },
+  "target": "cuboid",
+  "options": [
+   "cylinder",
+   "cuboid",
+   "squarePyramid"
+  ]
+ },
+ {
+  "id": "y6jismlar_09",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 3
+  },
+  "target": "squarePyramid",
+  "options": [
+   "squarePyramid",
+   "cube",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "y6jismlar_10",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "konus",
+   "aylan": 0
+  },
+  "target": "cone",
+  "options": [
+   "cuboid",
+   "cone",
+   "cube"
+  ]
+ },
+ {
+  "id": "y6jismlar_11",
+  "tur": "yoyilmasi",
+  "jism": "triangularPrism",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      2,
+      "t"
+     ],
+     [
+      2,
+      "b"
+     ]
+    ],
+    "aylan": 1
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      2,
+      3
+     ]
+    ]
+   },
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      1,
+      "t"
+     ],
+     [
+      2,
+      "t"
+     ]
+    ],
+    "aylan": 0
+   }
+  ],
+  "javob": 0
+ },
+ {
+  "id": "y6jismlar_12",
+  "tur": "yoyilmasi",
+  "jism": "cube",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      1
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      0
+     ]
+    ]
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      0,
+      "t"
+     ],
+     [
+      6,
+      "b"
+     ]
+    ],
+    "aylan": 2
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      2,
+      1
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      3,
+      2
+     ]
+    ]
+   }
+  ],
+  "javob": 2
+ },
+ {
+  "id": "y6jismlar_13",
+  "tur": "yoyilmasi",
+  "jism": "triangularPrism",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      2,
+      3
+     ]
+    ]
+   },
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      0,
+      "t"
+     ],
+     [
+      0,
+      "b"
+     ]
+    ],
+    "aylan": 1
+   },
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      0,
+      "b"
+     ],
+     [
+      2,
+      "b"
+     ]
+    ],
+    "aylan": 2
+   }
+  ],
+  "javob": 1
+ },
+ {
+  "id": "y6jismlar_14",
+  "tur": "yoyilmasi",
+  "jism": "cone",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "konus",
+    "aylan": 1
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      3,
+      0
+     ]
+    ]
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "dims": [
+     3,
+     2,
+     2
+    ]
+   }
+  ],
+  "javob": 0
+ },
+ {
+  "id": "y6jismlar_15",
+  "tur": "yoyilmasi",
+  "jism": "cuboid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      8,
+      "t"
+     ],
+     [
+      7,
+      "b"
+     ]
+    ],
+    "aylan": 0
+   },
+   {
+    "tur": "piramida",
+    "aylan": 0
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      3
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "dims": [
+     3,
+     2,
+     3
+    ]
+   }
+  ],
+  "javob": 2
+ },
+ {
+  "id": "y6jismlar_16",
+  "tur": "yoyilmasi",
+  "jism": "squarePyramid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "piramida",
+    "aylan": 1
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      3,
+      2
+     ]
+    ]
+   },
+   {
+    "tur": "konus",
+    "aylan": 3
+   }
+  ],
+  "javob": 0
+ },
+ {
+  "id": "y6jismlar_17",
+  "tur": "yoyilmasi",
+  "jism": "cone",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "piramida",
+    "aylan": 0
+   },
+   {
+    "tur": "konus",
+    "aylan": 1
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      11,
+      "t"
+     ],
+     [
+      1,
+      "b"
+     ]
+    ],
+    "aylan": 0
+   }
+  ],
+  "javob": 1
+ },
+ {
+  "id": "y6jismlar_18",
+  "tur": "yoyilmasi",
+  "jism": "cylinder",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      2,
+      "t"
+     ],
+     [
+      0,
+      "b"
+     ]
+    ],
+    "aylan": 2
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      0,
+      "t"
+     ],
+     [
+      8,
+      "b"
+     ]
+    ],
+    "aylan": 0
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      2,
+      "b"
+     ],
+     [
+      0,
+      "b"
+     ]
+    ],
+    "aylan": 0
+   }
+  ],
+  "javob": 1
+ },
+ {
+  "id": "y6jismlar_19",
+  "tur": "yoyilmasi",
+  "jism": "squarePyramid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      2,
+      3
+     ]
+    ]
+   },
+   {
+    "tur": "piramida",
+    "aylan": 1
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      11,
+      "t"
+     ],
+     [
+      11,
+      "b"
+     ]
+    ],
+    "aylan": 2
+   }
+  ],
+  "javob": 1
+ },
+ {
+  "id": "y6jismlar_20",
+  "tur": "yoyilmasi",
+  "jism": "cylinder",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      3,
+      "t"
+     ],
+     [
+      6,
+      "b"
+     ]
+    ],
+    "aylan": 2
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      3,
+      0
+     ]
+    ],
+    "dims": [
+     4,
+     2,
+     3
+    ]
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      5,
+      "b"
+     ],
+     [
+      4,
+      "b"
+     ]
+    ],
+    "aylan": 0
+   }
+  ],
+  "javob": 0
+ }
+]

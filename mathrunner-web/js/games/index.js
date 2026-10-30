@@ -6,7 +6,6 @@ import { ICON } from '../icons.js';
 import { shell, checkBtn, flash } from './shell.js?v=3';
 import { hud, buddy, sfx, floatText } from './hud.js?v=4';
 import { MORE } from './more.js';
-import { netSVG } from './nets.js';
 import { gameSet } from './venn.js?v=7';
 import { gameNumberOrder } from './tartib.js?v=9';
 import { gameEquationGrid } from './jadval.js?v=2';
@@ -641,45 +640,374 @@ function gameSymmetry(ctx) {
   render();
 }
 
-// ================= netFold =================
-const SOLID_UZ = {
-  cube: 'Kub', cuboid: 'Parallelepiped', squarePyramid: 'Piramida',
-  triangularPrism: 'Uchburchakli prizma', cylinder: 'Silindr', cone: 'Konus',
+// ================= netFold (Yoyilma — origami ustaxonasi) =================
+// Kesish taxtasi ustida rangli qog'ozdan yoyilma; javobdan keyin u 3D da buklanib jismga aylanadi va aylanadi.
+// Topshiriq turlari: jism (qaysi jism chiqadi), kubmi (yig'iladimi — noto'g'risida yoqlar ustma-ust tushadi),
+// qarama (★ yoqqa qarama-qarshi yoqni bosish), yoyilmasi (jismning yoyilmasini tanlash), sirt (yoyilma yuzi).
+// Yoyilma — yoqlar daraxti: har yoq ota yog'ining bir qirrasiga osilgan (attach t/b/l/r) va o'sha qirra atrofida
+// burchak bo'yicha buklanadi (kub — 90°, prizma yon yoqlari — 120°, piramida — 125,3°, silindr 12 ta tasma × 30°).
+// Kub yoyilmasi «kubni dumalatib» tekshiriladi (bank yasovchi tools/gen_yoyilma.py bilan bir xil).
+const JISM_UZ = { cube: 'Kub', cuboid: 'Parallelepiped', triangularPrism: 'Uchburchakli prizma', squarePyramid: 'Piramida', cylinder: 'Silindr', cone: 'Konus' };
+const JISM_TARKIB = {
+  cube: '6 ta teng kvadrat — kub', cuboid: "6 ta to'g'ri to'rtburchak, qarama-qarshilari teng — parallelepiped",
+  triangularPrism: "2 ta uchburchak asos va 3 ta to'rtburchak yon yoq — uchburchakli prizma",
+  squarePyramid: 'Kvadrat asos va 4 ta uchburchak yon yoq — piramida',
+  cylinder: "To'g'ri to'rtburchak (yon sirt) va 2 ta teng doira — silindr", cone: "Doira bo'lagi (yon sirt) va doira asos — konus",
 };
-function gameNetFold(ctx) {
-  const tasks = ctx.bank;
-  let idx = 0, correct = 0, streak = 0, longest = 0, locked = false;
-  const s = shell(ctx, tasks[0].prompt, 'net', true);
+const QOGOZ = ['#ff8fa3', '#ffd166', '#6ee7b7', '#7dd3fc', '#c4b5fd', '#fdba74'];
+const vneg = (v) => v.map(a => -a);
+const vkey = (v) => v.join(',');
+const oq = (v) => v.findIndex(a => a !== 0);
 
-  function render() {
-    const t = tasks[idx];
-    s.setProg(idx, tasks.length);
-    locked = false;
-    const opts = el('div', { class: 'nf-opts' }, ...shuffle(t.options).map(o =>
-      el('button', { class: 'nf-opt', onclick: (e) => pick(e.currentTarget, o) }, SOLID_UZ[o] || o)));
-    function pick(btn, val) {
-      if (locked) return; locked = true;
-      const ok = val === t.target;
-      btn.classList.add(ok ? 'is-correct' : 'is-wrong');
-      if (!ok) [...opts.children].forEach(b => { if (b.textContent === (SOLID_UZ[t.target] || t.target)) b.classList.add('is-correct'); });
-      if (ok) { correct++; streak++; longest = Math.max(longest, streak); } else streak = 0;
-      setTimeout(() => {
-        idx++;
-        if (idx >= tasks.length) ctx.finish(correct, tasks.length, { longestStreak: longest });
-        else render();
-      }, ok ? 520 : 900);
+// yoyilma → yoqlar daraxti {w, h, shape, at, off, ang, kids, idx, rang, ust (ustma-ust tushgan)}
+function yoqlar(y) {
+  if (y.tur === 'grid') {
+    const dims = y.dims || [1, 1, 1], cells = y.cells.map(c => c.join(','));
+    const H = new Map([[cells[0], { n: [0, 0, -1], R: [1, 0, 0], D: [0, 1, 0] }]]), q = [cells[0]], ota = new Map();
+    while (q.length) {
+      const c = q.shift(), [x, yy] = c.split(',').map(Number), { n, R, D } = H.get(c);
+      for (const [dx, dy, at, f] of [[1, 0, 'r', () => ({ n: R, R: vneg(n), D })], [-1, 0, 'l', () => ({ n: vneg(R), R: n, D })],
+        [0, 1, 'b', () => ({ n: D, R, D: vneg(n) })], [0, -1, 't', () => ({ n: vneg(D), R, D: n })]]) {
+        const d = `${x + dx},${yy + dy}`;
+        if (cells.includes(d) && !H.has(d)) { H.set(d, f()); ota.set(d, [c, at]); q.push(d); }
+      }
     }
-    // yoyilma rasmi; maslahat — tugma orqali (javobni oldindan ko'rsatib qo'ymaydi)
-    const hint = el('div', { class: 'nf-hint', hidden: true }, t.hint);
-    s.area.replaceChildren(
-      el('div', { style: 'text-align:center' },
-        el('div', { class: 'nf-fig', html: netSVG(t.target) }),
-        el('button', { class: 'btn nf-hintbtn', onclick: (e) => { hint.hidden = !hint.hidden; e.currentTarget.textContent = hint.hidden ? 'Maslahat' : 'Maslahatni yashirish'; } }, 'Maslahat'),
-        hint),
-      opts);
-    s.foot.replaceChildren();
+    const F = new Map(), korildi = new Set();
+    cells.forEach((c, i) => {
+      const h = H.get(c), k = vkey(h.n);
+      F.set(c, { w: dims[oq(h.R)], h: dims[oq(h.D)], shape: 'rect', at: ota.get(c)?.[1], off: 0, ang: 90, kids: [], idx: i, rang: QOGOZ[i % 6], n: h.n, ust: korildi.has(k) });
+      korildi.add(k);
+    });
+    cells.forEach(c => { const o = ota.get(c); if (o) F.get(o[0]).kids.push(F.get(c)); });
+    return F.get(cells[0]);
   }
-  render();
+  const T = Math.sqrt(3) / 2;
+  if (y.tur === 'prizma') {
+    const L = 1.7, r = [0, 1, 2].map(i => ({ w: 1, h: L, shape: 'rect', off: 0, ang: 120, kids: [], rang: QOGOZ[3 + (i % 2)] }));
+    r[1].ang = 0; r[0].at = 'l'; r[2].at = 'r'; r[1].kids.push(r[0], r[2]);
+    const tomon = new Set();
+    y.uchlar.forEach(([i, s], k) => { r[i].kids.push({ w: 1, h: T, shape: 'tri', at: s, off: 0, ang: 90, kids: [], rang: QOGOZ[1], ust: tomon.has(s) }); tomon.add(s); });
+    return r[1];
+  }
+  if (y.tur === 'piramida') {
+    const ang = 180 - Math.acos(1 / Math.sqrt(3)) * 180 / Math.PI;
+    const ildiz = { w: 1, h: 1, shape: 'rect', off: 0, ang: 0, kids: [], rang: QOGOZ[2] };
+    ['t', 'r', 'b', 'l'].forEach((at, i) => ildiz.kids.push({ w: at === 'l' || at === 'r' ? T : 1, h: at === 'l' || at === 'r' ? 1 : T, shape: 'tri', at, off: 0, ang, kids: [], rang: QOGOZ[[0, 1, 5, 4][i]] }));
+    return ildiz;
+  }
+  if (y.tur === 'silindr') {
+    const N = 12, d = 1, sw = Math.PI * d / N, h = 1.35, s = [];
+    for (let i = 0; i < N; i++) s.push({ w: sw, h, shape: 'tasma', at: i ? 'r' : undefined, off: 0, ang: i ? 360 / N : 0, kids: [], rang: QOGOZ[3], chet: i === 0 ? 'l' : i === N - 1 ? 'r' : '' });
+    for (let i = 1; i < N; i++) s[i - 1].kids.push(s[i]);
+    const tomon = new Set();
+    y.doiralar.forEach(([i, sd]) => { s[i].kids.push({ w: d, h: d, shape: 'disc', at: sd, off: (sw - d) / 2, ang: 90, kids: [], rang: QOGOZ[1], ust: tomon.has(sd) }); tomon.add(sd); });
+    return s[0];
+  }
+  // konus — buklanmaydi (faqat tekis ko'rinish)
+  return { w: 2.2, h: 1.9, shape: 'konus', off: 0, ang: 0, kids: [], rang: QOGOZ[0] };
+}
+// tekis joylashuv: har yoqning (x, y) — birliklarda; chegaralar
+function joyla(root) {
+  const all = [];
+  (function go(f, x, y) {
+    f.x = x; f.y = y; all.push(f);
+    for (const k of f.kids) {
+      const kx = k.at === 'r' ? x + f.w : k.at === 'l' ? x - k.w : x + k.off;
+      const ky = k.at === 'b' ? y + f.h : k.at === 't' ? y - k.h : y + k.off;
+      go(k, kx, ky);
+    }
+  })(root, 0, 0);
+  const minx = Math.min(...all.map(f => f.x)), miny = Math.min(...all.map(f => f.y));
+  const maxx = Math.max(...all.map(f => f.x + f.w)), maxy = Math.max(...all.map(f => f.y + f.h));
+  return { all, minx, miny, bw: maxx - minx, bh: maxy - miny };
+}
+const TRI = { t: 'polygon(0 100%,100% 100%,50% 0)', b: 'polygon(0 0,100% 0,50% 100%)', r: 'polygon(0 0,0 100%,100% 50%)', l: 'polygon(100% 0,100% 100%,0 50%)' };
+const KONUS_SVG = (rang) => `<svg viewBox="0 0 220 190" aria-hidden="true"><path d="M70 72 L134 28 A78 78 0 1 1 4 108 Z" fill="${rang}" stroke="#7a3b2e" stroke-width="2.5" stroke-linejoin="round"/><circle cx="168" cy="140" r="34" fill="${QOGOZ[1]}" stroke="#7a3b2e" stroke-width="2.5"/></svg>`;
+
+// kichik SVG (variant tugmalari uchun)
+function yoySVG(y) {
+  const root = yoqlar(y), L = joyla(root), k = 100 / Math.max(L.bw, L.bh), out = [];
+  if (root.shape === 'konus') return KONUS_SVG(QOGOZ[0]).replace('<svg ', '<svg class="yoy-mini" ');
+  const P = (f) => [(f.x - L.minx) * k + 6, (f.y - L.miny) * k + 6, f.w * k, f.h * k];
+  const ch = 'stroke="#5b3a2e" stroke-width="1.6" stroke-linejoin="round"';
+  const tasma = L.all.filter(f => f.shape === 'tasma');
+  if (tasma.length) { const [x, yy] = P(tasma[0]); out.push(`<rect x="${x}" y="${yy}" width="${tasma.length * tasma[0].w * k}" height="${tasma[0].h * k}" fill="${tasma[0].rang}" ${ch}/>`); }
+  for (const f of L.all) {
+    const [x, yy, w, h] = P(f);
+    if (f.shape === 'rect') out.push(`<rect x="${x}" y="${yy}" width="${w}" height="${h}" fill="${f.rang}" ${ch}/>`);
+    else if (f.shape === 'disc') out.push(`<circle cx="${x + w / 2}" cy="${yy + h / 2}" r="${w / 2}" fill="${f.rang}" ${ch}/>`);
+    else if (f.shape === 'tri') {
+      const p = { t: [[x, yy + h], [x + w, yy + h], [x + w / 2, yy]], b: [[x, yy], [x + w, yy], [x + w / 2, yy + h]], r: [[x, yy], [x, yy + h], [x + w, yy + h / 2]], l: [[x + w, yy], [x + w, yy + h], [x, yy + h / 2]] }[f.at];
+      out.push(`<polygon points="${p.map(q => q.join(',')).join(' ')}" fill="${f.rang}" ${ch}/>`);
+    }
+  }
+  return `<svg class="yoy-mini" viewBox="0 0 ${L.bw * k + 12} ${L.bh * k + 12}" aria-hidden="true">${out.join('')}</svg>`;
+}
+
+// jism rasmi (izometrik)
+function jismSVG(j) {
+  const ch = 'stroke="#5b3a2e" stroke-width="2.2" stroke-linejoin="round"';
+  const s = {
+    cube: `<path d="M50 14 L82 30 L50 46 L18 30Z" fill="${QOGOZ[1]}" ${ch}/><path d="M18 30 L50 46 L50 84 L18 68Z" fill="${QOGOZ[0]}" ${ch}/><path d="M82 30 L50 46 L50 84 L82 68Z" fill="${QOGOZ[3]}" ${ch}/>`,
+    cuboid: `<path d="M38 22 L90 36 L64 50 L12 36Z" fill="${QOGOZ[1]}" ${ch}/><path d="M12 36 L64 50 L64 80 L12 66Z" fill="${QOGOZ[0]}" ${ch}/><path d="M90 36 L64 50 L64 80 L90 66Z" fill="${QOGOZ[3]}" ${ch}/>`,
+    triangularPrism: `<path d="M30 18 L76 30 L92 74 L46 62Z" fill="${QOGOZ[4]}" ${ch}/><path d="M30 18 L46 62 L10 66Z" fill="${QOGOZ[1]}" ${ch}/><path d="M10 66 L46 62 L92 74 L56 80Z" fill="${QOGOZ[3]}" ${ch}/>`,
+    squarePyramid: `<path d="M50 10 L16 66 L50 82Z" fill="${QOGOZ[0]}" ${ch}/><path d="M50 10 L50 82 L86 64Z" fill="${QOGOZ[1]}" ${ch}/><path d="M16 66 L50 82 L86 64" fill="none" ${ch}/>`,
+    cylinder: `<path d="M20 24 L20 76 A30 10 0 0 0 80 76 L80 24" fill="${QOGOZ[3]}" ${ch}/><ellipse cx="50" cy="24" rx="30" ry="10" fill="${QOGOZ[1]}" ${ch}/>`,
+    cone: `<path d="M50 10 L20 74 A30 10 0 0 0 80 74 Z" fill="${QOGOZ[0]}" ${ch}/><path d="M20 74 A30 10 0 0 0 80 74" fill="none" ${ch}/>`,
+  }[j] || '';
+  return `<svg viewBox="0 0 100 92" class="jism-svg" aria-hidden="true">${s}</svg>`;
+}
+
+// 3D sahna: yoqlar DOM daraxti, buklash (f = 0…1), kamera og'ishi, aylanish
+function yoySahna(y, opts = {}) {
+  const root = yoqlar(y), L = joyla(root);
+  const node = el('div', { class: 'yoy-sahna' });
+  const kamera = el('div', { class: 'yoy-kamera' }), aylana = el('div', { class: 'yoy-aylana' });
+  kamera.append(aylana); node.append(kamera);
+  const yuzlar = [];
+  let k = 40;
+  function qur() {
+    const W = node.clientWidth || 320, Hh = node.clientHeight || 230;
+    k = Math.min(70, (W - 24) / L.bw, (Hh - 24) / L.bh) * (root.shape === 'konus' ? 1 : 0.92);
+    aylana.replaceChildren(); yuzlar.length = 0;
+    if (root.shape === 'konus') {
+      aylana.append(el('div', { class: 'yoy-konus', html: KONUS_SVG(root.rang), style: `width:${L.bw * k}px;height:${L.bh * k}px` }));
+    } else {
+      (function go(f, parent) {
+        const d = el('div', { class: `yq yq--${f.shape}` + (f.chet ? ' yq--chet-' + f.chet : ''), style: `width:${f.w * k}px;height:${f.h * k}px;--rang:${f.rang}` });
+        if (f.shape === 'tri') d.style.clipPath = TRI[f.at];
+        if (parent) {
+          const p = parent.f;
+          const left = f.at === 'r' ? p.w * k : f.at === 'l' ? -f.w * k : f.off * k, top = f.at === 'b' ? p.h * k : f.at === 't' ? -f.h * k : f.off * k;
+          Object.assign(d.style, { left: left + 'px', top: top + 'px', transformOrigin: { r: '0 50%', l: '100% 50%', t: '50% 100%', b: '50% 0' }[f.at] });
+        } else Object.assign(d.style, { left: (f.x - L.minx) * k + 'px', top: (f.y - L.miny) * k + 'px' });
+        if (opts.yoz && f.shape === 'rect') d.append(el('span', { class: 'yq__yoz' }, `${f.w}×${f.h}`));
+        if (opts.belgi != null && f.idx === opts.belgi) d.append(el('span', { class: 'yq__belgi' }, '★'));
+        if (opts.bos && f.idx != null) d.addEventListener('click', (e) => { e.stopPropagation(); opts.bos(f.idx, d); });
+        d.f = f; f.d = d;
+        (parent || aylana).append(d); yuzlar.push(d);
+        f.kids.forEach(c => go(c, d));
+      })(root, null);
+    }
+    Object.assign(kamera.style, { width: L.bw * k + 'px', height: L.bh * k + 'px' });
+    qoy(0);
+  }
+  function qoy(f) {
+    const W = node.clientWidth || 320, Hh = node.clientHeight || 230;
+    const rx = (root.x - L.minx + root.w / 2) * k, ry = (root.y - L.miny + root.h / 2) * k;
+    const x0 = (W - L.bw * k) / 2, y0 = (Hh - L.bh * k) / 2, x1 = W / 2 - rx, y1 = Hh * 0.62 - ry;
+    kamera.style.transformOrigin = `${rx}px ${ry}px`;
+    aylana.style.transformOrigin = `${rx}px ${ry}px`;
+    const e = root.shape === 'konus' ? 0 : f;
+    kamera.style.transform = `translate(${x0 + (x1 - x0) * e}px, ${y0 + (y1 - y0) * e}px) rotateX(${58 * e}deg) rotateZ(${-32 * e}deg)`;
+    for (const d of yuzlar) {
+      const ff = d.f; if (!ff.at) continue;
+      const a = ff.ang * f;
+      d.style.transform = { r: `rotateY(${-a}deg)`, l: `rotateY(${a}deg)`, t: `rotateX(${-a}deg)`, b: `rotateX(${a}deg)` }[ff.at];
+    }
+  }
+  let raf = 0;
+  return {
+    node, root,
+    tayyor() { qur(); },
+    // buklash: 1,4 s; tugagach jism aylanib turadi; konus — rasmga almashadi
+    bukla(then) {
+      cancelAnimationFrame(raf);
+      if (root.shape === 'konus') {
+        node.classList.add('konus-ket');
+        node.append(el('div', { class: 'yoy-jism', html: jismSVG('cone') }));
+        setTimeout(() => then && then(), 900); return;
+      }
+      const t0 = performance.now(), T = 1500;
+      const step = (now) => {
+        const p = Math.min(1, (now - t0) / T), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+        qoy(e);
+        if (p < 1) raf = requestAnimationFrame(step);
+        else { node.classList.add('buklandi'); then && then(); }
+      };
+      raf = requestAnimationFrame(step);
+    },
+    ochiq() { cancelAnimationFrame(raf); node.classList.remove('buklandi'); qoy(0); },
+    stop() { cancelAnimationFrame(raf); },
+    belgila(idx, cls) { yuzlar.forEach(d => { if (d.f.idx === idx) d.classList.add(cls); }); },
+    ustlar() { yuzlar.forEach(d => { if (d.f.ust) d.classList.add('yq--ust'); }); },
+  };
+}
+
+// qarama-qarshi yoq: bitta qatorda orasida bitta yoq bo'lsa — qoida bilan, aks holda buklab ko'rsatamiz
+function qaramaSabab(t) {
+  const a = t.yoy.cells[t.belgi], b = t.yoy.cells[t.javob];
+  if ((a[0] === b[0] && Math.abs(a[1] - b[1]) === 2) || (a[1] === b[1] && Math.abs(a[0] - b[0]) === 2))
+    return "Bir qatorda ketma-ket uchta yoq bo'lsa, chetdagi ikkitasi qarama-qarshi tushadi.";
+  return 'Buklanganda ★ yoqning qarshisiga aynan shu yoq tushadi — yoyilmada ular hech qachon yonma-yon (qirradosh) bo\'lmaydi.';
+}
+
+function gameNetFold(ctx) {
+  const all = [...ctx.bank];
+  const s = shell(ctx, all[0].prompt, 'net');
+  const H = hud(3);
+  const B = buddy();
+  const RAUND = 5;
+  const rounds = [];
+  for (let i = 0; i < all.length; i += RAUND) rounds.push(all.slice(i, i + RAUND));
+  let ri = 0, right = 0, total = 0, longest = 0, done = 0;
+  const times = [];
+  let onKey = null, sahna = null;
+  const timers = new Set();
+  const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); };
+  const keyH = (ev) => onKey && onKey(ev);
+  addEventListener('keydown', keyH);
+  addEventListener('hashchange', () => { removeEventListener('keydown', keyH); timers.forEach(clearTimeout); sahna && sahna.stop(); }, { once: true });
+
+  const savol = el('div', { class: 'yoy-savol' });
+  const taxta = el('div', { class: 'yoy-taxta' });
+  const javoblar = el('div', { class: 'yoy-javoblar' });
+
+  function round() {
+    const items = rounds[ri];
+    H.resetHearts();
+    let ii = 0, mistakes = 0, busy = false, startedAt = 0;
+
+    function sahnaQur(y, opts) {
+      sahna && sahna.stop();
+      sahna = yoySahna(y, opts);
+      taxta.replaceChildren(sahna.node);
+      requestAnimationFrame(() => sahna.tayyor());
+    }
+
+    function next() {
+      if (ii >= items.length) return endRound();
+      const t = items[ii];
+      busy = false;
+      s.setProg(done, all.length);
+      savol.textContent = t.prompt;
+      javoblar.className = 'yoy-javoblar';
+      if (t.tur === 'yoyilmasi') {
+        sahna && sahna.stop(); sahna = null;
+        taxta.replaceChildren(el('div', { class: 'yoy-jism yoy-jism--katta', html: jismSVG(t.jism) }), el('b', { class: 'yoy-jismnom' }, JISM_UZ[t.jism]));
+      } else sahnaQur(t.yoy, { yoz: t.tur === 'sirt', belgi: t.tur === 'qarama' ? t.belgi : null, bos: t.tur === 'qarama' ? (idx, d) => tanla(idx, d) : null });
+
+      let tugmalar = [];
+      if (t.tur === 'jism') tugmalar = t.options.map(o => [o, [el('span', { class: 'yoy-jt__rasm', html: jismSVG(o) }), el('b', {}, JISM_UZ[o])]]);
+      else if (t.tur === 'kubmi') { tugmalar = [[true, [el('b', {}, '✓ Ha')]], [false, [el('b', {}, "✗ Yo'q")]]]; javoblar.classList.add('yoy-javoblar--hayoq'); }
+      else if (t.tur === 'sirt') tugmalar = t.options.map(o => [o, [el('b', {}, `${o} cm²`)]]);
+      else if (t.tur === 'yoyilmasi') { tugmalar = t.variantlar.map((v, i) => [i, [el('span', { class: 'yoy-jt__yoy', html: yoySVG(v) })]]); javoblar.classList.add('yoy-javoblar--yoy'); }
+      javoblar.replaceChildren(...tugmalar.map(([v, ich], i) => el('button', { type: 'button', class: 'yoy-jt', onclick: (e) => tanla(v, e.currentTarget) },
+        ...ich, el('small', { class: 'yoy-jt__key' }, i + 1))));
+      javoblar.hidden = t.tur === 'qarama';
+      B.say(t.tur === 'qarama' ? ['Kub buklanganda ★ yoqning qarshisida qaysi yoq bo\'ladi? Yoyilmadagi o\'sha yoqni bosing.']
+        : t.tur === 'kubmi' ? ['Ko\'z oldingizda buklab ko\'ring: yoqlar ustma-ust tushmaydimi, hamma tomon yopiladimi?']
+        : t.tur === 'sirt' ? ['Har yoqda uning o\'lchamlari yozilgan (cm). Hamma yoqlar yuzini qo\'shing.']
+        : t.tur === 'yoyilmasi' ? ['Qaysi yoyilma buklansa shu jism chiqadi?']
+        : ['Yoqlarini sanang va shakliga qarang: qaysi jism chiqadi?'], 'idle');
+      startedAt = performance.now();
+      onKey = (ev) => { const n = +ev.key; if (n >= 1 && n <= javoblar.children.length && !javoblar.hidden) { ev.preventDefault(); javoblar.children[n - 1].click(); } };
+    }
+
+    function sabab(t, v, ok) {
+      if (t.tur === 'jism') return ok ? JISM_TARKIB[t.target] : `${JISM_TARKIB[t.target]}, ${JISM_UZ[v].toLowerCase()} emas.`;
+      if (t.tur === 'kubmi') {
+        if (t.javob) return 'Buklanganda hamma tomon yopildi, yoqlar ustma-ust tushmadi — yig\'iladi.';
+        if (t.yoy.tur === 'grid') return 'Ikki yoq bir joyga tushdi, bitta tomon ochiq qoldi — kub yig\'ilmaydi.';
+        return t.yoy.tur === 'prizma' ? 'Ikkala uchburchak bir tomonda — biri ustma-ust tushadi, ikkinchi asos ochiq qoladi.'
+          : 'Ikkala doira bir tomonda — biri ustma-ust tushadi, ikkinchi asos ochiq qoladi.';
+      }
+      if (t.tur === 'qarama') return qaramaSabab(t);
+      if (t.tur === 'sirt') {
+        const [a, b, c] = t.yoy.dims;
+        return `Yoqlar: 2 ta ${a}×${b}, 2 ta ${a}×${c}, 2 ta ${b}×${c}. 2 · ${a * b} + 2 · ${a * c} + 2 · ${b * c} = ${t.javob} cm²`;
+      }
+      return ok ? JISM_TARKIB[t.jism] : `${JISM_TARKIB[t.jism]}. Tanlangan yoyilmadan ${JISM_UZ[t.jism].toLowerCase()} chiqmaydi.`;
+    }
+
+    function tanla(v, btn) {
+      if (busy) return;
+      const t = items[ii];
+      busy = true; onKey = null;
+      const togri = t.tur === 'jism' ? t.target : t.javob;
+      const ok = v === togri;
+      total++; done++;
+      times.push(performance.now() - startedAt);
+      [...javoblar.children].forEach((b, i) => { b.disabled = true; });
+      if (t.tur === 'qarama') { btn.classList.add(ok ? 'yq--ok' : 'yq--bad'); sahna.belgila(togri, 'yq--ok'); sahna.belgila(t.belgi, 'yq--belgi'); }
+      else {
+        btn.classList.add(ok ? 'is-ok' : 'is-bad');
+        const tv = t.tur === 'jism' ? t.options.indexOf(togri) : t.tur === 'kubmi' ? (togri ? 0 : 1) : t.tur === 'sirt' ? t.options.indexOf(togri) : togri;
+        javoblar.children[tv]?.classList.add('is-ok');
+      }
+      // yoyilmasi — to'g'ri yoyilma taxtaga chiqib buklanadi
+      if (t.tur === 'yoyilmasi') sahnaQur(t.variantlar[t.javob], {});
+      const bukla = () => sahna.bukla(() => { if (t.tur === 'kubmi' && !t.javob) sahna.ustlar(); });
+      later(bukla, t.tur === 'yoyilmasi' ? 450 : 250);
+      if (ok) {
+        right++;
+        const m = H.hit(); longest = Math.max(longest, H.st.combo);
+        const fast = performance.now() - startedAt < 8000;
+        sfx.ok();
+        H.add(10 * m + (fast ? 5 : 0), btn);
+        if (fast && m < 2) floatText('⚡ Tez!', btn, 'hud-float--tez');
+        B.say([el('span', { class: 'rchip rchip--ha' }, 'To\'g\'ri ✓'), ' ', sabab(t, v, true)], 'ok');
+        later(() => { ii++; next(); }, 3900);
+      } else {
+        mistakes++; H.miss(); sfx.bad();
+        const left = H.loseHeart();
+        B.say([el('span', { class: 'rchip rchip--yoq' }, 'Xato'), ' ', sabab(t, v, false)], 'bad');
+        const davom = () => { onKey = null; s.foot.replaceChildren(); ii++; left === 0 ? autoRest() : next(); };
+        later(() => {
+          s.foot.replaceChildren(el('button', { class: 'btn btn--accent', type: 'button', onclick: davom }, 'Davom etish ➜'));
+          onKey = (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); davom(); } };
+        }, 1200);
+      }
+    }
+
+    function autoRest() {
+      onKey = null; javoblar.replaceChildren();
+      B.say(['Yuraklar tugadi. Qolgan yoyilmalar qanday buklanishini kuzating.'], 'think');
+      const go = () => {
+        if (ii >= items.length) return endRound();
+        const t = items[ii]; total++; done++; s.setProg(done, all.length);
+        savol.textContent = t.prompt;
+        sahnaQur(t.tur === 'yoyilmasi' ? t.variantlar[t.javob] : t.yoy, { yoz: t.tur === 'sirt', belgi: t.tur === 'qarama' ? t.belgi : null });
+        later(() => { if (t.tur === 'qarama') { sahna.belgila(t.javob, 'yq--ok'); sahna.belgila(t.belgi, 'yq--belgi'); }
+          sahna.bukla(() => { if (t.tur === 'kubmi' && !t.javob) sahna.ustlar(); });
+          B.say([sabab(t, t.tur === 'jism' ? t.target : t.javob, true)], 'think'); }, 900);
+        later(() => { ii++; go(); }, 4200);
+      };
+      later(go, 1000);
+    }
+
+    function endRound() {
+      onKey = null; javoblar.replaceChildren();
+      const clean = mistakes === 0;
+      if (clean) { H.add(30, taxta); sfx.win(); }
+      s.setProg(done, all.length);
+      const lastR = ri + 1 >= rounds.length;
+      s.foot.replaceChildren(
+        el('div', { class: 'rend ' + (clean ? 'rend--ok' : '') },
+          el('b', {}, clean ? 'Xatosiz! +30 bonus' : mistakes === 1 ? 'Bitta xato bilan — yaxshi!' : `${mistakes} ta xato — keyingisida diqqat bilan!`),
+          el('button', { class: 'btn btn--accent', type: 'button', onclick: () => {
+            ri++;
+            if (ri >= rounds.length) {
+              const avgMs = times.length ? times.reduce((a, b) => a + b, 0) / times.length : 0;
+              sahna && sahna.stop();
+              ctx.finish(right, total, { longestStreak: longest, avgMs, score: H.st.score });
+            } else { s.foot.replaceChildren(); round(); }
+          } }, lastR ? 'Natijani ko\'rish' : 'Keyingi partiya ➜')));
+    }
+    next();
+  }
+
+  const bar = ctx.root.querySelector('.prompt'); if (bar) bar.hidden = true;
+  const ustaxona = el('div', { class: 'sahna sahna--origami' },
+    el('i', { class: 'origami__turna' }), el('i', { class: 'origami__qalam' }),
+    H.node, B.node, savol, el('div', { class: 'yoy-mat' }, taxta), javoblar);
+  s.area.replaceChildren(ustaxona);
+  s.foot.replaceChildren();
+  if (innerWidth < 700) requestAnimationFrame(() => {
+    const head = document.querySelector('.site-header')?.offsetHeight || 0;
+    scrollTo({ top: ustaxona.getBoundingClientRect().top + scrollY - head - 6, behavior: 'auto' });
+  });
+  round();
 }
 
 export const GAMES = {

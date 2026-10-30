@@ -1,222 +1,777 @@
 [
-  {
-    "id": "g3c3b43l1_net_01",
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cube",
-    "options": [
-      "cube",
-      "squarePyramid",
-      "cylinder"
-    ]
-  },
-  {
-    "id": "g3c3b43l1_net_02",
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "cube",
-      "cone"
-    ]
-  },
-  {
-    "id": "g3c3b43l1_net_03",
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cube",
-    "options": [
-      "cone",
-      "cube",
-      "triangularPrism"
-    ]
-  },
-  {
-    "id": "g3c3b43l1_net_04",
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cuboid",
-    "options": [
-      "cylinder",
-      "squarePyramid",
-      "cuboid"
-    ]
-  },
-  {
-    "id": "g3c3b43l1_net_05",
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cube",
-    "options": [
-      "cube",
-      "cuboid",
-      "cylinder"
-    ]
-  },
-  {
-    "id": "g3c3b43l1_net_06",
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "triangularPrism",
-      "cube"
-    ]
-  },
-  {
-    "id": "g3c3b43l1_net_07",
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cube",
-    "options": [
-      "squarePyramid",
-      "cone",
-      "cube"
-    ]
-  },
-  {
-    "id": "g3c3b43l1_net_08",
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cuboid",
-    "options": [
-      "cube",
-      "cuboid",
-      "cone"
-    ]
-  },
-  {
-    "id": "g3c3b43l1_net_09",
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cube",
-    "options": [
-      "cube",
-      "cylinder",
-      "squarePyramid"
-    ]
-  },
-  {
-    "id": "g3c3b43l1_net_10",
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cuboid",
-    "options": [
-      "triangularPrism",
-      "cuboid",
-      "cube"
-    ]
-  },
-  {
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cube",
-    "options": [
-      "cube",
-      "cone",
-      "cuboid"
+ {
+  "id": "g3c3b43l1_01",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
     ],
-    "id": "g3c3b43l1_net_x01"
-  },
-  {
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cuboid",
-    "options": [
-      "squarePyramid",
-      "triangularPrism",
-      "cuboid"
+    [
+     0,
+     2
     ],
-    "id": "g3c3b43l1_net_x02"
-  },
-  {
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
-    "target": "cube",
-    "options": [
-      "cylinder",
-      "cube",
-      "triangularPrism"
+    [
+     1,
+     1
     ],
-    "id": "g3c3b43l1_net_x03"
-  },
-  {
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Parallelepipedda 12 ta qirra va 8 ta uch bor",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "cone",
-      "cube"
+    [
+     0,
+     3
     ],
-    "id": "g3c3b43l1_net_x04"
-  },
-  {
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cube",
-    "options": [
-      "triangularPrism",
-      "cube",
-      "cylinder"
+    [
+     1,
+     0
     ],
-    "id": "g3c3b43l1_net_x05"
+    [
+     2,
+     2
+    ]
+   ]
   },
-  {
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cuboid",
-    "options": [
-      "cuboid",
-      "cone",
-      "squarePyramid"
+  "javob": true
+ },
+ {
+  "id": "g3c3b43l1_02",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     0,
+     0
     ],
-    "id": "g3c3b43l1_net_x06"
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     3,
+     1
+    ]
+   ]
   },
-  {
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kubning barcha yoqlari bir xil kvadrat",
-    "target": "cube",
-    "options": [
-      "cube",
-      "squarePyramid",
-      "triangularPrism"
+  "javob": false
+ },
+ {
+  "id": "g3c3b43l1_03",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
     ],
-    "id": "g3c3b43l1_net_x07"
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ]
   },
-  {
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Parallelepipedda 12 ta qirra va 8 ta uch bor",
-    "target": "cuboid",
-    "options": [
-      "cube",
-      "triangularPrism",
-      "cuboid"
+  "javob": false
+ },
+ {
+  "id": "g3c3b43l1_04",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
     ],
-    "id": "g3c3b43l1_net_x08"
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     2
+    ]
+   ]
   },
-  {
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cube",
-    "options": [
-      "cuboid",
-      "cube",
-      "triangularPrism"
+  "javob": true
+ },
+ {
+  "id": "g3c3b43l1_05",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     0,
+     0
     ],
-    "id": "g3c3b43l1_net_x09"
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     4,
+     0
+    ]
+   ]
   },
-  {
-    "prompt": "Bu fazoviy shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadratdan, parallelepiped 6 ta to'rtburchakdan iborat",
-    "target": "cuboid",
-    "options": [
-      "triangularPrism",
-      "cuboid",
-      "cone"
+  "javob": false
+ },
+ {
+  "id": "g3c3b43l1_06",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
     ],
-    "id": "g3c3b43l1_net_x10"
-  }
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     0
+    ]
+   ]
+  },
+  "javob": true
+ },
+ {
+  "id": "g3c3b43l1_07",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ]
+   ]
+  },
+  "javob": true
+ },
+ {
+  "id": "g3c3b43l1_08",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     1,
+     1
+    ]
+   ]
+  },
+  "javob": false
+ },
+ {
+  "id": "g3c3b43l1_09",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ]
+   ]
+  },
+  "javob": true
+ },
+ {
+  "id": "g3c3b43l1_10",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     3,
+     0
+    ]
+   ]
+  },
+  "javob": false
+ },
+ {
+  "id": "g3c3b43l1_11",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     2
+    ]
+   ],
+   "dims": [
+    4,
+    4,
+    1
+   ],
+   "yoz": 1
+  },
+  "options": [
+   24,
+   44,
+   48,
+   80
+  ],
+  "javob": 48
+ },
+ {
+  "id": "g3c3b43l1_12",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "dims": [
+    2,
+    1,
+    3
+   ],
+   "yoz": 1
+  },
+  "options": [
+   11,
+   19,
+   22,
+   26
+  ],
+  "javob": 22
+ },
+ {
+  "id": "g3c3b43l1_13",
+  "tur": "qarama",
+  "prompt": "★ belgili yoqning qarshisidagi yoqni bosing",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     2,
+     0
+    ]
+   ]
+  },
+  "belgi": 5,
+  "javob": 4
+ },
+ {
+  "id": "g3c3b43l1_14",
+  "tur": "qarama",
+  "prompt": "★ belgili yoqning qarshisidagi yoqni bosing",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     2
+    ]
+   ]
+  },
+  "belgi": 3,
+  "javob": 0
+ },
+ {
+  "id": "g3c3b43l1_15",
+  "tur": "qarama",
+  "prompt": "★ belgili yoqning qarshisidagi yoqni bosing",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     0
+    ]
+   ]
+  },
+  "belgi": 2,
+  "javob": 3
+ },
+ {
+  "id": "g3c3b43l1_16",
+  "tur": "qarama",
+  "prompt": "★ belgili yoqning qarshisidagi yoqni bosing",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     2,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     1
+    ]
+   ]
+  },
+  "belgi": 4,
+  "javob": 1
+ },
+ {
+  "id": "g3c3b43l1_17",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "dims": [
+    2,
+    3,
+    4
+   ],
+   "yoz": 1
+  },
+  "options": [
+   26,
+   40,
+   52,
+   64
+  ],
+  "javob": 52
+ },
+ {
+  "id": "g3c3b43l1_18",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   "dims": [
+    3,
+    3,
+    4
+   ],
+   "yoz": 1
+  },
+  "options": [
+   33,
+   54,
+   66,
+   84
+  ],
+  "javob": 66
+ },
+ {
+  "id": "g3c3b43l1_19",
+  "tur": "qarama",
+  "prompt": "★ belgili yoqning qarshisidagi yoqni bosing",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     1
+    ]
+   ]
+  },
+  "belgi": 3,
+  "javob": 4
+ },
+ {
+  "id": "g3c3b43l1_20",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "dims": [
+    2,
+    2,
+    3
+   ],
+   "yoz": 1
+  },
+  "options": [
+   16,
+   26,
+   32,
+   40
+  ],
+  "javob": 32
+ }
 ]

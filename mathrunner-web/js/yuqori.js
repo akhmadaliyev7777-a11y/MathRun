@@ -6,6 +6,8 @@ const L = (grade, fan, name, id, gameKind, mashqNomlari) => ({ grade, fan, name,
 
 export const YUQORI = [
   L(6, 'Matematika', '4. Tenglamalarni yechish', 'y6_tenglama', 'balanceScale'),
+  L(6, 'Matematika', '29. Konus, silindr, prizma va piramida', 'y6_jismlar', 'netFold'),
+  L(6, 'Matematika', '31. Fazoviy jismlarning yoyilmasi', 'y6_yoyilma', 'netFold'),
   L(7, 'Matematika', '5.1 Sodda chiziqli tenglamalar', 'y7_chiziqli', 'balanceScale'),
   L(7, 'Algebra', '25. Tenglamalar yechishning al-Xorazmiy usuli', 'y7a_xorazmiy', 'balanceScale'),
 ];

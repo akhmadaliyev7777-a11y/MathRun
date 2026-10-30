@@ -130,7 +130,12 @@ Fayllar: `robi-oddiy.png`, `robi-xursand.png`, `robi-tushuntiradi.png`, `robi-oy
 > a flat tray with exactly 10×10 small candies; a purple gift box with a yellow ribbon. Soft 3D cartoon style,
 > transparent background, no text. 512×512 each.
 
+## 8. Yoyilma — origami ustaxonasi
+**8.1 Fon** (`yoyilma-ustaxona.png`):
+> A cozy origami workshop seen from above a wooden desk: a green self-healing cutting mat with a white grid in the
+> center, colorful paper sheets, a few paper cranes, pencils, scissors and a ruler around the edges, warm daylight.
+> The cutting mat area must stay empty and calm. Soft 3D cartoon style, no text. Portrait 1080×1600.
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
-- Yoyilma — origami ustaxonasi
 - Koordinata — xazina oroli xaritasi
 Har birining promptlari o'sha o'yinga o'tganda yoziladi. **Musiqa** ham keyinroq qo'shiladi.

@@ -1,222 +1,742 @@
 [
-  {
-    "id": "sinf4_chorak4_blok65_level1_pyoy_01",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Piramidada 1 ta kvadrat asos va 4 ta uchburchak yon yoq bor",
-    "target": "squarePyramid",
-    "options": [
-      "squarePyramid",
-      "cube",
-      "triangularPrism"
+ {
+  "id": "g4c4b65l1_01",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     1,
+     "t"
+    ],
+    [
+     1,
+     "b"
     ]
+   ],
+   "aylan": 0
   },
-  {
-    "id": "sinf4_chorak4_blok65_level1_pyoy_02",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Piramida yoyilmasi: markazda kvadrat, atrofida uchburchaklar",
-    "target": "squarePyramid",
-    "options": [
-      "cube",
-      "squarePyramid",
-      "cylinder"
+  "target": "triangularPrism",
+  "options": [
+   "cube",
+   "triangularPrism",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "g4c4b65l1_02",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 1
+  },
+  "target": "squarePyramid",
+  "options": [
+   "cuboid",
+   "cube",
+   "squarePyramid"
+  ]
+ },
+ {
+  "id": "g4c4b65l1_03",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     3,
+     1
     ]
+   ]
   },
-  {
-    "id": "sinf4_chorak4_blok65_level1_pyoy_03",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kvadrat asos va 4 ta uchburchak",
-    "target": "squarePyramid",
-    "options": [
-      "squarePyramid",
-      "cuboid",
-      "cone"
+  "target": "cube",
+  "options": [
+   "cube",
+   "triangularPrism",
+   "cone"
+  ]
+ },
+ {
+  "id": "g4c4b65l1_04",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 1
+  },
+  "target": "squarePyramid",
+  "options": [
+   "squarePyramid",
+   "triangularPrism",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "g4c4b65l1_05",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 3
+  },
+  "target": "squarePyramid",
+  "options": [
+   "cylinder",
+   "triangularPrism",
+   "squarePyramid"
+  ]
+ },
+ {
+  "id": "g4c4b65l1_06",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 0
+  },
+  "target": "squarePyramid",
+  "options": [
+   "cuboid",
+   "squarePyramid",
+   "cone"
+  ]
+ },
+ {
+  "id": "g4c4b65l1_07",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     0,
+     "t"
+    ],
+    [
+     1,
+     "b"
     ]
+   ],
+   "aylan": 3
   },
-  {
-    "id": "sinf4_chorak4_blok65_level1_pyoy_04",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Prizmada 2 ta bir xil asos, piramidada 1 ta asos bor",
-    "target": "triangularPrism",
-    "options": [
-      "triangularPrism",
-      "squarePyramid",
-      "cube"
+  "target": "triangularPrism",
+  "options": [
+   "cube",
+   "triangularPrism",
+   "cone"
+  ]
+ },
+ {
+  "id": "g4c4b65l1_08",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "piramida",
+   "aylan": 0
+  },
+  "target": "squarePyramid",
+  "options": [
+   "cube",
+   "squarePyramid",
+   "triangularPrism"
+  ]
+ },
+ {
+  "id": "g4c4b65l1_09",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "konus",
+   "aylan": 1
+  },
+  "target": "cone",
+  "options": [
+   "cone",
+   "cube",
+   "squarePyramid"
+  ]
+ },
+ {
+  "id": "g4c4b65l1_10",
+  "tur": "jism",
+  "prompt": "Bu yoyilmadan qaysi jism chiqadi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
     ]
+   ],
+   "dims": [
+    3,
+    2,
+    4
+   ]
   },
-  {
-    "id": "sinf4_chorak4_blok65_level1_pyoy_05",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Piramidada barcha yon yoqlar bitta cho'qqida birlashadi",
-    "target": "squarePyramid",
-    "options": [
-      "squarePyramid",
-      "triangularPrism",
-      "cylinder"
+  "target": "cuboid",
+  "options": [
+   "squarePyramid",
+   "triangularPrism",
+   "cuboid"
+  ]
+ },
+ {
+  "id": "g4c4b65l1_11",
+  "tur": "yoyilmasi",
+  "jism": "squarePyramid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "konus",
+    "aylan": 0
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      2,
+      "t"
+     ],
+     [
+      1,
+      "b"
+     ]
+    ],
+    "aylan": 0
+   },
+   {
+    "tur": "piramida",
+    "aylan": 1
+   }
+  ],
+  "javob": 2
+ },
+ {
+  "id": "g4c4b65l1_12",
+  "tur": "yoyilmasi",
+  "jism": "squarePyramid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      2,
+      0
+     ]
     ]
-  },
-  {
-    "id": "sinf4_chorak4_blok65_level1_pyoy_06",
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadrat, piramida 1 kvadrat + 4 uchburchak",
-    "target": "cube",
-    "options": [
-      "cube",
-      "squarePyramid",
-      "cone"
+   },
+   {
+    "tur": "piramida",
+    "aylan": 0
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      10,
+      "t"
+     ],
+     [
+      8,
+      "b"
+     ]
+    ],
+    "aylan": 2
+   }
+  ],
+  "javob": 1
+ },
+ {
+  "id": "g4c4b65l1_13",
+  "tur": "yoyilmasi",
+  "jism": "cube",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "konus",
+    "aylan": 0
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      2,
+      0
+     ]
     ]
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Piramidada barcha yon yoqlar bitta cho'qqida birlashadi",
-    "target": "squarePyramid",
-    "options": [
-      "squarePyramid",
-      "cylinder",
-      "cube"
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      5
+     ]
+    ]
+   }
+  ],
+  "javob": 1
+ },
+ {
+  "id": "g4c4b65l1_14",
+  "tur": "yoyilmasi",
+  "jism": "squarePyramid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "piramida",
+    "aylan": 1
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      1,
+      "t"
+     ],
+     [
+      3,
+      "b"
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x01"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kubning 6 ta bir xil kvadrat yog'i bor",
-    "target": "cube",
-    "options": [
-      "squarePyramid",
-      "cylinder",
-      "cube"
+    "aylan": 0
+   },
+   {
+    "tur": "konus",
+    "aylan": 0
+   }
+  ],
+  "javob": 0
+ },
+ {
+  "id": "g4c4b65l1_15",
+  "tur": "yoyilmasi",
+  "jism": "cone",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      1,
+      "t"
+     ],
+     [
+      10,
+      "b"
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x02"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Uchburchakli prizmada 9 ta qirra va 6 ta uch bor",
-    "target": "triangularPrism",
-    "options": [
-      "triangularPrism",
-      "cuboid",
-      "cube"
+    "aylan": 0
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      1
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      3,
+      1
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x03"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kvadrat asos va 4 ta uchburchak",
-    "target": "squarePyramid",
-    "options": [
-      "squarePyramid",
-      "cube",
-      "triangularPrism"
+    "dims": [
+     2,
+     4,
+     3
+    ]
+   },
+   {
+    "tur": "konus",
+    "aylan": 0
+   }
+  ],
+  "javob": 2
+ },
+ {
+  "id": "g4c4b65l1_16",
+  "tur": "yoyilmasi",
+  "jism": "squarePyramid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      2
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x04"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kubda 6 ta yoq, 12 ta qirra va 8 ta uch bor",
-    "target": "cube",
-    "options": [
-      "cube",
-      "squarePyramid",
-      "triangularPrism"
+    "dims": [
+     3,
+     2,
+     2
+    ]
+   },
+   {
+    "tur": "piramida",
+    "aylan": 1
+   },
+   {
+    "tur": "konus",
+    "aylan": 3
+   }
+  ],
+  "javob": 1
+ },
+ {
+  "id": "g4c4b65l1_17",
+  "tur": "yoyilmasi",
+  "jism": "squarePyramid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      7,
+      "t"
+     ],
+     [
+      0,
+      "b"
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x05"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Uchburchakli prizmada 2 ta uchburchak va 3 ta to'rtburchak bor",
-    "target": "triangularPrism",
-    "options": [
-      "cylinder",
-      "cube",
-      "triangularPrism"
+    "aylan": 0
+   },
+   {
+    "tur": "piramida",
+    "aylan": 1
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      3,
+      2
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x06"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Piramidaning hamma yon yoqlari bitta cho'qqida birlashadi",
-    "target": "squarePyramid",
-    "options": [
-      "cuboid",
-      "squarePyramid",
-      "cube"
+    "dims": [
+     4,
+     2,
+     2
+    ]
+   }
+  ],
+  "javob": 1
+ },
+ {
+  "id": "g4c4b65l1_18",
+  "tur": "yoyilmasi",
+  "jism": "triangularPrism",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      0,
+      "t"
+     ],
+     [
+      1,
+      "b"
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x07"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kubning barcha yoqlari bir xil kvadrat",
-    "target": "cube",
-    "options": [
-      "cuboid",
-      "cube",
-      "cone"
+    "aylan": 0
+   },
+   {
+    "tur": "prizma",
+    "uchlar": [
+     [
+      0,
+      "b"
+     ],
+     [
+      1,
+      "b"
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x08"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Prizmada 2 ta bir xil asos, piramidada 1 ta asos bor",
-    "target": "triangularPrism",
-    "options": [
-      "triangularPrism",
-      "cone",
-      "cuboid"
+    "aylan": 3
+   },
+   {
+    "tur": "piramida",
+    "aylan": 1
+   }
+  ],
+  "javob": 0
+ },
+ {
+  "id": "g4c4b65l1_19",
+  "tur": "yoyilmasi",
+  "jism": "squarePyramid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "piramida",
+    "aylan": 0
+   },
+   {
+    "tur": "konus",
+    "aylan": 0
+   },
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      2,
+      0
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x09"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Piramidaning hamma yon yoqlari bitta cho'qqida birlashadi",
-    "target": "squarePyramid",
-    "options": [
-      "cube",
-      "squarePyramid",
-      "cylinder"
+    "dims": [
+     3,
+     4,
+     2
+    ]
+   }
+  ],
+  "javob": 0
+ },
+ {
+  "id": "g4c4b65l1_20",
+  "tur": "yoyilmasi",
+  "jism": "cuboid",
+  "prompt": "Bu jismning yoyilmasi qaysi?",
+  "variantlar": [
+   {
+    "tur": "grid",
+    "cells": [
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      2
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x10"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kubning barcha yoqlari bir xil kvadrat",
-    "target": "cube",
-    "options": [
-      "cube",
-      "cylinder",
-      "squarePyramid"
+    "dims": [
+     2,
+     4,
+     3
+    ]
+   },
+   {
+    "tur": "konus",
+    "aylan": 0
+   },
+   {
+    "tur": "silindr",
+    "doiralar": [
+     [
+      10,
+      "t"
+     ],
+     [
+      4,
+      "b"
+     ]
     ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x11"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Uchburchakli prizmada 9 ta qirra va 6 ta uch bor",
-    "target": "triangularPrism",
-    "options": [
-      "triangularPrism",
-      "cylinder",
-      "squarePyramid"
-    ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x12"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Piramidada 1 ta kvadrat asos va 4 ta uchburchak yon yoq bor",
-    "target": "squarePyramid",
-    "options": [
-      "triangularPrism",
-      "cylinder",
-      "squarePyramid"
-    ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x13"
-  },
-  {
-    "prompt": "Bu shaklning yoyilmasi qaysi?",
-    "hint": "Kub 6 ta kvadrat, piramida 1 kvadrat + 4 uchburchak",
-    "target": "cube",
-    "options": [
-      "cylinder",
-      "cube",
-      "squarePyramid"
-    ],
-    "id": "sinf4_chorak4_blok65_level1_pyoy_x14"
-  }
+    "aylan": 0
+   }
+  ],
+  "javob": 0
+ }
 ]

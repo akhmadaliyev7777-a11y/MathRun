@@ -8,7 +8,7 @@ export const GAME_META = [
   { kind: 'placeValue', name: 'Xona tarkibi', desc: 'Buyurtmaga ko\'ra konfetlarni xonalar bo\'yicha qutiga yig\'ing', icon: 'columns', color: 'var(--orange)', dark: '#c47a12' },
   { kind: 'balanceScale', name: 'Tarozi', desc: 'Tarozi muvozanatidan noma\'lum og\'irlikni toping', icon: 'scale', color: 'var(--peri)', dark: '#3f56c4' },
   { kind: 'symmetry', name: 'Simmetriya', desc: 'Simmetriya o\'qiga nisbatan shaklni to\'ldiring', icon: 'mirror', color: 'var(--pink)', dark: '#c43fa6' },
-  { kind: 'netFold', name: 'Yoyilma', desc: 'Bu yoyilma qaysi hajmli shaklni hosil qiladi?', icon: 'net', color: '#C26A4A', dark: '#9a4f34' },
+  { kind: 'netFold', name: 'Yoyilma', desc: 'Yoyilmani ko\'z oldingizda buklang: qaysi jism chiqadi, yig\'iladimi?', icon: 'net', color: '#C26A4A', dark: '#9a4f34' },
   { kind: 'equationGrid', name: 'Jadval', desc: 'Bo\'sh katakni to\'g\'ri son bilan to\'ldiring', icon: 'grid', color: 'var(--amber, #E0A21E)', dark: '#b07d10' },
   { kind: 'algorithmConveyor', name: 'Saralash', desc: 'Har bir mulohaza uchun "Ha" yoki "Yo\'q"', icon: 'spark', color: 'var(--sky)', dark: '#2f7fb0' },
   { kind: 'fractionStrip', name: 'Ulush tasmasi', desc: "Tasmaning kerakli qismini bo'yang", icon: 'frac', color: 'var(--pink)', dark: '#c43fa6' },

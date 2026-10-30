@@ -1,0 +1,728 @@
+[
+ {
+  "id": "y6yoyilma_01",
+  "tur": "qarama",
+  "prompt": "★ belgili yoqning qarshisidagi yoqni bosing",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     0
+    ]
+   ]
+  },
+  "belgi": 3,
+  "javob": 2
+ },
+ {
+  "id": "y6yoyilma_02",
+  "tur": "qarama",
+  "prompt": "★ belgili yoqning qarshisidagi yoqni bosing",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     3
+    ]
+   ]
+  },
+  "belgi": 3,
+  "javob": 4
+ },
+ {
+  "id": "y6yoyilma_03",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ]
+  },
+  "javob": true
+ },
+ {
+  "id": "y6yoyilma_04",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     0
+    ]
+   ]
+  },
+  "javob": true
+ },
+ {
+  "id": "y6yoyilma_05",
+  "tur": "qarama",
+  "prompt": "★ belgili yoqning qarshisidagi yoqni bosing",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     1
+    ]
+   ]
+  },
+  "belgi": 5,
+  "javob": 2
+ },
+ {
+  "id": "y6yoyilma_06",
+  "tur": "qarama",
+  "prompt": "★ belgili yoqning qarshisidagi yoqni bosing",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
+    ]
+   ]
+  },
+  "belgi": 2,
+  "javob": 1
+ },
+ {
+  "id": "y6yoyilma_07",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     0
+    ]
+   ]
+  },
+  "javob": false
+ },
+ {
+  "id": "y6yoyilma_08",
+  "tur": "qarama",
+  "prompt": "★ belgili yoqning qarshisidagi yoqni bosing",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     3,
+     1
+    ]
+   ]
+  },
+  "belgi": 1,
+  "javob": 2
+ },
+ {
+  "id": "y6yoyilma_09",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     3
+    ]
+   ]
+  },
+  "javob": true
+ },
+ {
+  "id": "y6yoyilma_10",
+  "tur": "kubmi",
+  "jism": "cube",
+  "prompt": "Bu yoyilmadan kub yasab bo'ladimi?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ]
+  },
+  "javob": false
+ },
+ {
+  "id": "y6yoyilma_11",
+  "tur": "kubmi",
+  "jism": "triangularPrism",
+  "prompt": "Bu yoyilmadan uchburchakli prizma yasab bo'ladimi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     0,
+     "t"
+    ],
+    [
+     2,
+     "t"
+    ]
+   ],
+   "aylan": 0
+  },
+  "javob": false
+ },
+ {
+  "id": "y6yoyilma_12",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "dims": [
+    9,
+    3,
+    3
+   ],
+   "yoz": 1
+  },
+  "options": [
+   63,
+   117,
+   126,
+   180
+  ],
+  "javob": 126
+ },
+ {
+  "id": "y6yoyilma_13",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "dims": [
+    3,
+    3,
+    4
+   ],
+   "yoz": 1
+  },
+  "options": [
+   33,
+   54,
+   66,
+   84
+  ],
+  "javob": 66
+ },
+ {
+  "id": "y6yoyilma_14",
+  "tur": "kubmi",
+  "jism": "cylinder",
+  "prompt": "Bu yoyilmadan silindr yasab bo'ladimi?",
+  "yoy": {
+   "tur": "silindr",
+   "doiralar": [
+    [
+     3,
+     "t"
+    ],
+    [
+     1,
+     "b"
+    ]
+   ],
+   "aylan": 2
+  },
+  "javob": true
+ },
+ {
+  "id": "y6yoyilma_15",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     3
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "dims": [
+    8,
+    4,
+    4
+   ],
+   "yoz": 1
+  },
+  "options": [
+   80,
+   144,
+   160,
+   224
+  ],
+  "javob": 160
+ },
+ {
+  "id": "y6yoyilma_16",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     2,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "dims": [
+    6,
+    3,
+    3
+   ],
+   "yoz": 1
+  },
+  "options": [
+   45,
+   81,
+   90,
+   126
+  ],
+  "javob": 90
+ },
+ {
+  "id": "y6yoyilma_17",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "dims": [
+    9,
+    3,
+    3
+   ],
+   "yoz": 1
+  },
+  "options": [
+   63,
+   117,
+   126,
+   180
+  ],
+  "javob": 126
+ },
+ {
+  "id": "y6yoyilma_18",
+  "tur": "kubmi",
+  "jism": "triangularPrism",
+  "prompt": "Bu yoyilmadan uchburchakli prizma yasab bo'ladimi?",
+  "yoy": {
+   "tur": "prizma",
+   "uchlar": [
+    [
+     1,
+     "t"
+    ],
+    [
+     1,
+     "b"
+    ]
+   ],
+   "aylan": 3
+  },
+  "javob": true
+ },
+ {
+  "id": "y6yoyilma_19",
+  "tur": "kubmi",
+  "jism": "cylinder",
+  "prompt": "Bu yoyilmadan silindr yasab bo'ladimi?",
+  "yoy": {
+   "tur": "silindr",
+   "doiralar": [
+    [
+     0,
+     "b"
+    ],
+    [
+     6,
+     "b"
+    ]
+   ],
+   "aylan": 0
+  },
+  "javob": false
+ },
+ {
+  "id": "y6yoyilma_20",
+  "tur": "sirt",
+  "prompt": "Yoyilmaning (sirtning) yuzi necha kvadrat santimetr?",
+  "yoy": {
+   "tur": "grid",
+   "cells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "dims": [
+    9,
+    5,
+    2
+   ],
+   "yoz": 1
+  },
+  "options": [
+   73,
+   136,
+   146,
+   236
+  ],
+  "javob": 146
+ }
+]

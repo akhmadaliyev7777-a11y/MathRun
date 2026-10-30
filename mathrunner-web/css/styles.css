@@ -1544,3 +1544,75 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
   .fab-chek b { font-size: 20px; }
 }
 @media (prefers-reduced-motion: reduce) { .fab-quti, .bu--uch { transition: none; } .fab-chek.yangi, .fab-quti.kel { animation: none; } }
+
+/* ===== O'yin sahnasi — origami ustaxonasi (Yoyilma) ===== */
+.sahna--origami { color: #3a2a1e;
+  background: radial-gradient(50% 35% at 85% 8%, rgba(255,240,200,.6), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(90,50,20,.06) 0 2px, transparent 2px 38px),
+    linear-gradient(180deg, #f3dcb8 0%, #e8c896 60%, #d9b27a 100%); }
+.sahna--origami .hud { background: rgba(255,255,255,.55); color: #3a2a1e; border-color: rgba(255,255,255,.85); }
+.sahna--origami .hud__mute { background: #fff; border-color: #e6d2b0; color: #8a5a2a; }
+.sahna--origami .hud__combo { color: #e8590c; text-shadow: none; }
+/* devordagi qog'oz turna va qalam (bezak) */
+.origami__turna { position: absolute; z-index: 0; right: 14px; top: 64px; width: 54px; height: 40px; pointer-events: none; opacity: .9;
+  background: linear-gradient(135deg, transparent 49%, #ff8fa3 50%) 0 0 / 50% 100% no-repeat, linear-gradient(225deg, transparent 49%, #ff6b8a 50%) 100% 0 / 50% 100% no-repeat;
+  clip-path: polygon(0 60%, 30% 20%, 50% 55%, 70% 0, 100% 45%, 60% 70%, 40% 100%); animation: g-bob 4s ease-in-out infinite; }
+.origami__qalam { position: absolute; z-index: 0; left: -10px; bottom: 120px; width: 120px; height: 12px; border-radius: 2px 6px 6px 2px; transform: rotate(-12deg); pointer-events: none;
+  background: linear-gradient(90deg, #333 0 6px, #f4c27a 6px 18px, #ffd23f 18px 100%); clip-path: polygon(0 50%, 18px 0, 100% 0, 100% 100%, 18px 100%); opacity: .85; }
+.yoy-savol { position: relative; z-index: 2; text-align: center; font-family: var(--f-head); font-weight: 900; font-size: 18px; margin: 2px 0 8px; color: #3a2a1e; }
+/* yashil kesish taxtasi */
+.yoy-mat { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; border-radius: 14px; padding: 6px;
+  background: linear-gradient(180deg, #2f8f6b, #237556); box-shadow: inset 0 0 0 2px rgba(255,255,255,.15), 0 8px 14px rgba(80,50,20,.3); }
+.yoy-taxta { position: relative; height: 250px; border-radius: 10px; overflow: hidden;
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,.14) 0 1px, transparent 1px 20px), repeating-linear-gradient(90deg, rgba(255,255,255,.14) 0 1px, transparent 1px 20px), #2b8a65;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.yoy-sahna { position: absolute; inset: 0; perspective: 900px; perspective-origin: 50% 30%; }
+.yoy-kamera, .yoy-aylana { position: absolute; left: 0; top: 0; transform-style: preserve-3d; }
+.yoy-kamera { width: 0; height: 0; }
+.buklandi .yoy-aylana { animation: g-yoy-aylan 9s linear infinite; }
+@keyframes g-yoy-aylan { to { transform: rotateZ(360deg); } }
+.yq { position: absolute; transform-style: preserve-3d; cursor: default; background: var(--rang);
+  box-shadow: inset 0 0 0 1.5px rgba(70,40,30,.75); backface-visibility: visible; }
+.yq--rect { background-image: linear-gradient(135deg, rgba(255,255,255,.35), transparent 60%), radial-gradient(rgba(255,255,255,.25) 1px, transparent 1.5px); background-size: auto, 8px 8px; }
+.yq--tri { box-shadow: none; filter: drop-shadow(0 0 0 #4a2a1e); background-image: linear-gradient(160deg, rgba(255,255,255,.35), transparent 60%); }
+.yq--disc { border-radius: 50%; }
+.yq--tasma { box-shadow: inset 0 1.5px 0 rgba(70,40,30,.75), inset 0 -1.5px 0 rgba(70,40,30,.75); }
+.yq--tasma.yq--chet-l { box-shadow: inset 1.5px 1.5px 0 rgba(70,40,30,.75), inset 0 -1.5px 0 rgba(70,40,30,.75); }
+.yq--tasma.yq--chet-r { box-shadow: inset -1.5px 1.5px 0 rgba(70,40,30,.75), inset 0 -1.5px 0 rgba(70,40,30,.75); }
+.yq__yoz { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--f-head); font-weight: 900; font-size: 13px; color: #3a2a1e; pointer-events: none; }
+.yq__belgi { position: absolute; inset: 0; display: grid; place-items: center; font-size: 26px; color: #b45309; text-shadow: 0 1px 0 #fff; pointer-events: none; }
+.yq--ok { background: #5ee08f !important; box-shadow: inset 0 0 0 3px #15803d, 0 0 16px rgba(94,224,143,.8); }
+.yq--bad { background: #ff8a8a !important; box-shadow: inset 0 0 0 3px #b91c1c; }
+.yq--belgi { background: #ffd166 !important; box-shadow: inset 0 0 0 3px #b45309; }
+.yq--ust { background: #ff5c5c !important; box-shadow: inset 0 0 0 3px #7f1d1d; animation: g-ust .6s ease-in-out 3; }
+@keyframes g-ust { 50% { filter: brightness(1.4); } }
+.yoy-konus { position: absolute; left: 0; top: 0; }
+.yoy-konus svg { width: 100%; height: 100%; display: block; }
+.konus-ket .yoy-konus { transition: opacity .6s, transform .6s; opacity: 0; transform: scale(.6); }
+.yoy-jism { position: absolute; left: 50%; top: 50%; width: 150px; height: 140px; margin: -70px 0 0 -75px; animation: g-pop .5s; filter: drop-shadow(0 8px 8px rgba(0,0,0,.3)); }
+.yoy-jism svg, .jism-svg { width: 100%; height: 100%; display: block; }
+.yoy-jism--katta { position: static; margin: 0; width: 170px; height: 150px; animation: g-bob 3s ease-in-out infinite; }
+.yoy-jismnom { font-family: var(--f-head); font-weight: 900; font-size: 18px; color: #fff; text-shadow: 0 2px 0 rgba(0,0,0,.3); }
+/* javob tugmalari — qog'oz kartochkalar */
+.yoy-javoblar { position: relative; z-index: 2; display: flex; justify-content: center; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.yoy-jt { position: relative; flex: 1; min-width: 92px; max-width: 160px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 6px 8px; border-radius: 12px; cursor: pointer;
+  background: #fffaf0; border: 2px solid #e6d2b0; box-shadow: 0 4px 0 #d6b98a; font-family: var(--f-head); color: #3a2a1e; transition: transform .08s, box-shadow .08s; }
+.yoy-jt:hover:not(:disabled) { transform: translateY(-2px); }
+.yoy-jt:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 #d6b98a; }
+.yoy-jt:disabled { cursor: default; }
+.yoy-jt b { font-size: 14px; font-weight: 900; }
+.yoy-javoblar--hayoq .yoy-jt b { font-size: 20px; padding: 6px 0; }
+.yoy-jt__rasm { width: 58px; height: 54px; }
+.yoy-jt__yoy { width: 100%; height: 86px; display: flex; align-items: center; justify-content: center; }
+.yoy-mini { max-width: 100%; max-height: 86px; }
+.yoy-jt__key { position: absolute; top: 4px; left: 7px; font-size: 10px; font-weight: 800; color: #b39a78; }
+.yoy-jt.is-ok { border-color: #22c55e; background: #eafff1; box-shadow: 0 4px 0 #16a34a, 0 0 14px rgba(34,197,94,.5); }
+.yoy-jt.is-bad { border-color: #ef4444; background: #fff0f0; box-shadow: 0 4px 0 #b91c1c; animation: g-shake .45s; }
+@media (max-width: 520px) {
+  .yoy-taxta { height: 220px; }
+  .yoy-jt { min-width: 0; padding: 8px 4px 6px; } .yoy-jt b { font-size: 12.5px; }
+  .yoy-jt__rasm { width: 48px; height: 44px; } .yoy-jt__yoy { height: 70px; } .yoy-mini { max-height: 70px; }
+  .yoy-savol { font-size: 16px; }
+  .origami__qalam { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .buklandi .yoy-aylana, .origami__turna, .yoy-jism--katta { animation: none; } }
