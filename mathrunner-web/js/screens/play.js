@@ -1,7 +1,7 @@
 import { el, loadJSON, saveBest, starsFor } from '../util.js';
 import { levelById, applyKingdom, nav, footer } from '../app.js';
 import { renderResult } from './result.js';
-import { GAMES } from '../games/index.js';
+import { GAMES } from '../games/index.js?v=4';
 import { MASHQ_SIZE } from '../topicTitles.js';
 
 export async function render(root, [levelId, mashqStr]) {
@@ -37,7 +37,7 @@ export async function render(root, [levelId, mashqStr]) {
     backHash: `#/g/${grade.grade}/c/${chorak.chorak}`,
     finish: (correct, total, extra = {}) => {
       const stars = starsFor(correct, total);
-      const score = correct * 10 + (extra.longestStreak || 0) * 5;
+      const score = extra.score ?? (correct * 10 + (extra.longestStreak || 0) * 5);   // o'yin o'z ochkosini hisoblasa — shu
       const { improved, prevScore } = saveBest(ctx.bestKey, stars, score);
       renderResult(ctx, { correct, total, stars, score, improved, prevScore, ...extra });
     },
