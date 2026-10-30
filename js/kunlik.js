@@ -4,7 +4,7 @@
 window.KUNLIK = [
   {
     sana: "2026-10-30",
-    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan), «Xona tarkibi» — shirinliklar fabrikasi, «Yoyilma» — origami ustaxonasi (3D buklanish); o'yinga kirishdan oldin mavzu tanlanadi.",
+    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan), «Xona tarkibi» — shirinliklar fabrikasi, «Yoyilma» — origami ustaxonasi (3D buklanish), «Ulush tasmasi» — bog'dagi devor va har xil bo'lakli shakllar; o'yinga kirishdan oldin mavzu tanlanadi.",
     ishlar: [
       ["1–4-sinf", "O'yinlar tahlil qilindi: 12 ta o'yindan 7 tasida javob to'g'ri-xatoligi aytilmasdi, sababi ko'rsatilmasdi, ish varag'iga o'xshardi. Har o'yin alohida, o'z «dunyosi»da qayta quriladi."],
       ["1–4-sinf", "Hamma o'yinlar uchun umumiy panel: yuraklar, ochko, kombo, «Tez!» bonusi, ovoz (o'chirish tugmasi), yangi o'yin personaji — kosmik robot Robi: har javobdan keyin sababini bir qatorda aytadi."],
@@ -22,6 +22,9 @@ window.KUNLIK = [
       ["1–4-sinf", "«Xona tarkibi»ga yangi mavzular: 2-sinf 5-mavzu (xona birliklari), 3-sinf 5-mavzu (minglar), 4-sinf 1-mavzu (joy qiymati); 1-sinfdagi takror sonlar almashtirildi. 120 buyurtma tekshirildi."],
       ["1–4-sinf", "«Yoyilma» — origami ustaxonasi: yashil kesish taxtasi ustida rangli qog'ozdan yoyilma, javobdan keyin u ko'z oldida 3D da buklanib jismga aylanadi. 5 xil topshiriq: qaysi jism chiqadi, yig'iladimi (11 xil kub yoyilmasi va noto'g'rilari), ★ yoqqa qarama-qarshi yoq, jismning yoyilmasini tanlash, sirt yuzi. 180 topshiriq tekshirildi."],
       ["6-sinf", "«Yoyilma» o'yiniga 6-sinf «29. Konus, silindr, prizma va piramida» va «31. Fazoviy jismlarning yoyilmasi» qo'shildi."],
+      ["1–4-sinf", "«Ulush tasmasi» — bog'dagi devorni bo'yash: taxtalar teng bo'laklar, chelak yorlig'ida kasr (ustunli); kasrni bo'yash, sonning ulushi (12 ning 1/4 qismi), qo'shish (ko'k + sariq), ayirish (yuvish), foiz va o'nli kasr, bo'yalgan qismni o'qish."],
+      ["1–4-sinf", "«Ulush tasmasi»ga Brilliant g'oyasidagi shakllar: kvadrat, to'g'ri to'rtburchak, oltiburchak, uchburchak, romb, trapetsiya har xil kattalikdagi bo'laklarga bo'lingan — sanab emas, kattaligiga qarab bo'yash; «Bo'yalgan qism 1/4 mi?», «Qancha qismi bo'yalgan?», shaklda qo'shish. 3-sinf 33, 45, 4-sinf 41, 48 da 36 ta."],
+      ["5-sinf", "«Ulush tasmasi» o'yiniga 5-sinf «32. Foiz tushunchasi» va «33. Oddiy kasr, o'nli kasr va foiz orasidagi bog'lanish» qo'shildi."],
       ["Ish tartibi", "O'yin rasmlari (Robi, fonlar, sayyoralar, meteorit, poyezd) GPT'da yasaladi — promptlar tayyor; keyinroq musiqa qo'shiladi."]
     ]
   },
