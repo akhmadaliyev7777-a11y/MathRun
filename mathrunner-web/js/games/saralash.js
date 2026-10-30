@@ -6,7 +6,7 @@
 // Mashq 2 raund × 5 kartochka; raundda 3 ta yurak; tugasa — qolganlari o'zi saralanadi.
 import { el, shuffle } from '../util.js';
 import { shell } from './shell.js?v=4';
-import { hud, buddy, sfx, floatText } from './hud.js?v=4';
+import { hud, buddy, sfx, floatText } from './hud.js?v=6';
 
 const fmt = (n) => (n >= 1000 ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : String(n));
 const yaxlit = (n) => Math.round(n / 10) * 10;
@@ -57,7 +57,7 @@ const TISHLI = (r, n) => `<svg viewBox="-50 -50 100 100" xmlns="http://www.w3.or
 export function gameConveyor(ctx) {
   const all = shuffle(ctx.bank);                    // bankda Ha/Yo'q navbatma-navbat — aralashtiramiz
   const s = shell(ctx, 'Har bir mulohaza uchun "Ha" yoki "Yo\'q" ni tanlang', 'spark');
-  const H = hud(3);
+  const H = hud(3, 'zavod');
   const B = buddy();
   const RAUND = 5;
   const rounds = [];

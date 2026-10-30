@@ -5,7 +5,7 @@
 // aytadi (har to'plamga alohida ✓ / ✗). Raundda 3 ta yurak; tugasa — qolgan meteoritlar o'zi joyiga tushadi.
 import { el, shuffle } from '../util.js';
 import { shell } from './shell.js';
-import { hud, buddy, sfx, floatText } from './hud.js?v=4';
+import { hud, buddy, sfx, floatText } from './hud.js?v=6';
 import { RASM } from './rasmlar.js?v=2';
 
 const inA = (z) => z === 'onlyA' || z === 'both';
@@ -14,7 +14,7 @@ const inB = (z) => z === 'onlyB' || z === 'both';
 export function gameSet(ctx) {
   const tasks = ctx.bank;
   const s = shell(ctx, tasks[0].prompt, 'venn', true);
-  const H = hud(3);
+  const H = hud(3, 'kosmos');
   const B = buddy();
   let idx = 0, right = 0, placedAll = 0, longest = 0;
   const times = [];

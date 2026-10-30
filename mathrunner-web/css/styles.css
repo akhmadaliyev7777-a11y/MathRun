@@ -2172,3 +2172,4 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
   #app:has(.tug-sahna):not(:fullscreen) { position: fixed; top: 0; left: 100vw; z-index: 50; width: 100vh; width: 100dvh; height: 100vw;
     transform-origin: 0 0; transform: rotate(90deg); background: var(--cream); }
 }
+.hud__musiqa + .hud__mute { margin-left: 6px; }

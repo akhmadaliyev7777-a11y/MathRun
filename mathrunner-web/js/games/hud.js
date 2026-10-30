@@ -1,6 +1,7 @@
 // O'yin paneli (hamma o'yinlar uchun umumiy): yuraklar, ochko, kombo, ovoz, uchuvchi «+10», personaj pufagi.
 import { el } from '../util.js';
 import { RASM, robiSVG } from './rasmlar.js?v=2';
+import { musiqaBoshla, musiqaAlmashtir, musiqaYoqiqmi } from './musiqa.js?v=2';
 
 // ---- ovoz: fayl kerak emas, brauzerning o'zi qisqa ohang chaladi; tanlov eslab qolinadi ----
 const OVOZ_KEY = 'mw-ovoz';
@@ -28,7 +29,8 @@ export const sfx = {
 };
 
 // ---- tepadagi panel ----
-export function hud(maxHearts = 3) {
+// musiqa — o'yin dunyosining fon kuyi (musiqa.js dagi KUYLAR kaliti)
+export function hud(maxHearts = 3, musiqa = null) {
   const st = { hearts: maxHearts, max: maxHearts, score: 0, combo: 0 };
   const hearts = el('span', { class: 'hud__hearts', 'aria-label': 'Jonlar' });
   const score = el('b', {}, '0');
@@ -43,7 +45,16 @@ export function hud(maxHearts = 3) {
     onclick: () => { muted = !muted; try { localStorage.setItem(OVOZ_KEY, muted ? '0' : '1'); } catch { /* */ } mute.innerHTML = ikon(); mute.setAttribute('aria-pressed', String(!muted)); mute.classList.toggle('is-off', muted); },
   });
   mute.innerHTML = ikon(); mute.classList.toggle('is-off', muted);
-  const node = el('div', { class: 'hud' }, hearts, el('span', { class: 'hud__pts' }, '⭐ ', score), combo, mute);
+  // musiqa tugmasi: nota (yoqiq) yoki ustidan chizilgan nota (o'chiq)
+  const notaIkon = () => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3" fill="currentColor" fill-opacity=".15"/><circle cx="17" cy="16" r="3" fill="currentColor" fill-opacity=".15"/>${musiqaYoqiqmi() ? '' : '<path d="M3 3l18 18"/>'}</svg>`;
+  const nota = musiqa ? el('button', {
+    class: 'hud__mute hud__musiqa', type: 'button', 'aria-label': 'Musiqani yoqish yoki o\'chirish', title: 'Musiqa',
+    onclick: () => { const on = musiqaAlmashtir(); nota.innerHTML = notaIkon(); nota.classList.toggle('is-off', !on); nota.setAttribute('aria-pressed', String(on)); },
+  }) : null;
+  if (nota) { nota.innerHTML = notaIkon(); nota.classList.toggle('is-off', !musiqaYoqiqmi()); }
+  const node = el('div', { class: 'hud' }, hearts, el('span', { class: 'hud__pts' }, '⭐ ', score), combo, nota, mute);
+  if (musiqa) setTimeout(() => musiqaBoshla(musiqa, node), 0);
   const drawHearts = () => hearts.replaceChildren(...Array.from({ length: st.max }, (_, i) =>
     el('i', { class: 'hud__heart' + (i < st.hearts ? '' : ' off') }, '❤')));
   const drawCombo = () => {

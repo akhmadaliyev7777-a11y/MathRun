@@ -5,7 +5,7 @@
 // Hamma vagon to'lsa — poyezd hushtak chalib jo'nab ketadi. Raundda 3 ta yurak; tugasa — qolgan qutilar o'zi ortiladi.
 import { el, shuffle } from '../util.js';
 import { shell } from './shell.js?v=4';
-import { hud, buddy, sfx, floatText } from './hud.js?v=4';
+import { hud, buddy, sfx, floatText } from './hud.js?v=6';
 
 const XONA = ['birlik', "o'nlik", 'yuzlik', 'minglik', "o'n minglik", "yuz minglik", 'million', "o'n million"];
 // 10 000 dan boshlab xonalar bo'sh joy bilan: 45 210
@@ -95,7 +95,7 @@ const ORMON = `<svg class="orman__fon" viewBox="0 0 400 300" preserveAspectRatio
 export function gameNumberOrder(ctx) {
   const tasks = ctx.bank;
   const s = shell(ctx, tasks[0].prompt, 'sort', true);
-  const H = hud(3);
+  const H = hud(3, 'orman');
   const B = buddy();
   let idx = 0, right = 0, placedAll = 0, longest = 0;
   const times = [];

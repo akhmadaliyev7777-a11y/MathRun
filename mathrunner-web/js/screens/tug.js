@@ -3,6 +3,7 @@ import { questionHTML, answerHTML, mathReady } from '../mathfmt.js';
 import { ICON } from '../icons.js';
 import { nav, footer, applyKingdom } from '../app.js';
 import { loadXLSXLib, parseQuestionsWorkbook } from '../xlsxImport.js';
+import { musiqaBoshla, musiqaToxtat, musiqaAlmashtir, musiqaYoqiqmi } from '../games/musiqa.js?v=2';
 
 // arqon tortish maydoni fonlari: har joyning kunduzgi (fon-<joy>.webp) va tungi (fon-<joy>-tun.webp) rasmi
 // (promptlar — design/oyin-kartochka-promptlar.md). TUN_BOR — tungi rasmi tayyor joylar; qolganlarida tunda tayyorlaridan biri chiqadi.
@@ -577,6 +578,7 @@ export async function render(root, _params) {
     function toxtat() {
       if (state.over || pauza || !arena.isConnected) return;
       if (tick) { clearInterval(tick); tick = null; }
+      musiqaToxtat();
       mainEl.classList.add('is-starting');
       pauza = el('div', { class: 'tug-end tug-pauza' },
         el('div', { class: 'tug-end__card' },
@@ -594,7 +596,13 @@ export async function render(root, _params) {
       if (state.starting) return;                 // sanoq tugaganda o'zi boshlanadi
       mainEl.classList.remove('is-starting');
       if (kutStart || !tick) { kutStart = false; startTimer(); }
+      musiqaBoshla('bellashuv', arena);
     }
+    // musiqa tugmasi (o'yinlardagi kabi): nota yoki ustidan chizilgan nota
+    const notaIkon = () => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>${musiqaYoqiqmi() ? '' : '<path d="M3 3l18 18"/>'}</svg>`;
+    const notaBtn = el('button', { class: 'tug-fsbtn', type: 'button', title: 'Musiqa', 'aria-label': 'Musiqani yoqish yoki o\'chirish',
+      onclick: () => { musiqaAlmashtir(); notaBtn.replaceChildren(el('span', { html: notaIkon() })); if (state.over || state.starting || pauza) musiqaToxtat(); } });
+    notaBtn.replaceChildren(el('span', { html: notaIkon() }));
     let ozimiz = false;   // tepadagi tugma bilan chiqildi — o'yin to'xtamaydi
     const fsIkon = () => fsBtn.replaceChildren(el('span', { html: (document.fullscreenElement || document.webkitFullscreenElement) ? FS_CHIQ : FS_KIR }));
     const fsBtn = el('button', { class: 'tug-fsbtn', type: 'button', title: "To'liq ekran", 'aria-label': "To'liq ekran",
@@ -615,6 +623,7 @@ export async function render(root, _params) {
     function finish(reachedGoal) {
       if (state.over) return;
       state.over = true;
+      musiqaToxtat();
       if (tick) clearInterval(tick);
       if (pauza) { pauza.remove(); pauza = null; }
       document.removeEventListener('keydown', onKey);
@@ -675,7 +684,7 @@ export async function render(root, _params) {
     root.replaceChildren(
       el('div', { class: 'tug-topbar' },
         el('div', { class: 'tug-teamlabel tug-teamlabel--blue' }, el('span', {}, names.blue), scoreBlue),
-        el('div', { class: 'tug-topbar__mid' }, el('div', { class: 'brand__name', style: 'color:var(--violet)' }, 'Mathlearn'), fsBtn),
+        el('div', { class: 'tug-topbar__mid' }, el('div', { class: 'brand__name', style: 'color:var(--violet)' }, 'Mathlearn'), notaBtn, fsBtn),
         el('div', { class: 'tug-teamlabel tug-teamlabel--red' }, scoreRed, el('span', {}, names.red))),
       el('div', { class: 'tug-sahna' }, fonKun, fonTun, mainEl));
     paintRig();
@@ -696,6 +705,7 @@ export async function render(root, _params) {
         if (pauza) { kutStart = true; return; }   // sanoq paytida to'xtatilgan — «Davom etish»da boshlanadi
         mainEl.classList.remove('is-starting');
         startTimer();
+        musiqaBoshla('bellashuv', arena);
       }
     }, 1000);
   }

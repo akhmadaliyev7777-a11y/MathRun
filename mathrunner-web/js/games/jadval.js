@@ -5,7 +5,7 @@
 // Raundda 3 ta yurak; tugasa — javob ko'rsatiladi. Hamma qulf ochilsa — sandiq ochiladi.
 import { el } from '../util.js';
 import { shell } from './shell.js?v=4';
-import { hud, buddy, sfx, floatText } from './hud.js?v=4';
+import { hud, buddy, sfx, floatText } from './hud.js?v=6';
 
 const BELGI = { '+': '+', '-': '−', '*': '×', '×': '×', '÷': ':', '/': ':' };
 const fmt = (n) => (Math.abs(n) >= 10000 ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : String(n));
@@ -52,7 +52,7 @@ const QULF = (ochiq) => `<svg viewBox="0 0 30 36" xmlns="http://www.w3.org/2000/
 export function gameEquationGrid(ctx) {
   const tasks = ctx.bank;
   const s = shell(ctx, tasks[0].prompt, 'grid', true);
-  const H = hud(3);
+  const H = hud(3, 'gor');
   const B = buddy();
   let idx = 0, right = 0, total = 0, longest = 0;
   const times = [];

@@ -4,11 +4,11 @@ import { el, shuffle } from '../util.js';
 import { ICON } from '../icons.js';
 
 import { shell, checkBtn, flash } from './shell.js?v=4';
-import { hud, buddy, sfx, floatText } from './hud.js?v=4';
-import { gameSet } from './venn.js?v=7';
-import { gameNumberOrder } from './tartib.js?v=12';
-import { gameEquationGrid } from './jadval.js?v=3';
-import { gameConveyor } from './saralash.js?v=8';
+import { hud, buddy, sfx, floatText } from './hud.js?v=6';
+import { gameSet } from './venn.js?v=9';
+import { gameNumberOrder } from './tartib.js?v=14';
+import { gameEquationGrid } from './jadval.js?v=5';
+import { gameConveyor } from './saralash.js?v=10';
 
 // ================= placeValue (Xona tarkibi — shirinliklar fabrikasi) =================
 // Buyurtmaga ko'ra qutiga konfet yig'iladi: birlik — bitta konfet, o'nlik — 10 konfetli rulon, yuzlik — 100 konfetli
@@ -57,7 +57,7 @@ const buyum = (i) => el('i', { class: ['bu bu--ming', 'bu bu--lagan', 'bu bu--ru
 function gamePlaceValue(ctx) {
   const all = [...ctx.bank];
   const s = shell(ctx, all[0].prompt, 'columns');
-  const H = hud(3);
+  const H = hud(3, 'shirinlik');
   const B = buddy();
   const raqamlar = Math.max(...all.map(t => String(t.targetNumber).length), ...all.map(t => (t.buyurtma?.x ? 4 - t.buyurtma.x.findIndex(v => v > 0) : 0)));
   const cols = [0, 1, 2, 3].slice(4 - Math.min(4, Math.max(2, raqamlar)));   // qutidagi bo'limlar (masalan o'nlar va birlar)
@@ -408,7 +408,7 @@ function matn(str, t) {
 function gameBalance(ctx) {
   const all = [...ctx.bank];
   const s = shell(ctx, 'Tarozi muvozanatda. Noma\'lumni toping.', 'scale');
-  const H = hud(3);
+  const H = hud(3, 'bozor');
   const B = buddy();
   const birinchi = ctx.grade?.grade === 1;   // 1-sinf hali bo'lishni bilmaydi — qo'shish bilan tushuntiramiz
   const RAUND = 5;
@@ -638,7 +638,7 @@ function koshinSabab(t, xato) {
 function gameSymmetry(ctx) {
   const all = ctx.bank.filter((t) => t.tur);
   const s = shell(ctx, '', 'mirror');
-  const H = hud(3);
+  const H = hud(3, 'koshin');
   const B = buddy();
   const RAUND = 5;
   const rounds = [];
@@ -1044,7 +1044,7 @@ function qaramaSabab(t) {
 function gameNetFold(ctx) {
   const all = [...ctx.bank];
   const s = shell(ctx, all[0].prompt, 'net');
-  const H = hud(3);
+  const H = hud(3, 'origami');
   const B = buddy();
   const RAUND = 5;
   const rounds = [];
@@ -1291,7 +1291,7 @@ function ulushSabab(t, tanlov) {
 function gameFractionStrip(ctx) {
   const all = [...ctx.bank];
   const s = shell(ctx, all[0].prompt || '', 'columns');
-  const H = hud(3);
+  const H = hud(3, 'bog');
   const B = buddy();
   const RAUND = 5;
   const rounds = [];
@@ -1755,7 +1755,7 @@ function nurSVG(t) {
 function gameCoordinate(ctx) {
   const all = [...ctx.bank].map((t) => (t.tur ? t : { ...t, tur: 'yol', oraliq: [0, t.gridSize], points: t.points.map((q) => [q.x, q.y]) }));
   const s = shell(ctx, '', 'axes');
-  const H = hud(3);
+  const H = hud(3, 'orol');
   const B = buddy();
   const RAUND = 5;
   const rounds = [];
@@ -2141,7 +2141,7 @@ function harakatSabab(t, tanlov) {
 function gameMotionLine(ctx) {
   const all = ctx.bank.filter((t) => t.tur);
   const s = shell(ctx, '', 'motion');
-  const H = hud(3);
+  const H = hud(3, 'dasht');
   const B = buddy();
   const RAUND = 5;
   const rounds = [];
@@ -2403,7 +2403,7 @@ function rasadSabab(t, tanlov) {
 function gameProtractor(ctx) {
   const all = ctx.bank.filter((t) => t.tur);
   const s = shell(ctx, '', 'angle');
-  const H = hud(3);
+  const H = hud(3, 'rasad');
   const B = buddy();
   const RAUND = 5;
   const rounds = [];
