@@ -585,58 +585,258 @@ function gameBalance(ctx) {
   round();
 }
 
-// ================= symmetry =================
+// ================= symmetry (Simmetriya — koshinpaz ustaxonasi) =================
+// G'ishtin devor, tepada koshinli peshtoq; yog'och dastgohda naqsh paneli (n × n koshin). Ko'zgu-o'q (oltin chiziq),
+// markaziy simmetriya (oltin nuqta), 90° burish (aylana strelka). Bank — tools/gen_simmetriya.py: toldir, qaysi, nechta.
+const KOSHIN_RANG = ['', 'lojuvard', 'feruza', 'oltin'];
+const KOSHIN_NOM = { 1: 'ko\'k', 2: 'feruza', 3: 'oltin' };
+const OQ_NOM = { V: 'Tik o\'q', H: 'Yotiq o\'q', D: 'Diagonal ↘', D2: 'Diagonal ↙' };
+const OQ_NOMI = { V: 'tik o\'q', H: 'yotiq o\'q', D: '↘ diagonal', D2: '↙ diagonal' };
+function koshinAks([x, y], a, n) {
+  return { V: [n - 1 - x, y], H: [x, n - 1 - y], D: [y, x], D2: [n - 1 - y, n - 1 - x], C: [n - 1 - x, n - 1 - y], R90: [n - 1 - y, x] }[a];
+}
+const koshinManba = ([x, y], a, n) => (a === 'R90' ? [y, n - 1 - x] : koshinAks([x, y], a, n));
+// panel ustidagi chiziqlar (o'q, markaz, burish) — 0..n koordinatada
+function oqSVG(n, oqlar, opts = {}) {
+  const s = sv('svg', { viewBox: `-0.5 -0.5 ${n + 1} ${n + 1}`, class: 'koshin-oq', 'aria-hidden': 'true' });
+  const chiz = (o, i) => {
+    const [x1, y1, x2, y2] = { V: [n / 2, -0.35, n / 2, n + 0.35], H: [-0.35, n / 2, n + 0.35, n / 2], D: [-0.3, -0.3, n + 0.3, n + 0.3], D2: [n + 0.3, -0.3, -0.3, n + 0.3] }[o];
+    const g = sv('g', { class: 'koshin-oq__g' + (opts.rang ? ' koshin-oq__g--' + (i + 1) : '') + (opts.xira ? ' xira' : '') });
+    g.append(sv('line', { x1, y1, x2, y2, class: 'koshin-oq__chiziq' }));
+    if (opts.raqam) { g.append(sv('circle', { cx: x1, cy: y1, r: 0.32, class: 'koshin-oq__nishon' }), sv('text', { x: x1, y: y1 + 0.13, 'text-anchor': 'middle', class: 'koshin-oq__raqam' }, opts.raqam[i])); }
+    s.append(g);
+  };
+  oqlar.forEach((o, i) => {
+    if (o === 'C') s.append(sv('circle', { cx: n / 2, cy: n / 2, r: 0.22, class: 'koshin-oq__markaz' }));
+    else if (o === 'R90') s.append(sv('path', { d: `M${n / 2 - 0.9} ${n / 2 - 0.35} A0.95 0.95 0 1 1 ${n / 2 - 0.35} ${n / 2 + 0.88}`, class: 'koshin-oq__burish', 'marker-end': 'url(#koshin-strelka)' }),
+      sv('defs', {}, '<marker id="koshin-strelka" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#ffd54a"/></marker>'),
+      sv('circle', { cx: n / 2, cy: n / 2, r: 0.18, class: 'koshin-oq__markaz' }));
+    else chiz(o, i);
+  });
+  return s;
+}
+function koshinSabab(t, xato) {
+  if (t.tur === 'qaysi') return xato ? `${OQ_NOM[xato]} bo'ylab buklasak, kataklar ustma-ust tushmaydi. To'g'risi — ${OQ_NOMI[t.javob]}.` : `${OQ_NOM[t.javob]} bo'ylab buklasangiz, ikki yarmi ustma-ust tushadi.`;
+  if (t.tur === 'nechta') {
+    const bor = t.oqlar;
+    const s = bor.length ? `Simmetriya o'qlari: ${bor.map(o => OQ_NOMI[o]).join(', ')} — ${bor.length} ta.` : "Hech bir chiziq bo'ylab buklaganda ustma-ust tushmaydi — 0 ta.";
+    return (xato != null ? `${xato} emas. ` : '') + s;
+  }
+  const a = t.almash, n = t.n;
+  if (!xato) return { V: "Tik o'q bo'ylab buklasangiz, ikki yarmi ustma-ust tushadi!", H: "Yotiq o'q bo'ylab buklasangiz, ikki yarmi ustma-ust tushadi!", D: 'Diagonal bo\'ylab buklasangiz, ikki qismi ustma-ust tushadi!', D2: 'Diagonal bo\'ylab buklasangiz, ikki qismi ustma-ust tushadi!', C: 'Markaz atrofida 180° bursangiz, naqsh o\'ziga ustma-ust tushadi!', R90: 'Naqsh markaz atrofida 90° burildi!' }[a];
+  if (xato.tur === 'rang') return `Joyi to'g'ri, lekin rangi juftiniki bilan bir xil bo'lishi kerak: bu yerga ${KOSHIN_NOM[xato.c]}.`;
+  if (xato.tur === 'ortiqcha') return "Ortiqcha koshin qo'yildi — berilgan naqshda uning jufti yo'q.";
+  const [x, y] = koshinManba(xato.p, a, n);
+  if (a === 'V') { const k = n / 2 - x; return `Chapdagi ${y + 1}-qatordagi koshin o'qdan ${k}-katak — jufti ham o'qdan o'ngda ${k}-katak, xuddi shu qatorda.`; }
+  if (a === 'H') { const k = n / 2 - y; return `Yuqoridagi ${x + 1}-ustundagi koshin o'qdan ${k}-katak — jufti ham o'qdan pastda ${k}-katak, xuddi shu ustunda.`; }
+  if (a === 'D') return `Diagonalga nisbatan: ${y + 1}-qator ${x + 1}-ustundagi koshinning jufti — ${x + 1}-qator ${y + 1}-ustunda (qator va ustun almashadi).`;
+  if (a === 'D2') return "Diagonal bo'ylab buklang: har koshin diagonalning narigi tomonida, xuddi shu masofada tushadi.";
+  if (a === 'C') return "Markaziy simmetriyada jufti markazning narigi tomonida, xuddi shu masofada: chap-yuqori → o'ng-past.";
+  return "90° burganda: chap ustun tepaga o'tadi, tepa qatori o'ngga o'tadi (soat strelkasi bo'yicha).";
+}
+
 function gameSymmetry(ctx) {
-  const tasks = ctx.bank;
-  let idx = 0, correct = 0, streak = 0, longest = 0;
-  const s = shell(ctx, tasks[0].prompt, 'mirror', true);
+  const all = ctx.bank.filter((t) => t.tur);
+  const s = shell(ctx, '', 'mirror');
+  const H = hud(3);
+  const B = buddy();
+  const RAUND = 5;
+  const rounds = [];
+  for (let i = 0; i < all.length; i += RAUND) rounds.push(all.slice(i, i + RAUND));
+  let ri = 0, right = 0, total = 0, longest = 0, done = 0, ii = 0, items = [], xatolar = 0;
+  const times = [];
+  let onKey = null;
+  const timers = new Set();
+  const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); };
+  const keyH = (ev) => onKey && onKey(ev);
+  addEventListener('keydown', keyH);
+  addEventListener('hashchange', () => { removeEventListener('keydown', keyH); timers.forEach(clearTimeout); }, { once: true });
 
-  function reflect(c, axis, n) {
-    if (axis === 'vertical') return { x: n - 1 - c.x, y: c.y };
-    if (axis === 'diagonalMain') return { x: c.y, y: c.x };
-    if (axis === 'center') return { x: n - 1 - c.x, y: n - 1 - c.y };
-    return { x: c.x, y: n - 1 - c.y };
+  const savol = el('div', { class: 'koshin-savol' });
+  const peshtoq = el('div', { class: 'koshin-peshtoq' }, savol);
+  const panel = el('div', { class: 'koshin-panel' });
+  const ramka = el('div', { class: 'koshin-ramka' }, panel);
+  const bo = el('div', { class: 'koshin-boyoq' });
+  const tayyor = el('button', { type: 'button', class: 'btn btn--accent koshin-tayyor', onclick: () => tekshir() }, 'Tayyor ✓');
+  const tozala = el('button', { type: 'button', class: 'btn koshin-tozala', onclick: () => { if (!busy) { holat.clear(); chiz(); sfx.tap(); } } }, 'Tozalash');
+  const amallar = el('div', { class: 'koshin-amallar' }, bo, el('div', { class: 'koshin-amallar__t' }, tozala, tayyor));
+  const javoblar = el('div', { class: 'koshin-javoblar' });
+  let t = null, busy = true, startedAt = 0, berilgan = new Map(), holat = new Map(), mo = 1, kataklar = [];
+  const key = (x, y) => `${x},${y}`;
+
+  function chiz() {
+    kataklar.forEach((c) => {
+      const k = c.dataset.k, b = berilgan.get(k), h = holat.get(k);
+      c.className = 'koshin-k' + (b ? ` koshin-k--${KOSHIN_RANG[b]} berilgan` : h ? ` koshin-k--${KOSHIN_RANG[h]}` : '');
+    });
   }
-  function render() {
-    const t = tasks[idx];
-    s.setProg(idx, tasks.length);
-    const n = t.gridSize;
-    const given = new Set(t.givenCells.map(c => `${c.x},${c.y}`));
-    const want = new Set(t.givenCells.map(c => { const r = reflect(c, t.axis, n); return `${r.x},${r.y}`; }));
-    // o'qda yotgan berilgan kataklar aks etib o'ziga tushadi — hisobga olmaymiz
-    for (const k of [...want]) if (given.has(k)) want.delete(k);
-    const on = new Set();
-    // toq o'lchamda o'q — o'rtadagi katak qatori, juft o'lchamda — katak qatorlari orasidagi chiziq
-    const odd = n % 2 === 1, axisIdx = odd ? Math.floor(n / 2) : -1, half = n / 2;
-
-    const grid = el('div', { class: 'symgrid', style: `grid-template-columns:repeat(${n}, 46px)` });
-    function draw() {
-      grid.replaceChildren();
-      for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
-        const key = `${x},${y}`;
-        const isAxis = t.axis === 'vertical' ? x === axisIdx
-          : t.axis === 'diagonalMain' ? x === y
-          : t.axis === 'center' ? (odd && x === axisIdx && y === axisIdx)
-          : y === axisIdx;
-        const line = !odd && ((t.axis === 'vertical' && x === half) ? ' line-l' : (t.axis === 'horizontal' && y === half) ? ' line-t' : '');
-        const cls = 'symcell' + (given.has(key) ? ' given' : isAxis ? ' axis' : on.has(key) ? ' on' : '') + (line || '');
-        grid.append(el('div', {
-          class: cls,
-          onclick: () => { if (given.has(key) || isAxis) return; on.has(key) ? on.delete(key) : on.add(key); draw(); },
-        }));
-      }
+  function boyoqChiz() {
+    bo.replaceChildren(...(t.ranglar > 1 ? Array.from({ length: t.ranglar }, (_, i) => el('button', { type: 'button', class: `koshin-moy koshin-k--${KOSHIN_RANG[i + 1]}` + (mo === i + 1 ? ' tanlangan' : ''),
+      'aria-label': KOSHIN_NOM[i + 1], onclick: () => { mo = i + 1; boyoqChiz(); sfx.tap(); } }, el('small', {}, i + 1))) : []));
+  }
+  function joyla(tt) {
+    t = tt; mo = 1;
+    const n = t.n;
+    const w = Math.min(46, Math.floor(((ramka.parentNode?.clientWidth || 340) - 44) / n));
+    panel.style.setProperty('--n', n); panel.style.setProperty('--k', `${Math.max(28, w)}px`);
+    berilgan = new Map(); holat = new Map();
+    (t.berilgan || t.naqsh).forEach(([x, y, c]) => berilgan.set(key(x, y), c));
+    kataklar = [];
+    for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+      const c = el('button', { type: 'button', class: 'koshin-k', 'data-k': key(x, y), 'aria-label': `${y + 1}-qator ${x + 1}-ustun` });
+      kataklar.push(c);
     }
-    draw();
-    s.area.replaceChildren(el('div', { style: 'text-align:center;font-weight:700;color:var(--muted);margin-bottom:6px' }, t.hint), grid);
-    s.foot.replaceChildren(checkBtn('Tekshirish', () => {
-      const ok = on.size === want.size && [...want].every(k => on.has(k));
-      if (ok) { correct++; streak++; longest = Math.max(longest, streak); } else streak = 0;
-      idx++;
-      if (idx >= tasks.length) ctx.finish(correct, tasks.length, { longestStreak: longest });
-      else render();
-    }));
+    panel.replaceChildren(...kataklar, t.tur === 'toldir' ? oqSVG(n, [t.almash]) : t.tur === 'qaysi' ? oqSVG(n, ['V', 'H', 'D', 'D2'], { rang: 1, raqam: ['1', '2', '3', '4'] }) : el('i'));
+    chiz(); boyoqChiz();
+    const toldir = t.tur === 'toldir';
+    amallar.hidden = !toldir; javoblar.hidden = toldir;
+    savol.textContent = toldir ? { V: "Naqshni tik o'qqa nisbatan simmetrik qilib to'ldiring", H: "Naqshni yotiq o'qqa nisbatan simmetrik qilib to'ldiring", D: "Naqshni diagonalga nisbatan simmetrik qilib to'ldiring", D2: "Naqshni diagonalga nisbatan simmetrik qilib to'ldiring", C: "Naqshni markazga nisbatan simmetrik qilib to'ldiring", R90: "Naqshni markaz atrofida 90° burib, yangi joyiga tering" }[t.almash]
+      : t.tur === 'qaysi' ? "Qaysi chiziq bu naqshning simmetriya o'qi?" : "Bu naqshning nechta simmetriya o'qi bor?";
+    if (t.tur === 'qaysi') javoblar.replaceChildren(...['V', 'H', 'D', 'D2'].map((o, i) => el('button', { type: 'button', class: 'koshin-jt koshin-jt--' + (i + 1), onclick: (e) => tanla(o, e.currentTarget) }, el('b', {}, i + 1), ' ', OQ_NOM[o])));
+    if (t.tur === 'nechta') { t.oqlar = ['V', 'H', 'D', 'D2'].filter((o) => (t.naqsh).every(([x, y, c]) => { const [a, b] = koshinAks([x, y], o, n); return berilgan.get(key(a, b)) === c; })); javoblar.replaceChildren(...t.options.map((o, i) => el('button', { type: 'button', class: 'koshin-jt', onclick: (e) => tanla(o, e.currentTarget) }, el('b', {}, o), ' ta', el('small', { class: 'koshin-jt__key' }, i + 1)))); }
+    peshtoq.classList.remove('yangi'); void peshtoq.offsetWidth; peshtoq.classList.add('yangi');
   }
-  render();
+  // bosish yoki barmoqni surib terish
+  let rejim = null;
+  const qoy = (c, r) => {
+    const k = c.dataset.k;
+    if (busy || !t || t.tur !== 'toldir' || berilgan.has(k)) return;
+    const h = holat.get(k);
+    if (r === null) r = h === mo ? 'ol' : 'qoy';
+    if (r === 'ol') { if (!h) return r; holat.delete(k); } else { if (h === mo) return r; holat.set(k, mo); }
+    chiz(); sfx.tap(); return r;
+  };
+  panel.addEventListener('pointerdown', (e) => { const c = e.target.closest('.koshin-k'); if (!c) return; e.preventDefault(); rejim = qoy(c, null); try { panel.setPointerCapture(e.pointerId); } catch { /* */ } });
+  panel.addEventListener('pointermove', (e) => { if (!rejim) return; const c = document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.koshin-k'); if (c && panel.contains(c)) qoy(c, rejim); });
+  const tugat = () => { rejim = null; };
+  panel.addEventListener('pointerup', tugat); panel.addEventListener('pointercancel', tugat);
+
+  function yechimKo(belgila = true) {
+    if (t.tur === 'toldir') {
+      const kerak = new Map(t.kerak.map(([x, y, c]) => [key(x, y), c]));
+      kataklar.forEach((c) => {
+        const k = c.dataset.k;
+        if (berilgan.has(k)) return;
+        const h = holat.get(k), kk = kerak.get(k);
+        if (belgila && h && h !== kk) c.classList.add('xato-k');
+        if (belgila && kk && h !== kk) c.classList.add('yoq-k');
+      });
+      later(() => { holat = new Map(kerak); chiz(); kataklar.forEach((c) => { if (kerak.has(c.dataset.k)) c.classList.add('yondi-k'); }); }, belgila ? 900 : 0);
+    } else {
+      const oqlar = t.tur === 'qaysi' ? [t.javob] : t.oqlar;
+      panel.querySelector('.koshin-oq')?.remove();
+      if (oqlar.length) panel.append(oqSVG(t.n, oqlar));
+    }
+  }
+  function natija(ok, at, sabab) {
+    busy = true; onKey = null;
+    total++; done++;
+    times.push(performance.now() - startedAt);
+    if (ok) {
+      right++;
+      const mlt = H.hit(); longest = Math.max(longest, H.st.combo);
+      const fast = performance.now() - startedAt < 15000;
+      sfx.ok(); ramka.classList.add('yondi');
+      H.add(10 * mlt + (fast ? 5 : 0), at);
+      if (fast && mlt < 2) floatText('⚡ Tez!', at, 'hud-float--tez');
+      if (t.tur !== 'toldir') yechimKo(false);
+      B.say([el('span', { class: 'rchip rchip--ha' }, 'To\'g\'ri ✓'), ' ', sabab], 'ok');
+      later(() => { ramka.classList.remove('yondi'); ii++; next(); }, 2400);
+    } else {
+      xatolar++; H.miss(); sfx.bad();
+      const left = H.loseHeart();
+      ramka.classList.remove('xato'); void ramka.offsetWidth; ramka.classList.add('xato');
+      yechimKo();
+      B.say([el('span', { class: 'rchip rchip--yoq' }, 'Xato'), ' ', sabab], 'bad');
+      const davom = () => { onKey = null; s.foot.replaceChildren(); ii++; left === 0 ? autoRest() : next(); };
+      later(() => {
+        s.foot.replaceChildren(el('button', { class: 'btn btn--accent', type: 'button', onclick: davom }, 'Davom etish ➜'));
+        onKey = (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); davom(); } };
+      }, 1000);
+    }
+  }
+  function tekshir() {
+    if (busy || t.tur !== 'toldir') return;
+    if (!holat.size) return;
+    const kerak = new Map(t.kerak.map(([x, y, c]) => [key(x, y), c]));
+    let xato = null;
+    for (const [k, c] of kerak) { const h = holat.get(k); if (h !== c) { xato = h ? { tur: 'rang', c } : { tur: 'yoq', p: k.split(',').map(Number) }; if (!h) break; } }
+    if (!xato) for (const k of holat.keys()) if (!kerak.has(k)) { xato = { tur: 'ortiqcha' }; break; }
+    natija(!xato, tayyor, koshinSabab(t, xato));
+  }
+  function tanla(o, btn) {
+    if (busy) return;
+    busy = true;
+    const ok = o === t.javob;
+    const opts = t.tur === 'qaysi' ? ['V', 'H', 'D', 'D2'] : t.options;
+    [...javoblar.children].forEach((b, i) => { b.disabled = true; if (opts[i] === t.javob) b.classList.add('is-ok'); });
+    btn.classList.add(ok ? 'is-ok' : 'is-bad');
+    natija(ok, btn, koshinSabab(t, ok ? null : o));
+  }
+  const maslahat = () => (t.tur === 'toldir'
+    ? (t.almash === 'R90' ? 'Har koshinni markaz atrofida chorak aylana bursangiz, qayerga tushadi?' : t.almash === 'C' ? 'Har koshin markazdan o\'tib, narigi tomonda xuddi shu masofaga tushadi.' : 'Har koshinning jufti o\'qdan xuddi shuncha uzoqda, narigi tomonda. Rangini ham tanlang.')
+    : t.tur === 'qaysi' ? 'Naqshni xayolan buklang: qaysi chiziq bo\'ylab ikki yarmi ustma-ust tushadi?' : 'Tik, yotiq va ikki diagonalni tekshiring.');
+  function next() {
+    if (ii >= items.length) return endRound();
+    busy = false;
+    s.setProg(done, all.length);
+    joyla(items[ii]);
+    B.say([maslahat()], 'idle');
+    startedAt = performance.now();
+    onKey = (ev) => {
+      if (t.tur === 'toldir') {
+        if (ev.key === 'Enter') { ev.preventDefault(); tekshir(); }
+        const n = +ev.key; if (n >= 1 && n <= t.ranglar) { mo = n; boyoqChiz(); }
+        return;
+      }
+      const n = +ev.key; if (n >= 1 && n <= javoblar.children.length) { ev.preventDefault(); javoblar.children[n - 1].click(); }
+    };
+  }
+  function autoRest() {
+    onKey = null;
+    B.say(['Yuraklar tugadi. Qolganlarini kuzating.'], 'think');
+    const go = () => {
+      if (ii >= items.length) return endRound();
+      joyla(items[ii]); busy = true; amallar.hidden = true; total++; done++; s.setProg(done, all.length);
+      later(() => {
+        yechimKo(false);
+        const opts = t.tur === 'qaysi' ? ['V', 'H', 'D', 'D2'] : t.options || [];
+        [...javoblar.children].forEach((b, i) => { b.disabled = true; if (opts[i] === t.javob) b.classList.add('is-ok'); });
+        B.say([koshinSabab(t)], 'think');
+      }, 800);
+      later(() => { ii++; go(); }, 3600);
+    };
+    later(go, 1000);
+  }
+  function endRound() {
+    onKey = null; busy = true; amallar.hidden = true;
+    const clean = xatolar === 0;
+    if (clean) { H.add(30, ramka); sfx.win(); }
+    s.setProg(done, all.length);
+    const lastR = ri + 1 >= rounds.length;
+    s.foot.replaceChildren(
+      el('div', { class: 'rend ' + (clean ? 'rend--ok' : '') },
+        el('b', {}, clean ? 'Xatosiz! +30 bonus' : xatolar === 1 ? 'Bitta xato bilan — yaxshi!' : `${xatolar} ta xato — keyingisida diqqat bilan!`),
+        el('button', { class: 'btn btn--accent', type: 'button', onclick: () => {
+          ri++;
+          if (ri >= rounds.length) {
+            const avgMs = times.length ? times.reduce((a, b) => a + b, 0) / times.length : 0;
+            ctx.finish(right, total, { longestStreak: longest, avgMs, score: H.st.score });
+          } else { s.foot.replaceChildren(); round(); }
+        } }, lastR ? 'Natijani ko\'rish' : 'Keyingi partiya ➜')));
+  }
+  function round() { items = rounds[ri]; ii = 0; xatolar = 0; H.resetHearts(); next(); }
+
+  const bar = ctx.root.querySelector('.prompt'); if (bar) bar.hidden = true;
+  const sahna = el('div', { class: 'sahna sahna--koshin' },
+    H.node, B.node, peshtoq, el('div', { class: 'koshin-dastgoh' }, ramka), amallar, javoblar);
+  s.area.replaceChildren(sahna);
+  s.foot.replaceChildren();
+  if (innerWidth < 700) requestAnimationFrame(() => {
+    const head = document.querySelector('.site-header')?.offsetHeight || 0;
+    scrollTo({ top: sahna.getBoundingClientRect().top + scrollY - head - 6, behavior: 'auto' });
+  });
+  round();
 }
 
 // ================= netFold (Yoyilma — origami ustaxonasi) =================

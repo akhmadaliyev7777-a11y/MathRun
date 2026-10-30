@@ -1,6 +1,6 @@
 // Yuqori sinflar (5–11) mavzulari uchun o'yin bosqichlari — «Fikrlash o'yinlari»da sinf bo'yicha chiqadi.
 // curriculum.json faqat 1–4-sinf; bu yerdagilar unga qo'shilmaydi (boshlang'ich sinflar ro'yxati o'zgarmaydi).
-const RANG = { 5: 'linear-gradient(160deg,#2f7d4f,#1c5233 55%,#0f3320)', 6: 'linear-gradient(160deg,#1f5f8b,#123a57 55%,#0a2236)', 7: 'linear-gradient(160deg,#5b2a86,#341552 55%,#1d0b30)' };
+const RANG = { 9: 'linear-gradient(160deg,#8a3b5c,#5a2440 55%,#341428)', 5: 'linear-gradient(160deg,#2f7d4f,#1c5233 55%,#0f3320)', 6: 'linear-gradient(160deg,#1f5f8b,#123a57 55%,#0a2236)', 7: 'linear-gradient(160deg,#5b2a86,#341552 55%,#1d0b30)' };
 const L = (grade, fan, name, id, gameKind, mashqNomlari) => ({ grade, fan, name,
   level: { id, gameKind, count: 20, bank: `banks/${id}_tasks.json`, webSupported: true, ...(mashqNomlari ? { mashqNomlari } : {}) } });
 
@@ -15,6 +15,8 @@ export const YUQORI = [
   L(7, 'Matematika', '5.1 Sodda chiziqli tenglamalar', 'y7_chiziqli', 'balanceScale'),
   L(7, 'Algebra', '25. Tenglamalar yechishning al-Xorazmiy usuli', 'y7a_xorazmiy', 'balanceScale'),
   L(7, 'Algebra', '26. Dekart koordinatalar sistemasi', 'y7a_dekart', 'coordinatePath'),
+  L(9, 'Geometriya', "9. O'qqa nisbatan simmetriya", 'y9g_oq', 'symmetry'),
+  L(9, 'Geometriya', '10. Markaziy simmetriya va burish', 'y9g_markaz', 'symmetry'),
 ];
 
 // boshlang'ich sinflardagi {grade, chorak, block, level} ko'rinishida (o'yin, natija va qaytish sahifalari shuni kutadi)

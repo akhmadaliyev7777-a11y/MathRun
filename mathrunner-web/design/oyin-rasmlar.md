@@ -159,5 +159,9 @@ a straight empty asphalt road crossing the lower part from left to right, small 
 Sahna kodda chiziladi. Kerak bo'lsa: **12.1 Fon** (`rasad-tun.png`): a starry night sky over the Ulugh Beg observatory in Samarkand (round building
 with blue tile arches), crescent moon, soft 3D cartoon style, no text; the middle of the image empty. Portrait 1080×1600.
 
+## 13. Simmetriya — koshinpaz ustaxonasi
+Sahna kodda chiziladi. Kerak bo'lsa: **13.1 Fon** (`koshin-ustaxona.png`): a warm Uzbek tile-maker's workshop in Samarkand: terracotta brick wall,
+a blue-and-turquoise tiled arch (peshtoq) at the top, a wooden workbench with paint jars and tiles, soft light; the middle empty. Soft 3D cartoon style, no text. Portrait 1080×1600.
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
 Har birining promptlari o'sha o'yinga o'tganda yoziladi. **Musiqa** ham keyinroq qo'shiladi.
