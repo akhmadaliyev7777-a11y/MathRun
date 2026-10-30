@@ -2149,7 +2149,7 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
   .tug-end__card { padding: 22px 18px; margin: 12px; }
   .tug-end__card h1 { font-size: 24px; }
 }
-@media (max-width: 960px) and (orientation: portrait) {
+@media (min-width: 761px) and (max-width: 960px) and (orientation: portrait) {
   .tug-sahna > .tug-main { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(108px, 22%) minmax(0, 1fr); }
   .tug-sahna .tug-panel--red { order: -2; transform: rotate(180deg); }
   .tug-sahna .tug-center { order: -1; }
@@ -2160,10 +2160,15 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
   .tug-sahna .tug-opt i { width: clamp(24px, 3.6vw, 34px); height: clamp(24px, 3.6vw, 34px); font-size: clamp(12px, 1.8vw, 16px); }
   .tug-sahna .tug-timer { position: absolute; z-index: 4; left: 50%; top: 2px; transform: translateX(-50%); }
 }
-@media (max-height: 560px) and (orientation: landscape) and (max-width: 1100px) {
+@media (max-height: 560px) and (orientation: landscape) and (max-width: 1100px), (max-width: 760px) and (orientation: portrait) {
   .tug-sahna > .tug-main { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
   .tug-sahna .tug-center { order: 0; }
   .tug-sahna .tug-q { font-size: 20px; }
   .tug-sahna .tug-opts { grid-template-columns: minmax(0, 1fr); }
   .tug-sahna .tug-opt { font-size: 18px; }
+}
+/* telefon tik turganda (to'liq ekransiz) — o'yin 90° burilib, yotiq ko'rinishda chiqadi: telefonni yonboshlab o'ynaladi */
+@media (max-width: 760px) and (orientation: portrait) {
+  #app:has(.tug-sahna):not(:fullscreen) { position: fixed; top: 0; left: 100vw; z-index: 50; width: 100vh; width: 100dvh; height: 100vw;
+    transform-origin: 0 0; transform: rotate(90deg); background: var(--cream); }
 }

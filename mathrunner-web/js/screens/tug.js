@@ -69,11 +69,27 @@ export async function render(root, _params) {
 
   // to'liq ekran (foydalanuvchi, 2026-10-30): o'yin boshlanganda yoqiladi, «Chiqish»da o'chadi
   // faqat o'yin qismi (sayt menyusisiz) to'liq ekranga chiqadi
+  // telefonda (foydalanuvchi, 2026-10-31) o'yin doim yotiq: to'liq ekranda ekranni yotiq holatga qotiramiz;
+  // qotirib bo'lmasa (iPhone, ba'zi brauzerlar) to'liq ekrandan chiqamiz — CSS o'yinni o'zi 90° burib ko'rsatadi
+  const telefonmi = () => matchMedia('(pointer: coarse)').matches && Math.min(screen.width, screen.height) <= 760;
+  let jimChiq = false;   // o'yin to'xtamasin — buni biz o'zimiz chiqardik
   const toliqEkran = () => {
     const d = root, f = d.requestFullscreen || d.webkitRequestFullscreen;
-    if (f && !(document.fullscreenElement || document.webkitFullscreenElement)) { try { const r = f.call(d); if (r && r.catch) r.catch(() => {}); } catch { /* */ } }
+    if (f && !(document.fullscreenElement || document.webkitFullscreenElement)) {
+      try {
+        const r = f.call(d);
+        const qotir = () => {
+          if (!telefonmi()) return;
+          const burilmadi = () => { if (matchMedia('(orientation: portrait)').matches) { jimChiq = true; toliqdanChiq(); } };
+          const o = screen.orientation;
+          if (o && o.lock) o.lock('landscape').catch(burilmadi); else burilmadi();
+        };
+        if (r && r.then) r.then(qotir, () => {}); else qotir();
+      } catch { /* */ }
+    }
   };
   const toliqdanChiq = () => {
+    try { screen.orientation?.unlock?.(); } catch { /* */ }
     const f = document.exitFullscreen || document.webkitExitFullscreen;
     if (f && (document.fullscreenElement || document.webkitFullscreenElement)) { try { const r = f.call(document); if (r && r.catch) r.catch(() => {}); } catch { /* */ } }
   };
@@ -590,6 +606,7 @@ export async function render(root, _params) {
       const ichida = !!(document.fullscreenElement || document.webkitFullscreenElement);
       if (ichida || state.over) { ozimiz = false; return; }
       if (ozimiz) { ozimiz = false; return; }
+      if (jimChiq) { jimChiq = false; return; }
       toxtat();
     };
     document.addEventListener('fullscreenchange', onFs);
