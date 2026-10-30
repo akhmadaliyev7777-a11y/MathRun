@@ -20,7 +20,7 @@ Loyihada ikki kishi (ikki hisob) navbatma-navbat ishlaydi. Bu fayl — qayerga k
 
 ---
 
-## 2026-10-31 — m.shukurillo hisobi (bulut sessiyasi)
+## 2026-10-30 (kechqurun) — m.shukurillo hisobi (bulut sessiyasi)
 **Qilindi (saytda):** «Bellashuv» telefonga moslandi (telefonda doim yotiq, savollar ikki chetda; planshetda yuzma-yuz); yuqori sinf o'yinlarida tepadagi «Boshlang'ich sinflar 1–4 sinf» yozuvi «Fikrlash o'yinlari · N-sinf» ga almashtirildi; 12 o'yin va Bellashuvga mavzuga mos fon musiqasi (`mathrunner-web/js/games/musiqa.js`, nota tugmasi bilan o'chiriladi).
 **Chala:** GPT rasmlari — foydalanuvchi «keyinroq» dedi (promptlar `mathrunner-web/design/oyin-rasmlar.md`).
 **Navbatda:** foydalanuvchi aytadi.

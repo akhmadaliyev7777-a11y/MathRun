@@ -3,18 +3,12 @@
    bolim: "5-sinf", "6-sinf", "7-sinf", "8-sinf", "1–4-sinf", "Interaktiv", "Sayt", "Admin", "Ish tartibi" */
 window.KUNLIK = [
   {
-    sana: "2026-10-31",
-    qisqa: "«Bellashuv» o'yini telefon va planshetga moslandi (telefonda doim yotiq, savollar ikki chetda); yuqori sinf o'yinlarida sarlavha tuzatildi; o'yinlarga fon musiqasi qo'shildi.",
+    sana: "2026-10-30",
+    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan), «Xona tarkibi» — shirinliklar fabrikasi, «Yoyilma» — origami ustaxonasi (3D buklanish), «Ulush tasmasi» — bog'dagi devor va har xil bo'lakli shakllar; «Koordinata» — xazina oroli xaritasi (7-sinf Dekart koordinatalari bilan); «Harakat» — dasht yo'li (mashina, avtobus, velosipedchilar soat-soat yuradi; 6-sinf ham); «Transportir» — Ulug'bek rasadxonasi (5-sinf ham); «Simmetriya» — koshinpaz ustaxonasi (9-sinf ham) — rejadagi o'yinlar tugadi; o'yinga kirishdan oldin mavzu tanlanadi. Kechqurun: «Bellashuv» telefonga moslandi, yuqori sinf o'yinlarida sarlavha tuzatildi, o'yinlarga fon musiqasi qo'shildi.",
     ishlar: [
       ["1–4-sinf", "Fikrlash o'yinlariga fon musiqasi qo'shildi: har o'yin dunyosiga mos kuy (koinot — sokin kosmik, sehrli bozor — ud va doira, koshin ustaxonasi — dutor va doira, xazina oroli — dengizchi kuyi va boshqalar, Bellashuvga ham). Kuylar bir xil, tinch balandlikda; o'yin panelidagi nota tugmasi bilan o'chiriladi."],
       ["Sayt", "5–11-sinf o'yinlarida tepada endi «Fikrlash o'yinlari · N-sinf» chiqadi (avval «Boshlang'ich sinflar 1–4 sinf» chiqardi); saytning yuqori menyusida «O'yinlar» belgilanadi."],
       ["1–4-sinf", "«Bellashuv»: telefonda avval qizil jamoa paneli ekrandan pastda qolib ketardi. Endi telefonda o'yin doim yotiq ko'rinishda — ko'k jamoa savollari chapda, qizilniki o'ngda, arqon o'rtada; Android'da ekran yotiq holatga qotiriladi, iPhone'da o'yin o'zi burilib chiqadi (telefonni yonboshlab o'ynaladi). Planshet tik turganda — yuzma-yuz ko'rinish (qizil jamoa paneli ag'darilgan). Kompyuterda o'zgarish yo'q."],
-    ],
-  },
-  {
-    sana: "2026-10-30",
-    qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan), «Xona tarkibi» — shirinliklar fabrikasi, «Yoyilma» — origami ustaxonasi (3D buklanish), «Ulush tasmasi» — bog'dagi devor va har xil bo'lakli shakllar; «Koordinata» — xazina oroli xaritasi (7-sinf Dekart koordinatalari bilan); «Harakat» — dasht yo'li (mashina, avtobus, velosipedchilar soat-soat yuradi; 6-sinf ham); «Transportir» — Ulug'bek rasadxonasi (5-sinf ham); «Simmetriya» — koshinpaz ustaxonasi (9-sinf ham) — rejadagi o'yinlar tugadi; o'yinga kirishdan oldin mavzu tanlanadi.",
-    ishlar: [
       ["1–4-sinf", "«Simmetriya» — koshinpaz ustaxonasi: g'ishtin devor, koshinli peshtoq, yog'och dastgohda ko'k, feruza va oltin koshinlardan naqsh teriladi. Naqshni tik, yotiq, diagonal o'qqa va markazga nisbatan simmetrik qilib to'ldirish, qaysi chiziq simmetriya o'qi, nechta o'q bor; xatoda noto'g'ri koshin ko'rsatiladi va sababi aytiladi. 1-sinf 57, 3-sinf 32, 53, 4-sinf 60-mavzular (avval uch mavzuda bir xil bo'lgan savollar almashtirildi)."],
       ["Interaktiv", "«Simmetriya» o'yiniga 9-sinf geometriya «9. O'qqa nisbatan simmetriya» va «10. Markaziy simmetriya va burish» (naqshni 90° burish) qo'shildi. 120 topshiriq dastur bilan tekshirildi. Rejadagi 12 ta o'yin yangi ko'rinishga o'tkazildi."],
       ["1–4-sinf", "«Transportir» — Ulug'bek rasadxonasi: tungi osmon, rasadxona, ikki shkalali mis transportir. Burchakni o'lchash (asos nur o'ngda yoki chapda — to'g'ri shkalani tanlash), teleskopni burab burchak yasash, burchak turi, transportirsiz chamalash; javobdan keyin kerakli shkala yonadi. 4-sinf 72, 73-mavzular."],
