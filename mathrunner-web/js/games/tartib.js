@@ -26,18 +26,40 @@ function sabab(first, other, asc) {
   return `${fmt(first)} = ${fmt(other)}`;
 }
 
-// lokomotiv (chapga qaragan) — mo'risidan tutun chiqadi
-const LOKO = `<svg viewBox="0 0 120 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g class="tutun"><circle cx="34" cy="10" r="6"/><circle cx="26" cy="4" r="5"/><circle cx="40" cy="2" r="4"/></g>
-  <rect x="26" y="16" width="14" height="20" rx="3" fill="#3b3f58"/><rect x="22" y="14" width="22" height="6" rx="3" fill="#2b2e42"/>
-  <path d="M8 66 V44 q0 -10 10 -10 H70 V66 Z" fill="#e2453b"/><rect x="8" y="40" width="62" height="6" fill="#ffcf4a"/>
-  <rect x="66" y="18" width="44" height="48" rx="6" fill="#c9302c"/><rect x="74" y="26" width="28" height="20" rx="4" fill="#bfe9ff" stroke="#8a1f1c" stroke-width="3"/>
-  <rect x="62" y="12" width="52" height="8" rx="4" fill="#8a1f1c"/>
-  <path d="M2 66 L14 58 V74 Z" fill="#5a5f7a"/><circle cx="10" cy="50" r="5" fill="#fff6c2" stroke="#e8b400" stroke-width="2"/>
-  <rect x="4" y="64" width="112" height="10" rx="4" fill="#2b2e42"/>
-  <g class="g-gildirak"><circle cx="30" cy="78" r="12" fill="#3b3f58" stroke="#ffcf4a" stroke-width="3"/><path d="M30 67 V89 M19 78 H41" stroke="#ffcf4a" stroke-width="2.5"/></g>
-  <g class="g-gildirak"><circle cx="62" cy="80" r="10" fill="#3b3f58" stroke="#ffcf4a" stroke-width="3"/><path d="M62 71 V89 M53 80 H71" stroke="#ffcf4a" stroke-width="2.5"/></g>
-  <g class="g-gildirak"><circle cx="94" cy="80" r="10" fill="#3b3f58" stroke="#ffcf4a" stroke-width="3"/><path d="M94 71 V89 M85 80 H103" stroke="#ffcf4a" stroke-width="2.5"/></g>
+// bug' lokomotivi (chapga qaragan): qozon, mo'ri, gumbaz, kabina, oldidagi to'siq; mo'ridan tutun chiqadi
+const G = (cx, cy, r) => `<g class="g-gildirak"><circle cx="${cx}" cy="${cy}" r="${r}" fill="#b8322a" stroke="#1d1f29" stroke-width="3"/>` +
+  `<path d="M${cx} ${cy - r + 2} V${cy + r - 2} M${cx - r + 2} ${cy} H${cx + r - 2} M${cx - r * .6} ${cy - r * .6} L${cx + r * .6} ${cy + r * .6} M${cx - r * .6} ${cy + r * .6} L${cx + r * .6} ${cy - r * .6}" stroke="#1d1f29" stroke-width="1.6"/>` +
+  `<circle cx="${cx}" cy="${cy}" r="${r * .28}" fill="#d9a441"/></g>`;
+const LOKO = `<svg viewBox="0 0 170 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g class="tutun"><circle cx="38" cy="8" r="7"/><circle cx="30" cy="2" r="6"/><circle cx="44" cy="0" r="5"/></g>
+  <path d="M30 36 L27 15 H49 L46 36 Z" fill="#2b2e3a"/><rect x="25" y="10" width="26" height="6" rx="2" fill="#1d1f29"/>
+  <rect x="18" y="34" width="88" height="35" rx="16" fill="#2f6b4f"/><rect x="24" y="36" width="78" height="9" rx="4.5" fill="#4d9c74" opacity=".6"/>
+  <rect x="46" y="34" width="4" height="35" fill="#d9a441"/><rect x="80" y="34" width="4" height="35" fill="#d9a441"/>
+  <path d="M60 35 q0 -13 10 -13 q10 0 10 13 Z" fill="#d9a441"/><path d="M64 30 q3 -5 7 -5" stroke="#f5d68a" stroke-width="2" fill="none"/>
+  <ellipse cx="20" cy="51.5" rx="7" ry="17.5" fill="#1d1f29"/><circle cx="18" cy="51" r="3" fill="#d9a441"/>
+  <rect x="8" y="24" width="13" height="11" rx="2" fill="#2b2e3a"/><circle cx="10.5" cy="29.5" r="4.2" fill="#fff3b0"/><path d="M6 29.5 l-6 -3 v6 Z" fill="#fff3b0" opacity=".5"/>
+  <rect x="104" y="24" width="50" height="46" rx="3" fill="#8b2a2a"/><rect x="104" y="58" width="50" height="5" fill="#d9a441"/>
+  <rect x="112" y="31" width="16" height="17" rx="2" fill="#cfefff" stroke="#5c1a1a" stroke-width="2"/>
+  <rect x="133" y="31" width="14" height="17" rx="2" fill="#cfefff" stroke="#5c1a1a" stroke-width="2"/>
+  <path d="M98 25 H160 V19 Q129 9 98 19 Z" fill="#3a1414"/>
+  <rect x="10" y="69" width="152" height="7" rx="2" fill="#1d1f29"/>
+  <path d="M1 92 L14 69 H22 V92 Z" fill="#6b6f80"/><path d="M6 90 L16 71 M11 91 L19 74 M16 91 L21 80" stroke="#3d404c" stroke-width="1.6"/>
+  <rect x="160" y="70" width="9" height="5" rx="1" fill="#6b6f80"/>
+  ${G(31, 86, 8)}${G(64, 82, 13)}${G(95, 82, 13)}${G(136, 86, 9)}
+  <rect class="shatun" x="62" y="83" width="35" height="4" rx="2" fill="#c9cdd8" stroke="#6b6f80" stroke-width=".8"/>
+</svg>`;
+
+// ochiq yuk vagoni: taxta devorlar, temir burchaklar, bufer va g'ildiraklar (quti ichiga tushadi)
+const VRANG = ['#8b5a2b', '#9c3b2e', '#3d6b4a'];
+const VAGON = (c) => `<svg viewBox="0 0 100 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect x="4" y="18" width="92" height="30" rx="2" fill="${c}"/>
+  <path d="M4 28 H96 M4 38 H96" stroke="rgba(0,0,0,.22)" stroke-width="1.6"/><path d="M4 21 H96" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+  <rect x="4" y="18" width="5" height="30" fill="#3a3a44"/><rect x="91" y="18" width="5" height="30" fill="#3a3a44"/><rect x="47.5" y="18" width="5" height="30" fill="#3a3a44"/>
+  <circle cx="6.5" cy="24" r="1" fill="#9aa"/><circle cx="6.5" cy="42" r="1" fill="#9aa"/><circle cx="93.5" cy="24" r="1" fill="#9aa"/><circle cx="93.5" cy="42" r="1" fill="#9aa"/>
+  <rect x="2" y="15" width="96" height="4" rx="1" fill="#3a3a44"/>
+  <rect x="2" y="48" width="96" height="5" fill="#1d1f29"/>
+  <rect x="-4" y="48" width="7" height="4" rx="1" fill="#6b6f80"/><rect x="97" y="48" width="7" height="4" rx="1" fill="#6b6f80"/>
+  ${G(24, 56, 7.5)}${G(76, 56, 7.5)}
 </svg>`;
 
 // o'rmon manzarasi: osmon, quyosh, bulutlar, tepaliklar, archalar, temir yo'l
@@ -74,7 +96,8 @@ export function gameNumberOrder(ctx) {
     const maxLen = Math.max(...t.numbers.map(v => fmt(v).length));
 
     // ---- poyezd: lokomotiv + n ta vagon ----
-    const wagons = target.map(() => el('div', { class: 'vagon' }, el('span', { class: 'vagon__yuk' }), el('i', { class: 'vagon__g' }), el('i', { class: 'vagon__g vagon__g--2' })));
+    const wagons = target.map((_, i) => el('div', { class: 'vagon' }, el('span', { class: 'vagon__yuk' }), el('div', { class: 'vagon__rasm', html: VAGON(VRANG[i % 3]) })));
+    const navbat = () => wagons.forEach((w, i) => w.classList.toggle('navbat', i === loaded.length));
     const poyezd = el('div', { class: 'poyezd' }, el('div', { class: 'loko', html: LOKO }), ...wagons);
     const yol = el('div', { class: 'temiryol' }, poyezd);
 
@@ -82,9 +105,9 @@ export function gameNumberOrder(ctx) {
     const bekat = el('div', { class: 'bekat' });
     const sizeVar = () => {
       const w = poyezd.clientWidth || 340;
-      const vw = Math.max(46, Math.min(86, (w - 76) / n - 6));
+      const vw = Math.max(46, Math.min(92, (w - 92) / n - 4));
       poyezd.style.setProperty('--vw', vw + 'px');
-      poyezd.style.setProperty('--vfs', Math.max(11, Math.min(22, (vw * 1.55) / maxLen)) + 'px');
+      poyezd.style.setProperty('--vfs', Math.max(9, Math.min(vw * 0.34, (vw * 1.3) / maxLen)) + 'px');   // vagondagi quti kichik — son unga sig'sin
       bekat.style.setProperty('--qfs', Math.max(12, Math.min(22, 120 / maxLen + 6)) + 'px');
     };
     function drawBekat() {
@@ -106,6 +129,7 @@ export function gameNumberOrder(ctx) {
       const w = wagons[k];
       w.className = 'vagon is-full' + (cls || '');
       w.querySelector('.vagon__yuk').textContent = fmt(v);
+      navbat();
     };
     const qoida = asc ? 'eng kichigini' : 'eng kattasini';
 
@@ -139,7 +163,7 @@ export function gameNumberOrder(ctx) {
             el('span', { class: 'rchip rchip--ha' }, `avval ${fmt(want)}`), el('br'),
             sabab(want, v, asc), '. ', `Har safar qolganlar ichidan ${qoida} oling.`], 'bad');
           setTimeout(() => {
-            wagons[k].className = 'vagon'; wagons[k].querySelector('.vagon__yuk').textContent = '';
+            wagons[k].className = 'vagon'; wagons[k].querySelector('.vagon__yuk').textContent = ''; navbat();
             drawBekat();
             const b = [...bekat.children].find(x => x.textContent === fmt(want));
             if (b) b.classList.add('is-hint');           // to'g'ri qutini bir lahza ko'rsatadi
@@ -191,9 +215,18 @@ export function gameNumberOrder(ctx) {
     const bar = ctx.root.querySelector('.prompt');
     const umumiy = /^Sonlarni (o'sish|kamayish) tartibida/.test(t.prompt || '');
     if (bar) bar.hidden = umumiy;
-    const yonalish = el('div', { class: 'yonalish' }, asc ? 'Kichigidan → kattasiga' : 'Kattasidan → kichigiga');
+    // bekat binosi: cherepitsali tom, ustunlar, osilgan taxtacha va fonarlar, taxtali supa, tosh poydevor
+    const bino = el('div', { class: 'bino' },
+      el('div', { class: 'bino__tom' }),
+      el('i', { class: 'bino__ustun bino__ustun--l' }), el('i', { class: 'bino__ustun bino__ustun--r' }),
+      el('i', { class: 'bino__chiroq bino__chiroq--l' }), el('i', { class: 'bino__chiroq bino__chiroq--r' }),
+      el('div', { class: 'bino__taxta' }, el('b', {}, 'BEKAT'), el('small', {}, asc ? 'kichigidan → kattasiga' : 'kattasidan → kichigiga')),
+      bekat,
+      el('div', { class: 'bino__supa' }),
+      el('div', { class: 'bino__poydevor' }));
+    navbat();
     const sahna = el('div', { class: 'sahna sahna--orman' }, el('div', { class: 'orman', html: ORMON }),
-      H.node, B.node, el('div', { class: 'bekat-sarlavha' }, 'Bekat'), bekat, yonalish, yol);
+      H.node, B.node, bino, yol);
     s.area.replaceChildren(sahna);
     s.foot.replaceChildren();
     sizeVar();
