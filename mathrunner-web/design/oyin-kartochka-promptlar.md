@@ -62,3 +62,40 @@ SCENES:
 3 (bottom-left) — "Motion": a winding country road through green hills; two cute cartoon cars (one blue, one orange) drive toward each other from opposite ends of the road, small speed lines behind them, a small town in the distance.
 4 (bottom-right) — "Protractor": a hilltop at sunset; a giant transparent semicircular protractor stands on the hill like a rising sun; two golden light beams come out from its center forming an angle, with a glowing arc between them.
 ```
+
+---
+
+## Arqon tortish — maydon fonlari (5 kunduzgi + har birining tungi varianti)
+
+Har fonni alohida yasang (muqova rasmini uslub uchun biriktirib). Kunduzgisi tayyor bo'lgach, o'sha suhbatda uni biriktirib tungi variantini so'rang.
+Fayllar: `assets/tug/fon-<nom>.webp` va `fon-<nom>-tun.webp` (nomlar: maydon, sohil, qish, stadion, yaylov).
+
+**Umumiy qism:**
+```
+Use the attached image only as a STYLE reference (soft 3D cartoon, Pixar / Duolingo style, bright friendly colors, soft lighting).
+
+Create ONE landscape background image (1536×1024) for a tug-of-war game arena. It is ONLY a background — NO people, NO animals, NO rope, NO text, NO letters, NO numbers.
+
+LAYOUT (important):
+- The flat ground surface where players will stand starts at about 58% of the image height and fills the whole bottom part; the ground is level and simple, with no objects on it in the central area.
+- The horizon / ground line is perfectly horizontal across the whole width.
+- The middle band of the image (from 25% to 75% of the height) must stay calm and uncluttered — game characters will be placed there.
+- Interesting details only near the left and right edges and in the far background.
+- Soft, slightly muted colors so that characters in blue and red uniforms stand out clearly.
+
+SCENE:
+```
+
+1. **maydon** — `A sunny school sports field: bright green grass with a straight white chalk line across the middle, a low fence, trees and a friendly school building far in the background, blue sky with a few soft clouds.`
+2. **sohil** — `A sunny sandy beach: smooth light sand ground, calm turquoise sea and a gentle wave line in the background, a couple of palm trees and a striped umbrella near the edges, clear sky.`
+3. **qish** — `A snowy winter park: flat white snow ground, snow-covered pine trees and a small wooden bench near the edges, soft pale-blue sky with light falling snowflakes, cozy and bright, not dark.`
+4. **stadion** — `A big stadium in the evening: green grass pitch with white lines, colorful empty stands and bright floodlights in the far background, deep blue-violet evening sky with a warm sunset glow, festive but calm.`
+5. **yaylov** — `An autumn mountain meadow: flat green-golden meadow ground, orange and yellow autumn trees near the edges, gentle mountains with snowy tops in the far background, a small river far away, warm afternoon light.`
+
+**Tungi variant (kunduzgi rasmni biriktirib):**
+```
+Make the NIGHT version of this exact image: keep the same composition, camera, ground line, objects and their positions exactly the same — change only the time of day.
+Night look: deep blue starry sky, soft moonlight, warm lights where they fit the scene (lamps, windows, floodlights, lanterns).
+IMPORTANT: the ground and the middle area must stay well lit and clearly visible (not too dark), so characters in blue and red uniforms will stand out.
+NO people, NO animals, NO text, NO letters, NO numbers.
+```

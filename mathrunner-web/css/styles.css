@@ -655,6 +655,11 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .tug-centerline { position: absolute; left: 50%; top: 24px; bottom: 24px; border-left: 2px dashed var(--line-strong); }
 .tug-rig { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 0; transition: transform .45s cubic-bezier(.22,1,.36,1); }
 .tug-arena:has(.tug-side) { background: linear-gradient(180deg, #e7eeff 0, #f3f6ff var(--yer, 70%), #cfe8b6 var(--yer, 70%), #b9dc9c 100%); }
+.tug-fon { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; z-index: 0; pointer-events: none; user-select: none; }
+.tug-fon--tun { display: none; }
+:root[data-theme="dark"] .tug-fon--kun { display: none; }
+:root[data-theme="dark"] .tug-fon--tun { display: block; }
+:is(:root, :root[data-theme="dark"]) .tug-arena:has(.tug-fon) .tug-centerline { border-left-color: rgba(255, 255, 255, .75); }
 .tug-side, .tug-flag { position: absolute; width: auto; max-width: none; user-select: none; -webkit-user-drag: none; pointer-events: none; transition: transform .35s cubic-bezier(.22,1,.36,1); }
 .tug-side { z-index: 2; }
 .tug-flag { left: 50%; z-index: 3; filter: drop-shadow(0 2px 3px rgba(0,0,0,.18)); }
@@ -1177,7 +1182,7 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 @keyframes g-hint { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .quti.fly { position: fixed; z-index: 55; margin: 0; pointer-events: none; transition: transform .38s cubic-bezier(.35,.65,.45,1); }
 /* temir yo'l: shag'al, shpallar, rels */
-.temiryol { position: relative; margin-top: 14px; padding: 4px 0 13px; overflow: hidden;   /* bekat bilan poyezd orasi ochiq */
+.temiryol { position: relative; margin-top: 14px; padding: 4px 0 13px; overflow: hidden; overflow-x: clip; overflow-y: visible;   /* faqat yonlari kesiladi (poyezd jo'nab ketadi), tepasi ochiq — vagondagi baland kasrli quti kesilmasin */   /* bekat bilan poyezd orasi ochiq */
   background:
     linear-gradient(#e3e6ec, #e3e6ec) left bottom 11px / 100% 2px no-repeat,
     linear-gradient(#6b7079, #6b7079) left bottom 7px / 100% 4px no-repeat,
@@ -1219,11 +1224,11 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 @media (prefers-reduced-motion: reduce) {
   .orman__bulut, .tutun circle { animation: none; }
 }
-/* kasrli qutilar: ustma-ust kasr va kichik doira-bo'lak */
-.kasr { display: inline-flex; flex-direction: column; align-items: center; line-height: 1; font-style: normal; }
-.kasr i { font-style: normal; display: block; padding: 0 3px; }
-.kasr i:first-child { border-bottom: 2.5px solid currentColor; padding-bottom: 2px; }
-.kasr i:last-child { padding-top: 2px; }
+/* kasrli qutilar (Tartiblash): ustma-ust kasr — «Ulush tasmasi»dagi .kasr bilan aralashmasin, alohida nom */
+.tkasr { display: inline-flex; flex-direction: column; align-items: center; line-height: 1; font-style: normal; }
+.tkasr i { font-style: normal; display: block; padding: 0 3px; }
+.tkasr i:first-child { border-bottom: 2.5px solid currentColor; padding-bottom: 2px; }
+.tkasr i:last-child { padding-top: 2px; }
 .quti--kasr { height: 66px; min-width: 58px; gap: 6px; font-size: 20px; background: repeating-linear-gradient(0deg, #e6b06a 0 12px, #cf9450 12px 13px); }   /* qiyshiq tirgaksiz — kasr aniq o'qilsin */
 @media (max-width: 520px) { .quti--kasr { height: 60px; min-width: 52px; font-size: 18px; } }
 
@@ -1300,10 +1305,13 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .opick__top small { color: var(--muted); font-weight: 700; font-size: 12px; }
 .opick__btns { display: flex; flex-wrap: wrap; gap: 8px; }
 .opick__btns .tbtn { text-decoration: none; }
-.vagon__yuk .kasr { font-size: var(--vfs, 12px); }
-.vagon__yuk .kasr i:first-child { border-bottom-width: 1.5px; padding-bottom: 1px; }
-.vagon__yuk .kasr i:last-child { padding-top: 1px; }
-.vagon__yuk:has(.kasr) { top: -22%; }
+.tkasr--matn { vertical-align: middle; font-size: .8em; margin: 0 1px; }
+.tkasr--matn i:first-child { border-bottom-width: 1.5px; padding-bottom: 1px; }
+.tkasr--matn i:last-child { padding-top: 1px; }
+.vagon__yuk .tkasr { font-size: var(--vfs, 12px); }
+.vagon__yuk .tkasr i:first-child { border-bottom-width: 1.5px; padding-bottom: 1px; }
+.vagon__yuk .tkasr i:last-child { padding-top: 1px; }
+.vagon__yuk:has(.tkasr) { top: -22%; }
 
 /* ===== O'yin sahnasi — robot zavodi (Saralash) ===== */
 .sahna--zavod { color: #fff;

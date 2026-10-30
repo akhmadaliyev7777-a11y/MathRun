@@ -4,6 +4,10 @@ import { ICON } from '../icons.js';
 import { nav, footer, applyKingdom } from '../app.js';
 import { loadXLSXLib, parseQuestionsWorkbook } from '../xlsxImport.js';
 
+// arqon tortish maydoni fonlari: har joyning kunduzgi (fon-<joy>.webp) va tungi (fon-<joy>-tun.webp) rasmi
+// (promptlar — design/oyin-kartochka-promptlar.md). TUN_BOR — tungi rasmi tayyor joylar; qolganlarida tunda tayyorlaridan biri chiqadi.
+const FON_JOY = ['maydon', 'sohil', 'qish', 'stadion', 'yaylov'];
+const TUN_BOR = ['stadion', 'yaylov'];
 const WIN = 12;        // shu farqda o'yin tugaydi (bir tomon arqonni tortib oladi)
 const STEP_PX = 13;    // farqning har bir birligi uchun arqon siljishi
 const WRONG_PENALTY = 1; // har xato javob — jamoa ochkosidan ayiriladi (kerak bo'lsa minusga ham tushadi)
@@ -365,7 +369,12 @@ export async function render(root, _params) {
     const sideRed = img('tug-side tug-side--red', 'assets/tug/qizil.webp');
     const flag = img('tug-flag', 'assets/tug/bayroq.webp');
     const rope = el('div', { class: 'tug-arqon' });
-    const arena = el('div', { class: 'tug-arena' }, el('div', { class: 'tug-centerline' }), rope, sideBlue, sideRed, flag);
+    // maydon foni (2026-10-30): har o'yinda tasodifiy joy — kunduzgi rejimda uning kunduzgi, tungi rejimda tungi rasmi (CSS qaysi biri ko'rinishini tanlaydi)
+    const tasodif = (a) => a[Math.floor(Math.random() * a.length)];
+    const joy = tasodif(FON_JOY), tunJoy = TUN_BOR.includes(joy) ? joy : tasodif(TUN_BOR);
+    const fonKun = el('img', { class: 'tug-fon tug-fon--kun', src: `assets/tug/fon-${joy}.webp`, alt: '', loading: 'lazy', decoding: 'async' });
+    const fonTun = el('img', { class: 'tug-fon tug-fon--tun', src: `assets/tug/fon-${tunJoy}-tun.webp`, alt: '', loading: 'lazy', decoding: 'async' });
+    const arena = el('div', { class: 'tug-arena' }, fonKun, fonTun, el('div', { class: 'tug-centerline' }), rope, sideBlue, sideRed, flag);
     const onResize = () => { if (!arena.isConnected) window.removeEventListener('resize', onResize); else paintRig(); };
     window.addEventListener('resize', onResize);
     const timerEl = el('div', { class: 'tug-timer' }, el('span', { style: 'width:20px;height:20px', html: ICON.clock }), el('b', {}, fmt(state.left)));

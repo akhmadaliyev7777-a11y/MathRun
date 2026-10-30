@@ -26,6 +26,12 @@ function sabab(first, other, asc) {
   return `${fmt(first)} = ${fmt(other)}`;
 }
 
+// Robi gapidagi «a/b» — ustunli kasr bo'lib chiqadi (slash emas — foydalanuvchi qarori)
+const kasrMatn = (s) => String(s).split(/(\d+\/\d+)/).filter(p => p !== '').map(p => {
+  const m = p.match(/^(\d+)\/(\d+)$/);
+  return m ? el('span', { class: 'tkasr tkasr--matn' }, el('i', {}, m[1]), el('i', {}, m[2])) : p;
+});
+
 // kasrlar: maxrajlari bir xil — suratini, suratlari bir xil — maxrajini solishtiramiz
 function kasrSabab(first, other, asc) {
   const zn = asc ? '<' : '>';
@@ -111,7 +117,7 @@ export function gameNumberOrder(ctx) {
     const maxLen = kasr ? Math.max(...items.map(it => String(Math.max(it.n, it.d)).length)) : Math.max(...items.map(it => fmt(it.v).length));
     const txt = (it) => (kasr ? it.key : fmt(it.v));
     // quti ustidagi yozuv: son yoki ustma-ust kasr (doira-bo'lak yo'q — foydalanuvchi qarori)
-    const lbl = (it) => kasr ? [el('span', { class: 'kasr' }, el('i', {}, it.n), el('i', {}, it.d))] : [fmt(it.v)];
+    const lbl = (it) => kasr ? [el('span', { class: 'tkasr' }, el('i', {}, it.n), el('i', {}, it.d))] : [fmt(it.v)];
 
     // ---- poyezd: lokomotiv + n ta vagon ----
     const wagons = target.map((_, i) => el('div', { class: 'vagon' },
@@ -147,7 +153,7 @@ export function gameNumberOrder(ctx) {
     const setWagon = (k, it, cls) => {
       const w = wagons[k];
       w.className = 'vagon is-full' + (cls || '');
-      w.querySelector('.vagon__yuk').replaceChildren(kasr ? el('span', { class: 'kasr' }, el('i', {}, it.n), el('i', {}, it.d)) : fmt(it.v));   // vagonda ham kasr ustunli
+      w.querySelector('.vagon__yuk').replaceChildren(kasr ? el('span', { class: 'tkasr' }, el('i', {}, it.n), el('i', {}, it.d)) : fmt(it.v));   // vagonda ham kasr ustunli
       navbat();
     };
     const qoida = asc ? 'eng kichigini' : 'eng kattasini';
@@ -170,17 +176,17 @@ export function gameNumberOrder(ctx) {
           if (fast && m < 2) setTimeout(() => floatText('⚡ Tez!', wagons[k], 'hud-float--tez'), 150);
           sfx.ok();
           B.say(k === 0
-            ? [el('b', { class: 'rnum' }, txt(v)), ` — ${asc ? 'eng kichigi' : 'eng kattasi'}, birinchi vagonga!`]
-            : [el('b', { class: 'rnum' }, txt(v)), ` — qolganlarning ${asc ? 'eng kichigi' : 'eng kattasi'}.`], 'ok');
+            ? [el('b', { class: 'rnum' }, ...kasrMatn(txt(v))), ` — ${asc ? 'eng kichigi' : 'eng kattasi'}, birinchi vagonga!`]
+            : [el('b', { class: 'rnum' }, ...kasrMatn(txt(v))), ` — qolganlarning ${asc ? 'eng kichigi' : 'eng kattasi'}.`], 'ok');
           busy = false; drawBekat();
           if (loaded.length === n) depart();
         } else {
           mistakes++; H.miss(); sfx.bad();
           setWagon(k, v, ' is-wrong');
           const left = H.loseHeart();
-          B.say([el('span', { class: 'rchip rchip--yoq' }, `${txt(v)} emas`), ' ',
-            el('span', { class: 'rchip rchip--ha' }, `avval ${txt(want)}`), el('br'),
-            kasr ? kasrSabab(want, v, asc) : sabab(want.v, v.v, asc), '. ', `Har safar qolganlar ichidan ${qoida} oling.`], 'bad');
+          B.say([el('span', { class: 'rchip rchip--yoq' }, ...kasrMatn(`${txt(v)} emas`)), ' ',
+            el('span', { class: 'rchip rchip--ha' }, ...kasrMatn(`avval ${txt(want)}`)), el('br'),
+            ...(kasr ? kasrMatn(kasrSabab(want, v, asc)) : [sabab(want.v, v.v, asc)]), '. ', `Har safar qolganlar ichidan ${qoida} oling.`], 'bad');
           setTimeout(() => {
             wagons[k].className = 'vagon'; wagons[k].querySelector('.vagon__yuk').textContent = ''; navbat();
             drawBekat();

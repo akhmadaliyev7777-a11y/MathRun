@@ -7,7 +7,7 @@ import { shell, checkBtn, flash } from './shell.js?v=3';
 import { hud, buddy, sfx, floatText } from './hud.js?v=4';
 import { MORE } from './more.js';
 import { gameSet } from './venn.js?v=7';
-import { gameNumberOrder } from './tartib.js?v=9';
+import { gameNumberOrder } from './tartib.js?v=11';
 import { gameEquationGrid } from './jadval.js?v=2';
 import { gameConveyor } from './saralash.js?v=7';
 
