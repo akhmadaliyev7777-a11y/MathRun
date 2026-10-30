@@ -1,0 +1,222 @@
+[
+  {
+    "id": "g4c1b1l3_pv_01",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 7419,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "yetti ming to'rt yuz o'n to'qqiz"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_02",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 9712,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "to'qqiz ming yetti yuz o'n ikki"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_03",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 1606,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "bir ming olti yuz olti"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_04",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 8254,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "sakkiz ming ikki yuz ellik to'rt"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_05",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 1110,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "1000 + 100 + 10"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_06",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 3363,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "3000 + 300 + 60 + 3"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_07",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 9135,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "9000 + 100 + 30 + 5"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_08",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 7111,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        7,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_09",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 5336,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        5,
+        3,
+        3,
+        6
+      ]
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_10",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 8178,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        8,
+        1,
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_11",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 8708,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        7,
+        17,
+        0,
+        8
+      ]
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_12",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 3028,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        3,
+        0,
+        1,
+        18
+      ]
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_13",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 3007,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        2,
+        10,
+        0,
+        7
+      ]
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_14",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 6820,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        5,
+        18,
+        2,
+        0
+      ]
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_15",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 8950,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        7,
+        19,
+        5,
+        0
+      ]
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_16",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 2032,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "ikki ming o'ttiz ikki"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_17",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 6009,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "olti ming to'qqiz"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_18",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 1107,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "bir ming bir yuz yetti"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_19",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 3902,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "3000 + 900 + 2"
+    }
+  },
+  {
+    "id": "g4c1b1l3_pv_20",
+    "prompt": "Sonni ming, yuzlik, o'nlik va birlik bloklaridan quring",
+    "targetNumber": 7046,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "7000 + 40 + 6"
+    }
+  }
+]

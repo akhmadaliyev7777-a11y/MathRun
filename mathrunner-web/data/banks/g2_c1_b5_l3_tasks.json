@@ -1,0 +1,237 @@
+[
+  {
+    "id": "g2c1b5l3_pv_01",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 67,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_02",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 93,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        9,
+        3
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_03",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 84,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        8,
+        4
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_04",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 99,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        9,
+        9
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_05",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 94,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        9,
+        4
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_06",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 68,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "60 + 8"
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_07",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 29,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "20 + 9"
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_08",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 23,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "20 + 3"
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_09",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 35,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "30 + 5"
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_10",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 54,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "50 + 4"
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_11",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 91,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        8,
+        11
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_12",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 59,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        4,
+        19
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_13",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 42,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        3,
+        12
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_14",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 58,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        4,
+        18
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_15",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 96,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        8,
+        16
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_16",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 66,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        5,
+        16
+      ]
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_17",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 92,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "to'qson ikki"
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_18",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 76,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "yetmish olti"
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_19",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 75,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "70 + 5"
+    }
+  },
+  {
+    "id": "g2c1b5l3_pv_20",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 34,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "30 + 4"
+    }
+  }
+]

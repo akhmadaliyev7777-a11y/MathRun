@@ -50,53 +50,114 @@
     "targetNumber": 68
   },
   {
+    "id": "g1c2b29l1_pv_11",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 98,
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "90 + 8"
+    }
+  },
+  {
+    "id": "g1c2b29l1_pv_12",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 80,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        7,
+        10
+      ]
+    }
+  },
+  {
+    "id": "g1c2b29l1_pv_13",
+    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
+    "targetNumber": 72,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "yetmish ikki"
+    }
+  },
+  {
+    "id": "g1c2b29l1_pv_14",
     "prompt": "Sonni o'nlik va birlik bloklaridan quring",
     "targetNumber": 30,
-    "id": "g1c2b29l1_pv_x01"
+    "buyurtma": {
+      "tur": "yigindi",
+      "matn": "30"
+    }
   },
   {
+    "id": "g1c2b29l1_pv_15",
     "prompt": "Sonni o'nlik va birlik bloklaridan quring",
-    "targetNumber": 41,
-    "id": "g1c2b29l1_pv_x02"
+    "targetNumber": 99,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        9,
+        9
+      ]
+    }
   },
   {
+    "id": "g1c2b29l1_pv_16",
     "prompt": "Sonni o'nlik va birlik bloklaridan quring",
-    "targetNumber": 82,
-    "id": "g1c2b29l1_pv_x03"
+    "targetNumber": 24
   },
   {
+    "id": "g1c2b29l1_pv_17",
     "prompt": "Sonni o'nlik va birlik bloklaridan quring",
-    "targetNumber": 78,
-    "id": "g1c2b29l1_pv_x04"
+    "targetNumber": 38,
+    "buyurtma": {
+      "tur": "soz",
+      "matn": "o'ttiz sakkiz"
+    }
   },
   {
+    "id": "g1c2b29l1_pv_18",
     "prompt": "Sonni o'nlik va birlik bloklaridan quring",
-    "targetNumber": 48,
-    "id": "g1c2b29l1_pv_x05"
+    "targetNumber": 94,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        8,
+        14
+      ]
+    }
   },
   {
+    "id": "g1c2b29l1_pv_19",
     "prompt": "Sonni o'nlik va birlik bloklaridan quring",
-    "targetNumber": 81,
-    "id": "g1c2b29l1_pv_x06"
+    "targetNumber": 63,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        5,
+        13
+      ]
+    }
   },
   {
+    "id": "g1c2b29l1_pv_20",
     "prompt": "Sonni o'nlik va birlik bloklaridan quring",
-    "targetNumber": 35,
-    "id": "g1c2b29l1_pv_x07"
-  },
-  {
-    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
-    "targetNumber": 33,
-    "id": "g1c2b29l1_pv_x08"
-  },
-  {
-    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
-    "targetNumber": 47,
-    "id": "g1c2b29l1_pv_x09"
-  },
-  {
-    "prompt": "Sonni o'nlik va birlik bloklaridan quring",
-    "targetNumber": 37,
-    "id": "g1c2b29l1_pv_x10"
+    "targetNumber": 71,
+    "buyurtma": {
+      "tur": "xona",
+      "x": [
+        0,
+        0,
+        7,
+        1
+      ]
+    }
   }
 ]

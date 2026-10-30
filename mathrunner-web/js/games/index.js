@@ -12,46 +12,252 @@ import { gameNumberOrder } from './tartib.js?v=9';
 import { gameEquationGrid } from './jadval.js?v=2';
 import { gameConveyor } from './saralash.js?v=7';
 
-// ================= placeValue =================
-function gamePlaceValue(ctx) {
-  const tasks = ctx.bank;
-  let idx = 0, correct = 0, streak = 0, longest = 0;
-  const s = shell(ctx, tasks[0].prompt, 'columns', true);
-
-  function render() {
-    const t = tasks[idx];
-    s.setProg(idx, tasks.length);
-    const useH = t.targetNumber >= 100;
-    const st = { h: 0, t: 0, o: 0 };
-    const out = el('div', { style: 'font-family:var(--f-head);font-weight:800;font-size:34px;text-align:center;margin-top:10px' });
-
-    function col(key, label) {
-      return el('div', { class: 'pv__col' },
-        el('b', {}, label),
-        el('div', { class: 'pv__count', id: 'c-' + key }, '0'),
-        el('div', { class: 'pv__pm' },
-          el('button', { onclick: () => { if (st[key] > 0) { st[key]--; upd(); } } }, '−'),
-          el('button', { onclick: () => { if (st[key] < 12) { st[key]++; upd(); } } }, '+')));
-    }
-    function upd() {
-      for (const k of ['h', 't', 'o']) { const n = document.getElementById('c-' + k); if (n) n.textContent = st[k]; }
-      out.textContent = `Qurilgan son: ${100 * st.h + 10 * st.t + st.o}`;
-    }
-
-    s.area.replaceChildren(
-      el('div', { style: 'text-align:center;font-family:var(--f-head);font-weight:800;font-size:20px' }, `Maqsad: ${t.targetNumber}`),
-      el('div', { class: 'pv' }, useH && col('h', 'Yuzlik'), col('t', "O'nlik"), col('o', 'Birlik')),
-      out);
-    upd();
-    s.foot.replaceChildren(checkBtn('Tekshirish', () => {
-      const ok = 100 * st.h + 10 * st.t + st.o === t.targetNumber;
-      if (ok) { correct++; streak++; longest = Math.max(longest, streak); } else streak = 0;
-      idx++;
-      if (idx >= tasks.length) ctx.finish(correct, tasks.length, { longestStreak: longest });
-      else render();
-    }));
+// ================= placeValue (Xona tarkibi — shirinliklar fabrikasi) =================
+// Buyurtmaga ko'ra qutiga konfet yig'iladi: birlik — bitta konfet, o'nlik — 10 konfetli rulon, yuzlik — 100 konfetli
+// lagan, ming — 1000 konfetli sovg'a qutisi. Qutida xonalar bo'limlari, har birining tagida raqami (xona jadvali).
+// 10 ta bir xil narsa to'lsa, mashina ularni o'zi bitta kattasiga o'raydi (xonadan o'tish). Buyurtma turlari:
+// son, so'z bilan, xona birliklari («3 o'nlik 14 birlik»), xona qo'shiluvchilari («200 + 30 + 4»).
+// «Jo'natish»: to'g'ri — quti jo'naydi; xato — yurak kamayadi, Robi qaysi xona noto'g'ri ekanini aytadi, tuzatib qayta jo'natiladi.
+// Mashq 2 partiya × 5; partiyada 3 yurak; tugasa — qolganlarini mashina o'zi yig'adi.
+const XONA = [
+  { nom: 'Minglar', bir: 'ming', v: 1000 }, { nom: 'Yuzlar', bir: 'yuzlik', v: 100 },
+  { nom: "O'nlar", bir: "o'nlik", v: 10 }, { nom: 'Birlar', bir: 'birlik', v: 1 },
+];
+const xonalarOf = (n) => [Math.floor(n / 1000), Math.floor(n / 100) % 10, Math.floor(n / 10) % 10, n % 10];
+const sonFmt = (n) => (n >= 10000 ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : String(n));
+// buyurtma matni
+function buyurtmaMatn(t) {
+  const b = t.buyurtma || { tur: 'son' };
+  if (b.tur === 'soz') return `«${b.matn}»`;
+  if (b.tur === 'yigindi') return b.matn;
+  if (b.tur === 'xona') return b.x.map((c, i) => (c ? `${c} ${XONA[i].bir}` : '')).filter(Boolean).join(', ');
+  return sonFmt(t.targetNumber);
+}
+// to'g'ri javobdan keyin — bir qator sabab
+function xonaSabab(t) {
+  const n = t.targetNumber, b = t.buyurtma || { tur: 'son' }, x = xonalarOf(n);
+  const tarkib = x.map((c, i) => (c ? `${c} ${XONA[i].bir}` : '')).filter(Boolean).join(' + ');
+  if (b.tur === 'soz') return `«${b.matn}» = ${sonFmt(n)} = ${tarkib}`;
+  if (b.tur === 'yigindi') return `${b.matn} = ${sonFmt(n)}`;
+  if (b.tur === 'xona') {
+    const i = b.x.findIndex(c => c > 9);
+    if (i > 0) return `${b.x[i]} ${XONA[i].bir} = 1 ${XONA[i - 1].bir} + ${b.x[i] - 10} ${XONA[i].bir}, demak ${tarkib} = ${sonFmt(n)}`;
+    return `${tarkib} = ${sonFmt(n)}`;
   }
-  render();
+  return `${sonFmt(n)} = ${tarkib}`;
+}
+// xato jo'natilganda — qaysi xonalar noto'g'ri
+function xonaXato(t, c, cols) {
+  const kerak = xonalarOf(t.targetNumber), qiymat = c.reduce((a, v, i) => a + v * XONA[i].v, 0);
+  const farq = cols.filter(i => c[i] !== kerak[i]).map(i => `${XONA[i].nom.toLowerCase()} ${c[i]} ta emas, ${kerak[i]} ta`);
+  return `Qutida ${sonFmt(qiymat)}, kerak ${sonFmt(t.targetNumber)}: ${farq.join('; ')}.`;
+}
+
+// buyumlar: konfet (yalpiz konfeti), rulon (10), lagan (100), sovg'a qutisi (1000)
+const buyum = (i) => el('i', { class: ['bu bu--ming', 'bu bu--lagan', 'bu bu--rulon', 'bu bu--konfet'][i] });
+
+function gamePlaceValue(ctx) {
+  const all = [...ctx.bank];
+  const s = shell(ctx, all[0].prompt, 'columns');
+  const H = hud(3);
+  const B = buddy();
+  const raqamlar = Math.max(...all.map(t => String(t.targetNumber).length), ...all.map(t => (t.buyurtma?.x ? 4 - t.buyurtma.x.findIndex(v => v > 0) : 0)));
+  const cols = [0, 1, 2, 3].slice(4 - Math.min(4, Math.max(2, raqamlar)));   // qutidagi bo'limlar (masalan o'nlar va birlar)
+  const RAUND = 5;
+  const rounds = [];
+  for (let i = 0; i < all.length; i += RAUND) rounds.push(all.slice(i, i + RAUND));
+  let ri = 0, right = 0, total = 0, longest = 0, done = 0, orashAytildi = false;
+  const times = [];
+  let onKey = null;
+  const timers = new Set();
+  const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); };
+  const keyH = (ev) => onKey && onKey(ev);
+  addEventListener('keydown', keyH);
+  addEventListener('hashchange', () => { removeEventListener('keydown', keyH); timers.forEach(clearTimeout); }, { once: true });
+
+  // ---- sahna qismlari ----
+  const chek = el('div', { class: 'fab-chek' });
+  const c = [0, 0, 0, 0];
+  let taps = 0, busy = false, t = null, startedAt = 0, xatoBor = false;
+  const bolim = {}, raqam = {};
+  const quti = el('div', { class: 'fab-quti' }, ...cols.map(i => {
+    bolim[i] = el('div', { class: 'fab-bolim__ichi fab-bolim__ichi--' + ['ming', 'lagan', 'rulon', 'konfet'][i] });
+    raqam[i] = el('b', { class: 'fab-bolim__raqam' }, '0');
+    return el('div', { class: 'fab-bolim' }, el('small', { class: 'fab-bolim__nom' }, XONA[i].nom), bolim[i], raqam[i]);
+  }));
+  const jami = el('div', { class: 'fab-jami' });
+  const qutiJoy = el('div', { class: 'fab-qutijoy' }, quti);
+  const tugmalar = el('div', { class: 'fab-tugmalar' }, ...cols.map((i, k) => el('button', {
+    type: 'button', class: 'fab-tugma', 'aria-label': `1 ${XONA[i].bir} qo'shish`, onclick: (e) => qosh(i, e.currentTarget),
+  }, el('span', { class: 'fab-tugma__rasm' }, buyum(i)), el('b', {}, `+1 ${XONA[i].bir}`), el('small', {}, `${sonFmt(XONA[i].v)} ta · ${k + 1}`))));
+  const mashina = el('div', { class: 'fab-mashina' }, el('div', { class: 'fab-mashina__gumbaz' }), tugmalar);
+  const yubor = el('button', { type: 'button', class: 'btn btn--accent fab-yubor', onclick: () => jonat() }, 'Jo\'natish ✓');
+  const tozala = el('button', { type: 'button', class: 'btn fab-tozala', onclick: () => { if (busy) return; c.fill(0); chiz(); sfx.tap(); } }, 'Bo\'shatish');
+
+  function chiz() {
+    for (const i of cols) {
+      const box = bolim[i];
+      while (box.children.length > c[i]) box.lastChild.remove();
+      while (box.children.length < c[i]) {
+        const n = buyum(i), k = box.children.length;
+        n.addEventListener('click', () => ol(i));
+        if (i <= 1) n.style.setProperty('--k', k);       // laganlar va qutilar ustma-ust taxlanadi
+        box.append(n);
+      }
+      raqam[i].textContent = c[i];
+      raqam[i].classList.toggle('kop', c[i] > 9);
+    }
+    const q = c.reduce((a, v, i) => a + v * XONA[i].v, 0);
+    jami.replaceChildren('Qutida: ', el('b', {}, sonFmt(q)), ' ta konfet');
+  }
+  // bitta narsa qo'shiladi; 10 ta to'lsa — mashina o'raydi
+  function qosh(i, btn) {
+    if (busy || !t) return;
+    if (c[i] >= 9 && i === cols[0]) { btn.classList.remove('silk'); void btn.offsetWidth; btn.classList.add('silk'); return; }   // eng katta xonada 9 tadan ortiq sig'maydi
+    taps++; sfx.tap();
+    const a = btn.querySelector('.bu').getBoundingClientRect(), dest = bolim[i].getBoundingClientRect();
+    const f = buyum(i); f.classList.add('bu--uch');
+    Object.assign(f.style, { left: a.left + 'px', top: a.top + 'px' });
+    document.body.append(f);
+    requestAnimationFrame(() => { f.style.transform = `translate(${dest.left + dest.width / 2 - a.left - a.width / 2}px, ${dest.bottom - 30 - a.top}px)`; });
+    later(() => f.remove(), 330);
+    c[i]++; chiz();
+    if (c[i] === 10) later(() => orash(i), 380);
+  }
+  function orash(i) {
+    if (c[i] < 10 || i === cols[0]) return;   // eng katta xonadan yuqorisi qutida yo'q
+    const box = bolim[i];
+    box.classList.add('orash');
+    sfx.ok();
+    later(() => {
+      box.classList.remove('orash');
+      c[i] -= 10; c[i - 1]++; chiz();
+      const yangi = bolim[i - 1].lastChild; if (yangi) { yangi.classList.add('yangi'); }
+      if (!orashAytildi) { orashAytildi = true; B.say([el('b', {}, `10 ta ${XONA[i].bir} = 1 ${XONA[i - 1].bir}!`), ' Mashina ularni o\'rab qo\'ydi.'], 'ok'); }
+      if (c[i - 1] === 10) later(() => orash(i - 1), 380);
+    }, 520);
+  }
+  function ol(i) {
+    if (busy || c[i] <= 0) return;
+    taps++; c[i]--; chiz(); sfx.tap();
+  }
+
+  function yangiQuti() {
+    c.fill(0); taps = 0; xatoBor = false; busy = false;
+    quti.classList.remove('ket'); quti.classList.add('kel'); later(() => quti.classList.remove('kel'), 500);
+    chiz();
+  }
+
+  const chekYoz = () => chek.replaceChildren(el('small', {}, `Buyurtma № ${done + 1}`), el('b', {}, buyurtmaMatn(t)),
+    el('span', {}, t.buyurtma?.tur === 'xona' ? ' konfet' : ' ta konfet'));
+  function round() {
+    const items = rounds[ri];
+    H.resetHearts();
+    let ii = 0, mistakes = 0;
+
+    function next() {
+      if (ii >= items.length) return endRound();
+      t = items[ii];
+      s.setProg(done, all.length);
+      chekYoz();
+      chek.classList.remove('yangi'); void chek.offsetWidth; chek.classList.add('yangi');
+      yangiQuti();
+      const b = t.buyurtma?.tur;
+      B.say(b === 'xona' && t.buyurtma.x.some(v => v > 9) ? ['Buyurtmada bir xona 9 tadan ko\'p — qo\'shavering, mashina 10 tasini o\'zi o\'raydi.']
+        : b === 'soz' ? ['Buyurtma so\'z bilan yozilgan. Sonni xonalarga ajratib, qutiga yig\'ing.']
+        : b === 'yigindi' ? ['Har qo\'shiluvchi — bitta xona. Shuncha konfetni qutiga yig\'ing.']
+        : ['Buyurtmani qutiga yig\'ing: yuqoridagi tugmalar — xona birliklari. Ortiqchasini olish uchun qutidagisini bosing.'], 'idle');
+      startedAt = performance.now();
+      onKey = (ev) => {
+        const n = +ev.key;
+        if (n >= 1 && n <= cols.length) { ev.preventDefault(); tugmalar.children[n - 1].click(); }
+        else if (ev.key === 'Enter') { ev.preventDefault(); jonat(); }
+        else if (ev.key === 'Backspace') { ev.preventDefault(); for (let k = cols.length - 1; k >= 0; k--) if (c[cols[k]]) { ol(cols[k]); break; } }
+      };
+    }
+
+    jonat = function () {
+      if (busy || !t) return;
+      const q = c.reduce((a, v, i) => a + v * XONA[i].v, 0);
+      if (q === 0) return;
+      if (q === t.targetNumber) {
+        busy = true; onKey = null;
+        total++; done++;
+        if (!xatoBor) { right++; const m = H.hit(); longest = Math.max(longest, H.st.combo);
+          const kam = taps <= xonalarOf(t.targetNumber).reduce((a, v) => a + v, 0);   // eng kam bosish bilan
+          const sek = (performance.now() - startedAt) / 1000;
+          H.add(10 * m + (kam ? 5 : 0), yubor);
+          if (kam && m < 2) later(() => floatText('Tejamkor!', yubor, 'hud-float--tez'), 250);
+          else if (sek < 4 + taps * 0.7 && m < 2) later(() => floatText('⚡ Tez!', yubor, 'hud-float--tez'), 250);
+          times.push(sek * 1000);
+        }
+        sfx.ok();
+        B.say([el('span', { class: 'rchip rchip--ha' }, `${sonFmt(t.targetNumber)} ✓`), ' ', xonaSabab(t)], 'ok');
+        later(() => quti.classList.add('ket'), 700);
+        later(() => { ii++; next(); }, 2300);
+      } else {
+        sfx.bad(); H.miss();
+        if (!xatoBor) { xatoBor = true; mistakes++; }
+        const left = H.loseHeart();
+        quti.classList.remove('xato'); void quti.offsetWidth; quti.classList.add('xato');
+        B.say([el('span', { class: 'rchip rchip--yoq' }, 'Xato'), ' ', xonaXato(t, c, cols)], 'bad');
+        if (left === 0) { busy = true; onKey = null; total++; done++; later(() => tuzat(() => { ii++; autoRest(); }), 1600); }
+      }
+    };
+    // mashina to'g'ri yig'ib ko'rsatadi
+    function tuzat(then) {
+      const kerak = xonalarOf(t.targetNumber);
+      cols.forEach(i => { c[i] = kerak[i]; });
+      chiz();
+      B.say([el('span', { class: 'rchip rchip--ha' }, `${sonFmt(t.targetNumber)}`), ' ', xonaSabab(t)], 'think');
+      later(() => quti.classList.add('ket'), 1500);
+      later(then, 2600);
+    }
+    function autoRest() {
+      B.say(['Yuraklar tugadi. Qolgan buyurtmalarni mashina o\'zi yig\'adi — kuzating.'], 'think');
+      const go = () => {
+        if (ii >= items.length) return endRound();
+        t = items[ii];
+        chekYoz();
+        yangiQuti(); busy = true; total++; done++; s.setProg(done, all.length);
+        later(() => tuzat(() => { ii++; go(); }), 900);
+      };
+      later(go, 1200);
+    }
+    function endRound() {
+      onKey = null; t = null; busy = true;
+      const clean = mistakes === 0;
+      if (clean) { H.add(30, quti); sfx.win(); }
+      s.setProg(done, all.length);
+      const lastR = ri + 1 >= rounds.length;
+      amallar.hidden = true;
+      s.foot.replaceChildren(
+        el('div', { class: 'rend ' + (clean ? 'rend--ok' : '') },
+          el('b', {}, clean ? 'Xatosiz! +30 bonus' : mistakes === 1 ? 'Bitta xato bilan — yaxshi!' : `${mistakes} ta xato — keyingisida diqqat bilan!`),
+          el('button', { class: 'btn btn--accent', type: 'button', onclick: () => {
+            ri++;
+            if (ri >= rounds.length) {
+              const avgMs = times.length ? times.reduce((a, b) => a + b, 0) / times.length : 0;
+              ctx.finish(right, total, { longestStreak: longest, avgMs, score: H.st.score });
+            } else { s.foot.replaceChildren(); amallar.hidden = false; round(); }
+          } }, lastR ? 'Natijani ko\'rish' : 'Keyingi partiya ➜')));
+    }
+    next();
+  }
+  let jonat = () => {};
+  const amallar = el('div', { class: 'fab-amallar' }, tozala, yubor);
+
+  const bar = ctx.root.querySelector('.prompt'); if (bar) bar.hidden = true;   // ko'rsatmani Robi aytadi
+  const sahna = el('div', { class: 'sahna sahna--fabrika' },
+    el('i', { class: 'fab-quvur fab-quvur--1' }), el('i', { class: 'fab-quvur fab-quvur--2' }),
+    H.node, B.node, chek, mashina, qutiJoy, jami, amallar);
+  s.area.replaceChildren(sahna);
+  s.foot.replaceChildren();
+  if (innerWidth < 700) requestAnimationFrame(() => {
+    const head = document.querySelector('.site-header')?.offsetHeight || 0;
+    scrollTo({ top: sahna.getBoundingClientRect().top + scrollY - head - 6, behavior: 'auto' });
+  });
+  round();
 }
 
 // ================= balanceScale (Tarozi — sehrli bozor) =================

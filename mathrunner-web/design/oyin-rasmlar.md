@@ -119,6 +119,17 @@ Fayllar: `robi-oddiy.png`, `robi-xursand.png`, `robi-tushuntiradi.png`, `robi-oy
 > [yellow / green / blue / orange / violet], faceted, softly glowing, front view. Soft 3D cartoon style,
 > transparent background, no text. 512×512.
 
+## 7. Xona tarkibi — shirinliklar fabrikasi
+**7.1 Fon** (`xona-fabrika.png`):
+> A cheerful candy factory interior: pastel pink striped walls, peppermint-striped pipes along the sides, a big purple
+> gumball-style candy machine with a glass dome full of colorful candies, a wooden delivery cart. The center must stay
+> calm and simple (a cardboard box will be placed there). Soft 3D cartoon style, no text. Portrait 1080×1600.
+
+**7.2 Buyumlar** (`konfet.png`, `rulon.png`, `lagan.png`, `sovga-quti.png`):
+> One red-and-white peppermint candy; a clear tube with exactly 10 peppermint candies stacked in one column (gold caps);
+> a flat tray with exactly 10×10 small candies; a purple gift box with a yellow ribbon. Soft 3D cartoon style,
+> transparent background, no text. 512×512 each.
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
 - Yoyilma — origami ustaxonasi
 - Koordinata — xazina oroli xaritasi
