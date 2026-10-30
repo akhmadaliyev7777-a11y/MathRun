@@ -33,6 +33,7 @@ window.KUNLIK = [
       ["1–4-sinf", "Arqon tortish: tortish yaqqol ko'rinadi — yutayotgan jamoa ekran chetidan chiqib ketaveradi, raqibi ortidan sudraladi, bayroqcha yutayotganlar tomonga siljiydi; har to'g'ri javobda jamoa arqonni bir silkitadi; o'yin oxirida g'olib arqonni oxirigacha tortib, uch marta silkitadi, natija oynasi shundan keyin chiqadi."],
       ["1–4-sinf", "Kasrlar poyezdi (4-sinf 43, 46-mavzu): qutilardagi kasrlar ustma-ust tushib qolgani tuzatildi; vagondagi kasrli qutining tepasi endi kesilmaydi; Robining gaplarida ham kasrlar ustunli (slash emas)."],
       ["1–4-sinf", "Arqon tortish maydoniga fon: 5 ta joy (maktab maydoni, dengiz sohili, qishki bog', kechki stadion, kuzgi yaylov), har o'yinda tasodifiy; tungi rejimda o'sha joyning tungi rasmi (stadion va yaylov tayyor, maydon, sohil, qish — kutilmoqda)."],
+      ["1–4-sinf", "Arqon tortish: fon endi butun o'yin sahifasining orqasida; o'yin boshlanganda to'liq ekranga chiqadi (sayt menyusisiz), tepada to'liq ekran tugmasi; Esc bosilsa o'yin to'xtab, «Davom etish» yoki «Yakunlash» so'raladi."],
     ]
   },
   {

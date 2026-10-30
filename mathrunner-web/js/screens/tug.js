@@ -8,6 +8,9 @@ import { loadXLSXLib, parseQuestionsWorkbook } from '../xlsxImport.js';
 // (promptlar — design/oyin-kartochka-promptlar.md). TUN_BOR — tungi rasmi tayyor joylar; qolganlarida tunda tayyorlaridan biri chiqadi.
 const FON_JOY = ['maydon', 'sohil', 'qish', 'stadion', 'yaylov'];
 const TUN_BOR = ['stadion', 'yaylov'];
+// to'liq ekran belgisi: burchaklar tashqariga (kirish) va ichkariga (chiqish)
+const FS_KIR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/></svg>';
+const FS_CHIQ = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v3.5A1.5 1.5 0 0 1 7.5 9H4M20 9h-3.5A1.5 1.5 0 0 1 15 7.5V4M15 20v-3.5a1.5 1.5 0 0 1 1.5-1.5H20M4 15h3.5A1.5 1.5 0 0 1 9 16.5V20"/></svg>';
 const WIN = 12;        // shu farqda o'yin tugaydi (bir tomon arqonni tortib oladi)
 const STEP_PX = 13;    // farqning har bir birligi uchun arqon siljishi
 const WRONG_PENALTY = 1; // har xato javob — jamoa ochkosidan ayiriladi (kerak bo'lsa minusga ham tushadi)
@@ -52,7 +55,19 @@ export async function render(root, _params) {
   let uploadStatus = null;           // {kind:'success'|'warning'|'error', message, rowErrors}
   let uploadBusy = false;
 
+  // to'liq ekran (foydalanuvchi, 2026-10-30): o'yin boshlanganda yoqiladi, «Chiqish»da o'chadi
+  // faqat o'yin qismi (sayt menyusisiz) to'liq ekranga chiqadi
+  const toliqEkran = () => {
+    const d = root, f = d.requestFullscreen || d.webkitRequestFullscreen;
+    if (f && !(document.fullscreenElement || document.webkitFullscreenElement)) { try { const r = f.call(d); if (r && r.catch) r.catch(() => {}); } catch { /* */ } }
+  };
+  const toliqdanChiq = () => {
+    const f = document.exitFullscreen || document.webkitExitFullscreen;
+    if (f && (document.fullscreenElement || document.webkitFullscreenElement)) { try { const r = f.call(document); if (r && r.catch) r.catch(() => {}); } catch { /* */ } }
+  };
+
   function config() {
+    toliqdanChiq();
     const catsInGrade = grade === 'all' ? cats : cats.filter(c => c.grade === grade);
     const mixedCount = (grade === 'all' ? allQ : catsInGrade.flatMap(c => c.questions)).length;
     const topicLabel = catId === 'custom' && customSet ? customSet.name
@@ -289,6 +304,7 @@ export async function render(root, _params) {
   });
 
   function play() {
+    toliqEkran();
     const gradedCats = grade === 'all' ? cats : cats.filter(c => c.grade === grade);
     const gradedPool = grade === 'all' ? allQ : gradedCats.flatMap(c => c.questions);
     const pool = catId === 'custom' && customSet ? customSet.questions
@@ -369,12 +385,22 @@ export async function render(root, _params) {
     const sideRed = img('tug-side tug-side--red', 'assets/tug/qizil.webp');
     const flag = img('tug-flag', 'assets/tug/bayroq.webp');
     const rope = el('div', { class: 'tug-arqon' });
-    // maydon foni (2026-10-30): har o'yinda tasodifiy joy — kunduzgi rejimda uning kunduzgi, tungi rejimda tungi rasmi (CSS qaysi biri ko'rinishini tanlaydi)
+    // fon (2026-10-30) — butun o'yin sahifasining orqasida: har o'yinda tasodifiy joy, kunduzgi rejimda uning kunduzgi,
+    // tungi rejimda tungi rasmi (CSS qaysi biri ko'rinishini tanlaydi); ufq chizig'i bolalar turgan joyga moslanadi (fonJoyla)
     const tasodif = (a) => a[Math.floor(Math.random() * a.length)];
     const joy = tasodif(FON_JOY), tunJoy = TUN_BOR.includes(joy) ? joy : tasodif(TUN_BOR);
     const fonKun = el('img', { class: 'tug-fon tug-fon--kun', src: `assets/tug/fon-${joy}.webp`, alt: '', loading: 'lazy', decoding: 'async' });
     const fonTun = el('img', { class: 'tug-fon tug-fon--tun', src: `assets/tug/fon-${tunJoy}-tun.webp`, alt: '', loading: 'lazy', decoding: 'async' });
-    const arena = el('div', { class: 'tug-arena' }, fonKun, fonTun, el('div', { class: 'tug-centerline' }), rope, sideBlue, sideRed, flag);
+    const arena = el('div', { class: 'tug-arena' }, el('div', { class: 'tug-centerline' }), rope, sideBlue, sideRed, flag);
+    // fonni shunday kattalashtirib joylaymizki, rasmdagi ufq (balandligining ~56 %) arqon balandligiga to'g'ri kelsin va fon sahifani to'liq qoplasin
+    const UFQ = 0.56;
+    function fonJoyla(ufqY) {
+      const sahna = arena.closest('.tug-sahna');
+      if (!sahna) return;
+      const W = sahna.clientWidth, H = sahna.clientHeight;
+      const h = Math.max(H, W / 1.5, ufqY / UFQ, (H - ufqY) / (1 - UFQ)), w = h * 1.5;
+      for (const f of [fonKun, fonTun]) Object.assign(f.style, { width: w + 'px', height: h + 'px', left: (W - w) / 2 + 'px', top: (ufqY - UFQ * h) + 'px' });
+    }
     const onResize = () => { if (!arena.isConnected) window.removeEventListener('resize', onResize); else paintRig(); };
     window.addEventListener('resize', onResize);
     const timerEl = el('div', { class: 'tug-timer' }, el('span', { style: 'width:20px;height:20px', html: ICON.clock }), el('b', {}, fmt(state.left)));
@@ -428,6 +454,8 @@ export async function render(root, _params) {
         const fh = th * 180 / 475;
         flag.style.height = fh + 'px'; flag.style.top = (ropeY - fh * FLAG_ROPE) + 'px';
         arena.style.setProperty('--yer', (top + th * 0.96) + 'px');
+        const sahna = arena.closest('.tug-sahna');
+        if (sahna) fonJoyla(arena.getBoundingClientRect().top - sahna.getBoundingClientRect().top + ropeY + th * 0.06);
         // tortish yaqqol ko'rinsin (foydalanuvchi, 2026-10-30): yutayotgan jamoa tortgan sari ekran chetidan chiqib ketaveradi
         // (out — jamoa kengligining 3/4 qismigacha), yutqazayotgan jamoa arqon bilan uning ortidan sudraladi (drag + out);
         // bayroqcha yutayotganlar qo'liga yaqinlashadi. Birinchi ochkolar ham sezilsin — siljish «tez boshlanib, sekin tugaydi».
@@ -495,10 +523,50 @@ export async function render(root, _params) {
       }, 1000);
     }
 
+    // Esc (yoki to'liq ekrandan chiqish) — o'yin to'xtaydi, «Davom etish» yoki «Yakunlash» so'raladi
+    let pauza = null, kutStart = false;
+    function toxtat() {
+      if (state.over || pauza || !arena.isConnected) return;
+      if (tick) { clearInterval(tick); tick = null; }
+      mainEl.classList.add('is-starting');
+      pauza = el('div', { class: 'tug-end tug-pauza' },
+        el('div', { class: 'tug-end__card' },
+          el('h1', {}, "O'yin to'xtatildi"),
+          el('p', { style: 'font-weight:700;color:var(--muted-soft);margin:4px 0 22px' }, "Davom etasizmi yoki o'yinni yakunlaysizmi?"),
+          el('div', { class: 'result__btns' },
+            el('button', { class: 'btn', onclick: () => { davom(false); finish(); } }, 'Yakunlash'),
+            el('button', { class: 'btn btn--ink', onclick: () => davom(true) }, 'Davom etish'))));
+      root.appendChild(pauza);
+    }
+    function davom(oyin) {
+      if (pauza) { pauza.remove(); pauza = null; }
+      if (!oyin) return;
+      toliqEkran();
+      if (state.starting) return;                 // sanoq tugaganda o'zi boshlanadi
+      mainEl.classList.remove('is-starting');
+      if (kutStart || !tick) { kutStart = false; startTimer(); }
+    }
+    let ozimiz = false;   // tepadagi tugma bilan chiqildi — o'yin to'xtamaydi
+    const fsIkon = () => fsBtn.replaceChildren(el('span', { html: (document.fullscreenElement || document.webkitFullscreenElement) ? FS_CHIQ : FS_KIR }));
+    const fsBtn = el('button', { class: 'tug-fsbtn', type: 'button', title: "To'liq ekran", 'aria-label': "To'liq ekran",
+      onclick: () => { if (document.fullscreenElement || document.webkitFullscreenElement) { ozimiz = true; toliqdanChiq(); } else toliqEkran(); } });
+    fsIkon();
+    const onFs = () => {
+      if (!arena.isConnected) { document.removeEventListener('fullscreenchange', onFs); document.removeEventListener('webkitfullscreenchange', onFs); return; }
+      fsIkon();
+      const ichida = !!(document.fullscreenElement || document.webkitFullscreenElement);
+      if (ichida || state.over) { ozimiz = false; return; }
+      if (ozimiz) { ozimiz = false; return; }
+      toxtat();
+    };
+    document.addEventListener('fullscreenchange', onFs);
+    document.addEventListener('webkitfullscreenchange', onFs);
+
     function finish(reachedGoal) {
       if (state.over) return;
       state.over = true;
       if (tick) clearInterval(tick);
+      if (pauza) { pauza.remove(); pauza = null; }
       document.removeEventListener('keydown', onKey);
       const p = pos();
       // g'olib: 1) maqsad ochkoga birinchi yetgan; 2) ochkosi ko'p; 3) arqon holati
@@ -537,6 +605,9 @@ export async function render(root, _params) {
     }
 
     function onKey(e) {
+      // to'liq ekranda Esc ni brauzer o'zi oladi (ekrandan chiqadi → onFs); to'liq ekran bo'lmasa — shu yerda to'xtatamiz
+      if (e.key === 'Escape') { if (!pauza && !(document.fullscreenElement || document.webkitFullscreenElement)) toxtat(); return; }
+      if (pauza) return;
       const map = { '1': ['blue', 0], '2': ['blue', 1], '3': ['blue', 2], '4': ['blue', 3],
                     '7': ['red', 0], '8': ['red', 1], '9': ['red', 2], '0': ['red', 3] };
       const m = map[e.key]; if (!m) return;
@@ -554,9 +625,9 @@ export async function render(root, _params) {
     root.replaceChildren(
       el('div', { class: 'tug-topbar' },
         el('div', { class: 'tug-teamlabel tug-teamlabel--blue' }, el('span', {}, names.blue), scoreBlue),
-        el('div', { class: 'brand__name', style: 'color:var(--violet)' }, 'Mathlearn'),
+        el('div', { class: 'tug-topbar__mid' }, el('div', { class: 'brand__name', style: 'color:var(--violet)' }, 'Mathlearn'), fsBtn),
         el('div', { class: 'tug-teamlabel tug-teamlabel--red' }, scoreRed, el('span', {}, names.red))),
-      mainEl);
+      el('div', { class: 'tug-sahna' }, fonKun, fonTun, mainEl));
     paintRig();
 
     // O'yin boshlanishidan avval 3 soniyalik sanoq — shu vaqtda javob berib bo'lmaydi.
@@ -571,8 +642,9 @@ export async function render(root, _params) {
       } else {
         clearInterval(cdTick);
         cd.remove();
-        mainEl.classList.remove('is-starting');
         state.starting = false;
+        if (pauza) { kutStart = true; return; }   // sanoq paytida to'xtatilgan — «Davom etish»da boshlanadi
+        mainEl.classList.remove('is-starting');
         startTimer();
       }
     }, 1000);

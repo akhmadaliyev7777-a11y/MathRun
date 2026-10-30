@@ -655,7 +655,22 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
 .tug-centerline { position: absolute; left: 50%; top: 24px; bottom: 24px; border-left: 2px dashed var(--line-strong); }
 .tug-rig { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 0; transition: transform .45s cubic-bezier(.22,1,.36,1); }
 .tug-arena:has(.tug-side) { background: linear-gradient(180deg, #e7eeff 0, #f3f6ff var(--yer, 70%), #cfe8b6 var(--yer, 70%), #b9dc9c 100%); }
-.tug-fon { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; z-index: 0; pointer-events: none; user-select: none; }
+/* to'liq ekran: faqat o'yin (#app), fon sahifa rangida */
+#app:fullscreen { background: var(--cream); overflow-y: auto; }
+#app:-webkit-full-screen { background: var(--cream); overflow-y: auto; }
+.tug-topbar__mid { display: flex; align-items: center; gap: 14px; }
+.tug-fsbtn { width: 44px; height: 44px; flex: none; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 13px; cursor: pointer;
+  background: #1c2133; color: #c9cfe2; box-shadow: 0 2px 6px rgba(20, 24, 40, .18); transition: transform .12s ease, background .12s ease; }
+.tug-fsbtn:hover { background: #262c42; transform: translateY(-1px); }
+.tug-fsbtn span, .tug-fsbtn svg { width: 22px; height: 22px; display: block; }
+/* fon butun o'yin sahifasi orqasida; o'lchami va joyi JS da (fonJoyla) — ufq bolalar turgan joyga to'g'ri keladi */
+.tug-sahna { position: relative; overflow: hidden; min-height: calc(100vh - 70px); min-height: calc(100dvh - 70px); }
+.tug-sahna > .tug-main { position: relative; z-index: 1; }
+.tug-fon { position: absolute; left: 0; top: 0; width: 100%; height: 100%; max-width: none; z-index: 0; pointer-events: none; user-select: none; }
+.tug-sahna .tug-panel { position: relative; z-index: 3; }
+.tug-sahna .tug-center { position: relative; z-index: 2; }
+:is(:root, :root[data-theme="dark"]) .tug-sahna .tug-arena { background: none; border-color: transparent; box-shadow: none; overflow: visible; }
+.tug-sahna .tug-timer { background: rgba(255, 255, 255, .9); }
 .tug-fon--tun { display: none; }
 :root[data-theme="dark"] .tug-fon--kun { display: none; }
 :root[data-theme="dark"] .tug-fon--tun { display: block; }
@@ -701,6 +716,7 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 800; margin: 0; }
   .tug-teamlabel { font-size: 14px; }
   .tug-teamlabel .tug-score { font-size: 22px; }
   .tug-topbar .brand__name { display: none; }
+  .tug-fsbtn { width: 38px; height: 38px; border-radius: 11px; }
 }
 
 @media (max-width: 480px) {
