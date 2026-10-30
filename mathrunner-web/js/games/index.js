@@ -9,7 +9,7 @@ import { netSVG } from './nets.js';
 import { gameSet } from './venn.js?v=7';
 import { gameNumberOrder } from './tartib.js?v=9';
 import { gameEquationGrid } from './jadval.js?v=2';
-import { gameConveyor } from './saralash.js?v=6';
+import { gameConveyor } from './saralash.js?v=7';
 
 // ================= placeValue =================
 function gamePlaceValue(ctx) {

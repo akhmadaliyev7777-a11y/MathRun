@@ -86,9 +86,9 @@ export function gameConveyor(ctx) {
       lenta,
       el('i', { class: 'tunnel tunnel--l' }), el('i', { class: 'tunnel tunnel--r' }));   // ikki chetida temir quvur-eshik: quti chapdan chiqadi, o'ngga kirib ketadi
     const TUNNEL = 40;   // eshikning lenta ustidagi qismi (px)
-    // past bo'yli karton quti (kuboid): ustki yuzida yorliq — misol shu yerda, old yuzi ingichka
+    // past bo'yli karton quti — to'g'ri burchakli parallelepiped: ustki yuzi (yorliq — misol shu yerda), old va o'ng yon yuzlari
     const kuti = (text) => el('div', { class: 'kuti' },
-      el('div', { class: 'kuti__ust' }, el('span', { class: 'kuti__yorliq' }, el('b', {}, text))), el('div', { class: 'kuti__old' }));
+      el('div', { class: 'kuti__ust' }, el('span', { class: 'kuti__yorliq' }, el('b', {}, text))), el('div', { class: 'kuti__old' }), el('div', { class: 'kuti__yon' }));
     const bunker = (ha) => el('button', { type: 'button', class: 'bunker bunker--' + (ha ? 'ha' : 'yoq'), 'aria-label': ha ? 'Ha' : "Yo'q", onclick: () => answer(ha) },
       el('i', { class: 'bunker__chiroq' }), el('b', {}, ha ? '✓ Ha' : "✗ Yo'q"), el('small', {}, ha ? '←' : '→'));
     const bHa = bunker(true), bYoq = bunker(false);
