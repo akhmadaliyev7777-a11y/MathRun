@@ -1438,6 +1438,9 @@ html:not(.is-admin) .tc-meta:not(:has(.tc-page:not(.admin-only))) { display: non
 .tc-page { font-size: .78rem; font-weight: 600; color: #9ca3af; }
 .tc-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); }
 .tc-actions:empty { display: none; }
+/* hali hech narsa yuklanmagan mavzu — xira va rangsiz */
+.topic-card--bosh { filter: grayscale(1); opacity: .5; box-shadow: none; }
+.topic-card--bosh:hover { opacity: .7; transform: none; box-shadow: none; }
 @media (max-width: 560px) {
   .topic-cards { grid-template-columns: 1fr; gap: 10px; }
   .tc-icon, .tc-icon img { width: 60px; height: 60px; flex-basis: 60px; }

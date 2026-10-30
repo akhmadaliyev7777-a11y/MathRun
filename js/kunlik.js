@@ -43,7 +43,10 @@ window.KUNLIK = [
       ["10-sinf", "Geometriya: darslik mundarijasi bo'yicha 17 ta mavzu (4 bob — planimetriyani takrorlash, stereometriyaga kirish, fazoda parallellik, fazoda perpendikulyarlik) betlari bilan saytga qo'yildi; eski 3 ta umumiy nom olib tashlandi. Reja tuzildi."],
       ["Sayt", "Sinf sahifalaridagi mavzu kartochkalari endi hammasi bir xil: ramka hamma tomondan bir xil ingichka, tepada alohida rangli chiziq yo'q, raqam — saytning asosiy rangida; ma'ruzalar ichi o'z rangida qoldi."],
       ["11-sinf", "Algebra va analiz asoslari: darslik (1- va 2-qism) mundarijasi bo'yicha 24 ta mavzu (3 bob — hosila, integral, ma'lumotlar tahlili va ehtimollik) betlari bilan saytga qo'yildi; ko'p soatli darslar bitta mavzu; eski 3 ta umumiy nom olib tashlandi. Reja tuzildi."],
-      ["11-sinf", "Geometriya: darslik mundarijasi bo'yicha 12 ta mavzu (4 bob — fazoda koordinatalar va vektorlar, prizma va silindr, piramida va konus, sfera va shar) betlari bilan saytga qo'yildi; eski 3 ta umumiy nom olib tashlandi. Reja tuzildi."]
+      ["11-sinf", "Geometriya: darslik mundarijasi bo'yicha 12 ta mavzu (4 bob — fazoda koordinatalar va vektorlar, prizma va silindr, piramida va konus, sfera va shar) betlari bilan saytga qo'yildi; eski 3 ta umumiy nom olib tashlandi. Reja tuzildi."],
+      ["Sayt", "Mavzu kartochkalari: ma'ruza, interaktiv dars va test — hech biri hali yuklanmagan mavzular kartochkasi xira va rangsiz ko'rinadi (7-sinf 5–7-boblar, 8–11-sinflarning yangi mavzulari); tayyorlari o'z holicha."],
+      ["8-sinf", "Algebra: 23 ta mavzuga ikonka qo'yildi (§5–24, §29–31 — algebraik kasrlar, y = k/x, ildiz va daraja, tengsizliklar, modul, taqribiy hisoblash, kvadrat tenglamalar); qolgan 8 tasi (§1–4, §25–28) navbatda."],
+      ["8-sinf", "Geometriya: 13 ta mavzuga ikonka qo'yildi (1–6, 8, 9, 11–14, 16 — ko'pburchak burchaklari, parallelogramm, to'g'ri to'rtburchak, romb, trapetsiya, o'rta chiziq, sinus, Pifagor teoremasi); Fales, Pifagor teoremasi va 30°/60° burchaklar ikonkalari xato chiqqani uchun qayta yasaladi."],
     ]
   },
   {

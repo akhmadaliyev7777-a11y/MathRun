@@ -672,8 +672,10 @@ function topicCardHtml(topic, i, href, parts, btn, interactiveFirst) {
   // ma'ruza bo'lmasa — Interaktiv asosiy tugma; yangi simulyatorli darslar (newSim) — yashil
   const bInt = topic.interactive ? btn("Interaktiv", "#interaktiv", interactiveFirst || !topicHasLecture(topic), topic.newSim ? " topic-btn--new" : "") : "";
   const bLec = topicHasLecture(topic) ? btn("Ma'ruza", "#maruza", !interactiveFirst) : "";
+  // ma'ruza fayli, interaktiv dars va test — hech biri yo'q bo'lsa kartochka xira va rangsiz
+  const bosh = !(topic.lecture && topic.lecture.embedUrl) && !topic.interactive && !topic.test;
   return (
-    '<li class="topic-card" data-tema="' + topicTema(topic) + '">' +
+    '<li class="topic-card' + (bosh ? ' topic-card--bosh' : '') + '" data-tema="' + topicTema(topic) + '">' +
       '<a class="tc-main" href="' + href + (interactiveFirst ? '#interaktiv' : '') + '">' +
         '<span class="tc-icon">' + icon + '</span>' +
         '<span class="tc-title"><b>' + parts.num + '</b> ' + parts.title + '</span>' +
