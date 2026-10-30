@@ -8,6 +8,7 @@ import { MORE } from './more.js';
 import { netSVG } from './nets.js';
 import { gameSet } from './venn.js?v=6';
 import { gameNumberOrder } from './tartib.js?v=7';
+import { gameEquationGrid } from './jadval.js?v=1';
 
 // ================= placeValue =================
 function gamePlaceValue(ctx) {
@@ -218,43 +219,6 @@ function gameNetFold(ctx) {
         hint),
       opts);
     s.foot.replaceChildren();
-  }
-  render();
-}
-
-// ================= equationGrid =================
-function gameEquationGrid(ctx) {
-  const tasks = ctx.bank;
-  let idx = 0, correct = 0, streak = 0, longest = 0;
-  const s = shell(ctx, tasks[0].prompt, 'grid', true);
-  const blankVal = (e) => e.blankSlot === 'a' ? e.a : e.blankSlot === 'b' ? e.b : e.result;
-
-  function render() {
-    const t = tasks[idx];
-    s.setProg(idx, tasks.length);
-    const inputs = [];
-    const rows = t.equations.map(e => {
-      const cell = (slot, val) => {
-        if (e.blankSlot === slot) {
-          const inp = el('input', { type: 'number', inputmode: 'numeric' });
-          inputs.push({ inp, want: blankVal(e) });
-          return inp;
-        }
-        return el('span', {}, String(val));
-      };
-      return el('div', { class: 'eq' },
-        cell('a', e.a), el('span', {}, e.operator), cell('b', e.b), el('span', {}, '='), cell('result', e.result));
-    });
-    s.area.replaceChildren(...rows);
-    setTimeout(() => inputs[0]?.inp.focus(), 30);
-    s.foot.replaceChildren(checkBtn('Tekshirish', () => {
-      if (inputs.some(x => x.inp.value === '')) return;
-      const ok = inputs.every(x => Number(x.inp.value) === x.want);
-      if (ok) { correct++; streak++; longest = Math.max(longest, streak); } else streak = 0;
-      idx++;
-      if (idx >= tasks.length) ctx.finish(correct, tasks.length, { longestStreak: longest });
-      else render();
-    }));
   }
   render();
 }

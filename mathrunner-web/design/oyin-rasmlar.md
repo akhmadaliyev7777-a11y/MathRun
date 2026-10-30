@@ -76,6 +76,23 @@ Fayllar: `robi-oddiy.png`, `robi-xursand.png`, `robi-tushuntiradi.png`, `robi-oy
 
 ---
 
+## 4. «Jadval» o'yini — xazina g'ori
+
+**4.1 Orqa fon** (`gor-fon.png`):
+> A cozy cartoon treasure cave / old stone dungeon wall for a children's game: grey-purple stone bricks, two burning
+> wall torches on the left and right sides with warm orange glow, a few small crystals in the corners. The center must
+> stay calm and fairly empty (game panels go there). Soft 3D cartoon style, warm lighting, no text. Portrait 1080×1600.
+
+**4.2 Xazina sandig'i — yopiq** (`sandiq-yopiq.png`) va **ochiq** (`sandiq-ochiq.png`):
+> A cute cartoon wooden treasure chest with golden metal bands, front view, CLOSED. Soft 3D cartoon style,
+> transparent background, no text. 768×640.
+> (Ikkinchi rasm:) The same chest, OPEN, lid up, glowing gold coins and a few colorful gems inside, warm light coming out.
+
+**4.3 Qulf** (`qulf-yopiq.png`, `qulf-ochiq.png`): a small golden padlock, front view, closed / the same padlock open
+(shackle up) and turned green-gold. Transparent background, no text. 256×256.
+
+---
+
 ## Keyingi o'yinlar uchun dunyolar (rejada)
 - Saralash — kosmik zavod konveyeri
 - Tarozi — sehrli bozor / qal'a
