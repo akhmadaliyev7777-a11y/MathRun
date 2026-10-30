@@ -83,7 +83,9 @@ export function gameConveyor(ctx) {
       el('i', { class: 'konveyer__oyoq konveyer__oyoq--l' }), el('i', { class: 'konveyer__oyoq konveyer__oyoq--r' }),
       el('div', { class: 'konveyer__sirt' }), el('div', { class: 'konveyer__chet' }),
       el('div', { class: 'konveyer__rama' }, ...Array.from({ length: 7 }, () => el('i', { class: 'konveyer__rolik' }))),
-      lenta);
+      lenta,
+      el('i', { class: 'tunnel tunnel--l' }), el('i', { class: 'tunnel tunnel--r' }));   // ikki chetida temir quvur-eshik: quti chapdan chiqadi, o'ngga kirib ketadi
+    const TUNNEL = 40;   // eshikning lenta ustidagi qismi (px)
     // past bo'yli karton quti (kuboid): ustki yuzida yorliq — misol shu yerda, old yuzi ingichka
     const kuti = (text) => el('div', { class: 'kuti' },
       el('div', { class: 'kuti__ust' }, el('span', { class: 'kuti__yorliq' }, el('b', {}, text))), el('div', { class: 'kuti__old' }));
@@ -100,7 +102,7 @@ export function gameConveyor(ctx) {
       const c = cards[ci];
       card = kuti(c.text);
       lenta.replaceChildren(card);
-      x = 6; last = performance.now(); startedAt = last; busy = false;   // kartochka lenta boshida to'liq ko'rinib chiqadi
+      x = TUNNEL - card.offsetWidth * 0.55; last = performance.now(); startedAt = last; busy = false;   // quti chap eshikdan chiqib keladi
       card.style.transform = `translateX(${x}px)`;
       s.setProg(done, all.length);
       cancelAnimationFrame(raf); raf = requestAnimationFrame(step);
@@ -108,9 +110,9 @@ export function gameConveyor(ctx) {
     function step(now) {
       if (busy || !card) return;
       const w = lenta.clientWidth, dt = now - last; last = now;
-      x += (Math.max(40, w - card.offsetWidth * 0.65) / kesish()) * dt;
+      x += (Math.max(40, w - TUNNEL * 2 + card.offsetWidth * 0.2) / kesish()) * dt;
       card.style.transform = `translateX(${x}px)`;
-      if (x > w - card.offsetWidth * 0.35) return answer(null);          // lenta oxiriga yetdi — ulgurmadi
+      if (x > w - TUNNEL - card.offsetWidth * 0.35) return answer(null);   // o'ng eshikka kirib ketdi — ulgurmadi
       raf = requestAnimationFrame(step);
     }
     // kartochka bunkerga tushadi

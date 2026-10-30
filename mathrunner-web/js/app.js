@@ -51,7 +51,7 @@ const routes = [
   { re: /^#\/?$/, load: () => import('./screens/landing.js'), name: 'landing' },
   { re: /^#\/g\/(\d)(?:\/c\/(\d))?$/, load: () => import('./screens/mavzular.js'), name: 'mavzular' },
   { re: /^#\/test\/([\w-]+)$/, load: () => import('./screens/quiz.js'), name: 'quiz' },
-  { re: /^#\/play\/([\w-]+)(?:\/(\d))?$/, load: () => import('./screens/play.js?v=21'), name: 'play' },
+  { re: /^#\/play\/([\w-]+)(?:\/(\d))?$/, load: () => import('./screens/play.js?v=22'), name: 'play' },
   { re: /^#\/sim\/(\d)\/(\d)\/(\d+)$/, load: () => import('./screens/sim.js'), name: 'sim' },
   { re: /^#\/tug$/, load: () => import('./screens/tug.js?v=3'), name: 'tug' },
   { re: /^#\/(games|about)(?:\/(\w+))?$/, load: () => import('./screens/info.js?v=2'), name: 'info' },   // #/games/<o'yin turi> — mavzu tanlash
