@@ -3,6 +3,13 @@
    bolim: "5-sinf", "6-sinf", "7-sinf", "8-sinf", "1–4-sinf", "Interaktiv", "Sayt", "Admin", "Ish tartibi" */
 window.KUNLIK = [
   {
+    sana: "2026-10-31",
+    qisqa: "«Bellashuv» o'yini telefon va planshetga moslandi: telefonda doim yotiq ko'rinish, savollar ikki chetda.",
+    ishlar: [
+      ["1–4-sinf", "«Bellashuv»: telefonda avval qizil jamoa paneli ekrandan pastda qolib ketardi. Endi telefonda o'yin doim yotiq ko'rinishda — ko'k jamoa savollari chapda, qizilniki o'ngda, arqon o'rtada; Android'da ekran yotiq holatga qotiriladi, iPhone'da o'yin o'zi burilib chiqadi (telefonni yonboshlab o'ynaladi). Planshet tik turganda — yuzma-yuz ko'rinish (qizil jamoa paneli ag'darilgan). Kompyuterda o'zgarish yo'q."],
+    ],
+  },
+  {
     sana: "2026-10-30",
     qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan), «Xona tarkibi» — shirinliklar fabrikasi, «Yoyilma» — origami ustaxonasi (3D buklanish), «Ulush tasmasi» — bog'dagi devor va har xil bo'lakli shakllar; «Koordinata» — xazina oroli xaritasi (7-sinf Dekart koordinatalari bilan); «Harakat» — dasht yo'li (mashina, avtobus, velosipedchilar soat-soat yuradi; 6-sinf ham); «Transportir» — Ulug'bek rasadxonasi (5-sinf ham); «Simmetriya» — koshinpaz ustaxonasi (9-sinf ham) — rejadagi o'yinlar tugadi; o'yinga kirishdan oldin mavzu tanlanadi.",
     ishlar: [
