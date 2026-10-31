@@ -5,7 +5,7 @@
 // aytadi (har to'plamga alohida ✓ / ✗). Raundda 3 ta yurak; tugasa — qolgan meteoritlar o'zi joyiga tushadi.
 import { el, shuffle } from '../util.js';
 import { shell } from './shell.js';
-import { hud, buddy, sfx, floatText } from './hud.js?v=8';
+import { hud, buddy, sfx, floatText } from './hud.js?v=9';
 import { RASM } from './rasmlar.js?v=2';
 
 const inA = (z) => z === 'onlyA' || z === 'both';

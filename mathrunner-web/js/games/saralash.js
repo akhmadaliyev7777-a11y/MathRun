@@ -6,7 +6,7 @@
 // Mashq 2 raund × 5 kartochka; raundda 3 ta yurak; tugasa — qolganlari o'zi saralanadi.
 import { el, shuffle } from '../util.js';
 import { shell } from './shell.js?v=4';
-import { hud, buddy, sfx, floatText } from './hud.js?v=8';
+import { hud, buddy, sfx, floatText, pauza } from './hud.js?v=9';
 
 const fmt = (n) => (n >= 1000 ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : String(n));
 const yaxlit = (n) => Math.round(n / 10) * 10;
@@ -109,6 +109,7 @@ export function gameConveyor(ctx) {
     }
     function step(now) {
       if (busy || !card) return;
+      if (pauza.on) { last = now; raf = requestAnimationFrame(step); return; }   // muruvvat bilan to'xtatilgan
       const w = lenta.clientWidth, dt = now - last; last = now;
       x += (Math.max(40, w - TUNNEL * 2 + card.offsetWidth * 0.2) / kesish()) * dt;
       card.style.transform = `translateX(${x}px)`;

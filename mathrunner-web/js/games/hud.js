@@ -1,14 +1,16 @@
 // O'yin paneli (hamma o'yinlar uchun umumiy): yuraklar, ochko, kombo, ovoz, uchuvchi «+10», personaj pufagi.
 import { el } from '../util.js';
 import { RASM, robiSVG } from './rasmlar.js?v=2';
-import { musiqaBoshla, musiqaAlmashtir, musiqaYoqiqmi } from './musiqa.js?v=2';
+import { musiqaBoshla, musiqaToxtat, musiqaAlmashtir, musiqaYoqiqmi } from './musiqa.js?v=2';
 
-// ---- ovoz: fayl kerak emas, brauzerning o'zi qisqa ohang chaladi; tanlov eslab qolinadi ----
-const OVOZ_KEY = 'mw-ovoz';
-let muted = (() => { try { return localStorage.getItem(OVOZ_KEY) === '0'; } catch { return false; } })();
+// ---- ovoz: fayl kerak emas, brauzerning o'zi qisqa ohang chaladi. Alohida karnay tugmasi olib tashlandi (foydalanuvchi, 2026-10-31):
+// qisqa ovozlar ham nota (musiqa) tugmasiga bo'ysunadi — musiqa o'chirilsa, ular ham o'chadi ----
+const muted = () => !musiqaYoqiqmi();
+// o'yin to'xtatilganda (muruvvat tugmasi) vaqtga bog'liq o'yinlar (Saralash konveyeri) shu bayroqqa qaraydi
+export const pauza = { on: false };
 let ac = null;
 function tone(freqs, dur = 0.09, type = 'sine', vol = 0.07) {
-  if (muted) return;
+  if (muted()) return;
   try {
     ac ||= new (window.AudioContext || window.webkitAudioContext)();
     let t = ac.currentTime;
@@ -35,16 +37,34 @@ export function hud(maxHearts = 3, musiqa = null) {
   const hearts = el('span', { class: 'hud__hearts', 'aria-label': 'Jonlar' });
   const score = el('b', {}, '0');
   const combo = el('span', { class: 'hud__combo' });
-  // zamonaviy chiziqli ikonka: dinamik + to'lqinlar (yoqiq) yoki dinamik + ✕ (o'chiq)
-  const ikon = () => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor" fill-opacity=".15"/>${muted
-      ? '<path d="m22 9-6 6M16 9l6 6"/>'
-      : '<path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>'}</svg>`;
-  const mute = el('button', {
-    class: 'hud__mute', type: 'button', 'aria-label': 'Ovozni yoqish yoki o\'chirish', 'aria-pressed': String(!muted),
-    onclick: () => { muted = !muted; try { localStorage.setItem(OVOZ_KEY, muted ? '0' : '1'); } catch { /* */ } mute.innerHTML = ikon(); mute.setAttribute('aria-pressed', String(!muted)); mute.classList.toggle('is-off', muted); },
-  });
-  mute.innerHTML = ikon(); mute.classList.toggle('is-off', muted);
+  // muruvvat (sozlama) tugmasi — o'yinni to'xtatadi: «Davom etish» yoki «Yakunlash» (foydalanuvchi, 2026-10-31)
+  const SOZ = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>';
+  let oyna = null;
+  function davom() { if (oyna) { oyna.remove(); oyna = null; } pauza.on = false; if (musiqa && musiqaYoqiqmi()) musiqaBoshla(musiqa, node); }
+  function yakunla() {
+    if (oyna) { oyna.remove(); oyna = null; } pauza.on = false;
+    if (toliqmi()) chiq();
+    const orqaga = document.querySelector('.runbar .linkback');     // «Mavzularga qaytish» — mashqlar ro'yxatiga
+    if (orqaga) orqaga.click(); else history.back();
+  }
+  function toxtat() {
+    if (oyna) return;
+    pauza.on = true; musiqaToxtat();
+    const joy = node.closest('.gwrap') || document.body;
+    const bDavom = el('button', { class: 'btn btn--accent', type: 'button', onclick: davom }, 'Davom etish');
+    oyna = el('div', { class: 'oyin-pauza', role: 'dialog', 'aria-modal': 'true' },
+      el('div', { class: 'oyin-pauza__karta' },
+        el('h2', {}, "O'yin to'xtatildi"),
+        el('p', {}, "Davom etasizmi yoki o'yinni yakunlaysizmi?"),
+        el('div', { class: 'oyin-pauza__tugmalar' }, el('button', { class: 'btn', type: 'button', onclick: yakunla }, 'Yakunlash'), bDavom)));
+    joy.append(oyna);
+    bDavom.focus();
+  }
+  const mute = el('button', { class: 'hud__mute hud__soz', type: 'button', title: "O'yinni to'xtatish / yakunlash", 'aria-label': "O'yinni to'xtatish yoki yakunlash", onclick: toxtat });
+  mute.innerHTML = SOZ;
+  // to'xtatilganda o'yin klaviaturaga javob bermaydi; Esc — davom etish
+  const tutKey = (e) => { if (!node.isConnected) { removeEventListener('keydown', tutKey, true); return; } if (oyna) { if (e.key === 'Escape') davom(); if (e.key !== 'Tab' && e.key !== 'Enter' && e.key !== ' ') { e.stopImmediatePropagation(); e.preventDefault(); } } };
+  addEventListener('keydown', tutKey, true);
   // musiqa tugmasi: nota (yoqiq) yoki ustidan chizilgan nota (o'chiq)
   const notaIkon = () => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3" fill="currentColor" fill-opacity=".15"/><circle cx="17" cy="16" r="3" fill="currentColor" fill-opacity=".15"/>${musiqaYoqiqmi() ? '' : '<path d="M3 3l18 18"/>'}</svg>`;
