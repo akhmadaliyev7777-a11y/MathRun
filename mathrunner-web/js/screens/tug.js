@@ -603,6 +603,10 @@ export async function render(root, _params) {
     const notaBtn = el('button', { class: 'tug-fsbtn', type: 'button', title: 'Musiqa', 'aria-label': 'Musiqani yoqish yoki o\'chirish',
       onclick: () => { musiqaAlmashtir(); notaBtn.replaceChildren(el('span', { html: notaIkon() })); if (state.over || state.starting || pauza) musiqaToxtat(); } });
     notaBtn.replaceChildren(el('span', { html: notaIkon() }));
+    // dumaloq muruvvat (sozlama) tugmasi — o'yinni to'xtatadi: «Davom etish» yoki «Yakunlash» (foydalanuvchi, 2026-10-31)
+    const sozBtn = el('button', { class: 'tug-fsbtn tug-sozbtn', type: 'button', title: "O'yinni to'xtatish / yakunlash", 'aria-label': "O'yinni to'xtatish yoki yakunlash",
+      onclick: () => { if (!state.over) toxtat(); } });
+    sozBtn.replaceChildren(el('span', { html: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>' }));
     let ozimiz = false;   // tepadagi tugma bilan chiqildi — o'yin to'xtamaydi
     const fsIkon = () => fsBtn.replaceChildren(el('span', { html: (document.fullscreenElement || document.webkitFullscreenElement) ? FS_CHIQ : FS_KIR }));
     const fsBtn = el('button', { class: 'tug-fsbtn', type: 'button', title: "To'liq ekran", 'aria-label': "To'liq ekran",
@@ -684,7 +688,7 @@ export async function render(root, _params) {
     root.replaceChildren(
       el('div', { class: 'tug-topbar' },
         el('div', { class: 'tug-teamlabel tug-teamlabel--blue' }, el('span', {}, names.blue), scoreBlue),
-        el('div', { class: 'tug-topbar__mid' }, el('div', { class: 'brand__name', style: 'color:var(--violet)' }, 'Mathlearn'), notaBtn, fsBtn),
+        el('div', { class: 'tug-topbar__mid' }, el('div', { class: 'brand__name', style: 'color:var(--violet)' }, 'Mathlearn'), notaBtn, sozBtn, fsBtn),
         el('div', { class: 'tug-teamlabel tug-teamlabel--red' }, scoreRed, el('span', {}, names.red))),
       el('div', { class: 'tug-sahna' }, fonKun, fonTun, mainEl));
     paintRig();

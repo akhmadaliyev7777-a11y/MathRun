@@ -2173,3 +2173,6 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
     transform-origin: 0 0; transform: rotate(90deg); background: var(--cream); }
 }
 .hud__musiqa + .hud__mute { margin-left: 6px; }
+.tug-sozbtn { border-radius: 50%; }
+.tug-sozbtn:hover svg { transform: rotate(60deg); }
+.tug-sozbtn svg { transition: transform .3s ease; }
