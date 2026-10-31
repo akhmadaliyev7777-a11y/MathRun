@@ -5,7 +5,7 @@
 // Hamma vagon to'lsa — poyezd hushtak chalib jo'nab ketadi. Raundda 3 ta yurak; tugasa — qolgan qutilar o'zi ortiladi.
 import { el, shuffle } from '../util.js';
 import { shell } from './shell.js?v=4';
-import { hud, buddy, sfx, floatText } from './hud.js?v=6';
+import { hud, buddy, sfx, floatText } from './hud.js?v=7';
 
 const XONA = ['birlik', "o'nlik", 'yuzlik', 'minglik', "o'n minglik", "yuz minglik", 'million', "o'n million"];
 // 10 000 dan boshlab xonalar bo'sh joy bilan: 45 210

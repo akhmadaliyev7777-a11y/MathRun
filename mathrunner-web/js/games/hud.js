@@ -53,7 +53,36 @@ export function hud(maxHearts = 3, musiqa = null) {
     onclick: () => { const on = musiqaAlmashtir(); nota.innerHTML = notaIkon(); nota.classList.toggle('is-off', !on); nota.setAttribute('aria-pressed', String(on)); },
   }) : null;
   if (nota) { nota.innerHTML = notaIkon(); nota.classList.toggle('is-off', !musiqaYoqiqmi()); }
-  const node = el('div', { class: 'hud' }, hearts, el('span', { class: 'hud__pts' }, '⭐ ', score), combo, nota, mute);
+  // to'liq ekran (foydalanuvchi, 2026-10-31): butun o'yin qismi (.gwrap) ekranni egallaydi, «Davom etish»/«Tekshirish» kabi tugmalar
+  // o'yin ramkasi ichida (CSS .gwrap.toliq); haqiqiy to'liq ekran bo'lmasa (iPhone) — sahifa ustida qotirilgan oyna sifatida
+  const FS_KIR = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/></svg>';
+  const FS_CHIQ = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v3.5A1.5 1.5 0 0 1 7.5 9H4M20 9h-3.5A1.5 1.5 0 0 1 15 7.5V4M15 20v-3.5a1.5 1.5 0 0 1 1.5-1.5H20M4 15h3.5A1.5 1.5 0 0 1 9 16.5V20"/></svg>';
+  const tolaEl = () => document.fullscreenElement || document.webkitFullscreenElement;
+  let gw = null, kuzat = null;
+  const toliqmi = () => !!(gw && gw.classList.contains('toliq'));
+  const fsYoz = () => { fs.innerHTML = toliqmi() ? FS_CHIQ : FS_KIR; fs.setAttribute('aria-label', toliqmi() ? "To'liq ekrandan chiqish" : "To'liq ekran"); };
+  function chiq() {
+    if (gw) gw.classList.remove('toliq');
+    document.documentElement.classList.remove('mw-toliq');
+    if (kuzat) { clearInterval(kuzat); kuzat = null; }
+    const f = document.exitFullscreen || document.webkitExitFullscreen;
+    if (tolaEl() && f) { try { const r = f.call(document); if (r && r.catch) r.catch(() => {}); } catch { /* */ } }
+    fsYoz();
+  }
+  function kir() {
+    gw = node.closest('.gwrap'); if (!gw) return;
+    gw.classList.add('toliq'); document.documentElement.classList.add('mw-toliq');
+    const f = gw.requestFullscreen || gw.webkitRequestFullscreen;
+    if (f) { try { const r = f.call(gw); if (r && r.catch) r.catch(() => {}); } catch { /* */ } }
+    // o'yin tugab sahifa almashsa — to'liq ekran o'zi yopiladi
+    kuzat = setInterval(() => { if (!gw.isConnected) chiq(); }, 700);
+    fsYoz();
+  }
+  const fs = el('button', { class: 'hud__mute hud__fs', type: 'button', title: "To'liq ekran", onclick: () => (toliqmi() ? chiq() : kir()) });
+  const fsOzgardi = () => { if (!node.isConnected) { document.removeEventListener('fullscreenchange', fsOzgardi); document.removeEventListener('webkitfullscreenchange', fsOzgardi); return; } if (!tolaEl() && toliqmi() && (document.fullscreenEnabled || document.webkitFullscreenEnabled)) chiq(); };
+  document.addEventListener('fullscreenchange', fsOzgardi); document.addEventListener('webkitfullscreenchange', fsOzgardi);
+  fs.innerHTML = FS_KIR;
+  const node = el('div', { class: 'hud' }, hearts, el('span', { class: 'hud__pts' }, '⭐ ', score), combo, nota, mute, fs);
   if (musiqa) setTimeout(() => musiqaBoshla(musiqa, node), 0);
   const drawHearts = () => hearts.replaceChildren(...Array.from({ length: st.max }, (_, i) =>
     el('i', { class: 'hud__heart' + (i < st.hearts ? '' : ' off') }, '❤')));

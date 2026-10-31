@@ -6,7 +6,7 @@
 // Mashq 2 raund × 5 kartochka; raundda 3 ta yurak; tugasa — qolganlari o'zi saralanadi.
 import { el, shuffle } from '../util.js';
 import { shell } from './shell.js?v=4';
-import { hud, buddy, sfx, floatText } from './hud.js?v=6';
+import { hud, buddy, sfx, floatText } from './hud.js?v=7';
 
 const fmt = (n) => (n >= 1000 ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : String(n));
 const yaxlit = (n) => Math.round(n / 10) * 10;

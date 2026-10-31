@@ -2176,3 +2176,36 @@ span.sayyora--b::after { content: ""; position: absolute; left: -28%; right: -28
 .tug-sozbtn { border-radius: 50%; }
 .tug-sozbtn:hover svg { transform: rotate(60deg); }
 .tug-sozbtn svg { transition: transform .3s ease; }
+/* ===== O'yinlar — to'liq ekran (2026-10-31, foydalanuvchi so'rovi) =====
+   .gwrap.toliq butun ekranni egallaydi (haqiqiy to'liq ekranda ham, iPhone'dagi qotirilgan oynada ham);
+   o'yin sahnasi qolgan balandlikni to'ldiradi, pastki tugmalar (.gcheck — «Davom etish», «Tekshirish», «Keyingi partiya»)
+   sahna ramkasining ichida, pastida turadi. Telefon va kompyuterga moslashadi. */
+html.mw-toliq, html.mw-toliq body { overflow: hidden; }
+.gwrap.toliq { position: fixed; inset: 0; z-index: 9000; width: 100%; max-width: none; height: 100vh; height: 100dvh; margin: 0; padding: 10px 14px 12px;
+  display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; background: var(--cream); }
+.gwrap.toliq:fullscreen, .gwrap.toliq:-webkit-full-screen { background: var(--cream); }
+.gwrap.toliq > .gtop { flex: none; width: 100%; max-width: 1180px; margin: 0 auto 6px; }
+.gwrap.toliq > .gbar { flex: none; width: 100%; max-width: 1180px; margin: 0 auto 8px; }
+.gwrap.toliq > .prompt { display: none; }
+.gwrap.toliq > div:not([class]) { flex: 1 0 auto; width: 100%; max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; min-height: 0; }
+.gwrap.toliq > div:not([class]) > .sahna { flex: 1 0 auto; padding-bottom: 86px; }
+.gwrap.toliq > .gcheck { position: relative; z-index: 6; flex: none; width: 100%; max-width: 1180px; margin: -80px auto 0; padding: 0 14px 18px; min-height: 0; pointer-events: none; }
+.gwrap.toliq > .gcheck > * { pointer-events: auto; }
+.gwrap.toliq > .gcheck:empty { margin-top: 0; padding: 0; }
+.gwrap.toliq > .gcheck .rend { background: rgba(255,255,255,.92); color: #1f2433; padding: 10px 18px; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,.18); }
+:root[data-theme="dark"] .gwrap.toliq > .gcheck .rend { background: rgba(22,26,44,.92); color: #fff; }
+.hud__fs { margin-left: 6px; }
+@media (max-width: 520px) {
+  .gwrap.toliq { padding: 6px 6px 8px; }
+  .gwrap.toliq > .gtop { font-size: 12px; margin-bottom: 4px; }
+  .gwrap.toliq > .gtop small { display: none; }
+  .gwrap.toliq > .gbar { margin-bottom: 6px; }
+  .gwrap.toliq > div:not([class]) > .sahna { padding-bottom: 80px; }
+  .gwrap.toliq > .gcheck { margin-top: -76px; padding: 0 8px 14px; }
+}
+.gwrap.toliq:has(> .gcheck:empty) > div:not([class]) > .sahna { padding-bottom: 14px; }
+/* katta rasmli o'yinlar: rasm balandligi ekranga qarab — tugmalar ham ko'rinib tursin (kompyuter) */
+@media (min-width: 521px) {
+  .gwrap.toliq .orol-svg { width: auto; max-width: 100%; height: clamp(240px, calc(100dvh - 400px), 520px); }
+  .gwrap.toliq .rasad-svg { width: auto; max-width: 100%; height: clamp(200px, calc(100dvh - 460px), 349px); }
+}
