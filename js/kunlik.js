@@ -4,8 +4,9 @@
 window.KUNLIK = [
   {
     sana: "2026-10-31",
-    qisqa: "«Bellashuv» o'yiniga muruvvat tugmasi qo'shildi — o'yinni to'xtatish yoki yakunlash uchun.",
+    qisqa: "Barcha o'yinlarga to'liq ekran rejimi (telefon va kompyuterga mos); «Bellashuv»ga muruvvat tugmasi.",
     ishlar: [
+      ["1–4-sinf", "Barcha 12 ta fikrlash o'yiniga to'liq ekran rejimi qo'shildi: o'yin butun ekranni egallaydi, «Davom etish», «Tekshirish» kabi tugmalar o'yin ramkasi ichida. Kompyuterda o'yin ekran bo'yicha kengayadi; telefonda alohida ixcham ko'rinish (tepada ingichka jarayon chizig'i, panelda «1/10», chetsiz sahna)."],
       ["1–4-sinf", "«Bellashuv»: tepadagi panelda, to'liq ekran tugmasi oldida dumaloq muruvvat tugmasi — bosilsa o'yin to'xtaydi va «Davom etish» yoki «Yakunlash» tanlanadi; «Yakunlash»dan keyin natija oynasi chiqadi. Kompyuter va telefonda tekshirildi."],
     ],
   },
