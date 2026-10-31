@@ -65,6 +65,7 @@ export function hud(maxHearts = 3, musiqa = null) {
     if (gw) gw.classList.remove('toliq');
     document.documentElement.classList.remove('mw-toliq');
     if (kuzat) { clearInterval(kuzat); kuzat = null; }
+    if (qadamKuz) { qadamKuz.disconnect(); qadamKuz = null; }
     const f = document.exitFullscreen || document.webkitExitFullscreen;
     if (tolaEl() && f) { try { const r = f.call(document); if (r && r.catch) r.catch(() => {}); } catch { /* */ } }
     fsYoz();
@@ -76,13 +77,22 @@ export function hud(maxHearts = 3, musiqa = null) {
     if (f) { try { const r = f.call(gw); if (r && r.catch) r.catch(() => {}); } catch { /* */ } }
     // o'yin tugab sahifa almashsa — to'liq ekran o'zi yopiladi
     kuzat = setInterval(() => { if (!gw.isConnected) chiq(); }, 700);
+    qadamUlash();
     fsYoz();
   }
   const fs = el('button', { class: 'hud__mute hud__fs', type: 'button', title: "To'liq ekran", onclick: () => (toliqmi() ? chiq() : kir()) });
   const fsOzgardi = () => { if (!node.isConnected) { document.removeEventListener('fullscreenchange', fsOzgardi); document.removeEventListener('webkitfullscreenchange', fsOzgardi); return; } if (!tolaEl() && toliqmi() && (document.fullscreenEnabled || document.webkitFullscreenEnabled)) chiq(); };
   document.addEventListener('fullscreenchange', fsOzgardi); document.addEventListener('webkitfullscreenchange', fsOzgardi);
   fs.innerHTML = FS_KIR;
-  const node = el('div', { class: 'hud' }, hearts, el('span', { class: 'hud__pts' }, '⭐ ', score), combo, nota, mute, fs);
+  // telefondagi to'liq ekranda tepadagi «Topshiriq i / n» yashiriladi — o'rniga panelda ixcham «i/n»
+  const qadamEl = el('span', { class: 'hud__qadam' });
+  let qadamKuz = null;
+  const qadamUlash = () => {
+    const src = gw && gw.querySelector('#gprog'); if (!src) return;
+    const yoz = () => { const m = src.textContent.match(/(\d+)\s*\/\s*(\d+)/); qadamEl.textContent = m ? `${m[1]}/${m[2]}` : ''; };
+    yoz(); if (qadamKuz) qadamKuz.disconnect(); qadamKuz = new MutationObserver(yoz); qadamKuz.observe(src, { childList: true, characterData: true, subtree: true });
+  };
+  const node = el('div', { class: 'hud' }, hearts, el('span', { class: 'hud__pts' }, '⭐ ', score), combo, qadamEl, nota, mute, fs);
   if (musiqa) setTimeout(() => musiqaBoshla(musiqa, node), 0);
   const drawHearts = () => hearts.replaceChildren(...Array.from({ length: st.max }, (_, i) =>
     el('i', { class: 'hud__heart' + (i < st.hearts ? '' : ' off') }, '❤')));

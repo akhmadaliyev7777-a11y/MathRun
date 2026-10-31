@@ -2209,3 +2209,22 @@ html.mw-toliq, html.mw-toliq body { overflow: hidden; }
   .gwrap.toliq .orol-svg { width: auto; max-width: 100%; height: clamp(240px, calc(100dvh - 400px), 520px); }
   .gwrap.toliq .rasad-svg { width: auto; max-width: 100%; height: clamp(200px, calc(100dvh - 460px), 349px); }
 }
+/* telefon uchun alohida to'liq ekran (2026-10-31): ilovadek — tepadagi yozuv o'rniga eng tepada ingichka jarayon chizig'i va
+   panelda «i/n»; sahna chetsiz, bo'shliqlar ixcham; kesik (o'yiqli) ekranlarda xavfsiz chetlar hisobga olinadi */
+.hud__qadam { display: none; }
+@media (max-width: 600px) {
+  .gwrap.toliq { padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px); }
+  .gwrap.toliq > .gtop { display: none; }
+  .gwrap.toliq > .gbar { position: absolute; z-index: 8; top: env(safe-area-inset-top, 0px); left: 0; right: 0; width: auto; max-width: none; height: 4px; margin: 0; border-radius: 0; background: rgba(255,255,255,.35); }
+  .gwrap.toliq > div:not([class]) > .sahna { border-radius: 0; padding: 10px 8px 78px; }
+  .gwrap.toliq:has(> .gcheck:empty) > div:not([class]) > .sahna { padding-bottom: 10px; }
+  .gwrap.toliq .hud { gap: 8px; padding: 5px 8px; margin-bottom: 6px; }
+  .gwrap.toliq .hud__mute { width: 34px; height: 34px; border-radius: 10px; }
+  .gwrap.toliq .hud__mute svg { width: 18px; height: 18px; }
+  .gwrap.toliq .hud__qadam { display: inline-block; padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,.55); color: #1f2433; font: 800 12px var(--f-head); }
+  .gwrap.toliq .buddy { min-height: 44px; margin-bottom: 6px; gap: 6px; }
+  .gwrap.toliq .buddy__img { width: 42px; height: 46px; }
+  .gwrap.toliq .buddy__bubble { font-size: 12.5px; line-height: 1.38; padding: 6px 9px; }
+  .gwrap.toliq > .gcheck { margin-top: -72px; padding: 0 10px calc(12px + env(safe-area-inset-bottom, 0px)); }
+  .gwrap.toliq > .gcheck .btn { min-height: 48px; padding-left: 26px; padding-right: 26px; }
+}
