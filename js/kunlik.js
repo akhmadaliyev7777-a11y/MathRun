@@ -3,6 +3,13 @@
    bolim: "5-sinf", "6-sinf", "7-sinf", "8-sinf", "1–4-sinf", "Interaktiv", "Sayt", "Admin", "Ish tartibi" */
 window.KUNLIK = [
   {
+    sana: "2026-10-31",
+    qisqa: "«Bellashuv» o'yiniga muruvvat tugmasi qo'shildi — o'yinni to'xtatish yoki yakunlash uchun.",
+    ishlar: [
+      ["1–4-sinf", "«Bellashuv»: tepadagi panelda, to'liq ekran tugmasi oldida dumaloq muruvvat tugmasi — bosilsa o'yin to'xtaydi va «Davom etish» yoki «Yakunlash» tanlanadi; «Yakunlash»dan keyin natija oynasi chiqadi. Kompyuter va telefonda tekshirildi."],
+    ],
+  },
+  {
     sana: "2026-10-30",
     qisqa: "1–4-sinf o'yinlari haqiqiy o'yin ko'rinishiga keltirilmoqda: «To'plamlar» — koinotda, «Tartiblash» — o'rmondagi poyezd (kasrlar bilan), «Jadval» — xazina g'ori, «Saralash» — robot zavodi, «Tarozi» — sehrli bozor (6–7-sinf tenglamalari bilan), «Xona tarkibi» — shirinliklar fabrikasi, «Yoyilma» — origami ustaxonasi (3D buklanish), «Ulush tasmasi» — bog'dagi devor va har xil bo'lakli shakllar; «Koordinata» — xazina oroli xaritasi (7-sinf Dekart koordinatalari bilan); «Harakat» — dasht yo'li (mashina, avtobus, velosipedchilar soat-soat yuradi; 6-sinf ham); «Transportir» — Ulug'bek rasadxonasi (5-sinf ham); «Simmetriya» — koshinpaz ustaxonasi (9-sinf ham) — rejadagi o'yinlar tugadi; o'yinga kirishdan oldin mavzu tanlanadi. Kechqurun: «Bellashuv» telefonga moslandi, yuqori sinf o'yinlarida sarlavha tuzatildi, o'yinlarga fon musiqasi qo'shildi.",
     ishlar: [
